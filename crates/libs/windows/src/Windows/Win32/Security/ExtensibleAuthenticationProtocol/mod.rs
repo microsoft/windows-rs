@@ -1188,111 +1188,57 @@ pub const raatVendorSpecific: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
-impl windows_core::TypeKind for EAPHOST_AUTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for EAP_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
-impl windows_core::TypeKind for EAP_AUTHENTICATOR_SEND_TIMEOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(pub i32);
-impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(pub i32);
-impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapCode(pub i32);
-impl windows_core::TypeKind for EapCode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapCredentialType(pub i32);
-impl windows_core::TypeKind for EapCredentialType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapHostPeerAuthParams(pub i32);
-impl windows_core::TypeKind for EapHostPeerAuthParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapHostPeerMethodResultReason(pub i32);
-impl windows_core::TypeKind for EapHostPeerMethodResultReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapHostPeerResponseAction(pub i32);
-impl windows_core::TypeKind for EapHostPeerResponseAction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapPeerMethodResponseAction(pub i32);
-impl windows_core::TypeKind for EapPeerMethodResponseAction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapPeerMethodResultReason(pub i32);
-impl windows_core::TypeKind for EapPeerMethodResultReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISOLATION_STATE(pub i32);
-impl windows_core::TypeKind for ISOLATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_EAP_ACTION(pub i32);
-impl windows_core::TypeKind for PPP_EAP_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAPHOST_AUTH_INFO {

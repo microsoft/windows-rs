@@ -43502,171 +43502,87 @@ pub const _EXTSAPI_VER_: u32 = 10u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CallingConventionKind(pub i32);
-impl windows_core::TypeKind for CallingConventionKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBGKD_MAJOR_TYPES(pub i32);
-impl windows_core::TypeKind for DBGKD_MAJOR_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_FAILURE_TYPE(pub i32);
-impl windows_core::TypeKind for DEBUG_FAILURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_FLR_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for DEBUG_FLR_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_POOL_REGION(pub i32);
-impl windows_core::TypeKind for DEBUG_POOL_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXT_TDOP(pub i32);
-impl windows_core::TypeKind for EXT_TDOP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ErrorClass(pub i32);
-impl windows_core::TypeKind for ErrorClass {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FA_ENTRY_TYPE(pub i32);
-impl windows_core::TypeKind for FA_ENTRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FA_EXTENSION_PLUGIN_PHASE(pub i32);
-impl windows_core::TypeKind for FA_EXTENSION_PLUGIN_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IntrinsicKind(pub i32);
-impl windows_core::TypeKind for IntrinsicKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LanguageKind(pub i32);
-impl windows_core::TypeKind for LanguageKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationKind(pub i32);
-impl windows_core::TypeKind for LocationKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ModelObjectKind(pub i32);
-impl windows_core::TypeKind for ModelObjectKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS_TYPE(pub i32);
-impl windows_core::TypeKind for OS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointerKind(pub i32);
-impl windows_core::TypeKind for PointerKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PreferredFormat(pub i32);
-impl windows_core::TypeKind for PreferredFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RawSearchFlags(pub i32);
-impl windows_core::TypeKind for RawSearchFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptChangeKind(pub i32);
-impl windows_core::TypeKind for ScriptChangeKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugEvent(pub i32);
-impl windows_core::TypeKind for ScriptDebugEvent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugEventFilter(pub i32);
-impl windows_core::TypeKind for ScriptDebugEventFilter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugState(pub i32);
-impl windows_core::TypeKind for ScriptDebugState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptExecutionKind(pub i32);
-impl windows_core::TypeKind for ScriptExecutionKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignatureComparison(pub i32);
-impl windows_core::TypeKind for SignatureComparison {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SymbolKind(pub i32);
-impl windows_core::TypeKind for SymbolKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SymbolSearchOptions(pub i32);
-impl windows_core::TypeKind for SymbolSearchOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TANALYZE_RETURN(pub i32);
-impl windows_core::TypeKind for TANALYZE_RETURN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TypeKind(pub i32);
-impl windows_core::TypeKind for TypeKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VarArgsKind(pub i32);
-impl windows_core::TypeKind for VarArgsKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ArrayDimension {

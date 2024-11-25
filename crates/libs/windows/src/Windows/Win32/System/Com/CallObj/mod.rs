@@ -582,27 +582,15 @@ pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLFRAME_COPY(pub i32);
-impl windows_core::TypeKind for CALLFRAME_COPY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLFRAME_FREE(pub i32);
-impl windows_core::TypeKind for CALLFRAME_FREE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLFRAME_NULL(pub i32);
-impl windows_core::TypeKind for CALLFRAME_NULL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLFRAME_WALK(pub i32);
-impl windows_core::TypeKind for CALLFRAME_WALK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALLFRAMEINFO {

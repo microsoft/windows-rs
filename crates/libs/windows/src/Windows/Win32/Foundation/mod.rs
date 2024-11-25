@@ -10313,9 +10313,6 @@ pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
-impl windows_core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DUPLICATE_HANDLE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10352,9 +10349,6 @@ impl core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GENERIC_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for GENERIC_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GENERIC_ACCESS_RIGHTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10391,9 +10385,6 @@ impl core::ops::Not for GENERIC_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDLE_FLAGS(pub u32);
-impl windows_core::TypeKind for HANDLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HANDLE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10430,21 +10421,12 @@ impl core::ops::Not for HANDLE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
-impl windows_core::TypeKind for NTSTATUS_FACILITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSTATUS_SEVERITY_CODE(pub u32);
-impl windows_core::TypeKind for NTSTATUS_SEVERITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTE_FLAGS(pub u32);
-impl windows_core::TypeKind for OBJECT_ATTRIBUTE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OBJECT_ATTRIBUTE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10481,15 +10463,9 @@ impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_EVENT(pub u32);
-impl windows_core::TypeKind for WAIT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_ERROR(pub u32);
-impl windows_core::TypeKind for WIN32_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_LOCAL_DEVICE_ID {

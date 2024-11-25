@@ -238,15 +238,9 @@ pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPSTORE(pub i32);
-impl windows_core::TypeKind for DEVPROPSTORE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPTYPE(pub u32);
-impl windows_core::TypeKind for DEVPROPTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROPCOMPKEY {

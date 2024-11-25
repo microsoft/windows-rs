@@ -3971,219 +3971,111 @@ pub const MBN_VOICE_CLASS_SIMULTANEOUS_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_C
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
-impl windows_core::TypeKind for MBN_ACTIVATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_AUTH_PROTOCOL(pub i32);
-impl windows_core::TypeKind for MBN_AUTH_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_BAND_CLASS(pub i32);
-impl windows_core::TypeKind for MBN_BAND_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CELLULAR_CLASS(pub i32);
-impl windows_core::TypeKind for MBN_CELLULAR_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_COMPRESSION(pub i32);
-impl windows_core::TypeKind for MBN_COMPRESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CONNECTION_MODE(pub i32);
-impl windows_core::TypeKind for MBN_CONNECTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_CONTEXT_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for MBN_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CTRL_CAPS(pub i32);
-impl windows_core::TypeKind for MBN_CTRL_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_DATA_CLASS(pub i32);
-impl windows_core::TypeKind for MBN_DATA_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(pub i32);
-impl windows_core::TypeKind for MBN_DEVICE_SERVICES_INTERFACE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(pub i32);
-impl windows_core::TypeKind for MBN_DEVICE_SERVICE_SESSIONS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_INTERFACE_CAPS_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_MSG_STATUS(pub i32);
-impl windows_core::TypeKind for MBN_MSG_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PIN_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_PIN_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PIN_FORMAT(pub i32);
-impl windows_core::TypeKind for MBN_PIN_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PIN_MODE(pub i32);
-impl windows_core::TypeKind for MBN_PIN_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PIN_STATE(pub i32);
-impl windows_core::TypeKind for MBN_PIN_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PIN_TYPE(pub i32);
-impl windows_core::TypeKind for MBN_PIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PROVIDER_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_PROVIDER_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_PROVIDER_STATE(pub i32);
-impl windows_core::TypeKind for MBN_PROVIDER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_RADIO(pub i32);
-impl windows_core::TypeKind for MBN_RADIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_READY_STATE(pub i32);
-impl windows_core::TypeKind for MBN_READY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_REGISTER_MODE(pub i32);
-impl windows_core::TypeKind for MBN_REGISTER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_REGISTER_STATE(pub i32);
-impl windows_core::TypeKind for MBN_REGISTER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_REGISTRATION_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_REGISTRATION_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SIGNAL_CONSTANTS(pub i32);
-impl windows_core::TypeKind for MBN_SIGNAL_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_CAPS(pub i32);
-impl windows_core::TypeKind for MBN_SMS_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_CDMA_ENCODING(pub i32);
-impl windows_core::TypeKind for MBN_SMS_CDMA_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_CDMA_LANG(pub i32);
-impl windows_core::TypeKind for MBN_SMS_CDMA_LANG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_FLAG(pub i32);
-impl windows_core::TypeKind for MBN_SMS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_FORMAT(pub i32);
-impl windows_core::TypeKind for MBN_SMS_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_STATUS_FLAG(pub i32);
-impl windows_core::TypeKind for MBN_SMS_STATUS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_VOICE_CALL_STATE(pub i32);
-impl windows_core::TypeKind for MBN_VOICE_CALL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_VOICE_CLASS(pub i32);
-impl windows_core::TypeKind for MBN_VOICE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WWAEXT_SMS_CONSTANTS(pub i32);
-impl windows_core::TypeKind for WWAEXT_SMS_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct MBN_CONTEXT {

@@ -1547,27 +1547,15 @@ pub const X64_RegisterXmmControlStatus: REGISTER_ID = REGISTER_ID(43i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
-impl windows_core::TypeKind for GUEST_OS_MICROSOFT_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
-impl windows_core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUEST_OS_VENDOR(pub i32);
-impl windows_core::TypeKind for GUEST_OS_VENDOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
-impl windows_core::TypeKind for HDV_DEVICE_HOST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDV_DEVICE_HOST_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1604,21 +1592,12 @@ impl core::ops::Not for HDV_DEVICE_HOST_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for HDV_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_DOORBELL_FLAGS(pub i32);
-impl windows_core::TypeKind for HDV_DOORBELL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
-impl windows_core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDV_MMIO_MAPPING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1655,51 +1634,27 @@ impl core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_PCI_BAR_SELECTOR(pub i32);
-impl windows_core::TypeKind for HDV_PCI_BAR_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
-impl windows_core::TypeKind for HDV_PCI_INTERFACE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGING_MODE(pub i32);
-impl windows_core::TypeKind for PAGING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTER_ID(pub i32);
-impl windows_core::TypeKind for REGISTER_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
-impl windows_core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
-impl windows_core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
-impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1736,21 +1691,12 @@ impl core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_CODE(pub i32);
-impl windows_core::TypeKind for WHV_CAPABILITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_CREATE_VPCI_DEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1787,33 +1733,18 @@ impl core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_EXCEPTION_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_EXCEPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
-impl windows_core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
-impl windows_core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_INTERRUPT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_MAP_GPA_RANGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1850,75 +1781,39 @@ impl core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MSR_ACTION(pub i32);
-impl windows_core::TypeKind for WHV_MSR_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
-impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PARTITION_COUNTER_SET(pub i32);
-impl windows_core::TypeKind for WHV_PARTITION_COUNTER_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
-impl windows_core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
-impl windows_core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_VENDOR(pub i32);
-impl windows_core::TypeKind for WHV_PROCESSOR_VENDOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_REGISTER_NAME(pub i32);
-impl windows_core::TypeKind for WHV_REGISTER_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
-impl windows_core::TypeKind for WHV_RUN_VP_CANCEL_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
-impl windows_core::TypeKind for WHV_RUN_VP_EXIT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_TRANSLATE_GVA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_TRANSLATE_GVA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1955,51 +1850,27 @@ impl core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
-impl windows_core::TypeKind for WHV_TRANSLATE_GVA_RESULT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRIGGER_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_TRIGGER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
-impl windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
-impl windows_core::TypeKind for WHV_VPCI_DEVICE_PROPERTY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
-impl windows_core::TypeKind for WHV_VPCI_DEVICE_REGISTER_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2036,9 +1907,6 @@ impl core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_VPCI_MMIO_RANGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2075,15 +1943,9 @@ impl core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_X64_APIC_WRITE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub i32);
-impl windows_core::TypeKind for WHV_X64_CPUID_RESULT2_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WHV_X64_CPUID_RESULT2_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2120,27 +1982,15 @@ impl core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
-impl windows_core::TypeKind for WHV_X64_LOCAL_APIC_EMULATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_X64_PENDING_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
-impl windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
-impl windows_core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOS_IMAGE_INFO {

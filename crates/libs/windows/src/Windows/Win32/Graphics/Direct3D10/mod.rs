@@ -7098,249 +7098,126 @@ pub const _FACD3D10: u32 = 2169u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_ASYNC_GETDATA_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_ASYNC_GETDATA_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BIND_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_BIND_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BLEND(pub i32);
-impl windows_core::TypeKind for D3D10_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BLEND_OP(pub i32);
-impl windows_core::TypeKind for D3D10_BLEND_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_CLEAR_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_CLEAR_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COLOR_WRITE_ENABLE(pub i32);
-impl windows_core::TypeKind for D3D10_COLOR_WRITE_ENABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COMPARISON_FUNC(pub i32);
-impl windows_core::TypeKind for D3D10_COMPARISON_FUNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER(pub i32);
-impl windows_core::TypeKind for D3D10_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D10_COUNTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_CPU_ACCESS_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_CPU_ACCESS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_CREATE_DEVICE_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_CREATE_DEVICE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_CULL_MODE(pub i32);
-impl windows_core::TypeKind for D3D10_CULL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEPTH_WRITE_MASK(pub i32);
-impl windows_core::TypeKind for D3D10_DEPTH_WRITE_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEVICE_STATE_TYPES(pub i32);
-impl windows_core::TypeKind for D3D10_DEVICE_STATE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DRIVER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D10_DRIVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DSV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D10_DSV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_FEATURE_LEVEL1(pub i32);
-impl windows_core::TypeKind for D3D10_FEATURE_LEVEL1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_FILL_MODE(pub i32);
-impl windows_core::TypeKind for D3D10_FILL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_FILTER(pub i32);
-impl windows_core::TypeKind for D3D10_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D10_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_FORMAT_SUPPORT(pub i32);
-impl windows_core::TypeKind for D3D10_FORMAT_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INPUT_CLASSIFICATION(pub i32);
-impl windows_core::TypeKind for D3D10_INPUT_CLASSIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MAP(pub i32);
-impl windows_core::TypeKind for D3D10_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MAP_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_MAP_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MESSAGE_CATEGORY(pub i32);
-impl windows_core::TypeKind for D3D10_MESSAGE_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MESSAGE_ID(pub i32);
-impl windows_core::TypeKind for D3D10_MESSAGE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MESSAGE_SEVERITY(pub i32);
-impl windows_core::TypeKind for D3D10_MESSAGE_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY(pub i32);
-impl windows_core::TypeKind for D3D10_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_MISC_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_QUERY_MISC_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RAISE_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_RAISE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RESOURCE_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D10_RESOURCE_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RESOURCE_MISC_FLAG(pub i32);
-impl windows_core::TypeKind for D3D10_RESOURCE_MISC_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RTV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D10_RTV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_REGTYPE(pub i32);
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_REGTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(pub i32);
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_SCOPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_VARTYPE(pub i32);
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_VARTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
-impl windows_core::TypeKind for D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_STENCIL_OP(pub i32);
-impl windows_core::TypeKind for D3D10_STENCIL_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURECUBE_FACE(pub i32);
-impl windows_core::TypeKind for D3D10_TEXTURECUBE_FACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE_ADDRESS_MODE(pub i32);
-impl windows_core::TypeKind for D3D10_TEXTURE_ADDRESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_USAGE(pub i32);
-impl windows_core::TypeKind for D3D10_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_BLEND_DESC {

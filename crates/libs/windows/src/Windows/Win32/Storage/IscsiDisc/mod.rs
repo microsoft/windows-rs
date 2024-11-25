@@ -794,63 +794,33 @@ pub const WmiScsiAddressGuid: windows_core::GUID = windows_core::GUID::from_u128
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
-impl windows_core::TypeKind for IKE_AUTHENTICATION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISCSI_AUTH_TYPES(pub i32);
-impl windows_core::TypeKind for ISCSI_AUTH_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISCSI_DIGEST_TYPES(pub i32);
-impl windows_core::TypeKind for ISCSI_DIGEST_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
-impl windows_core::TypeKind for MP_STORAGE_DIAGNOSTIC_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-impl windows_core::TypeKind for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVCACHE_STATUS(pub i32);
-impl windows_core::TypeKind for NVCACHE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVCACHE_TYPE(pub i32);
-impl windows_core::TypeKind for NVCACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for NV_SEP_WRITE_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
-impl windows_core::TypeKind for TARGETPROTOCOLTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TARGET_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT {

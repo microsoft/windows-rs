@@ -931,57 +931,30 @@ pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_BUFFER_FLAGS(pub i32);
-impl windows_core::TypeKind for APO_BUFFER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for APO_CONNECTION_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_FLAG(pub i32);
-impl windows_core::TypeKind for APO_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_LOG_LEVEL(pub i32);
-impl windows_core::TypeKind for APO_LOG_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for APO_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIO_FLOW_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(pub i32);
-impl windows_core::TypeKind for AUDIO_SYSTEMEFFECT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_ORIENTATION_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_ORIENTATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAudioConstriction(pub i32);
-impl windows_core::TypeKind for EAudioConstriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APOInitBaseStruct {

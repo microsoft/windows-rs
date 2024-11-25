@@ -1992,9 +1992,6 @@ pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EOC_ChangeType(pub i32);
-impl windows_core::TypeKind for EOC_ChangeType {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CEventClass: windows_core::GUID = windows_core::GUID::from_u128(0xcdbec9c0_7a68_11d1_88f9_0080c7d771bf);
 pub const CEventPublisher: windows_core::GUID = windows_core::GUID::from_u128(0xab944620_79c6_11d1_88f9_0080c7d771bf);
 pub const CEventSubscription: windows_core::GUID = windows_core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);

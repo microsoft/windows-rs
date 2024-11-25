@@ -49,6 +49,3 @@ pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECTION_INHERIT(pub i32);
-impl windows_core::TypeKind for SECTION_INHERIT {
-    type TypeKind = windows_core::CopyType;
-}

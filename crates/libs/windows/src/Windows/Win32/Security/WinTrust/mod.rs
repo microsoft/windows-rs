@@ -353,9 +353,6 @@ pub const szOID_TRUSTED_SERVER_AUTH_CA_LIST: windows_core::PCSTR = windows_core:
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_PROVIDER_FLAGS(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_PROVIDER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINTRUST_DATA_PROVIDER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -392,45 +389,24 @@ impl core::ops::Not for WINTRUST_DATA_PROVIDER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_REVOCATION_CHECKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_STATE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_UICHOICE(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_UICHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_UICONTEXT(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_UICONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
-impl windows_core::TypeKind for WINTRUST_DATA_UNION_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
-impl windows_core::TypeKind for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_POLICY_FLAGS(pub u32);
-impl windows_core::TypeKind for WINTRUST_POLICY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINTRUST_POLICY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -467,9 +443,6 @@ impl core::ops::Not for WINTRUST_POLICY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
-impl windows_core::TypeKind for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

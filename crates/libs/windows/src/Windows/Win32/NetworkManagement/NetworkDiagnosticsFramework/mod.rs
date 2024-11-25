@@ -567,45 +567,24 @@ pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIAGNOSIS_STATUS(pub i32);
-impl windows_core::TypeKind for DIAGNOSIS_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROBLEM_TYPE(pub i32);
-impl windows_core::TypeKind for PROBLEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_RISK(pub i32);
-impl windows_core::TypeKind for REPAIR_RISK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_SCOPE(pub i32);
-impl windows_core::TypeKind for REPAIR_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_STATUS(pub i32);
-impl windows_core::TypeKind for REPAIR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for UI_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAG_SOCKADDR {

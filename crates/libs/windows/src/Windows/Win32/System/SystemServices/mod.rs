@@ -2610,45 +2610,24 @@ pub const _MM_HINT_T2: u32 = 3u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_REASON_TYPE(pub i32);
-impl windows_core::TypeKind for ACCESS_REASON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for ACTIVATION_CONTEXT_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALERT_SYSTEM_SEV(pub u32);
-impl windows_core::TypeKind for ALERT_SYSTEM_SEV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPCOMMAND_ID(pub u32);
-impl windows_core::TypeKind for APPCOMMAND_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_FNPDATA_CR(pub i32);
-impl windows_core::TypeKind for ARM64_FNPDATA_CR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
-impl windows_core::TypeKind for ARM64_FNPDATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATF_FLAGS(pub u32);
-impl windows_core::TypeKind for ATF_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ATF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2685,9 +2664,6 @@ impl core::ops::Not for ATF_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFE_UNDERLINE(pub u32);
-impl windows_core::TypeKind for CFE_UNDERLINE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CFE_UNDERLINE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2724,15 +2700,9 @@ impl core::ops::Not for CFE_UNDERLINE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for ENLISTMENT_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GESTURECONFIG_FLAGS(pub u32);
-impl windows_core::TypeKind for GESTURECONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GESTURECONFIG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2769,57 +2739,30 @@ impl core::ops::Not for GESTURECONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIBERFILE_BUCKET_SIZE(pub i32);
-impl windows_core::TypeKind for HIBERFILE_BUCKET_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IGP_ID(pub u32);
-impl windows_core::TypeKind for IGP_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
-impl windows_core::TypeKind for IMAGE_POLICY_ENTRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_POLICY_ID(pub i32);
-impl windows_core::TypeKind for IMAGE_POLICY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
-impl windows_core::TypeKind for IMPORT_OBJECT_NAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for IMPORT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KTMOBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for KTMOBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODIFIERKEYS_FLAGS(pub u32);
-impl windows_core::TypeKind for MODIFIERKEYS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MODIFIERKEYS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2856,15 +2799,9 @@ impl core::ops::Not for MODIFIERKEYS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
-impl windows_core::TypeKind for MONITOR_DISPLAY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECO_FLAGS(pub u32);
-impl windows_core::TypeKind for RECO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RECO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2901,57 +2838,30 @@ impl core::ops::Not for RECO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for RESOURCEMANAGER_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
-impl windows_core::TypeKind for RTL_UMS_SCHEDULER_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReplacesCorHdrNumericDefines(pub i32);
-impl windows_core::TypeKind for ReplacesCorHdrNumericDefines {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVERSILO_STATE(pub i32);
-impl windows_core::TypeKind for SERVERSILO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_ERROR_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_ERROR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_LOAD_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_LOAD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
-impl windows_core::TypeKind for SE_IMAGE_SIGNATURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFGAO_FLAGS(pub u32);
-impl windows_core::TypeKind for SFGAO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SFGAO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2988,33 +2898,18 @@ impl core::ops::Not for SFGAO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATIC_STYLES(pub u32);
-impl windows_core::TypeKind for STATIC_STYLES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedVirtualDiskHandleState(pub i32);
-impl windows_core::TypeKind for SharedVirtualDiskHandleState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedVirtualDiskSupportType(pub i32);
-impl windows_core::TypeKind for SharedVirtualDiskSupportType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
-impl windows_core::TypeKind for TAPE_DRIVE_PROBLEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
-impl windows_core::TypeKind for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
-    type TypeKind = windows_core::CopyType;
-}
 impl TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3051,27 +2946,15 @@ impl core::ops::Not for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TRANSACTIONMANAGER_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TRANSACTION_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_STATE(pub i32);
-impl windows_core::TypeKind for TRANSACTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
-impl windows_core::TypeKind for WORD_WHEEL_OPEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WORD_WHEEL_OPEN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

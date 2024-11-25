@@ -453,21 +453,12 @@ pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMAT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for KEY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_SET_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for KEY_SET_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for KEY_VALUE_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEY_VALUE_ENTRY {

@@ -750,105 +750,54 @@ pub const _WIN32_WINNT_WS08: u32 = 1536u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPUTER_NAME_FORMAT(pub i32);
-impl windows_core::TypeKind for COMPUTER_NAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for CPU_SET_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for DEP_SYSTEM_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVELOPER_DRIVE_ENABLEMENT_STATE(pub i32);
-impl windows_core::TypeKind for DEVELOPER_DRIVE_ENABLEMENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEFAMILYDEVICEFORM(pub u32);
-impl windows_core::TypeKind for DEVICEFAMILYDEVICEFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEFAMILYINFOENUM(pub u32);
-impl windows_core::TypeKind for DEVICEFAMILYINFOENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
-impl windows_core::TypeKind for FIRMWARE_TABLE_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIRMWARE_TYPE(pub i32);
-impl windows_core::TypeKind for FIRMWARE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_MACHINE(pub u16);
-impl windows_core::TypeKind for IMAGE_FILE_MACHINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
-impl windows_core::TypeKind for LOGICAL_PROCESSOR_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
-impl windows_core::TypeKind for OS_DEPLOYEMENT_STATE_VALUES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS_PRODUCT_TYPE(pub u32);
-impl windows_core::TypeKind for OS_PRODUCT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_ARCHITECTURE(pub u16);
-impl windows_core::TypeKind for PROCESSOR_ARCHITECTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for PROCESSOR_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
-impl windows_core::TypeKind for RTL_SYSTEM_GLOBAL_DATA_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_CET_ENVIRONMENT(pub u32);
-impl windows_core::TypeKind for USER_CET_ENVIRONMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_FLAGS(pub u32);
-impl windows_core::TypeKind for VER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl VER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

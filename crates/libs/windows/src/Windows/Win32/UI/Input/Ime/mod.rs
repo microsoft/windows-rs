@@ -5337,45 +5337,24 @@ pub const wchPrivate1: u32 = 57344u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_CONVERSION_LIST_FLAG(pub u32);
-impl windows_core::TypeKind for GET_CONVERSION_LIST_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
-impl windows_core::TypeKind for GET_GUIDE_LINE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEFMT(pub i32);
-impl windows_core::TypeKind for IMEFMT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEREG(pub i32);
-impl windows_core::TypeKind for IMEREG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEREL(pub i32);
-impl windows_core::TypeKind for IMEREL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEUCT(pub i32);
-impl windows_core::TypeKind for IMEUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_COMPOSITION_STRING(pub u32);
-impl windows_core::TypeKind for IME_COMPOSITION_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 impl IME_COMPOSITION_STRING {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5412,9 +5391,6 @@ impl core::ops::Not for IME_COMPOSITION_STRING {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_CONVERSION_MODE(pub u32);
-impl windows_core::TypeKind for IME_CONVERSION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl IME_CONVERSION_MODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5451,27 +5427,15 @@ impl core::ops::Not for IME_CONVERSION_MODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_ESCAPE(pub u32);
-impl windows_core::TypeKind for IME_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_HOTKEY_IDENTIFIER(pub u32);
-impl windows_core::TypeKind for IME_HOTKEY_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_PAD_REQUEST_FLAGS(pub u32);
-impl windows_core::TypeKind for IME_PAD_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_SENTENCE_MODE(pub u32);
-impl windows_core::TypeKind for IME_SENTENCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl IME_SENTENCE_MODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5508,21 +5472,12 @@ impl core::ops::Not for IME_SENTENCE_MODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_ACTION(pub u32);
-impl windows_core::TypeKind for NOTIFY_IME_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_INDEX(pub u32);
-impl windows_core::TypeKind for NOTIFY_IME_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
-impl windows_core::TypeKind for SET_COMPOSITION_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPLETIDLIST {

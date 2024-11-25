@@ -5064,45 +5064,24 @@ pub const g_wszWPDPassthroughPropertyValues: windows_core::PCWSTR = windows_core
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDMMessage(pub i32);
-impl windows_core::TypeKind for WMDMMessage {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-impl windows_core::TypeKind for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_FIND_SCOPE(pub i32);
-impl windows_core::TypeKind for WMDM_FIND_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_FORMATCODE(pub i32);
-impl windows_core::TypeKind for WMDM_FORMATCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_SESSION_TYPE(pub i32);
-impl windows_core::TypeKind for WMDM_SESSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
-impl windows_core::TypeKind for WMDM_STORAGE_ENUM_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
-impl windows_core::TypeKind for WMDM_TAG_DATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MACINFO {

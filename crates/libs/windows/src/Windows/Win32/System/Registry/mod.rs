@@ -1735,15 +1735,9 @@ pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
-impl windows_core::TypeKind for REG_CREATE_KEY_DISPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_NOTIFY_FILTER(pub u32);
-impl windows_core::TypeKind for REG_NOTIFY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 impl REG_NOTIFY_FILTER {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1780,9 +1774,6 @@ impl core::ops::Not for REG_NOTIFY_FILTER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
-impl windows_core::TypeKind for REG_OPEN_CREATE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REG_OPEN_CREATE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1819,15 +1810,9 @@ impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
-impl windows_core::TypeKind for REG_RESTORE_KEY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_ROUTINE_FLAGS(pub u32);
-impl windows_core::TypeKind for REG_ROUTINE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REG_ROUTINE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1864,9 +1849,6 @@ impl core::ops::Not for REG_ROUTINE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SAM_FLAGS(pub u32);
-impl windows_core::TypeKind for REG_SAM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REG_SAM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1903,15 +1885,9 @@ impl core::ops::Not for REG_SAM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SAVE_FORMAT(pub u32);
-impl windows_core::TypeKind for REG_SAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_VALUE_TYPE(pub u32);
-impl windows_core::TypeKind for REG_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSKTLSYSTEMTIME {

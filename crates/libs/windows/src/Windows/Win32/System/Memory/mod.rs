@@ -883,9 +883,6 @@ pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = OFFER_PRIORITY(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAP(pub u32);
-impl windows_core::TypeKind for FILE_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 impl FILE_MAP {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -922,9 +919,6 @@ impl core::ops::Not for FILE_MAP {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_ALLOC_FLAGS(pub u32);
-impl windows_core::TypeKind for GLOBAL_ALLOC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GLOBAL_ALLOC_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -961,9 +955,6 @@ impl core::ops::Not for GLOBAL_ALLOC_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_FLAGS(pub u32);
-impl windows_core::TypeKind for HEAP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HEAP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1000,15 +991,9 @@ impl core::ops::Not for HEAP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for HEAP_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
-impl windows_core::TypeKind for LOCAL_ALLOC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl LOCAL_ALLOC_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1045,39 +1030,21 @@ impl core::ops::Not for LOCAL_ALLOC_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for MEMORY_RESOURCE_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFER_PRIORITY(pub i32);
-impl windows_core::TypeKind for OFFER_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGE_PROTECTION_FLAGS(pub u32);
-impl windows_core::TypeKind for PAGE_PROTECTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PAGE_PROTECTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1114,9 +1081,6 @@ impl core::ops::Not for PAGE_PROTECTION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGE_TYPE(pub u32);
-impl windows_core::TypeKind for PAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PAGE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1153,9 +1117,6 @@ impl core::ops::Not for PAGE_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECTION_FLAGS(pub u32);
-impl windows_core::TypeKind for SECTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SECTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1192,9 +1153,6 @@ impl core::ops::Not for SECTION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETPROCESSWORKINGSETSIZEEX_FLAGS(pub u32);
-impl windows_core::TypeKind for SETPROCESSWORKINGSETSIZEEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETPROCESSWORKINGSETSIZEEX_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1231,15 +1189,9 @@ impl core::ops::Not for SETPROCESSWORKINGSETSIZEEX_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for UNMAP_VIEW_OF_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_ALLOCATION_TYPE(pub u32);
-impl windows_core::TypeKind for VIRTUAL_ALLOCATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl VIRTUAL_ALLOCATION_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1276,21 +1228,12 @@ impl core::ops::Not for VIRTUAL_ALLOCATION_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_FREE_TYPE(pub u32);
-impl windows_core::TypeKind for VIRTUAL_FREE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for WIN32_MEMORY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AtlThunkData_t(pub isize);

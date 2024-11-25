@@ -2233,27 +2233,15 @@ pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_CALLBACK_DATA_QUEUE_FLAGS(pub i32);
-impl windows_core::TypeKind for FLT_CALLBACK_DATA_QUEUE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_POSTOP_CALLBACK_STATUS(pub i32);
-impl windows_core::TypeKind for FLT_POSTOP_CALLBACK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_PREOP_CALLBACK_STATUS(pub i32);
-impl windows_core::TypeKind for FLT_PREOP_CALLBACK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_SET_CONTEXT_OPERATION(pub i32);
-impl windows_core::TypeKind for FLT_SET_CONTEXT_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]

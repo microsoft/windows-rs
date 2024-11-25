@@ -956,129 +956,66 @@ pub const WinUSB_TestGuid: windows_core::GUID = windows_core::GUID::from_u128(0x
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIPE_TYPE(pub i32);
-impl windows_core::TypeKind for PIPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_PIPE_TYPE(pub i32);
-impl windows_core::TypeKind for RAW_PIPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
-impl windows_core::TypeKind for USBD_ENDPOINT_OFFLOAD_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_PIPE_TYPE(pub i32);
-impl windows_core::TypeKind for USBD_PIPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBFN_BUS_SPEED(pub i32);
-impl windows_core::TypeKind for USBFN_BUS_SPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBFN_DEVICE_STATE(pub i32);
-impl windows_core::TypeKind for USBFN_DEVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBFN_DIRECTION(pub i32);
-impl windows_core::TypeKind for USBFN_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBFN_EVENT(pub i32);
-impl windows_core::TypeKind for USBFN_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBFN_PORT_TYPE(pub i32);
-impl windows_core::TypeKind for USBFN_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_CONNECTION_STATUS(pub i32);
-impl windows_core::TypeKind for USB_CONNECTION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_CONTROLLER_FLAVOR(pub i32);
-impl windows_core::TypeKind for USB_CONTROLLER_FLAVOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_SPEED(pub i32);
-impl windows_core::TypeKind for USB_DEVICE_SPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for USB_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_NODE(pub i32);
-impl windows_core::TypeKind for USB_HUB_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_TYPE(pub i32);
-impl windows_core::TypeKind for USB_HUB_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for USB_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_USER_ERROR_CODE(pub i32);
-impl windows_core::TypeKind for USB_USER_ERROR_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_WMI_DEVICE_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for USB_WMI_DEVICE_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDMUSB_POWER_STATE(pub i32);
-impl windows_core::TypeKind for WDMUSB_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINUSB_PIPE_POLICY(pub u32);
-impl windows_core::TypeKind for WINUSB_PIPE_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINUSB_POWER_POLICY(pub u32);
-impl windows_core::TypeKind for WINUSB_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ALTERNATE_INTERFACE {

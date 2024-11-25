@@ -139,9 +139,6 @@ pub const PSS_WALK_VA_SPACE: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_C
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
-impl windows_core::TypeKind for PSS_CAPTURE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSS_CAPTURE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -178,9 +175,6 @@ impl core::ops::Not for PSS_CAPTURE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_DUPLICATE_FLAGS(pub i32);
-impl windows_core::TypeKind for PSS_DUPLICATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSS_DUPLICATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -217,9 +211,6 @@ impl core::ops::Not for PSS_DUPLICATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_HANDLE_FLAGS(pub i32);
-impl windows_core::TypeKind for PSS_HANDLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSS_HANDLE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -256,15 +247,9 @@ impl core::ops::Not for PSS_HANDLE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for PSS_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_PROCESS_FLAGS(pub i32);
-impl windows_core::TypeKind for PSS_PROCESS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSS_PROCESS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -301,15 +286,9 @@ impl core::ops::Not for PSS_PROCESS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for PSS_QUERY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_THREAD_FLAGS(pub i32);
-impl windows_core::TypeKind for PSS_THREAD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSS_THREAD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -346,9 +325,6 @@ impl core::ops::Not for PSS_THREAD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for PSS_WALK_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSS(pub *mut core::ffi::c_void);

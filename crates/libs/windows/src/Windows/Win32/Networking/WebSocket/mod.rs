@@ -145,33 +145,18 @@ pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCK
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_ACTION(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_ACTION_QUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_CLOSE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {

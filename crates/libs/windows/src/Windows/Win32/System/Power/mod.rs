@@ -1185,33 +1185,18 @@ pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACPI_TIME_RESOLUTION(pub i32);
-impl windows_core::TypeKind for ACPI_TIME_RESOLUTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
-impl windows_core::TypeKind for BATTERY_QUERY_INFORMATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
-impl windows_core::TypeKind for BATTERY_SET_INFORMATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_POWER_CAPABILITIES(pub u32);
-impl windows_core::TypeKind for DEVICE_POWER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DEVICE_POWER_CAPABILITIES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1248,27 +1233,15 @@ impl core::ops::Not for DEVICE_POWER_CAPABILITIES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_POWER_STATE(pub i32);
-impl windows_core::TypeKind for DEVICE_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
-impl windows_core::TypeKind for EFFECTIVE_POWER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
-impl windows_core::TypeKind for EMI_MEASUREMENT_UNIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXECUTION_STATE(pub u32);
-impl windows_core::TypeKind for EXECUTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl EXECUTION_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1305,21 +1278,12 @@ impl core::ops::Not for EXECUTION_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LATENCY_TIME(pub i32);
-impl windows_core::TypeKind for LATENCY_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION(pub i32);
-impl windows_core::TypeKind for POWER_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
-impl windows_core::TypeKind for POWER_ACTION_POLICY_EVENT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl POWER_ACTION_POLICY_EVENT_CODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1356,87 +1320,45 @@ impl core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_COOLING_MODE(pub u16);
-impl windows_core::TypeKind for POWER_COOLING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
-impl windows_core::TypeKind for POWER_DATA_ACCESSOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
-impl windows_core::TypeKind for POWER_INFORMATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-impl windows_core::TypeKind for POWER_MONITOR_REQUEST_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-impl windows_core::TypeKind for POWER_PLATFORM_ROLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
-impl windows_core::TypeKind for POWER_PLATFORM_ROLE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
-impl windows_core::TypeKind for POWER_SETTING_ALTITUDE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_USER_PRESENCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
-impl windows_core::TypeKind for SYSTEM_POWER_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATE(pub i32);
-impl windows_core::TypeKind for SYSTEM_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_CHARGER_PORT(pub i32);
-impl windows_core::TypeKind for USB_CHARGER_PORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
-impl windows_core::TypeKind for USER_ACTIVITY_PRESENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACPI_REAL_TIME {

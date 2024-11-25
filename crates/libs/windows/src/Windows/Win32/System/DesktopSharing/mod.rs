@@ -2948,75 +2948,39 @@ pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
-impl windows_core::TypeKind for ATTENDEE_DISCONNECT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_ACCESS_ENUM(pub i32);
-impl windows_core::TypeKind for CHANNEL_ACCESS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_FLAGS(pub i32);
-impl windows_core::TypeKind for CHANNEL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_PRIORITY(pub i32);
-impl windows_core::TypeKind for CHANNEL_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTRL_LEVEL(pub i32);
-impl windows_core::TypeKind for CTRL_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
-impl windows_core::TypeKind for RDPENCOMAPI_ATTENDEE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPENCOMAPI_CONSTANTS(pub i32);
-impl windows_core::TypeKind for RDPENCOMAPI_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
-impl windows_core::TypeKind for RDPSRAPI_APP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
-impl windows_core::TypeKind for RDPSRAPI_KBD_CODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
-impl windows_core::TypeKind for RDPSRAPI_KBD_SYNC_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
-impl windows_core::TypeKind for RDPSRAPI_MOUSE_BUTTON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
-impl windows_core::TypeKind for RDPSRAPI_WND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RDPSRAPIApplication: windows_core::GUID = windows_core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
 pub const RDPSRAPIApplicationFilter: windows_core::GUID = windows_core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
 pub const RDPSRAPIApplicationList: windows_core::GUID = windows_core::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);

@@ -3845,135 +3845,69 @@ pub const PROLOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingType
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_CLAUSE_TYPE(pub i32);
-impl windows_core::TypeKind for COR_PRF_CLAUSE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_CODEGEN_FLAGS(pub i32);
-impl windows_core::TypeKind for COR_PRF_CODEGEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_LEVEL(pub i32);
-impl windows_core::TypeKind for COR_PRF_EVENTPIPE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for COR_PRF_EVENTPIPE_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_FINALIZER_FLAGS(pub i32);
-impl windows_core::TypeKind for COR_PRF_FINALIZER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_GC_GENERATION(pub i32);
-impl windows_core::TypeKind for COR_PRF_GC_GENERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_GC_REASON(pub i32);
-impl windows_core::TypeKind for COR_PRF_GC_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_GC_ROOT_FLAGS(pub i32);
-impl windows_core::TypeKind for COR_PRF_GC_ROOT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_GC_ROOT_KIND(pub i32);
-impl windows_core::TypeKind for COR_PRF_GC_ROOT_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_HANDLE_TYPE(pub i32);
-impl windows_core::TypeKind for COR_PRF_HANDLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_HIGH_MONITOR(pub i32);
-impl windows_core::TypeKind for COR_PRF_HIGH_MONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_JIT_CACHE(pub i32);
-impl windows_core::TypeKind for COR_PRF_JIT_CACHE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_MISC(pub i32);
-impl windows_core::TypeKind for COR_PRF_MISC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_MODULE_FLAGS(pub i32);
-impl windows_core::TypeKind for COR_PRF_MODULE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_MONITOR(pub i32);
-impl windows_core::TypeKind for COR_PRF_MONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_REJIT_FLAGS(pub i32);
-impl windows_core::TypeKind for COR_PRF_REJIT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_RUNTIME_TYPE(pub i32);
-impl windows_core::TypeKind for COR_PRF_RUNTIME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_SNAPSHOT_INFO(pub i32);
-impl windows_core::TypeKind for COR_PRF_SNAPSHOT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_STATIC_TYPE(pub i32);
-impl windows_core::TypeKind for COR_PRF_STATIC_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_SUSPEND_REASON(pub i32);
-impl windows_core::TypeKind for COR_PRF_SUSPEND_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_TRANSITION_REASON(pub i32);
-impl windows_core::TypeKind for COR_PRF_TRANSITION_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorDebugIlToNativeMappingTypes(pub i32);
-impl windows_core::TypeKind for CorDebugIlToNativeMappingTypes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_DEBUG_IL_TO_NATIVE_MAP {

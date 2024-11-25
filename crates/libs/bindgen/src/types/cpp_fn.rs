@@ -101,7 +101,6 @@ impl CppFn {
         }
 
         let method = CppMethod::new(self.method, self.namespace);
-        // dbg!(&method);
         let args = method.write_args();
         let params = method.write_params(writer);
         let generics = method.write_generics();

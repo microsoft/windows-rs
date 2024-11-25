@@ -531,51 +531,27 @@ pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDAT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_BACKUP_STATUS(pub i32);
-impl windows_core::TypeKind for FH_BACKUP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
-impl windows_core::TypeKind for FH_DEVICE_VALIDATION_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for FH_LOCAL_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
-impl windows_core::TypeKind for FH_PROTECTED_ITEM_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_RETENTION_TYPES(pub i32);
-impl windows_core::TypeKind for FH_RETENTION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_TARGET_DRIVE_TYPES(pub i32);
-impl windows_core::TypeKind for FH_TARGET_DRIVE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for FH_TARGET_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FhBackupStopReason(pub i32);
-impl windows_core::TypeKind for FhBackupStopReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FH_SERVICE_PIPE_HANDLE(pub *mut core::ffi::c_void);

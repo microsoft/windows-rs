@@ -49,6 +49,3 @@ pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32)
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreateProcessMethod(pub i32);
-impl windows_core::TypeKind for CreateProcessMethod {
-    type TypeKind = windows_core::CopyType;
-}

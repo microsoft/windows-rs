@@ -829,51 +829,27 @@ pub const mIOC_VENDOR: u32 = 67108864u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FilterType(pub i32);
-impl windows_core::TypeKind for FilterType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
-impl windows_core::TypeKind for QOS_FLOWRATE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_NOTIFY_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_QUERY_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_QUERY_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SET_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_SET_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SHAPING(pub i32);
-impl windows_core::TypeKind for QOS_SHAPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
-impl windows_core::TypeKind for QOS_TRAFFIC_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct int_serv_wkp(pub i32);
-impl windows_core::TypeKind for int_serv_wkp {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]

@@ -54,21 +54,12 @@ pub const WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_B
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISC_CONTROL_BLOCK_TYPE(pub i32);
-impl windows_core::TypeKind for DISC_CONTROL_BLOCK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for DVD_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_STRUCTURE_FORMAT(pub i32);
-impl windows_core::TypeKind for DVD_STRUCTURE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_BINDING_NONCE {

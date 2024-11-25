@@ -197,9 +197,6 @@ pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for REGISTRATION_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {

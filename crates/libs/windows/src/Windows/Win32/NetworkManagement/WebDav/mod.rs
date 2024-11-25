@@ -96,9 +96,6 @@ pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHNEXTSTEP(pub i32);
-impl windows_core::TypeKind for AUTHNEXTSTEP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_BLOB {

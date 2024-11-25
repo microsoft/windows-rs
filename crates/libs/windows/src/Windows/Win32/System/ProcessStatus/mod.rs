@@ -394,9 +394,6 @@ pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
-impl windows_core::TypeKind for ENUM_PROCESS_MODULES_EX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {

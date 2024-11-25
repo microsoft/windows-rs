@@ -60,9 +60,6 @@ pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLI
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
-impl windows_core::TypeKind for REGISTER_APPLICATION_RESTART_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REGISTER_APPLICATION_RESTART_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

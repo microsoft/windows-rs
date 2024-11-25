@@ -5593,9 +5593,6 @@ pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCEL_VIRT_FLAGS(pub u8);
-impl windows_core::TypeKind for ACCEL_VIRT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ACCEL_VIRT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5632,9 +5629,6 @@ impl core::ops::Not for ACCEL_VIRT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANIMATE_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for ANIMATE_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ANIMATE_WINDOW_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5671,9 +5665,6 @@ impl core::ops::Not for ANIMATE_WINDOW_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASCADE_WINDOWS_HOW(pub u32);
-impl windows_core::TypeKind for CASCADE_WINDOWS_HOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl CASCADE_WINDOWS_HOW {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5710,21 +5701,12 @@ impl core::ops::Not for CASCADE_WINDOWS_HOW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
-impl windows_core::TypeKind for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CURSORINFO_FLAGS(pub u32);
-impl windows_core::TypeKind for CURSORINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CWP_FLAGS(pub u32);
-impl windows_core::TypeKind for CWP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CWP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5761,21 +5743,12 @@ impl core::ops::Not for CWP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
-impl windows_core::TypeKind for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
-impl windows_core::TypeKind for DEV_BROADCAST_VOLUME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DI_FLAGS(pub u32);
-impl windows_core::TypeKind for DI_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DI_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5812,15 +5785,9 @@ impl core::ops::Not for DI_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDIT_CONTROL_FEATURE(pub i32);
-impl windows_core::TypeKind for EDIT_CONTROL_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLASHWINFO_FLAGS(pub u32);
-impl windows_core::TypeKind for FLASHWINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FLASHWINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5857,33 +5824,18 @@ impl core::ops::Not for FLASHWINFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
-impl windows_core::TypeKind for FOREGROUND_WINDOW_LOCK_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GDI_IMAGE_TYPE(pub u32);
-impl windows_core::TypeKind for GDI_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_ANCESTOR_FLAGS(pub u32);
-impl windows_core::TypeKind for GET_ANCESTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_CLASS_LONG_INDEX(pub i32);
-impl windows_core::TypeKind for GET_CLASS_LONG_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
-impl windows_core::TypeKind for GET_MENU_DEFAULT_ITEM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GET_MENU_DEFAULT_ITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5920,15 +5872,9 @@ impl core::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_WINDOW_CMD(pub u32);
-impl windows_core::TypeKind for GET_WINDOW_CMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUITHREADINFO_FLAGS(pub u32);
-impl windows_core::TypeKind for GUITHREADINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GUITHREADINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5965,15 +5911,9 @@ impl core::ops::Not for GUITHREADINFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDEDNESS(pub i32);
-impl windows_core::TypeKind for HANDEDNESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FLAGS(pub u32);
-impl windows_core::TypeKind for IMAGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IMAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6010,9 +5950,6 @@ impl core::ops::Not for IMAGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
-impl windows_core::TypeKind for KBDLLHOOKSTRUCT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl KBDLLHOOKSTRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6049,9 +5986,6 @@ impl core::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
-impl windows_core::TypeKind for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6088,15 +6022,9 @@ impl core::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
-impl windows_core::TypeKind for MENUGETOBJECTINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUINFO_MASK(pub u32);
-impl windows_core::TypeKind for MENUINFO_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENUINFO_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6133,9 +6061,6 @@ impl core::ops::Not for MENUINFO_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUINFO_STYLE(pub u32);
-impl windows_core::TypeKind for MENUINFO_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENUINFO_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6172,9 +6097,6 @@ impl core::ops::Not for MENUINFO_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENU_ITEM_FLAGS(pub u32);
-impl windows_core::TypeKind for MENU_ITEM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENU_ITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6211,9 +6133,6 @@ impl core::ops::Not for MENU_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENU_ITEM_MASK(pub u32);
-impl windows_core::TypeKind for MENU_ITEM_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENU_ITEM_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6250,9 +6169,6 @@ impl core::ops::Not for MENU_ITEM_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENU_ITEM_STATE(pub u32);
-impl windows_core::TypeKind for MENU_ITEM_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENU_ITEM_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6289,9 +6205,6 @@ impl core::ops::Not for MENU_ITEM_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENU_ITEM_TYPE(pub u32);
-impl windows_core::TypeKind for MENU_ITEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MENU_ITEM_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6328,15 +6241,9 @@ impl core::ops::Not for MENU_ITEM_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MESSAGEBOX_RESULT(pub i32);
-impl windows_core::TypeKind for MESSAGEBOX_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MESSAGEBOX_STYLE(pub u32);
-impl windows_core::TypeKind for MESSAGEBOX_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MESSAGEBOX_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6373,21 +6280,12 @@ impl core::ops::Not for MESSAGEBOX_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
-impl windows_core::TypeKind for MINIMIZEDMETRICS_ARRANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSGFLTINFO_STATUS(pub u32);
-impl windows_core::TypeKind for MSGFLTINFO_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
-impl windows_core::TypeKind for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6424,51 +6322,27 @@ impl core::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmDumpType(pub i32);
-impl windows_core::TypeKind for MrmDumpType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmIndexerFlags(pub i32);
-impl windows_core::TypeKind for MrmIndexerFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmPackagingMode(pub i32);
-impl windows_core::TypeKind for MrmPackagingMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmPackagingOptions(pub i32);
-impl windows_core::TypeKind for MrmPackagingOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmPlatformVersion(pub i32);
-impl windows_core::TypeKind for MrmPlatformVersion {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MrmResourceIndexerMessageSeverity(pub i32);
-impl windows_core::TypeKind for MrmResourceIndexerMessageSeverity {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_IDENTIFIER(pub i32);
-impl windows_core::TypeKind for OBJECT_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
-impl windows_core::TypeKind for PEEK_MESSAGE_REMOVE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PEEK_MESSAGE_REMOVE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6505,15 +6379,9 @@ impl core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_INPUT_TYPE(pub i32);
-impl windows_core::TypeKind for POINTER_INPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUEUE_STATUS_FLAGS(pub u32);
-impl windows_core::TypeKind for QUEUE_STATUS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl QUEUE_STATUS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6550,9 +6418,6 @@ impl core::ops::Not for QUEUE_STATUS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTER_NOTIFICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for REGISTER_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REGISTER_NOTIFICATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6589,15 +6454,9 @@ impl core::ops::Not for REGISTER_NOTIFICATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLBAR_COMMAND(pub i32);
-impl windows_core::TypeKind for SCROLLBAR_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLBAR_CONSTANTS(pub i32);
-impl windows_core::TypeKind for SCROLLBAR_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SCROLLBAR_CONSTANTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6634,9 +6493,6 @@ impl core::ops::Not for SCROLLBAR_CONSTANTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLINFO_MASK(pub u32);
-impl windows_core::TypeKind for SCROLLINFO_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl SCROLLINFO_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6673,9 +6529,6 @@ impl core::ops::Not for SCROLLINFO_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLL_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for SCROLL_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SCROLL_WINDOW_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6712,9 +6565,6 @@ impl core::ops::Not for SCROLL_WINDOW_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
-impl windows_core::TypeKind for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SEND_MESSAGE_TIMEOUT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6751,9 +6601,6 @@ impl core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_WINDOW_POS_FLAGS(pub u32);
-impl windows_core::TypeKind for SET_WINDOW_POS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SET_WINDOW_POS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6790,33 +6637,18 @@ impl core::ops::Not for SET_WINDOW_POS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHOW_WINDOW_CMD(pub i32);
-impl windows_core::TypeKind for SHOW_WINDOW_CMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHOW_WINDOW_STATUS(pub u32);
-impl windows_core::TypeKind for SHOW_WINDOW_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_CURSOR_ID(pub u32);
-impl windows_core::TypeKind for SYSTEM_CURSOR_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_METRICS_INDEX(pub i32);
-impl windows_core::TypeKind for SYSTEM_METRICS_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
-impl windows_core::TypeKind for SYSTEM_PARAMETERS_INFO_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYSTEM_PARAMETERS_INFO_ACTION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6853,9 +6685,6 @@ impl core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
-impl windows_core::TypeKind for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6892,21 +6721,12 @@ impl core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TILE_WINDOWS_HOW(pub u32);
-impl windows_core::TypeKind for TILE_WINDOWS_HOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOOLTIP_DISMISS_FLAGS(pub i32);
-impl windows_core::TypeKind for TOOLTIP_DISMISS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
-impl windows_core::TypeKind for TRACK_POPUP_MENU_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TRACK_POPUP_MENU_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6943,15 +6763,9 @@ impl core::ops::Not for TRACK_POPUP_MENU_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for UPDATE_LAYERED_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWPLACEMENT_FLAGS(pub u32);
-impl windows_core::TypeKind for WINDOWPLACEMENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINDOWPLACEMENT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6988,21 +6802,12 @@ impl core::ops::Not for WINDOWPLACEMENT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWS_HOOK_ID(pub i32);
-impl windows_core::TypeKind for WINDOWS_HOOK_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
-impl windows_core::TypeKind for WINDOW_DISPLAY_AFFINITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_EX_STYLE(pub u32);
-impl windows_core::TypeKind for WINDOW_EX_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINDOW_EX_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7039,21 +6844,12 @@ impl core::ops::Not for WINDOW_EX_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_LONG_PTR_INDEX(pub i32);
-impl windows_core::TypeKind for WINDOW_LONG_PTR_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
-impl windows_core::TypeKind for WINDOW_MESSAGE_FILTER_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_STYLE(pub u32);
-impl windows_core::TypeKind for WINDOW_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINDOW_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7090,9 +6886,6 @@ impl core::ops::Not for WINDOW_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNDCLASS_STYLES(pub u32);
-impl windows_core::TypeKind for WNDCLASS_STYLES {
-    type TypeKind = windows_core::CopyType;
-}
 impl WNDCLASS_STYLES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

@@ -11950,93 +11950,48 @@ pub const FACILITY_D2D: u32 = 2201u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_2DAFFINETRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_2DAFFINETRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_3DTRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_3DTRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ANTIALIAS_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_ANTIALIAS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ARC_SIZE(pub i32);
-impl windows_core::TypeKind for D2D1_ARC_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_ARITHMETICCOMPOSITE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ATLAS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_ATLAS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAPSOURCE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAP_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAP_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAP_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_BITMAP_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12073,57 +12028,30 @@ impl core::ops::Not for D2D1_BITMAP_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BLEND(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BLEND_OPERATION(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BLEND_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BORDER_EDGE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BORDER_EDGE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BORDER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BORDER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BRIGHTNESS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BRIGHTNESS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BUFFER_PRECISION(pub i32);
-impl windows_core::TypeKind for D2D1_BUFFER_PRECISION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CAP_STYLE(pub i32);
-impl windows_core::TypeKind for D2D1_CAP_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_CHANGE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12160,87 +12088,45 @@ impl core::ops::Not for D2D1_CHANGE_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CHANNEL_DEPTH(pub i32);
-impl windows_core::TypeKind for D2D1_CHANNEL_DEPTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CHANNEL_SELECTOR(pub i32);
-impl windows_core::TypeKind for D2D1_CHANNEL_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CHROMAKEY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CHROMAKEY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMANAGEMENT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMANAGEMENT_QUALITY(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMATRIX_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMATRIX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLOR_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLOR_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COMBINE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COMBINE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12277,63 +12163,33 @@ impl core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COMPOSITE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COMPOSITE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CONTRAST_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CONTRAST_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CONVOLVEMATRIX_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CONVOLVEMATRIX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CROP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CROP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CROSSFADE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CROSSFADE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DASH_STYLE(pub i32);
-impl windows_core::TypeKind for D2D1_DASH_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DC_INITIALIZE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DC_INITIALIZE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DEBUG_LEVEL(pub i32);
-impl windows_core::TypeKind for D2D1_DEBUG_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_DEVICE_CONTEXT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_DEVICE_CONTEXT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12370,69 +12226,36 @@ impl core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DIRECTIONALBLUR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DIRECTIONALBLUR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISCRETETRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISCRETETRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISPLACEMENTMAP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISPLACEMENTMAP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISTANTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISTANTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DPICOMPENSATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DPICOMPENSATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_DRAW_TEXT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_DRAW_TEXT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_DRAW_TEXT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12469,159 +12292,81 @@ impl core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_EDGEDETECTION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_EDGEDETECTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_EDGEDETECTION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EDGEDETECTION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_EMBOSS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EMBOSS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_EXPOSURE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EXPOSURE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_EXTEND_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_EXTEND_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FACTORY_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_FACTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FEATURE(pub i32);
-impl windows_core::TypeKind for D2D1_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for D2D1_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FILTER(pub i32);
-impl windows_core::TypeKind for D2D1_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FLOOD_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_FLOOD_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GAMMA(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GAMMA1(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMA1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GAMMATRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMATRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GAUSSIANBLUR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_GAUSSIANBLUR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GEOMETRY_RELATION(pub i32);
-impl windows_core::TypeKind for D2D1_GEOMETRY_RELATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub i32);
-impl windows_core::TypeKind for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HDRTONEMAP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HDRTONEMAP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub i32);
-impl windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HISTOGRAM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HISTOGRAM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HUEROTATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HUEROTATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HUETORGB_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HUETORGB_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12658,9 +12403,6 @@ impl core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12697,27 +12439,15 @@ impl core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_INK_NIB_SHAPE(pub i32);
-impl windows_core::TypeKind for D2D1_INK_NIB_SHAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
-impl windows_core::TypeKind for D2D1_INTERPOLATION_MODE_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LAYER_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_LAYER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_LAYER_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12754,9 +12484,6 @@ impl core::ops::Not for D2D1_LAYER_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LAYER_OPTIONS1(pub i32);
-impl windows_core::TypeKind for D2D1_LAYER_OPTIONS1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_LAYER_OPTIONS1 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12793,27 +12520,15 @@ impl core::ops::Not for D2D1_LAYER_OPTIONS1 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LINEARTRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_LINEARTRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for D2D1_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LOOKUPTABLE3D_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_LOOKUPTABLE3D_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_MAP_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_MAP_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_MAP_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12850,51 +12565,27 @@ impl core::ops::Not for D2D1_MAP_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_MORPHOLOGY_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_MORPHOLOGY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_MORPHOLOGY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_MORPHOLOGY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_OPACITYMETADATA_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITYMETADATA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_OPACITY_MASK_CONTENT(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITY_MASK_CONTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_OPACITY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ORIENTATION(pub i32);
-impl windows_core::TypeKind for D2D1_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PATCH_EDGE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_PATCH_EDGE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PIXEL_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_PIXEL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_PIXEL_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12931,39 +12622,21 @@ impl core::ops::Not for D2D1_PIXEL_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POINTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POINTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_POINTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POINTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POINTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_POINTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POSTERIZE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POSTERIZE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PRESENT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_PRESENT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_PRESENT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13000,45 +12673,24 @@ impl core::ops::Not for D2D1_PRESENT_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PRIMITIVE_BLEND(pub i32);
-impl windows_core::TypeKind for D2D1_PRIMITIVE_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_PRINT_FONT_SUBSET_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PROPERTY(pub i32);
-impl windows_core::TypeKind for D2D1_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RENDERING_PRIORITY(pub i32);
-impl windows_core::TypeKind for D2D1_RENDERING_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RENDER_TARGET_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RENDER_TARGET_USAGE(pub i32);
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_RENDER_TARGET_USAGE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13075,87 +12727,45 @@ impl core::ops::Not for D2D1_RENDER_TARGET_USAGE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RGBTOHUE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_RGBTOHUE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SATURATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SATURATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SCALE_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SCALE_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SCALE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SCALE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SEPIA_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SEPIA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SHADOW_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_SHADOW_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SHADOW_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SHADOW_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SHARPEN_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SHARPEN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SPOTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SPOTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SPRITE_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_SPRITE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_SPRITE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13192,153 +12802,78 @@ impl core::ops::Not for D2D1_SPRITE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_STRAIGHTEN_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_STRAIGHTEN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_STRAIGHTEN_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_STROKE_TRANSFORM_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_STROKE_TRANSFORM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SUBPROPERTY(pub i32);
-impl windows_core::TypeKind for D2D1_SUBPROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_ASPECT_ALIGN(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ASPECT_ALIGN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_ASPECT_SCALING(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ASPECT_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_DISPLAY(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_DISPLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_LENGTH_UNITS(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LENGTH_UNITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_LINE_CAP(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LINE_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_OVERFLOW(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_OVERFLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_PAINT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_PAINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_PATH_COMMAND(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_PATH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_UNIT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_UNIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_VISIBILITY(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_VISIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SWEEP_DIRECTION(pub i32);
-impl windows_core::TypeKind for D2D1_SWEEP_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TABLETRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TABLETRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TEMPERATUREANDTINT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TEMPERATUREANDTINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TEXT_ANTIALIAS_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_TEXT_ANTIALIAS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_THREADING_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_THREADING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TILE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TILE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TINT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13375,21 +12910,12 @@ impl core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TURBULENCE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TURBULENCE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_UNIT_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_UNIT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_VERTEX_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_VERTEX_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_VERTEX_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13426,27 +12952,15 @@ impl core::ops::Not for D2D1_VERTEX_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_VERTEX_USAGE(pub i32);
-impl windows_core::TypeKind for D2D1_VERTEX_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_VIGNETTE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_VIGNETTE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_WHITELEVELADJUSTMENT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_WINDOW_STATE(pub i32);
-impl windows_core::TypeKind for D2D1_WINDOW_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_WINDOW_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13483,21 +12997,12 @@ impl core::ops::Not for D2D1_WINDOW_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_YCBCR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]

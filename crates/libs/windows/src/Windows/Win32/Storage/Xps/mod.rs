@@ -10916,21 +10916,12 @@ pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = XPS_TILE_MODE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
-impl windows_core::TypeKind for PRINTER_DEVICE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINT_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for PRINT_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSINJECT_POINT(pub u16);
-impl windows_core::TypeKind for PSINJECT_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSINJECT_POINT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10967,93 +10958,48 @@ impl core::ops::Not for PSINJECT_POINT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_COLOR_INTERPOLATION(pub i32);
-impl windows_core::TypeKind for XPS_COLOR_INTERPOLATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_COLOR_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_COLOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_DASH_CAP(pub i32);
-impl windows_core::TypeKind for XPS_DASH_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_DOCUMENT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_DOCUMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_FILL_RULE(pub i32);
-impl windows_core::TypeKind for XPS_FILL_RULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_FONT_EMBEDDING(pub i32);
-impl windows_core::TypeKind for XPS_FONT_EMBEDDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_INTERLEAVING(pub i32);
-impl windows_core::TypeKind for XPS_INTERLEAVING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_LINE_CAP(pub i32);
-impl windows_core::TypeKind for XPS_LINE_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for XPS_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
-impl windows_core::TypeKind for XPS_SEGMENT_STROKE_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SEGMENT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_SEGMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SIGNATURE_STATUS(pub i32);
-impl windows_core::TypeKind for XPS_SIGNATURE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SIGN_FLAGS(pub i32);
-impl windows_core::TypeKind for XPS_SIGN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl XPS_SIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11090,9 +11036,6 @@ impl core::ops::Not for XPS_SIGN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SIGN_POLICY(pub i32);
-impl windows_core::TypeKind for XPS_SIGN_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 impl XPS_SIGN_POLICY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11129,27 +11072,15 @@ impl core::ops::Not for XPS_SIGN_POLICY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_SPREAD_METHOD(pub i32);
-impl windows_core::TypeKind for XPS_SPREAD_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_STYLE_SIMULATION(pub i32);
-impl windows_core::TypeKind for XPS_STYLE_SIMULATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_THUMBNAIL_SIZE(pub i32);
-impl windows_core::TypeKind for XPS_THUMBNAIL_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_TILE_MODE(pub i32);
-impl windows_core::TypeKind for XPS_TILE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOCINFOA {

@@ -1222,18 +1222,12 @@ impl MLOperatorAttributeType {
     pub const IntArray: Self = Self(8u32);
     pub const StringArray: Self = Self(9u32);
 }
-impl windows_core::TypeKind for MLOperatorAttributeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
     pub const Tensor: Self = Self(1u32);
-}
-impl windows_core::TypeKind for MLOperatorEdgeType {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1243,18 +1237,12 @@ impl MLOperatorExecutionType {
     pub const Cpu: Self = Self(1u32);
     pub const D3D12: Self = Self(2u32);
 }
-impl windows_core::TypeKind for MLOperatorExecutionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
     pub const None: Self = Self(0u32);
     pub const AllowDynamicInputShapes: Self = Self(1u32);
-}
-impl windows_core::TypeKind for MLOperatorKernelOptions {
-    type TypeKind = windows_core::CopyType;
 }
 impl MLOperatorKernelOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1297,9 +1285,6 @@ impl MLOperatorParameterOptions {
     pub const Optional: Self = Self(1u32);
     pub const Variadic: Self = Self(2u32);
 }
-impl windows_core::TypeKind for MLOperatorParameterOptions {
-    type TypeKind = windows_core::CopyType;
-}
 impl MLOperatorParameterOptions {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1340,9 +1325,6 @@ impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
     pub const Label: Self = Self(1i32);
 }
-impl windows_core::TypeKind for MLOperatorSchemaEdgeTypeFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorTensorDataType(pub u32);
@@ -1364,33 +1346,18 @@ impl MLOperatorTensorDataType {
     pub const Complex64: Self = Self(14u32);
     pub const Complex128: Self = Self(15u32);
 }
-impl windows_core::TypeKind for MLOperatorTensorDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_BINDING_TYPE(pub i32);
-impl windows_core::TypeKind for WINML_BINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_FEATURE_TYPE(pub i32);
-impl windows_core::TypeKind for WINML_FEATURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
-impl windows_core::TypeKind for WINML_RUNTIME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for WINML_TENSOR_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorAttribute {

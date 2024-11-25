@@ -300,21 +300,12 @@ pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATION
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCN_NOTIFICATIONS(pub i32);
-impl windows_core::TypeKind for HCN_NOTIFICATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCN_PORT_ACCESS(pub i32);
-impl windows_core::TypeKind for HCN_PORT_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCN_PORT_PROTOCOL(pub i32);
-impl windows_core::TypeKind for HCN_PORT_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HCN_PORT_RANGE_ENTRY {

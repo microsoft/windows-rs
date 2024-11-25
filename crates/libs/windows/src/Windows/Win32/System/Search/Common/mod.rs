@@ -20,12 +20,6 @@ pub const CT_OR_CONDITION: CONDITION_TYPE = CONDITION_TYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONDITION_OPERATION(pub i32);
-impl windows_core::TypeKind for CONDITION_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONDITION_TYPE(pub i32);
-impl windows_core::TypeKind for CONDITION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}

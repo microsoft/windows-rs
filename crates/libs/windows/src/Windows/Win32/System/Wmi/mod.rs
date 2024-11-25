@@ -8863,147 +8863,75 @@ pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CIMTYPE_ENUMERATION(pub i32);
-impl windows_core::TypeKind for CIMTYPE_ENUMERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_CallbackMode(pub i32);
-impl windows_core::TypeKind for MI_CallbackMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_CancellationReason(pub i32);
-impl windows_core::TypeKind for MI_CancellationReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_DestinationOptions_ImpersonationType(pub i32);
-impl windows_core::TypeKind for MI_DestinationOptions_ImpersonationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ErrorCategory(pub i32);
-impl windows_core::TypeKind for MI_ErrorCategory {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_LocaleType(pub i32);
-impl windows_core::TypeKind for MI_LocaleType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
-impl windows_core::TypeKind for MI_OperationCallback_ResponseType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_PromptType(pub i32);
-impl windows_core::TypeKind for MI_PromptType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ProviderArchitecture(pub i32);
-impl windows_core::TypeKind for MI_ProviderArchitecture {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_Result(pub i32);
-impl windows_core::TypeKind for MI_Result {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
-impl windows_core::TypeKind for MI_SubscriptionDeliveryType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_Type(pub i32);
-impl windows_core::TypeKind for MI_Type {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEMSTATUS(pub i32);
-impl windows_core::TypeKind for WBEMSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
-impl windows_core::TypeKind for WBEMSTATUS_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_BACKUP_RESTORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_BATCH_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_BATCH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_CHANGE_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
-impl windows_core::TypeKind for WBEM_COMPARISON_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
-impl windows_core::TypeKind for WBEM_COMPILER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_CONDITION_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
-impl windows_core::TypeKind for WBEM_CONNECT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
-impl windows_core::TypeKind for WBEM_EXTRA_RETURN_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_FLAVOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_GENERIC_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WBEM_GENERIC_FLAG_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9040,231 +8968,117 @@ impl core::ops::Not for WBEM_GENERIC_FLAG_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GENUS_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_GENUS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_GET_KEY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_GET_TEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_INFORMATION_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_LIMITATION_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LIMITS(pub i32);
-impl windows_core::TypeKind for WBEM_LIMITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_LOCKING_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LOGIN_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_LOGIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
-impl windows_core::TypeKind for WBEM_PATH_CREATE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
-impl windows_core::TypeKind for WBEM_PATH_STATUS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_PROVIDER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_QUERY_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_REFRESHER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_SECURITY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
-impl windows_core::TypeKind for WBEM_SHUTDOWN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_STATUS_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_STATUS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_TEXT_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
-impl windows_core::TypeKind for WBEM_UNSECAPP_FLAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
-impl windows_core::TypeKind for WMIQ_ANALYSIS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
-impl windows_core::TypeKind for WMIQ_ASSOCQ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
-impl windows_core::TypeKind for WMIQ_LANGUAGE_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_RPNF_FEATURE(pub i32);
-impl windows_core::TypeKind for WMIQ_RPNF_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
-impl windows_core::TypeKind for WMIQ_RPN_TOKEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMI_OBJ_TEXT(pub i32);
-impl windows_core::TypeKind for WMI_OBJ_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
-impl windows_core::TypeKind for WbemAuthenticationLevelEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemChangeFlagEnum(pub i32);
-impl windows_core::TypeKind for WbemChangeFlagEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemCimtypeEnum(pub i32);
-impl windows_core::TypeKind for WbemCimtypeEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemComparisonFlagEnum(pub i32);
-impl windows_core::TypeKind for WbemComparisonFlagEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemConnectOptionsEnum(pub i32);
-impl windows_core::TypeKind for WbemConnectOptionsEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemErrorEnum(pub i32);
-impl windows_core::TypeKind for WbemErrorEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemFlagEnum(pub i32);
-impl windows_core::TypeKind for WbemFlagEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemImpersonationLevelEnum(pub i32);
-impl windows_core::TypeKind for WbemImpersonationLevelEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemObjectTextFormatEnum(pub i32);
-impl windows_core::TypeKind for WbemObjectTextFormatEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemPrivilegeEnum(pub i32);
-impl windows_core::TypeKind for WbemPrivilegeEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemQueryFlagEnum(pub i32);
-impl windows_core::TypeKind for WbemQueryFlagEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemTextFlagEnum(pub i32);
-impl windows_core::TypeKind for WbemTextFlagEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemTimeout(pub i32);
-impl windows_core::TypeKind for WbemTimeout {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Application {

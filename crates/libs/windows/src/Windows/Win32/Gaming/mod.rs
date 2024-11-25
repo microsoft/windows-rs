@@ -1240,45 +1240,24 @@ pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivi
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
-impl windows_core::TypeKind for GAMESTATS_OPEN_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
-impl windows_core::TypeKind for GAMESTATS_OPEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
-impl windows_core::TypeKind for GAME_INSTALL_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
-impl windows_core::TypeKind for GAMING_DEVICE_DEVICE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
-impl windows_core::TypeKind for GAMING_DEVICE_VENDOR_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownGamingPrivileges(pub i32);
-impl windows_core::TypeKind for KnownGamingPrivileges {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
-impl windows_core::TypeKind for XBL_IDP_AUTH_TOKEN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {

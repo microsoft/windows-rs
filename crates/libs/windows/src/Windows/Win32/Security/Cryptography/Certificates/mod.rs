@@ -24343,39 +24343,21 @@ pub const wszzDEFAULTSIGNEDATTRIBUTES: windows_core::PCWSTR = windows_core::w!("
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDED_CERT_TYPE(pub i32);
-impl windows_core::TypeKind for ADDED_CERT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlgorithmFlags(pub i32);
-impl windows_core::TypeKind for AlgorithmFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlgorithmOperationFlags(pub i32);
-impl windows_core::TypeKind for AlgorithmOperationFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlgorithmType(pub i32);
-impl windows_core::TypeKind for AlgorithmType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlternativeNameType(pub i32);
-impl windows_core::TypeKind for AlternativeNameType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
-impl windows_core::TypeKind for CERTADMIN_GET_ROLES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERTADMIN_GET_ROLES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -24412,39 +24394,21 @@ impl core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERTENROLL_OBJECTID(pub i32);
-impl windows_core::TypeKind for CERTENROLL_OBJECTID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERTENROLL_PROPERTYID(pub i32);
-impl windows_core::TypeKind for CERTENROLL_PROPERTYID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ALT_NAME(pub i32);
-impl windows_core::TypeKind for CERT_ALT_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CREATE_REQUEST_FLAGS(pub i32);
-impl windows_core::TypeKind for CERT_CREATE_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_DELETE_ROW_FLAGS(pub i32);
-impl windows_core::TypeKind for CERT_DELETE_ROW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_EXIT_EVENT_MASK(pub u32);
-impl windows_core::TypeKind for CERT_EXIT_EVENT_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_EXIT_EVENT_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -24481,411 +24445,207 @@ impl core::ops::Not for CERT_EXIT_EVENT_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_GET_CONFIG_FLAGS(pub i32);
-impl windows_core::TypeKind for CERT_GET_CONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_IMPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for CERT_IMPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for CERT_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REQUEST_OUT_TYPE(pub i32);
-impl windows_core::TypeKind for CERT_REQUEST_OUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
-impl windows_core::TypeKind for CERT_VIEW_COLUMN_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub i32);
-impl windows_core::TypeKind for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRLRevocationReason(pub i32);
-impl windows_core::TypeKind for CRLRevocationReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CR_DISP(pub u32);
-impl windows_core::TypeKind for CR_DISP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSBACKUP_TYPE(pub u32);
-impl windows_core::TypeKind for CSBACKUP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CVRC_COLUMN(pub i32);
-impl windows_core::TypeKind for CVRC_COLUMN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CVRC_TABLE(pub i32);
-impl windows_core::TypeKind for CVRC_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommitTemplateFlags(pub i32);
-impl windows_core::TypeKind for CommitTemplateFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DelayRetryAction(pub i32);
-impl windows_core::TypeKind for DelayRetryAction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_CATYPES(pub i32);
-impl windows_core::TypeKind for ENUM_CATYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub i32);
-impl windows_core::TypeKind for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncodingType(pub i32);
-impl windows_core::TypeKind for EncodingType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentCAProperty(pub i32);
-impl windows_core::TypeKind for EnrollmentCAProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentDisplayStatus(pub i32);
-impl windows_core::TypeKind for EnrollmentDisplayStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentEnrollStatus(pub i32);
-impl windows_core::TypeKind for EnrollmentEnrollStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentPolicyFlags(pub i32);
-impl windows_core::TypeKind for EnrollmentPolicyFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
-impl windows_core::TypeKind for EnrollmentPolicyServerPropertyFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentSelectionStatus(pub i32);
-impl windows_core::TypeKind for EnrollmentSelectionStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollmentTemplateProperty(pub i32);
-impl windows_core::TypeKind for EnrollmentTemplateProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FULL_RESPONSE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for FULL_RESPONSE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImportPFXFlags(pub i32);
-impl windows_core::TypeKind for ImportPFXFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InnerRequestLevel(pub i32);
-impl windows_core::TypeKind for InnerRequestLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InstallResponseRestrictionFlags(pub i32);
-impl windows_core::TypeKind for InstallResponseRestrictionFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyAttestationClaimType(pub i32);
-impl windows_core::TypeKind for KeyAttestationClaimType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyIdentifierHashAlgorithm(pub i32);
-impl windows_core::TypeKind for KeyIdentifierHashAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSPRequestFlag(pub i32);
-impl windows_core::TypeKind for OCSPRequestFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSPSigningFlag(pub i32);
-impl windows_core::TypeKind for OCSPSigningFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ObjectIdGroupId(pub i32);
-impl windows_core::TypeKind for ObjectIdGroupId {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ObjectIdPublicKeyFlags(pub i32);
-impl windows_core::TypeKind for ObjectIdPublicKeyFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub i32);
-impl windows_core::TypeKind for PENDING_REQUEST_DESIRED_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFXExportOptions(pub i32);
-impl windows_core::TypeKind for PFXExportOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Pkcs10AllowedSignatureTypes(pub i32);
-impl windows_core::TypeKind for Pkcs10AllowedSignatureTypes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PolicyQualifierType(pub i32);
-impl windows_core::TypeKind for PolicyQualifierType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PolicyServerUrlFlags(pub i32);
-impl windows_core::TypeKind for PolicyServerUrlFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PolicyServerUrlPropertyID(pub i32);
-impl windows_core::TypeKind for PolicyServerUrlPropertyID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RequestClientInfoClientId(pub i32);
-impl windows_core::TypeKind for RequestClientInfoClientId {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebEnrollmentFlags(pub i32);
-impl windows_core::TypeKind for WebEnrollmentFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebSecurityLevel(pub i32);
-impl windows_core::TypeKind for WebSecurityLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X500NameFlags(pub i32);
-impl windows_core::TypeKind for X500NameFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509CertificateEnrollmentContext(pub i32);
-impl windows_core::TypeKind for X509CertificateEnrollmentContext {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
-impl windows_core::TypeKind for X509CertificateTemplateEnrollmentFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509CertificateTemplateGeneralFlag(pub i32);
-impl windows_core::TypeKind for X509CertificateTemplateGeneralFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
-impl windows_core::TypeKind for X509CertificateTemplatePrivateKeyFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
-impl windows_core::TypeKind for X509CertificateTemplateSubjectNameFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509EnrollmentAuthFlags(pub i32);
-impl windows_core::TypeKind for X509EnrollmentAuthFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509EnrollmentPolicyExportFlags(pub i32);
-impl windows_core::TypeKind for X509EnrollmentPolicyExportFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509EnrollmentPolicyLoadOption(pub i32);
-impl windows_core::TypeKind for X509EnrollmentPolicyLoadOption {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509HardwareKeyUsageFlags(pub i32);
-impl windows_core::TypeKind for X509HardwareKeyUsageFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509KeyParametersExportType(pub i32);
-impl windows_core::TypeKind for X509KeyParametersExportType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509KeySpec(pub i32);
-impl windows_core::TypeKind for X509KeySpec {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509KeyUsageFlags(pub i32);
-impl windows_core::TypeKind for X509KeyUsageFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509PrivateKeyExportFlags(pub i32);
-impl windows_core::TypeKind for X509PrivateKeyExportFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509PrivateKeyProtection(pub i32);
-impl windows_core::TypeKind for X509PrivateKeyProtection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509PrivateKeyUsageFlags(pub i32);
-impl windows_core::TypeKind for X509PrivateKeyUsageFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509PrivateKeyVerify(pub i32);
-impl windows_core::TypeKind for X509PrivateKeyVerify {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509ProviderType(pub i32);
-impl windows_core::TypeKind for X509ProviderType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509RequestInheritOptions(pub i32);
-impl windows_core::TypeKind for X509RequestInheritOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509RequestType(pub i32);
-impl windows_core::TypeKind for X509RequestType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509SCEPDisposition(pub i32);
-impl windows_core::TypeKind for X509SCEPDisposition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509SCEPFailInfo(pub i32);
-impl windows_core::TypeKind for X509SCEPFailInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509SCEPMessageType(pub i32);
-impl windows_core::TypeKind for X509SCEPMessageType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct X509SCEPProcessMessageFlags(pub i32);
-impl windows_core::TypeKind for X509SCEPProcessMessageFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XEKL_KEYSIZE(pub i32);
-impl windows_core::TypeKind for XEKL_KEYSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XEKL_KEYSPEC(pub i32);
-impl windows_core::TypeKind for XEKL_KEYSPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAINFO {

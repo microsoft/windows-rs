@@ -701,69 +701,36 @@ pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
-impl windows_core::TypeKind for HTTP_503_RESPONSE_VERBOSITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
-impl windows_core::TypeKind for HTTP_AUTHENTICATION_HARDENING_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_AUTH_STATUS(pub i32);
-impl windows_core::TypeKind for HTTP_AUTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_CACHE_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_ENABLED_STATE(pub i32);
-impl windows_core::TypeKind for HTTP_ENABLED_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FEATURE_ID(pub i32);
-impl windows_core::TypeKind for HTTP_FEATURE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_HEADER_ID(pub i32);
-impl windows_core::TypeKind for HTTP_HEADER_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_INITIALIZE(pub u32);
-impl windows_core::TypeKind for HTTP_INITIALIZE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTTP_INITIALIZE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -800,141 +767,72 @@ impl core::ops::Not for HTTP_INITIALIZE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_LOGGING_ROLLOVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_LOGGING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_LOG_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_PERFORMANCE_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_PROTECTION_LEVEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_QOS_SETTING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
-impl windows_core::TypeKind for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_REQUEST_AUTH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_REQUEST_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
-impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_REQUEST_SIZING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_REQUEST_TIMING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_RESPONSE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SCHEME(pub i32);
-impl windows_core::TypeKind for HTTP_SCHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
-impl windows_core::TypeKind for HTTP_SERVER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_BINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_VERB(pub i32);
-impl windows_core::TypeKind for HTTP_VERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {

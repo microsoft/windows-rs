@@ -5392,9 +5392,6 @@ pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AF_OP(pub u32);
-impl windows_core::TypeKind for AF_OP {
-    type TypeKind = windows_core::CopyType;
-}
 impl AF_OP {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5431,81 +5428,42 @@ impl core::ops::Not for AF_OP {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_FLAGS1(pub i32);
-impl windows_core::TypeKind for BIND_FLAGS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPONENT_CHARACTERISTICS(pub i32);
-impl windows_core::TypeKind for COMPONENT_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEFAULT_PAGES(pub i32);
-impl windows_core::TypeKind for DEFAULT_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSREG_JOIN_TYPE(pub i32);
-impl windows_core::TypeKind for DSREG_JOIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
-impl windows_core::TypeKind for ENUM_BINDING_PATHS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORCE_LEVEL_FLAGS(pub u32);
-impl windows_core::TypeKind for FORCE_LEVEL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSA_INFO_LEVEL(pub i32);
-impl windows_core::TypeKind for MSA_INFO_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSA_INFO_STATE(pub i32);
-impl windows_core::TypeKind for MSA_INFO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCPNP_RECONFIG_LAYER(pub i32);
-impl windows_core::TypeKind for NCPNP_RECONFIG_LAYER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRP_FLAGS(pub i32);
-impl windows_core::TypeKind for NCRP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSETUP_JOIN_STATUS(pub i32);
-impl windows_core::TypeKind for NETSETUP_JOIN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSETUP_NAME_TYPE(pub i32);
-impl windows_core::TypeKind for NETSETUP_NAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSETUP_PROVISION(pub u32);
-impl windows_core::TypeKind for NETSETUP_PROVISION {
-    type TypeKind = windows_core::CopyType;
-}
 impl NETSETUP_PROVISION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5542,27 +5500,15 @@ impl core::ops::Not for NETSETUP_PROVISION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_INSTALL_TIME(pub i32);
-impl windows_core::TypeKind for NETWORK_INSTALL_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_UPGRADE_TYPE(pub i32);
-impl windows_core::TypeKind for NETWORK_UPGRADE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_COMPUTER_NAME_TYPE(pub i32);
-impl windows_core::TypeKind for NET_COMPUTER_NAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_JOIN_DOMAIN_JOIN_OPTIONS(pub u32);
-impl windows_core::TypeKind for NET_JOIN_DOMAIN_JOIN_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_JOIN_DOMAIN_JOIN_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5599,15 +5545,9 @@ impl core::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub u32);
-impl windows_core::TypeKind for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_REQUEST_PROVISION_OPTIONS(pub u32);
-impl windows_core::TypeKind for NET_REQUEST_PROVISION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_REQUEST_PROVISION_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5644,9 +5584,6 @@ impl core::ops::Not for NET_REQUEST_PROVISION_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_SERVER_TYPE(pub u32);
-impl windows_core::TypeKind for NET_SERVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_SERVER_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5683,9 +5620,6 @@ impl core::ops::Not for NET_SERVER_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_USER_ENUM_FILTER_FLAGS(pub u32);
-impl windows_core::TypeKind for NET_USER_ENUM_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_USER_ENUM_FILTER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5722,51 +5656,27 @@ impl core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
-impl windows_core::TypeKind for NET_VALIDATE_PASSWORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBO_TOKEN_TYPE(pub i32);
-impl windows_core::TypeKind for OBO_TOKEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASCON_UIINFO_FLAGS(pub i32);
-impl windows_core::TypeKind for RASCON_UIINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_HIDDEN(pub i32);
-impl windows_core::TypeKind for SERVER_INFO_HIDDEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_SECURITY(pub u32);
-impl windows_core::TypeKind for SERVER_INFO_SECURITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
-impl windows_core::TypeKind for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_TYPE(pub i32);
-impl windows_core::TypeKind for TRANSPORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_ACCOUNT_FLAGS(pub u32);
-impl windows_core::TypeKind for USER_ACCOUNT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl USER_ACCOUNT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5803,21 +5713,12 @@ impl core::ops::Not for USER_ACCOUNT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_ROLES(pub u32);
-impl windows_core::TypeKind for USER_MODALS_ROLES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_PRIV(pub u32);
-impl windows_core::TypeKind for USER_PRIV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_ASG_TYPE(pub u32);
-impl windows_core::TypeKind for USE_INFO_ASG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_INFO_0 {

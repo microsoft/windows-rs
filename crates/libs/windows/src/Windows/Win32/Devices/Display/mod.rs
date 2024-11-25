@@ -1888,9 +1888,6 @@ pub const XO_TRIVIAL: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AR_STATE(pub i32);
-impl windows_core::TypeKind for AR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl AR_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1927,159 +1924,81 @@ impl core::ops::Not for AR_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-impl windows_core::TypeKind for BACKLIGHT_OPTIMIZATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
-impl windows_core::TypeKind for BRIGHTNESS_INTERFACE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
-impl windows_core::TypeKind for BlackScreenDiagnosticsCalloutParam {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
-impl windows_core::TypeKind for COLORSPACE_TRANSFORM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_DEVICE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_MODE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_PIXELFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_ROTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_SCANLINE_ORDERING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_TOPOLOGY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-impl windows_core::TypeKind for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
-impl windows_core::TypeKind for DSI_CONTROL_TRANSMISSION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
-impl windows_core::TypeKind for ENG_DEVICE_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
-impl windows_core::TypeKind for ENG_SYSTEM_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
-impl windows_core::TypeKind for MC_COLOR_TEMPERATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
-impl windows_core::TypeKind for MC_DISPLAY_TECHNOLOGY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_DRIVE_TYPE(pub i32);
-impl windows_core::TypeKind for MC_DRIVE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_GAIN_TYPE(pub i32);
-impl windows_core::TypeKind for MC_GAIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_POSITION_TYPE(pub i32);
-impl windows_core::TypeKind for MC_POSITION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_SIZE_TYPE(pub i32);
-impl windows_core::TypeKind for MC_SIZE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
-impl windows_core::TypeKind for MC_VCP_CODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
-impl windows_core::TypeKind for ORIENTATION_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl ORIENTATION_PREFERENCE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2116,21 +2035,12 @@ impl core::ops::Not for ORIENTATION_PREFERENCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
-impl windows_core::TypeKind for OUTPUT_COLOR_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-impl windows_core::TypeKind for OUTPUT_WIRE_COLOR_SPACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_DISPLAY_CONFIG_FLAGS(pub u32);
-impl windows_core::TypeKind for QUERY_DISPLAY_CONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl QUERY_DISPLAY_CONFIG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2167,9 +2077,6 @@ impl core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_DISPLAY_CONFIG_FLAGS(pub u32);
-impl windows_core::TypeKind for SET_DISPLAY_CONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SET_DISPLAY_CONFIG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2206,21 +2113,12 @@ impl core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEO_BANK_TYPE(pub i32);
-impl windows_core::TypeKind for VIDEO_BANK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEO_POWER_STATE(pub i32);
-impl windows_core::TypeKind for VIDEO_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
-impl windows_core::TypeKind for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Adapter {

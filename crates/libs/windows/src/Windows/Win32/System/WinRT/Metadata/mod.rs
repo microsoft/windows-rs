@@ -3860,321 +3860,162 @@ pub const tdWindowsRuntime: CorTypeAttr = CorTypeAttr(16384i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINITICOR(pub i32);
-impl windows_core::TypeKind for COINITICOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINITIEE(pub i32);
-impl windows_core::TypeKind for COINITIEE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COUNINITIEE(pub i32);
-impl windows_core::TypeKind for COUNINITIEE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CeeSectionAttr(pub i64);
-impl windows_core::TypeKind for CeeSectionAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CeeSectionRelocType(pub i32);
-impl windows_core::TypeKind for CeeSectionRelocType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompilationRelaxationsEnum(pub i32);
-impl windows_core::TypeKind for CompilationRelaxationsEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorArgType(pub i32);
-impl windows_core::TypeKind for CorArgType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorAssemblyFlags(pub i32);
-impl windows_core::TypeKind for CorAssemblyFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorAttributeTargets(pub i32);
-impl windows_core::TypeKind for CorAttributeTargets {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorCallingConvention(pub i32);
-impl windows_core::TypeKind for CorCallingConvention {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorCheckDuplicatesFor(pub i32);
-impl windows_core::TypeKind for CorCheckDuplicatesFor {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorDeclSecurity(pub i32);
-impl windows_core::TypeKind for CorDeclSecurity {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorElementType(pub u8);
-impl windows_core::TypeKind for CorElementType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorErrorIfEmitOutOfOrder(pub i32);
-impl windows_core::TypeKind for CorErrorIfEmitOutOfOrder {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorEventAttr(pub i32);
-impl windows_core::TypeKind for CorEventAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorExceptionFlag(pub i32);
-impl windows_core::TypeKind for CorExceptionFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorFieldAttr(pub i32);
-impl windows_core::TypeKind for CorFieldAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorFileFlags(pub i32);
-impl windows_core::TypeKind for CorFileFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorFileMapping(pub i32);
-impl windows_core::TypeKind for CorFileMapping {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorGenericParamAttr(pub i32);
-impl windows_core::TypeKind for CorGenericParamAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorILMethodFlags(pub i32);
-impl windows_core::TypeKind for CorILMethodFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorILMethodSect(pub i32);
-impl windows_core::TypeKind for CorILMethodSect {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorImportOptions(pub i32);
-impl windows_core::TypeKind for CorImportOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorLinkerOptions(pub i32);
-impl windows_core::TypeKind for CorLinkerOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorLocalRefPreservation(pub i32);
-impl windows_core::TypeKind for CorLocalRefPreservation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorManifestResourceFlags(pub i32);
-impl windows_core::TypeKind for CorManifestResourceFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorMethodAttr(pub i32);
-impl windows_core::TypeKind for CorMethodAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorMethodImpl(pub i32);
-impl windows_core::TypeKind for CorMethodImpl {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorMethodSemanticsAttr(pub i32);
-impl windows_core::TypeKind for CorMethodSemanticsAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorNativeLinkFlags(pub i32);
-impl windows_core::TypeKind for CorNativeLinkFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorNativeLinkType(pub i32);
-impl windows_core::TypeKind for CorNativeLinkType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorNativeType(pub i32);
-impl windows_core::TypeKind for CorNativeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorNotificationForTokenMovement(pub i32);
-impl windows_core::TypeKind for CorNotificationForTokenMovement {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorOpenFlags(pub i32);
-impl windows_core::TypeKind for CorOpenFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorPEKind(pub i32);
-impl windows_core::TypeKind for CorPEKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorParamAttr(pub i32);
-impl windows_core::TypeKind for CorParamAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorPinvokeMap(pub i32);
-impl windows_core::TypeKind for CorPinvokeMap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorPropertyAttr(pub i32);
-impl windows_core::TypeKind for CorPropertyAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorRefToDefCheck(pub i32);
-impl windows_core::TypeKind for CorRefToDefCheck {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorRegFlags(pub i32);
-impl windows_core::TypeKind for CorRegFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorSaveSize(pub i32);
-impl windows_core::TypeKind for CorSaveSize {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorSerializationType(pub i32);
-impl windows_core::TypeKind for CorSerializationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorSetENC(pub i32);
-impl windows_core::TypeKind for CorSetENC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorThreadSafetyOptions(pub i32);
-impl windows_core::TypeKind for CorThreadSafetyOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorTokenType(pub i32);
-impl windows_core::TypeKind for CorTokenType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorTypeAttr(pub i32);
-impl windows_core::TypeKind for CorTypeAttr {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorUnmanagedCallingConvention(pub i32);
-impl windows_core::TypeKind for CorUnmanagedCallingConvention {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorValidatorModuleType(pub i32);
-impl windows_core::TypeKind for CorValidatorModuleType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LoadHintEnum(pub i32);
-impl windows_core::TypeKind for LoadHintEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MergeFlags(pub i32);
-impl windows_core::TypeKind for MergeFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NGenHintEnum(pub i32);
-impl windows_core::TypeKind for NGenHintEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NativeTypeArrayFlags(pub i32);
-impl windows_core::TypeKind for NativeTypeArrayFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReplacesGeneralNumericDefines(pub i32);
-impl windows_core::TypeKind for ReplacesGeneralNumericDefines {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASSEMBLYMETADATA {

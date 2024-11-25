@@ -3488,51 +3488,27 @@ pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
-impl windows_core::TypeKind for APP_CACHE_FINALIZE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APP_CACHE_STATE(pub i32);
-impl windows_core::TypeKind for APP_CACHE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACHE_CONFIG(pub u32);
-impl windows_core::TypeKind for CACHE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORTCMD(pub i32);
-impl windows_core::TypeKind for FORTCMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORTSTAT(pub i32);
-impl windows_core::TypeKind for FORTSTAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FTP_FLAGS(pub u32);
-impl windows_core::TypeKind for FTP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TYPE(pub u32);
-impl windows_core::TypeKind for GOPHER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
-impl windows_core::TypeKind for HTTP_ADDREQ_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl HTTP_ADDREQ_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3569,57 +3545,30 @@ impl core::ops::Not for HTTP_ADDREQ_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
-impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_PUSH_WAIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for HTTP_WEB_SOCKET_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl windows_core::TypeKind for HTTP_WEB_SOCKET_CLOSE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
-impl windows_core::TypeKind for HTTP_WEB_SOCKET_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
-impl windows_core::TypeKind for INTERNET_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_AUTODIAL(pub u32);
-impl windows_core::TypeKind for INTERNET_AUTODIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CONNECTION(pub u32);
-impl windows_core::TypeKind for INTERNET_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl INTERNET_CONNECTION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3656,39 +3605,21 @@ impl core::ops::Not for INTERNET_CONNECTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
-impl windows_core::TypeKind for INTERNET_COOKIE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN(pub u32);
-impl windows_core::TypeKind for INTERNET_PER_CONN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_SCHEME(pub i32);
-impl windows_core::TypeKind for INTERNET_SCHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_STATE(pub u32);
-impl windows_core::TypeKind for INTERNET_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InternetCookieState(pub i32);
-impl windows_core::TypeKind for InternetCookieState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
-impl windows_core::TypeKind for PROXY_AUTO_DETECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROXY_AUTO_DETECT_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3725,27 +3656,15 @@ impl core::ops::Not for PROXY_AUTO_DETECT_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUEST_TIMES(pub i32);
-impl windows_core::TypeKind for REQUEST_TIMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
-impl windows_core::TypeKind for URL_CACHE_LIMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WININET_SYNC_MODE(pub i32);
-impl windows_core::TypeKind for WININET_SYNC_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPAD_CACHE_DELETE(pub i32);
-impl windows_core::TypeKind for WPAD_CACHE_DELETE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_ENTRY {

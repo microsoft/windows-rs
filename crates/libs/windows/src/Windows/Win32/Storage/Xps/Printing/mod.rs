@@ -323,15 +323,9 @@ pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintDocumentPackageCompletion(pub i32);
-impl windows_core::TypeKind for PrintDocumentPackageCompletion {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_JOB_COMPLETION(pub i32);
-impl windows_core::TypeKind for XPS_JOB_COMPLETION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrintDocumentPackageStatus {

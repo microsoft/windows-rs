@@ -107,27 +107,15 @@ pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for INPUT_MESSAGE_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
-impl windows_core::TypeKind for INPUT_MESSAGE_ORIGIN_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_STATE(pub u16);
-impl windows_core::TypeKind for MOUSE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAWINPUTDEVICE_FLAGS(pub u32);
-impl windows_core::TypeKind for RAWINPUTDEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RAWINPUTDEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -164,21 +152,12 @@ impl core::ops::Not for RAWINPUTDEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
-impl windows_core::TypeKind for RAW_INPUT_DATA_COMMAND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
-impl windows_core::TypeKind for RAW_INPUT_DEVICE_INFO_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RID_DEVICE_INFO_TYPE(pub u32);
-impl windows_core::TypeKind for RID_DEVICE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRAWINPUT(pub *mut core::ffi::c_void);

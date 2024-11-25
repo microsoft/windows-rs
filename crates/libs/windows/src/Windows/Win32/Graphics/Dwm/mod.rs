@@ -324,33 +324,18 @@ pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
-impl windows_core::TypeKind for DWMFLIP3DWINDOWPOLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
-impl windows_core::TypeKind for DWMNCRENDERINGPOLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
-impl windows_core::TypeKind for DWMTRANSITION_OWNEDWINDOW_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
-impl windows_core::TypeKind for DWMWINDOWATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_SHOWCONTACT(pub u32);
-impl windows_core::TypeKind for DWM_SHOWCONTACT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWM_SHOWCONTACT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -387,21 +372,12 @@ impl core::ops::Not for DWM_SHOWCONTACT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
-impl windows_core::TypeKind for DWM_SOURCE_FRAME_SAMPLING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_SYSTEMBACKDROP_TYPE(pub i32);
-impl windows_core::TypeKind for DWM_SYSTEMBACKDROP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub i32);
-impl windows_core::TypeKind for DWM_TAB_WINDOW_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWM_TAB_WINDOW_REQUIREMENTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -438,15 +414,9 @@ impl core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
-impl windows_core::TypeKind for DWM_WINDOW_CORNER_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GESTURE_TYPE(pub i32);
-impl windows_core::TypeKind for GESTURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]

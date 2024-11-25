@@ -4509,381 +4509,192 @@ pub const WrongState: Status = Status(8i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BrushType(pub i32);
-impl windows_core::TypeKind for BrushType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorAdjustType(pub i32);
-impl windows_core::TypeKind for ColorAdjustType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorChannelFlags(pub i32);
-impl windows_core::TypeKind for ColorChannelFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorMatrixFlags(pub i32);
-impl windows_core::TypeKind for ColorMatrixFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorMode(pub i32);
-impl windows_core::TypeKind for ColorMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CombineMode(pub i32);
-impl windows_core::TypeKind for CombineMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositingMode(pub i32);
-impl windows_core::TypeKind for CompositingMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositingQuality(pub i32);
-impl windows_core::TypeKind for CompositingQuality {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConvertToEmfPlusFlags(pub i32);
-impl windows_core::TypeKind for ConvertToEmfPlusFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoordinateSpace(pub i32);
-impl windows_core::TypeKind for CoordinateSpace {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CurveAdjustments(pub i32);
-impl windows_core::TypeKind for CurveAdjustments {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CurveChannel(pub i32);
-impl windows_core::TypeKind for CurveChannel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CustomLineCapType(pub i32);
-impl windows_core::TypeKind for CustomLineCapType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DashCap(pub i32);
-impl windows_core::TypeKind for DashCap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DashStyle(pub i32);
-impl windows_core::TypeKind for DashStyle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DebugEventLevel(pub i32);
-impl windows_core::TypeKind for DebugEventLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DitherType(pub i32);
-impl windows_core::TypeKind for DitherType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DriverStringOptions(pub i32);
-impl windows_core::TypeKind for DriverStringOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmfPlusRecordType(pub i32);
-impl windows_core::TypeKind for EmfPlusRecordType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmfToWmfBitsFlags(pub i32);
-impl windows_core::TypeKind for EmfToWmfBitsFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmfType(pub i32);
-impl windows_core::TypeKind for EmfType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncoderParameterValueType(pub i32);
-impl windows_core::TypeKind for EncoderParameterValueType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncoderValue(pub i32);
-impl windows_core::TypeKind for EncoderValue {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FillMode(pub i32);
-impl windows_core::TypeKind for FillMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FlushIntention(pub i32);
-impl windows_core::TypeKind for FlushIntention {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FontStyle(pub i32);
-impl windows_core::TypeKind for FontStyle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GdiplusStartupParams(pub i32);
-impl windows_core::TypeKind for GdiplusStartupParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GenericFontFamily(pub i32);
-impl windows_core::TypeKind for GenericFontFamily {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpTestControlEnum(pub i32);
-impl windows_core::TypeKind for GpTestControlEnum {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HatchStyle(pub i32);
-impl windows_core::TypeKind for HatchStyle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HistogramFormat(pub i32);
-impl windows_core::TypeKind for HistogramFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HotkeyPrefix(pub i32);
-impl windows_core::TypeKind for HotkeyPrefix {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageCodecFlags(pub i32);
-impl windows_core::TypeKind for ImageCodecFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageFlags(pub i32);
-impl windows_core::TypeKind for ImageFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageLockMode(pub i32);
-impl windows_core::TypeKind for ImageLockMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageType(pub i32);
-impl windows_core::TypeKind for ImageType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InterpolationMode(pub i32);
-impl windows_core::TypeKind for InterpolationMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ItemDataPosition(pub i32);
-impl windows_core::TypeKind for ItemDataPosition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineCap(pub i32);
-impl windows_core::TypeKind for LineCap {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineJoin(pub i32);
-impl windows_core::TypeKind for LineJoin {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LinearGradientMode(pub i32);
-impl windows_core::TypeKind for LinearGradientMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MatrixOrder(pub i32);
-impl windows_core::TypeKind for MatrixOrder {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MetafileFrameUnit(pub i32);
-impl windows_core::TypeKind for MetafileFrameUnit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MetafileType(pub i32);
-impl windows_core::TypeKind for MetafileType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ObjectType(pub i32);
-impl windows_core::TypeKind for ObjectType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PaletteFlags(pub i32);
-impl windows_core::TypeKind for PaletteFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PaletteType(pub i32);
-impl windows_core::TypeKind for PaletteType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PathPointType(pub i32);
-impl windows_core::TypeKind for PathPointType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PenAlignment(pub i32);
-impl windows_core::TypeKind for PenAlignment {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PenType(pub i32);
-impl windows_core::TypeKind for PenType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PixelOffsetMode(pub i32);
-impl windows_core::TypeKind for PixelOffsetMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QualityMode(pub i32);
-impl windows_core::TypeKind for QualityMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RotateFlipType(pub i32);
-impl windows_core::TypeKind for RotateFlipType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmoothingMode(pub i32);
-impl windows_core::TypeKind for SmoothingMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Status(pub i32);
-impl windows_core::TypeKind for Status {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StringAlignment(pub i32);
-impl windows_core::TypeKind for StringAlignment {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StringDigitSubstitute(pub i32);
-impl windows_core::TypeKind for StringDigitSubstitute {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StringFormatFlags(pub i32);
-impl windows_core::TypeKind for StringFormatFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StringTrimming(pub i32);
-impl windows_core::TypeKind for StringTrimming {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextRenderingHint(pub i32);
-impl windows_core::TypeKind for TextRenderingHint {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Unit(pub i32);
-impl windows_core::TypeKind for Unit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WarpMode(pub i32);
-impl windows_core::TypeKind for WarpMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WrapMode(pub i32);
-impl windows_core::TypeKind for WrapMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Bitmap(pub isize);

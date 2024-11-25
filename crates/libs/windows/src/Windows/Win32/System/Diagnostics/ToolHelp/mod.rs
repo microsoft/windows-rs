@@ -131,9 +131,6 @@ pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SN
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
-impl windows_core::TypeKind for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -170,9 +167,6 @@ impl core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
-impl windows_core::TypeKind for HEAPENTRY32_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HEAPENTRY32 {

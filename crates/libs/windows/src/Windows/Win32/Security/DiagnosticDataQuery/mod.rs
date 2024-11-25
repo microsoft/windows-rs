@@ -304,9 +304,6 @@ pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DdqAccessLevel(pub i32);
-impl windows_core::TypeKind for DdqAccessLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {

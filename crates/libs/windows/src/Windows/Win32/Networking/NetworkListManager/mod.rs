@@ -1231,63 +1231,33 @@ pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_CONNECTION_COST(pub i32);
-impl windows_core::TypeKind for NLM_CONNECTION_COST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
-impl windows_core::TypeKind for NLM_CONNECTION_PROPERTY_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_CONNECTIVITY(pub i32);
-impl windows_core::TypeKind for NLM_CONNECTIVITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_DOMAIN_AUTHENTICATION_KIND(pub i32);
-impl windows_core::TypeKind for NLM_DOMAIN_AUTHENTICATION_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
-impl windows_core::TypeKind for NLM_DOMAIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_ENUM_NETWORK(pub i32);
-impl windows_core::TypeKind for NLM_ENUM_NETWORK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
-impl windows_core::TypeKind for NLM_INTERNET_CONNECTIVITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
-impl windows_core::TypeKind for NLM_NETWORK_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_NETWORK_CLASS(pub i32);
-impl windows_core::TypeKind for NLM_NETWORK_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
-impl windows_core::TypeKind for NLM_NETWORK_PROPERTY_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLM_DATAPLAN_STATUS {

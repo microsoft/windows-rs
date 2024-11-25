@@ -34072,453 +34072,228 @@ pub const sslFullSize: SourceSizeList = SourceSizeList(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_DigitalSignalStandard(pub i32);
-impl windows_core::TypeKind for BDA_DigitalSignalStandard {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_LockType(pub i32);
-impl windows_core::TypeKind for BDA_LockType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SignalType(pub i32);
-impl windows_core::TypeKind for BDA_SignalType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_CAE_TV(pub i32);
-impl windows_core::TypeKind for BfEnTvRat_Attributes_CAE_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_CAF_TV(pub i32);
-impl windows_core::TypeKind for BfEnTvRat_Attributes_CAF_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_MPAA(pub i32);
-impl windows_core::TypeKind for BfEnTvRat_Attributes_MPAA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_US_TV(pub i32);
-impl windows_core::TypeKind for BfEnTvRat_Attributes_US_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_GenericAttributes(pub i32);
-impl windows_core::TypeKind for BfEnTvRat_GenericAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPPEventBlockReason(pub i32);
-impl windows_core::TypeKind for COPPEventBlockReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPEventBitShift(pub i32);
-impl windows_core::TypeKind for CPEventBitShift {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPEvents(pub i32);
-impl windows_core::TypeKind for CPEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPRecordingStatus(pub i32);
-impl windows_core::TypeKind for CPRecordingStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRID_LOCATION(pub i32);
-impl windows_core::TypeKind for CRID_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
-impl windows_core::TypeKind for CROSSBAR_DEFAULT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChannelChangeSpanningEvent_State(pub i32);
-impl windows_core::TypeKind for ChannelChangeSpanningEvent_State {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChannelType(pub i32);
-impl windows_core::TypeKind for ChannelType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DESC_LINKAGE_TYPE(pub i32);
-impl windows_core::TypeKind for DESC_LINKAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_TUNER(pub i32);
-impl windows_core::TypeKind for DISPID_TUNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVB_STRCONV_MODE(pub i32);
-impl windows_core::TypeKind for DVB_STRCONV_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDFilterState(pub i32);
-impl windows_core::TypeKind for DVDFilterState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDMenuIDConstants(pub i32);
-impl windows_core::TypeKind for DVDMenuIDConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDSPExt(pub i32);
-impl windows_core::TypeKind for DVDSPExt {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDTextStringType(pub i32);
-impl windows_core::TypeKind for DVDTextStringType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplaySizeList(pub i32);
-impl windows_core::TypeKind for DisplaySizeList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DownResEventParam(pub i32);
-impl windows_core::TypeKind for DownResEventParam {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTag_Mode(pub i32);
-impl windows_core::TypeKind for EnTag_Mode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_CAE_TV(pub i32);
-impl windows_core::TypeKind for EnTvRat_CAE_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_CAF_TV(pub i32);
-impl windows_core::TypeKind for EnTvRat_CAF_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_GenericLevel(pub i32);
-impl windows_core::TypeKind for EnTvRat_GenericLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_MPAA(pub i32);
-impl windows_core::TypeKind for EnTvRat_MPAA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_System(pub i32);
-impl windows_core::TypeKind for EnTvRat_System {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_US_TV(pub i32);
-impl windows_core::TypeKind for EnTvRat_US_TV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncDecEvents(pub i32);
-impl windows_core::TypeKind for EncDecEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FormatNotSupportedEvents(pub i32);
-impl windows_core::TypeKind for FormatNotSupportedEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for KSEVENT_BDA_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_BDA_TUNER(pub i32);
-impl windows_core::TypeKind for KSEVENT_BDA_TUNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_CAS_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_CHANGE_SYNC(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_CHANGE_SYNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DEBUG_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_DEBUG_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DEVICE_CONFIGURATION(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_DEVICE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DRM(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_DRM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_EVENTING_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_EVENTING_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_GDDS_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_GDDS_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_GPNV_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_GPNV_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_ISDB_CAS(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_ISDB_CAS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_MUX_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_MUX_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_SCAN_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_SCAN_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_TS_SELECTOR(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_TS_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_TUNER_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_TUNER_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_USERACTIVITY_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_WMDRM(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_WMDRM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_WMDRM_TUNER(pub i32);
-impl windows_core::TypeKind for KSMETHOD_BDA_WMDRM_TUNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_AUTODEMODULATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_CA(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_CA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_CA_EVENT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_CA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DIGITAL_DEMODULATOR(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_DIGITAL_DEMODULATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DISEQC_COMMAND(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_DISEQC_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DISEQC_EVENT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_DISEQC_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_ETHERNET_FILTER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_ETHERNET_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_FREQUENCY_FILTER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_FREQUENCY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_IPv4_FILTER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_IPv4_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_IPv6_FILTER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_IPv6_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_LNB_INFO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_LNB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_NULL_TRANSFORM(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_NULL_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIDFILTER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_PIDFILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIN_CONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_PIN_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIN_EVENT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_PIN_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_SIGNAL_STATS(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_SIGNAL_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_VOID_TRANSFORM(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BDA_VOID_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_IDS_BDA_TABLE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_IDS_BDA_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LicenseEventBlockReason(pub i32);
-impl windows_core::TypeKind for LicenseEventBlockReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for MPEG_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
-impl windows_core::TypeKind for MPEG_CURRENT_NEXT_BIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for MPEG_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCCService(pub i32);
@@ -34530,123 +34305,63 @@ impl MSVidCCService {
     pub const Text2: Self = Self(4i32);
     pub const XDS: Self = Self(5i32);
 }
-impl windows_core::TypeKind for MSVidCCService {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCtlButtonstate(pub i32);
-impl windows_core::TypeKind for MSVidCtlButtonstate {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCtlStateList(pub i32);
-impl windows_core::TypeKind for MSVidCtlStateList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidSegmentType(pub i32);
-impl windows_core::TypeKind for MSVidSegmentType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidSinkStreams(pub i32);
-impl windows_core::TypeKind for MSVidSinkStreams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSViddispidList(pub i32);
-impl windows_core::TypeKind for MSViddispidList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionModeList(pub i32);
-impl windows_core::TypeKind for PositionModeList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtType(pub i32);
-impl windows_core::TypeKind for ProtType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECORDING_TYPE(pub i32);
-impl windows_core::TypeKind for RECORDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RecordingType(pub i32);
-impl windows_core::TypeKind for RecordingType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RevokedComponent(pub i32);
-impl windows_core::TypeKind for RevokedComponent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMBUFFER_ATTR_DATATYPE(pub i32);
-impl windows_core::TypeKind for STREAMBUFFER_ATTR_DATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SegDispidList(pub i32);
-impl windows_core::TypeKind for SegDispidList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SegEventidList(pub i32);
-impl windows_core::TypeKind for SegEventidList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignalAndServiceStatusSpanningEvent_State(pub i32);
-impl windows_core::TypeKind for SignalAndServiceStatusSpanningEvent_State {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SourceSizeList(pub i32);
-impl windows_core::TypeKind for SourceSizeList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_COLOR_PRIMARIES(pub i32);
-impl windows_core::TypeKind for VA_COLOR_PRIMARIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_MATRIX_COEFFICIENTS(pub i32);
-impl windows_core::TypeKind for VA_MATRIX_COEFFICIENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_TRANSFER_CHARACTERISTICS(pub i32);
-impl windows_core::TypeKind for VA_TRANSFER_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_VIDEO_FORMAT(pub i32);
-impl windows_core::TypeKind for VA_VIDEO_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ANALOG_AUXIN_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
 pub const ANALOG_FM_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
 pub const ANALOG_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);

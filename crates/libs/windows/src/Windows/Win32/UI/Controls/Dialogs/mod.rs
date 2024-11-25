@@ -512,9 +512,6 @@ pub const WM_PSD_YAFULLPAGERECT: u32 = 1030u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHOOSECOLOR_FLAGS(pub u32);
-impl windows_core::TypeKind for CHOOSECOLOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHOOSECOLOR_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -551,9 +548,6 @@ impl core::ops::Not for CHOOSECOLOR_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHOOSEFONT_FLAGS(pub u32);
-impl windows_core::TypeKind for CHOOSEFONT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHOOSEFONT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -590,9 +584,6 @@ impl core::ops::Not for CHOOSEFONT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHOOSEFONT_FONT_TYPE(pub u16);
-impl windows_core::TypeKind for CHOOSEFONT_FONT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHOOSEFONT_FONT_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -629,15 +620,9 @@ impl core::ops::Not for CHOOSEFONT_FONT_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMMON_DLG_ERRORS(pub u32);
-impl windows_core::TypeKind for COMMON_DLG_ERRORS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINDREPLACE_FLAGS(pub u32);
-impl windows_core::TypeKind for FINDREPLACE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FINDREPLACE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -674,9 +659,6 @@ impl core::ops::Not for FINDREPLACE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_FILENAME_FLAGS(pub u32);
-impl windows_core::TypeKind for OPEN_FILENAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPEN_FILENAME_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -713,9 +695,6 @@ impl core::ops::Not for OPEN_FILENAME_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_FILENAME_FLAGS_EX(pub u32);
-impl windows_core::TypeKind for OPEN_FILENAME_FLAGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPEN_FILENAME_FLAGS_EX {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -752,9 +731,6 @@ impl core::ops::Not for OPEN_FILENAME_FLAGS_EX {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGESETUPDLG_FLAGS(pub u32);
-impl windows_core::TypeKind for PAGESETUPDLG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PAGESETUPDLG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -791,9 +767,6 @@ impl core::ops::Not for PAGESETUPDLG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTDLGEX_FLAGS(pub u32);
-impl windows_core::TypeKind for PRINTDLGEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRINTDLGEX_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

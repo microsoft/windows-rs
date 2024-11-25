@@ -1331,123 +1331,63 @@ pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVIC
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVITY_STATE(pub i32);
-impl windows_core::TypeKind for ACTIVITY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVITY_STATE_COUNT(pub i32);
-impl windows_core::TypeKind for ACTIVITY_STATE_COUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AXIS(pub i32);
-impl windows_core::TypeKind for AXIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ELEVATION_CHANGE_MODE(pub i32);
-impl windows_core::TypeKind for ELEVATION_CHANGE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
-impl windows_core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
-impl windows_core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
-impl windows_core::TypeKind for LOCATION_DESIRED_ACCURACY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
-impl windows_core::TypeKind for LOCATION_POSITION_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
-impl windows_core::TypeKind for MAGNETOMETER_ACCURACY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagnetometerAccuracy(pub i32);
-impl windows_core::TypeKind for MagnetometerAccuracy {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEDOMETER_STEP_TYPE(pub i32);
-impl windows_core::TypeKind for PEDOMETER_STEP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
-impl windows_core::TypeKind for PEDOMETER_STEP_TYPE_COUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
-impl windows_core::TypeKind for PROXIMITY_SENSOR_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXIMITY_TYPE(pub i32);
-impl windows_core::TypeKind for PROXIMITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENSOR_CONNECTION_TYPES(pub i32);
-impl windows_core::TypeKind for SENSOR_CONNECTION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENSOR_STATE(pub i32);
-impl windows_core::TypeKind for SENSOR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
-impl windows_core::TypeKind for SIMPLE_DEVICE_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SensorConnectionType(pub i32);
-impl windows_core::TypeKind for SensorConnectionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SensorState(pub i32);
-impl windows_core::TypeKind for SensorState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SimpleDeviceOrientation(pub i32);
-impl windows_core::TypeKind for SimpleDeviceOrientation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MATRIX3X3 {

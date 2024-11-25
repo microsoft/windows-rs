@@ -2286,15 +2286,9 @@ pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_CP(pub u32);
-impl windows_core::TypeKind for DXC_CP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_OUT_KIND(pub i32);
-impl windows_core::TypeKind for DXC_OUT_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcArgPair {

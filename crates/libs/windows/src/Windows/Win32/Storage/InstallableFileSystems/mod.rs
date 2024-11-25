@@ -359,27 +359,15 @@ pub const WNNC_NET_ZENWORKS: u32 = 3997696u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for FILTER_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for FILTER_VOLUME_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_FILESYSTEM_TYPE(pub i32);
-impl windows_core::TypeKind for FLT_FILESYSTEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for INSTANCE_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {

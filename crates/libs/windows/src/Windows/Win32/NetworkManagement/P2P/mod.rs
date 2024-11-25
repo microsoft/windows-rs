@@ -1583,249 +1583,126 @@ pub const WSZ_SCOPE_SITELOCAL: windows_core::PCWSTR = windows_core::w!("SITELOCA
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_ADDRESS_FLAGS(pub i32);
-impl windows_core::TypeKind for DRT_ADDRESS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for DRT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for DRT_LEAFSET_KEY_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_MATCH_TYPE(pub i32);
-impl windows_core::TypeKind for DRT_MATCH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_REGISTRATION_STATE(pub i32);
-impl windows_core::TypeKind for DRT_REGISTRATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_SCOPE(pub i32);
-impl windows_core::TypeKind for DRT_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_SECURITY_MODE(pub i32);
-impl windows_core::TypeKind for DRT_SECURITY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRT_STATUS(pub i32);
-impl windows_core::TypeKind for DRT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
-impl windows_core::TypeKind for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
-impl windows_core::TypeKind for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEERDIST_STATUS(pub i32);
-impl windows_core::TypeKind for PEERDIST_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_APPLICATION_REGISTRATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_COLLAB_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_CONNECTION_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_CONNECTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_CONNECTION_STATUS(pub i32);
-impl windows_core::TypeKind for PEER_CONNECTION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_GRAPH_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_GRAPH_PROPERTY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GRAPH_SCOPE(pub i32);
-impl windows_core::TypeKind for PEER_GRAPH_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_GRAPH_STATUS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
-impl windows_core::TypeKind for PEER_GROUP_AUTHENTICATION_SCHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GROUP_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_GROUP_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_GROUP_PROPERTY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_GROUP_STATUS(pub i32);
-impl windows_core::TypeKind for PEER_GROUP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_INVITATION_RESPONSE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_MEMBER_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_MEMBER_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_MEMBER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_NODE_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_NODE_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_PRESENCE_STATUS(pub i32);
-impl windows_core::TypeKind for PEER_PRESENCE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_PUBLICATION_SCOPE(pub i32);
-impl windows_core::TypeKind for PEER_PUBLICATION_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for PEER_RECORD_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_RECORD_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_RECORD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_SIGNIN_FLAGS(pub i32);
-impl windows_core::TypeKind for PEER_SIGNIN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PEER_WATCH_PERMISSION(pub i32);
-impl windows_core::TypeKind for PEER_WATCH_PERMISSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_CLOUD_FLAGS(pub i32);
-impl windows_core::TypeKind for PNRP_CLOUD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_CLOUD_STATE(pub i32);
-impl windows_core::TypeKind for PNRP_CLOUD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
-impl windows_core::TypeKind for PNRP_EXTENDED_PAYLOAD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_REGISTERED_ID_STATE(pub i32);
-impl windows_core::TypeKind for PNRP_REGISTERED_ID_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_RESOLVE_CRITERIA(pub i32);
-impl windows_core::TypeKind for PNRP_RESOLVE_CRITERIA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNRP_SCOPE(pub i32);
-impl windows_core::TypeKind for PNRP_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Debug, PartialEq)]

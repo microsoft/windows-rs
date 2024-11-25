@@ -840,27 +840,15 @@ pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCF_BUTTON_IDS(pub i32);
-impl windows_core::TypeKind for SCF_BUTTON_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCF_EVENT_IDS(pub i32);
-impl windows_core::TypeKind for SCF_EVENT_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIDESHOW_COLOR_TYPE(pub i32);
-impl windows_core::TypeKind for SIDESHOW_COLOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
-impl windows_core::TypeKind for SIDESHOW_SCREEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct APPLICATION_EVENT_DATA {

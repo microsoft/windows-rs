@@ -585,27 +585,15 @@ pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_O
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSAT_ASSESSMENT_STATE(pub i32);
-impl windows_core::TypeKind for WINSAT_ASSESSMENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSAT_ASSESSMENT_TYPE(pub i32);
-impl windows_core::TypeKind for WINSAT_ASSESSMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSAT_BITMAP_SIZE(pub i32);
-impl windows_core::TypeKind for WINSAT_BITMAP_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSAT_OEM_CUSTOMIZATION_STATE(pub i32);
-impl windows_core::TypeKind for WINSAT_OEM_CUSTOMIZATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CAccessiblityWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0x6e18f9c6_a3eb_495a_89b7_956482e19f7a);
 pub const CInitiateWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0x489331dc_f5e0_4528_9fda_45331bf4a571);
 pub const CProvideWinSATVisuals: windows_core::GUID = windows_core::GUID::from_u128(0x9f377d7e_e551_44f8_9f94_9db392b03b7b);

@@ -63,9 +63,6 @@ pub const WLX_WM_SAS: u32 = 1625u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
-impl windows_core::TypeKind for WLX_SHUTDOWN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {

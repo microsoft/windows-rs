@@ -12651,183 +12651,93 @@ pub const wcharREASSIGN_RECIPIENTS_DELIMITER: u16 = 59u16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAXROUTE_ENABLE(pub i32);
-impl windows_core::TypeKind for FAXROUTE_ENABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ACCESS_RIGHTS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_ACCESS_RIGHTS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ACCESS_RIGHTS_ENUM_2(pub i32);
-impl windows_core::TypeKind for FAX_ACCESS_RIGHTS_ENUM_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_COVERPAGE_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_DEVICE_RECEIVE_MODE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_DELIVERY_REPORT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_DEVICE_ID_SOURCE(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_DEVICE_ID_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_JOB_COMMANDS(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_JOB_COMMANDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_JOB_SEND_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_JOB_SEND_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_LOG_CATEGORIES(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_LOG_CATEGORIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_LOG_LEVELS(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_LOG_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ENUM_PORT_OPEN_TYPE(pub i32);
-impl windows_core::TypeKind for FAX_ENUM_PORT_OPEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_GROUP_STATUS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_GROUP_STATUS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_JOB_EXTENDED_STATUS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_JOB_OPERATIONS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_JOB_OPERATIONS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_JOB_STATUS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_JOB_STATUS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_JOB_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_JOB_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_LOG_LEVEL_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_LOG_LEVEL_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_PRIORITY_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_PRIORITY_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_PROVIDER_STATUS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_PROVIDER_STATUS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_RECEIPT_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_RECEIPT_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_ROUTING_RULE_CODE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_ROUTING_RULE_CODE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_RULE_STATUS_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_RULE_STATUS_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_SCHEDULE_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_SCHEDULE_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_SERVER_APIVERSION_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_SERVER_EVENTS_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_SERVER_EVENTS_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_SMTP_AUTHENTICATION_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEVICE_MJ_TYPE(pub i32);
-impl windows_core::TypeKind for STI_DEVICE_MJ_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SendToMode(pub i32);
-impl windows_core::TypeKind for SendToMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONFIGURATIONA {

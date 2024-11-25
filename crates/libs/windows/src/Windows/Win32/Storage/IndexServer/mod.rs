@@ -351,39 +351,21 @@ pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHUNKSTATE(pub i32);
-impl windows_core::TypeKind for CHUNKSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHUNK_BREAKTYPE(pub i32);
-impl windows_core::TypeKind for CHUNK_BREAKTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBKINDENUM(pub i32);
-impl windows_core::TypeKind for DBKINDENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFILTER_FLAGS(pub i32);
-impl windows_core::TypeKind for IFILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFILTER_INIT(pub i32);
-impl windows_core::TypeKind for IFILTER_INIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
-impl windows_core::TypeKind for WORDREP_BREAK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CI_STATE {

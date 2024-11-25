@@ -9784,9 +9784,6 @@ pub const FACILITY_DWRITE: u32 = 2200u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_AUTOMATIC_FONT_AXES(pub i32);
-impl windows_core::TypeKind for DWRITE_AUTOMATIC_FONT_AXES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_AUTOMATIC_FONT_AXES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9823,45 +9820,24 @@ impl core::ops::Not for DWRITE_AUTOMATIC_FONT_AXES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_BASELINE(pub i32);
-impl windows_core::TypeKind for DWRITE_BASELINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_BREAK_CONDITION(pub i32);
-impl windows_core::TypeKind for DWRITE_BREAK_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_COLOR_COMPOSITE_MODE(pub i32);
-impl windows_core::TypeKind for DWRITE_COLOR_COMPOSITE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_CONTAINER_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_CONTAINER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FACTORY_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_FACTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FLOW_DIRECTION(pub i32);
-impl windows_core::TypeKind for DWRITE_FLOW_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_AXIS_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_AXIS_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_FONT_AXIS_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9898,51 +9874,27 @@ impl core::ops::Not for DWRITE_FONT_AXIS_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_AXIS_TAG(pub u32);
-impl windows_core::TypeKind for DWRITE_FONT_AXIS_TAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FACE_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_FACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FAMILY_MODEL(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_FAMILY_MODEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FEATURE_TAG(pub u32);
-impl windows_core::TypeKind for DWRITE_FONT_FEATURE_TAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_LINE_GAP_USAGE(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_LINE_GAP_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_SIMULATIONS(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_SIMULATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_FONT_SIMULATIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9979,33 +9931,18 @@ impl core::ops::Not for DWRITE_FONT_SIMULATIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_SOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_SOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_STRETCH(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_STRETCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_STYLE(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_WEIGHT(pub i32);
-impl windows_core::TypeKind for DWRITE_FONT_WEIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub i32);
-impl windows_core::TypeKind for DWRITE_GLYPH_IMAGE_FORMATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_GLYPH_IMAGE_FORMATS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10042,63 +9979,33 @@ impl core::ops::Not for DWRITE_GLYPH_IMAGE_FORMATS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_ORIENTATION_ANGLE(pub i32);
-impl windows_core::TypeKind for DWRITE_GLYPH_ORIENTATION_ANGLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_GRID_FIT_MODE(pub i32);
-impl windows_core::TypeKind for DWRITE_GRID_FIT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_INFORMATIONAL_STRING_ID(pub i32);
-impl windows_core::TypeKind for DWRITE_INFORMATIONAL_STRING_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_LINE_SPACING_METHOD(pub i32);
-impl windows_core::TypeKind for DWRITE_LINE_SPACING_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_LOCALITY(pub i32);
-impl windows_core::TypeKind for DWRITE_LOCALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_MEASURING_MODE(pub i32);
-impl windows_core::TypeKind for DWRITE_MEASURING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_NUMBER_SUBSTITUTION_METHOD(pub i32);
-impl windows_core::TypeKind for DWRITE_NUMBER_SUBSTITUTION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_OPTICAL_ALIGNMENT(pub i32);
-impl windows_core::TypeKind for DWRITE_OPTICAL_ALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_OUTLINE_THRESHOLD(pub i32);
-impl windows_core::TypeKind for DWRITE_OUTLINE_THRESHOLD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for DWRITE_PAINT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_PAINT_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10135,201 +10042,102 @@ impl core::ops::Not for DWRITE_PAINT_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for DWRITE_PAINT_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_PAINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_ARM_STYLE(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_ARM_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_ASPECT(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_ASPECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_ASPECT_RATIO(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_ASPECT_RATIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_CHARACTER_RANGES(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_CHARACTER_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_CONTRAST(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_CONTRAST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_DECORATIVE_CLASS(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_DECORATIVE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_DECORATIVE_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_FAMILY(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_FAMILY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_FILL(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_FILL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_FINIALS(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_FINIALS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_LETTERFORM(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_LETTERFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_LINING(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_LINING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_MIDLINE(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_MIDLINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_PROPORTION(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_PROPORTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SCRIPT_FORM(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SCRIPT_FORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SCRIPT_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SERIF_STYLE(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SERIF_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SPACING(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SPACING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_STROKE_VARIATION(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_STROKE_VARIATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SYMBOL_ASPECT_RATIO(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_SYMBOL_KIND(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_SYMBOL_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_TOOL_KIND(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_TOOL_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_WEIGHT(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_WEIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_XASCENT(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_XASCENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_XHEIGHT(pub i32);
-impl windows_core::TypeKind for DWRITE_PANOSE_XHEIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PARAGRAPH_ALIGNMENT(pub i32);
-impl windows_core::TypeKind for DWRITE_PARAGRAPH_ALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PIXEL_GEOMETRY(pub i32);
-impl windows_core::TypeKind for DWRITE_PIXEL_GEOMETRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_READING_DIRECTION(pub i32);
-impl windows_core::TypeKind for DWRITE_READING_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_RENDERING_MODE(pub i32);
-impl windows_core::TypeKind for DWRITE_RENDERING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_RENDERING_MODE1(pub i32);
-impl windows_core::TypeKind for DWRITE_RENDERING_MODE1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SCRIPT_SHAPES(pub i32);
-impl windows_core::TypeKind for DWRITE_SCRIPT_SHAPES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DWRITE_SCRIPT_SHAPES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10366,39 +10174,21 @@ impl core::ops::Not for DWRITE_SCRIPT_SHAPES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TEXTURE_TYPE(pub i32);
-impl windows_core::TypeKind for DWRITE_TEXTURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TEXT_ALIGNMENT(pub i32);
-impl windows_core::TypeKind for DWRITE_TEXT_ALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TEXT_ANTIALIAS_MODE(pub i32);
-impl windows_core::TypeKind for DWRITE_TEXT_ANTIALIAS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TRIMMING_GRANULARITY(pub i32);
-impl windows_core::TypeKind for DWRITE_TRIMMING_GRANULARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(pub i32);
-impl windows_core::TypeKind for DWRITE_VERTICAL_GLYPH_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_WORD_WRAPPING(pub i32);
-impl windows_core::TypeKind for DWRITE_WORD_WRAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_BITMAP_DATA_BGRA32 {

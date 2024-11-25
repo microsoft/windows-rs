@@ -5960,117 +5960,60 @@ pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_DOWN_LEVEL_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for CSV_DOWN_LEVEL_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAST_IO_POSSIBLE(pub i32);
-impl windows_core::TypeKind for FAST_IO_POSSIBLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION_EX_FLAGS(pub u32);
-impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION_EX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for FILE_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_TYPE(pub i32);
-impl windows_core::TypeKind for FILE_KNOWN_FOLDER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_CHANGE_BACKING_TYPE(pub i32);
-impl windows_core::TypeKind for FSRTL_CHANGE_BACKING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_COMPARISON_RESULT(pub i32);
-impl windows_core::TypeKind for FSRTL_COMPARISON_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_TYPE(pub i32);
-impl windows_core::TypeKind for FS_FILTER_SECTION_SYNC_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_STREAM_FO_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for FS_FILTER_STREAM_FO_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for FS_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_MEMORY_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for HEAP_MEMORY_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINK_TRACKING_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for LINK_TRACKING_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for MEMORY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMFLUSH_TYPE(pub i32);
-impl windows_core::TypeKind for MMFLUSH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_AVID(pub i32);
-impl windows_core::TypeKind for MSV1_0_AVID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_INTEGRITY_QUALIFIER(pub i32);
-impl windows_core::TypeKind for NETWORK_OPEN_INTEGRITY_QUALIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_LOCATION_QUALIFIER(pub i32);
-impl windows_core::TypeKind for NETWORK_OPEN_LOCATION_QUALIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTCREATEFILE_CREATE_DISPOSITION(pub u32);
-impl windows_core::TypeKind for NTCREATEFILE_CREATE_DISPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTCREATEFILE_CREATE_OPTIONS(pub u32);
-impl windows_core::TypeKind for NTCREATEFILE_CREATE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NTCREATEFILE_CREATE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6107,81 +6050,42 @@ impl core::ops::Not for NTCREATEFILE_CREATE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPLOCK_NOTIFY_REASON(pub i32);
-impl windows_core::TypeKind for OPLOCK_NOTIFY_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_COMPRESSION_FORMATS(pub i32);
-impl windows_core::TypeKind for REFS_COMPRESSION_FORMATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_ALLOCATOR(pub i32);
-impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_ALLOCATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS(pub i32);
-impl windows_core::TypeKind for REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_OPERATION(pub i32);
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_MEMORY_TYPE(pub i32);
-impl windows_core::TypeKind for RTL_MEMORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_AUDIT_OPERATION(pub i32);
-impl windows_core::TypeKind for SE_AUDIT_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SRV_INSTANCE_TYPE(pub i32);
-impl windows_core::TypeKind for SRV_INSTANCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedVirtualDiskHandleState(pub i32);
-impl windows_core::TypeKind for SharedVirtualDiskHandleState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedVirtualDiskSupportType(pub i32);
-impl windows_core::TypeKind for SharedVirtualDiskSupportType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_MEMORY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for VIRTUAL_MEMORY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _LCN_WEAK_REFERENCE_STATE(pub i32);
-impl windows_core::TypeKind for _LCN_WEAK_REFERENCE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REFS_STREAM_EXTENT_PROPERTIES(pub i32);
-impl windows_core::TypeKind for _REFS_STREAM_EXTENT_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACE_HEADER {

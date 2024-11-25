@@ -10096,927 +10096,465 @@ pub const __string_type: u32 = 4096u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALTERNATIVE_ARCHITECTURE_TYPE(pub i32);
-impl windows_core::TypeKind for ALTERNATIVE_ARCHITECTURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARBITER_ACTION(pub i32);
-impl windows_core::TypeKind for ARBITER_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARBITER_REQUEST_SOURCE(pub i32);
-impl windows_core::TypeKind for ARBITER_REQUEST_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARBITER_RESULT(pub i32);
-impl windows_core::TypeKind for ARBITER_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDCB_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for BDCB_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDCB_CLASSIFICATION(pub i32);
-impl windows_core::TypeKind for BDCB_CLASSIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDCB_STATUS_UPDATE_TYPE(pub i32);
-impl windows_core::TypeKind for BDCB_STATUS_UPDATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOUND_CALLBACK_STATUS(pub i32);
-impl windows_core::TypeKind for BOUND_CALLBACK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUS_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for BUS_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUS_QUERY_ID_TYPE(pub i32);
-impl windows_core::TypeKind for BUS_QUERY_ID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_SHARE_DISPOSITION(pub i32);
-impl windows_core::TypeKind for CM_SHARE_DISPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIGURATION_TYPE(pub i32);
-impl windows_core::TypeKind for CONFIGURATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for CREATE_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3COLD_LAST_TRANSITION_STATUS(pub i32);
-impl windows_core::TypeKind for D3COLD_LAST_TRANSITION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DIRECTORY_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_DIRECTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_INSTALL_STATE(pub i32);
-impl windows_core::TypeKind for DEVICE_INSTALL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_REGISTRY_PROPERTY(pub i32);
-impl windows_core::TypeKind for DEVICE_REGISTRY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_RELATION_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_RELATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_REMOVAL_POLICY(pub i32);
-impl windows_core::TypeKind for DEVICE_REMOVAL_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_RESET_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_RESET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_TEXT_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_TEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_USAGE_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_USAGE_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_WAKE_DEPTH(pub i32);
-impl windows_core::TypeKind for DEVICE_WAKE_DEPTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(pub i32);
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMPLETION_STATUS(pub i32);
-impl windows_core::TypeKind for DMA_COMPLETION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_SPEED(pub i32);
-impl windows_core::TypeKind for DMA_SPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_WIDTH(pub i32);
-impl windows_core::TypeKind for DMA_WIDTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_ARCH(pub i32);
-impl windows_core::TypeKind for DOMAIN_CONFIGURATION_ARCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_DIRECTORY_TYPE(pub i32);
-impl windows_core::TypeKind for DRIVER_DIRECTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_REGKEY_TYPE(pub i32);
-impl windows_core::TypeKind for DRIVER_REGKEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_RUNTIME_INIT_FLAGS(pub i32);
-impl windows_core::TypeKind for DRIVER_RUNTIME_INIT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENDED_AGP_REGISTER(pub i32);
-impl windows_core::TypeKind for EXTENDED_AGP_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EX_POOL_PRIORITY(pub i32);
-impl windows_core::TypeKind for EX_POOL_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARCH(pub i32);
-impl windows_core::TypeKind for FAULT_INFORMATION_ARCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64_TYPE(pub i32);
-impl windows_core::TypeKind for FAULT_INFORMATION_ARM64_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_APIC_DESTINATION_MODE(pub i32);
-impl windows_core::TypeKind for HAL_APIC_DESTINATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_DISPLAY_BIOS_INFORMATION(pub i32);
-impl windows_core::TypeKind for HAL_DISPLAY_BIOS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_DMA_CRASH_DUMP_REGISTER_TYPE(pub i32);
-impl windows_core::TypeKind for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_QUERY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for HAL_QUERY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_SET_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for HAL_SET_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
-impl windows_core::TypeKind for HARDWARE_COUNTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTEL_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for INTEL_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_TYPE(pub i32);
-impl windows_core::TypeKind for INTERFACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERLOCKED_RESULT(pub i32);
-impl windows_core::TypeKind for INTERLOCKED_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(pub i32);
-impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_TYPE(pub i32);
-impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(pub i32);
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(pub i32);
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ACCESS_MODE(pub i32);
-impl windows_core::TypeKind for IO_ACCESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for IO_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ALLOCATION_ACTION(pub i32);
-impl windows_core::TypeKind for IO_ALLOCATION_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_COMPLETION_ROUTINE_RESULT(pub i32);
-impl windows_core::TypeKind for IO_COMPLETION_ROUTINE_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CONTAINER_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for IO_CONTAINER_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CONTAINER_NOTIFICATION_CLASS(pub i32);
-impl windows_core::TypeKind for IO_CONTAINER_NOTIFICATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_NOTIFICATION_EVENT_CATEGORY(pub i32);
-impl windows_core::TypeKind for IO_NOTIFICATION_EVENT_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_PAGING_PRIORITY(pub i32);
-impl windows_core::TypeKind for IO_PAGING_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_QUERY_DEVICE_DATA_FORMAT(pub i32);
-impl windows_core::TypeKind for IO_QUERY_DEVICE_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_EVENT(pub i32);
-impl windows_core::TypeKind for IO_SESSION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_STATE(pub i32);
-impl windows_core::TypeKind for IO_SESSION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_DEVICE_POLICY(pub i32);
-impl windows_core::TypeKind for IRQ_DEVICE_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_GROUP_POLICY(pub i32);
-impl windows_core::TypeKind for IRQ_GROUP_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_PRIORITY(pub i32);
-impl windows_core::TypeKind for IRQ_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_BUFFER_DUMP_STATE(pub i32);
-impl windows_core::TypeKind for KBUGCHECK_BUFFER_DUMP_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_CALLBACK_REASON(pub i32);
-impl windows_core::TypeKind for KBUGCHECK_CALLBACK_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_DUMP_IO_TYPE(pub i32);
-impl windows_core::TypeKind for KBUGCHECK_DUMP_IO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDPC_IMPORTANCE(pub i32);
-impl windows_core::TypeKind for KDPC_IMPORTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KD_CALLBACK_ACTION(pub i32);
-impl windows_core::TypeKind for KD_CALLBACK_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KD_NAMESPACE_ENUM(pub i32);
-impl windows_core::TypeKind for KD_NAMESPACE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KD_OPTION(pub i32);
-impl windows_core::TypeKind for KD_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_STATE(pub i32);
-impl windows_core::TypeKind for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KINTERRUPT_MODE(pub i32);
-impl windows_core::TypeKind for KINTERRUPT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KINTERRUPT_POLARITY(pub i32);
-impl windows_core::TypeKind for KINTERRUPT_POLARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KPROFILE_SOURCE(pub i32);
-impl windows_core::TypeKind for KPROFILE_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KWAIT_REASON(pub i32);
-impl windows_core::TypeKind for KWAIT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCK_OPERATION(pub i32);
-impl windows_core::TypeKind for LOCK_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION_TYPE(pub i32);
-impl windows_core::TypeKind for MCA_EXCEPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_CACHING_TYPE(pub i32);
-impl windows_core::TypeKind for MEMORY_CACHING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_CACHING_TYPE_ORIG(pub i32);
-impl windows_core::TypeKind for MEMORY_CACHING_TYPE_ORIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_MDL_PAGE_CONTENTS_STATE(pub i32);
-impl windows_core::TypeKind for MM_MDL_PAGE_CONTENTS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PAGE_PRIORITY(pub i32);
-impl windows_core::TypeKind for MM_PAGE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_ROTATE_DIRECTION(pub i32);
-impl windows_core::TypeKind for MM_ROTATE_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_SYSTEMSIZE(pub i32);
-impl windows_core::TypeKind for MM_SYSTEMSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODE(pub i32);
-impl windows_core::TypeKind for MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NPEM_CONTROL_STANDARD_CONTROL_BIT(pub i32);
-impl windows_core::TypeKind for NPEM_CONTROL_STANDARD_CONTROL_BIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_PREOP_CALLBACK_STATUS(pub i32);
-impl windows_core::TypeKind for OB_PREOP_CALLBACK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARTITION_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for PARTITION_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_ACS_BIT(pub i32);
-impl windows_core::TypeKind for PCI_ACS_BIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_BUS_WIDTH(pub i32);
-impl windows_core::TypeKind for PCI_BUS_WIDTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_DEVICE_D3COLD_STATE_REASON(pub i32);
-impl windows_core::TypeKind for PCI_DEVICE_D3COLD_STATE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ASPM_CONTROL(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_ASPM_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ASPM_SUPPORT(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_ASPM_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CARD_PRESENCE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_CARD_PRESENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_INDICATOR_STATE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_INDICATOR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_L0s_EXIT_LATENCY(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_L0s_EXIT_LATENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_L1_EXIT_LATENCY(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_L1_EXIT_LATENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_SUBSTATE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_SUBSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_MAX_PAYLOAD_SIZE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_MAX_PAYLOAD_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_MRL_STATE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_MRL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_POWER_STATE(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_RCB(pub i32);
-impl windows_core::TypeKind for PCI_EXPRESS_RCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_HARDWARE_INTERFACE(pub i32);
-impl windows_core::TypeKind for PCI_HARDWARE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for PCW_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_REGISTRATION_FLAGS(pub i32);
-impl windows_core::TypeKind for PCW_REGISTRATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(pub i32);
-impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-impl windows_core::TypeKind for POWER_MONITOR_REQUEST_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-impl windows_core::TypeKind for POWER_PLATFORM_ROLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_STATE_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_STATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-impl windows_core::TypeKind for POWER_USER_PRESENCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_PERF_STATE_TYPE(pub i32);
-impl windows_core::TypeKind for PO_FX_PERF_STATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_PERF_STATE_UNIT(pub i32);
-impl windows_core::TypeKind for PO_FX_PERF_STATE_UNIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_THERMAL_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for PO_THERMAL_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSCREATEPROCESSNOTIFYTYPE(pub i32);
-impl windows_core::TypeKind for PSCREATEPROCESSNOTIFYTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSCREATETHREADNOTIFYTYPE(pub i32);
-impl windows_core::TypeKind for PSCREATETHREADNOTIFYTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHED_PI_ERR_READING_PCIE_OVERRIDES(pub i32);
-impl windows_core::TypeKind for PSHED_PI_ERR_READING_PCIE_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_NOTIFY_CLASS(pub i32);
-impl windows_core::TypeKind for REG_NOTIFY_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_TRANSLATION_DIRECTION(pub i32);
-impl windows_core::TypeKind for RESOURCE_TRANSLATION_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_GENERIC_COMPARE_RESULTS(pub i32);
-impl windows_core::TypeKind for RTL_GENERIC_COMPARE_RESULTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_OPERATION_CODE(pub i32);
-impl windows_core::TypeKind for SECURITY_OPERATION_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for SE_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMAGE_VERIFICATION_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOC_SUBSYSTEM_TYPE(pub i32);
-impl windows_core::TypeKind for SOC_SUBSYSTEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATE_LOCATION_TYPE(pub i32);
-impl windows_core::TypeKind for STATE_LOCATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSYSTEM_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for SUBSYSTEM_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_FIRMWARE_TABLE_ACTION(pub i32);
-impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
-impl windows_core::TypeKind for SYSTEM_POWER_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABLE_SEARCH_RESULT(pub i32);
-impl windows_core::TypeKind for TABLE_SEARCH_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TRACE_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEAP_DPC_ERROR_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for WHEAP_DPC_ERROR_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEAP_PFA_OFFLINE_DECISION_TYPE(pub i32);
-impl windows_core::TypeKind for WHEAP_PFA_OFFLINE_DECISION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_BUGCHECK_RECOVERY_LOG_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CPU_VENDOR(pub i32);
-impl windows_core::TypeKind for WHEA_CPU_VENDOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_PACKET_DATA_FORMAT(pub i32);
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_SEVERITY(pub i32);
-impl windows_core::TypeKind for WHEA_ERROR_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_ERROR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_EVENT_LOG_ENTRY_ID(pub i32);
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_EVENT_LOG_ENTRY_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCI_RECOVERY_SIGNAL(pub i32);
-impl windows_core::TypeKind for WHEA_PCI_RECOVERY_SIGNAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCI_RECOVERY_STATUS(pub i32);
-impl windows_core::TypeKind for WHEA_PCI_RECOVERY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PFA_REMOVE_TRIGGER(pub i32);
-impl windows_core::TypeKind for WHEA_PFA_REMOVE_TRIGGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(pub i32);
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RAW_DATA_FORMAT(pub i32);
-impl windows_core::TypeKind for WHEA_RAW_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_ERROR_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_FAILURE_REASON(pub i32);
-impl windows_core::TypeKind for WHEA_RECOVERY_FAILURE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_RECOVERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_THROTTLE_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_THROTTLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORK_QUEUE_TYPE(pub i32);
-impl windows_core::TypeKind for WORK_QUEUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {

@@ -41,45 +41,24 @@ pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedIsolationState(pub i32);
-impl windows_core::TypeKind for ExtendedIsolationState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FailureCategory(pub i32);
-impl windows_core::TypeKind for FailureCategory {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FixupState(pub i32);
-impl windows_core::TypeKind for FixupState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolationState(pub i32);
-impl windows_core::TypeKind for IsolationState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NapNotifyType(pub i32);
-impl windows_core::TypeKind for NapNotifyType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NapTracingLevel(pub i32);
-impl windows_core::TypeKind for NapTracingLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteConfigurationType(pub i32);
-impl windows_core::TypeKind for RemoteConfigurationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CorrelationId {

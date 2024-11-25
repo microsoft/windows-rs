@@ -146,9 +146,6 @@ pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLA
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
-impl windows_core::TypeKind for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -185,21 +182,12 @@ impl core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
-impl windows_core::TypeKind for SAFER_IDENTIFICATION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for SAFER_OBJECT_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for SAFER_POLICY_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]

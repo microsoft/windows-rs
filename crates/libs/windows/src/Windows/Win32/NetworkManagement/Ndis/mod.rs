@@ -2140,279 +2140,141 @@ pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
-impl windows_core::TypeKind for IF_ADMINISTRATIVE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IF_OPER_STATUS(pub i32);
-impl windows_core::TypeKind for IF_OPER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_POWER_MODE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_POWER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_RADIO_STATUS(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_RADIO_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_STATUS_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_STATUS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_WEP_STATUS(pub i32);
-impl windows_core::TypeKind for NDIS_802_11_WEP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_5_RING_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_802_5_RING_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_DEVICE_POWER_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_DEVICE_POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_HARDWARE_STATUS(pub i32);
-impl windows_core::TypeKind for NDIS_HARDWARE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_INTERRUPT_MODERATION(pub i32);
-impl windows_core::TypeKind for NDIS_INTERRUPT_MODERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_MEDIA_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_MEDIA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_MEDIUM(pub i32);
-impl windows_core::TypeKind for NDIS_MEDIUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
-impl windows_core::TypeKind for NDIS_PHYSICAL_MEDIUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_CONTROL_STATE(pub i32);
-impl windows_core::TypeKind for NDIS_PORT_CONTROL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PROCESSOR_VENDOR(pub i32);
-impl windows_core::TypeKind for NDIS_PROCESSOR_VENDOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for NDIS_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
-impl windows_core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
-impl windows_core::TypeKind for NDIS_WAN_HEADER_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
-impl windows_core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WAN_QUALITY(pub i32);
-impl windows_core::TypeKind for NDIS_WAN_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDK_RDMA_TECHNOLOGY(pub i32);
-impl windows_core::TypeKind for NDK_RDMA_TECHNOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for NET_IF_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
-impl windows_core::TypeKind for NET_IF_ADMIN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_CONNECTION_TYPE(pub i32);
-impl windows_core::TypeKind for NET_IF_CONNECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
-impl windows_core::TypeKind for NET_IF_DIRECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
-impl windows_core::TypeKind for NET_IF_MEDIA_CONNECT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
-impl windows_core::TypeKind for NET_IF_MEDIA_DUPLEX_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_OPER_STATUS(pub i32);
-impl windows_core::TypeKind for NET_IF_OPER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
-impl windows_core::TypeKind for NET_IF_RCV_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_CONF_ALGO(pub i32);
-impl windows_core::TypeKind for OFFLOAD_CONF_ALGO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
-impl windows_core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_OPERATION_E(pub i32);
-impl windows_core::TypeKind for OFFLOAD_OPERATION_E {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TUNNEL_TYPE(pub i32);
-impl windows_core::TypeKind for TUNNEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDP_ENCAP_TYPE(pub i32);
-impl windows_core::TypeKind for UDP_ENCAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSSID_INFO {

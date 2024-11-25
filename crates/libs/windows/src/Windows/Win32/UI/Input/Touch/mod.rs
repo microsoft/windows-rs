@@ -1162,9 +1162,6 @@ pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAG
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GESTURECONFIG_ID(pub u32);
-impl windows_core::TypeKind for GESTURECONFIG_ID {
-    type TypeKind = windows_core::CopyType;
-}
 impl GESTURECONFIG_ID {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1201,9 +1198,6 @@ impl core::ops::Not for GESTURECONFIG_ID {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
-impl windows_core::TypeKind for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MANIPULATION_PROCESSOR_MANIPULATIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1240,15 +1234,9 @@ impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for REGISTER_TOUCH_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
-impl windows_core::TypeKind for TOUCHEVENTF_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TOUCHEVENTF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1285,9 +1273,6 @@ impl core::ops::Not for TOUCHEVENTF_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
-impl windows_core::TypeKind for TOUCHINPUTMASKF_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl TOUCHINPUTMASKF_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

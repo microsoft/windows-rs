@@ -802,159 +802,81 @@ pub const WKPDID_D3DDebugObjectNameW: windows_core::GUID = windows_core::GUID::f
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_CBUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_CBUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_DRIVER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_DRIVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for D3D_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_FORMAT_COMPONENT_INTERPRETATION(pub i32);
-impl windows_core::TypeKind for D3D_FORMAT_COMPONENT_INTERPRETATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_FORMAT_COMPONENT_NAME(pub i32);
-impl windows_core::TypeKind for D3D_FORMAT_COMPONENT_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_FORMAT_LAYOUT(pub i32);
-impl windows_core::TypeKind for D3D_FORMAT_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_FORMAT_TYPE_LEVEL(pub i32);
-impl windows_core::TypeKind for D3D_FORMAT_TYPE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_INCLUDE_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_INCLUDE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D3D_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_MIN_PRECISION(pub i32);
-impl windows_core::TypeKind for D3D_MIN_PRECISION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_NAME(pub i32);
-impl windows_core::TypeKind for D3D_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_PARAMETER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D_PARAMETER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_PRIMITIVE(pub i32);
-impl windows_core::TypeKind for D3D_PRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_PRIMITIVE_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for D3D_PRIMITIVE_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_REGISTER_COMPONENT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_REGISTER_COMPONENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_RESOURCE_RETURN_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_RESOURCE_RETURN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_CBUFFER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_INPUT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_INPUT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_INPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_VARIABLE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_VARIABLE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_VARIABLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_VARIABLE_TYPE(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_VARIABLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SRV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D_SRV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_TESSELLATOR_DOMAIN(pub i32);
-impl windows_core::TypeKind for D3D_TESSELLATOR_DOMAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(pub i32);
-impl windows_core::TypeKind for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_TESSELLATOR_PARTITIONING(pub i32);
-impl windows_core::TypeKind for D3D_TESSELLATOR_PARTITIONING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVECTOR {

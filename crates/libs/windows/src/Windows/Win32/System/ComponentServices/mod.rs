@@ -10231,249 +10231,126 @@ pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Consta
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoSvcs_Error_Constants(pub u32);
-impl windows_core::TypeKind for AutoSvcs_Error_Constants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminAccessChecksLevelOptions(pub i32);
-impl windows_core::TypeKind for COMAdminAccessChecksLevelOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminActivationOptions(pub i32);
-impl windows_core::TypeKind for COMAdminActivationOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminApplicationExportOptions(pub i32);
-impl windows_core::TypeKind for COMAdminApplicationExportOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminApplicationInstallOptions(pub i32);
-impl windows_core::TypeKind for COMAdminApplicationInstallOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
-impl windows_core::TypeKind for COMAdminAuthenticationCapabilitiesOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminAuthenticationLevelOptions(pub i32);
-impl windows_core::TypeKind for COMAdminAuthenticationLevelOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminComponentFlags(pub i32);
-impl windows_core::TypeKind for COMAdminComponentFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminComponentType(pub i32);
-impl windows_core::TypeKind for COMAdminComponentType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminErrorCodes(pub i32);
-impl windows_core::TypeKind for COMAdminErrorCodes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminFileFlags(pub i32);
-impl windows_core::TypeKind for COMAdminFileFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminImpersonationLevelOptions(pub i32);
-impl windows_core::TypeKind for COMAdminImpersonationLevelOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminInUse(pub i32);
-impl windows_core::TypeKind for COMAdminInUse {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminOS(pub i32);
-impl windows_core::TypeKind for COMAdminOS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
-impl windows_core::TypeKind for COMAdminQCMessageAuthenticateOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminServiceOptions(pub i32);
-impl windows_core::TypeKind for COMAdminServiceOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminServiceStatusOptions(pub i32);
-impl windows_core::TypeKind for COMAdminServiceStatusOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminSynchronizationOptions(pub i32);
-impl windows_core::TypeKind for COMAdminSynchronizationOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminThreadingModels(pub i32);
-impl windows_core::TypeKind for COMAdminThreadingModels {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminTransactionOptions(pub i32);
-impl windows_core::TypeKind for COMAdminTransactionOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMAdminTxIsolationLevelOptions(pub i32);
-impl windows_core::TypeKind for COMAdminTxIsolationLevelOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPLUS_APPTYPE(pub i32);
-impl windows_core::TypeKind for COMPLUS_APPTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRMFLAGS(pub i32);
-impl windows_core::TypeKind for CRMFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRMREGFLAGS(pub i32);
-impl windows_core::TypeKind for CRMREGFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_Binding(pub i32);
-impl windows_core::TypeKind for CSC_Binding {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_COMTIIntrinsicsConfig(pub i32);
-impl windows_core::TypeKind for CSC_COMTIIntrinsicsConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_IISIntrinsicsConfig(pub i32);
-impl windows_core::TypeKind for CSC_IISIntrinsicsConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_InheritanceConfig(pub i32);
-impl windows_core::TypeKind for CSC_InheritanceConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_PartitionConfig(pub i32);
-impl windows_core::TypeKind for CSC_PartitionConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_SxsConfig(pub i32);
-impl windows_core::TypeKind for CSC_SxsConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_SynchronizationConfig(pub i32);
-impl windows_core::TypeKind for CSC_SynchronizationConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_ThreadPool(pub i32);
-impl windows_core::TypeKind for CSC_ThreadPool {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_TrackerConfig(pub i32);
-impl windows_core::TypeKind for CSC_TrackerConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSC_TransactionConfig(pub i32);
-impl windows_core::TypeKind for CSC_TransactionConfig {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CrmTransactionState(pub i32);
-impl windows_core::TypeKind for CrmTransactionState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMPTYPE(pub i32);
-impl windows_core::TypeKind for DUMPTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GetAppTrackerDataFlags(pub i32);
-impl windows_core::TypeKind for GetAppTrackerDataFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LockModes(pub i32);
-impl windows_core::TypeKind for LockModes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReleaseModes(pub i32);
-impl windows_core::TypeKind for ReleaseModes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKING_COLL_TYPE(pub i32);
-impl windows_core::TypeKind for TRACKING_COLL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TransactionVote(pub i32);
-impl windows_core::TypeKind for TransactionVote {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPDATA {

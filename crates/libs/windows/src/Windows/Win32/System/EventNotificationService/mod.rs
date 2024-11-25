@@ -376,9 +376,6 @@ pub const SENSGUID_SUBSCRIBER_WININET: windows_core::GUID = windows_core::GUID::
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
-impl windows_core::TypeKind for SENS_CONNECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QOCINFO {

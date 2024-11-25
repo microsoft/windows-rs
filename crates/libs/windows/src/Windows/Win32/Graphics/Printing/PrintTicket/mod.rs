@@ -118,15 +118,9 @@ pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDefaultDevmodeType(pub i32);
-impl windows_core::TypeKind for EDefaultDevmodeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintTicketScope(pub i32);
-impl windows_core::TypeKind for EPrintTicketScope {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);

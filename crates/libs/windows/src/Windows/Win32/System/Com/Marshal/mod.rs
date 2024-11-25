@@ -825,6 +825,3 @@ pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STDMSHLFLAGS(pub i32);
-impl windows_core::TypeKind for STDMSHLFLAGS {
-    type TypeKind = windows_core::CopyType;
-}

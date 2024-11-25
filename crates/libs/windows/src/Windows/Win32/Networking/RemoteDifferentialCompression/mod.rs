@@ -1335,33 +1335,18 @@ pub const SimilarityFileIdMinSize: u32 = 4u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeneratorParametersType(pub i32);
-impl windows_core::TypeKind for GeneratorParametersType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDC_ErrorCode(pub i32);
-impl windows_core::TypeKind for RDC_ErrorCode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RdcCreatedTables(pub i32);
-impl windows_core::TypeKind for RdcCreatedTables {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RdcMappingAccessMode(pub i32);
-impl windows_core::TypeKind for RdcMappingAccessMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RdcNeedType(pub i32);
-impl windows_core::TypeKind for RdcNeedType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FindSimilarFileIndexResults {

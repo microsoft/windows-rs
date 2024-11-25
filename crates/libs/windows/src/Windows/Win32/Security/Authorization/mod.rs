@@ -8227,57 +8227,30 @@ pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_MODE(pub i32);
-impl windows_core::TypeKind for ACCESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
-impl windows_core::TypeKind for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIT_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
-impl windows_core::TypeKind for AUTHZ_ACCESS_CHECK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for AUTHZ_CONTEXT_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_GENERATE_RESULTS(pub u32);
-impl windows_core::TypeKind for AUTHZ_GENERATE_RESULTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
-impl windows_core::TypeKind for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
-impl windows_core::TypeKind for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl AUTHZ_RESOURCE_MANAGER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8314,9 +8287,6 @@ impl core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8353,57 +8323,30 @@ impl core::ops::Not for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub i32);
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SID_OPERATION(pub i32);
-impl windows_core::TypeKind for AUTHZ_SID_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AZ_PROP_CONSTANTS(pub i32);
-impl windows_core::TypeKind for AZ_PROP_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
-impl windows_core::TypeKind for MULTIPLE_TRUSTEE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROG_INVOKE_SETTING(pub i32);
-impl windows_core::TypeKind for PROG_INVOKE_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for SE_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TREE_SEC_INFO(pub u32);
-impl windows_core::TypeKind for TREE_SEC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_FORM(pub i32);
-impl windows_core::TypeKind for TRUSTEE_FORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_TYPE(pub i32);
-impl windows_core::TypeKind for TRUSTEE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_ACCESSA {

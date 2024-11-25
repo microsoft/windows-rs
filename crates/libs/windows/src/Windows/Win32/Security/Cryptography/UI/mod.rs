@@ -237,9 +237,6 @@ pub const szCERT_CERTIFICATE_ACTION_VERIFY: windows_core::PCSTR = windows_core::
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SELECT_STRUCT_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_SELECT_STRUCT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_SELECT_STRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -276,9 +273,6 @@ impl core::ops::Not for CERT_SELECT_STRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -315,9 +309,6 @@ impl core::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPTUI_VIEWCERTIFICATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -354,51 +345,27 @@ impl core::ops::Not for CRYPTUI_VIEWCERTIFICATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_EXPORT_FORMAT(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPTUI_WIZ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -435,15 +402,9 @@ impl core::ops::Not for CRYPTUI_WIZ_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(pub u32);
-impl windows_core::TypeKind for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
-impl windows_core::TypeKind for CTL_MODIFY_REQUEST_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERT_FILTER_DATA {

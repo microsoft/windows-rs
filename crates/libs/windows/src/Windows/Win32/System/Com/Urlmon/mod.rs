@@ -3849,171 +3849,87 @@ pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = ZAFLAGS(131072i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATEF(pub i32);
-impl windows_core::TypeKind for AUTHENTICATEF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDF(pub i32);
-impl windows_core::TypeKind for BINDF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDF2(pub i32);
-impl windows_core::TypeKind for BINDF2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDHANDLETYPES(pub i32);
-impl windows_core::TypeKind for BINDHANDLETYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDINFO_OPTIONS(pub i32);
-impl windows_core::TypeKind for BINDINFO_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDSTATUS(pub i32);
-impl windows_core::TypeKind for BINDSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDSTRING(pub i32);
-impl windows_core::TypeKind for BINDSTRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDVERB(pub i32);
-impl windows_core::TypeKind for BINDVERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BSCF(pub i32);
-impl windows_core::TypeKind for BSCF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CIP_STATUS(pub i32);
-impl windows_core::TypeKind for CIP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEObjectType(pub i32);
-impl windows_core::TypeKind for IEObjectType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
-impl windows_core::TypeKind for INET_ZONE_MANAGER_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNETFEATURELIST(pub i32);
-impl windows_core::TypeKind for INTERNETFEATURELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONIKERPROPERTY(pub i32);
-impl windows_core::TypeKind for MONIKERPROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OIBDG_FLAGS(pub i32);
-impl windows_core::TypeKind for OIBDG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARSEACTION(pub i32);
-impl windows_core::TypeKind for PARSEACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PI_FLAGS(pub i32);
-impl windows_core::TypeKind for PI_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSUACTION(pub i32);
-impl windows_core::TypeKind for PSUACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUAF(pub i32);
-impl windows_core::TypeKind for PUAF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUAFOUT(pub i32);
-impl windows_core::TypeKind for PUAFOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERYOPTION(pub i32);
-impl windows_core::TypeKind for QUERYOPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SZM_FLAGS(pub i32);
-impl windows_core::TypeKind for SZM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLTEMPLATE(pub i32);
-impl windows_core::TypeKind for URLTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLZONE(pub i32);
-impl windows_core::TypeKind for URLZONE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLZONEREG(pub i32);
-impl windows_core::TypeKind for URLZONEREG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_ENCODING(pub i32);
-impl windows_core::TypeKind for URL_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Uri_HOST_TYPE(pub i32);
-impl windows_core::TypeKind for Uri_HOST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ZAFLAGS(pub i32);
-impl windows_core::TypeKind for ZAFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CODEBASEHOLD {

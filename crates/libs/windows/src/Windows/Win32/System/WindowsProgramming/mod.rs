@@ -2884,9 +2884,6 @@ impl CameraUIControlCaptureMode {
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
-impl windows_core::TypeKind for CameraUIControlCaptureMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
@@ -2894,18 +2891,12 @@ impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
     pub const Multiple: Self = Self(1i32);
 }
-impl windows_core::TypeKind for CameraUIControlLinearSelectionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CameraUIControlMode {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2915,18 +2906,12 @@ impl CameraUIControlPhotoFormat {
     pub const Png: Self = Self(1i32);
     pub const JpegXR: Self = Self(2i32);
 }
-impl windows_core::TypeKind for CameraUIControlPhotoFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CameraUIControlVideoFormat {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2935,57 +2920,30 @@ impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
     pub const ItemList: Self = Self(1i32);
 }
-impl windows_core::TypeKind for CameraUIControlViewType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECISION_LOCATION(pub i32);
-impl windows_core::TypeKind for DECISION_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_CHANGE_TIME(pub i32);
-impl windows_core::TypeKind for FEATURE_CHANGE_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_ENABLED_STATE(pub i32);
-impl windows_core::TypeKind for FEATURE_ENABLED_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDIENTITY_ENTITY_TYPE(pub u32);
-impl windows_core::TypeKind for TDIENTITY_ENTITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
-impl windows_core::TypeKind for TDI_TL_IO_CONTROL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALUENAME(pub i32);
-impl windows_core::TypeKind for VALUENAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSTATIONINFOCLASS(pub i32);
-impl windows_core::TypeKind for WINSTATIONINFOCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_EXECUTION_EVALUATION_OPTIONS(pub i32);
-impl windows_core::TypeKind for WLDP_EXECUTION_EVALUATION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WLDP_EXECUTION_EVALUATION_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3022,45 +2980,24 @@ impl core::ops::Not for WLDP_EXECUTION_EVALUATION_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_EXECUTION_POLICY(pub i32);
-impl windows_core::TypeKind for WLDP_EXECUTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_HOST(pub i32);
-impl windows_core::TypeKind for WLDP_HOST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_HOST_ID(pub i32);
-impl windows_core::TypeKind for WLDP_HOST_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_KEY(pub i32);
-impl windows_core::TypeKind for WLDP_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_POLICY_SETTING(pub i32);
-impl windows_core::TypeKind for WLDP_POLICY_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
-impl windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
-impl windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600 {

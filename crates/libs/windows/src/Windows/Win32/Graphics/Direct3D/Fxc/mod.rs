@@ -268,15 +268,9 @@ pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCOMPILER_STRIP_FLAGS(pub i32);
-impl windows_core::TypeKind for D3DCOMPILER_STRIP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_BLOB_PART(pub i32);
-impl windows_core::TypeKind for D3D_BLOB_PART {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D_SHADER_DATA {

@@ -2176,597 +2176,300 @@ pub const WS_XML_WRITER_PROPERTY_WRITE_DECLARATION: WS_XML_WRITER_PROPERTY_ID = 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ADDRESSING_VERSION(pub i32);
-impl windows_core::TypeKind for WS_ADDRESSING_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_BINDING_TEMPLATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CALLBACK_MODEL(pub i32);
-impl windows_core::TypeKind for WS_CALLBACK_MODEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CALL_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_CALL_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_CERT_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_BINDING(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_STATE(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHARSET(pub i32);
-impl windows_core::TypeKind for WS_CHARSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_COOKIE_MODE(pub i32);
-impl windows_core::TypeKind for WS_COOKIE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_DATETIME_FORMAT(pub i32);
-impl windows_core::TypeKind for WS_DATETIME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ENCODING(pub i32);
-impl windows_core::TypeKind for WS_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
-impl windows_core::TypeKind for WS_ENDPOINT_IDENTITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ENVELOPE_VERSION(pub i32);
-impl windows_core::TypeKind for WS_ENVELOPE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ERROR_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_ERROR_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_EXCEPTION_CODE(pub i32);
-impl windows_core::TypeKind for WS_EXCEPTION_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_EXTENDED_PROTECTION_POLICY(pub i32);
-impl windows_core::TypeKind for WS_EXTENDED_PROTECTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
-impl windows_core::TypeKind for WS_EXTENDED_PROTECTION_SCENARIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_FAULT_DISCLOSURE(pub i32);
-impl windows_core::TypeKind for WS_FAULT_DISCLOSURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_FAULT_ERROR_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_FIELD_MAPPING(pub i32);
-impl windows_core::TypeKind for WS_FIELD_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_HEADER_TYPE(pub i32);
-impl windows_core::TypeKind for WS_HEADER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_HEAP_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_HEAP_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
-impl windows_core::TypeKind for WS_HTTP_PROXY_SETTING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_IP_VERSION(pub i32);
-impl windows_core::TypeKind for WS_IP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_LISTENER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_LISTENER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_LISTENER_STATE(pub i32);
-impl windows_core::TypeKind for WS_LISTENER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MESSAGE_INITIALIZATION(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_INITIALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MESSAGE_SECURITY_USAGE(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_SECURITY_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MESSAGE_STATE(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_METADATA_EXCHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_METADATA_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_METADATA_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_METADATA_STATE(pub i32);
-impl windows_core::TypeKind for WS_METADATA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MOVE_TO(pub i32);
-impl windows_core::TypeKind for WS_MOVE_TO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_OPERATION_CONTEXT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_OPERATION_STYLE(pub i32);
-impl windows_core::TypeKind for WS_OPERATION_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for WS_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
-impl windows_core::TypeKind for WS_POLICY_EXTENSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_POLICY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_POLICY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_POLICY_STATE(pub i32);
-impl windows_core::TypeKind for WS_POLICY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for WS_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_PROXY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_PROXY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_READ_OPTION(pub i32);
-impl windows_core::TypeKind for WS_READ_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_RECEIVE_OPTION(pub i32);
-impl windows_core::TypeKind for WS_RECEIVE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_REPEATING_HEADER_OPTION(pub i32);
-impl windows_core::TypeKind for WS_REPEATING_HEADER_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(pub i32);
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SAML_AUTHENTICATOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURE_CONVERSATION_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURE_PROTOCOL(pub i32);
-impl windows_core::TypeKind for WS_SECURE_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_ALGORITHM_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_BINDING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_HEADER_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_HEADER_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_HEADER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_KEY_ENTROPY_MODE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_ENTROPY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_HANDLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_TIMESTAMP_USAGE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TIMESTAMP_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TOKEN_REFERENCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_CANCEL_REASON(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_CANCEL_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_HOST_STATE(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_HOST_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_PROXY_STATE(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_PROXY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_TRACE_API(pub i32);
-impl windows_core::TypeKind for WS_TRACE_API {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_TRANSFER_MODE(pub i32);
-impl windows_core::TypeKind for WS_TRANSFER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_TRUST_VERSION(pub i32);
-impl windows_core::TypeKind for WS_TRUST_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_TYPE(pub i32);
-impl windows_core::TypeKind for WS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_TYPE_MAPPING(pub i32);
-impl windows_core::TypeKind for WS_TYPE_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_URL_SCHEME_TYPE(pub i32);
-impl windows_core::TypeKind for WS_URL_SCHEME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_USERNAME_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_VALUE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(pub i32);
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_WRITE_OPTION(pub i32);
-impl windows_core::TypeKind for WS_WRITE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_BUFFER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_CANONICALIZATION_ALGORITHM(pub i32);
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_ENCODING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_READER_INPUT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_INPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_READER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_TEXT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_TEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_ENCODING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_OUTPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {

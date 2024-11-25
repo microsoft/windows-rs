@@ -3818,129 +3818,66 @@ pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(65535i32)
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLICATIONTYPE(pub i32);
-impl windows_core::TypeKind for APPLICATIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_LEVEL(pub i32);
-impl windows_core::TypeKind for AUTHENTICATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCINITIATEDRECOVERYWORK(pub i32);
-impl windows_core::TypeKind for DTCINITIATEDRECOVERYWORK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUCOMPARESTATE(pub i32);
-impl windows_core::TypeKind for DTCLUCOMPARESTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUCOMPARESTATESCONFIRMATION(pub i32);
-impl windows_core::TypeKind for DTCLUCOMPARESTATESCONFIRMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUCOMPARESTATESERROR(pub i32);
-impl windows_core::TypeKind for DTCLUCOMPARESTATESERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUCOMPARESTATESRESPONSE(pub i32);
-impl windows_core::TypeKind for DTCLUCOMPARESTATESRESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUXLN(pub i32);
-impl windows_core::TypeKind for DTCLUXLN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUXLNCONFIRMATION(pub i32);
-impl windows_core::TypeKind for DTCLUXLNCONFIRMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUXLNERROR(pub i32);
-impl windows_core::TypeKind for DTCLUXLNERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTCLUXLNRESPONSE(pub i32);
-impl windows_core::TypeKind for DTCLUXLNRESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTC_STATUS_(pub i32);
-impl windows_core::TypeKind for DTC_STATUS_ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISOFLAG(pub i32);
-impl windows_core::TypeKind for ISOFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISOLATIONLEVEL(pub i32);
-impl windows_core::TypeKind for ISOLATIONLEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TX_MISC_CONSTANTS(pub i32);
-impl windows_core::TypeKind for TX_MISC_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTCONST(pub i32);
-impl windows_core::TypeKind for XACTCONST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTHEURISTIC(pub i32);
-impl windows_core::TypeKind for XACTHEURISTIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTRM(pub i32);
-impl windows_core::TypeKind for XACTRM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTSTAT(pub i32);
-impl windows_core::TypeKind for XACTSTAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTTC(pub i32);
-impl windows_core::TypeKind for XACTTC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACT_DTC_CONSTANTS(pub i32);
-impl windows_core::TypeKind for XACT_DTC_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BOID {

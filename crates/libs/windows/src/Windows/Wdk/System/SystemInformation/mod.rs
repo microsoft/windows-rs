@@ -42,6 +42,3 @@ pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMAT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for SYSTEM_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}

@@ -1157,15 +1157,9 @@ pub const szOID_TS_KP_TS_SERVER_AUTH: windows_core::PCSTR = windows_core::s!("1.
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
-impl windows_core::TypeKind for CREDSPP_SUBMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUIWIN_FLAGS(pub u32);
-impl windows_core::TypeKind for CREDUIWIN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREDUIWIN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1202,9 +1196,6 @@ impl core::ops::Not for CREDUIWIN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_FLAGS(pub u32);
-impl windows_core::TypeKind for CREDUI_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREDUI_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1241,9 +1232,6 @@ impl core::ops::Not for CREDUI_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
-impl windows_core::TypeKind for CRED_ENUMERATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRED_ENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1280,9 +1268,6 @@ impl core::ops::Not for CRED_ENUMERATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_FLAGS(pub u32);
-impl windows_core::TypeKind for CRED_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRED_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1319,15 +1304,9 @@ impl core::ops::Not for CRED_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
-impl windows_core::TypeKind for CRED_MARSHAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PACK_FLAGS(pub u32);
-impl windows_core::TypeKind for CRED_PACK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRED_PACK_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1364,27 +1343,15 @@ impl core::ops::Not for CRED_PACK_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PERSIST(pub u32);
-impl windows_core::TypeKind for CRED_PERSIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
-impl windows_core::TypeKind for CRED_PROTECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_TYPE(pub u32);
-impl windows_core::TypeKind for CRED_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialManagerOperationErrorStates(pub i32);
-impl windows_core::TypeKind for KeyCredentialManagerOperationErrorStates {
-    type TypeKind = windows_core::CopyType;
-}
 impl KeyCredentialManagerOperationErrorStates {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1421,27 +1388,15 @@ impl core::ops::Not for KeyCredentialManagerOperationErrorStates {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialManagerOperationType(pub i32);
-impl windows_core::TypeKind for KeyCredentialManagerOperationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
-impl windows_core::TypeKind for READER_SEL_REQUEST_MATCH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_SCOPE(pub u32);
-impl windows_core::TypeKind for SCARD_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_STATE(pub u32);
-impl windows_core::TypeKind for SCARD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {

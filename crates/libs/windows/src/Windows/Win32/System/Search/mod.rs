@@ -18469,39 +18469,21 @@ pub const eAUTH_TYPE_NTLM: AUTH_TYPE = AUTH_TYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_MASKENUM(pub i32);
-impl windows_core::TypeKind for ACCESS_MASKENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTH_TYPE(pub i32);
-impl windows_core::TypeKind for AUTH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASE_REQUIREMENT(pub i32);
-impl windows_core::TypeKind for CASE_REQUIREMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_AGENT_FLAGS(pub i32);
-impl windows_core::TypeKind for CHANNEL_AGENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSION_REASON(pub i32);
-impl windows_core::TypeKind for CLUSION_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONDITION_CREATION_OPTIONS(pub i32);
-impl windows_core::TypeKind for CONDITION_CREATION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONDITION_CREATION_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -18538,723 +18520,363 @@ impl core::ops::Not for CONDITION_CREATION_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
-impl windows_core::TypeKind for CREATESUBSCRIPTIONFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CatalogPausedReason(pub i32);
-impl windows_core::TypeKind for CatalogPausedReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CatalogStatus(pub i32);
-impl windows_core::TypeKind for CatalogStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBACCESSORFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBACCESSORFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBASYNCHOPENUM(pub i32);
-impl windows_core::TypeKind for DBASYNCHOPENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBASYNCHPHASEENUM(pub i32);
-impl windows_core::TypeKind for DBASYNCHPHASEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDFLAGENUM(pub i32);
-impl windows_core::TypeKind for DBBINDFLAGENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBBINDSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDURLFLAGENUM(pub i32);
-impl windows_core::TypeKind for DBBINDURLFLAGENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDURLSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBBINDURLSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBOOKMARK(pub i32);
-impl windows_core::TypeKind for DBBOOKMARK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBCOLUMNDESCFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGS15ENUM(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGS15ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGSDEPRECATED(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGSDEPRECATED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGSENUM20(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGSENUM21(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGSENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOLUMNFLAGSENUM26(pub i32);
-impl windows_core::TypeKind for DBCOLUMNFLAGSENUM26 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
-impl windows_core::TypeKind for DBCOMMANDPERSISTFLAGENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
-impl windows_core::TypeKind for DBCOMMANDPERSISTFLAGENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOMPAREENUM(pub i32);
-impl windows_core::TypeKind for DBCOMPAREENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOMPAREOPSENUM(pub i32);
-impl windows_core::TypeKind for DBCOMPAREOPSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOMPAREOPSENUM20(pub i32);
-impl windows_core::TypeKind for DBCOMPAREOPSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCONSTRAINTTYPEENUM(pub i32);
-impl windows_core::TypeKind for DBCONSTRAINTTYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCONVERTFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBCONVERTFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCONVERTFLAGSENUM20(pub i32);
-impl windows_core::TypeKind for DBCONVERTFLAGSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOPYFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBCOPYFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCOSTUNITENUM(pub i32);
-impl windows_core::TypeKind for DBCOSTUNITENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBDATACONVERTENUM(pub i32);
-impl windows_core::TypeKind for DBDATACONVERTENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBDEFERRABILITYENUM(pub i32);
-impl windows_core::TypeKind for DBDEFERRABILITYENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBDELETEFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBDELETEFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBEVENTPHASEENUM(pub i32);
-impl windows_core::TypeKind for DBEVENTPHASEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBEXECLIMITSENUM(pub i32);
-impl windows_core::TypeKind for DBEXECLIMITSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBINDEX_COL_ORDERENUM(pub i32);
-impl windows_core::TypeKind for DBINDEX_COL_ORDERENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALENUM(pub i32);
-impl windows_core::TypeKind for DBLITERALENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALENUM20(pub i32);
-impl windows_core::TypeKind for DBLITERALENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALENUM21(pub i32);
-impl windows_core::TypeKind for DBLITERALENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBMATCHTYPEENUM(pub i32);
-impl windows_core::TypeKind for DBMATCHTYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBMEMOWNERENUM(pub i32);
-impl windows_core::TypeKind for DBMEMOWNERENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBMOVEFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBMOVEFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBPARAMFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMFLAGSENUM20(pub i32);
-impl windows_core::TypeKind for DBPARAMFLAGSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMIOENUM(pub i32);
-impl windows_core::TypeKind for DBPARAMIOENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARTENUM(pub i32);
-impl windows_core::TypeKind for DBPARTENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPENDINGSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBPENDINGSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPOSITIONFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBPOSITIONFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROMPTOPTIONSENUM(pub i32);
-impl windows_core::TypeKind for DBPROMPTOPTIONSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM(pub i32);
-impl windows_core::TypeKind for DBPROPENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM15(pub i32);
-impl windows_core::TypeKind for DBPROPENUM15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM20(pub i32);
-impl windows_core::TypeKind for DBPROPENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM21(pub i32);
-impl windows_core::TypeKind for DBPROPENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM25(pub i32);
-impl windows_core::TypeKind for DBPROPENUM25 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM25_DEPRECATED(pub i32);
-impl windows_core::TypeKind for DBPROPENUM25_DEPRECATED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUM26(pub i32);
-impl windows_core::TypeKind for DBPROPENUM26 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPENUMDEPRECATED(pub i32);
-impl windows_core::TypeKind for DBPROPENUMDEPRECATED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPFLAGSENUM(pub i32);
-impl windows_core::TypeKind for DBPROPFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPFLAGSENUM21(pub i32);
-impl windows_core::TypeKind for DBPROPFLAGSENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPFLAGSENUM25(pub i32);
-impl windows_core::TypeKind for DBPROPFLAGSENUM25 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPFLAGSENUM26(pub i32);
-impl windows_core::TypeKind for DBPROPFLAGSENUM26 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPOPTIONSENUM(pub i32);
-impl windows_core::TypeKind for DBPROPOPTIONSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBPROPSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPSTATUSENUM21(pub i32);
-impl windows_core::TypeKind for DBPROPSTATUSENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBRANGEENUM(pub i32);
-impl windows_core::TypeKind for DBRANGEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBRANGEENUM20(pub i32);
-impl windows_core::TypeKind for DBRANGEENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBREASONENUM(pub i32);
-impl windows_core::TypeKind for DBREASONENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBREASONENUM15(pub i32);
-impl windows_core::TypeKind for DBREASONENUM15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBREASONENUM25(pub i32);
-impl windows_core::TypeKind for DBREASONENUM25 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBRESOURCEKINDENUM(pub i32);
-impl windows_core::TypeKind for DBRESOURCEKINDENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBRESULTFLAGENUM(pub i32);
-impl windows_core::TypeKind for DBRESULTFLAGENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBROWCHANGEKINDENUM(pub i32);
-impl windows_core::TypeKind for DBROWCHANGEKINDENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBROWSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBROWSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBROWSTATUSENUM20(pub i32);
-impl windows_core::TypeKind for DBROWSTATUSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSEEKENUM(pub i32);
-impl windows_core::TypeKind for DBSEEKENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSORTENUM(pub i32);
-impl windows_core::TypeKind for DBSORTENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSOURCETYPEENUM(pub i32);
-impl windows_core::TypeKind for DBSOURCETYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSOURCETYPEENUM20(pub i32);
-impl windows_core::TypeKind for DBSOURCETYPEENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSOURCETYPEENUM25(pub i32);
-impl windows_core::TypeKind for DBSOURCETYPEENUM25 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSTATUSENUM(pub i32);
-impl windows_core::TypeKind for DBSTATUSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSTATUSENUM20(pub i32);
-impl windows_core::TypeKind for DBSTATUSENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSTATUSENUM21(pub i32);
-impl windows_core::TypeKind for DBSTATUSENUM21 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSTATUSENUM25(pub i32);
-impl windows_core::TypeKind for DBSTATUSENUM25 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBSTATUSENUM26(pub i32);
-impl windows_core::TypeKind for DBSTATUSENUM26 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTABLESTATISTICSTYPE26(pub i32);
-impl windows_core::TypeKind for DBTABLESTATISTICSTYPE26 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTYPEENUM(pub i32);
-impl windows_core::TypeKind for DBTYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTYPEENUM15(pub i32);
-impl windows_core::TypeKind for DBTYPEENUM15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTYPEENUM20(pub i32);
-impl windows_core::TypeKind for DBTYPEENUM20 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBUPDELRULEENUM(pub i32);
-impl windows_core::TypeKind for DBUPDELRULEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBWATCHMODEENUM(pub i32);
-impl windows_core::TypeKind for DBWATCHMODEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBWATCHNOTIFYENUM(pub i32);
-impl windows_core::TypeKind for DBWATCHNOTIFYENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCINFOTYPEENUM(pub i32);
-impl windows_core::TypeKind for DCINFOTYPEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELIVERY_AGENT_FLAGS(pub i32);
-impl windows_core::TypeKind for DELIVERY_AGENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EBindInfoOptions(pub i32);
-impl windows_core::TypeKind for EBindInfoOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLLOW_FLAGS(pub i32);
-impl windows_core::TypeKind for FOLLOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERVAL_LIMIT_KIND(pub i32);
-impl windows_core::TypeKind for INTERVAL_LIMIT_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAGREQDIAGFLAGSENUM(pub i32);
-impl windows_core::TypeKind for KAGREQDIAGFLAGSENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCKMODEENUM(pub i32);
-impl windows_core::TypeKind for LOCKMODEENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSDSDBINITPROPENUM(pub i32);
-impl windows_core::TypeKind for MSDSDBINITPROPENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSDSSESSIONPROPENUM(pub i32);
-impl windows_core::TypeKind for MSDSSESSIONPROPENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMED_ENTITY_CERTAINTY(pub i32);
-impl windows_core::TypeKind for NAMED_ENTITY_CERTAINTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPCOMP(pub i32);
-impl windows_core::TypeKind for OSPCOMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPFIND(pub i32);
-impl windows_core::TypeKind for OSPFIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPFORMAT(pub i32);
-impl windows_core::TypeKind for OSPFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPRW(pub i32);
-impl windows_core::TypeKind for OSPRW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPXFER(pub i32);
-impl windows_core::TypeKind for OSPXFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITIZE_FLAGS(pub i32);
-impl windows_core::TypeKind for PRIORITIZE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITY_LEVEL(pub i32);
-impl windows_core::TypeKind for PRIORITY_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_ACCESS(pub i32);
-impl windows_core::TypeKind for PROXY_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
-impl windows_core::TypeKind for QUERY_PARSER_MANAGER_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROWSETEVENT_ITEMSTATE(pub i32);
-impl windows_core::TypeKind for ROWSETEVENT_ITEMSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROWSETEVENT_TYPE(pub i32);
-impl windows_core::TypeKind for ROWSETEVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_INDEXING_PHASE(pub i32);
-impl windows_core::TypeKind for SEARCH_INDEXING_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_KIND_OF_CHANGE(pub i32);
-impl windows_core::TypeKind for SEARCH_KIND_OF_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
-impl windows_core::TypeKind for SEARCH_NOTIFICATION_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_QUERY_SYNTAX(pub i32);
-impl windows_core::TypeKind for SEARCH_QUERY_SYNTAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_TERM_EXPANSION(pub i32);
-impl windows_core::TypeKind for SEARCH_TERM_EXPANSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SQLINTERVAL(pub i32);
-impl windows_core::TypeKind for SQLINTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SQLVARENUM(pub i32);
-impl windows_core::TypeKind for SQLVARENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
-impl windows_core::TypeKind for STRUCTURED_QUERY_MULTIOPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
-impl windows_core::TypeKind for STRUCTURED_QUERY_PARSE_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub i32);
-impl windows_core::TypeKind for STRUCTURED_QUERY_RESOLVE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl STRUCTURED_QUERY_RESOLVE_OPTION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -19291,39 +18913,21 @@ impl core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
-impl windows_core::TypeKind for STRUCTURED_QUERY_SINGLE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
-impl windows_core::TypeKind for STRUCTURED_QUERY_SYNTAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
-impl windows_core::TypeKind for SUBSCRIPTIONINFOFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSCRIPTIONSCHEDULE(pub i32);
-impl windows_core::TypeKind for SUBSCRIPTIONSCHEDULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSCRIPTIONTYPE(pub i32);
-impl windows_core::TypeKind for SUBSCRIPTIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
-impl windows_core::TypeKind for WEBCRAWL_RECURSEFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTHENTICATION_INFO {

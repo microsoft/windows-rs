@@ -13,9 +13,6 @@ pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATIO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
-impl windows_core::TypeKind for OPERATION_END_PARAMETERS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPERATION_END_PARAMETERS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -52,9 +49,6 @@ impl core::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPERATION_START_FLAGS(pub u32);
-impl windows_core::TypeKind for OPERATION_START_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPERATION_START_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

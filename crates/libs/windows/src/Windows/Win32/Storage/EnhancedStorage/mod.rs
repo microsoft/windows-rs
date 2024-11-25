@@ -1869,9 +1869,6 @@ pub const WPD_CATEGORY_ENHANCED_STORAGE: windows_core::GUID = windows_core::GUID
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE {

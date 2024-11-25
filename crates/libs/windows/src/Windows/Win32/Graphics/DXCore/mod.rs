@@ -350,33 +350,18 @@ pub const _FACDXCORE: u32 = 2176u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterPreference(pub u32);
-impl windows_core::TypeKind for DXCoreAdapterPreference {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProperty(pub u32);
-impl windows_core::TypeKind for DXCoreAdapterProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterState(pub u32);
-impl windows_core::TypeKind for DXCoreAdapterState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreNotificationType(pub u32);
-impl windows_core::TypeKind for DXCoreNotificationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreSegmentGroup(pub u32);
-impl windows_core::TypeKind for DXCoreSegmentGroup {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {

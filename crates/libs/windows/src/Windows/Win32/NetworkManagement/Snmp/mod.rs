@@ -606,57 +606,30 @@ pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
-impl windows_core::TypeKind for SNMP_API_TRANSLATE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_ERROR(pub u32);
-impl windows_core::TypeKind for SNMP_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_ERROR_STATUS(pub u32);
-impl windows_core::TypeKind for SNMP_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
-impl windows_core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_GENERICTRAP(pub u32);
-impl windows_core::TypeKind for SNMP_GENERICTRAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_LOG(pub i32);
-impl windows_core::TypeKind for SNMP_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
-impl windows_core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_PDU_TYPE(pub u32);
-impl windows_core::TypeKind for SNMP_PDU_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_STATUS(pub u32);
-impl windows_core::TypeKind for SNMP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct AsnAny {

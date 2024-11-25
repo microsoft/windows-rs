@@ -1358,81 +1358,42 @@ pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_AGNSS_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_DRIVERCOMMAND_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
-impl windows_core::TypeKind for GNSS_DRIVER_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_FIXSESSIONTYPE(pub i32);
-impl windows_core::TypeKind for GNSS_FIXSESSIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
-impl windows_core::TypeKind for GNSS_GEOFENCE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
-impl windows_core::TypeKind for GNSS_GEOREGIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_NI_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_NI_PLANE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for GNSS_NI_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
-impl windows_core::TypeKind for GNSS_NI_USER_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
-impl windows_core::TypeKind for GNSS_SUPL_CERT_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_REPORT_STATUS(pub i32);
-impl windows_core::TypeKind for LOCATION_REPORT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CivicAddressReport: windows_core::GUID = windows_core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
 pub const CivicAddressReportFactory: windows_core::GUID = windows_core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
 pub const DefaultLocation: windows_core::GUID = windows_core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);

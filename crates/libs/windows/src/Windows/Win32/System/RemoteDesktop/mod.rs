@@ -9283,303 +9283,153 @@ pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AAAccountingDataType(pub i32);
-impl windows_core::TypeKind for AAAccountingDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AAAuthSchemes(pub i32);
-impl windows_core::TypeKind for AAAuthSchemes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AATrustClassID(pub i32);
-impl windows_core::TypeKind for AATrustClassID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AE_POSITION_FLAGS(pub i32);
-impl windows_core::TypeKind for AE_POSITION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIENT_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for CLIENT_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
-impl windows_core::TypeKind for CONNECTION_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCombinationType(pub i32);
-impl windows_core::TypeKind for KeyCombinationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLUGIN_TYPE(pub i32);
-impl windows_core::TypeKind for PLUGIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PasswordEncodingType(pub i32);
-impl windows_core::TypeKind for PasswordEncodingType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PolicyAttributeType(pub i32);
-impl windows_core::TypeKind for PolicyAttributeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RDV_TASK_STATUS(pub i32);
-impl windows_core::TypeKind for RDV_TASK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RD_FARM_TYPE(pub i32);
-impl windows_core::TypeKind for RD_FARM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteActionType(pub i32);
-impl windows_core::TypeKind for RemoteActionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_TIMEOUT_ACTION_TYPE(pub i32);
-impl windows_core::TypeKind for SESSION_TIMEOUT_ACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SnapshotEncodingType(pub i32);
-impl windows_core::TypeKind for SnapshotEncodingType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SnapshotFormatType(pub i32);
-impl windows_core::TypeKind for SnapshotFormatType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for TARGET_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_OWNER(pub i32);
-impl windows_core::TypeKind for TARGET_OWNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_PATCH_STATE(pub i32);
-impl windows_core::TypeKind for TARGET_PATCH_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_STATE(pub i32);
-impl windows_core::TypeKind for TARGET_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_TYPE(pub i32);
-impl windows_core::TypeKind for TARGET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(pub i32);
-impl windows_core::TypeKind for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSPUB_PLUGIN_PD_RESOLUTION_TYPE(pub i32);
-impl windows_core::TypeKind for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSSB_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for TSSB_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSSD_AddrV46Type(pub i32);
-impl windows_core::TypeKind for TSSD_AddrV46Type {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSSESSION_STATE(pub i32);
-impl windows_core::TypeKind for TSSESSION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_SB_SORT_BY(pub i32);
-impl windows_core::TypeKind for TS_SB_SORT_BY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VM_HOST_NOTIFY_STATUS(pub i32);
-impl windows_core::TypeKind for VM_HOST_NOTIFY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VM_NOTIFY_STATUS(pub i32);
-impl windows_core::TypeKind for VM_NOTIFY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
-impl windows_core::TypeKind for WRDS_CONNECTION_SETTING_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
-impl windows_core::TypeKind for WRDS_LISTENER_SETTING_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_SETTING_LEVEL(pub i32);
-impl windows_core::TypeKind for WRDS_SETTING_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_SETTING_STATUS(pub i32);
-impl windows_core::TypeKind for WRDS_SETTING_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_SETTING_TYPE(pub i32);
-impl windows_core::TypeKind for WRDS_SETTING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRdsGraphicsChannelType(pub i32);
-impl windows_core::TypeKind for WRdsGraphicsChannelType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
-impl windows_core::TypeKind for WTSSBX_ADDRESS_FAMILY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_MACHINE_DRAIN(pub i32);
-impl windows_core::TypeKind for WTSSBX_MACHINE_DRAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
-impl windows_core::TypeKind for WTSSBX_MACHINE_SESSION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_MACHINE_STATE(pub i32);
-impl windows_core::TypeKind for WTSSBX_MACHINE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for WTSSBX_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_SESSION_STATE(pub i32);
-impl windows_core::TypeKind for WTSSBX_SESSION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_CERT_TYPE(pub i32);
-impl windows_core::TypeKind for WTS_CERT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_CONFIG_CLASS(pub i32);
-impl windows_core::TypeKind for WTS_CONFIG_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_CONFIG_SOURCE(pub i32);
-impl windows_core::TypeKind for WTS_CONFIG_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_CONNECTSTATE_CLASS(pub i32);
-impl windows_core::TypeKind for WTS_CONNECTSTATE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for WTS_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
-impl windows_core::TypeKind for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_RCM_DRAIN_STATE(pub i32);
-impl windows_core::TypeKind for WTS_RCM_DRAIN_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_RCM_SERVICE_STATE(pub i32);
-impl windows_core::TypeKind for WTS_RCM_SERVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_SECURITY_FLAGS(pub u32);
-impl windows_core::TypeKind for WTS_SECURITY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WTS_SECURITY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9616,15 +9466,9 @@ impl core::ops::Not for WTS_SECURITY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_TYPE_CLASS(pub i32);
-impl windows_core::TypeKind for WTS_TYPE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_VIRTUAL_CLASS(pub i32);
-impl windows_core::TypeKind for WTS_VIRTUAL_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct AAAccountingData {

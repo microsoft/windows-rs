@@ -114,27 +114,15 @@ pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NS_CMD_FLAGS(pub i32);
-impl windows_core::TypeKind for NS_CMD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NS_EVENTS(pub i32);
-impl windows_core::TypeKind for NS_EVENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NS_MODE_CHANGE(pub i32);
-impl windows_core::TypeKind for NS_MODE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NS_REQS(pub i32);
-impl windows_core::TypeKind for NS_REQS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CMD_ENTRY {

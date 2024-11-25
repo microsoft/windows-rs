@@ -212,15 +212,9 @@ pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for POINTER_BUTTON_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_FLAGS(pub u32);
-impl windows_core::TypeKind for POINTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl POINTER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -257,9 +251,6 @@ impl core::ops::Not for POINTER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOUCH_FEEDBACK_MODE(pub u32);
-impl windows_core::TypeKind for TOUCH_FEEDBACK_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INPUT_INJECTION_VALUE {

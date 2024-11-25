@@ -1994,27 +1994,15 @@ pub const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE: window
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PropertyConstraint(pub i32);
-impl windows_core::TypeKind for PropertyConstraint {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QueryCategoryType(pub i32);
-impl windows_core::TypeKind for QueryCategoryType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QueryUpdateAction(pub i32);
-impl windows_core::TypeKind for QueryUpdateAction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemVisibilityFlags(pub i32);
-impl windows_core::TypeKind for SystemVisibilityFlags {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FunctionDiscovery: windows_core::GUID = windows_core::GUID::from_u128(0xc72be2ec_8e90_452c_b29a_ab8ff1c071fc);
 pub const FunctionInstanceCollection: windows_core::GUID = windows_core::GUID::from_u128(0xba818ce5_b55f_443f_ad39_2fe89be6191f);
 pub const PNPXAssociation: windows_core::GUID = windows_core::GUID::from_u128(0xcee8ccc9_4f6b_4469_a235_5a22869eef03);

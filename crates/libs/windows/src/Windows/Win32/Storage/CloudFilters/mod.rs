@@ -489,9 +489,6 @@ pub const CF_UPDATE_FLAG_VERIFY_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(1i32)
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_CANCEL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_CANCEL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -528,9 +525,6 @@ impl core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -567,9 +561,6 @@ impl core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -606,9 +597,6 @@ impl core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_DEHYDRATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -645,15 +633,9 @@ impl core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATION_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -690,9 +672,6 @@ impl core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DELETE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_DELETE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_DELETE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -729,9 +708,6 @@ impl core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_FETCH_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_FETCH_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -768,9 +744,6 @@ impl core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -807,9 +780,6 @@ impl core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -846,9 +816,6 @@ impl core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -885,9 +852,6 @@ impl core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_RENAME_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_RENAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_RENAME_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -924,15 +888,9 @@ impl core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CALLBACK_VALIDATE_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -969,9 +927,6 @@ impl core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CONNECT_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CONNECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CONNECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1008,9 +963,6 @@ impl core::ops::Not for CF_CONNECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CONVERT_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CONVERT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CONVERT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1047,9 +999,6 @@ impl core::ops::Not for CF_CONVERT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CREATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_CREATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_CREATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1086,9 +1035,6 @@ impl core::ops::Not for CF_CREATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_DEHYDRATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_DEHYDRATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_DEHYDRATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1125,9 +1071,6 @@ impl core::ops::Not for CF_DEHYDRATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HARDLINK_POLICY(pub i32);
-impl windows_core::TypeKind for CF_HARDLINK_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_HARDLINK_POLICY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1164,9 +1107,6 @@ impl core::ops::Not for CF_HARDLINK_POLICY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_HYDRATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_HYDRATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1203,9 +1143,6 @@ impl core::ops::Not for CF_HYDRATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_MODIFIER(pub u16);
-impl windows_core::TypeKind for CF_HYDRATION_POLICY_MODIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_HYDRATION_POLICY_MODIFIER {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1242,15 +1179,9 @@ impl core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_PRIMARY(pub u16);
-impl windows_core::TypeKind for CF_HYDRATION_POLICY_PRIMARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_INSYNC_POLICY(pub u32);
-impl windows_core::TypeKind for CF_INSYNC_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_INSYNC_POLICY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1287,15 +1218,9 @@ impl core::ops::Not for CF_INSYNC_POLICY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_IN_SYNC_STATE(pub i32);
-impl windows_core::TypeKind for CF_IN_SYNC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPEN_FILE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPEN_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPEN_FILE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1332,9 +1257,6 @@ impl core::ops::Not for CF_OPEN_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_ACK_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_ACK_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1371,9 +1293,6 @@ impl core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1410,9 +1329,6 @@ impl core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_ACK_DELETE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_ACK_DELETE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1449,9 +1365,6 @@ impl core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_ACK_RENAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_ACK_RENAME_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1488,9 +1401,6 @@ impl core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_RESTART_HYDRATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1527,9 +1437,6 @@ impl core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_RETRIEVE_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1566,9 +1473,6 @@ impl core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_TRANSFER_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1605,9 +1509,6 @@ impl core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1644,21 +1545,12 @@ impl core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TYPE(pub i32);
-impl windows_core::TypeKind for CF_OPERATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PIN_STATE(pub i32);
-impl windows_core::TypeKind for CF_PIN_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_PLACEHOLDER_CREATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_PLACEHOLDER_CREATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1695,27 +1587,15 @@ impl core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for CF_PLACEHOLDER_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
-impl windows_core::TypeKind for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_STATE(pub u32);
-impl windows_core::TypeKind for CF_PLACEHOLDER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_PLACEHOLDER_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1752,9 +1632,6 @@ impl core::ops::Not for CF_PLACEHOLDER_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_MODIFIER(pub u16);
-impl windows_core::TypeKind for CF_POPULATION_POLICY_MODIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_POPULATION_POLICY_MODIFIER {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1791,15 +1668,9 @@ impl core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_PRIMARY(pub u16);
-impl windows_core::TypeKind for CF_POPULATION_POLICY_PRIMARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_REGISTER_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_REGISTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_REGISTER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1836,9 +1707,6 @@ impl core::ops::Not for CF_REGISTER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_REVERT_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_REVERT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_REVERT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1875,9 +1743,6 @@ impl core::ops::Not for CF_REVERT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SET_IN_SYNC_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_SET_IN_SYNC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_SET_IN_SYNC_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1914,9 +1779,6 @@ impl core::ops::Not for CF_SET_IN_SYNC_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SET_PIN_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_SET_PIN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_SET_PIN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1953,9 +1815,6 @@ impl core::ops::Not for CF_SET_PIN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
-impl windows_core::TypeKind for CF_SYNC_PROVIDER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_SYNC_PROVIDER_STATUS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1992,15 +1851,9 @@ impl core::ops::Not for CF_SYNC_PROVIDER_STATUS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for CF_SYNC_ROOT_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_UPDATE_FLAGS(pub i32);
-impl windows_core::TypeKind for CF_UPDATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CF_UPDATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

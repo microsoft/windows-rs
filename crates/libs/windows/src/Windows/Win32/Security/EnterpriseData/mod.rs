@@ -376,9 +376,6 @@ pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENTERPRISE_DATA_POLICIES(pub i32);
-impl windows_core::TypeKind for ENTERPRISE_DATA_POLICIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl ENTERPRISE_DATA_POLICIES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -415,15 +412,9 @@ impl core::ops::Not for ENTERPRISE_DATA_POLICIES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SRPHOSTING_TYPE(pub i32);
-impl windows_core::TypeKind for SRPHOSTING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SRPHOSTING_VERSION(pub i32);
-impl windows_core::TypeKind for SRPHOSTING_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_UNPROTECT_OPTIONS {

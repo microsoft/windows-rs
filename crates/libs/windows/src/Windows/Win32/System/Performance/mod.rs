@@ -10353,177 +10353,90 @@ pub const sysmonSqlLog: DataSourceTypeConstants = DataSourceTypeConstants(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoPathFormat(pub i32);
-impl windows_core::TypeKind for AutoPathFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClockType(pub i32);
-impl windows_core::TypeKind for ClockType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommitMode(pub i32);
-impl windows_core::TypeKind for CommitMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataCollectorSetStatus(pub i32);
-impl windows_core::TypeKind for DataCollectorSetStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataCollectorType(pub i32);
-impl windows_core::TypeKind for DataCollectorType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataManagerSteps(pub i32);
-impl windows_core::TypeKind for DataManagerSteps {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataSourceTypeConstants(pub i32);
-impl windows_core::TypeKind for DataSourceTypeConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayTypeConstants(pub i32);
-impl windows_core::TypeKind for DisplayTypeConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileFormat(pub i32);
-impl windows_core::TypeKind for FileFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FolderActionSteps(pub i32);
-impl windows_core::TypeKind for FolderActionSteps {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_DLL_VERSION(pub u32);
-impl windows_core::TypeKind for PDH_DLL_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_FMT(pub u32);
-impl windows_core::TypeKind for PDH_FMT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG(pub u32);
-impl windows_core::TypeKind for PDH_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG_TYPE(pub u32);
-impl windows_core::TypeKind for PDH_LOG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_PATH_FLAGS(pub u32);
-impl windows_core::TypeKind for PDH_PATH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
-impl windows_core::TypeKind for PDH_SELECT_DATA_SOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
-impl windows_core::TypeKind for PERF_COUNTER_AGGREGATE_FUNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_DETAIL(pub u32);
-impl windows_core::TypeKind for PERF_DETAIL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PerfCounterDataType(pub i32);
-impl windows_core::TypeKind for PerfCounterDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PerfRegInfoType(pub i32);
-impl windows_core::TypeKind for PerfRegInfoType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
-impl windows_core::TypeKind for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReportValueTypeConstants(pub i32);
-impl windows_core::TypeKind for ReportValueTypeConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourcePolicy(pub i32);
-impl windows_core::TypeKind for ResourcePolicy {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StreamMode(pub i32);
-impl windows_core::TypeKind for StreamMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SysmonBatchReason(pub i32);
-impl windows_core::TypeKind for SysmonBatchReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SysmonDataType(pub i32);
-impl windows_core::TypeKind for SysmonDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SysmonFileType(pub i32);
-impl windows_core::TypeKind for SysmonFileType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ValueMapType(pub i32);
-impl windows_core::TypeKind for ValueMapType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WeekDays(pub i32);
-impl windows_core::TypeKind for WeekDays {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AppearPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 pub const BootTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
 pub const BootTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);

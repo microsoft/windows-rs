@@ -5478,21 +5478,12 @@ pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
-impl windows_core::TypeKind for GPIOBUTTONS_BUTTON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
-impl windows_core::TypeKind for HIDP_KEYBOARD_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_REPORT_TYPE(pub i32);
-impl windows_core::TypeKind for HIDP_REPORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPOINT {

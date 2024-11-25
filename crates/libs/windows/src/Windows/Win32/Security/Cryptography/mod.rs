@@ -8254,33 +8254,18 @@ pub const wszXMLNS_DIGSIG_SignatureProperties: windows_core::PCWSTR = windows_co
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALG_ID(pub u32);
-impl windows_core::TypeKind for ALG_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
-impl windows_core::TypeKind for BCRYPTGENRANDOM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
-impl windows_core::TypeKind for BCRYPT_DH_KEY_BLOB_MAGIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
-impl windows_core::TypeKind for BCRYPT_DSA_MAGIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_FLAGS(pub u32);
-impl windows_core::TypeKind for BCRYPT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8317,27 +8302,15 @@ impl core::ops::Not for BCRYPT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
-impl windows_core::TypeKind for BCRYPT_HASH_OPERATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_INTERFACE(pub u32);
-impl windows_core::TypeKind for BCRYPT_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
-impl windows_core::TypeKind for BCRYPT_MULTI_OPERATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
-impl windows_core::TypeKind for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8374,9 +8347,6 @@ impl core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_OPERATION(pub u32);
-impl windows_core::TypeKind for BCRYPT_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_OPERATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8413,15 +8383,9 @@ impl core::ops::Not for BCRYPT_OPERATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
-impl windows_core::TypeKind for BCRYPT_QUERY_PROVIDER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
-impl windows_core::TypeKind for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8458,51 +8422,27 @@ impl core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
-impl windows_core::TypeKind for BCRYPT_RSAKEY_BLOB_MAGIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_TABLE(pub u32);
-impl windows_core::TypeKind for BCRYPT_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CARD_DIRECTORY_ACCESS_CONDITION(pub i32);
-impl windows_core::TypeKind for CARD_DIRECTORY_ACCESS_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CARD_FILE_ACCESS_CONDITION(pub i32);
-impl windows_core::TypeKind for CARD_FILE_ACCESS_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASetupProperty(pub i32);
-impl windows_core::TypeKind for CASetupProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CEPSetupProperty(pub i32);
-impl windows_core::TypeKind for CEPSetupProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_BIOMETRIC_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_CHAIN_POLICY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_CHAIN_POLICY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8539,15 +8479,9 @@ impl core::ops::Not for CERT_CHAIN_POLICY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_CONTROL_STORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_CREATE_SELFSIGN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_CREATE_SELFSIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8584,9 +8518,6 @@ impl core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_FIND_CHAIN_IN_STORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_FIND_CHAIN_IN_STORE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8623,9 +8554,6 @@ impl core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_FIND_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_FIND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_FIND_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8662,45 +8590,24 @@ impl core::ops::Not for CERT_FIND_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_FIND_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_FIND_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ID_OPTION(pub u32);
-impl windows_core::TypeKind for CERT_ID_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_KEY_SPEC(pub u32);
-impl windows_core::TypeKind for CERT_KEY_SPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
-impl windows_core::TypeKind for CERT_LOGOTYPE_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
-impl windows_core::TypeKind for CERT_LOGOTYPE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_OPEN_STORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_OPEN_STORE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8737,21 +8644,12 @@ impl core::ops::Not for CERT_OPEN_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_ENCODING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_QUERY_ENCODING_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8788,39 +8686,21 @@ impl core::ops::Not for CERT_QUERY_ENCODING_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_QUERY_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub i32);
-impl windows_core::TypeKind for CERT_RDN_ATTR_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
-impl windows_core::TypeKind for CERT_REVOCATION_STATUS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_ROOT_PROGRAM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_ROOT_PROGRAM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8857,15 +8737,9 @@ impl core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_SELECT_CRITERIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_STORE_PROV_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_STORE_PROV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8902,27 +8776,15 @@ impl core::ops::Not for CERT_STORE_PROV_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
-impl windows_core::TypeKind for CERT_STORE_SAVE_AS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
-impl windows_core::TypeKind for CERT_STORE_SAVE_TO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STRING_TYPE(pub u32);
-impl windows_core::TypeKind for CERT_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_STRONG_SIGN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CERT_STRONG_SIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -8959,33 +8821,18 @@ impl core::ops::Not for CERT_STRONG_SIGN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
-impl windows_core::TypeKind for CERT_SYSTEM_STORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CESSetupProperty(pub i32);
-impl windows_core::TypeKind for CESSetupProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
-impl windows_core::TypeKind for CMSG_KEY_AGREE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
-impl windows_core::TypeKind for CMSG_KEY_AGREE_ORIGINATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_ACQUIRE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_ACQUIRE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9022,9 +8869,6 @@ impl core::ops::Not for CRYPT_ACQUIRE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_CONTEXT_CONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_CONTEXT_CONFIG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9061,9 +8905,6 @@ impl core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_DEFAULT_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9100,15 +8941,9 @@ impl core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_ENCODE_OBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_ENCODE_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9145,15 +8980,9 @@ impl core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_FIND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_GET_URL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_GET_URL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9190,9 +9019,6 @@ impl core::ops::Not for CRYPT_GET_URL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_IMAGE_REF_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_IMAGE_REF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9229,9 +9055,6 @@ impl core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9268,9 +9091,6 @@ impl core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_KEY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_KEY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9307,117 +9127,60 @@ impl core::ops::Not for CRYPT_KEY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
-impl windows_core::TypeKind for CRYPT_KEY_PARAM_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_MSG_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPT_MSG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
-impl windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
-impl windows_core::TypeKind for CRYPT_SET_HASH_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
-impl windows_core::TypeKind for CRYPT_SET_PROV_PARAM_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_STRING(pub u32);
-impl windows_core::TypeKind for CRYPT_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_VERIFY_CERT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_CHARSET(pub i32);
-impl windows_core::TypeKind for CRYPT_XML_CHARSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_GROUP_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
-impl windows_core::TypeKind for CRYPT_XML_KEYINFO_SPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_KEYINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for CRYPT_XML_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_STATUS_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_STATUS_INFO_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPT_XML_TRANSFORM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9454,51 +9217,27 @@ impl core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
-impl windows_core::TypeKind for CRYPT_XML_X509DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CertKeyType(pub u32);
-impl windows_core::TypeKind for CertKeyType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
-impl windows_core::TypeKind for DSAFIPSVERSION_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Direction(pub i32);
-impl windows_core::TypeKind for Direction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
-impl windows_core::TypeKind for ECC_CURVE_ALG_ID_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
-impl windows_core::TypeKind for ECC_CURVE_TYPE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HASHALGORITHM_ENUM(pub i32);
-impl windows_core::TypeKind for HASHALGORITHM_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
-impl windows_core::TypeKind for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HandleType(pub i32);
@@ -9508,27 +9247,15 @@ impl HandleType {
     pub const Transform: Self = Self(3i32);
     pub const Hash: Self = Self(4i32);
 }
-impl windows_core::TypeKind for HandleType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSCEPSetupProperty(pub i32);
-impl windows_core::TypeKind for MSCEPSetupProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
-impl windows_core::TypeKind for NCRYPT_ALGORITHM_NAME_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_FLAGS(pub u32);
-impl windows_core::TypeKind for NCRYPT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9565,9 +9292,6 @@ impl core::ops::Not for NCRYPT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_OPERATION(pub u32);
-impl windows_core::TypeKind for NCRYPT_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_OPERATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9604,9 +9328,6 @@ impl core::ops::Not for NCRYPT_OPERATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIN_CACHE_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for PIN_CACHE_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PaddingMode(pub i32);
@@ -9617,33 +9338,18 @@ impl PaddingMode {
     pub const ANSIX923: Self = Self(4i32);
     pub const ISO10126: Self = Self(5i32);
 }
-impl windows_core::TypeKind for PaddingMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECRET_PURPOSE(pub i32);
-impl windows_core::TypeKind for SECRET_PURPOSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECRET_TYPE(pub i32);
-impl windows_core::TypeKind for SECRET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_CERT_CHOICE(pub u32);
-impl windows_core::TypeKind for SIGNER_CERT_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_CERT_POLICY(pub u32);
-impl windows_core::TypeKind for SIGNER_CERT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 impl SIGNER_CERT_POLICY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9680,21 +9386,12 @@ impl core::ops::Not for SIGNER_CERT_POLICY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_PRIVATE_KEY_CHOICE(pub u32);
-impl windows_core::TypeKind for SIGNER_PRIVATE_KEY_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(pub u32);
-impl windows_core::TypeKind for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_SIGN_FLAGS(pub u32);
-impl windows_core::TypeKind for SIGNER_SIGN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SIGNER_SIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9731,15 +9428,9 @@ impl core::ops::Not for SIGNER_SIGN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_SUBJECT_CHOICE(pub u32);
-impl windows_core::TypeKind for SIGNER_SUBJECT_CHOICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGNER_TIMESTAMP_FLAGS(pub u32);
-impl windows_core::TypeKind for SIGNER_TIMESTAMP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {

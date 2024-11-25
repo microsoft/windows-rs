@@ -536,33 +536,18 @@ pub const JsUndefined: JsValueType = JsValueType(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsErrorCode(pub u32);
-impl windows_core::TypeKind for JsErrorCode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsMemoryEventType(pub i32);
-impl windows_core::TypeKind for JsMemoryEventType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeAttributes(pub i32);
-impl windows_core::TypeKind for JsRuntimeAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeVersion(pub i32);
-impl windows_core::TypeKind for JsRuntimeVersion {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsValueType(pub i32);
-impl windows_core::TypeKind for JsValueType {
-    type TypeKind = windows_core::CopyType;
-}
 pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;

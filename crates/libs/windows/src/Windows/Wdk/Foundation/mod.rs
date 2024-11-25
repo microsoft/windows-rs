@@ -94,27 +94,15 @@ pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_PRIORITY_HINT(pub i32);
-impl windows_core::TypeKind for IO_PRIORITY_HINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_LOCK_QUEUE_NUMBER(pub i32);
-impl windows_core::TypeKind for KSPIN_LOCK_QUEUE_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for OBJECT_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_TYPE(pub i32);
-impl windows_core::TypeKind for POOL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[derive(Clone, Copy)]

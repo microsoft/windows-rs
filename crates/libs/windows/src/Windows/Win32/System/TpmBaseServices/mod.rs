@@ -108,15 +108,9 @@ pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
-impl windows_core::TypeKind for TBS_COMMAND_LOCALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
-impl windows_core::TypeKind for TBS_COMMAND_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS {

@@ -450,57 +450,30 @@ pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-impl windows_core::TypeKind for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_COMPONENT(pub u32);
-impl windows_core::TypeKind for WINBIO_COMPONENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-impl windows_core::TypeKind for WINBIO_CREDENTIAL_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
-impl windows_core::TypeKind for WINBIO_CREDENTIAL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WINBIO_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
-impl windows_core::TypeKind for WINBIO_POLICY_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_POOL(pub u32);
-impl windows_core::TypeKind for WINBIO_POOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
-impl windows_core::TypeKind for WINBIO_SETTING_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {

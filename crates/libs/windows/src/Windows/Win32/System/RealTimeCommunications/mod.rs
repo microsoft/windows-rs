@@ -7451,237 +7451,120 @@ pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_ACE_SCOPE(pub i32);
-impl windows_core::TypeKind for RTC_ACE_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_ANSWER_MODE(pub i32);
-impl windows_core::TypeKind for RTC_ANSWER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_AUDIO_DEVICE(pub i32);
-impl windows_core::TypeKind for RTC_AUDIO_DEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_BUDDY_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_BUDDY_SUBSCRIPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_CLIENT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_DTMF(pub i32);
-impl windows_core::TypeKind for RTC_DTMF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_EVENT(pub i32);
-impl windows_core::TypeKind for RTC_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_GROUP_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_GROUP_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_LISTEN_MODE(pub i32);
-impl windows_core::TypeKind for RTC_LISTEN_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_MEDIA_EVENT_REASON(pub i32);
-impl windows_core::TypeKind for RTC_MEDIA_EVENT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_MEDIA_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_MESSAGING_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_MESSAGING_USER_STATUS(pub i32);
-impl windows_core::TypeKind for RTC_MESSAGING_USER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_OFFER_WATCHER_MODE(pub i32);
-impl windows_core::TypeKind for RTC_OFFER_WATCHER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PARTICIPANT_STATE(pub i32);
-impl windows_core::TypeKind for RTC_PARTICIPANT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PORT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PRESENCE_PROPERTY(pub i32);
-impl windows_core::TypeKind for RTC_PRESENCE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PRESENCE_STATUS(pub i32);
-impl windows_core::TypeKind for RTC_PRESENCE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PRIVACY_MODE(pub i32);
-impl windows_core::TypeKind for RTC_PRIVACY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_PROFILE_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_PROVIDER_URI(pub i32);
-impl windows_core::TypeKind for RTC_PROVIDER_URI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_REGISTRATION_STATE(pub i32);
-impl windows_core::TypeKind for RTC_REGISTRATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_REINVITE_STATE(pub i32);
-impl windows_core::TypeKind for RTC_REINVITE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_RING_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_RING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_ROAMING_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_SECURITY_LEVEL(pub i32);
-impl windows_core::TypeKind for RTC_SECURITY_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_SECURITY_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_SECURITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_SESSION_REFER_STATUS(pub i32);
-impl windows_core::TypeKind for RTC_SESSION_REFER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_SESSION_STATE(pub i32);
-impl windows_core::TypeKind for RTC_SESSION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_SESSION_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_SESSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_T120_APPLET(pub i32);
-impl windows_core::TypeKind for RTC_T120_APPLET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_TERMINATE_REASON(pub i32);
-impl windows_core::TypeKind for RTC_TERMINATE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_USER_SEARCH_COLUMN(pub i32);
-impl windows_core::TypeKind for RTC_USER_SEARCH_COLUMN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
-impl windows_core::TypeKind for RTC_USER_SEARCH_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_VIDEO_DEVICE(pub i32);
-impl windows_core::TypeKind for RTC_VIDEO_DEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTC_WATCHER_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_WATCHER_MATCH_MODE(pub i32);
-impl windows_core::TypeKind for RTC_WATCHER_MATCH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTC_WATCHER_STATE(pub i32);
-impl windows_core::TypeKind for RTC_WATCHER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RTCClient: windows_core::GUID = windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]

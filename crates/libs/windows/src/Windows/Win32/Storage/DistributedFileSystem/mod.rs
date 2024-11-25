@@ -256,15 +256,9 @@ pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-impl windows_core::TypeKind for DFS_NAMESPACE_VERSION_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
-impl windows_core::TypeKind for DFS_TARGET_PRIORITY_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {

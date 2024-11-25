@@ -6764,33 +6764,18 @@ pub const eRender: EDataFlow = EDataFlow(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
-impl windows_core::TypeKind for AMBISONICS_CHANNEL_ORDERING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_NORMALIZATION(pub i32);
-impl windows_core::TypeKind for AMBISONICS_NORMALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_TYPE(pub i32);
-impl windows_core::TypeKind for AMBISONICS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDCLNT_SHAREMODE(pub i32);
-impl windows_core::TypeKind for AUDCLNT_SHAREMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDCLNT_STREAMOPTIONS(pub i32);
-impl windows_core::TypeKind for AUDCLNT_STREAMOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl AUDCLNT_STREAMOPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6827,15 +6812,9 @@ impl core::ops::Not for AUDCLNT_STREAMOPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIOCLIENT_ACTIVATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_DUCKING_OPTIONS(pub i32);
-impl windows_core::TypeKind for AUDIO_DUCKING_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl AUDIO_DUCKING_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6872,27 +6851,15 @@ impl core::ops::Not for AUDIO_DUCKING_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
-impl windows_core::TypeKind for AUDIO_EFFECT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_STREAM_CATEGORY(pub i32);
-impl windows_core::TypeKind for AUDIO_STREAM_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioObjectType(pub i32);
-impl windows_core::TypeKind for AudioObjectType {
-    type TypeKind = windows_core::CopyType;
-}
 impl AudioObjectType {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6929,21 +6896,12 @@ impl core::ops::Not for AudioObjectType {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioSessionDisconnectReason(pub i32);
-impl windows_core::TypeKind for AudioSessionDisconnectReason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioSessionState(pub i32);
-impl windows_core::TypeKind for AudioSessionState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioStateMonitorSoundLevel(pub i32);
-impl windows_core::TypeKind for AudioStateMonitorSoundLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConnectorType(pub i32);
@@ -6955,45 +6913,24 @@ impl ConnectorType {
     pub const Software_Fixed: Self = Self(4i32);
     pub const Network: Self = Self(5i32);
 }
-impl windows_core::TypeKind for ConnectorType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_STATE(pub u32);
-impl windows_core::TypeKind for DEVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataFlow(pub i32);
-impl windows_core::TypeKind for DataFlow {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDataFlow(pub i32);
-impl windows_core::TypeKind for EDataFlow {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERole(pub i32);
-impl windows_core::TypeKind for ERole {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EndpointFormFactor(pub i32);
-impl windows_core::TypeKind for EndpointFormFactor {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
-impl windows_core::TypeKind for MIDI_WAVE_OPEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MIDI_WAVE_OPEN_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7030,27 +6967,15 @@ impl core::ops::Not for MIDI_WAVE_OPEN_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-impl windows_core::TypeKind for MIXERLINE_COMPONENTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_LOOPBACK_MODE(pub i32);
-impl windows_core::TypeKind for PROCESS_LOOPBACK_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PartType(pub i32);
-impl windows_core::TypeKind for PartType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SND_FLAGS(pub u32);
-impl windows_core::TypeKind for SND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SND_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7087,9 +7012,6 @@ impl core::ops::Not for SND_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub i32);
-impl windows_core::TypeKind for SPATIAL_AUDIO_STREAM_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPATIAL_AUDIO_STREAM_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7126,39 +7048,21 @@ impl core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
-impl windows_core::TypeKind for SpatialAudioHrtfDirectivityType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
-impl windows_core::TypeKind for SpatialAudioHrtfDistanceDecayType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfEnvironmentType(pub i32);
-impl windows_core::TypeKind for SpatialAudioHrtfEnvironmentType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioMetadataCopyMode(pub i32);
-impl windows_core::TypeKind for SpatialAudioMetadataCopyMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
-impl windows_core::TypeKind for SpatialAudioMetadataWriterOverflowMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
-impl windows_core::TypeKind for _AUDCLNT_BUFFERFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]

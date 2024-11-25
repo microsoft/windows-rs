@@ -2896,9 +2896,6 @@ pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATU
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETPROPERTYSTOREFLAGS(pub i32);
-impl windows_core::TypeKind for GETPROPERTYSTOREFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GETPROPERTYSTOREFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2935,15 +2932,9 @@ impl core::ops::Not for GETPROPERTYSTOREFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDOPSTATUS(pub i32);
-impl windows_core::TypeKind for PDOPSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKA_FLAGS(pub i32);
-impl windows_core::TypeKind for PKA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PKA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2980,9 +2971,6 @@ impl core::ops::Not for PKA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLACEHOLDER_STATES(pub i32);
-impl windows_core::TypeKind for PLACEHOLDER_STATES {
-    type TypeKind = windows_core::CopyType;
-}
 impl PLACEHOLDER_STATES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3019,39 +3007,21 @@ impl core::ops::Not for PLACEHOLDER_STATES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_AGGREGATION_TYPE(pub i32);
-impl windows_core::TypeKind for PROPDESC_AGGREGATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_COLUMNINDEX_TYPE(pub i32);
-impl windows_core::TypeKind for PROPDESC_COLUMNINDEX_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_CONDITION_TYPE(pub i32);
-impl windows_core::TypeKind for PROPDESC_CONDITION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_DISPLAYTYPE(pub i32);
-impl windows_core::TypeKind for PROPDESC_DISPLAYTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_ENUMFILTER(pub i32);
-impl windows_core::TypeKind for PROPDESC_ENUMFILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_FORMAT_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPDESC_FORMAT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPDESC_FORMAT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3088,21 +3058,12 @@ impl core::ops::Not for PROPDESC_FORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_GROUPING_RANGE(pub i32);
-impl windows_core::TypeKind for PROPDESC_GROUPING_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(pub i32);
-impl windows_core::TypeKind for PROPDESC_RELATIVEDESCRIPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_SEARCHINFO_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPDESC_SEARCHINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPDESC_SEARCHINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3139,15 +3100,9 @@ impl core::ops::Not for PROPDESC_SEARCHINFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_SORTDESCRIPTION(pub i32);
-impl windows_core::TypeKind for PROPDESC_SORTDESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_TYPE_FLAGS(pub u32);
-impl windows_core::TypeKind for PROPDESC_TYPE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPDESC_TYPE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3184,9 +3139,6 @@ impl core::ops::Not for PROPDESC_TYPE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_VIEW_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPDESC_VIEW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPDESC_VIEW_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3223,15 +3175,9 @@ impl core::ops::Not for PROPDESC_VIEW_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPENUMTYPE(pub i32);
-impl windows_core::TypeKind for PROPENUMTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPERTYUI_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPERTYUI_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3268,9 +3214,6 @@ impl core::ops::Not for PROPERTYUI_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_FORMAT_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPERTYUI_FORMAT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPERTYUI_FORMAT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3307,9 +3250,6 @@ impl core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_NAME_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPERTYUI_NAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPERTYUI_NAME_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3346,15 +3286,9 @@ impl core::ops::Not for PROPERTYUI_NAME_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSC_STATE(pub i32);
-impl windows_core::TypeKind for PSC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_ENGINE_STATE_FLAGS(pub i32);
-impl windows_core::TypeKind for SYNC_ENGINE_STATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYNC_ENGINE_STATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3391,9 +3325,6 @@ impl core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_TRANSFER_STATUS(pub i32);
-impl windows_core::TypeKind for SYNC_TRANSFER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYNC_TRANSFER_STATUS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3430,9 +3361,6 @@ impl core::ops::Not for SYNC_TRANSFER_STATUS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PERSIST_SPROPSTORE_FLAGS(pub i32);
-impl windows_core::TypeKind for _PERSIST_SPROPSTORE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const InMemoryPropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
 pub const InMemoryPropertyStoreMarshalByValue: windows_core::GUID = windows_core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 #[repr(transparent)]

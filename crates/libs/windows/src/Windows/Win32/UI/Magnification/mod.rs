@@ -142,9 +142,6 @@ pub const WC_MAGNIFIERW: windows_core::PCWSTR = windows_core::w!("Magnifier");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MW_FILTERMODE(pub u32);
-impl windows_core::TypeKind for MW_FILTERMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGCOLOREFFECT {

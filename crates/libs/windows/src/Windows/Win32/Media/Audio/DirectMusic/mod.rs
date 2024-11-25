@@ -1486,27 +1486,15 @@ pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-impl windows_core::TypeKind for DIRECTSOUNDDEVICE_DATAFLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTSOUNDDEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMUS_CLOCKTYPE(pub i32);
-impl windows_core::TypeKind for DMUS_CLOCKTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTION {

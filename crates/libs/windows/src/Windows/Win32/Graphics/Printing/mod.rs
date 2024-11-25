@@ -10265,99 +10265,51 @@ pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i3
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIDI_TYPE(pub i32);
-impl windows_core::TypeKind for BIDI_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EATTRIBUTE_DATATYPE(pub i32);
-impl windows_core::TypeKind for EATTRIBUTE_DATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EBranchOfficeJobEventType(pub i32);
-impl windows_core::TypeKind for EBranchOfficeJobEventType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintPropertyType(pub i32);
-impl windows_core::TypeKind for EPrintPropertyType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintXPSJobOperation(pub i32);
-impl windows_core::TypeKind for EPrintXPSJobOperation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintXPSJobProgress(pub i32);
-impl windows_core::TypeKind for EPrintXPSJobProgress {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXpsCompressionOptions(pub i32);
-impl windows_core::TypeKind for EXpsCompressionOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXpsFontOptions(pub i32);
-impl windows_core::TypeKind for EXpsFontOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXpsFontRestriction(pub i32);
-impl windows_core::TypeKind for EXpsFontRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXpsJobConsumption(pub i32);
-impl windows_core::TypeKind for EXpsJobConsumption {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MXDC_IMAGE_TYPE_ENUMS(pub i32);
-impl windows_core::TypeKind for MXDC_IMAGE_TYPE_ENUMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MXDC_LANDSCAPE_ROTATION_ENUMS(pub i32);
-impl windows_core::TypeKind for MXDC_LANDSCAPE_ROTATION_ENUMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MXDC_S0_PAGE_ENUMS(pub i32);
-impl windows_core::TypeKind for MXDC_S0_PAGE_ENUMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
-impl windows_core::TypeKind for NOTIFICATION_CALLBACK_COMMANDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
-impl windows_core::TypeKind for NOTIFICATION_CONFIG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for PRINTER_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRINTER_ACCESS_RIGHTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10394,93 +10346,48 @@ impl core::ops::Not for PRINTER_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_OPTION_FLAGS(pub i32);
-impl windows_core::TypeKind for PRINTER_OPTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINT_EXECUTION_CONTEXT(pub i32);
-impl windows_core::TypeKind for PRINT_EXECUTION_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PageCountType(pub i32);
-impl windows_core::TypeKind for PageCountType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintAsyncNotifyConversationStyle(pub i32);
-impl windows_core::TypeKind for PrintAsyncNotifyConversationStyle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintAsyncNotifyError(pub i32);
-impl windows_core::TypeKind for PrintAsyncNotifyError {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintAsyncNotifyUserFilter(pub i32);
-impl windows_core::TypeKind for PrintAsyncNotifyUserFilter {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintJobStatus(pub i32);
-impl windows_core::TypeKind for PrintJobStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
-impl windows_core::TypeKind for PrintSchemaConstrainedSetting {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintSchemaParameterDataType(pub i32);
-impl windows_core::TypeKind for PrintSchemaParameterDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintSchemaSelectionType(pub i32);
-impl windows_core::TypeKind for PrintSchemaSelectionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHIMOPTS(pub i32);
-impl windows_core::TypeKind for SHIMOPTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_TYPE(pub i32);
-impl windows_core::TypeKind for UI_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
-impl windows_core::TypeKind for XPSRAS_BACKGROUND_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPSRAS_PIXEL_FORMAT(pub i32);
-impl windows_core::TypeKind for XPSRAS_PIXEL_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPSRAS_RENDERING_MODE(pub i32);
-impl windows_core::TypeKind for XPSRAS_RENDERING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDJOB_INFO_1A {

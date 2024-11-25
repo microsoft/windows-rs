@@ -1648,75 +1648,39 @@ pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECODING_SOURCE(pub i32);
-impl windows_core::TypeKind for DECODING_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
-impl windows_core::TypeKind for ENABLECALLBACK_ENABLED_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
-impl windows_core::TypeKind for ETW_COMPRESSION_RESUMPTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
-impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROCESS_TRACE_MODES(pub i32);
-impl windows_core::TypeKind for ETW_PROCESS_TRACE_MODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
-impl windows_core::TypeKind for ETW_PROVIDER_TRAIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSECURITYOPERATION(pub i32);
-impl windows_core::TypeKind for EVENTSECURITYOPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FIELD_TYPE(pub i32);
-impl windows_core::TypeKind for EVENT_FIELD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for EVENT_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
-impl windows_core::TypeKind for EVENT_TRACE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_FLAG(pub u32);
-impl windows_core::TypeKind for EVENT_TRACE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl EVENT_TRACE_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1753,45 +1717,24 @@ impl core::ops::Not for EVENT_TRACE_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAP_FLAGS(pub i32);
-impl windows_core::TypeKind for MAP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAP_VALUETYPE(pub i32);
-impl windows_core::TypeKind for MAP_VALUETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAYLOAD_OPERATOR(pub i32);
-impl windows_core::TypeKind for PAYLOAD_OPERATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTY_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPERTY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for TDH_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEMPLATE_FLAGS(pub i32);
-impl windows_core::TypeKind for TEMPLATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
-impl windows_core::TypeKind for TRACE_MESSAGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TRACE_MESSAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1828,27 +1771,15 @@ impl core::ops::Not for TRACE_MESSAGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for TRACE_QUERY_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIDPREQUESTCODE(pub i32);
-impl windows_core::TypeKind for WMIDPREQUESTCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TDH_IN_TYPE(pub i32);
-impl windows_core::TypeKind for _TDH_IN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TDH_OUT_TYPE(pub i32);
-impl windows_core::TypeKind for _TDH_OUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLASSIC_EVENT_ID {

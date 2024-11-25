@@ -411,9 +411,6 @@ pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: windows_core::GUID = windows_core
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLY_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl APPLY_SNAPSHOT_VHDSET_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -450,15 +447,9 @@ impl core::ops::Not for APPLY_SNAPSHOT_VHDSET_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl ATTACH_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -495,15 +486,9 @@ impl core::ops::Not for ATTACH_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for ATTACH_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPACT_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl COMPACT_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -540,15 +525,9 @@ impl core::ops::Not for COMPACT_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for COMPACT_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREATE_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -585,15 +564,9 @@ impl core::ops::Not for CREATE_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for CREATE_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELETE_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DELETE_SNAPSHOT_VHDSET_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -630,15 +603,9 @@ impl core::ops::Not for DELETE_SNAPSHOT_VHDSET_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEPENDENT_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for DEPENDENT_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DEPENDENT_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -675,9 +642,6 @@ impl core::ops::Not for DEPENDENT_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DETACH_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for DETACH_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DETACH_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -714,9 +678,6 @@ impl core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPAND_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl EXPAND_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -753,15 +714,9 @@ impl core::ops::Not for EXPAND_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for EXPAND_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORK_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for FORK_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl FORK_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -798,15 +753,9 @@ impl core::ops::Not for FORK_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORK_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for FORK_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_STORAGE_DEPENDENCY_FLAG(pub i32);
-impl windows_core::TypeKind for GET_STORAGE_DEPENDENCY_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl GET_STORAGE_DEPENDENCY_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -843,15 +792,9 @@ impl core::ops::Not for GET_STORAGE_DEPENDENCY_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(pub i32);
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl MERGE_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -888,15 +831,9 @@ impl core::ops::Not for MERGE_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for MERGE_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIRROR_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl MIRROR_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -933,15 +870,9 @@ impl core::ops::Not for MIRROR_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for MIRROR_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODIFY_VHDSET_FLAG(pub i32);
-impl windows_core::TypeKind for MODIFY_VHDSET_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl MODIFY_VHDSET_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -978,15 +909,9 @@ impl core::ops::Not for MODIFY_VHDSET_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODIFY_VHDSET_VERSION(pub i32);
-impl windows_core::TypeKind for MODIFY_VHDSET_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPEN_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1023,15 +948,9 @@ impl core::ops::Not for OPEN_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for OPEN_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1068,9 +987,6 @@ impl core::ops::Not for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl RAW_SCSI_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1107,15 +1023,9 @@ impl core::ops::Not for RAW_SCSI_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESIZE_VIRTUAL_DISK_FLAG(pub i32);
-impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl RESIZE_VIRTUAL_DISK_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1152,27 +1062,15 @@ impl core::ops::Not for RESIZE_VIRTUAL_DISK_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(pub i32);
-impl windows_core::TypeKind for RESIZE_VIRTUAL_DISK_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(pub i32);
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(pub i32);
-impl windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl TAKE_SNAPSHOT_VHDSET_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1209,15 +1107,9 @@ impl core::ops::Not for TAKE_SNAPSHOT_VHDSET_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_DISK_ACCESS_MASK(pub i32);
-impl windows_core::TypeKind for VIRTUAL_DISK_ACCESS_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl VIRTUAL_DISK_ACCESS_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

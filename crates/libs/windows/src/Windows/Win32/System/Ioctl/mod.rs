@@ -1687,21 +1687,12 @@ pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = STORAGE_Z
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIN_TYPES(pub i32);
-impl windows_core::TypeKind for BIN_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
-impl windows_core::TypeKind for CHANGER_DEVICE_PROBLEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
-impl windows_core::TypeKind for CHANGER_ELEMENT_STATUS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHANGER_ELEMENT_STATUS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1738,9 +1729,6 @@ impl core::ops::Not for CHANGER_ELEMENT_STATUS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_FEATURES(pub u32);
-impl windows_core::TypeKind for CHANGER_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHANGER_FEATURES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1777,75 +1765,39 @@ impl core::ops::Not for CHANGER_FEATURES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
-impl windows_core::TypeKind for CSVFS_DISK_CONNECTIVITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_CONTROL_OP(pub i32);
-impl windows_core::TypeKind for CSV_CONTROL_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DETECTION_TYPE(pub i32);
-impl windows_core::TypeKind for DETECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
-impl windows_core::TypeKind for DEVICE_INTERNAL_STATUS_DATA_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
-impl windows_core::TypeKind for DISK_CACHE_RETENTION_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUPLICATE_EXTENTS_STATE(pub i32);
-impl windows_core::TypeKind for DUPLICATE_EXTENTS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ELEMENT_TYPE(pub i32);
-impl windows_core::TypeKind for ELEMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
-impl windows_core::TypeKind for FILESYSTEM_STATISTICS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_TIER_CLASS(pub i32);
-impl windows_core::TypeKind for FILE_STORAGE_TIER_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
-impl windows_core::TypeKind for FILE_STORAGE_TIER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FILE_STORAGE_TIER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1882,15 +1834,9 @@ impl core::ops::Not for FILE_STORAGE_TIER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
-impl windows_core::TypeKind for FILE_STORAGE_TIER_MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_BPIO_INFLAGS(pub i32);
-impl windows_core::TypeKind for FS_BPIO_INFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FS_BPIO_INFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1927,15 +1873,9 @@ impl core::ops::Not for FS_BPIO_INFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_BPIO_OPERATIONS(pub i32);
-impl windows_core::TypeKind for FS_BPIO_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_BPIO_OUTFLAGS(pub i32);
-impl windows_core::TypeKind for FS_BPIO_OUTFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FS_BPIO_OUTFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1972,9 +1912,6 @@ impl core::ops::Not for FS_BPIO_OUTFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
-impl windows_core::TypeKind for GET_CHANGER_PARAMETERS_FEATURES1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl GET_CHANGER_PARAMETERS_FEATURES1 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2011,9 +1948,6 @@ impl core::ops::Not for GET_CHANGER_PARAMETERS_FEATURES1 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPT_ATTRIBUTES(pub u64);
-impl windows_core::TypeKind for GPT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl GPT_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2050,363 +1984,183 @@ impl core::ops::Not for GPT_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LMR_QUERY_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for LMR_QUERY_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_TYPE(pub i32);
-impl windows_core::TypeKind for MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARTITION_STYLE(pub i32);
-impl windows_core::TypeKind for PARTITION_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for QUERY_FILE_LAYOUT_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
-impl windows_core::TypeKind for REFS_SMR_VOLUME_GC_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
-impl windows_core::TypeKind for REFS_SMR_VOLUME_GC_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
-impl windows_core::TypeKind for REFS_SMR_VOLUME_GC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
-impl windows_core::TypeKind for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for SCM_BUS_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for SCM_BUS_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_SET_TYPE(pub i32);
-impl windows_core::TypeKind for SCM_BUS_SET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
-impl windows_core::TypeKind for SCM_PD_FIRMWARE_ACTIVATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_HEALTH_STATUS(pub i32);
-impl windows_core::TypeKind for SCM_PD_HEALTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
-impl windows_core::TypeKind for SCM_PD_LAST_FW_ACTIVATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
-impl windows_core::TypeKind for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
-impl windows_core::TypeKind for SCM_PD_OPERATIONAL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
-impl windows_core::TypeKind for SCM_PD_OPERATIONAL_STATUS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for SCM_PD_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for SCM_PD_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_SET_TYPE(pub i32);
-impl windows_core::TypeKind for SCM_PD_SET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_REGION_FLAG(pub i32);
-impl windows_core::TypeKind for SCM_REGION_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
-impl windows_core::TypeKind for SHRINK_VOLUME_REQUEST_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_ASSOCIATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
-impl windows_core::TypeKind for STORAGE_ATTRIBUTE_MGMT_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
-impl windows_core::TypeKind for STORAGE_COMPONENT_HEALTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_COUNTER_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_COUNTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
-impl windows_core::TypeKind for STORAGE_CRYPTO_ALGORITHM_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
-impl windows_core::TypeKind for STORAGE_CRYPTO_KEY_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
-impl windows_core::TypeKind for STORAGE_DEVICE_FORM_FACTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
-impl windows_core::TypeKind for STORAGE_DEVICE_POWER_CAP_UNITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
-impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_TARGET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
-impl windows_core::TypeKind for STORAGE_DISK_HEALTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
-impl windows_core::TypeKind for STORAGE_DISK_OPERATIONAL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENCRYPTION_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_ENCRYPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
-impl windows_core::TypeKind for STORAGE_IDENTIFIER_CODE_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_IDENTIFIER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ID_NAA_FORMAT(pub i32);
-impl windows_core::TypeKind for STORAGE_ID_NAA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_MEDIA_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
-impl windows_core::TypeKind for STORAGE_OPERATIONAL_STATUS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PORT_CODE_SET(pub i32);
-impl windows_core::TypeKind for STORAGE_PORT_CODE_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_POWERUP_REASON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for STORAGE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_PROTOCOL_ATA_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_PROTOCOL_NVME_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_PROTOCOL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_PROTOCOL_UFS_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_RESERVE_ID(pub i32);
-impl windows_core::TypeKind for STORAGE_RESERVE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_RPMB_COMMAND_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_RPMB_FRAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_SANITIZE_METHOD(pub i32);
-impl windows_core::TypeKind for STORAGE_SANITIZE_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_SET_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_SET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_TIER_CLASS(pub i32);
-impl windows_core::TypeKind for STORAGE_TIER_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_TIER_MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
-impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for STORAGE_ZONES_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONE_CONDITION(pub i32);
-impl windows_core::TypeKind for STORAGE_ZONE_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONE_TYPES(pub i32);
-impl windows_core::TypeKind for STORAGE_ZONE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_RMF_LAGS(pub u32);
-impl windows_core::TypeKind for TXFS_RMF_LAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TXFS_RMF_LAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2443,9 +2197,6 @@ impl core::ops::Not for TXFS_RMF_LAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_DELETE_FLAGS(pub u32);
-impl windows_core::TypeKind for USN_DELETE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl USN_DELETE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2482,39 +2233,21 @@ impl core::ops::Not for USN_DELETE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_SOURCE_INFO_ID(pub u32);
-impl windows_core::TypeKind for USN_SOURCE_INFO_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
-impl windows_core::TypeKind for VIRTUAL_STORAGE_BEHAVIOR_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_CACHE_CHANGE(pub i32);
-impl windows_core::TypeKind for WRITE_CACHE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_CACHE_ENABLE(pub i32);
-impl windows_core::TypeKind for WRITE_CACHE_ENABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_CACHE_TYPE(pub i32);
-impl windows_core::TypeKind for WRITE_CACHE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_THROUGH(pub i32);
-impl windows_core::TypeKind for WRITE_THROUGH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {

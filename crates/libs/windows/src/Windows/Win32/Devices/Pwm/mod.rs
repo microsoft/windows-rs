@@ -25,9 +25,6 @@ pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PWM_POLARITY(pub i32);
-impl windows_core::TypeKind for PWM_POLARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {

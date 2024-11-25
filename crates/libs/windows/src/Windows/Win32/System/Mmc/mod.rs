@@ -6641,147 +6641,75 @@ pub const ViewOption_ScopeTreeHidden: _ViewOptions = _ViewOptions(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
-impl windows_core::TypeKind for CCM_COMMANDID_MASK_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_INSERTIONALLOWED(pub i32);
-impl windows_core::TypeKind for CCM_INSERTIONALLOWED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_INSERTIONPOINTID(pub i32);
-impl windows_core::TypeKind for CCM_INSERTIONPOINTID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_SPECIAL(pub i32);
-impl windows_core::TypeKind for CCM_SPECIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATA_OBJECT_TYPES(pub i32);
-impl windows_core::TypeKind for DATA_OBJECT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IconIdentifier(pub i32);
-impl windows_core::TypeKind for IconIdentifier {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_ACTION_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_ACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_BUTTON_STATE(pub i32);
-impl windows_core::TypeKind for MMC_BUTTON_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_CONSOLE_VERB(pub i32);
-impl windows_core::TypeKind for MMC_CONSOLE_VERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_CONTROL_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_CONTROL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_FILTER_CHANGE_CODE(pub i32);
-impl windows_core::TypeKind for MMC_FILTER_CHANGE_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_MENU_COMMAND_IDS(pub i32);
-impl windows_core::TypeKind for MMC_MENU_COMMAND_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_NOTIFY_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_NOTIFY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_PROPERTY_ACTION(pub i32);
-impl windows_core::TypeKind for MMC_PROPERTY_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
-impl windows_core::TypeKind for MMC_RESULT_VIEW_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_SCOPE_ITEM_STATE(pub i32);
-impl windows_core::TypeKind for MMC_SCOPE_ITEM_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_TASK_DISPLAY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_VIEW_TYPE(pub i32);
-impl windows_core::TypeKind for MMC_VIEW_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ColumnSortOrder(pub i32);
-impl windows_core::TypeKind for _ColumnSortOrder {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DocumentMode(pub i32);
-impl windows_core::TypeKind for _DocumentMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ExportListOptions(pub i32);
-impl windows_core::TypeKind for _ExportListOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ListViewMode(pub i32);
-impl windows_core::TypeKind for _ListViewMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ViewOptions(pub i32);
-impl windows_core::TypeKind for _ViewOptions {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AppEventsDHTMLConnector: windows_core::GUID = windows_core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
 pub const Application: windows_core::GUID = windows_core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 #[repr(C)]

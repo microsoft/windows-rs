@@ -158,63 +158,33 @@ pub const D2D1_TURBULENCE_NOISE_TURBULENCE: D2D1_TURBULENCE_NOISE = D2D1_TURBULE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BLEND_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BORDER_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BORDER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COLORMATRIX_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMATRIX_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_COMPOSITE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COMPOSITE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FIGURE_BEGIN(pub i32);
-impl windows_core::TypeKind for D2D1_FIGURE_BEGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FIGURE_END(pub i32);
-impl windows_core::TypeKind for D2D1_FIGURE_END {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FILL_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_FILL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PATH_SEGMENT(pub i32);
-impl windows_core::TypeKind for D2D1_PATH_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl D2D1_PATH_SEGMENT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -251,9 +221,6 @@ impl core::ops::Not for D2D1_PATH_SEGMENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_TURBULENCE_NOISE(pub i32);
-impl windows_core::TypeKind for D2D1_TURBULENCE_NOISE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BEZIER_SEGMENT {

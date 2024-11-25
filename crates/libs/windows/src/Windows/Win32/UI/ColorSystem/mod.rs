@@ -1231,69 +1231,36 @@ pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BMFORMAT(pub i32);
-impl windows_core::TypeKind for BMFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORDATATYPE(pub i32);
-impl windows_core::TypeKind for COLORDATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORPROFILESUBTYPE(pub i32);
-impl windows_core::TypeKind for COLORPROFILESUBTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORPROFILETYPE(pub i32);
-impl windows_core::TypeKind for COLORPROFILETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORTYPE(pub i32);
-impl windows_core::TypeKind for COLORTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub u32);
-impl windows_core::TypeKind for COLOR_MATCH_TO_TARGET_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICM_COMMAND(pub u32);
-impl windows_core::TypeKind for ICM_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICM_MODE(pub i32);
-impl windows_core::TypeKind for ICM_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCSCSTYPE(pub i32);
-impl windows_core::TypeKind for LCSCSTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-impl windows_core::TypeKind for WCS_DEVICE_CAPABILITIES_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-impl windows_core::TypeKind for WCS_PROFILE_MANAGEMENT_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BlackInformation {

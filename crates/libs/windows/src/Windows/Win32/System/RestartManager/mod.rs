@@ -111,39 +111,21 @@ pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_APP_STATUS(pub i32);
-impl windows_core::TypeKind for RM_APP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_APP_TYPE(pub i32);
-impl windows_core::TypeKind for RM_APP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FILTER_ACTION(pub i32);
-impl windows_core::TypeKind for RM_FILTER_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FILTER_TRIGGER(pub i32);
-impl windows_core::TypeKind for RM_FILTER_TRIGGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_REBOOT_REASON(pub i32);
-impl windows_core::TypeKind for RM_REBOOT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
-impl windows_core::TypeKind for RM_SHUTDOWN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {

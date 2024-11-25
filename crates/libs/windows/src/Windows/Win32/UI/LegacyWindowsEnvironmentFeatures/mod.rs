@@ -497,12 +497,6 @@ pub const STATEBITS_FLAT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMPTY_VOLUME_CACHE_FLAGS(pub u32);
-impl windows_core::TypeKind for EMPTY_VOLUME_CACHE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECONCILEF(pub i32);
-impl windows_core::TypeKind for RECONCILEF {
-    type TypeKind = windows_core::CopyType;
-}

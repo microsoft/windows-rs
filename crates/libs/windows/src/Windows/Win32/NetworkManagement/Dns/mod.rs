@@ -807,57 +807,30 @@ pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_C
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CHARSET(pub i32);
-impl windows_core::TypeKind for DNS_CHARSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONFIG_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_CONFIG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
-impl windows_core::TypeKind for DNS_CONNECTION_POLICY_TAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
-impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_SWITCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_CONNECTION_PROXY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_FREE_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_FREE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_NAME_FORMAT(pub i32);
-impl windows_core::TypeKind for DNS_NAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_PROXY_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_QUERY_OPTIONS(pub u32);
-impl windows_core::TypeKind for DNS_QUERY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DNS_QUERY_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -894,21 +867,12 @@ impl core::ops::Not for DNS_QUERY_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SECTION(pub i32);
-impl windows_core::TypeKind for DNS_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_SVCB_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_TYPE(pub u16);
-impl windows_core::TypeKind for DNS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_AAAA_DATA {

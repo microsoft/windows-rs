@@ -856,33 +856,18 @@ pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_AXIS_DIRECTION(pub i32);
-impl windows_core::TypeKind for DML_AXIS_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_BINDING_TYPE(pub i32);
-impl windows_core::TypeKind for DML_BINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
-impl windows_core::TypeKind for DML_CONVOLUTION_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
-impl windows_core::TypeKind for DML_CONVOLUTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub i32);
-impl windows_core::TypeKind for DML_CREATE_DEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DML_CREATE_DEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -919,15 +904,9 @@ impl core::ops::Not for DML_CREATE_DEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
-impl windows_core::TypeKind for DML_DEPTH_SPACE_ORDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_EXECUTION_FLAGS(pub i32);
-impl windows_core::TypeKind for DML_EXECUTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DML_EXECUTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -964,93 +943,48 @@ impl core::ops::Not for DML_EXECUTION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_FEATURE(pub i32);
-impl windows_core::TypeKind for DML_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for DML_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
-impl windows_core::TypeKind for DML_GRAPH_EDGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for DML_GRAPH_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for DML_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
-impl windows_core::TypeKind for DML_IS_INFINITY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
-impl windows_core::TypeKind for DML_MATRIX_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_OPERATOR_TYPE(pub i32);
-impl windows_core::TypeKind for DML_OPERATOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_PADDING_MODE(pub i32);
-impl windows_core::TypeKind for DML_PADDING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
-impl windows_core::TypeKind for DML_RANDOM_GENERATOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
-impl windows_core::TypeKind for DML_RECURRENT_NETWORK_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
-impl windows_core::TypeKind for DML_REDUCE_FUNCTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ROUNDING_MODE(pub i32);
-impl windows_core::TypeKind for DML_ROUNDING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for DML_TENSOR_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_TENSOR_FLAGS(pub i32);
-impl windows_core::TypeKind for DML_TENSOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DML_TENSOR_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1087,9 +1021,6 @@ impl core::ops::Not for DML_TENSOR_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_TENSOR_TYPE(pub i32);
-impl windows_core::TypeKind for DML_TENSOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {

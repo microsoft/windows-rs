@@ -636,9 +636,6 @@ pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
-impl windows_core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONNECTDLGSTRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -675,9 +672,6 @@ impl core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
-impl windows_core::TypeKind for DISCDLGSTRUCT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DISCDLGSTRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -714,9 +708,6 @@ impl core::ops::Not for DISCDLGSTRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
-impl windows_core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NETINFOSTRUCT_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -753,15 +744,9 @@ impl core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
-impl windows_core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_CONNECT_FLAGS(pub u32);
-impl windows_core::TypeKind for NET_CONNECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_CONNECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -798,15 +783,9 @@ impl core::ops::Not for NET_CONNECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
-impl windows_core::TypeKind for NET_RESOURCE_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_RESOURCE_TYPE(pub u32);
-impl windows_core::TypeKind for NET_RESOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NET_RESOURCE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -843,27 +822,15 @@ impl core::ops::Not for NET_RESOURCE_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
-impl windows_core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
-impl windows_core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNC_INFO_LEVEL(pub u32);
-impl windows_core::TypeKind for UNC_INFO_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
-impl windows_core::TypeKind for WNET_OPEN_ENUM_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WNET_OPEN_ENUM_USAGE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -900,9 +867,6 @@ impl core::ops::Not for WNET_OPEN_ENUM_USAGE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNPERM_DLG(pub u32);
-impl windows_core::TypeKind for WNPERM_DLG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {

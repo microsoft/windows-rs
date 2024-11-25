@@ -185,27 +185,15 @@ pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
-impl windows_core::TypeKind for DEVICE_SCALE_FACTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERCEIVED(pub i32);
-impl windows_core::TypeKind for PERCEIVED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCOLSTATE(pub i32);
-impl windows_core::TypeKind for SHCOLSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRRET_TYPE(pub i32);
-impl windows_core::TypeKind for STRRET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMDLG_FILTERSPEC {

@@ -237,33 +237,18 @@ pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CON
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
-impl windows_core::TypeKind for JOBOBJECTINFOCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
-impl windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-impl windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-impl windows_core::TypeKind for JOB_OBJECT_CPU_RATE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_CPU_RATE_CONTROL {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -300,9 +285,6 @@ impl core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-impl windows_core::TypeKind for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -339,9 +321,6 @@ impl core::ops::Not for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
-impl windows_core::TypeKind for JOB_OBJECT_LIMIT {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_LIMIT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -378,9 +357,6 @@ impl core::ops::Not for JOB_OBJECT_LIMIT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
-impl windows_core::TypeKind for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -417,9 +393,6 @@ impl core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
-impl windows_core::TypeKind for JOB_OBJECT_SECURITY {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_SECURITY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -456,15 +429,9 @@ impl core::ops::Not for JOB_OBJECT_SECURITY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-impl windows_core::TypeKind for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
-impl windows_core::TypeKind for JOB_OBJECT_UILIMIT {
-    type TypeKind = windows_core::CopyType;
-}
 impl JOB_OBJECT_UILIMIT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

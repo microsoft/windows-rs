@@ -1286,48 +1286,24 @@ pub const _XmlWriterProperty_Last: XmlWriterProperty = XmlWriterProperty(5i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DtdProcessing(pub i32);
-impl windows_core::TypeKind for DtdProcessing {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlConformanceLevel(pub i32);
-impl windows_core::TypeKind for XmlConformanceLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlError(pub i32);
-impl windows_core::TypeKind for XmlError {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlNodeType(pub i32);
-impl windows_core::TypeKind for XmlNodeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlReadState(pub i32);
-impl windows_core::TypeKind for XmlReadState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlReaderProperty(pub i32);
-impl windows_core::TypeKind for XmlReaderProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlStandalone(pub i32);
-impl windows_core::TypeKind for XmlStandalone {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmlWriterProperty(pub i32);
-impl windows_core::TypeKind for XmlWriterProperty {
-    type TypeKind = windows_core::CopyType;
-}

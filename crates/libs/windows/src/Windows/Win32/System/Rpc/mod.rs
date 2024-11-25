@@ -3485,69 +3485,36 @@ pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPR_TOKEN(pub i32);
-impl windows_core::TypeKind for EXPR_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedErrorParamTypes(pub i32);
-impl windows_core::TypeKind for ExtendedErrorParamTypes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
-impl windows_core::TypeKind for GROUP_NAME_SYNTAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDL_CS_CONVERT(pub i32);
-impl windows_core::TypeKind for IDL_CS_CONVERT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
-impl windows_core::TypeKind for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDL_ES_CODE(pub i32);
-impl windows_core::TypeKind for MIDL_ES_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDL_ES_HANDLE_STYLE(pub i32);
-impl windows_core::TypeKind for MIDL_ES_HANDLE_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_PHASE(pub i32);
-impl windows_core::TypeKind for PROXY_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for RPC_ADDRESS_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ASYNC_EVENT(pub i32);
-impl windows_core::TypeKind for RPC_ASYNC_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
-impl windows_core::TypeKind for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3584,15 +3551,9 @@ impl core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
-impl windows_core::TypeKind for RPC_C_AUTHN_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
-impl windows_core::TypeKind for RPC_C_HTTP_AUTHN_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
 impl RPC_C_HTTP_AUTHN_TARGET {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3629,9 +3590,6 @@ impl core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
-impl windows_core::TypeKind for RPC_C_HTTP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RPC_C_HTTP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3668,9 +3626,6 @@ impl core::ops::Not for RPC_C_HTTP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_QOS_CAPABILITIES(pub u32);
-impl windows_core::TypeKind for RPC_C_QOS_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl RPC_C_QOS_CAPABILITIES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3707,87 +3662,45 @@ impl core::ops::Not for RPC_C_QOS_CAPABILITIES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
-impl windows_core::TypeKind for RPC_C_QOS_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
-impl windows_core::TypeKind for RPC_HTTP_REDIRECTOR_STAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_NOTIFICATIONS(pub i32);
-impl windows_core::TypeKind for RPC_NOTIFICATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
-impl windows_core::TypeKind for RPC_NOTIFICATION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_STATUS(pub i32);
-impl windows_core::TypeKind for RPC_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcCallClientLocality(pub i32);
-impl windows_core::TypeKind for RpcCallClientLocality {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcCallType(pub i32);
-impl windows_core::TypeKind for RpcCallType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcLocalAddressFormat(pub i32);
-impl windows_core::TypeKind for RpcLocalAddressFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcPerfCounters(pub i32);
-impl windows_core::TypeKind for RpcPerfCounters {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STUB_PHASE(pub i32);
-impl windows_core::TypeKind for STUB_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MARSHAL_CB_TYPE(pub i32);
-impl windows_core::TypeKind for USER_MARSHAL_CB_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XLAT_SIDE(pub i32);
-impl windows_core::TypeKind for XLAT_SIDE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct system_handle_t(pub i32);
-impl windows_core::TypeKind for system_handle_t {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ARRAY_INFO {

@@ -67,17 +67,6 @@ impl CppEnum {
             quote! {}
         };
 
-        // TODO: is TypeKind really needed on all these Win32 types?
-        let type_kind = if writer.config.sys {
-            quote! {}
-        } else {
-            quote! {
-                impl windows_core::TypeKind for #name {
-                    type TypeKind = windows_core::CopyType;
-                }
-            }
-        };
-
         let flags = if writer.config.sys || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
         } else {
@@ -124,7 +113,6 @@ impl CppEnum {
             #derive
             pub struct #name(pub #underlying_type);
             #fields
-            #type_kind
             #flags
         }
     }

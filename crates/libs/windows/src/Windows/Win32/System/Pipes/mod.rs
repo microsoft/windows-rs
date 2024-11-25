@@ -211,9 +211,6 @@ pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMED_PIPE_MODE(pub u32);
-impl windows_core::TypeKind for NAMED_PIPE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NAMED_PIPE_MODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

@@ -71,9 +71,6 @@ pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSL_DISTRIBUTION_FLAGS(pub i32);
-impl windows_core::TypeKind for WSL_DISTRIBUTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WSL_DISTRIBUTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

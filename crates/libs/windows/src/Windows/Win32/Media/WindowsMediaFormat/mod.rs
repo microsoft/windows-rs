@@ -9833,189 +9833,96 @@ pub const g_wszWatermarkConfig: windows_core::PCWSTR = windows_core::w!("Waterma
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
-impl windows_core::TypeKind for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
-impl windows_core::TypeKind for WEBSTREAM_SAMPLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_ATTR_DATATYPE(pub i32);
-impl windows_core::TypeKind for WMT_ATTR_DATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_ATTR_IMAGETYPE(pub i32);
-impl windows_core::TypeKind for WMT_ATTR_IMAGETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_CODEC_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_CODEC_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_CREDENTIAL_FLAGS(pub i32);
-impl windows_core::TypeKind for WMT_CREDENTIAL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_DRMLA_TRUST(pub i32);
-impl windows_core::TypeKind for WMT_DRMLA_TRUST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_FILESINK_MODE(pub i32);
-impl windows_core::TypeKind for WMT_FILESINK_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_INDEXER_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_INDEXER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_INDEX_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_INDEX_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
-impl windows_core::TypeKind for WMT_MUSICSPEECH_CLASS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_NET_PROTOCOL(pub i32);
-impl windows_core::TypeKind for WMT_NET_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_OFFSET_FORMAT(pub i32);
-impl windows_core::TypeKind for WMT_OFFSET_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PLAY_MODE(pub i32);
-impl windows_core::TypeKind for WMT_PLAY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PROXY_SETTINGS(pub i32);
-impl windows_core::TypeKind for WMT_PROXY_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_RIGHTS(pub i32);
-impl windows_core::TypeKind for WMT_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_STATUS(pub i32);
-impl windows_core::TypeKind for WMT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_STORAGE_FORMAT(pub i32);
-impl windows_core::TypeKind for WMT_STORAGE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_STREAM_SELECTION(pub i32);
-impl windows_core::TypeKind for WMT_STREAM_SELECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_TIMECODE_FRAMERATE(pub i32);
-impl windows_core::TypeKind for WMT_TIMECODE_FRAMERATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_TRANSPORT_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_TRANSPORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_VERSION(pub i32);
-impl windows_core::TypeKind for WMT_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
-impl windows_core::TypeKind for WMT_WATERMARK_ENTRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_AETYPE(pub i32);
-impl windows_core::TypeKind for WM_AETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_DM_INTERLACED_TYPE(pub i32);
-impl windows_core::TypeKind for WM_DM_INTERLACED_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
-impl windows_core::TypeKind for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
-impl windows_core::TypeKind for WM_PLAYBACK_DRC_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_SFEX_TYPE(pub i32);
-impl windows_core::TypeKind for WM_SFEX_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_SF_TYPE(pub i32);
-impl windows_core::TypeKind for WM_SF_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
-impl windows_core::TypeKind for _AM_ASFWRITERCONFIG_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_WMT_EVENT_DATA {

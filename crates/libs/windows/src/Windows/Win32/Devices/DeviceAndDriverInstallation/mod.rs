@@ -5873,9 +5873,6 @@ pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDFLAGS(pub u32);
-impl windows_core::TypeKind for CM_CDFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_CDFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5912,9 +5909,6 @@ impl core::ops::Not for CM_CDFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDMASK(pub u32);
-impl windows_core::TypeKind for CM_CDMASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_CDMASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5951,9 +5945,6 @@ impl core::ops::Not for CM_CDMASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVCAP(pub u32);
-impl windows_core::TypeKind for CM_DEVCAP {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_DEVCAP {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5990,9 +5981,6 @@ impl core::ops::Not for CM_DEVCAP {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
-impl windows_core::TypeKind for CM_DEVNODE_STATUS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_DEVNODE_STATUS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6029,9 +6017,6 @@ impl core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ENUMERATE_FLAGS(pub u32);
-impl windows_core::TypeKind for CM_ENUMERATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_ENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6068,51 +6053,27 @@ impl core::ops::Not for CM_ENUMERATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
-impl windows_core::TypeKind for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_INSTALL_STATE(pub u32);
-impl windows_core::TypeKind for CM_INSTALL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
-impl windows_core::TypeKind for CM_LOCATE_DEVNODE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOG_CONF(pub u32);
-impl windows_core::TypeKind for CM_LOG_CONF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_ACTION(pub i32);
-impl windows_core::TypeKind for CM_NOTIFY_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PROB(pub u32);
-impl windows_core::TypeKind for CM_PROB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REENUMERATE_FLAGS(pub u32);
-impl windows_core::TypeKind for CM_REENUMERATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CM_REENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6149,27 +6110,15 @@ impl core::ops::Not for CM_REENUMERATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REMOVAL_POLICY(pub u32);
-impl windows_core::TypeKind for CM_REMOVAL_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_RESTYPE(pub u32);
-impl windows_core::TypeKind for CM_RESTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIGRET(pub u32);
-impl windows_core::TypeKind for CONFIGRET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DD_FLAGS(pub u32);
-impl windows_core::TypeKind for DD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6206,9 +6155,6 @@ impl core::ops::Not for DD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIINSTALLDEVICE_FLAGS(pub u32);
-impl windows_core::TypeKind for DIINSTALLDEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIINSTALLDEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6245,9 +6191,6 @@ impl core::ops::Not for DIINSTALLDEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIINSTALLDRIVER_FLAGS(pub u32);
-impl windows_core::TypeKind for DIINSTALLDRIVER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIINSTALLDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6284,9 +6227,6 @@ impl core::ops::Not for DIINSTALLDRIVER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
-impl windows_core::TypeKind for DIROLLBACKDRIVER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIROLLBACKDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6323,9 +6263,6 @@ impl core::ops::Not for DIROLLBACKDRIVER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIUNINSTALLDRIVER_FLAGS(pub u32);
-impl windows_core::TypeKind for DIUNINSTALLDRIVER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIUNINSTALLDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6362,15 +6299,9 @@ impl core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DI_FUNCTION(pub u32);
-impl windows_core::TypeKind for DI_FUNCTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_TYPE(pub u32);
-impl windows_core::TypeKind for FILE_COMPRESSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl FILE_COMPRESSION_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6407,9 +6338,6 @@ impl core::ops::Not for FILE_COMPRESSION_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INF_STYLE(pub u32);
-impl windows_core::TypeKind for INF_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl INF_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6446,9 +6374,6 @@ impl core::ops::Not for INF_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOD_DESFLAGS(pub u32);
-impl windows_core::TypeKind for IOD_DESFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IOD_DESFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6485,9 +6410,6 @@ impl core::ops::Not for IOD_DESFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQD_FLAGS(pub u32);
-impl windows_core::TypeKind for IRQD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IRQD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6524,9 +6446,6 @@ impl core::ops::Not for IRQD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MD_FLAGS(pub u32);
-impl windows_core::TypeKind for MD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6563,15 +6482,9 @@ impl core::ops::Not for MD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
-impl windows_core::TypeKind for OEM_SOURCE_MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCD_FLAGS(pub u32);
-impl windows_core::TypeKind for PCD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PCD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6608,9 +6521,6 @@ impl core::ops::Not for PCD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PMF_FLAGS(pub u32);
-impl windows_core::TypeKind for PMF_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PMF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6647,15 +6557,9 @@ impl core::ops::Not for PMF_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNP_VETO_TYPE(pub i32);
-impl windows_core::TypeKind for PNP_VETO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUPSCANFILEQUEUE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUPSCANFILEQUEUE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6692,9 +6596,6 @@ impl core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_CONFIGURATION_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6731,9 +6632,6 @@ impl core::ops::Not for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_CREATION_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DEVICE_CREATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_DEVICE_CREATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6770,9 +6668,6 @@ impl core::ops::Not for SETUP_DI_DEVICE_CREATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_DEVICE_INSTALL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6809,9 +6704,6 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS_EX(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6848,9 +6740,6 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DRIVER_INSTALL_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DRIVER_INSTALL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_DRIVER_INSTALL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6887,15 +6776,9 @@ impl core::ops::Not for SETUP_DI_DRIVER_INSTALL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DRIVER_TYPE(pub u32);
-impl windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_GET_CLASS_DEVS_FLAGS(pub u32);
-impl windows_core::TypeKind for SETUP_DI_GET_CLASS_DEVS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SETUP_DI_GET_CLASS_DEVS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6932,39 +6815,21 @@ impl core::ops::Not for SETUP_DI_GET_CLASS_DEVS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_PROPERTY_CHANGE_SCOPE(pub u32);
-impl windows_core::TypeKind for SETUP_DI_PROPERTY_CHANGE_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_REGISTRY_PROPERTY(pub u32);
-impl windows_core::TypeKind for SETUP_DI_REGISTRY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_REMOVE_DEVICE_SCOPE(pub u32);
-impl windows_core::TypeKind for SETUP_DI_REMOVE_DEVICE_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_STATE_CHANGE(pub u32);
-impl windows_core::TypeKind for SETUP_DI_STATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_FILE_OPERATION(pub u32);
-impl windows_core::TypeKind for SETUP_FILE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSVCINST_FLAGS(pub u32);
-impl windows_core::TypeKind for SPSVCINST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SPSVCINST_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7001,9 +6866,6 @@ impl core::ops::Not for SPSVCINST_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_COPY_STYLE(pub u32);
-impl windows_core::TypeKind for SP_COPY_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SP_COPY_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -7040,15 +6902,9 @@ impl core::ops::Not for SP_COPY_STYLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetupFileLogInfo(pub i32);
-impl windows_core::TypeKind for SetupFileLogInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
-impl windows_core::TypeKind for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

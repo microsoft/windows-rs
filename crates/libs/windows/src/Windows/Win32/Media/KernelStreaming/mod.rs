@@ -3236,969 +3236,486 @@ pub const ePortConnUnknown: EPxcPortConnection = EPxcPortConnection(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOPOSTURE_ORIENTATION(pub i32);
-impl windows_core::TypeKind for AUDIOPOSTURE_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_CURVE_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIO_CURVE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPTURE_MEMORY_ALLOCATION_FLAGS(pub i32);
-impl windows_core::TypeKind for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSTRICTOR_OPTION(pub i32);
-impl windows_core::TypeKind for CONSTRICTOR_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDeviceControlUseType(pub i32);
-impl windows_core::TypeKind for EDeviceControlUseType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPcxConnectionType(pub i32);
-impl windows_core::TypeKind for EPcxConnectionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPcxGenLocation(pub i32);
-impl windows_core::TypeKind for EPcxGenLocation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPcxGeoLocation(pub i32);
-impl windows_core::TypeKind for EPcxGeoLocation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPxcPortConnection(pub i32);
-impl windows_core::TypeKind for EPxcPortConnection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMING_CACHE_OPS(pub i32);
-impl windows_core::TypeKind for FRAMING_CACHE_OPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMING_PROP(pub i32);
-impl windows_core::TypeKind for FRAMING_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSALLOCATORMODE(pub i32);
-impl windows_core::TypeKind for KSALLOCATORMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_FOCUSSTATE(pub i32);
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_MetadataAlignment(pub i32);
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROITYPE(pub i32);
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_WBPRESET(pub i32);
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(pub i32);
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_MetadataId(pub i32);
-impl windows_core::TypeKind for KSCAMERA_MetadataId {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_ITEM_TYPE(pub i32);
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDEGRADE_STANDARD(pub i32);
-impl windows_core::TypeKind for KSDEGRADE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDEVICE_THERMAL_STATE(pub i32);
-impl windows_core::TypeKind for KSDEVICE_THERMAL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_COEFF_FORMAT(pub i32);
-impl windows_core::TypeKind for KSDS3D_HRTF_COEFF_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_FILTER_METHOD(pub i32);
-impl windows_core::TypeKind for KSDS3D_HRTF_FILTER_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_FILTER_QUALITY(pub i32);
-impl windows_core::TypeKind for KSDS3D_HRTF_FILTER_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_FILTER_VERSION(pub i32);
-impl windows_core::TypeKind for KSDS3D_HRTF_FILTER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_AUDIO_CONTROL_CHANGE(pub i32);
-impl windows_core::TypeKind for KSEVENT_AUDIO_CONTROL_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_CAMERACONTROL(pub i32);
-impl windows_core::TypeKind for KSEVENT_CAMERACONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_CAMERAEVENT(pub i32);
-impl windows_core::TypeKind for KSEVENT_CAMERAEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_CLOCK_POSITION(pub i32);
-impl windows_core::TypeKind for KSEVENT_CLOCK_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_CONNECTION(pub i32);
-impl windows_core::TypeKind for KSEVENT_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_CROSSBAR(pub i32);
-impl windows_core::TypeKind for KSEVENT_CROSSBAR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_DEVCMD(pub i32);
-impl windows_core::TypeKind for KSEVENT_DEVCMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_DEVICE(pub i32);
-impl windows_core::TypeKind for KSEVENT_DEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_DYNAMICFORMATCHANGE(pub i32);
-impl windows_core::TypeKind for KSEVENT_DYNAMICFORMATCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_LOOPEDSTREAMING(pub i32);
-impl windows_core::TypeKind for KSEVENT_LOOPEDSTREAMING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_PINCAPS_CHANGENOTIFICATIONS(pub i32);
-impl windows_core::TypeKind for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_SOUNDDETECTOR(pub i32);
-impl windows_core::TypeKind for KSEVENT_SOUNDDETECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_STREAMALLOCATOR(pub i32);
-impl windows_core::TypeKind for KSEVENT_STREAMALLOCATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_TELEPHONY(pub i32);
-impl windows_core::TypeKind for KSEVENT_TELEPHONY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_TUNER(pub i32);
-impl windows_core::TypeKind for KSEVENT_TUNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_TVAUDIO(pub i32);
-impl windows_core::TypeKind for KSEVENT_TVAUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_VIDCAPTOSTI(pub i32);
-impl windows_core::TypeKind for KSEVENT_VIDCAPTOSTI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_VIDEODECODER(pub i32);
-impl windows_core::TypeKind for KSEVENT_VIDEODECODER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_VOLUMELIMIT(pub i32);
-impl windows_core::TypeKind for KSEVENT_VOLUMELIMIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_VPNOTIFY(pub i32);
-impl windows_core::TypeKind for KSEVENT_VPNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_VPVBINOTIFY(pub i32);
-impl windows_core::TypeKind for KSEVENT_VPVBINOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACE_FILEIO(pub i32);
-impl windows_core::TypeKind for KSINTERFACE_FILEIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACE_MEDIA(pub i32);
-impl windows_core::TypeKind for KSINTERFACE_MEDIA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACE_STANDARD(pub i32);
-impl windows_core::TypeKind for KSINTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSIOOPERATION(pub i32);
-impl windows_core::TypeKind for KSIOOPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSJACK_SINK_CONNECTIONTYPE(pub i32);
-impl windows_core::TypeKind for KSJACK_SINK_CONNECTIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_STREAMALLOCATOR(pub i32);
-impl windows_core::TypeKind for KSMETHOD_STREAMALLOCATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_STREAMIO(pub i32);
-impl windows_core::TypeKind for KSMETHOD_STREAMIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_WAVETABLE(pub i32);
-impl windows_core::TypeKind for KSMETHOD_WAVETABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMICARRAY_MICARRAYTYPE(pub i32);
-impl windows_core::TypeKind for KSMICARRAY_MICARRAYTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMICARRAY_MICTYPE(pub i32);
-impl windows_core::TypeKind for KSMICARRAY_MICTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPEEKOPERATION(pub i32);
-impl windows_core::TypeKind for KSPEEKOPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_COMMUNICATION(pub i32);
-impl windows_core::TypeKind for KSPIN_COMMUNICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_DATAFLOW(pub i32);
-impl windows_core::TypeKind for KSPIN_DATAFLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_MDL_CACHING_EVENT(pub i32);
-impl windows_core::TypeKind for KSPIN_MDL_CACHING_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPPROPERTY_ALLOCATOR_MDLCACHING(pub i32);
-impl windows_core::TypeKind for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AC3(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AC3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDDECOUT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDDECOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIOENGINE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIOENGINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIOMODULE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIOMODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIOPOSTURE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIOPOSTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIORESOURCEMANAGEMENT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_AUDIOSIGNALPROCESSING(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BIBLIOGRAPHIC(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BIBLIOGRAPHIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BTAUDIO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_BTAUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CLOCK(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CONNECTION(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_COPYPROT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_COPYPROT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CYCLIC(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_CYCLIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_DIRECTSOUND3DBUFFER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_DIRECTSOUND3DLISTENER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_DRMAUDIOSTREAM(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_DRMAUDIOSTREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_DVDSUBPIC(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_DVDSUBPIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTDEVICE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_EXTDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTENSION_UNIT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_EXTENSION_UNIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_FMRX_CONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_FMRX_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_FMRX_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_FMRX_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_GENERAL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_GENERAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_HRTF3D(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_HRTF3D {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_INTERLEAVEDAUDIO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_INTERLEAVEDAUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_ITD3D(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_ITD3D {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_JACK(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_JACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MEDIASEEKING(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_MEDIASEEKING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MPEG2VID(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_MPEG2VID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_OVERLAYUPDATE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_OVERLAYUPDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_PIN(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_PIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_QUALITY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_RTAUDIO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_RTAUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_SOUNDDETECTOR(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_SOUNDDETECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_STREAM(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_STREAMINTERFACE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_STREAMINTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TELEPHONY_CONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TELEPHONY_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TELEPHONY_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TIMECODE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TIMECODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TOPOLOGY(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TOPOLOGYNODE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TOPOLOGYNODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TUNER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TUNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_TUNER_MODES(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_TUNER_MODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VBICAP(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VBICAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VBICODECFILTERING(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_CAMERACONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_CROSSBAR(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_CROSSBAR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_DROPPEDFRAMES(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_SELECTOR(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_TVAUDIO(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_TVAUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_VIDEOCONTROL(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_VIDEODECODER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEODECODER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_VIDEOENCODER(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDCAP_VIDEOPROCAMP(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VIDMEM_TRANSPORT(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VIDMEM_TRANSPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_VPCONFIG(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_VPCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_WAVE(pub i32);
-impl windows_core::TypeKind for KSPROPERTY_WAVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRESET(pub i32);
-impl windows_core::TypeKind for KSRESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSSTATE(pub i32);
-impl windows_core::TypeKind for KSSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMPixAspectRatio(pub i32);
-impl windows_core::TypeKind for KS_AMPixAspectRatio {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMVP_MODE(pub i32);
-impl windows_core::TypeKind for KS_AMVP_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMVP_SELECTFORMATBY(pub i32);
-impl windows_core::TypeKind for KS_AMVP_SELECTFORMATBY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_PROPERTY_TS_RATE_CHANGE(pub i32);
-impl windows_core::TypeKind for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AnalogVideoStandard(pub i32);
-impl windows_core::TypeKind for KS_AnalogVideoStandard {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_COPY_MACROVISION_LEVEL(pub i32);
-impl windows_core::TypeKind for KS_COPY_MACROVISION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_CameraControlAsyncOperation(pub i32);
-impl windows_core::TypeKind for KS_CameraControlAsyncOperation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_CompressionCaps(pub i32);
-impl windows_core::TypeKind for KS_CompressionCaps {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_DVDCOPYSTATE(pub i32);
-impl windows_core::TypeKind for KS_DVDCOPYSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_LogicalMemoryType(pub i32);
-impl windows_core::TypeKind for KS_LogicalMemoryType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_MPEG2Level(pub i32);
-impl windows_core::TypeKind for KS_MPEG2Level {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_MPEG2Profile(pub i32);
-impl windows_core::TypeKind for KS_MPEG2Profile {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_PhysicalConnectorType(pub i32);
-impl windows_core::TypeKind for KS_PhysicalConnectorType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_SEEKING_CAPABILITIES(pub i32);
-impl windows_core::TypeKind for KS_SEEKING_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_SEEKING_FLAGS(pub i32);
-impl windows_core::TypeKind for KS_SEEKING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_TUNER_STRATEGY(pub i32);
-impl windows_core::TypeKind for KS_TUNER_STRATEGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_TUNER_TUNING_FLAGS(pub i32);
-impl windows_core::TypeKind for KS_TUNER_TUNING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEODECODER_FLAGS(pub i32);
-impl windows_core::TypeKind for KS_VIDEODECODER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VideoControlFlags(pub i32);
-impl windows_core::TypeKind for KS_VideoControlFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VideoStreamingHints(pub i32);
-impl windows_core::TypeKind for KS_VideoStreamingHints {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIPE_ALLOCATOR_PLACE(pub i32);
-impl windows_core::TypeKind for PIPE_ALLOCATOR_PLACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIPE_STATE(pub i32);
-impl windows_core::TypeKind for PIPE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TELEPHONY_CALLCONTROLOP(pub i32);
-impl windows_core::TypeKind for TELEPHONY_CALLCONTROLOP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TELEPHONY_CALLSTATE(pub i32);
-impl windows_core::TypeKind for TELEPHONY_CALLSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TELEPHONY_CALLTYPE(pub i32);
-impl windows_core::TypeKind for TELEPHONY_CALLTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TELEPHONY_PROVIDERCHANGEOP(pub i32);
-impl windows_core::TypeKind for TELEPHONY_PROVIDERCHANGEOP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TunerLockType(pub i32);
-impl windows_core::TypeKind for TunerLockType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct ALLOCATOR_PROPERTIES_EX {

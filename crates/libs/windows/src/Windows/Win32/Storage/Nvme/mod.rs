@@ -517,363 +517,183 @@ pub const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ACCESS_FREQUENCIES(pub i32);
-impl windows_core::TypeKind for NVME_ACCESS_FREQUENCIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ACCESS_LATENCIES(pub i32);
-impl windows_core::TypeKind for NVME_ACCESS_LATENCIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ADMIN_COMMANDS(pub i32);
-impl windows_core::TypeKind for NVME_ADMIN_COMMANDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_AMS_OPTION(pub i32);
-impl windows_core::TypeKind for NVME_AMS_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_ERROR_STATUS_CODES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_HEALTH_STATUS_CODES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_NOTICE_CODES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_NOTICE_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES(pub i32);
-impl windows_core::TypeKind for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(pub i32);
-impl windows_core::TypeKind for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CMBSZ_SIZE_UNITS(pub i32);
-impl windows_core::TypeKind for NVME_CMBSZ_SIZE_UNITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS(pub i32);
-impl windows_core::TypeKind for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_COMMAND_SET_IDENTIFIERS(pub i32);
-impl windows_core::TypeKind for NVME_COMMAND_SET_IDENTIFIERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CONTROLLER_METADATA_ELEMENT_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CSS_COMMAND_SETS(pub i32);
-impl windows_core::TypeKind for NVME_CSS_COMMAND_SETS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CSTS_SHST_SHUTDOWN_STATUS(pub i32);
-impl windows_core::TypeKind for NVME_CSTS_SHST_SHUTDOWN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS(pub i32);
-impl windows_core::TypeKind for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS(pub i32);
-impl windows_core::TypeKind for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS(pub i32);
-impl windows_core::TypeKind for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS(pub i32);
-impl windows_core::TypeKind for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DIRECTIVE_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_DIRECTIVE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ERROR_INJECTION_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_ERROR_INJECTION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_FEATURES(pub i32);
-impl windows_core::TypeKind for NVME_FEATURES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_FEATURE_VALUE_CODES(pub i32);
-impl windows_core::TypeKind for NVME_FEATURE_VALUE_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_FIRMWARE_ACTIVATE_ACTIONS(pub i32);
-impl windows_core::TypeKind for NVME_FIRMWARE_ACTIVATE_ACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_FUSED_OPERATION_CODES(pub i32);
-impl windows_core::TypeKind for NVME_FUSED_OPERATION_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_HOST_METADATA_ELEMENT_ACTIONS(pub i32);
-impl windows_core::TypeKind for NVME_HOST_METADATA_ELEMENT_ACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFIER_TYPE(pub i32);
-impl windows_core::TypeKind for NVME_IDENTIFIER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFIER_TYPE_LENGTH(pub i32);
-impl windows_core::TypeKind for NVME_IDENTIFIER_TYPE_LENGTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CNS_CODES(pub i32);
-impl windows_core::TypeKind for NVME_IDENTIFY_CNS_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_LBA_RANGE_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_LBA_RANGE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_LOG_PAGES(pub i32);
-impl windows_core::TypeKind for NVME_LOG_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_NAMESPACE_METADATA_ELEMENT_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE(pub i32);
-impl windows_core::TypeKind for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_NVM_COMMANDS(pub i32);
-impl windows_core::TypeKind for NVME_NVM_COMMANDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_NVM_QUEUE_PRIORITIES(pub i32);
-impl windows_core::TypeKind for NVME_NVM_QUEUE_PRIORITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_PROTECTION_INFORMATION_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_PROTECTION_INFORMATION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_ACQUIRE_ACTIONS(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_ACQUIRE_ACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_NOTIFICATION_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_NOTIFICATION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REGISTER_ACTIONS(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_REGISTER_ACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_RELEASE_ACTIONS(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_RELEASE_ACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_RESERVATION_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_RESERVATION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SANITIZE_ACTION(pub i32);
-impl windows_core::TypeKind for NVME_SANITIZE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SANITIZE_OPERATION_STATUS(pub i32);
-impl windows_core::TypeKind for NVME_SANITIZE_OPERATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SECURE_ERASE_SETTINGS(pub i32);
-impl windows_core::TypeKind for NVME_SECURE_ERASE_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_STATUS_COMMAND_SPECIFIC_CODES(pub i32);
-impl windows_core::TypeKind for NVME_STATUS_COMMAND_SPECIFIC_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_STATUS_GENERIC_COMMAND_CODES(pub i32);
-impl windows_core::TypeKind for NVME_STATUS_GENERIC_COMMAND_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_STATUS_MEDIA_ERROR_CODES(pub i32);
-impl windows_core::TypeKind for NVME_STATUS_MEDIA_ERROR_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_STATUS_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_STATUS_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_TEMPERATURE_THRESHOLD_TYPES(pub i32);
-impl windows_core::TypeKind for NVME_TEMPERATURE_THRESHOLD_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_VENDOR_LOG_PAGES(pub i32);
-impl windows_core::TypeKind for NVME_VENDOR_LOG_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_RECOVERY_ACTION1(pub i32);
-impl windows_core::TypeKind for NVME_WCS_DEVICE_RECOVERY_ACTION1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_RECOVERY_ACTION2(pub i32);
-impl windows_core::TypeKind for NVME_WCS_DEVICE_RECOVERY_ACTION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ZONE_RECEIVE_ACTION(pub i32);
-impl windows_core::TypeKind for NVME_ZONE_RECEIVE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ZONE_RECEIVE_ACTION_SPECIFIC(pub i32);
-impl windows_core::TypeKind for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ZONE_SEND_ACTION(pub i32);
-impl windows_core::TypeKind for NVME_ZONE_SEND_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ZONE_STATE(pub i32);
-impl windows_core::TypeKind for ZONE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTIVE_LATENCY_CONFIGURATION {

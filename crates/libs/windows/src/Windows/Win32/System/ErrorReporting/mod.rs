@@ -453,33 +453,18 @@ pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFaultRepRetVal(pub i32);
-impl windows_core::TypeKind for EFaultRepRetVal {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPORT_STORE_TYPES(pub i32);
-impl windows_core::TypeKind for REPORT_STORE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_CONSENT(pub i32);
-impl windows_core::TypeKind for WER_CONSENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_DUMP_TYPE(pub i32);
-impl windows_core::TypeKind for WER_DUMP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_FAULT_REPORTING(pub u32);
-impl windows_core::TypeKind for WER_FAULT_REPORTING {
-    type TypeKind = windows_core::CopyType;
-}
 impl WER_FAULT_REPORTING {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -516,9 +501,6 @@ impl core::ops::Not for WER_FAULT_REPORTING {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_FILE(pub u32);
-impl windows_core::TypeKind for WER_FILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl WER_FILE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -555,33 +537,18 @@ impl core::ops::Not for WER_FILE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for WER_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_REGISTER_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for WER_REGISTER_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_REPORT_TYPE(pub i32);
-impl windows_core::TypeKind for WER_REPORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_REPORT_UI(pub i32);
-impl windows_core::TypeKind for WER_REPORT_UI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_SUBMIT_FLAGS(pub u32);
-impl windows_core::TypeKind for WER_SUBMIT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WER_SUBMIT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -618,9 +585,6 @@ impl core::ops::Not for WER_SUBMIT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_SUBMIT_RESULT(pub i32);
-impl windows_core::TypeKind for WER_SUBMIT_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORT(pub *mut core::ffi::c_void);

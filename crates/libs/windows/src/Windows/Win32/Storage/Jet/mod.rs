@@ -2915,21 +2915,12 @@ pub const wrnBTNotVisibleRejected: u32 = 352u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ERRCAT(pub i32);
-impl windows_core::TypeKind for JET_ERRCAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXCHECKING(pub i32);
-impl windows_core::TypeKind for JET_INDEXCHECKING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RELOP(pub i32);
-impl windows_core::TypeKind for JET_RELOP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JET_BKINFO {

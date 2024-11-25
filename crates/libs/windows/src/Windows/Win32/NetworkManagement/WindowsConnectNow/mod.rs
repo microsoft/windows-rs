@@ -488,105 +488,54 @@ pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_ATTRIBUTE_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_PASSWORD_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_PASSWORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_SESSION_STATUS(pub i32);
-impl windows_core::TypeKind for WCN_SESSION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_BOOLEAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_CONFIG_METHODS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_RF_BANDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_VERSION(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
-impl windows_core::TypeKind for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WCNDeviceObject: windows_core::GUID = windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]

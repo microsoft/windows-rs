@@ -6360,87 +6360,45 @@ pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKPAGE(pub i32);
-impl windows_core::TypeKind for TASKPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_ACTION_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_ACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_COMPATIBILITY(pub i32);
-impl windows_core::TypeKind for TASK_COMPATIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_CREATION(pub i32);
-impl windows_core::TypeKind for TASK_CREATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_ENUM_FLAGS(pub i32);
-impl windows_core::TypeKind for TASK_ENUM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_INSTANCES_POLICY(pub i32);
-impl windows_core::TypeKind for TASK_INSTANCES_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_LOGON_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_LOGON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_PROCESSTOKENSID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_RUNLEVEL_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_RUNLEVEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_RUN_FLAGS(pub i32);
-impl windows_core::TypeKind for TASK_RUN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_SESSION_STATE_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_STATE(pub i32);
-impl windows_core::TypeKind for TASK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_TRIGGER_TYPE(pub i32);
-impl windows_core::TypeKind for TASK_TRIGGER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASK_TRIGGER_TYPE2(pub i32);
-impl windows_core::TypeKind for TASK_TRIGGER_TYPE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAILY {

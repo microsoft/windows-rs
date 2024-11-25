@@ -17195,345 +17195,174 @@ pub const prioNorm: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACDGROUP_EVENT(pub i32);
-impl windows_core::TypeKind for ACDGROUP_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACDQUEUE_EVENT(pub i32);
-impl windows_core::TypeKind for ACDQUEUE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_CAPABILITY(pub i32);
-impl windows_core::TypeKind for ADDRESS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
-impl windows_core::TypeKind for ADDRESS_CAPABILITY_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_EVENT(pub i32);
-impl windows_core::TypeKind for ADDRESS_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_STATE(pub i32);
-impl windows_core::TypeKind for ADDRESS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AGENTHANDLER_EVENT(pub i32);
-impl windows_core::TypeKind for AGENTHANDLER_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AGENT_EVENT(pub i32);
-impl windows_core::TypeKind for AGENT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AGENT_SESSION_EVENT(pub i32);
-impl windows_core::TypeKind for AGENT_SESSION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AGENT_SESSION_STATE(pub i32);
-impl windows_core::TypeKind for AGENT_SESSION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AGENT_STATE(pub i32);
-impl windows_core::TypeKind for AGENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLHUB_EVENT(pub i32);
-impl windows_core::TypeKind for CALLHUB_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLHUB_STATE(pub i32);
-impl windows_core::TypeKind for CALLHUB_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
-impl windows_core::TypeKind for CALLINFOCHANGE_CAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLINFO_BUFFER(pub i32);
-impl windows_core::TypeKind for CALLINFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLINFO_LONG(pub i32);
-impl windows_core::TypeKind for CALLINFO_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALLINFO_STRING(pub i32);
-impl windows_core::TypeKind for CALLINFO_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_MEDIA_EVENT(pub i32);
-impl windows_core::TypeKind for CALL_MEDIA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
-impl windows_core::TypeKind for CALL_MEDIA_EVENT_CAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
-impl windows_core::TypeKind for CALL_NOTIFICATION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_PRIVILEGE(pub i32);
-impl windows_core::TypeKind for CALL_PRIVILEGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_STATE(pub i32);
-impl windows_core::TypeKind for CALL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
-impl windows_core::TypeKind for CALL_STATE_EVENT_CAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTORY_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTORY_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCONNECT_CODE(pub i32);
-impl windows_core::TypeKind for DISCONNECT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINISH_MODE(pub i32);
-impl windows_core::TypeKind for FINISH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
-impl windows_core::TypeKind for FT_STATE_EVENT_CAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
-impl windows_core::TypeKind for FULLDUPLEX_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
-impl windows_core::TypeKind for MSP_ADDRESS_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSP_CALL_EVENT(pub i32);
-impl windows_core::TypeKind for MSP_CALL_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
-impl windows_core::TypeKind for MSP_CALL_EVENT_CAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSP_EVENT(pub i32);
-impl windows_core::TypeKind for MSP_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONECAPS_BUFFER(pub i32);
-impl windows_core::TypeKind for PHONECAPS_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONECAPS_LONG(pub i32);
-impl windows_core::TypeKind for PHONECAPS_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONECAPS_STRING(pub i32);
-impl windows_core::TypeKind for PHONECAPS_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_BUTTON_FUNCTION(pub i32);
-impl windows_core::TypeKind for PHONE_BUTTON_FUNCTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_BUTTON_MODE(pub i32);
-impl windows_core::TypeKind for PHONE_BUTTON_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_BUTTON_STATE(pub i32);
-impl windows_core::TypeKind for PHONE_BUTTON_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_EVENT(pub i32);
-impl windows_core::TypeKind for PHONE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
-impl windows_core::TypeKind for PHONE_HOOK_SWITCH_DEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
-impl windows_core::TypeKind for PHONE_HOOK_SWITCH_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_LAMP_MODE(pub i32);
-impl windows_core::TypeKind for PHONE_LAMP_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_PRIVILEGE(pub i32);
-impl windows_core::TypeKind for PHONE_PRIVILEGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONE_TONE(pub i32);
-impl windows_core::TypeKind for PHONE_TONE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_EVENT(pub i32);
-impl windows_core::TypeKind for QOS_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
-impl windows_core::TypeKind for QOS_SERVICE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RND_ADVERTISING_SCOPE(pub i32);
-impl windows_core::TypeKind for RND_ADVERTISING_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPIOBJECT_EVENT(pub i32);
-impl windows_core::TypeKind for TAPIOBJECT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPI_EVENT(pub i32);
-impl windows_core::TypeKind for TAPI_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPI_GATHERTERM(pub i32);
-impl windows_core::TypeKind for TAPI_GATHERTERM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for TAPI_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPI_TONEMODE(pub i32);
-impl windows_core::TypeKind for TAPI_TONEMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TERMINAL_DIRECTION(pub i32);
-impl windows_core::TypeKind for TERMINAL_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
-impl windows_core::TypeKind for TERMINAL_MEDIA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TERMINAL_STATE(pub i32);
-impl windows_core::TypeKind for TERMINAL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TERMINAL_TYPE(pub i32);
-impl windows_core::TypeKind for TERMINAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRALIAS {

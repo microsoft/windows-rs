@@ -342,9 +342,6 @@ pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
-impl windows_core::TypeKind for CROSS_SLIDE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CROSS_SLIDE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -381,27 +378,15 @@ impl core::ops::Not for CROSS_SLIDE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
-impl windows_core::TypeKind for CROSS_SLIDE_THRESHOLD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOLD_PARAMETER(pub i32);
-impl windows_core::TypeKind for HOLD_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INERTIA_PARAMETER(pub i32);
-impl windows_core::TypeKind for INERTIA_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
-impl windows_core::TypeKind for INTERACTION_CONFIGURATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl INTERACTION_CONFIGURATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -438,15 +423,9 @@ impl core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
-impl windows_core::TypeKind for INTERACTION_CONTEXT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_FLAGS(pub u32);
-impl windows_core::TypeKind for INTERACTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl INTERACTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -483,39 +462,21 @@ impl core::ops::Not for INTERACTION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_ID(pub i32);
-impl windows_core::TypeKind for INTERACTION_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_STATE(pub i32);
-impl windows_core::TypeKind for INTERACTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
-impl windows_core::TypeKind for MANIPULATION_RAILS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
-impl windows_core::TypeKind for MOUSE_WHEEL_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAP_PARAMETER(pub i32);
-impl windows_core::TypeKind for TAP_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSLATION_PARAMETER(pub i32);
-impl windows_core::TypeKind for TRANSLATION_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CROSS_SLIDE_PARAMETER {

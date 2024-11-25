@@ -537,57 +537,30 @@ pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorith
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for DEDUP_SET_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupChunkFlags(pub i32);
-impl windows_core::TypeKind for DedupChunkFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupChunkingAlgorithm(pub i32);
-impl windows_core::TypeKind for DedupChunkingAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupCompressionAlgorithm(pub i32);
-impl windows_core::TypeKind for DedupCompressionAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortManagerOption(pub i32);
-impl windows_core::TypeKind for DedupDataPortManagerOption {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortRequestStatus(pub i32);
-impl windows_core::TypeKind for DedupDataPortRequestStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortVolumeStatus(pub i32);
-impl windows_core::TypeKind for DedupDataPortVolumeStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupHashingAlgorithm(pub i32);
-impl windows_core::TypeKind for DedupHashingAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDP_FILE_EXTENT {

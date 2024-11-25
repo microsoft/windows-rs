@@ -335,20 +335,11 @@ pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TPMVSCMGR_ERROR(pub i32);
-impl windows_core::TypeKind for TPMVSCMGR_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TPMVSCMGR_STATUS(pub i32);
-impl windows_core::TypeKind for TPMVSCMGR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TPMVSC_ATTESTATION_TYPE(pub i32);
-impl windows_core::TypeKind for TPMVSC_ATTESTATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RemoteTpmVirtualSmartCardManager: windows_core::GUID = windows_core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 pub const TpmVirtualSmartCardManager: windows_core::GUID = windows_core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);

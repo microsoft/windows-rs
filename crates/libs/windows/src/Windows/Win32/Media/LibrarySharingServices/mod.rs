@@ -650,7 +650,4 @@ pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthoriz
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
-impl windows_core::TypeKind for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WindowsMediaLibrarySharingServices: windows_core::GUID = windows_core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);

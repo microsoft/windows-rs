@@ -5395,45 +5395,24 @@ pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
-impl windows_core::TypeKind for COMPOSITION_FRAME_ID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_BACKFACE_VISIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_BORDER_MODE(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_BORDER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_COMPOSITE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_DEPTH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
-impl windows_core::TypeKind for DCOMPOSITION_OPACITY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPOSITION_FRAME_STATS {

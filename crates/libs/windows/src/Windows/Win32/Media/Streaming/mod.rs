@@ -22,15 +22,9 @@ pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TR
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
-impl windows_core::TypeKind for MF_MEDIASOURCE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
-impl windows_core::TypeKind for MF_TRANSFER_VIDEO_FRAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CapturedMetadataExposureCompensation {

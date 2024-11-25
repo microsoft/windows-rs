@@ -139,9 +139,6 @@ pub const SerenumWhole: SERENUM_PORTION = SERENUM_PORTION(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERENUM_PORTION(pub i32);
-impl windows_core::TypeKind for SERENUM_PORTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOMDB(pub *mut core::ffi::c_void);

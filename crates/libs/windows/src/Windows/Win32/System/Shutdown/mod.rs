@@ -216,9 +216,6 @@ pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_WINDOWS_FLAGS(pub u32);
-impl windows_core::TypeKind for EXIT_WINDOWS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl EXIT_WINDOWS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -255,9 +252,6 @@ impl core::ops::Not for EXIT_WINDOWS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUTDOWN_FLAGS(pub u32);
-impl windows_core::TypeKind for SHUTDOWN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SHUTDOWN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -294,9 +288,6 @@ impl core::ops::Not for SHUTDOWN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUTDOWN_REASON(pub u32);
-impl windows_core::TypeKind for SHUTDOWN_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 impl SHUTDOWN_REASON {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

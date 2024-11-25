@@ -789,15 +789,9 @@ pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLECONTROL(pub i32);
-impl windows_core::TypeKind for CONSOLECONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_CHARACTER_ATTRIBUTES(pub u16);
-impl windows_core::TypeKind for CONSOLE_CHARACTER_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONSOLE_CHARACTER_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -834,9 +828,6 @@ impl core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_MODE(pub u32);
-impl windows_core::TypeKind for CONSOLE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONSOLE_MODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -873,9 +864,6 @@ impl core::ops::Not for CONSOLE_MODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STD_HANDLE(pub u32);
-impl windows_core::TypeKind for STD_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHAR_INFO {

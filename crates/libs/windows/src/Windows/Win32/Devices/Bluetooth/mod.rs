@@ -1229,63 +1229,33 @@ pub const WSP_PROTOCOL_UUID16: u32 = 14u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
-impl windows_core::TypeKind for AUTHENTICATION_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
-impl windows_core::TypeKind for BLUETOOTH_IO_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_TYPE(pub i32);
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for BTH_LE_GATT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CAPABILITY(pub i32);
-impl windows_core::TypeKind for IO_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NodeContainerType(pub i32);
-impl windows_core::TypeKind for NodeContainerType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_SPECIFICTYPE(pub i32);
-impl windows_core::TypeKind for SDP_SPECIFICTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_TYPE(pub i32);
-impl windows_core::TypeKind for SDP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_ADDRESS {

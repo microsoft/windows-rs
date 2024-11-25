@@ -207,6 +207,3 @@ pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAP
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
-impl windows_core::TypeKind for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}

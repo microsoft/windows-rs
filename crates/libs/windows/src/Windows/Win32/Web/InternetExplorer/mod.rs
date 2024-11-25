@@ -6493,75 +6493,39 @@ pub const msoslUndefined: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDURL_FLAG(pub i32);
-impl windows_core::TypeKind for ADDURL_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtensionValidationContexts(pub i32);
-impl windows_core::TypeKind for ExtensionValidationContexts {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtensionValidationResults(pub i32);
-impl windows_core::TypeKind for ExtensionValidationResults {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINDFRAME_FLAGS(pub i32);
-impl windows_core::TypeKind for FINDFRAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMEOPTIONS_FLAGS(pub i32);
-impl windows_core::TypeKind for FRAMEOPTIONS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IELAUNCHOPTION_FLAGS(pub i32);
-impl windows_core::TypeKind for IELAUNCHOPTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
-impl windows_core::TypeKind for INTERNETEXPLORERCONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_ACTIVITY_NOTIFY_TYPE(pub i32);
-impl windows_core::TypeKind for MEDIA_ACTIVITY_NOTIFY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVIGATEFRAME_FLAGS(pub i32);
-impl windows_core::TypeKind for NAVIGATEFRAME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OpenServiceActivityContentType(pub i32);
-impl windows_core::TypeKind for OpenServiceActivityContentType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OpenServiceErrors(pub i32);
-impl windows_core::TypeKind for OpenServiceErrors {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
-impl windows_core::TypeKind for SCROLLABLECONTEXTMENU_PLACEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AnchorClick: windows_core::GUID = windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
 pub const CDeviceRect: windows_core::GUID = windows_core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
 pub const CDownloadBehavior: windows_core::GUID = windows_core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);

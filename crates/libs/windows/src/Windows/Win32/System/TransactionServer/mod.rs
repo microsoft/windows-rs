@@ -391,21 +391,12 @@ pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSAdminErrorCodes(pub i32);
-impl windows_core::TypeKind for MTSAdminErrorCodes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSPackageExportOptions(pub i32);
-impl windows_core::TypeKind for MTSPackageExportOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSPackageInstallOptions(pub i32);
-impl windows_core::TypeKind for MTSPackageInstallOptions {
-    type TypeKind = windows_core::CopyType;
-}
 pub const Catalog: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
 pub const CatalogCollection: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
 pub const CatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);

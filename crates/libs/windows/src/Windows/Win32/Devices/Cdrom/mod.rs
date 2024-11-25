@@ -120,69 +120,36 @@ pub const YellowMode2: TRACK_MODE_TYPE = TRACK_MODE_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_OPC_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for CDROM_OPC_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_EXCEPTION_TYPE(pub i32);
-impl windows_core::TypeKind for CDROM_PERFORMANCE_EXCEPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for CDROM_PERFORMANCE_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_TOLERANCE_TYPE(pub i32);
-impl windows_core::TypeKind for CDROM_PERFORMANCE_TOLERANCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_TYPE(pub i32);
-impl windows_core::TypeKind for CDROM_PERFORMANCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SPEED_REQUEST(pub i32);
-impl windows_core::TypeKind for CDROM_SPEED_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCLUSIVE_ACCESS_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for EXCLUSIVE_ACCESS_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_BLANK_TYPE(pub i32);
-impl windows_core::TypeKind for MEDIA_BLANK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMING_CONTROL_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for STREAMING_CONTROL_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACK_MODE_TYPE(pub i32);
-impl windows_core::TypeKind for TRACK_MODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_ROTATION(pub i32);
-impl windows_core::TypeKind for WRITE_ROTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_DISK_DATA {

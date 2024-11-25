@@ -4380,9 +4380,6 @@ pub const g_dwDebugFlags: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIAVIDEO_STATE(pub i32);
-impl windows_core::TypeKind for WIAVIDEO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DEVICEDIALOGDATA {

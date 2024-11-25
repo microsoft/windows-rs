@@ -716,21 +716,12 @@ pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionFrameInstanceKind(pub i32);
-impl windows_core::TypeKind for CompositionFrameInstanceKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatisticsKind(pub i32);
-impl windows_core::TypeKind for PresentStatisticsKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatus(pub i32);
-impl windows_core::TypeKind for PresentStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]

@@ -813,9 +813,6 @@ pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32)
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EndpointConnectorType(pub i32);
-impl windows_core::TypeKind for EndpointConnectorType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {

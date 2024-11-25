@@ -4834,21 +4834,12 @@ pub const sfPdb: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_MODE(pub i32);
-impl windows_core::TypeKind for ADDRESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUGCHECK_ERROR(pub u32);
-impl windows_core::TypeKind for BUGCHECK_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4885,9 +4876,6 @@ impl core::ops::Not for CONTEXT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBGPROP_ATTRIB_FLAGS(pub i32);
-impl windows_core::TypeKind for DBGPROP_ATTRIB_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DBGPROP_ATTRIB_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4924,9 +4912,6 @@ impl core::ops::Not for DBGPROP_ATTRIB_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBGPROP_INFO(pub i32);
-impl windows_core::TypeKind for DBGPROP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl DBGPROP_INFO {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4963,33 +4948,18 @@ impl core::ops::Not for DBGPROP_INFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EVENT_CODE(pub u32);
-impl windows_core::TypeKind for DEBUG_EVENT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMP_TYPE(pub i32);
-impl windows_core::TypeKind for DUMP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EX_PROP_INFO_FLAGS(pub i32);
-impl windows_core::TypeKind for EX_PROP_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FACILITY_CODE(pub u32);
-impl windows_core::TypeKind for FACILITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
-impl windows_core::TypeKind for FORMAT_MESSAGE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FORMAT_MESSAGE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5026,63 +4996,33 @@ impl core::ops::Not for FORMAT_MESSAGE_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENT_SEVERITY(pub u32);
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_EXTENDED_OPTIONS(pub i32);
-impl windows_core::TypeKind for IMAGEHLP_EXTENDED_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_HD_TYPE(pub i32);
-impl windows_core::TypeKind for IMAGEHLP_HD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_SF_TYPE(pub i32);
-impl windows_core::TypeKind for IMAGEHLP_SF_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_STATUS_REASON(pub i32);
-impl windows_core::TypeKind for IMAGEHLP_STATUS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_TYPE_INFO(pub i32);
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_TYPE(pub u32);
-impl windows_core::TypeKind for IMAGE_DEBUG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DIRECTORY_ENTRY(pub u16);
-impl windows_core::TypeKind for IMAGE_DIRECTORY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DLL_CHARACTERISTICS(pub u16);
-impl windows_core::TypeKind for IMAGE_DLL_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IMAGE_DLL_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5119,9 +5059,6 @@ impl core::ops::Not for IMAGE_DLL_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_CHARACTERISTICS(pub u16);
-impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IMAGE_FILE_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5158,9 +5095,6 @@ impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_CHARACTERISTICS2(pub u32);
-impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl IMAGE_FILE_CHARACTERISTICS2 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5197,15 +5131,9 @@ impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER_MAGIC(pub u16);
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER_MAGIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_SECTION_CHARACTERISTICS(pub u32);
-impl windows_core::TypeKind for IMAGE_SECTION_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IMAGE_SECTION_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5242,33 +5170,18 @@ impl core::ops::Not for IMAGE_SECTION_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_SUBSYSTEM(pub u16);
-impl windows_core::TypeKind for IMAGE_SUBSYSTEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPMI_OS_SEL_RECORD_TYPE(pub i32);
-impl windows_core::TypeKind for IPMI_OS_SEL_RECORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MINIDUMP_MISC_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5305,27 +5218,15 @@ impl core::ops::Not for MINIDUMP_MISC_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_SECONDARY_FLAGS(pub i32);
-impl windows_core::TypeKind for MINIDUMP_SECONDARY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_STREAM_TYPE(pub i32);
-impl windows_core::TypeKind for MINIDUMP_STREAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_THREAD_INFO_DUMP_FLAGS(pub u32);
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_TYPE(pub i32);
-impl windows_core::TypeKind for MINIDUMP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl MINIDUMP_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5362,51 +5263,27 @@ impl core::ops::Not for MINIDUMP_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODLOAD_DATA_TYPE(pub u32);
-impl windows_core::TypeKind for MODLOAD_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODULE_WRITE_FLAGS(pub i32);
-impl windows_core::TypeKind for MODULE_WRITE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_ATTRIB_FLAGS(pub i32);
-impl windows_core::TypeKind for OBJECT_ATTRIB_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(pub u32);
-impl windows_core::TypeKind for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROP_INFO_FLAGS(pub i32);
-impl windows_core::TypeKind for PROP_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIP_INFO_TYPE(pub u32);
-impl windows_core::TypeKind for RIP_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_VIRTUAL_UNWIND_HANDLER_TYPE(pub u32);
-impl windows_core::TypeKind for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYMBOL_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for SYMBOL_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYMBOL_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5443,15 +5320,9 @@ impl core::ops::Not for SYMBOL_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYM_FIND_ID_OPTION(pub u32);
-impl windows_core::TypeKind for SYM_FIND_ID_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYM_LOAD_FLAGS(pub u32);
-impl windows_core::TypeKind for SYM_LOAD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYM_LOAD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5488,21 +5359,12 @@ impl core::ops::Not for SYM_LOAD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYM_SRV_STORE_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for SYM_SRV_STORE_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYM_TYPE(pub i32);
-impl windows_core::TypeKind for SYM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_ERROR_MODE(pub u32);
-impl windows_core::TypeKind for THREAD_ERROR_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 impl THREAD_ERROR_MODE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5539,51 +5401,27 @@ impl core::ops::Not for THREAD_ERROR_MODE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_WRITE_FLAGS(pub i32);
-impl windows_core::TypeKind for THREAD_WRITE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_PLATFORM(pub u32);
-impl windows_core::TypeKind for VER_PLATFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_CHAIN_THREAD_OPTIONS(pub u32);
-impl windows_core::TypeKind for WAIT_CHAIN_THREAD_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCT_OBJECT_STATUS(pub i32);
-impl windows_core::TypeKind for WCT_OBJECT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCT_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for WCT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_STATE(pub i32);
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOW64_CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for WOW64_CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WOW64_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

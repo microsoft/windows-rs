@@ -3515,27 +3515,15 @@ pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
-impl windows_core::TypeKind for OPC_CANONICALIZATION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
-impl windows_core::TypeKind for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_COMPRESSION_OPTIONS(pub i32);
-impl windows_core::TypeKind for OPC_COMPRESSION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_READ_FLAGS(pub i32);
-impl windows_core::TypeKind for OPC_READ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPC_READ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3572,45 +3560,24 @@ impl core::ops::Not for OPC_READ_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
-impl windows_core::TypeKind for OPC_RELATIONSHIPS_SIGNING_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
-impl windows_core::TypeKind for OPC_RELATIONSHIP_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
-impl windows_core::TypeKind for OPC_SIGNATURE_TIME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
-impl windows_core::TypeKind for OPC_SIGNATURE_VALIDATION_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_STREAM_IO_MODE(pub i32);
-impl windows_core::TypeKind for OPC_STREAM_IO_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_URI_TARGET_MODE(pub i32);
-impl windows_core::TypeKind for OPC_URI_TARGET_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPC_WRITE_FLAGS(pub i32);
-impl windows_core::TypeKind for OPC_WRITE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OPC_WRITE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

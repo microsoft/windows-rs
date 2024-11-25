@@ -46,15 +46,9 @@ pub const WINDOWS_UPDATE: u32 = 17u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
-impl windows_core::TypeKind for RESTOREPOINTINFO_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
-impl windows_core::TypeKind for RESTOREPOINTINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOA {

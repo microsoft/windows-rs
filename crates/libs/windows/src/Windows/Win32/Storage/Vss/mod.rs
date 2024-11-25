@@ -2885,183 +2885,93 @@ pub const VSS_WS_WAITING_FOR_THAW: VSS_WRITER_STATE = VSS_WRITER_STATE(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
-impl windows_core::TypeKind for VSS_ALTERNATE_WRITER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_APPLICATION_LEVEL(pub i32);
-impl windows_core::TypeKind for VSS_APPLICATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_BACKUP_SCHEMA(pub i32);
-impl windows_core::TypeKind for VSS_BACKUP_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_BACKUP_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_BACKUP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_COMPONENT_FLAGS(pub i32);
-impl windows_core::TypeKind for VSS_COMPONENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_COMPONENT_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_COMPONENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_FILE_RESTORE_STATUS(pub i32);
-impl windows_core::TypeKind for VSS_FILE_RESTORE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_FILE_SPEC_BACKUP_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_FILE_SPEC_BACKUP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_HARDWARE_OPTIONS(pub i32);
-impl windows_core::TypeKind for VSS_HARDWARE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_MGMT_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_MGMT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_PROTECTION_FAULT(pub i32);
-impl windows_core::TypeKind for VSS_PROTECTION_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for VSS_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_PROVIDER_CAPABILITIES(pub i32);
-impl windows_core::TypeKind for VSS_PROVIDER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_PROVIDER_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_PROVIDER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_RECOVERY_OPTIONS(pub i32);
-impl windows_core::TypeKind for VSS_RECOVERY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_RESTOREMETHOD_ENUM(pub i32);
-impl windows_core::TypeKind for VSS_RESTOREMETHOD_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_RESTORE_TARGET(pub i32);
-impl windows_core::TypeKind for VSS_RESTORE_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_RESTORE_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_RESTORE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_ROLLFORWARD_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_ROLLFORWARD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_COMPATIBILITY(pub i32);
-impl windows_core::TypeKind for VSS_SNAPSHOT_COMPATIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_CONTEXT(pub i32);
-impl windows_core::TypeKind for VSS_SNAPSHOT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for VSS_SNAPSHOT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_STATE(pub i32);
-impl windows_core::TypeKind for VSS_SNAPSHOT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_SOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SUBSCRIBE_MASK(pub i32);
-impl windows_core::TypeKind for VSS_SUBSCRIBE_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_USAGE_TYPE(pub i32);
-impl windows_core::TypeKind for VSS_USAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_WRITERRESTORE_ENUM(pub i32);
-impl windows_core::TypeKind for VSS_WRITERRESTORE_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_WRITER_STATE(pub i32);
-impl windows_core::TypeKind for VSS_WRITER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VSSCoordinator: windows_core::GUID = windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

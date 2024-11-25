@@ -214,27 +214,15 @@ pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
-impl windows_core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for PRJ_EXT_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_FILE_STATE(pub i32);
-impl windows_core::TypeKind for PRJ_FILE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_FILE_STATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -271,15 +259,9 @@ impl core::ops::Not for PRJ_FILE_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION(pub i32);
-impl windows_core::TypeKind for PRJ_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
-impl windows_core::TypeKind for PRJ_NOTIFY_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_NOTIFY_TYPES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -316,15 +298,9 @@ impl core::ops::Not for PRJ_NOTIFY_TYPES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub i32);
-impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_STARTVIRTUALIZING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -361,9 +337,6 @@ impl core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub i32);
-impl windows_core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_UPDATE_FAILURE_CAUSES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -400,9 +373,6 @@ impl core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRJ_UPDATE_TYPES(pub i32);
-impl windows_core::TypeKind for PRJ_UPDATE_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_UPDATE_TYPES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

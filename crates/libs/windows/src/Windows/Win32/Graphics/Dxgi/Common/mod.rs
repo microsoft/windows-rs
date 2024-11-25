@@ -174,39 +174,21 @@ pub const _FACDXGI: u32 = 2170u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for DXGI_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_COLOR_SPACE_TYPE(pub i32);
-impl windows_core::TypeKind for DXGI_COLOR_SPACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FORMAT(pub i32);
-impl windows_core::TypeKind for DXGI_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_ROTATION(pub i32);
-impl windows_core::TypeKind for DXGI_MODE_ROTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_SCALING(pub i32);
-impl windows_core::TypeKind for DXGI_MODE_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
-impl windows_core::TypeKind for DXGI_MODE_SCANLINE_ORDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_GAMMA_CONTROL {

@@ -6133,9 +6133,6 @@ pub const S_OBJECT_NO_LONGER_VALID: windows_core::HRESULT = windows_core::HRESUL
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
-impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6172,9 +6169,6 @@ impl core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
-impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -6211,165 +6205,84 @@ impl core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
-impl windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICS_TARGETTYPE(pub i32);
-impl windows_core::TypeKind for ICS_TARGETTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for INET_FIREWALL_AC_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
-impl windows_core::TypeKind for INET_FIREWALL_AC_CREATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCONMGR_ENUM_FLAGS(pub i32);
-impl windows_core::TypeKind for NETCONMGR_ENUM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCONUI_CONNECT_FLAGS(pub i32);
-impl windows_core::TypeKind for NETCONUI_CONNECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCON_CHARACTERISTIC_FLAGS(pub i32);
-impl windows_core::TypeKind for NETCON_CHARACTERISTIC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCON_MEDIATYPE(pub i32);
-impl windows_core::TypeKind for NETCON_MEDIATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCON_STATUS(pub i32);
-impl windows_core::TypeKind for NETCON_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCON_TYPE(pub i32);
-impl windows_core::TypeKind for NETCON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETISO_ERROR_TYPE(pub i32);
-impl windows_core::TypeKind for NETISO_ERROR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETISO_FLAG(pub i32);
-impl windows_core::TypeKind for NETISO_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_ACTION(pub i32);
-impl windows_core::TypeKind for NET_FW_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_AUTHENTICATE_TYPE(pub i32);
-impl windows_core::TypeKind for NET_FW_AUTHENTICATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_EDGE_TRAVERSAL_TYPE(pub i32);
-impl windows_core::TypeKind for NET_FW_EDGE_TRAVERSAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_IP_PROTOCOL(pub i32);
-impl windows_core::TypeKind for NET_FW_IP_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_IP_VERSION(pub i32);
-impl windows_core::TypeKind for NET_FW_IP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_MODIFY_STATE(pub i32);
-impl windows_core::TypeKind for NET_FW_MODIFY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for NET_FW_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_PROFILE_TYPE(pub i32);
-impl windows_core::TypeKind for NET_FW_PROFILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_PROFILE_TYPE2(pub i32);
-impl windows_core::TypeKind for NET_FW_PROFILE_TYPE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_RULE_CATEGORY(pub i32);
-impl windows_core::TypeKind for NET_FW_RULE_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_RULE_DIRECTION(pub i32);
-impl windows_core::TypeKind for NET_FW_RULE_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_SCOPE(pub i32);
-impl windows_core::TypeKind for NET_FW_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_FW_SERVICE_TYPE(pub i32);
-impl windows_core::TypeKind for NET_FW_SERVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARINGCONNECTIONTYPE(pub i32);
-impl windows_core::TypeKind for SHARINGCONNECTIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARINGCONNECTION_ENUM_FLAGS(pub i32);
-impl windows_core::TypeKind for SHARINGCONNECTION_ENUM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {

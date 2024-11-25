@@ -3026,15 +3026,9 @@ pub const Wow64Container: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVRT_PRIORITY(pub i32);
-impl windows_core::TypeKind for AVRT_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_EVENT(pub u32);
-impl windows_core::TypeKind for CREATE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREATE_EVENT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3071,21 +3065,12 @@ impl core::ops::Not for CREATE_EVENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_PROCESS_LOGON_FLAGS(pub u32);
-impl windows_core::TypeKind for CREATE_PROCESS_LOGON_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_GUI_RESOURCES_FLAGS(pub u32);
-impl windows_core::TypeKind for GET_GUI_RESOURCES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACHINE_ATTRIBUTES(pub i32);
-impl windows_core::TypeKind for MACHINE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl MACHINE_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3122,27 +3107,15 @@ impl core::ops::Not for MACHINE_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PRIORITY(pub u32);
-impl windows_core::TypeKind for MEMORY_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for POWER_REQUEST_CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_FEATURE_ID(pub u32);
-impl windows_core::TypeKind for PROCESSOR_FEATURE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for PROCESS_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROCESS_ACCESS_RIGHTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3179,15 +3152,9 @@ impl core::ops::Not for PROCESS_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
-impl windows_core::TypeKind for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_CREATION_FLAGS(pub u32);
-impl windows_core::TypeKind for PROCESS_CREATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROCESS_CREATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3224,9 +3191,6 @@ impl core::ops::Not for PROCESS_CREATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DEP_FLAGS(pub u32);
-impl windows_core::TypeKind for PROCESS_DEP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROCESS_DEP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3263,57 +3227,30 @@ impl core::ops::Not for PROCESS_DEP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for PROCESS_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
-impl windows_core::TypeKind for PROCESS_MEMORY_EXHAUSTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
-impl windows_core::TypeKind for PROCESS_MITIGATION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NAME_FORMAT(pub u32);
-impl windows_core::TypeKind for PROCESS_NAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL(pub u32);
-impl windows_core::TypeKind for PROCESS_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROC_THREAD_ATTRIBUTE_NUM(pub u32);
-impl windows_core::TypeKind for PROC_THREAD_ATTRIBUTE_NUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
-impl windows_core::TypeKind for QUEUE_USER_APC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTWQ_WORKQUEUE_TYPE(pub i32);
-impl windows_core::TypeKind for RTWQ_WORKQUEUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTUPINFOW_FLAGS(pub u32);
-impl windows_core::TypeKind for STARTUPINFOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl STARTUPINFOW_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3350,9 +3287,6 @@ impl core::ops::Not for STARTUPINFOW_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCHRONIZATION_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for SYNCHRONIZATION_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYNCHRONIZATION_ACCESS_RIGHTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3389,9 +3323,6 @@ impl core::ops::Not for SYNCHRONIZATION_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for THREAD_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl THREAD_ACCESS_RIGHTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3428,9 +3359,6 @@ impl core::ops::Not for THREAD_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_CREATION_FLAGS(pub u32);
-impl windows_core::TypeKind for THREAD_CREATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl THREAD_CREATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3467,33 +3395,18 @@ impl core::ops::Not for THREAD_CREATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for THREAD_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_PRIORITY(pub i32);
-impl windows_core::TypeKind for THREAD_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
-impl windows_core::TypeKind for TP_CALLBACK_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_THREAD_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for UMS_THREAD_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORKER_THREAD_FLAGS(pub u32);
-impl windows_core::TypeKind for WORKER_THREAD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WORKER_THREAD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

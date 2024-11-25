@@ -320,9 +320,6 @@ pub const szOID_CATALOG_LIST_MEMBER2: windows_core::PCSTR = windows_core::s!("1.
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPTCATATTRIBUTE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPTCATATTRIBUTE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -359,9 +356,6 @@ impl core::ops::Not for CRYPTCATATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
-impl windows_core::TypeKind for CRYPTCAT_OPEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CRYPTCAT_OPEN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -398,9 +392,6 @@ impl core::ops::Not for CRYPTCAT_OPEN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCAT_VERSION(pub u32);
-impl windows_core::TypeKind for CRYPTCAT_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CATALOG_INFO {

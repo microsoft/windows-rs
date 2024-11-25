@@ -3570,9 +3570,6 @@ pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASC_REQ_FLAGS(pub u32);
-impl windows_core::TypeKind for ASC_REQ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ASC_REQ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3609,9 +3606,6 @@ impl core::ops::Not for ASC_REQ_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASC_REQ_HIGH_FLAGS(pub u64);
-impl windows_core::TypeKind for ASC_REQ_HIGH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ASC_REQ_HIGH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3648,15 +3642,9 @@ impl core::ops::Not for ASC_REQ_HIGH_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_FETCH(pub i32);
-impl windows_core::TypeKind for CRED_FETCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_PASSWORD_PROPERTIES(pub u32);
-impl windows_core::TypeKind for DOMAIN_PASSWORD_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DOMAIN_PASSWORD_PROPERTIES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3693,9 +3681,6 @@ impl core::ops::Not for DOMAIN_PASSWORD_PROPERTIES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for EXPORT_SECURITY_CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl EXPORT_SECURITY_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3732,15 +3717,9 @@ impl core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENDED_NAME_FORMAT(pub i32);
-impl windows_core::TypeKind for EXTENDED_NAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISC_REQ_FLAGS(pub u32);
-impl windows_core::TypeKind for ISC_REQ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ISC_REQ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3777,9 +3756,6 @@ impl core::ops::Not for ISC_REQ_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISC_REQ_HIGH_FLAGS(pub u64);
-impl windows_core::TypeKind for ISC_REQ_HIGH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ISC_REQ_HIGH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3816,51 +3792,27 @@ impl core::ops::Not for ISC_REQ_HIGH_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_ADDRESS_TYPE(pub u32);
-impl windows_core::TypeKind for KERB_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for KERB_CERTIFICATE_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CRYPTO_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for KERB_CRYPTO_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
-impl windows_core::TypeKind for KERB_LOGON_SUBMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for KERB_PROFILE_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for KERB_PROTOCOL_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_REQUEST_FLAGS(pub u32);
-impl windows_core::TypeKind for KERB_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_FLAGS(pub u32);
-impl windows_core::TypeKind for KERB_TICKET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl KERB_TICKET_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3897,81 +3849,42 @@ impl core::ops::Not for KERB_TICKET_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEC_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for KSEC_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
-impl windows_core::TypeKind for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
-impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for LSA_LOOKUP_DOMAIN_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_TYPE(pub i32);
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0(pub u32);
-impl windows_core::TypeKind for MSV1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_AVID(pub i32);
-impl windows_core::TypeKind for MSV1_0_AVID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_CREDENTIAL_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for MSV1_0_CREDENTIAL_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_LOGON_SUBMIT_TYPE(pub i32);
-impl windows_core::TypeKind for MSV1_0_LOGON_SUBMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for MSV1_0_PROFILE_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for MSV1_0_PROTOCOL_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(pub u32);
-impl windows_core::TypeKind for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 impl MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4008,15 +3921,9 @@ impl core::ops::Not for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
-impl windows_core::TypeKind for MSV_SUB_AUTHENTICATION_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
-impl windows_core::TypeKind for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4053,69 +3960,36 @@ impl core::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEGOTIATE_MESSAGES(pub i32);
-impl windows_core::TypeKind for NEGOTIATE_MESSAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for NETLOGON_LOGON_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
-impl windows_core::TypeKind for PKU2U_LOGON_SUBMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for POLICY_AUDIT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for POLICY_DOMAIN_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for POLICY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_LSA_SERVER_ROLE(pub i32);
-impl windows_core::TypeKind for POLICY_LSA_SERVER_ROLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for POLICY_NOTIFICATION_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SASL_AUTHZID_STATE(pub i32);
-impl windows_core::TypeKind for SASL_AUTHZID_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
-impl windows_core::TypeKind for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_CRED_FLAGS(pub u32);
-impl windows_core::TypeKind for SCHANNEL_CRED_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SCHANNEL_CRED_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4152,63 +4026,33 @@ impl core::ops::Not for SCHANNEL_CRED_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
-impl windows_core::TypeKind for SCHANNEL_SESSION_TOKEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_ATTR(pub u32);
-impl windows_core::TypeKind for SECPKG_ATTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
-impl windows_core::TypeKind for SECPKG_ATTR_LCT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CRED(pub u32);
-impl windows_core::TypeKind for SECPKG_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CRED_CLASS(pub i32);
-impl windows_core::TypeKind for SECPKG_CRED_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_NAME_TYPE(pub i32);
-impl windows_core::TypeKind for SECPKG_NAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
-impl windows_core::TypeKind for SECPKG_PACKAGE_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
-impl windows_core::TypeKind for SECPKG_SESSIONINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
@@ -4227,81 +4071,42 @@ impl SECURITY_LOGON_TYPE {
     pub const CachedRemoteInteractive: Self = Self(12i32);
     pub const CachedUnlock: Self = Self(13i32);
 }
-impl windows_core::TypeKind for SECURITY_LOGON_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
-impl windows_core::TypeKind for SECURITY_PACKAGE_OPTIONS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
-impl windows_core::TypeKind for SEC_TRAFFIC_SECRET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ADT_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for SE_ADT_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLDATATYPE(pub u32);
-impl windows_core::TypeKind for SLDATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIDTYPE(pub i32);
-impl windows_core::TypeKind for SLIDTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLLICENSINGSTATUS(pub i32);
-impl windows_core::TypeKind for SLLICENSINGSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLREFERRALTYPE(pub i32);
-impl windows_core::TypeKind for SLREFERRALTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_ACTIVATION_TYPE(pub i32);
-impl windows_core::TypeKind for SL_ACTIVATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_GENUINE_STATE(pub i32);
-impl windows_core::TypeKind for SL_GENUINE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SchGetExtensionsOptions(pub i32);
-impl windows_core::TypeKind for SchGetExtensionsOptions {
-    type TypeKind = windows_core::CopyType;
-}
 impl SchGetExtensionsOptions {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4338,69 +4143,36 @@ impl core::ops::Not for SchGetExtensionsOptions {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecDelegationType(pub i32);
-impl windows_core::TypeKind for SecDelegationType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
-impl windows_core::TypeKind for TOKENBINDING_EXTENSION_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKENBINDING_KEY_PARAMETERS_TYPE(pub i32);
-impl windows_core::TypeKind for TOKENBINDING_KEY_PARAMETERS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKENBINDING_TYPE(pub i32);
-impl windows_core::TypeKind for TOKENBINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(pub u32);
-impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
-impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
-impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TRUSTED_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eTlsAlgorithmUsage(pub i32);
-impl windows_core::TypeKind for eTlsAlgorithmUsage {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eTlsHashAlgorithm(pub i32);
-impl windows_core::TypeKind for eTlsHashAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eTlsSignatureAlgorithm(pub i32);
-impl windows_core::TypeKind for eTlsSignatureAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIT_POLICY_INFORMATION {

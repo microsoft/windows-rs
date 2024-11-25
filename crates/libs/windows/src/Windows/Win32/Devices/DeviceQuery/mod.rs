@@ -279,9 +279,6 @@ pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_OPERATOR(pub u32);
-impl windows_core::TypeKind for DEVPROP_OPERATOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl DEVPROP_OPERATOR {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -318,27 +315,15 @@ impl core::ops::Not for DEVPROP_OPERATOR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for DEV_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_FLAGS(pub i32);
-impl windows_core::TypeKind for DEV_QUERY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
-impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_STATE(pub i32);
-impl windows_core::TypeKind for DEV_QUERY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[derive(Clone, Copy, Debug, PartialEq)]

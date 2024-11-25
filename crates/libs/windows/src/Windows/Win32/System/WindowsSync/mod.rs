@@ -5727,81 +5727,42 @@ pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-impl windows_core::TypeKind for CONFLICT_RESOLUTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-impl windows_core::TypeKind for CONSTRAINT_CONFLICT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTERING_TYPE(pub i32);
-impl windows_core::TypeKind for FILTERING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTER_COMBINATION_TYPE(pub i32);
-impl windows_core::TypeKind for FILTER_COMBINATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-impl windows_core::TypeKind for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-impl windows_core::TypeKind for SYNC_CONSTRAINT_RESOLVE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-impl windows_core::TypeKind for SYNC_FULL_ENUMERATION_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_PROGRESS_STAGE(pub i32);
-impl windows_core::TypeKind for SYNC_PROGRESS_STAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_PROVIDER_ROLE(pub i32);
-impl windows_core::TypeKind for SYNC_PROVIDER_ROLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
-impl windows_core::TypeKind for SYNC_REGISTRATION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_RESOLVE_ACTION(pub i32);
-impl windows_core::TypeKind for SYNC_RESOLVE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-impl windows_core::TypeKind for SYNC_SERIALIZATION_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_STATISTICS(pub i32);
-impl windows_core::TypeKind for SYNC_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ID_PARAMETERS {

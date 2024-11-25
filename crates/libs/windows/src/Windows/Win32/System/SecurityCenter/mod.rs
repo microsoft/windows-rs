@@ -523,38 +523,20 @@ pub const WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WSC_SECURITY_PROVIDER = WS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
-impl windows_core::TypeKind for SECURITY_PRODUCT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
-impl windows_core::TypeKind for WSC_SECURITY_PRODUCT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(pub i32);
-impl windows_core::TypeKind for WSC_SECURITY_PRODUCT_SUBSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PROVIDER(pub i32);
-impl windows_core::TypeKind for WSC_SECURITY_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(pub i32);
-impl windows_core::TypeKind for WSC_SECURITY_PROVIDER_HEALTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(pub i32);
-impl windows_core::TypeKind for WSC_SECURITY_SIGNATURE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WSCDefaultProduct: windows_core::GUID = windows_core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
 pub const WSCProductList: windows_core::GUID = windows_core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);

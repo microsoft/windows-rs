@@ -627,9 +627,6 @@ pub const VT_VOID: VARENUM = VARENUM(24u16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWPROGRESSFLAGS(pub i32);
-impl windows_core::TypeKind for DRAWPROGRESSFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DRAWPROGRESSFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -666,9 +663,6 @@ impl core::ops::Not for DRAWPROGRESSFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSTIME_FLAGS(pub i32);
-impl windows_core::TypeKind for PSTIME_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PSTIME_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -705,9 +699,6 @@ impl core::ops::Not for PSTIME_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARENUM(pub u16);
-impl windows_core::TypeKind for VARENUM {
-    type TypeKind = windows_core::CopyType;
-}
 impl VARENUM {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -744,9 +735,6 @@ impl core::ops::Not for VARENUM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VAR_CHANGE_FLAGS(pub u16);
-impl windows_core::TypeKind for VAR_CHANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl VAR_CHANGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

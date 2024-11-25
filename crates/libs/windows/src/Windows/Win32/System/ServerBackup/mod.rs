@@ -175,9 +175,6 @@ pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_REGISTRATION_INFO {

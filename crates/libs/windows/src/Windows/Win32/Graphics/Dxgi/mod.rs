@@ -4552,9 +4552,6 @@ pub const DXGI_USAGE_UNORDERED_ACCESS: DXGI_USAGE = DXGI_USAGE(1024u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_ADAPTER_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_ADAPTER_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4591,9 +4588,6 @@ impl core::ops::Not for DXGI_ADAPTER_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_FLAG3(pub i32);
-impl windows_core::TypeKind for DXGI_ADAPTER_FLAG3 {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_ADAPTER_FLAG3 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4630,15 +4624,9 @@ impl core::ops::Not for DXGI_ADAPTER_FLAG3 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
-impl windows_core::TypeKind for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_CREATE_FACTORY_FLAGS(pub u32);
-impl windows_core::TypeKind for DXGI_CREATE_FACTORY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_CREATE_FACTORY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4675,9 +4663,6 @@ impl core::ops::Not for DXGI_CREATE_FACTORY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub i32);
-impl windows_core::TypeKind for DXGI_DEBUG_RLO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_DEBUG_RLO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4714,9 +4699,6 @@ impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ENUM_MODES(pub u32);
-impl windows_core::TypeKind for DXGI_ENUM_MODES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_ENUM_MODES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4753,33 +4735,18 @@ impl core::ops::Not for DXGI_ENUM_MODES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FEATURE(pub i32);
-impl windows_core::TypeKind for DXGI_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
-impl windows_core::TypeKind for DXGI_FRAME_PRESENTATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_GPU_PREFERENCE(pub i32);
-impl windows_core::TypeKind for DXGI_GPU_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
-impl windows_core::TypeKind for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4816,27 +4783,15 @@ impl core::ops::Not for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_TYPE(pub i32);
-impl windows_core::TypeKind for DXGI_HDR_METADATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_CATEGORY(pub i32);
-impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_SEVERITY(pub i32);
-impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MAP_FLAGS(pub u32);
-impl windows_core::TypeKind for DXGI_MAP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_MAP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4873,15 +4828,9 @@ impl core::ops::Not for DXGI_MAP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
-impl windows_core::TypeKind for DXGI_MEMORY_SEGMENT_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
-impl windows_core::TypeKind for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4918,9 +4867,6 @@ impl core::ops::Not for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MWA_FLAGS(pub u32);
-impl windows_core::TypeKind for DXGI_MWA_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_MWA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -4957,15 +4903,9 @@ impl core::ops::Not for DXGI_MWA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_Message_Id(pub i32);
-impl windows_core::TypeKind for DXGI_Message_Id {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OFFER_RESOURCE_FLAGS(pub i32);
-impl windows_core::TypeKind for DXGI_OFFER_RESOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_OFFER_RESOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5002,15 +4942,9 @@ impl core::ops::Not for DXGI_OFFER_RESOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
-impl windows_core::TypeKind for DXGI_OFFER_RESOURCE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_OUTDUPL_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_OUTDUPL_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5047,15 +4981,9 @@ impl core::ops::Not for DXGI_OUTDUPL_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
-impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5092,9 +5020,6 @@ impl core::ops::Not for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_OVERLAY_SUPPORT_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_OVERLAY_SUPPORT_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5131,9 +5056,6 @@ impl core::ops::Not for DXGI_OVERLAY_SUPPORT_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_PRESENT(pub u32);
-impl windows_core::TypeKind for DXGI_PRESENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_PRESENT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5170,33 +5092,18 @@ impl core::ops::Not for DXGI_PRESENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RECLAIM_RESOURCE_RESULTS(pub i32);
-impl windows_core::TypeKind for DXGI_RECLAIM_RESOURCE_RESULTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RESIDENCY(pub i32);
-impl windows_core::TypeKind for DXGI_RESIDENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RESOURCE_PRIORITY(pub u32);
-impl windows_core::TypeKind for DXGI_RESOURCE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SCALING(pub i32);
-impl windows_core::TypeKind for DXGI_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE_RW(pub u32);
-impl windows_core::TypeKind for DXGI_SHARED_RESOURCE_RW {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_SHARED_RESOURCE_RW {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5233,9 +5140,6 @@ impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5272,9 +5176,6 @@ impl core::ops::Not for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
-impl windows_core::TypeKind for DXGI_SWAP_CHAIN_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_SWAP_CHAIN_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -5311,15 +5212,9 @@ impl core::ops::Not for DXGI_SWAP_CHAIN_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_EFFECT(pub i32);
-impl windows_core::TypeKind for DXGI_SWAP_EFFECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_USAGE(pub u32);
-impl windows_core::TypeKind for DXGI_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl DXGI_USAGE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

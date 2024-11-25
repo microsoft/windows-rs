@@ -12336,153 +12336,78 @@ pub const REL_NOP: RELOPS = RELOPS(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOREIGN_STATUS(pub i32);
-impl windows_core::TypeKind for FOREIGN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQACCESS(pub i32);
-impl windows_core::TypeKind for MQACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQAUTHENTICATE(pub i32);
-impl windows_core::TypeKind for MQAUTHENTICATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQCALG(pub i32);
-impl windows_core::TypeKind for MQCALG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQCERT_REGISTER(pub i32);
-impl windows_core::TypeKind for MQCERT_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQConnectionState(pub i32);
-impl windows_core::TypeKind for MQConnectionState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQDEFAULT(pub i32);
-impl windows_core::TypeKind for MQDEFAULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQERROR(pub i32);
-impl windows_core::TypeKind for MQERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQJOURNAL(pub i32);
-impl windows_core::TypeKind for MQJOURNAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMAX(pub i32);
-impl windows_core::TypeKind for MQMAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGACKNOWLEDGEMENT(pub i32);
-impl windows_core::TypeKind for MQMSGACKNOWLEDGEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGAUTHENTICATION(pub i32);
-impl windows_core::TypeKind for MQMSGAUTHENTICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGAUTHLEVEL(pub i32);
-impl windows_core::TypeKind for MQMSGAUTHLEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGCLASS(pub i32);
-impl windows_core::TypeKind for MQMSGCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGCURSOR(pub i32);
-impl windows_core::TypeKind for MQMSGCURSOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGDELIVERY(pub i32);
-impl windows_core::TypeKind for MQMSGDELIVERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGIDSIZE(pub i32);
-impl windows_core::TypeKind for MQMSGIDSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGJOURNAL(pub i32);
-impl windows_core::TypeKind for MQMSGJOURNAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGMAX(pub i32);
-impl windows_core::TypeKind for MQMSGMAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGPRIVLEVEL(pub i32);
-impl windows_core::TypeKind for MQMSGPRIVLEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGSENDERIDTYPE(pub i32);
-impl windows_core::TypeKind for MQMSGSENDERIDTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGTRACE(pub i32);
-impl windows_core::TypeKind for MQMSGTRACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQPRIORITY(pub i32);
-impl windows_core::TypeKind for MQPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQPRIVLEVEL(pub i32);
-impl windows_core::TypeKind for MQPRIVLEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQQUEUEACCESSMASK(pub u32);
-impl windows_core::TypeKind for MQQUEUEACCESSMASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl MQQUEUEACCESSMASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12519,51 +12444,27 @@ impl core::ops::Not for MQQUEUEACCESSMASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSHARE(pub i32);
-impl windows_core::TypeKind for MQSHARE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQTRANSACTION(pub i32);
-impl windows_core::TypeKind for MQTRANSACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQTRANSACTIONAL(pub i32);
-impl windows_core::TypeKind for MQTRANSACTIONAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQWARNING(pub i32);
-impl windows_core::TypeKind for MQWARNING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUEUE_STATE(pub i32);
-impl windows_core::TypeKind for QUEUE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUEUE_TYPE(pub i32);
-impl windows_core::TypeKind for QUEUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RELOPS(pub i32);
-impl windows_core::TypeKind for RELOPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACT_STATUS(pub i32);
-impl windows_core::TypeKind for XACT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MQCOLUMNSET {

@@ -3718,123 +3718,63 @@ pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPU_ARCHITECTURE(pub u32);
-impl windows_core::TypeKind for CPU_ARCHITECTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
-impl windows_core::TypeKind for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
-impl windows_core::TypeKind for TRANSPORTCLIENT_CALLBACK_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
-impl windows_core::TypeKind for TRANSPORTPROVIDER_CALLBACK_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_DISCONNECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_FEATURE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_IP_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_NAMESPACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_PROTOCOL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_SERVICE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_TFTP_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
-impl windows_core::TypeKind for WDSTRANSPORT_UDP_PORT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
-impl windows_core::TypeKind for WDS_CLI_FIRMWARE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for WDS_CLI_IMAGE_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDS_CLI_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for WDS_CLI_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
-impl windows_core::TypeKind for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PXE_ADDRESS {

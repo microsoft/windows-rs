@@ -27,9 +27,6 @@ pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
-impl windows_core::TypeKind for VERIFIER_ENUM_RESOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl VERIFIER_ENUM_RESOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -66,33 +63,18 @@ impl core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAvrfResourceTypes(pub i32);
-impl windows_core::TypeKind for eAvrfResourceTypes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
-impl windows_core::TypeKind for eHANDLE_TRACE_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHeapAllocationState(pub i32);
-impl windows_core::TypeKind for eHeapAllocationState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHeapEnumerationLevel(pub i32);
-impl windows_core::TypeKind for eHeapEnumerationLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eUserAllocationState(pub i32);
-impl windows_core::TypeKind for eUserAllocationState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVRF_BACKTRACE_INFORMATION {

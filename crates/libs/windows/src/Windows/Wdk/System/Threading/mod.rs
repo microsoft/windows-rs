@@ -303,18 +303,9 @@ pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSINFOCLASS(pub i32);
-impl windows_core::TypeKind for PROCESSINFOCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREADINFOCLASS(pub i32);
-impl windows_core::TypeKind for THREADINFOCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TIMER_SET_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}

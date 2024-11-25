@@ -508,9 +508,6 @@ pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
-impl windows_core::TypeKind for SECURITY_INFO_PAGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SECURITY_INFO_PAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -547,9 +544,6 @@ impl core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_OBJECT_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for SI_OBJECT_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SI_OBJECT_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -586,15 +580,9 @@ impl core::ops::Not for SI_OBJECT_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_PAGE_ACTIVATED(pub i32);
-impl windows_core::TypeKind for SI_PAGE_ACTIVATED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_PAGE_TYPE(pub i32);
-impl windows_core::TypeKind for SI_PAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFFPERM_RESULT_LIST {

@@ -2671,861 +2671,432 @@ pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIFORMAT(pub u32);
-impl windows_core::TypeKind for D3DDDIFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIMULTISAMPLE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDIMULTISAMPLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_COLOR_SPACE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_COLOR_SPACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_DOORBELLSTATUS(pub i32);
-impl windows_core::TypeKind for D3DDDI_DOORBELLSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPETYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_DRIVERESCAPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_FLIPINTERVAL_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_FLIPINTERVAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_GAMMARAMP_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_GAMMARAMP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_HDR_METADATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_OFFER_PRIORITY(pub i32);
-impl windows_core::TypeKind for D3DDDI_OFFER_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_PAGINGQUEUE_PRIORITY(pub i32);
-impl windows_core::TypeKind for D3DDDI_PAGINGQUEUE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_POOL(pub i32);
-impl windows_core::TypeKind for D3DDDI_POOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_QUERYREGISTRY_STATUS(pub i32);
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_QUERYREGISTRY_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RECLAIM_RESULT(pub i32);
-impl windows_core::TypeKind for D3DDDI_RECLAIM_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ROTATION(pub i32);
-impl windows_core::TypeKind for D3DDDI_ROTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SCANLINEORDERING(pub i32);
-impl windows_core::TypeKind for D3DDDI_SCANLINEORDERING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(pub i32);
-impl windows_core::TypeKind for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DHAL_DP2OPERATION(pub i32);
-impl windows_core::TypeKind for D3DHAL_DP2OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-impl windows_core::TypeKind for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_COLOR_BASIS(pub i32);
-impl windows_core::TypeKind for D3DKMDT_COLOR_BASIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
-impl windows_core::TypeKind for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GDISURFACETYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_GDISURFACETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
-impl windows_core::TypeKind for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GTFCOMPLIANCE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_GTFCOMPLIANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MODE_PREFERENCE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MODE_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MODE_PRUNING_REASON(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MODE_PRUNING_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_ORIENTATION(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_ORIENTATION_AWARENESS(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_TIMING_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_MONITOR_TIMING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_PIXEL_VALUE_ACCESS_MODE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_STANDARDALLOCATION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_STANDARDALLOCATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_TEXT_RENDERING_FORMAT(pub i32);
-impl windows_core::TypeKind for D3DKMDT_TEXT_RENDERING_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_SIGNAL_STANDARD(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ALLOCATIONRESIDENCYSTATUS(pub i32);
-impl windows_core::TypeKind for D3DKMT_ALLOCATIONRESIDENCYSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_AUXILIARYPRESENTINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_BRIGHTNESS_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CANCEL_PRESENTS_OPERATION(pub i32);
-impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CLIENTHINT(pub i32);
-impl windows_core::TypeKind for D3DKMT_CLIENTHINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(pub i32);
-impl windows_core::TypeKind for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEFRAG_ESCAPE_OPERATION(pub i32);
-impl windows_core::TypeKind for D3DKMT_DEFRAG_ESCAPE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEESCAPE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_DEVICEESCAPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEEXECUTION_STATE(pub i32);
-impl windows_core::TypeKind for D3DKMT_DEVICEEXECUTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICESTATE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_DEVICESTATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_ERROR_REASON(pub i32);
-impl windows_core::TypeKind for D3DKMT_DEVICE_ERROR_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DMMESCAPETYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_DMMESCAPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DRIVERVERSION(pub i32);
-impl windows_core::TypeKind for D3DKMT_DRIVERVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ESCAPETYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_ESCAPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(pub i32);
-impl windows_core::TypeKind for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(pub i32);
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_STATE(pub i32);
-impl windows_core::TypeKind for D3DKMT_GPU_PREFERENCE_QUERY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MEMORY_SEGMENT_GROUP(pub i32);
-impl windows_core::TypeKind for D3DKMT_MEMORY_SEGMENT_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DEVICE_STATUS(pub i32);
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DEVICE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(pub i32);
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DRIVER_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DRIVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_BLEND(pub i32);
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(pub i32);
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(pub i32);
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OFFER_PRIORITY(pub i32);
-impl windows_core::TypeKind for D3DKMT_OFFER_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_METADATATYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_METADATATYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PNP_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_PNP_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_MODEL(pub i32);
-impl windows_core::TypeKind for D3DKMT_PRESENT_MODEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PROTECTED_SESSION_STATUS(pub i32);
-impl windows_core::TypeKind for D3DKMT_PROTECTED_SESSION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUEUEDLIMIT_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_QUEUEDLIMIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SCHEDULINGPRIORITYCLASS(pub i32);
-impl windows_core::TypeKind for D3DKMT_SCHEDULINGPRIORITYCLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_STANDARDALLOCATIONTYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_STANDARDALLOCATIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_TDRDBGCTRLTYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_TDRDBGCTRLTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VAD_ESCAPE_COMMAND(pub i32);
-impl windows_core::TypeKind for D3DKMT_VAD_ESCAPE_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VERIFIER_OPTION_MODE(pub i32);
-impl windows_core::TypeKind for D3DKMT_VERIFIER_OPTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMMESCAPETYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_VIDMMESCAPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_TYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDSCHESCAPETYPE(pub i32);
-impl windows_core::TypeKind for D3DKMT_VIDSCHESCAPETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2OPERATION(pub i32);
-impl windows_core::TypeKind for D3DNTHAL_DP2OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVSD_TOKENTYPE(pub i32);
-impl windows_core::TypeKind for D3DVSD_TOKENTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(pub i32);
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(pub i32);
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(pub i32);
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(pub i32);
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
-impl windows_core::TypeKind for DXGKDT_OPM_DVI_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_CERTIFICATE_TYPE(pub i32);
-impl windows_core::TypeKind for DXGKMDT_CERTIFICATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ACP_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_CGMSA(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_CGMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_CONNECTOR_TYPE(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_CONNECTOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_FLAG(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_INTERLEAVE_FORMAT(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_INTERLEAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_PROTECTION_STANDARD(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_PROTECTION_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_PROTECTION_TYPE(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_PROTECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_STATUS(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
-impl windows_core::TypeKind for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(pub i32);
-impl windows_core::TypeKind for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(pub i32);
-impl windows_core::TypeKind for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMT_POWER_SHARED_TYPE(pub i32);
-impl windows_core::TypeKind for DXGKMT_POWER_SHARED_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_TYPE(pub i32);
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-impl windows_core::TypeKind for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_CHILD_DEVICE_HPD_AWARENESS(pub i32);
-impl windows_core::TypeKind for DXGK_CHILD_DEVICE_HPD_AWARENESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DISPLAY_DESCRIPTOR_TYPE(pub u8);
-impl windows_core::TypeKind for DXGK_DISPLAY_DESCRIPTOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DISPLAY_TECHNOLOGY(pub u8);
-impl windows_core::TypeKind for DXGK_DISPLAY_TECHNOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DISPLAY_USAGE(pub u8);
-impl windows_core::TypeKind for DXGK_DISPLAY_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_ENGINE_TYPE(pub i32);
-impl windows_core::TypeKind for DXGK_ENGINE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_GENERAL_ERROR_CODE(pub i32);
-impl windows_core::TypeKind for DXGK_GENERAL_ERROR_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_MIRACAST_CHUNK_TYPE(pub i32);
-impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_PAGE_FAULT_FLAGS(pub i32);
-impl windows_core::TypeKind for DXGK_PAGE_FAULT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_PTE_PAGE_SIZE(pub i32);
-impl windows_core::TypeKind for DXGK_PTE_PAGE_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_RENDER_PIPELINE_STAGE(pub i32);
-impl windows_core::TypeKind for DXGK_RENDER_PIPELINE_STAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KMTQUERYADAPTERINFOTYPE(pub i32);
-impl windows_core::TypeKind for KMTQUERYADAPTERINFOTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KMTUMDVERSION(pub i32);
-impl windows_core::TypeKind for KMTUMDVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KMT_DISPLAY_UMD_VERSION(pub i32);
-impl windows_core::TypeKind for KMT_DISPLAY_UMD_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_STATUS(pub i32);
-impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]

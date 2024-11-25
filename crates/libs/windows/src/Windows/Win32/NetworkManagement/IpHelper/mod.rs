@@ -1860,15 +1860,9 @@ pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
-impl windows_core::TypeKind for GET_ADAPTERS_ADDRESSES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GET_ADAPTERS_ADDRESSES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1905,147 +1899,75 @@ impl core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_FILTER(pub i32);
-impl windows_core::TypeKind for GLOBAL_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP4_TYPE(pub i32);
-impl windows_core::TypeKind for ICMP4_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP6_TYPE(pub i32);
-impl windows_core::TypeKind for ICMP6_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IF_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for IF_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
-impl windows_core::TypeKind for INTERNAL_IF_OPER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
-impl windows_core::TypeKind for MIB_IF_ENTRY_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
-impl windows_core::TypeKind for MIB_IF_TABLE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
-impl windows_core::TypeKind for MIB_IPFORWARD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPNET_TYPE(pub i32);
-impl windows_core::TypeKind for MIB_IPNET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
-impl windows_core::TypeKind for MIB_IPSTATS_FORWARDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for MIB_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCP_STATE(pub i32);
-impl windows_core::TypeKind for MIB_TCP_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
-impl windows_core::TypeKind for NET_ADDRESS_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFADDRESSTYPE(pub i32);
-impl windows_core::TypeKind for PFADDRESSTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFFORWARD_ACTION(pub i32);
-impl windows_core::TypeKind for PFFORWARD_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFFRAMETYPE(pub i32);
-impl windows_core::TypeKind for PFFRAMETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
-impl windows_core::TypeKind for TCPIP_OWNER_MODULE_INFO_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
-impl windows_core::TypeKind for TCP_BOOLEAN_OPTIONAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
-impl windows_core::TypeKind for TCP_CONNECTION_OFFLOAD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_TYPE(pub i32);
-impl windows_core::TypeKind for TCP_ESTATS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
-impl windows_core::TypeKind for TCP_RTO_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_SOFT_ERROR(pub i32);
-impl windows_core::TypeKind for TCP_SOFT_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_TABLE_CLASS(pub i32);
-impl windows_core::TypeKind for TCP_TABLE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDP_TABLE_CLASS(pub i32);
-impl windows_core::TypeKind for UDP_TABLE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ARP_SEND_REPLY {

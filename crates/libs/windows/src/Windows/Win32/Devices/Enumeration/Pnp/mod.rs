@@ -2113,15 +2113,9 @@ pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
-impl windows_core::TypeKind for SW_DEVICE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SW_DEVICE_LIFETIME(pub i32);
-impl windows_core::TypeKind for SW_DEVICE_LIFETIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSWDEVICE(pub *mut core::ffi::c_void);

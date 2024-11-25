@@ -1675,39 +1675,21 @@ pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TY
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for DEVICE_SELECTION_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for ERROR_ADVISE_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERROR_ADVISE_RESULT(pub i32);
-impl windows_core::TypeKind for ERROR_ADVISE_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
-impl windows_core::TypeKind for PROGRESS_DIALOG_CHECKBOX_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for PROGRESS_DIALOG_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);
-impl windows_core::TypeKind for USER_INPUT_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PhotoAcquire: windows_core::GUID = windows_core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
 pub const PhotoAcquireAutoPlayDropTarget: windows_core::GUID = windows_core::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
 pub const PhotoAcquireAutoPlayHWEventHandler: windows_core::GUID = windows_core::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);

@@ -2144,9 +2144,6 @@ pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_RETCODE(pub i32);
-impl windows_core::TypeKind for LDAP_RETCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BerElement {

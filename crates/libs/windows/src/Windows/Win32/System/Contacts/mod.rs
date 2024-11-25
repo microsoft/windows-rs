@@ -2624,15 +2624,9 @@ pub const CONTACTPROP_PUB_PROGID: windows_core::PCWSTR = windows_core::w!("ProgI
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
-impl windows_core::TypeKind for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(pub i32);
-impl windows_core::TypeKind for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTACT_AGGREGATION_BLOB {

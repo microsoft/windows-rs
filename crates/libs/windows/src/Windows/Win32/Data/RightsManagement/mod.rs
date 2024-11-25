@@ -742,57 +742,30 @@ pub const MSDRM_POLICY_ZONE: u32 = 37632u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMATTESTTYPE(pub i32);
-impl windows_core::TypeKind for DRMATTESTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMENCODINGTYPE(pub i32);
-impl windows_core::TypeKind for DRMENCODINGTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMGLOBALOPTIONS(pub i32);
-impl windows_core::TypeKind for DRMGLOBALOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-impl windows_core::TypeKind for DRMSECURITYPROVIDERTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMSPECTYPE(pub i32);
-impl windows_core::TypeKind for DRMSPECTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMTIMETYPE(pub i32);
-impl windows_core::TypeKind for DRMTIMETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-impl windows_core::TypeKind for DRM_DISTRIBUTION_POINT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_STATUS_MSG(pub i32);
-impl windows_core::TypeKind for DRM_STATUS_MSG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
-impl windows_core::TypeKind for DRM_USAGEPOLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {

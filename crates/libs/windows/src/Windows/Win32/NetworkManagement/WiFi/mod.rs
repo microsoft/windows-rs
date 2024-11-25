@@ -2599,453 +2599,228 @@ pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = WLAN_SECURABL
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CH_DESCRIPTION_TYPE(pub i32);
-impl windows_core::TypeKind for CH_DESCRIPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_ACSSUPPORT(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_ACSSUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_INTERRUPTTYPE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_INTERRUPTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIDEVICE_SRIOVSUPPORT(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIDEVICE_SRIOVSUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIEXPRESSDEVICE_LINKSPEED(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIROOTBUS_BUSWIDTH(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIROOTBUS_BUSWIDTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(pub u32);
-impl windows_core::TypeKind for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(pub i32);
-impl windows_core::TypeKind for DOT11EXT_IHV_CONNECTION_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_INDICATION_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11EXT_IHV_INDICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AC_PARAM(pub i32);
-impl windows_core::TypeKind for DOT11_AC_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADHOC_AUTH_ALGORITHM(pub i32);
-impl windows_core::TypeKind for DOT11_ADHOC_AUTH_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADHOC_CIPHER_ALGORITHM(pub i32);
-impl windows_core::TypeKind for DOT11_ADHOC_CIPHER_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADHOC_CONNECT_FAIL_REASON(pub i32);
-impl windows_core::TypeKind for DOT11_ADHOC_CONNECT_FAIL_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADHOC_NETWORK_CONNECTION_STATUS(pub i32);
-impl windows_core::TypeKind for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ANQP_QUERY_RESULT(pub i32);
-impl windows_core::TypeKind for DOT11_ANQP_QUERY_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_STATE(pub i32);
-impl windows_core::TypeKind for DOT11_ASSOCIATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AUTH_ALGORITHM(pub i32);
-impl windows_core::TypeKind for DOT11_AUTH_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_BAND(pub i32);
-impl windows_core::TypeKind for DOT11_BAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_BSS_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_BSS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM(pub i32);
-impl windows_core::TypeKind for DOT11_CIPHER_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DIRECTION(pub i32);
-impl windows_core::TypeKind for DOT11_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SUPPORT(pub i32);
-impl windows_core::TypeKind for DOT11_DIVERSITY_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DS_INFO(pub i32);
-impl windows_core::TypeKind for DOT11_DS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
-impl windows_core::TypeKind for DOT11_HOP_ALGO_ADOPTED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_KEY_DIRECTION(pub i32);
-impl windows_core::TypeKind for DOT11_KEY_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_MANUFACTURING_CALLBACK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_MANUFACTURING_SELF_TEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MSONEX_RESULT(pub i32);
-impl windows_core::TypeKind for DOT11_MSONEX_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_OFFLOAD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_PHY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MODE(pub i32);
-impl windows_core::TypeKind for DOT11_POWER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MODE_REASON(pub i32);
-impl windows_core::TypeKind for DOT11_POWER_MODE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RADIO_STATE(pub i32);
-impl windows_core::TypeKind for DOT11_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RESET_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_RESET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SCAN_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_SCAN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_TEMP_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_TEMP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE_OP(pub i32);
-impl windows_core::TypeKind for DOT11_UPDATE_IE_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_WFD_DISCOVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_SCAN_TYPE(pub i32);
-impl windows_core::TypeKind for DOT11_WFD_SCAN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WPS_CONFIG_METHOD(pub i32);
-impl windows_core::TypeKind for DOT11_WPS_CONFIG_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WPS_DEVICE_PASSWORD_ID(pub i32);
-impl windows_core::TypeKind for DOT11_WPS_DEVICE_PASSWORD_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_IDENTITY(pub i32);
-impl windows_core::TypeKind for ONEX_AUTH_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_RESTART_REASON(pub i32);
-impl windows_core::TypeKind for ONEX_AUTH_RESTART_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_STATUS(pub i32);
-impl windows_core::TypeKind for ONEX_AUTH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_EAP_METHOD_BACKEND_SUPPORT(pub i32);
-impl windows_core::TypeKind for ONEX_EAP_METHOD_BACKEND_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for ONEX_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_REASON_CODE(pub i32);
-impl windows_core::TypeKind for ONEX_REASON_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WFD_ROLE_TYPE(pub i32);
-impl windows_core::TypeKind for WFD_ROLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_ADHOC_NETWORK_STATE(pub i32);
-impl windows_core::TypeKind for WLAN_ADHOC_NETWORK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_AUTOCONF_OPCODE(pub i32);
-impl windows_core::TypeKind for WLAN_AUTOCONF_OPCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_MODE(pub i32);
-impl windows_core::TypeKind for WLAN_CONNECTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_NOTIFICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_FILTER_LIST_TYPE(pub i32);
-impl windows_core::TypeKind for WLAN_FILTER_LIST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(pub i32);
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_OPCODE(pub i32);
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_OPCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(pub i32);
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_REASON(pub i32);
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATE(pub i32);
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_IHV_CONTROL_TYPE(pub i32);
-impl windows_core::TypeKind for WLAN_IHV_CONTROL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_STATE(pub i32);
-impl windows_core::TypeKind for WLAN_INTERFACE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_TYPE(pub i32);
-impl windows_core::TypeKind for WLAN_INTERFACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_INTF_OPCODE(pub i32);
-impl windows_core::TypeKind for WLAN_INTF_OPCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_NOTIFICATION_ACM(pub i32);
-impl windows_core::TypeKind for WLAN_NOTIFICATION_ACM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_NOTIFICATION_MSM(pub i32);
-impl windows_core::TypeKind for WLAN_NOTIFICATION_MSM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_NOTIFICATION_SECURITY(pub i32);
-impl windows_core::TypeKind for WLAN_NOTIFICATION_SECURITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_NOTIFICATION_SOURCES(pub u32);
-impl windows_core::TypeKind for WLAN_NOTIFICATION_SOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 impl WLAN_NOTIFICATION_SOURCES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3082,39 +2857,21 @@ impl core::ops::Not for WLAN_NOTIFICATION_SOURCES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_OPCODE_VALUE_TYPE(pub i32);
-impl windows_core::TypeKind for WLAN_OPCODE_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_OPERATIONAL_STATE(pub i32);
-impl windows_core::TypeKind for WLAN_OPERATIONAL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_POWER_SETTING(pub i32);
-impl windows_core::TypeKind for WLAN_POWER_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_SECURABLE_OBJECT(pub i32);
-impl windows_core::TypeKind for WLAN_SECURABLE_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_SET_EAPHOST_FLAGS(pub u32);
-impl windows_core::TypeKind for WLAN_SET_EAPHOST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WL_DISPLAY_PAGES(pub i32);
-impl windows_core::TypeKind for WL_DISPLAY_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 #[derive(Clone, Copy, Debug, PartialEq)]

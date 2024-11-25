@@ -242,6 +242,3 @@ pub const TYPE_E_TYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AgileReferenceOptions(pub i32);
-impl windows_core::TypeKind for AgileReferenceOptions {
-    type TypeKind = windows_core::CopyType;
-}

@@ -1413,27 +1413,15 @@ pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_ACCESS_TYPE(pub u32);
-impl windows_core::TypeKind for WINHTTP_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
-impl windows_core::TypeKind for WINHTTP_CREDS_AUTHSCHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_INTERNET_SCHEME(pub i32);
-impl windows_core::TypeKind for WINHTTP_INTERNET_SCHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
-impl windows_core::TypeKind for WINHTTP_OPEN_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WINHTTP_OPEN_REQUEST_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1470,75 +1458,39 @@ impl core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_PROXY_SETTINGS_TYPE(pub i32);
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
-impl windows_core::TypeKind for WINHTTP_REQUEST_STAT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
-impl windows_core::TypeKind for WINHTTP_REQUEST_TIME_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
-impl windows_core::TypeKind for WINHTTP_SECURE_DNS_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
-impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
-impl windows_core::TypeKind for WIN_HTTP_CREATE_URL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WinHttpRequestAutoLogonPolicy(pub i32);
-impl windows_core::TypeKind for WinHttpRequestAutoLogonPolicy {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WinHttpRequestOption(pub i32);
-impl windows_core::TypeKind for WinHttpRequestOption {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WinHttpRequestSecureProtocols(pub i32);
-impl windows_core::TypeKind for WinHttpRequestSecureProtocols {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WinHttpRequestSslErrorFlags(pub i32);
-impl windows_core::TypeKind for WinHttpRequestSslErrorFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_VERSION_INFO {

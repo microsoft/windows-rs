@@ -678,159 +678,81 @@ pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(10i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
-impl windows_core::TypeKind for EVT_CHANNEL_CLOCK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_CHANNEL_CONFIG_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
-impl windows_core::TypeKind for EVT_CHANNEL_ISOLATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_CHANNEL_REFERENCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
-impl windows_core::TypeKind for EVT_CHANNEL_SID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
-impl windows_core::TypeKind for EVT_CHANNEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_EVENT_METADATA_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_EVENT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_EXPORTLOG_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_EXPORTLOG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_FORMAT_MESSAGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_LOGIN_CLASS(pub i32);
-impl windows_core::TypeKind for EVT_LOGIN_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_LOG_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_OPEN_LOG_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_OPEN_LOG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_PUBLISHER_METADATA_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_QUERY_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_QUERY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_QUERY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_RENDER_CONTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RENDER_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_RENDER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_RPC_LOGIN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SEEK_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_SEEK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub u32);
-impl windows_core::TypeKind for EVT_SUBSCRIBE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
-impl windows_core::TypeKind for EVT_SUBSCRIBE_NOTIFY_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for EVT_SYSTEM_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_VARIANT_TYPE(pub i32);
-impl windows_core::TypeKind for EVT_VARIANT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
-impl windows_core::TypeKind for READ_EVENT_LOG_READ_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPORT_EVENT_TYPE(pub u16);
-impl windows_core::TypeKind for REPORT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENTLOGRECORD {

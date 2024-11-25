@@ -2225,51 +2225,27 @@ pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATIONTYPE(pub i32);
-impl windows_core::TypeKind for ACTIVATIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AgileReferenceOptions(pub i32);
-impl windows_core::TypeKind for AgileReferenceOptions {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BSOS_OPTIONS(pub i32);
-impl windows_core::TypeKind for BSOS_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-impl windows_core::TypeKind for CASTING_CONNECTION_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
-impl windows_core::TypeKind for CASTING_CONNECTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-impl windows_core::TypeKind for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-impl windows_core::TypeKind for DISPATCHERQUEUE_THREAD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub i32);
-impl windows_core::TypeKind for RO_ERROR_REPORTING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RO_ERROR_REPORTING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2306,15 +2282,9 @@ impl core::ops::Not for RO_ERROR_REPORTING_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RO_INIT_TYPE(pub i32);
-impl windows_core::TypeKind for RO_INIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TrustLevel(pub i32);
-impl windows_core::TypeKind for TrustLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub *mut core::ffi::c_void);

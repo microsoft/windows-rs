@@ -3105,261 +3105,132 @@ pub const _SS_MAXSIZE: u32 = 128u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AAL_TYPE(pub i32);
-impl windows_core::TypeKind for AAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_FAMILY(pub u16);
-impl windows_core::TypeKind for ADDRESS_FAMILY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARP_HARDWARE_TYPE(pub i32);
-impl windows_core::TypeKind for ARP_HARDWARE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARP_OPCODE(pub i32);
-impl windows_core::TypeKind for ARP_OPCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTROL_CHANNEL_TRIGGER_STATUS(pub i32);
-impl windows_core::TypeKind for CONTROL_CHANNEL_TRIGGER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FALLBACK_INDEX(pub i32);
-impl windows_core::TypeKind for FALLBACK_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP4_TIME_EXCEED_CODE(pub i32);
-impl windows_core::TypeKind for ICMP4_TIME_EXCEED_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP4_UNREACH_CODE(pub i32);
-impl windows_core::TypeKind for ICMP4_UNREACH_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IGMP_MAX_RESP_CODE_TYPE(pub i32);
-impl windows_core::TypeKind for IGMP_MAX_RESP_CODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPPROTO(pub i32);
-impl windows_core::TypeKind for IPPROTO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPV4_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for IPV4_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPV6_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for IPV6_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_OPTION_TIMESTAMP_FLAGS(pub i32);
-impl windows_core::TypeKind for IP_OPTION_TIMESTAMP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLD_MAX_RESP_CODE_TYPE(pub i32);
-impl windows_core::TypeKind for MLD_MAX_RESP_CODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MULTICAST_MODE_TYPE(pub i32);
-impl windows_core::TypeKind for MULTICAST_MODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAPI_PROVIDER_LEVEL(pub i32);
-impl windows_core::TypeKind for NAPI_PROVIDER_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAPI_PROVIDER_TYPE(pub i32);
-impl windows_core::TypeKind for NAPI_PROVIDER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ND_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for ND_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_BLOB_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for NLA_BLOB_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_CONNECTIVITY_TYPE(pub i32);
-impl windows_core::TypeKind for NLA_CONNECTIVITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_INTERNET(pub i32);
-impl windows_core::TypeKind for NLA_INTERNET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_ADDRESS_TYPE(pub i32);
-impl windows_core::TypeKind for NL_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_BANDWIDTH_FLAG(pub i32);
-impl windows_core::TypeKind for NL_BANDWIDTH_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_DAD_STATE(pub i32);
-impl windows_core::TypeKind for NL_DAD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_INTERFACE_NETWORK_CATEGORY_STATE(pub i32);
-impl windows_core::TypeKind for NL_INTERFACE_NETWORK_CATEGORY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_LINK_LOCAL_ADDRESS_BEHAVIOR(pub i32);
-impl windows_core::TypeKind for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NEIGHBOR_STATE(pub i32);
-impl windows_core::TypeKind for NL_NEIGHBOR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CATEGORY(pub i32);
-impl windows_core::TypeKind for NL_NETWORK_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
-impl windows_core::TypeKind for NL_NETWORK_CONNECTIVITY_COST_HINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(pub i32);
-impl windows_core::TypeKind for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_PREFIX_ORIGIN(pub i32);
-impl windows_core::TypeKind for NL_PREFIX_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_ROUTER_DISCOVERY_BEHAVIOR(pub i32);
-impl windows_core::TypeKind for NL_ROUTER_DISCOVERY_BEHAVIOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_ROUTE_ORIGIN(pub i32);
-impl windows_core::TypeKind for NL_ROUTE_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_ROUTE_PROTOCOL(pub i32);
-impl windows_core::TypeKind for NL_ROUTE_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_SUFFIX_ORIGIN(pub i32);
-impl windows_core::TypeKind for NL_SUFFIX_ORIGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NPI_MODULEID_TYPE(pub i32);
-impl windows_core::TypeKind for NPI_MODULEID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PMTUD_STATE(pub i32);
-impl windows_core::TypeKind for PMTUD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Q2931_IE_TYPE(pub i32);
-impl windows_core::TypeKind for Q2931_IE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RCVALL_VALUE(pub i32);
-impl windows_core::TypeKind for RCVALL_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_DISPLAY_TYPE(pub u32);
-impl windows_core::TypeKind for RESOURCE_DISPLAY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_TYPE(pub i32);
-impl windows_core::TypeKind for RIO_NOTIFICATION_COMPLETION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_LEVEL(pub i32);
-impl windows_core::TypeKind for SCOPE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEND_RECV_FLAGS(pub i32);
-impl windows_core::TypeKind for SEND_RECV_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SEND_RECV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3396,81 +3267,42 @@ impl core::ops::Not for SEND_RECV_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_SERVICE_OPERATION(pub u32);
-impl windows_core::TypeKind for SET_SERVICE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_PRIORITY_HINT(pub i32);
-impl windows_core::TypeKind for SOCKET_PRIORITY_HINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_PROTOCOL(pub i32);
-impl windows_core::TypeKind for SOCKET_SECURITY_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_USAGE_TYPE(pub i32);
-impl windows_core::TypeKind for SOCKET_USAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCPSTATE(pub i32);
-impl windows_core::TypeKind for TCPSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ICW_LEVEL(pub i32);
-impl windows_core::TypeKind for TCP_ICW_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TUNNEL_SUB_TYPE(pub i32);
-impl windows_core::TypeKind for TUNNEL_SUB_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSOCK_SHUTDOWN_HOW(pub i32);
-impl windows_core::TypeKind for WINSOCK_SHUTDOWN_HOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINSOCK_SOCKET_TYPE(pub i32);
-impl windows_core::TypeKind for WINSOCK_SOCKET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETIONTYPE(pub i32);
-impl windows_core::TypeKind for WSACOMPLETIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAECOMPARATOR(pub i32);
-impl windows_core::TypeKind for WSAECOMPARATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAESETSERVICEOP(pub i32);
-impl windows_core::TypeKind for WSAESETSERVICEOP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAPOLL_EVENT_FLAGS(pub i16);
-impl windows_core::TypeKind for WSAPOLL_EVENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl WSAPOLL_EVENT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3507,27 +3339,15 @@ impl core::ops::Not for WSAPOLL_EVENT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSA_COMPATIBILITY_BEHAVIOR_ID(pub i32);
-impl windows_core::TypeKind for WSA_COMPATIBILITY_BEHAVIOR_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSA_ERROR(pub i32);
-impl windows_core::TypeKind for WSA_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_PROVIDER_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for WSC_PROVIDER_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eWINDOW_ADVANCE_METHOD(pub i32);
-impl windows_core::TypeKind for eWINDOW_ADVANCE_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AAL5_PARAMETERS {

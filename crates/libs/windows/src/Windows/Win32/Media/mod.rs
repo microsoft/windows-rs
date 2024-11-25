@@ -324,9 +324,6 @@ pub const WAVERR_BASE: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
-impl windows_core::TypeKind for TIMECODE_SAMPLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TIMECODE_SAMPLE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0

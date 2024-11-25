@@ -656,15 +656,9 @@ pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
-impl windows_core::TypeKind for HCS_CREATE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
-impl windows_core::TypeKind for HCS_EVENT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_EVENT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -701,27 +695,15 @@ impl core::ops::Not for HCS_EVENT_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for HCS_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATIONS(pub i32);
-impl windows_core::TypeKind for HCS_NOTIFICATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-impl windows_core::TypeKind for HCS_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_OPERATION_OPTIONS(pub i32);
-impl windows_core::TypeKind for HCS_OPERATION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_OPERATION_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -758,15 +740,9 @@ impl core::ops::Not for HCS_OPERATION_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_OPERATION_TYPE(pub i32);
-impl windows_core::TypeKind for HCS_OPERATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_RESOURCE_TYPE(pub i32);
-impl windows_core::TypeKind for HCS_RESOURCE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]

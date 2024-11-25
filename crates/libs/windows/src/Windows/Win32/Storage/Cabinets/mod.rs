@@ -133,33 +133,18 @@ pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FCIERROR(pub i32);
-impl windows_core::TypeKind for FCIERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
-impl windows_core::TypeKind for FDICREATE_CPU_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDIDECRYPTTYPE(pub i32);
-impl windows_core::TypeKind for FDIDECRYPTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDIERROR(pub i32);
-impl windows_core::TypeKind for FDIERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
-impl windows_core::TypeKind for FDINOTIFICATIONTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCAB {

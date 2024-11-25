@@ -2900,9 +2900,6 @@ pub const szScCreateConversationIndex: windows_core::PCSTR = windows_core::s!("S
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Gender(pub i32);
-impl windows_core::TypeKind for Gender {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]

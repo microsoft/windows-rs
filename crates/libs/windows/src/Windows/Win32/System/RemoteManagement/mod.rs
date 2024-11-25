@@ -2515,63 +2515,33 @@ pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessT
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManAuthenticationFlags(pub i32);
-impl windows_core::TypeKind for WSManAuthenticationFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManCallbackFlags(pub i32);
-impl windows_core::TypeKind for WSManCallbackFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManDataType(pub i32);
-impl windows_core::TypeKind for WSManDataType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManEnumFlags(pub i32);
-impl windows_core::TypeKind for WSManEnumFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManProxyAccessType(pub i32);
-impl windows_core::TypeKind for WSManProxyAccessType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManProxyAccessTypeFlags(pub i32);
-impl windows_core::TypeKind for WSManProxyAccessTypeFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManProxyAuthenticationFlags(pub i32);
-impl windows_core::TypeKind for WSManProxyAuthenticationFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManSessionFlags(pub i32);
-impl windows_core::TypeKind for WSManSessionFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManSessionOption(pub i32);
-impl windows_core::TypeKind for WSManSessionOption {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSManShellFlag(pub i32);
-impl windows_core::TypeKind for WSManShellFlag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_API_HANDLE(pub isize);

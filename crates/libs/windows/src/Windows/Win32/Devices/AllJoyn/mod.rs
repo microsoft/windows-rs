@@ -5037,57 +5037,30 @@ pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QStatus(pub i32);
-impl windows_core::TypeKind for QStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_about_announceflag(pub i32);
-impl windows_core::TypeKind for alljoyn_about_announceflag {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_applicationstate(pub i32);
-impl windows_core::TypeKind for alljoyn_applicationstate {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_claimcapability_masks(pub i32);
-impl windows_core::TypeKind for alljoyn_claimcapability_masks {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
-impl windows_core::TypeKind for alljoyn_claimcapabilityadditionalinfo_masks {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
-impl windows_core::TypeKind for alljoyn_interfacedescription_securitypolicy {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_messagetype(pub i32);
-impl windows_core::TypeKind for alljoyn_messagetype {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_sessionlostreason(pub i32);
-impl windows_core::TypeKind for alljoyn_sessionlostreason {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_typeid(pub i32);
-impl windows_core::TypeKind for alljoyn_typeid {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_aboutdata(pub isize);

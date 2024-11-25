@@ -81,45 +81,24 @@ pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPARTMENT_ID(pub i32);
-impl windows_core::TypeKind for COMPARTMENT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
-impl windows_core::TypeKind for EXCEPTION_DISPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NT_PRODUCT_TYPE(pub i32);
-impl windows_core::TypeKind for NT_PRODUCT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUITE_TYPE(pub i32);
-impl windows_core::TypeKind for SUITE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMER_TYPE(pub i32);
-impl windows_core::TypeKind for TIMER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_TYPE(pub i32);
-impl windows_core::TypeKind for WAIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSTRING {

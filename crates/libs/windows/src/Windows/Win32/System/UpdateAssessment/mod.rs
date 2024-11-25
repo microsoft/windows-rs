@@ -52,15 +52,9 @@ pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UpdateAssessmentStatus(pub i32);
-impl windows_core::TypeKind for UpdateAssessmentStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UpdateImpactLevel(pub i32);
-impl windows_core::TypeKind for UpdateImpactLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSUpdateAssessment {

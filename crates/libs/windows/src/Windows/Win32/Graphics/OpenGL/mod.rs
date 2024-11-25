@@ -2879,9 +2879,6 @@ pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFD_FLAGS(pub u32);
-impl windows_core::TypeKind for PFD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PFD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2918,15 +2915,9 @@ impl core::ops::Not for PFD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFD_LAYER_TYPE(pub i8);
-impl windows_core::TypeKind for PFD_LAYER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PFD_PIXEL_TYPE(pub u8);
-impl windows_core::TypeKind for PFD_PIXEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]

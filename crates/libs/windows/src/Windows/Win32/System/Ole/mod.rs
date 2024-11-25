@@ -12582,15 +12582,9 @@ pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATEFLAGS(pub i32);
-impl windows_core::TypeKind for ACTIVATEFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVEOBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for ACTIVEOBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ACTIVEOBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12627,15 +12621,9 @@ impl core::ops::Not for ACTIVEOBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINDSPEED(pub i32);
-impl windows_core::TypeKind for BINDSPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUSY_DIALOG_FLAGS(pub u32);
-impl windows_core::TypeKind for BUSY_DIALOG_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl BUSY_DIALOG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12672,15 +12660,9 @@ impl core::ops::Not for BUSY_DIALOG_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGEKIND(pub i32);
-impl windows_core::TypeKind for CHANGEKIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_ICON_FLAGS(pub u32);
-impl windows_core::TypeKind for CHANGE_ICON_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHANGE_ICON_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12717,9 +12699,6 @@ impl core::ops::Not for CHANGE_ICON_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_SOURCE_FLAGS(pub u32);
-impl windows_core::TypeKind for CHANGE_SOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CHANGE_SOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12756,33 +12735,18 @@ impl core::ops::Not for CHANGE_SOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIPBOARD_FORMAT(pub u16);
-impl windows_core::TypeKind for CLIPBOARD_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTRLINFO(pub i32);
-impl windows_core::TypeKind for CTRLINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCARDCACHE(pub i32);
-impl windows_core::TypeKind for DISCARDCACHE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOCMISC(pub i32);
-impl windows_core::TypeKind for DOCMISC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPEFFECT(pub u32);
-impl windows_core::TypeKind for DROPEFFECT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DROPEFFECT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12819,21 +12783,12 @@ impl core::ops::Not for DROPEFFECT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVASPECTINFOFLAG(pub i32);
-impl windows_core::TypeKind for DVASPECTINFOFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVEXTENTMODE(pub i32);
-impl windows_core::TypeKind for DVEXTENTMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDIT_LINKS_FLAGS(pub u32);
-impl windows_core::TypeKind for EDIT_LINKS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl EDIT_LINKS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12870,9 +12825,6 @@ impl core::ops::Not for EDIT_LINKS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMBDHLP_FLAGS(pub u32);
-impl windows_core::TypeKind for EMBDHLP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl EMBDHLP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12909,15 +12861,9 @@ impl core::ops::Not for EMBDHLP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
-impl windows_core::TypeKind for ENUM_CONTROLS_WHICH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDEX_PROP_FLAGS(pub u32);
-impl windows_core::TypeKind for FDEX_PROP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FDEX_PROP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12954,27 +12900,15 @@ impl core::ops::Not for FDEX_PROP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUIDKIND(pub i32);
-impl windows_core::TypeKind for GUIDKIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HITRESULT(pub i32);
-impl windows_core::TypeKind for HITRESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IGNOREMIME(pub i32);
-impl windows_core::TypeKind for IGNOREMIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSERT_OBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for INSERT_OBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl INSERT_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13011,9 +12945,6 @@ impl core::ops::Not for INSERT_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYMODIFIERS(pub u32);
-impl windows_core::TypeKind for KEYMODIFIERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl KEYMODIFIERS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13050,15 +12981,9 @@ impl core::ops::Not for KEYMODIFIERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIBFLAGS(pub i32);
-impl windows_core::TypeKind for LIBFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOAD_PICTURE_FLAGS(pub u32);
-impl windows_core::TypeKind for LOAD_PICTURE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl LOAD_PICTURE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13095,21 +13020,12 @@ impl core::ops::Not for LOAD_PICTURE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
-impl windows_core::TypeKind for MEDIAPLAYBACK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
-impl windows_core::TypeKind for MULTICLASSINFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMPARSE_FLAGS(pub u32);
-impl windows_core::TypeKind for NUMPARSE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl NUMPARSE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13146,9 +13062,6 @@ impl core::ops::Not for NUMPARSE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_PROPERTIES_FLAGS(pub u32);
-impl windows_core::TypeKind for OBJECT_PROPERTIES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl OBJECT_PROPERTIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13185,159 +13098,81 @@ impl core::ops::Not for OBJECT_PROPERTIES_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECLOSE(pub i32);
-impl windows_core::TypeKind for OLECLOSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDEXECOPT(pub i32);
-impl windows_core::TypeKind for OLECMDEXECOPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDF(pub i32);
-impl windows_core::TypeKind for OLECMDF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID(pub i32);
-impl windows_core::TypeKind for OLECMDID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_BROWSERSTATEFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_OPTICAL_ZOOMFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_PAGEACTIONFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_REFRESHFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_VIEWPORT_MODE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
-impl windows_core::TypeKind for OLECMDID_WINDOWSTATE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMDTEXTF(pub i32);
-impl windows_core::TypeKind for OLECMDTEXTF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECONTF(pub i32);
-impl windows_core::TypeKind for OLECONTF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECREATE(pub u32);
-impl windows_core::TypeKind for OLECREATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEDCFLAGS(pub i32);
-impl windows_core::TypeKind for OLEDCFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEGETMONIKER(pub i32);
-impl windows_core::TypeKind for OLEGETMONIKER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEIVERB(pub i32);
-impl windows_core::TypeKind for OLEIVERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLELINKBIND(pub i32);
-impl windows_core::TypeKind for OLELINKBIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEMISC(pub i32);
-impl windows_core::TypeKind for OLEMISC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLERENDER(pub i32);
-impl windows_core::TypeKind for OLERENDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEUIPASTEFLAG(pub i32);
-impl windows_core::TypeKind for OLEUIPASTEFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEUPDATE(pub i32);
-impl windows_core::TypeKind for OLEUPDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEVERBATTRIB(pub i32);
-impl windows_core::TypeKind for OLEVERBATTRIB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEWHICHMK(pub i32);
-impl windows_core::TypeKind for OLEWHICHMK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLE_TRISTATE(pub i32);
-impl windows_core::TypeKind for OLE_TRISTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGEACTION_UI(pub i32);
-impl windows_core::TypeKind for PAGEACTION_UI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAMFLAGS(pub u16);
-impl windows_core::TypeKind for PARAMFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PARAMFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13374,9 +13209,6 @@ impl core::ops::Not for PARAMFLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PASTE_SPECIAL_FLAGS(pub u32);
-impl windows_core::TypeKind for PASTE_SPECIAL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PASTE_SPECIAL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13413,27 +13245,15 @@ impl core::ops::Not for PASTE_SPECIAL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTUREATTRIBUTES(pub i32);
-impl windows_core::TypeKind for PICTUREATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTYPE(pub i16);
-impl windows_core::TypeKind for PICTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTERINACTIVE(pub i32);
-impl windows_core::TypeKind for POINTERINACTIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTFLAG(pub i32);
-impl windows_core::TypeKind for PRINTFLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRINTFLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13470,57 +13290,30 @@ impl core::ops::Not for PRINTFLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPBAG2_TYPE(pub i32);
-impl windows_core::TypeKind for PROPBAG2_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPPAGESTATUS(pub i32);
-impl windows_core::TypeKind for PROPPAGESTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QACONTAINERFLAGS(pub i32);
-impl windows_core::TypeKind for QACONTAINERFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READYSTATE(pub i32);
-impl windows_core::TypeKind for READYSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGKIND(pub i32);
-impl windows_core::TypeKind for REGKIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SF_TYPE(pub i32);
-impl windows_core::TypeKind for SF_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TYPEFLAGS(pub i32);
-impl windows_core::TypeKind for TYPEFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UASFLAGS(pub i32);
-impl windows_core::TypeKind for UASFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_CONVERT_FLAGS(pub u32);
-impl windows_core::TypeKind for UI_CONVERT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl UI_CONVERT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13557,9 +13350,6 @@ impl core::ops::Not for UI_CONVERT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDFCACHE_FLAGS(pub u32);
-impl windows_core::TypeKind for UPDFCACHE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl UPDFCACHE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13596,63 +13386,33 @@ impl core::ops::Not for UPDFCACHE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERCLASSTYPE(pub i32);
-impl windows_core::TypeKind for USERCLASSTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARCMP(pub u32);
-impl windows_core::TypeKind for VARCMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_FIRST_DAY(pub i32);
-impl windows_core::TypeKind for VARFORMAT_FIRST_DAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_FIRST_WEEK(pub i32);
-impl windows_core::TypeKind for VARFORMAT_FIRST_WEEK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_GROUP(pub i32);
-impl windows_core::TypeKind for VARFORMAT_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_LEADING_DIGIT(pub i32);
-impl windows_core::TypeKind for VARFORMAT_LEADING_DIGIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_NAMED_FORMAT(pub i32);
-impl windows_core::TypeKind for VARFORMAT_NAMED_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARFORMAT_PARENTHESES(pub i32);
-impl windows_core::TypeKind for VARFORMAT_PARENTHESES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIEWSTATUS(pub i32);
-impl windows_core::TypeKind for VIEWSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIEW_OBJECT_PROPERTIES_FLAGS(pub u32);
-impl windows_core::TypeKind for VIEW_OBJECT_PROPERTIES_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl VIEW_OBJECT_PROPERTIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13689,15 +13449,9 @@ impl core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCSETTING(pub i32);
-impl windows_core::TypeKind for WPCSETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XFORMCOORDS(pub i32);
-impl windows_core::TypeKind for XFORMCOORDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]

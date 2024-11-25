@@ -10325,27 +10325,15 @@ pub const WKPDID_D3DAutoDebugObjectNameW: windows_core::GUID = windows_core::GUI
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_OP(pub i32);
-impl windows_core::TypeKind for D3D12_AUTO_BREADCRUMB_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_AXIS_SHADING_RATE(pub i32);
-impl windows_core::TypeKind for D3D12_AXIS_SHADING_RATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BACKGROUND_PROCESSING_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_BACKGROUND_PROCESSING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BARRIER_ACCESS(pub i32);
-impl windows_core::TypeKind for D3D12_BARRIER_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_BARRIER_ACCESS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10382,15 +10370,9 @@ impl core::ops::Not for D3D12_BARRIER_ACCESS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BARRIER_LAYOUT(pub i32);
-impl windows_core::TypeKind for D3D12_BARRIER_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BARRIER_SYNC(pub i32);
-impl windows_core::TypeKind for D3D12_BARRIER_SYNC {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_BARRIER_SYNC {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10427,27 +10409,15 @@ impl core::ops::Not for D3D12_BARRIER_SYNC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BARRIER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_BARRIER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BLEND(pub i32);
-impl windows_core::TypeKind for D3D12_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BLEND_OP(pub i32);
-impl windows_core::TypeKind for D3D12_BLEND_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_SRV_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_BUFFER_SRV_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_BUFFER_SRV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10484,9 +10454,6 @@ impl core::ops::Not for D3D12_BUFFER_SRV_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_UAV_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_BUFFER_UAV_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_BUFFER_UAV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10523,9 +10490,6 @@ impl core::ops::Not for D3D12_BUFFER_UAV_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CLEAR_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_CLEAR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_CLEAR_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10562,15 +10526,9 @@ impl core::ops::Not for D3D12_CLEAR_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COLOR_WRITE_ENABLE(pub i32);
-impl windows_core::TypeKind for D3D12_COLOR_WRITE_ENABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_LIST_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_LIST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_COMMAND_LIST_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10607,9 +10565,6 @@ impl core::ops::Not for D3D12_COMMAND_LIST_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_LIST_SUPPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_COMMAND_LIST_SUPPORT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10646,15 +10601,9 @@ impl core::ops::Not for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_LIST_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_LIST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_POOL_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_POOL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_COMMAND_POOL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10691,9 +10640,6 @@ impl core::ops::Not for D3D12_COMMAND_POOL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_QUEUE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_QUEUE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_COMMAND_QUEUE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10730,15 +10676,9 @@ impl core::ops::Not for D3D12_COMMAND_QUEUE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_QUEUE_PRIORITY(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_QUEUE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_RECORDER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_COMMAND_RECORDER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_COMMAND_RECORDER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10775,57 +10715,30 @@ impl core::ops::Not for D3D12_COMMAND_RECORDER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMPARISON_FUNC(pub i32);
-impl windows_core::TypeKind for D3D12_COMPARISON_FUNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CONSERVATIVE_RASTERIZATION_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_CONSERVATIVE_RASTERIZATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CONSERVATIVE_RASTERIZATION_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_CONSERVATIVE_RASTERIZATION_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CPU_PAGE_PROPERTY(pub i32);
-impl windows_core::TypeKind for D3D12_CPU_PAGE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CROSS_NODE_SHARING_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_CROSS_NODE_SHARING_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CULL_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_CULL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_DEVICE_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_DEBUG_DEVICE_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_FEATURE(pub i32);
-impl windows_core::TypeKind for D3D12_DEBUG_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DEBUG_FEATURE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10862,15 +10775,9 @@ impl core::ops::Not for D3D12_DEBUG_FEATURE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_WRITE_MASK(pub i32);
-impl windows_core::TypeKind for D3D12_DEPTH_WRITE_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_HEAP_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_HEAP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DESCRIPTOR_HEAP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10907,15 +10814,9 @@ impl core::ops::Not for D3D12_DESCRIPTOR_HEAP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_HEAP_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_HEAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_RANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DESCRIPTOR_RANGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10952,15 +10853,9 @@ impl core::ops::Not for D3D12_DESCRIPTOR_RANGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_RANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_FACTORY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DEVICE_FACTORY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DEVICE_FACTORY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -10997,9 +10892,6 @@ impl core::ops::Not for D3D12_DEVICE_FACTORY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11036,33 +10928,18 @@ impl core::ops::Not for D3D12_DEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DISPATCH_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_DISPATCH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_ALLOCATION_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_ALLOCATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_DEVICE_STATE(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_DEVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_ENABLEMENT(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_ENABLEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DRED_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11099,9 +10976,6 @@ impl core::ops::Not for D3D12_DRED_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_PAGE_FAULT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_PAGE_FAULT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DRED_PAGE_FAULT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11138,27 +11012,15 @@ impl core::ops::Not for D3D12_DRED_PAGE_FAULT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRED_VERSION(pub i32);
-impl windows_core::TypeKind for D3D12_DRED_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS(pub i32);
-impl windows_core::TypeKind for D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DSV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D12_DSV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DSV_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_DSV_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_DSV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11195,21 +11057,12 @@ impl core::ops::Not for D3D12_DSV_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ELEMENTS_LAYOUT(pub i32);
-impl windows_core::TypeKind for D3D12_ELEMENTS_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_EXECUTE_INDIRECT_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_EXECUTE_INDIRECT_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_EXPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_EXPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_EXPORT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11246,15 +11099,9 @@ impl core::ops::Not for D3D12_EXPORT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE(pub i32);
-impl windows_core::TypeKind for D3D12_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FENCE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_FENCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_FENCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11291,33 +11138,18 @@ impl core::ops::Not for D3D12_FENCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FILL_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_FILL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FILTER(pub i32);
-impl windows_core::TypeKind for D3D12_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FILTER_REDUCTION_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_FILTER_REDUCTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FORMAT_SUPPORT1(pub i32);
-impl windows_core::TypeKind for D3D12_FORMAT_SUPPORT1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_FORMAT_SUPPORT1 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11354,9 +11186,6 @@ impl core::ops::Not for D3D12_FORMAT_SUPPORT1 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FORMAT_SUPPORT2(pub i32);
-impl windows_core::TypeKind for D3D12_FORMAT_SUPPORT2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_FORMAT_SUPPORT2 {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11393,9 +11222,6 @@ impl core::ops::Not for D3D12_FORMAT_SUPPORT2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_BASED_VALIDATION_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_GPU_BASED_VALIDATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_GPU_BASED_VALIDATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11432,9 +11258,6 @@ impl core::ops::Not for D3D12_GPU_BASED_VALIDATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11471,15 +11294,9 @@ impl core::ops::Not for D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GRAPHICS_STATES(pub i32);
-impl windows_core::TypeKind for D3D12_GRAPHICS_STATES {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_GRAPHICS_STATES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11516,9 +11333,6 @@ impl core::ops::Not for D3D12_GRAPHICS_STATES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_HEAP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_HEAP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11555,87 +11369,45 @@ impl core::ops::Not for D3D12_HEAP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_SERIALIZATION_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_HEAP_SERIALIZATION_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_HEAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HIT_GROUP_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_HIT_GROUP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HIT_KIND(pub i32);
-impl windows_core::TypeKind for D3D12_HIT_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDEX_BUFFER_STRIP_CUT_VALUE(pub i32);
-impl windows_core::TypeKind for D3D12_INDEX_BUFFER_STRIP_CUT_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INPUT_CLASSIFICATION(pub i32);
-impl windows_core::TypeKind for D3D12_INPUT_CLASSIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LIFETIME_STATE(pub i32);
-impl windows_core::TypeKind for D3D12_LIFETIME_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LINE_RASTERIZATION_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_LINE_RASTERIZATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LOGIC_OP(pub i32);
-impl windows_core::TypeKind for D3D12_LOGIC_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MEASUREMENTS_ACTION(pub i32);
-impl windows_core::TypeKind for D3D12_MEASUREMENTS_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MEMORY_POOL(pub i32);
-impl windows_core::TypeKind for D3D12_MEMORY_POOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MESH_SHADER_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_MESH_SHADER_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MESSAGE_CALLBACK_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_MESSAGE_CALLBACK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_MESSAGE_CALLBACK_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11672,27 +11444,15 @@ impl core::ops::Not for D3D12_MESSAGE_CALLBACK_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MESSAGE_CATEGORY(pub i32);
-impl windows_core::TypeKind for D3D12_MESSAGE_CATEGORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MESSAGE_ID(pub i32);
-impl windows_core::TypeKind for D3D12_MESSAGE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MESSAGE_SEVERITY(pub i32);
-impl windows_core::TypeKind for D3D12_MESSAGE_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_META_COMMAND_PARAMETER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_META_COMMAND_PARAMETER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11729,21 +11489,12 @@ impl core::ops::Not for D3D12_META_COMMAND_PARAMETER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_STAGE(pub i32);
-impl windows_core::TypeKind for D3D12_META_COMMAND_PARAMETER_STAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_META_COMMAND_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MULTIPLE_FENCE_WAIT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11780,9 +11531,6 @@ impl core::ops::Not for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11819,21 +11567,12 @@ impl core::ops::Not for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_NODE_OVERRIDES_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_NODE_OVERRIDES_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PIPELINE_STATE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_PIPELINE_STATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_PIPELINE_STATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11870,39 +11609,21 @@ impl core::ops::Not for D3D12_PIPELINE_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PIPELINE_STATE_SUBOBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_PIPELINE_STATE_SUBOBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PREDICATION_OP(pub i32);
-impl windows_core::TypeKind for D3D12_PREDICATION_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_PRIMITIVE_TOPOLOGY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROGRAM_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_PROGRAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11939,9 +11660,6 @@ impl core::ops::Not for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -11978,27 +11696,15 @@ impl core::ops::Not for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROTECTED_SESSION_STATUS(pub i32);
-impl windows_core::TypeKind for D3D12_PROTECTED_SESSION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_HEAP_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_QUERY_HEAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_QUERY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12035,27 +11741,15 @@ impl core::ops::Not for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RAYTRACING_GEOMETRY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12092,15 +11786,9 @@ impl core::ops::Not for D3D12_RAYTRACING_GEOMETRY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_INSTANCE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_INSTANCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RAYTRACING_INSTANCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12137,9 +11825,6 @@ impl core::ops::Not for D3D12_RAYTRACING_INSTANCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_PIPELINE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RAYTRACING_PIPELINE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12176,15 +11861,9 @@ impl core::ops::Not for D3D12_RAYTRACING_PIPELINE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_RAYTRACING_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RAY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RAY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12221,27 +11900,15 @@ impl core::ops::Not for D3D12_RAY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RECREATE_AT_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_RECREATE_AT_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RENDER_PASS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RENDER_PASS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12278,15 +11945,9 @@ impl core::ops::Not for D3D12_RENDER_PASS_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_RENDER_PASS_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESIDENCY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RESIDENCY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RESIDENCY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12323,21 +11984,12 @@ impl core::ops::Not for D3D12_RESIDENCY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESIDENCY_PRIORITY(pub i32);
-impl windows_core::TypeKind for D3D12_RESIDENCY_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOLVE_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_RESOLVE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_BARRIER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RESOURCE_BARRIER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12374,27 +12026,15 @@ impl core::ops::Not for D3D12_RESOURCE_BARRIER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_BARRIER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_BINDING_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_BINDING_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RESOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12431,15 +12071,9 @@ impl core::ops::Not for D3D12_RESOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_HEAP_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_HEAP_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_STATES(pub i32);
-impl windows_core::TypeKind for D3D12_RESOURCE_STATES {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RESOURCE_STATES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12476,9 +12110,6 @@ impl core::ops::Not for D3D12_RESOURCE_STATES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RLDO_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_RLDO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_RLDO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12515,9 +12146,6 @@ impl core::ops::Not for D3D12_RLDO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_ROOT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_ROOT_DESCRIPTOR_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12554,15 +12182,9 @@ impl core::ops::Not for D3D12_ROOT_DESCRIPTOR_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_ROOT_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_ROOT_SIGNATURE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_ROOT_SIGNATURE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12599,21 +12221,12 @@ impl core::ops::Not for D3D12_ROOT_SIGNATURE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RTV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D12_RTV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SAMPLER_FEEDBACK_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_SAMPLER_FEEDBACK_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SAMPLER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SAMPLER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SAMPLER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12650,15 +12263,9 @@ impl core::ops::Not for D3D12_SAMPLER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SERIALIZED_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_SERIALIZED_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SET_WORK_GRAPH_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SET_WORK_GRAPH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SET_WORK_GRAPH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12695,9 +12302,6 @@ impl core::ops::Not for D3D12_SET_WORK_GRAPH_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_CONTROL_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_CONTROL_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SHADER_CACHE_CONTROL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12734,9 +12338,6 @@ impl core::ops::Not for D3D12_SHADER_CACHE_CONTROL_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SHADER_CACHE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12773,9 +12374,6 @@ impl core::ops::Not for D3D12_SHADER_CACHE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_KIND_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_KIND_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SHADER_CACHE_KIND_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12812,15 +12410,9 @@ impl core::ops::Not for D3D12_SHADER_CACHE_KIND_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_SUPPORT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SHADER_CACHE_SUPPORT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12857,15 +12449,9 @@ impl core::ops::Not for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_COMPONENT_MAPPING(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_COMPONENT_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_MIN_PRECISION_SUPPORT(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_MIN_PRECISION_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_SHADER_MIN_PRECISION_SUPPORT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12902,51 +12488,27 @@ impl core::ops::Not for D3D12_SHADER_MIN_PRECISION_SUPPORT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_VERSION_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_VERSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_VISIBILITY(pub i32);
-impl windows_core::TypeKind for D3D12_SHADER_VISIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADING_RATE(pub i32);
-impl windows_core::TypeKind for D3D12_SHADING_RATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADING_RATE_COMBINER(pub i32);
-impl windows_core::TypeKind for D3D12_SHADING_RATE_COMBINER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SRV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D12_SRV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
-impl windows_core::TypeKind for D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STATE_OBJECT_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_STATE_OBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_STATE_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -12983,39 +12545,21 @@ impl core::ops::Not for D3D12_STATE_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STATE_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_STATE_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STATE_SUBOBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_STATE_SUBOBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STATIC_BORDER_COLOR(pub i32);
-impl windows_core::TypeKind for D3D12_STATIC_BORDER_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STENCIL_OP(pub i32);
-impl windows_core::TypeKind for D3D12_STENCIL_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEXTURE_ADDRESS_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_TEXTURE_ADDRESS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEXTURE_BARRIER_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_TEXTURE_BARRIER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_TEXTURE_BARRIER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13052,27 +12596,15 @@ impl core::ops::Not for D3D12_TEXTURE_BARRIER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEXTURE_COPY_TYPE(pub i32);
-impl windows_core::TypeKind for D3D12_TEXTURE_COPY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEXTURE_LAYOUT(pub i32);
-impl windows_core::TypeKind for D3D12_TEXTURE_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILED_RESOURCES_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_TILED_RESOURCES_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILE_COPY_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_TILE_COPY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_TILE_COPY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13109,9 +12641,6 @@ impl core::ops::Not for D3D12_TILE_COPY_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILE_MAPPING_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_TILE_MAPPING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_TILE_MAPPING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13148,33 +12677,18 @@ impl core::ops::Not for D3D12_TILE_MAPPING_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILE_RANGE_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_TILE_RANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TRI_STATE(pub i32);
-impl windows_core::TypeKind for D3D12_TRI_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_UAV_DIMENSION(pub i32);
-impl windows_core::TypeKind for D3D12_UAV_DIMENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VARIABLE_SHADING_RATE_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_VARIABLE_SHADING_RATE_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIEW_INSTANCING_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_VIEW_INSTANCING_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_VIEW_INSTANCING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13211,27 +12725,15 @@ impl core::ops::Not for D3D12_VIEW_INSTANCING_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIEW_INSTANCING_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_VIEW_INSTANCING_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WAVE_MMA_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_WAVE_MMA_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WORK_GRAPHS_TIER(pub i32);
-impl windows_core::TypeKind for D3D12_WORK_GRAPHS_TIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WORK_GRAPH_FLAGS(pub i32);
-impl windows_core::TypeKind for D3D12_WORK_GRAPH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl D3D12_WORK_GRAPH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -13268,21 +12770,12 @@ impl core::ops::Not for D3D12_WORK_GRAPH_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_MODE(pub i32);
-impl windows_core::TypeKind for D3D12_WRITEBUFFERIMMEDIATE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_ROOT_SIGNATURE_VERSION(pub i32);
-impl windows_core::TypeKind for D3D_ROOT_SIGNATURE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_MODEL(pub i32);
-impl windows_core::TypeKind for D3D_SHADER_MODEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE {

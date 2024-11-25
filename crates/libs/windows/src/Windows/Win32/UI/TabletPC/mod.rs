@@ -13900,669 +13900,336 @@ pub const rtfVertical: ScrollBarsConstants = ScrollBarsConstants(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALT_BREAKS(pub i32);
-impl windows_core::TypeKind for ALT_BREAKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppearanceConstants(pub i32);
-impl windows_core::TypeKind for AppearanceConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BorderStyleConstants(pub i32);
-impl windows_core::TypeKind for BorderStyleConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIDENCE_LEVEL(pub i32);
-impl windows_core::TypeKind for CONFIDENCE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorrectionMode(pub i32);
-impl windows_core::TypeKind for CorrectionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorrectionPosition(pub i32);
-impl windows_core::TypeKind for CorrectionPosition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_Ink(pub i32);
-impl windows_core::TypeKind for DISPID_Ink {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCollector(pub i32);
-impl windows_core::TypeKind for DISPID_InkCollector {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCollectorEvent(pub i32);
-impl windows_core::TypeKind for DISPID_InkCollectorEvent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCursor(pub i32);
-impl windows_core::TypeKind for DISPID_InkCursor {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCursorButton(pub i32);
-impl windows_core::TypeKind for DISPID_InkCursorButton {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCursorButtons(pub i32);
-impl windows_core::TypeKind for DISPID_InkCursorButtons {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCursors(pub i32);
-impl windows_core::TypeKind for DISPID_InkCursors {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkCustomStrokes(pub i32);
-impl windows_core::TypeKind for DISPID_InkCustomStrokes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkDivider(pub i32);
-impl windows_core::TypeKind for DISPID_InkDivider {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkDivisionResult(pub i32);
-impl windows_core::TypeKind for DISPID_InkDivisionResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkDivisionUnit(pub i32);
-impl windows_core::TypeKind for DISPID_InkDivisionUnit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkDivisionUnits(pub i32);
-impl windows_core::TypeKind for DISPID_InkDivisionUnits {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkDrawingAttributes(pub i32);
-impl windows_core::TypeKind for DISPID_InkDrawingAttributes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkEdit(pub i32);
-impl windows_core::TypeKind for DISPID_InkEdit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkEditEvents(pub i32);
-impl windows_core::TypeKind for DISPID_InkEditEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkEvent(pub i32);
-impl windows_core::TypeKind for DISPID_InkEvent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkExtendedProperties(pub i32);
-impl windows_core::TypeKind for DISPID_InkExtendedProperties {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkExtendedProperty(pub i32);
-impl windows_core::TypeKind for DISPID_InkExtendedProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkGesture(pub i32);
-impl windows_core::TypeKind for DISPID_InkGesture {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecoAlternate(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecoAlternate {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecoContext(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecoContext {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecoContext2(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecoContext2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognitionAlternates(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognitionAlternates {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognitionEvent(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognitionEvent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognitionResult(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognitionResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognizer(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognizer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognizer2(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognizer2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognizerGuide(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognizerGuide {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRecognizers(pub i32);
-impl windows_core::TypeKind for DISPID_InkRecognizers {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRectangle(pub i32);
-impl windows_core::TypeKind for DISPID_InkRectangle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkRenderer(pub i32);
-impl windows_core::TypeKind for DISPID_InkRenderer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkStrokeDisp(pub i32);
-impl windows_core::TypeKind for DISPID_InkStrokeDisp {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkStrokes(pub i32);
-impl windows_core::TypeKind for DISPID_InkStrokes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkTablet(pub i32);
-impl windows_core::TypeKind for DISPID_InkTablet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkTablet2(pub i32);
-impl windows_core::TypeKind for DISPID_InkTablet2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkTablet3(pub i32);
-impl windows_core::TypeKind for DISPID_InkTablet3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkTablets(pub i32);
-impl windows_core::TypeKind for DISPID_InkTablets {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkTransform(pub i32);
-impl windows_core::TypeKind for DISPID_InkTransform {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkWordList(pub i32);
-impl windows_core::TypeKind for DISPID_InkWordList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_InkWordList2(pub i32);
-impl windows_core::TypeKind for DISPID_InkWordList2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_MathInputControlEvents(pub i32);
-impl windows_core::TypeKind for DISPID_MathInputControlEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_PenInputPanel(pub i32);
-impl windows_core::TypeKind for DISPID_PenInputPanel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_PenInputPanelEvents(pub i32);
-impl windows_core::TypeKind for DISPID_PenInputPanelEvents {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_StrokeEvent(pub i32);
-impl windows_core::TypeKind for DISPID_StrokeEvent {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EventMask(pub i32);
-impl windows_core::TypeKind for EventMask {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
-impl windows_core::TypeKind for FLICKACTION_COMMANDCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLICKDIRECTION(pub i32);
-impl windows_core::TypeKind for FLICKDIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLICKMODE(pub i32);
-impl windows_core::TypeKind for FLICKMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_DANDIDATE_FLAGS(pub i32);
-impl windows_core::TypeKind for GET_DANDIDATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INK_METRIC_FLAGS(pub i32);
-impl windows_core::TypeKind for INK_METRIC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InPlaceDirection(pub i32);
-impl windows_core::TypeKind for InPlaceDirection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InPlaceState(pub i32);
-impl windows_core::TypeKind for InPlaceState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkApplicationGesture(pub i32);
-impl windows_core::TypeKind for InkApplicationGesture {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkBoundingBoxMode(pub i32);
-impl windows_core::TypeKind for InkBoundingBoxMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkClipboardFormats(pub i32);
-impl windows_core::TypeKind for InkClipboardFormats {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkClipboardModes(pub i32);
-impl windows_core::TypeKind for InkClipboardModes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkCollectionMode(pub i32);
-impl windows_core::TypeKind for InkCollectionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkCollectorEventInterest(pub i32);
-impl windows_core::TypeKind for InkCollectorEventInterest {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkCursorButtonState(pub i32);
-impl windows_core::TypeKind for InkCursorButtonState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkDisplayMode(pub i32);
-impl windows_core::TypeKind for InkDisplayMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkDivisionType(pub i32);
-impl windows_core::TypeKind for InkDivisionType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkEditStatus(pub i32);
-impl windows_core::TypeKind for InkEditStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkExtractFlags(pub i32);
-impl windows_core::TypeKind for InkExtractFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkInsertMode(pub i32);
-impl windows_core::TypeKind for InkInsertMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkMode(pub i32);
-impl windows_core::TypeKind for InkMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkMouseButton(pub i32);
-impl windows_core::TypeKind for InkMouseButton {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkMousePointer(pub i32);
-impl windows_core::TypeKind for InkMousePointer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkOverlayAttachMode(pub i32);
-impl windows_core::TypeKind for InkOverlayAttachMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkOverlayEditingMode(pub i32);
-impl windows_core::TypeKind for InkOverlayEditingMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkOverlayEraserMode(pub i32);
-impl windows_core::TypeKind for InkOverlayEraserMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPenTip(pub i32);
-impl windows_core::TypeKind for InkPenTip {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPersistenceCompressionMode(pub i32);
-impl windows_core::TypeKind for InkPersistenceCompressionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPersistenceFormat(pub i32);
-impl windows_core::TypeKind for InkPersistenceFormat {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPictureSizeMode(pub i32);
-impl windows_core::TypeKind for InkPictureSizeMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRasterOperation(pub i32);
-impl windows_core::TypeKind for InkRasterOperation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionAlternatesSelection(pub i32);
-impl windows_core::TypeKind for InkRecognitionAlternatesSelection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionConfidence(pub i32);
-impl windows_core::TypeKind for InkRecognitionConfidence {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionModes(pub i32);
-impl windows_core::TypeKind for InkRecognitionModes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionStatus(pub i32);
-impl windows_core::TypeKind for InkRecognitionStatus {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognizerCapabilities(pub i32);
-impl windows_core::TypeKind for InkRecognizerCapabilities {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
-impl windows_core::TypeKind for InkRecognizerCharacterAutoCompletionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkSelectionConstants(pub i32);
-impl windows_core::TypeKind for InkSelectionConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkShiftKeyModifierFlags(pub i32);
-impl windows_core::TypeKind for InkShiftKeyModifierFlags {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkSystemGesture(pub i32);
-impl windows_core::TypeKind for InkSystemGesture {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionMode(pub i32);
-impl windows_core::TypeKind for InteractionMode {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYMODIFIER(pub i32);
-impl windows_core::TypeKind for KEYMODIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINE_METRICS(pub i32);
-impl windows_core::TypeKind for LINE_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MICUIELEMENT(pub i32);
-impl windows_core::TypeKind for MICUIELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MICUIELEMENTSTATE(pub i32);
-impl windows_core::TypeKind for MICUIELEMENTSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MouseButton(pub i32);
-impl windows_core::TypeKind for MouseButton {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTY_UNITS(pub i32);
-impl windows_core::TypeKind for PROPERTY_UNITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PanelInputArea(pub i32);
-impl windows_core::TypeKind for PanelInputArea {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PanelType(pub i32);
-impl windows_core::TypeKind for PanelType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECO_TYPE(pub i32);
-impl windows_core::TypeKind for RECO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RealTimeStylusDataInterest(pub i32);
-impl windows_core::TypeKind for RealTimeStylusDataInterest {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RealTimeStylusLockType(pub i32);
-impl windows_core::TypeKind for RealTimeStylusLockType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLDIRECTION(pub i32);
-impl windows_core::TypeKind for SCROLLDIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarsConstants(pub i32);
-impl windows_core::TypeKind for ScrollBarsConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SelAlignmentConstants(pub i32);
-impl windows_core::TypeKind for SelAlignmentConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SelectionHitResult(pub i32);
-impl windows_core::TypeKind for SelectionHitResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StylusQueue(pub i32);
-impl windows_core::TypeKind for StylusQueue {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TabletDeviceKind(pub i32);
-impl windows_core::TypeKind for TabletDeviceKind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TabletHardwareCapabilities(pub i32);
-impl windows_core::TypeKind for TabletHardwareCapabilities {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TabletPropertyMetricUnit(pub i32);
-impl windows_core::TypeKind for TabletPropertyMetricUnit {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisualState(pub i32);
-impl windows_core::TypeKind for VisualState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHARACTER_RANGE {

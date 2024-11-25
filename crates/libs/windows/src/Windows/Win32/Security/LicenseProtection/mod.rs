@@ -23,6 +23,3 @@ pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LicenseProtectionStatus(pub i32);
-impl windows_core::TypeKind for LicenseProtectionStatus {
-    type TypeKind = windows_core::CopyType;
-}

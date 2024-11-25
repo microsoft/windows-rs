@@ -2524,45 +2524,24 @@ pub const IPSEC_TRANSFORM_TYPE_MAX: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYPE(
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DL_ADDRESS_TYPE(pub i32);
-impl windows_core::TypeKind for DL_ADDRESS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_CONNECTION_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_CONNECTION_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_ENGINE_OPTION(pub i32);
-impl windows_core::TypeKind for FWPM_ENGINE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_FIELD_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_FIELD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_FILTER_FLAGS(pub u32);
-impl windows_core::TypeKind for FWPM_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl FWPM_FILTER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2599,123 +2578,63 @@ impl core::ops::Not for FWPM_FILTER_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_NET_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_SERVICE_STATE(pub i32);
-impl windows_core::TypeKind for FWPM_SERVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_SUBSCRIPTION_FLAGS(pub u32);
-impl windows_core::TypeKind for FWPM_SUBSCRIPTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_SYSTEM_PORT_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_SYSTEM_PORT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_ACTION_TYPE(pub u32);
-impl windows_core::TypeKind for FWP_ACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_AF(pub i32);
-impl windows_core::TypeKind for FWP_AF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_CLASSIFY_OPTION_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_CLASSIFY_OPTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_DATA_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_DIRECTION(pub i32);
-impl windows_core::TypeKind for FWP_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_ETHER_ENCAP_METHOD(pub i32);
-impl windows_core::TypeKind for FWP_ETHER_ENCAP_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_FILTER_ENUM_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_FILTER_ENUM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_IP_VERSION(pub i32);
-impl windows_core::TypeKind for FWP_IP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_MATCH_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_MATCH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_VSWITCH_NETWORK_TYPE(pub i32);
-impl windows_core::TypeKind for FWP_VSWITCH_NETWORK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_AUTHENTICATION_METHOD_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_AUTH(pub u32);
-impl windows_core::TypeKind for IKEEXT_CERT_AUTH {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_CERT_AUTH {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2752,21 +2671,12 @@ impl core::ops::Not for IKEEXT_CERT_AUTH {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_CONFIG_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_CERT_CONFIG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_CERT_CRITERIA_NAME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_FLAGS(pub u32);
-impl windows_core::TypeKind for IKEEXT_CERT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_CERT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2803,21 +2713,12 @@ impl core::ops::Not for IKEEXT_CERT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CIPHER_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_CIPHER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_DH_GROUP(pub i32);
-impl windows_core::TypeKind for IKEEXT_DH_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EAP_AUTHENTICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for IKEEXT_EAP_AUTHENTICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_EAP_AUTHENTICATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2854,21 +2755,12 @@ impl core::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EM_SA_STATE(pub i32);
-impl windows_core::TypeKind for IKEEXT_EM_SA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_INTEGRITY_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_INTEGRITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2905,21 +2797,12 @@ impl core::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_KEY_MODULE_TYPE(pub i32);
-impl windows_core::TypeKind for IKEEXT_KEY_MODULE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_MM_SA_STATE(pub i32);
-impl windows_core::TypeKind for IKEEXT_MM_SA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_POLICY_FLAG(pub u32);
-impl windows_core::TypeKind for IKEEXT_POLICY_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_POLICY_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2956,9 +2839,6 @@ impl core::ops::Not for IKEEXT_POLICY_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2995,15 +2875,9 @@ impl core::ops::Not for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_QM_SA_STATE(pub i32);
-impl windows_core::TypeKind for IKEEXT_QM_SA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION_FLAGS(pub u32);
-impl windows_core::TypeKind for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3040,27 +2914,15 @@ impl core::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_SA_ROLE(pub i32);
-impl windows_core::TypeKind for IKEEXT_SA_ROLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AUTH_TYPE(pub i32);
-impl windows_core::TypeKind for IPSEC_AUTH_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_CIPHER_TYPE(pub i32);
-impl windows_core::TypeKind for IPSEC_CIPHER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_DOSP_FLAGS(pub u32);
-impl windows_core::TypeKind for IPSEC_DOSP_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IPSEC_DOSP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3097,21 +2959,12 @@ impl core::ops::Not for IPSEC_DOSP_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_FAILURE_POINT(pub i32);
-impl windows_core::TypeKind for IPSEC_FAILURE_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_PFS_GROUP(pub i32);
-impl windows_core::TypeKind for IPSEC_PFS_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_POLICY_FLAG(pub u32);
-impl windows_core::TypeKind for IPSEC_POLICY_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 impl IPSEC_POLICY_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3148,9 +3001,6 @@ impl core::ops::Not for IPSEC_POLICY_FLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_BUNDLE_FLAGS(pub u32);
-impl windows_core::TypeKind for IPSEC_SA_BUNDLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl IPSEC_SA_BUNDLE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -3187,39 +3037,21 @@ impl core::ops::Not for IPSEC_SA_BUNDLE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT_EVENT_TYPE0(pub i32);
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TOKEN_MODE(pub i32);
-impl windows_core::TypeKind for IPSEC_TOKEN_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TOKEN_PRINCIPAL(pub i32);
-impl windows_core::TypeKind for IPSEC_TOKEN_PRINCIPAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TOKEN_TYPE(pub i32);
-impl windows_core::TypeKind for IPSEC_TOKEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TRAFFIC_TYPE(pub i32);
-impl windows_core::TypeKind for IPSEC_TRAFFIC_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TRANSFORM_TYPE(pub i32);
-impl windows_core::TypeKind for IPSEC_TRANSFORM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWPM_ACTION0 {

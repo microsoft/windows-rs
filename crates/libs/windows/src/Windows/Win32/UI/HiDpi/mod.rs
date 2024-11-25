@@ -245,9 +245,6 @@ pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENES
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
-impl windows_core::TypeKind for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -284,9 +281,6 @@ impl core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
-impl windows_core::TypeKind for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIALOG_DPI_CHANGE_BEHAVIORS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -323,27 +317,15 @@ impl core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPI_AWARENESS(pub i32);
-impl windows_core::TypeKind for DPI_AWARENESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
-impl windows_core::TypeKind for DPI_HOSTING_BEHAVIOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_DPI_TYPE(pub i32);
-impl windows_core::TypeKind for MONITOR_DPI_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
-impl windows_core::TypeKind for PROCESS_DPI_AWARENESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);

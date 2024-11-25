@@ -104,27 +104,15 @@ pub const wcm_media_wlan: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_CONNECTION_COST(pub i32);
-impl windows_core::TypeKind for WCM_CONNECTION_COST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
-impl windows_core::TypeKind for WCM_CONNECTION_COST_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_MEDIA_TYPE(pub i32);
-impl windows_core::TypeKind for WCM_MEDIA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_PROPERTY(pub i32);
-impl windows_core::TypeKind for WCM_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT {

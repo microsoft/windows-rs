@@ -3365,39 +3365,21 @@ pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceDiscoveryMechanism(pub i32);
-impl windows_core::TypeKind for DeviceDiscoveryMechanism {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDEventType(pub i32);
-impl windows_core::TypeKind for WSDEventType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDUdpMessageType(pub i32);
-impl windows_core::TypeKind for WSDUdpMessageType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDXML_OP(pub i32);
-impl windows_core::TypeKind for WSDXML_OP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
-impl windows_core::TypeKind for WSD_CONFIG_PARAM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_PROTOCOL_TYPE(pub i32);
-impl windows_core::TypeKind for WSD_PROTOCOL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUESTBODY_GetStatus {

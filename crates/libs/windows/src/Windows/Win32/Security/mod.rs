@@ -1719,9 +1719,6 @@ pub const wszRPAREN: windows_core::PCWSTR = windows_core::w!(")");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACE_FLAGS(pub u32);
-impl windows_core::TypeKind for ACE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl ACE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1758,27 +1755,15 @@ impl core::ops::Not for ACE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACE_REVISION(pub u32);
-impl windows_core::TypeKind for ACE_REVISION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for ACL_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for AUDIT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1815,15 +1800,9 @@ impl core::ops::Not for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(pub u16);
-impl windows_core::TypeKind for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
-impl windows_core::TypeKind for CREATE_RESTRICTED_TOKEN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CREATE_RESTRICTED_TOKEN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1860,33 +1839,18 @@ impl core::ops::Not for CREATE_RESTRICTED_TOKEN_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_PERIOD(pub i32);
-impl windows_core::TypeKind for ENUM_PERIOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGON32_LOGON(pub u32);
-impl windows_core::TypeKind for LOGON32_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGON32_PROVIDER(pub u32);
-impl windows_core::TypeKind for LOGON32_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MANDATORY_LEVEL(pub i32);
-impl windows_core::TypeKind for MANDATORY_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_SECURITY_INFORMATION(pub u32);
-impl windows_core::TypeKind for OBJECT_SECURITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl OBJECT_SECURITY_INFORMATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1923,9 +1887,6 @@ impl core::ops::Not for OBJECT_SECURITY_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_AUTO_INHERIT_FLAGS(pub u32);
-impl windows_core::TypeKind for SECURITY_AUTO_INHERIT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SECURITY_AUTO_INHERIT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1962,9 +1923,6 @@ impl core::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR_CONTROL(pub u16);
-impl windows_core::TypeKind for SECURITY_DESCRIPTOR_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 impl SECURITY_DESCRIPTOR_CONTROL {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2001,21 +1959,12 @@ impl core::ops::Not for SECURITY_DESCRIPTOR_CONTROL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
-impl windows_core::TypeKind for SECURITY_IMPERSONATION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SID_NAME_USE(pub i32);
-impl windows_core::TypeKind for SID_NAME_USE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
-impl windows_core::TypeKind for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2052,9 +2001,6 @@ impl core::ops::Not for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ACCESS_MASK(pub u32);
-impl windows_core::TypeKind for TOKEN_ACCESS_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl TOKEN_ACCESS_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2091,27 +2037,15 @@ impl core::ops::Not for TOKEN_ACCESS_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ELEVATION_TYPE(pub i32);
-impl windows_core::TypeKind for TOKEN_ELEVATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TOKEN_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_POLICY_ID(pub u32);
-impl windows_core::TypeKind for TOKEN_MANDATORY_POLICY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_PRIVILEGES_ATTRIBUTES(pub u32);
-impl windows_core::TypeKind for TOKEN_PRIVILEGES_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl TOKEN_PRIVILEGES_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2148,15 +2082,9 @@ impl core::ops::Not for TOKEN_PRIVILEGES_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_TYPE(pub i32);
-impl windows_core::TypeKind for TOKEN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WELL_KNOWN_SID_TYPE(pub i32);
-impl windows_core::TypeKind for WELL_KNOWN_SID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESS_ALLOWED_ACE {

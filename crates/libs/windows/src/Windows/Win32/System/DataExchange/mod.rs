@@ -706,15 +706,9 @@ pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTI
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-impl windows_core::TypeKind for CONVINFO_CONVERSATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO_STATUS(pub u32);
-impl windows_core::TypeKind for CONVINFO_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CONVINFO_STATUS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -751,21 +745,12 @@ impl core::ops::Not for CONVINFO_STATUS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-impl windows_core::TypeKind for DDE_CLIENT_TRANSACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-impl windows_core::TypeKind for DDE_ENABLE_CALLBACK_CMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
-impl windows_core::TypeKind for DDE_INITIALIZE_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 impl DDE_INITIALIZE_COMMAND {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -802,9 +787,6 @@ impl core::ops::Not for DDE_INITIALIZE_COMMAND {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
-impl windows_core::TypeKind for DDE_NAME_SERVICE_CMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]

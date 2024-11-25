@@ -12326,117 +12326,60 @@ pub const XMLELEMTYPE_TEXT: XMLELEM_TYPE = XMLELEM_TYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMNodeType(pub i32);
-impl windows_core::TypeKind for DOMNodeType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMACONTENTTYPE(pub i32);
-impl windows_core::TypeKind for SCHEMACONTENTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
-impl windows_core::TypeKind for SCHEMADERIVATIONMETHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
-impl windows_core::TypeKind for SCHEMAPROCESSCONTENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMATYPEVARIETY(pub i32);
-impl windows_core::TypeKind for SCHEMATYPEVARIETY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAUSE(pub i32);
-impl windows_core::TypeKind for SCHEMAUSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAWHITESPACE(pub i32);
-impl windows_core::TypeKind for SCHEMAWHITESPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
-impl windows_core::TypeKind for SERVERXMLHTTP_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOMITEMTYPE(pub i32);
-impl windows_core::TypeKind for SOMITEMTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SXH_PROXY_SETTING(pub i32);
-impl windows_core::TypeKind for SXH_PROXY_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
-impl windows_core::TypeKind for SXH_SERVER_CERT_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_AUTH(pub i32);
-impl windows_core::TypeKind for XHR_AUTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
-impl windows_core::TypeKind for XHR_CERT_ERROR_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
-impl windows_core::TypeKind for XHR_CERT_IGNORE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_COOKIE_FLAG(pub i32);
-impl windows_core::TypeKind for XHR_COOKIE_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_COOKIE_STATE(pub i32);
-impl windows_core::TypeKind for XHR_COOKIE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CRED_PROMPT(pub i32);
-impl windows_core::TypeKind for XHR_CRED_PROMPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_PROPERTY(pub i32);
-impl windows_core::TypeKind for XHR_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XMLELEM_TYPE(pub i32);
-impl windows_core::TypeKind for XMLELEM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOMDocument: windows_core::GUID = windows_core::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
 pub const DOMDocument60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
 pub const DOMFreeThreadedDocument: windows_core::GUID = windows_core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);

@@ -753,21 +753,12 @@ pub const wszUMLAUT: windows_core::PCWSTR = windows_core::w!("\u{308}");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
-impl windows_core::TypeKind for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
-impl windows_core::TypeKind for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOT_KEY_MODIFIERS(pub u32);
-impl windows_core::TypeKind for HOT_KEY_MODIFIERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HOT_KEY_MODIFIERS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -804,15 +795,9 @@ impl core::ops::Not for HOT_KEY_MODIFIERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INPUT_TYPE(pub u32);
-impl windows_core::TypeKind for INPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBD_EVENT_FLAGS(pub u32);
-impl windows_core::TypeKind for KEYBD_EVENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl KEYBD_EVENT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -849,15 +834,9 @@ impl core::ops::Not for KEYBD_EVENT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAP_VIRTUAL_KEY_TYPE(pub u32);
-impl windows_core::TypeKind for MAP_VIRTUAL_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_EVENT_FLAGS(pub u32);
-impl windows_core::TypeKind for MOUSE_EVENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl MOUSE_EVENT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -894,9 +873,6 @@ impl core::ops::Not for MOUSE_EVENT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
-impl windows_core::TypeKind for TRACKMOUSEEVENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl TRACKMOUSEEVENT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -933,9 +909,6 @@ impl core::ops::Not for TRACKMOUSEEVENT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_KEY(pub u16);
-impl windows_core::TypeKind for VIRTUAL_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEADKEY {

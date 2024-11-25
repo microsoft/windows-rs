@@ -723,15 +723,9 @@ pub const USER_POLICY_PRESENT_GUID: windows_core::GUID = windows_core::GUID::fro
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATE(pub u32);
-impl windows_core::TypeKind for ENUM_SERVICE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
-impl windows_core::TypeKind for ENUM_SERVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl ENUM_SERVICE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -768,51 +762,27 @@ impl core::ops::Not for ENUM_SERVICE_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SC_ACTION_TYPE(pub i32);
-impl windows_core::TypeKind for SC_ACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SC_ENUM_TYPE(pub i32);
-impl windows_core::TypeKind for SC_ENUM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SC_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for SC_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SC_STATUS_TYPE(pub i32);
-impl windows_core::TypeKind for SC_STATUS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_CONFIG(pub u32);
-impl windows_core::TypeKind for SERVICE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_DIRECTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_ERROR(pub u32);
-impl windows_core::TypeKind for SERVICE_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY(pub u32);
-impl windows_core::TypeKind for SERVICE_NOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl SERVICE_NOTIFY {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -849,57 +819,30 @@ impl core::ops::Not for SERVICE_NOTIFY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_REGISTRY_STATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
-impl windows_core::TypeKind for SERVICE_RUNS_IN_PROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_SHARED_DIRECTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
-impl windows_core::TypeKind for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_START_TYPE(pub u32);
-impl windows_core::TypeKind for SERVICE_START_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
-impl windows_core::TypeKind for SERVICE_STATUS_CURRENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
-impl windows_core::TypeKind for SERVICE_TRIGGER_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
-impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
-impl windows_core::TypeKind for SERVICE_TRIGGER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUM_SERVICE_STATUSA {

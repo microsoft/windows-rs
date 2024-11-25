@@ -1337,33 +1337,18 @@ pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDirectivityType(pub i32);
-impl windows_core::TypeKind for HrtfDirectivityType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDistanceDecayType(pub i32);
-impl windows_core::TypeKind for HrtfDistanceDecayType {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfEnvironment(pub i32);
-impl windows_core::TypeKind for HrtfEnvironment {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
-impl windows_core::TypeKind for XAPO_BUFFER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
-impl windows_core::TypeKind for XAUDIO2_FILTER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AudioReverb: windows_core::GUID = windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
 pub const AudioVolumeMeter: windows_core::GUID = windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[repr(C, packed(1))]

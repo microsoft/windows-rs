@@ -2862,87 +2862,45 @@ pub const WM_RASDIALEVENT: u32 = 52429u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
-impl windows_core::TypeKind for IKEV2_ID_PAYLOAD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MGM_ENUM_TYPES(pub i32);
-impl windows_core::TypeKind for MGM_ENUM_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPRAPI_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for MPRAPI_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_ET(pub u32);
-impl windows_core::TypeKind for MPR_ET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
-impl windows_core::TypeKind for MPR_INTERFACE_DIAL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_VPN_TS_TYPE(pub i32);
-impl windows_core::TypeKind for MPR_VPN_TS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_VS(pub u32);
-impl windows_core::TypeKind for MPR_VS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_LCP(pub u32);
-impl windows_core::TypeKind for PPP_LCP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
-impl windows_core::TypeKind for PPP_LCP_INFO_AUTH_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASAPIVERSION(pub i32);
-impl windows_core::TypeKind for RASAPIVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASCONNSTATE(pub i32);
-impl windows_core::TypeKind for RASCONNSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASCONNSUBSTATE(pub i32);
-impl windows_core::TypeKind for RASCONNSUBSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASENTRY_DIAL_MODE(pub u32);
-impl windows_core::TypeKind for RASENTRY_DIAL_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for RASIKEV_PROJECTION_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RASIKEV_PROJECTION_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2979,75 +2937,39 @@ impl core::ops::Not for RASIKEV_PROJECTION_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
-impl windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
-impl windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASPROJECTION(pub i32);
-impl windows_core::TypeKind for RASPROJECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASPROJECTION_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for RASPROJECTION_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_FLAGS(pub u32);
-impl windows_core::TypeKind for RAS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_HARDWARE_CONDITION(pub i32);
-impl windows_core::TypeKind for RAS_HARDWARE_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_PORT_CONDITION(pub i32);
-impl windows_core::TypeKind for RAS_PORT_CONDITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_QUARANTINE_STATE(pub i32);
-impl windows_core::TypeKind for RAS_QUARANTINE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_CONNECTION_STATE(pub i32);
-impl windows_core::TypeKind for ROUTER_CONNECTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_INTERFACE_TYPE(pub i32);
-impl windows_core::TypeKind for ROUTER_INTERFACE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTM_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for RTM_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
-impl windows_core::TypeKind for SECURITY_MESSAGE_MSG_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTH_VALIDATION_EX {

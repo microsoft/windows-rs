@@ -282,9 +282,6 @@ pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-impl windows_core::TypeKind for ENCLAVE_SEALING_IDENTITY_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {

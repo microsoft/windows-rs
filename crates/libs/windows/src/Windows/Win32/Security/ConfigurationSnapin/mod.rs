@@ -157,15 +157,9 @@ pub const struuidNodetypeSceTemplateServices: windows_core::PCSTR = windows_core
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
-impl windows_core::TypeKind for SCESVC_INFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCE_LOG_ERR_LEVEL(pub i32);
-impl windows_core::TypeKind for SCE_LOG_ERR_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_INFO {

@@ -9341,15 +9341,9 @@ pub const yHeightCharPtsMost: u32 = 1638u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CARET_FLAGS(pub i32);
-impl windows_core::TypeKind for CARET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFE_EFFECTS(pub u32);
-impl windows_core::TypeKind for CFE_EFFECTS {
-    type TypeKind = windows_core::CopyType;
-}
 impl CFE_EFFECTS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9386,9 +9380,6 @@ impl core::ops::Not for CFE_EFFECTS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFM_MASK(pub u32);
-impl windows_core::TypeKind for CFM_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl CFM_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9425,27 +9416,15 @@ impl core::ops::Not for CFM_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGETYPE(pub i32);
-impl windows_core::TypeKind for CHANGETYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
-impl windows_core::TypeKind for ENDCOMPOSITIONNOTIFY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETTEXTEX_FLAGS(pub u32);
-impl windows_core::TypeKind for GETTEXTEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
-impl windows_core::TypeKind for GETTEXTLENGTHEX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl GETTEXTLENGTHEX_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9482,39 +9461,21 @@ impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
-impl windows_core::TypeKind for IMECOMPTEXT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KHYPH(pub i32);
-impl windows_core::TypeKind for KHYPH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MANCODE(pub i32);
-impl windows_core::TypeKind for MANCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTTYPE(pub i32);
-impl windows_core::TypeKind for OBJECTTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_ALIGNMENT(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_ALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_BORDERS(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_BORDERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PARAFORMAT_BORDERS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9551,9 +9512,6 @@ impl core::ops::Not for PARAFORMAT_BORDERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_MASK(pub u32);
-impl windows_core::TypeKind for PARAFORMAT_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 impl PARAFORMAT_MASK {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9590,9 +9548,6 @@ impl core::ops::Not for PARAFORMAT_MASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_NUMBERING(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_NUMBERING {
-    type TypeKind = windows_core::CopyType;
-}
 impl PARAFORMAT_NUMBERING {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9629,21 +9584,12 @@ impl core::ops::Not for PARAFORMAT_NUMBERING {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_NUMBERING_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAFORMAT_SHADING_STYLE(pub u16);
-impl windows_core::TypeKind for PARAFORMAT_SHADING_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REOBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for REOBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl REOBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9680,9 +9626,6 @@ impl core::ops::Not for REOBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
-impl windows_core::TypeKind for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9719,9 +9662,6 @@ impl core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
-impl windows_core::TypeKind for RICH_EDIT_GET_OBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl RICH_EDIT_GET_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -9758,45 +9698,24 @@ impl core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMODE(pub i32);
-impl windows_core::TypeKind for TEXTMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXTBACKSTYLE(pub i32);
-impl windows_core::TypeKind for TXTBACKSTYLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXTHITRESULT(pub i32);
-impl windows_core::TypeKind for TXTHITRESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXTNATURALSIZE(pub i32);
-impl windows_core::TypeKind for TXTNATURALSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXTVIEW(pub i32);
-impl windows_core::TypeKind for TXTVIEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNDONAMEID(pub i32);
-impl windows_core::TypeKind for UNDONAMEID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tomConstants(pub i32);
-impl windows_core::TypeKind for tomConstants {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIDIOPTIONS {

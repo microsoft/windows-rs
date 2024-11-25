@@ -127,99 +127,51 @@ pub const Transaction: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(3i3
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_DEVICE_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_LINK_STATUS(pub i32);
-impl windows_core::TypeKind for NFC_LLCP_LINK_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_SOCKET_CONNECT_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_CONNECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ERROR(pub i32);
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_P2P_MODE(pub i32);
-impl windows_core::TypeKind for NFC_P2P_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_RELEASE_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_RELEASE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_RF_DISCOVERY_MODE(pub i32);
-impl windows_core::TypeKind for NFC_RF_DISCOVERY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE(pub i32);
-impl windows_core::TypeKind for NFC_SE_EMULATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SNEP_REQUEST_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_SNEP_REQUEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SNEP_SERVER_TYPE(pub i32);
-impl windows_core::TypeKind for NFC_SNEP_SERVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_CARD_EMULATION_MODE(pub i32);
-impl windows_core::TypeKind for SECURE_ELEMENT_CARD_EMULATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_TYPE(pub i32);
-impl windows_core::TypeKind for SECURE_ELEMENT_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_POWER_MODE(pub i32);
-impl windows_core::TypeKind for SECURE_ELEMENT_POWER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_ROUTING_TYPE(pub i32);
-impl windows_core::TypeKind for SECURE_ELEMENT_ROUTING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_TYPE(pub i32);
-impl windows_core::TypeKind for SECURE_ELEMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFCRM_RADIO_STATE {

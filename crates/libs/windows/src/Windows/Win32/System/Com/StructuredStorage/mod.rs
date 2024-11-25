@@ -2361,21 +2361,12 @@ pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
-impl windows_core::TypeKind for PIDMSI_STATUS_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSPEC_KIND(pub u32);
-impl windows_core::TypeKind for PROPSPEC_KIND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_CHANGE_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPVAR_CHANGE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPVAR_CHANGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2412,9 +2403,6 @@ impl core::ops::Not for PROPVAR_CHANGE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_COMPARE_FLAGS(pub i32);
-impl windows_core::TypeKind for PROPVAR_COMPARE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl PROPVAR_COMPARE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -2451,21 +2439,12 @@ impl core::ops::Not for PROPVAR_COMPARE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
-impl windows_core::TypeKind for PROPVAR_COMPARE_UNIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGFMT(pub u32);
-impl windows_core::TypeKind for STGFMT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGMOVE(pub i32);
-impl windows_core::TypeKind for STGMOVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSTRBLOB {

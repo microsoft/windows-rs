@@ -1216,21 +1216,12 @@ pub const TYPE_VALUE: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HH_GPROPID(pub i32);
-impl windows_core::TypeKind for HH_GPROPID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTML_HELP_COMMAND(pub i32);
-impl windows_core::TypeKind for HTML_HELP_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITY(pub i32);
-impl windows_core::TypeKind for PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLUMNSTATUS {

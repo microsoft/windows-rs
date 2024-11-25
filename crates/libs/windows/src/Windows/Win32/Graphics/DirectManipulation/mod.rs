@@ -1426,15 +1426,9 @@ pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_V
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_CONFIGURATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1471,9 +1465,6 @@ impl core::ops::Not for DIRECTMANIPULATION_CONFIGURATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1510,15 +1501,9 @@ impl core::ops::Not for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1555,9 +1540,6 @@ impl core::ops::Not for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_HITTEST_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_HITTEST_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1594,9 +1576,6 @@ impl core::ops::Not for DIRECTMANIPULATION_HITTEST_TYPE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1633,21 +1612,12 @@ impl core::ops::Not for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_INPUT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_INTERACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_MOTION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_MOTION_TYPES {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1684,9 +1654,6 @@ impl core::ops::Not for DIRECTMANIPULATION_MOTION_TYPES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1723,21 +1690,12 @@ impl core::ops::Not for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_STATUS(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_VERTICALALIGNMENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_VERTICALALIGNMENT {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -1774,9 +1732,6 @@ impl core::ops::Not for DIRECTMANIPULATION_VERTICALALIGNMENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(pub i32);
-impl windows_core::TypeKind for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
