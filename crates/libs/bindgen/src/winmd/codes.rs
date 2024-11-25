@@ -77,21 +77,9 @@ code! { TypeOrMethodDef(1)
 
 impl TypeDefOrRef {
     pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), self.name())
-    }
-
-    fn name(&self) -> &'static str {
         match self {
-            Self::TypeDef(row) => row.name(),
-            Self::TypeRef(row) => row.name(),
-            rest => panic!("{rest:?}"),
-        }
-    }
-
-    fn namespace(&self) -> &'static str {
-        match self {
-            Self::TypeDef(row) => row.namespace(),
-            Self::TypeRef(row) => row.namespace(),
+            Self::TypeDef(row) => row.type_name(),
+            Self::TypeRef(row) => row.type_name(),
             rest => panic!("{rest:?}"),
         }
     }

@@ -333,11 +333,10 @@ fn expand_input(input: &[&str]) -> Vec<File> {
     }
 
     input.extend(paths.iter().map(|path| {
-        let bytes = std::fs::read(path)
-            .unwrap_or_else(|_| panic!("failed to read binary file `{path}`"));
+        let bytes =
+            std::fs::read(path).unwrap_or_else(|_| panic!("failed to read binary file `{path}`"));
 
-        File::new(bytes)
-            .unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
+        File::new(bytes).unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
     }));
 
     input

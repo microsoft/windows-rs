@@ -1,5 +1,11 @@
 use super::*;
 
+impl std::fmt::Debug for Field {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Field").field(&self.name()).finish()
+    }
+}
+
 impl Field {
     pub fn flags(&self) -> FieldAttributes {
         FieldAttributes(self.usize(0) as u16)
@@ -27,11 +33,5 @@ impl Field {
         } else {
             ty
         }
-    }
-}
-
-impl std::fmt::Debug for Field {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("Field").field(&self.name()).finish()
     }
 }

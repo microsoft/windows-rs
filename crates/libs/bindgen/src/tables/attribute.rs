@@ -89,7 +89,6 @@ impl Attribute {
 
         debug_assert_eq!(sig.len(), 0);
         debug_assert_eq!(values.len(), 0);
-
         args
     }
 }

@@ -2,7 +2,7 @@ use super::*;
 
 impl std::fmt::Debug for TypeDef {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "TypeDef({}.{})", self.namespace(), self.name())
+        write!(f, "TypeDef({})", self.type_name())
     }
 }
 
@@ -57,10 +57,7 @@ impl TypeDef {
     }
 
     pub fn underlying_type(&self) -> Type {
-        let field = self
-            .fields()
-            .next()
-            .expect("field not found");
+        let field = self.fields().next().expect("field not found");
         if let Some(constant) = field.constant() {
             constant.ty()
         } else {
@@ -119,41 +116,4 @@ impl TypeDef {
                 | TypeName::IAsyncOperationWithProgress
         )
     }
-
-    // pub fn size(&self) -> usize {
-    //     match self.kind() {
-    //         TypeKind::Struct => {
-    //             if self.flags().contains(TypeAttributes::ExplicitLayout) {
-    //                 self.fields()
-    //                     .map(|field| field.ty(Some(*self)).size())
-    //                     .max()
-    //                     .unwrap_or(1)
-    //             } else {
-    //                 let mut sum = 0;
-    //                 for field in self.fields() {
-    //                     let ty = field.ty(Some(*self));
-    //                     let size = ty.size();
-    //                     let align = ty.align();
-    //                     sum = (sum + (align - 1)) & !(align - 1);
-    //                     sum += size;
-    //                 }
-    //                 sum
-    //             }
-    //         }
-    //         TypeKind::Enum => self.underlying_type().size(),
-    //         _ => 4,
-    //     }
-    // }
-
-    // pub fn align(&self) -> usize {
-    //     match self.kind() {
-    //         TypeKind::Struct => self
-    //             .fields()
-    //             .map(|field| field.ty(Some(*self)).align())
-    //             .max()
-    //             .unwrap_or(1),
-    //         TypeKind::Enum => self.underlying_type().align(),
-    //         _ => 4,
-    //     }
-    // }
 }

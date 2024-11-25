@@ -14,9 +14,7 @@ impl Class {
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
         let type_name = self.def.type_name();
-
         let name = to_ident(type_name.name());
-
         let mut dependencies = TypeMap::new();
 
         if writer.config.package {
@@ -24,7 +22,6 @@ impl Class {
         }
 
         let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
-
         let runtime_name = format!("{type_name}");
 
         let runtime_name = quote! {
