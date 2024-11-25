@@ -2,6 +2,10 @@
 
 pub mod class_factory;
 pub mod class_factory_sys;
+pub mod core_sys;
+pub mod core_sys_flat;
+pub mod core_win;
+pub mod core_win_flat;
 pub mod cpp_fn_associated_enum_sys;
 pub mod cpp_fn_associated_enum_win;
 pub mod cpp_fn_return_none;

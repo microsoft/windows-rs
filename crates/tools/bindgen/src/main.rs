@@ -20,6 +20,11 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
+    test("--out core_win.rs --filter CoCreateGuid --no-comment");
+    test("--out core_win_flat.rs --filter CoCreateGuid --flat --no-comment");
+    test("--out core_sys.rs --filter CoCreateGuid --sys --no-comment");
+    test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat --no-comment");
+
     test("--out class_factory.rs --filter IClassFactory --flat --no-comment");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat --no-comment");
 
