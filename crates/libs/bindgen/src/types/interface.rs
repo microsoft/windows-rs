@@ -93,6 +93,69 @@ impl Interface {
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
+        // TODO: move this up and then use it for the sys representations
+        let vtbl = {
+            let virtual_names = &mut MethodNames::new();
+
+            let vtbl_methods = methods.iter().map(|method| match method {
+                MethodOrName::Method(method) => {
+                    let mut difference = TypeMap::new();
+
+                    if writer.config.package {
+                        difference = method.dependencies.difference(&dependencies);
+                    }
+
+                    let name = virtual_names.add(method.def);
+                    let vtbl = method.write_abi(writer, false);
+                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                    if cfg.is_empty() {
+                        quote! {
+                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                        }
+                    } else {
+                        let cfg_not =
+                            writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+
+                        quote! {
+                            #cfg
+                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                            #cfg_not
+                            #name: usize,
+                        }
+                    }
+                }
+                MethodOrName::Name(name) => {
+                    let name = to_ident(name);
+                    quote! { #name: usize, }
+                }
+            });
+
+            quote! {
+                #cfg
+                #[repr(C)]
+                pub struct #vtbl_name where #constraints {
+                    pub base__: windows_core::IInspectable_Vtbl,
+                    #(#vtbl_methods)*
+                    #named_phantoms
+                }
+            }
+        };
+
+        if writer.config.sys {
+            let mut result = quote! {};
+
+            if !writer.config.package {
+                    if let Some(guid) = self.def.guid_attribute() {
+                        let name: TokenStream = format!("IID_{}", self.def.name()).into();
+                        result.combine(writer.write_cpp_const_guid(name, &guid));
+                    }
+
+                result.combine(vtbl);
+            }
+
+            result
+        } else {
         // TODO: have same vtbl/sys representation for WinRT interfaces as for Cpp interfaces
 
         let mut result = if self.generics.is_empty() {
@@ -282,54 +345,6 @@ impl Interface {
             }
         }
 
-        {
-            let virtual_names = &mut MethodNames::new();
-
-            let vtbl_methods = methods.iter().map(|method| match method {
-                MethodOrName::Method(method) => {
-                    let mut difference = TypeMap::new();
-
-                    if writer.config.package {
-                        difference = method.dependencies.difference(&dependencies);
-                    }
-
-                    let name = virtual_names.add(method.def);
-                    let vtbl = method.write_abi(writer, false);
-                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-
-                    if cfg.is_empty() {
-                        quote! {
-                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
-                        }
-                    } else {
-                        let cfg_not =
-                            writer.write_cfg(self.def, self.def.namespace(), &difference, true);
-
-                        quote! {
-                            #cfg
-                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
-                            #cfg_not
-                            #name: usize,
-                        }
-                    }
-                }
-                MethodOrName::Name(name) => {
-                    let name = to_ident(name);
-                    quote! { #name: usize, }
-                }
-            });
-
-            result.combine(quote! {
-                #cfg
-                #[repr(C)]
-                pub struct #vtbl_name where #constraints {
-                    pub base__: windows_core::IInspectable_Vtbl,
-                    #(#vtbl_methods)*
-                    #named_phantoms
-                }
-            });
-        }
-
         if writer.config.implement || !is_exclusive {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
@@ -447,7 +462,9 @@ impl Interface {
             });
         }
 
+        result.combine(vtbl);
         result
+    }
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
@@ -486,6 +503,8 @@ impl Interface {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        Type::Object.dependencies(dependencies);
+
         // TODO: does this also need to be outside
         for interface in self.required_interfaces() {
             Type::Interface(interface).dependencies(dependencies);

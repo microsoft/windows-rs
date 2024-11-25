@@ -5,15 +5,16 @@
     dead_code,
     clippy::all
 )]
+
+pub type PSTR = *mut u8;
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
-pub type HWND = *mut core::ffi::c_void;
-pub type PSTR = *mut u8;
 pub type WINDOW_LONG_PTR_INDEX = i32;
+pub type HWND = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",

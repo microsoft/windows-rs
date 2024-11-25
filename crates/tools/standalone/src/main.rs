@@ -2,6 +2,8 @@
 
 use std::path::Path;
 
+// TODO: move these into the new bindgen test/tool
+
 fn main() {
     if !Path::new("crates/tests/misc/standalone/Cargo.toml").exists() {
         println!("This tool must be run from the root of the repo.");
@@ -210,7 +212,7 @@ fn main() {
         &[
             "--flat",
             "--derive",
-            "Windows.Foundation.DateTime=std::cmp::PartialOrd,std::cmp::Ord",
+            "Windows.Foundation.DateTime=PartialOrd,Ord,Eq",
         ],
     );
 }
@@ -220,7 +222,13 @@ fn write_sys(output: &Path, filter: &[&str]) {
 }
 
 fn write_win(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["--flat"]);
+    let output: &str = output.as_os_str().to_str().unwrap();
+    let mut args = vec!["--in", "default", "--out", output, "--filter"];
+    args.extend_from_slice(filter);
+    args.extend_from_slice(&["--no-comment"]);
+    args.extend_from_slice(&["--flat"]);
+    println!("running: bindgen {}", args.join(" "));
+    windows_bindgen::bindgen(args);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {

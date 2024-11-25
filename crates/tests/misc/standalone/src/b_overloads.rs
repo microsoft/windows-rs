@@ -5,6 +5,8 @@
     dead_code,
     clippy::all
 )]
+
+pub const AE_RESACCESS: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AE_RESACCESS {
@@ -16,4 +18,3 @@ pub struct AE_RESACCESS {
     pub ae_ra_restype: u32,
     pub ae_ra_fileid: u32,
 }
-pub const AE_RESACCESS: u32 = 7u32;

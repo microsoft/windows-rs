@@ -5,9 +5,9 @@
     dead_code,
     clippy::all
 )]
-#[derive(std::cmp::PartialOrd, std::cmp::Ord)]
+
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -17,9 +17,4 @@ impl windows_core::TypeKind for DateTime {
 impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
-}
-impl Default for DateTime {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
