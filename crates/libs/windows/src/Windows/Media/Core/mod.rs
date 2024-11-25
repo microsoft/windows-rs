@@ -452,16 +452,6 @@ impl IMediaCue {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaCue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMediaCue {
     const NAME: &'static str = "Windows.Media.Core.IMediaCue";
 }
@@ -532,6 +522,16 @@ impl IMediaCue_Vtbl {
         iid == &<IMediaCue as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IMediaCue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IMediaCueEventArgs, IMediaCueEventArgs_Vtbl, 0xd12f47f7_5fa4_4e68_9fe5_32160dcee57e);
 impl windows_core::RuntimeType for IMediaCueEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -546,10 +546,6 @@ impl windows_core::RuntimeType for IMediaSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IMediaSource, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IMediaSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IMediaSource {
     const NAME: &'static str = "Windows.Media.Core.IMediaSource";
 }
@@ -561,6 +557,10 @@ impl IMediaSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[cfg(feature = "Media_Playback")]
 windows_core::imp::define_interface!(IMediaSource2, IMediaSource2_Vtbl, 0x2eb61048_655f_4c37_b813_b4e45dfa0abe);
@@ -798,15 +798,6 @@ impl IMediaStreamDescriptor {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaStreamDescriptor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMediaStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor";
 }
@@ -872,6 +863,15 @@ impl IMediaStreamDescriptor_Vtbl {
         iid == &<IMediaStreamDescriptor as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IMediaStreamDescriptor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IMediaStreamDescriptor2, IMediaStreamDescriptor2_Vtbl, 0x5073010f_e8b2_4071_b00b_ebf337a76b58);
 impl windows_core::RuntimeType for IMediaStreamDescriptor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -920,12 +920,6 @@ impl IMediaStreamDescriptor2 {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaStreamDescriptor2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMediaStreamDescriptor2 {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor2";
 }
@@ -959,6 +953,12 @@ impl IMediaStreamDescriptor2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaStreamDescriptor2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaStreamDescriptor2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaStreamSample, IMediaStreamSample_Vtbl, 0x5c8db627_4b80_4361_9837_6cb7481ad9d6);
 impl windows_core::RuntimeType for IMediaStreamSample {
@@ -1289,15 +1289,6 @@ impl IMediaTrack {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaTrack_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TrackKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaTrackKind) -> windows_core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMediaTrack {
     const NAME: &'static str = "Windows.Media.Core.IMediaTrack";
 }
@@ -1369,6 +1360,15 @@ impl IMediaTrack_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaTrack as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaTrack_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrackKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaTrackKind) -> windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMseSourceBuffer, IMseSourceBuffer_Vtbl, 0x0c1aa3e3_df8d_4079_a3fe_6849184b4e2f);
 impl windows_core::RuntimeType for IMseSourceBuffer {
@@ -1548,14 +1548,6 @@ impl ISingleSelectMediaTrackList {
         }
     }
 }
-#[repr(C)]
-pub struct ISingleSelectMediaTrackList_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SelectedIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSelectedIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SetSelectedIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SelectedIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISingleSelectMediaTrackList {
     const NAME: &'static str = "Windows.Media.Core.ISingleSelectMediaTrackList";
 }
@@ -1606,6 +1598,14 @@ impl ISingleSelectMediaTrackList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISingleSelectMediaTrackList as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISingleSelectMediaTrackList_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SelectedIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSelectedIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SetSelectedIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SelectedIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechCue, ISpeechCue_Vtbl, 0xaee254dc_1725_4bad_8043_a98499b017a2);
 impl windows_core::RuntimeType for ISpeechCue {
@@ -1728,14 +1728,6 @@ impl ITimedMetadataTrackProvider {
         }
     }
 }
-#[repr(C)]
-pub struct ITimedMetadataTrackProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub TimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TimedMetadataTracks: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ITimedMetadataTrackProvider {
     const NAME: &'static str = "Windows.Media.Core.ITimedMetadataTrackProvider";
@@ -1766,6 +1758,14 @@ impl ITimedMetadataTrackProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITimedMetadataTrackProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITimedMetadataTrackProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub TimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    TimedMetadataTracks: usize,
 }
 windows_core::imp::define_interface!(ITimedTextBouten, ITimedTextBouten_Vtbl, 0xd9062783_5597_5092_820c_8f738e0f774a);
 impl windows_core::RuntimeType for ITimedTextBouten {

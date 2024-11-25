@@ -61,14 +61,6 @@ impl IToastNotificationManagerStatics3 {
         }
     }
 }
-#[repr(C)]
-pub struct IToastNotificationManagerStatics3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Notifications")]
-    pub CreateToastNotifierForSecondaryTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Notifications"))]
-    CreateToastNotifierForSecondaryTile: usize,
-}
 #[cfg(feature = "UI_Notifications")]
 impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
     const NAME: &'static str = "Windows.Phone.StartScreen.IToastNotificationManagerStatics3";
@@ -99,6 +91,14 @@ impl IToastNotificationManagerStatics3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IToastNotificationManagerStatics3 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IToastNotificationManagerStatics3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI_Notifications")]
+    pub CreateToastNotifierForSecondaryTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Notifications"))]
+    CreateToastNotifierForSecondaryTile: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

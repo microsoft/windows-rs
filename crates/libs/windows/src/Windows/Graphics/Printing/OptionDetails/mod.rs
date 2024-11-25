@@ -174,12 +174,6 @@ impl IPrintCustomOptionDetails {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintCustomOptionDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPrintCustomOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
 }
@@ -213,6 +207,12 @@ impl IPrintCustomOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintCustomOptionDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintCustomOptionDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomTextOptionDetails, IPrintCustomTextOptionDetails_Vtbl, 0x2ad171f8_c8bd_4905_9192_0d75136e8b31);
 impl windows_core::RuntimeType for IPrintCustomTextOptionDetails {
@@ -341,14 +341,6 @@ impl IPrintItemListOptionDetails {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintItemListOptionDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPrintItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintItemListOptionDetails";
@@ -376,6 +368,14 @@ impl IPrintItemListOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintItemListOptionDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintItemListOptionDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Items: usize,
 }
 windows_core::imp::define_interface!(IPrintMediaSizeOptionDetails, IPrintMediaSizeOptionDetails_Vtbl, 0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d);
 impl windows_core::RuntimeType for IPrintMediaSizeOptionDetails {
@@ -476,12 +476,6 @@ impl IPrintNumberOptionDetails {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintNumberOptionDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub MaxValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPrintNumberOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
 }
@@ -520,6 +514,12 @@ impl IPrintNumberOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintNumberOptionDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintNumberOptionDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub MaxValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintOptionDetails, IPrintOptionDetails_Vtbl, 0x390686cf_d682_495f_adfe_d7333f5c1808);
 impl windows_core::RuntimeType for IPrintOptionDetails {
@@ -580,18 +580,6 @@ impl IPrintOptionDetails {
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IPrintOptionDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OptionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OptionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOptionType) -> windows_core::HRESULT,
-    pub SetErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, PrintOptionStates) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOptionStates) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TrySetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
@@ -694,6 +682,18 @@ impl IPrintOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintOptionDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintOptionDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OptionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OptionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOptionType) -> windows_core::HRESULT,
+    pub SetErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, PrintOptionStates) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOptionStates) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrySetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintOrientationOptionDetails, IPrintOrientationOptionDetails_Vtbl, 0x46c38879_66e0_4da0_87b4_d25457824eb7);
 impl windows_core::RuntimeType for IPrintOrientationOptionDetails {
@@ -856,11 +856,6 @@ impl IPrintTextOptionDetails {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintTextOptionDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MaxCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPrintTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";
 }
@@ -884,6 +879,11 @@ impl IPrintTextOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTextOptionDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintTextOptionDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MaxCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

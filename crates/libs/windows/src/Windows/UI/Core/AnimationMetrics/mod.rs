@@ -75,15 +75,6 @@ impl IPropertyAnimation {
         }
     }
 }
-#[repr(C)]
-pub struct IPropertyAnimation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyAnimationType) -> windows_core::HRESULT,
-    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Control1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
-    pub Control2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.IPropertyAnimation";
 }
@@ -158,6 +149,15 @@ impl IPropertyAnimation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPropertyAnimation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPropertyAnimation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyAnimationType) -> windows_core::HRESULT,
+    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Control1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
+    pub Control2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 impl windows_core::RuntimeType for IScaleAnimation {

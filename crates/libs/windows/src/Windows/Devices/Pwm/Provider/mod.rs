@@ -60,20 +60,6 @@ impl IPwmControllerProvider {
         unsafe { (windows_core::Interface::vtable(this).SetPulseParameters)(windows_core::Interface::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
-#[repr(C)]
-pub struct IPwmControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ActualFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetDesiredFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
-    pub MaxFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub MinFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub AcquirePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ReleasePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub EnablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DisablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetPulseParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64, bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPwmControllerProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
 }
@@ -179,6 +165,20 @@ impl IPwmControllerProvider_Vtbl {
         iid == &<IPwmControllerProvider as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IPwmControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub ActualFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetDesiredFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
+    pub MaxFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub MinFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub AcquirePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ReleasePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub EnablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub DisablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetPulseParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPwmProvider, IPwmProvider_Vtbl, 0xa3301228_52f1_47b0_9349_66ba43d25902);
 impl windows_core::RuntimeType for IPwmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -193,14 +193,6 @@ impl IPwmProvider {
             (windows_core::Interface::vtable(this).GetControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IPwmProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPwmProvider {
@@ -229,4 +221,12 @@ impl IPwmProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPwmProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPwmProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControllers: usize,
 }

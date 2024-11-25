@@ -42,11 +42,6 @@ impl ISpiControllerProvider {
         }
     }
 }
-#[repr(C)]
-pub struct ISpiControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
@@ -74,6 +69,11 @@ impl ISpiControllerProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpiControllerProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISpiControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 impl windows_core::RuntimeType for ISpiDeviceProvider {
@@ -116,16 +116,6 @@ impl ISpiDeviceProvider {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct ISpiDeviceProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConnectionSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub TransferSequential: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
-    pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ISpiDeviceProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiDeviceProvider";
@@ -192,6 +182,16 @@ impl ISpiDeviceProvider_Vtbl {
         iid == &<ISpiDeviceProvider as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISpiDeviceProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ConnectionSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
+    pub TransferSequential: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
+    pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 impl windows_core::RuntimeType for ISpiProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -206,14 +206,6 @@ impl ISpiProvider {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ISpiProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllersAsync: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ISpiProvider {
@@ -242,6 +234,14 @@ impl ISpiProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpiProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISpiProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControllersAsync: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

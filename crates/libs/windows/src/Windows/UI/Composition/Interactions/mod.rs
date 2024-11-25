@@ -24,10 +24,6 @@ impl windows_core::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ICompositionInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct ICompositionInteractionSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for ICompositionInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSource";
 }
@@ -39,6 +35,10 @@ impl ICompositionInteractionSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionInteractionSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICompositionInteractionSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICompositionInteractionSourceCollection, ICompositionInteractionSourceCollection_Vtbl, 0x1b468e4b_a5bf_47d8_a547_3894155a158c);
 impl windows_core::RuntimeType for ICompositionInteractionSourceCollection {
@@ -451,16 +451,6 @@ impl IInteractionTrackerOwner {
         unsafe { (windows_core::Interface::vtable(this).ValuesChanged)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IInteractionTrackerOwner_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CustomAnimationStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IdleStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InertiaStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InteractingStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RequestIgnored: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ValuesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
@@ -511,6 +501,16 @@ impl IInteractionTrackerOwner_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInteractionTrackerOwner as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInteractionTrackerOwner_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CustomAnimationStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IdleStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InertiaStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InteractingStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestIgnored: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ValuesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInteractionTrackerRequestIgnoredArgs, IInteractionTrackerRequestIgnoredArgs_Vtbl, 0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
 impl windows_core::RuntimeType for IInteractionTrackerRequestIgnoredArgs {

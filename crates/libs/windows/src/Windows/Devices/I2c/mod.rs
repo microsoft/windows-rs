@@ -92,13 +92,6 @@ impl II2cDeviceStatics {
         }
     }
 }
-#[repr(C)]
-pub struct II2cDeviceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for II2cDeviceStatics {
     const NAME: &'static str = "Windows.Devices.I2c.II2cDeviceStatics";
 }
@@ -152,6 +145,13 @@ impl II2cDeviceStatics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<II2cDeviceStatics as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct II2cDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

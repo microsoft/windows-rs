@@ -120,11 +120,6 @@ impl IChatItem {
         }
     }
 }
-#[repr(C)]
-pub struct IChatItem_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
 }
@@ -148,6 +143,11 @@ impl IChatItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IChatItem as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IChatItem_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
 impl windows_core::RuntimeType for IChatMessage {

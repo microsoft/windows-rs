@@ -728,18 +728,6 @@ impl ILauncherViewOptions {
         unsafe { (windows_core::Interface::vtable(this).SetDesiredRemainingView)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct ILauncherViewOptions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_ViewManagement")]
-    pub DesiredRemainingView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_ViewManagement"))]
-    DesiredRemainingView: usize,
-    #[cfg(feature = "UI_ViewManagement")]
-    pub SetDesiredRemainingView: unsafe extern "system" fn(*mut core::ffi::c_void, super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_ViewManagement"))]
-    SetDesiredRemainingView: usize,
-}
 #[cfg(feature = "UI_ViewManagement")]
 impl windows_core::RuntimeName for ILauncherViewOptions {
     const NAME: &'static str = "Windows.System.ILauncherViewOptions";
@@ -775,6 +763,18 @@ impl ILauncherViewOptions_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILauncherViewOptions as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILauncherViewOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI_ViewManagement")]
+    pub DesiredRemainingView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_ViewManagement"))]
+    DesiredRemainingView: usize,
+    #[cfg(feature = "UI_ViewManagement")]
+    pub SetDesiredRemainingView: unsafe extern "system" fn(*mut core::ffi::c_void, super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_ViewManagement"))]
+    SetDesiredRemainingView: usize,
 }
 windows_core::imp::define_interface!(IMemoryManagerStatics, IMemoryManagerStatics_Vtbl, 0x5c6c279c_d7ca_4779_9188_4057219ce64c);
 impl windows_core::RuntimeType for IMemoryManagerStatics {

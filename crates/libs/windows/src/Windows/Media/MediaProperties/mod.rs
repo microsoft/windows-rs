@@ -340,17 +340,6 @@ impl IMediaEncodingProperties {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaEncodingProperties_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSubtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IMediaEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.IMediaEncodingProperties";
@@ -413,6 +402,17 @@ impl IMediaEncodingProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaEncodingProperties as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaEncodingProperties_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSubtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics, IMediaEncodingSubtypesStatics_Vtbl, 0x37b6580e_a171_4464_ba5a_53189e48c1c8);
 impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics {

@@ -540,13 +540,6 @@ impl IPointerPointTransform {
         }
     }
 }
-#[repr(C)]
-pub struct IPointerPointTransform_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Inverse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut super::super::Foundation::Point, *mut bool) -> windows_core::HRESULT,
-    pub TransformBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
@@ -598,6 +591,13 @@ impl IPointerPointTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPointerPointTransform as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPointerPointTransform_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Inverse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut super::super::Foundation::Point, *mut bool) -> windows_core::HRESULT,
+    pub TransformBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerVisualizationSettings, IPointerVisualizationSettings_Vtbl, 0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 impl windows_core::RuntimeType for IPointerVisualizationSettings {

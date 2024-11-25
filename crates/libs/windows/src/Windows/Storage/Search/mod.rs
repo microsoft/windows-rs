@@ -128,26 +128,6 @@ impl IIndexableContent {
         unsafe { (windows_core::Interface::vtable(this).SetStreamContentType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-#[repr(C)]
-pub struct IIndexableContent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Stream: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetStream: usize,
-    pub StreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetStreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IIndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
@@ -235,6 +215,26 @@ impl IIndexableContent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIndexableContent as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IIndexableContent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Stream: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetStream: usize,
+    pub StreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetStreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryOptions, IQueryOptions_Vtbl, 0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
 impl windows_core::RuntimeType for IQueryOptions {
@@ -469,42 +469,6 @@ impl IStorageFolderQueryOperations {
             (windows_core::Interface::vtable(this).IsCommonFileQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IStorageFolderQueryOperations_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetIndexedStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFileQueryOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFileQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFileQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFolderQueryOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFolderQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFolderQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateItemQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateItemQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetFilesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetFilesAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetFilesAsyncOverloadDefaultStartAndCount: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFoldersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFoldersAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFoldersAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFoldersAsyncOverloadDefaultStartAndCount: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsync: usize,
-    pub AreQueryOptionsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsCommonFolderQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut bool) -> windows_core::HRESULT,
-    pub IsCommonFileQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut bool) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageFolderQueryOperations {
@@ -742,6 +706,42 @@ impl IStorageFolderQueryOperations_Vtbl {
         iid == &<IStorageFolderQueryOperations as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageFolderQueryOperations_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetIndexedStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFileQueryOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFileQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFileQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFolderQueryOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFolderQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFolderQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateItemQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateItemQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetFilesAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetFilesAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetFilesAsyncOverloadDefaultStartAndCount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFoldersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFoldersAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFoldersAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFoldersAsyncOverloadDefaultStartAndCount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetItemsAsync: usize,
+    pub AreQueryOptionsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsCommonFolderQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut bool) -> windows_core::HRESULT,
+    pub IsCommonFileQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageFolderQueryResult, IStorageFolderQueryResult_Vtbl, 0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 impl windows_core::RuntimeType for IStorageFolderQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -867,19 +867,6 @@ impl IStorageQueryResultBase {
         unsafe { (windows_core::Interface::vtable(this).ApplyNewQueryOptions)(windows_core::Interface::as_raw(this), newqueryoptions.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IStorageQueryResultBase_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContentsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveContentsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub OptionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveOptionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub FindStartIndexAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCurrentQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ApplyNewQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
@@ -988,6 +975,19 @@ impl IStorageQueryResultBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageQueryResultBase as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageQueryResultBase_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ContentsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveContentsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub OptionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveOptionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FindStartIndexAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCurrentQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApplyNewQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IValueAndLanguage, IValueAndLanguage_Vtbl, 0xb9914881_a1ee_4bc4_92a5_466968e30436);
 impl windows_core::RuntimeType for IValueAndLanguage {

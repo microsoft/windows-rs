@@ -24,14 +24,6 @@ impl IUriToStreamResolver {
         }
     }
 }
-#[repr(C)]
-pub struct IUriToStreamResolver_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub UriToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    UriToStreamAsync: usize,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IUriToStreamResolver {
     const NAME: &'static str = "Windows.Web.IUriToStreamResolver";
@@ -59,6 +51,14 @@ impl IUriToStreamResolver_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUriToStreamResolver as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IUriToStreamResolver_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub UriToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    UriToStreamAsync: usize,
 }
 windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 impl windows_core::RuntimeType for IWebErrorStatics {

@@ -176,19 +176,6 @@ impl IStorageItemExtraProperties {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageItemExtraProperties_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RetrievePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RetrievePropertiesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SavePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SavePropertiesAsync: usize,
-    pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageItemExtraProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemExtraProperties";
@@ -245,6 +232,19 @@ impl IStorageItemExtraProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemExtraProperties as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItemExtraProperties_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RetrievePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RetrievePropertiesAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SavePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SavePropertiesAsync: usize,
+    pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
 impl windows_core::RuntimeType for IThumbnailProperties {

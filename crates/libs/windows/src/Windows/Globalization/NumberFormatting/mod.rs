@@ -84,13 +84,6 @@ impl INumberFormatter {
         }
     }
 }
-#[repr(C)]
-pub struct INumberFormatter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
 }
@@ -145,6 +138,13 @@ impl INumberFormatter_Vtbl {
         iid == &<INumberFormatter as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct INumberFormatter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(INumberFormatter2, INumberFormatter2_Vtbl, 0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
 impl windows_core::RuntimeType for INumberFormatter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -172,13 +172,6 @@ impl INumberFormatter2 {
             (windows_core::Interface::vtable(this).FormatDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct INumberFormatter2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
@@ -233,6 +226,13 @@ impl INumberFormatter2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INumberFormatter2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct INumberFormatter2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberFormatterOptions, INumberFormatterOptions_Vtbl, 0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
 impl windows_core::RuntimeType for INumberFormatterOptions {
@@ -324,27 +324,6 @@ impl INumberFormatterOptions {
             (windows_core::Interface::vtable(this).ResolvedGeographicRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct INumberFormatterOptions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
-    pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetIntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub FractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetFractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub IsGrouped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsGrouped: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub IsDecimalPointAlwaysDisplayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsDecimalPointAlwaysDisplayed: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub NumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ResolvedLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for INumberFormatterOptions {
@@ -507,6 +486,27 @@ impl INumberFormatterOptions_Vtbl {
         iid == &<INumberFormatterOptions as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct INumberFormatterOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Languages: usize,
+    pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetIntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub FractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetFractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub IsGrouped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsGrouped: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub IsDecimalPointAlwaysDisplayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsDecimalPointAlwaysDisplayed: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub NumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResolvedLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(INumberParser, INumberParser_Vtbl, 0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
 impl windows_core::RuntimeType for INumberParser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -534,13 +534,6 @@ impl INumberParser {
             (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct INumberParser_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ParseInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ParseUInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ParseDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for INumberParser {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberParser";
@@ -596,6 +589,13 @@ impl INumberParser_Vtbl {
         iid == &<INumberParser as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct INumberParser_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ParseInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ParseUInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ParseDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(INumberRounder, INumberRounder_Vtbl, 0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 impl windows_core::RuntimeType for INumberRounder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -644,16 +644,6 @@ impl INumberRounder {
             (windows_core::Interface::vtable(this).RoundDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct INumberRounder_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RoundInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    pub RoundUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub RoundInt64: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut i64) -> windows_core::HRESULT,
-    pub RoundUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
-    pub RoundSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut f32) -> windows_core::HRESULT,
-    pub RoundDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
@@ -742,6 +732,16 @@ impl INumberRounder_Vtbl {
         iid == &<INumberRounder as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct INumberRounder_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RoundInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+    pub RoundUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub RoundInt64: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut i64) -> windows_core::HRESULT,
+    pub RoundUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
+    pub RoundSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut f32) -> windows_core::HRESULT,
+    pub RoundDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(INumberRounderOption, INumberRounderOption_Vtbl, 0x3b088433_646f_4efe_8d48_66eb2e49e736);
 impl windows_core::RuntimeType for INumberRounderOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -762,12 +762,6 @@ impl INumberRounderOption {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct INumberRounderOption_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
@@ -802,6 +796,12 @@ impl INumberRounderOption_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INumberRounderOption as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct INumberRounderOption_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumeralSystemTranslator, INumeralSystemTranslator_Vtbl, 0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
 impl windows_core::RuntimeType for INumeralSystemTranslator {
@@ -873,12 +873,6 @@ impl ISignedZeroOption {
         unsafe { (windows_core::Interface::vtable(this).SetIsZeroSigned)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct ISignedZeroOption_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
 }
@@ -912,6 +906,12 @@ impl ISignedZeroOption_Vtbl {
         iid == &<ISignedZeroOption as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISignedZeroOption_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISignificantDigitsNumberRounder, ISignificantDigitsNumberRounder_Vtbl, 0xf5941bca_6646_4913_8c76_1b191ff94dfd);
 impl windows_core::RuntimeType for ISignificantDigitsNumberRounder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -941,12 +941,6 @@ impl ISignificantDigitsOption {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-}
-#[repr(C)]
-pub struct ISignificantDigitsOption_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
@@ -980,6 +974,12 @@ impl ISignificantDigitsOption_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISignificantDigitsOption as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISignificantDigitsOption_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetSignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

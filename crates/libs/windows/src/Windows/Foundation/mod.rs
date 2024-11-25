@@ -63,13 +63,6 @@ impl IAsyncAction {
 }
 unsafe impl Send for IAsyncAction {}
 unsafe impl Sync for IAsyncAction {}
-#[repr(C)]
-pub struct IAsyncAction_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
 }
@@ -109,6 +102,13 @@ impl IAsyncAction_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncAction as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAsyncAction_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -192,19 +192,6 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Send for IAsyncActionWithProgress<TProgress> {}
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncActionWithProgress<TProgress> {}
-#[repr(C)]
-pub struct IAsyncActionWithProgress_Vtbl<TProgress>
-where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    TProgress: core::marker::PhantomData<TProgress>,
-}
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IAsyncActionWithProgress<TProgress> {
     const NAME: &'static str = "Windows.Foundation.IAsyncActionWithProgress";
 }
@@ -268,6 +255,19 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         iid == &<IAsyncActionWithProgress<TProgress> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAsyncActionWithProgress_Vtbl<TProgress>
+where
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
 windows_core::imp::define_interface!(IAsyncInfo, IAsyncInfo_Vtbl, 0x00000036_0000_0000_c000_000000000046);
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -303,15 +303,6 @@ impl IAsyncInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IAsyncInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AsyncStatus) -> windows_core::HRESULT,
-    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
@@ -375,6 +366,15 @@ impl IAsyncInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncInfo as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAsyncInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AsyncStatus) -> windows_core::HRESULT,
+    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -447,17 +447,6 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
-#[repr(C)]
-pub struct IAsyncOperation_Vtbl<TResult>
-where
-    TResult: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<TResult>) -> windows_core::HRESULT,
-    TResult: core::marker::PhantomData<TResult>,
-}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IAsyncOperation<TResult> {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
 }
@@ -508,6 +497,17 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncOperation<TResult> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAsyncOperation_Vtbl<TResult>
+where
+    TResult: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<TResult>) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -595,21 +595,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Send for IAsyncOperationWithProgress<TResult, TProgress> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncOperationWithProgress<TResult, TProgress> {}
-#[repr(C)]
-pub struct IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<TResult>) -> windows_core::HRESULT,
-    TResult: core::marker::PhantomData<TResult>,
-    TProgress: core::marker::PhantomData<TProgress>,
-}
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress> {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperationWithProgress";
 }
@@ -682,6 +667,21 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         iid == &<IAsyncOperationWithProgress<TResult, TProgress> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<TResult>) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
 windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -692,11 +692,6 @@ impl IClosable {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IClosable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
@@ -715,6 +710,11 @@ impl IClosable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClosable as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IClosable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 impl windows_core::RuntimeType for IDeferral {
@@ -748,11 +748,6 @@ impl IGetActivationFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IGetActivationFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetActivationFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IGetActivationFactory {
     const NAME: &'static str = "Windows.Foundation.IGetActivationFactory";
 }
@@ -780,6 +775,11 @@ impl IGetActivationFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGetActivationFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGetActivationFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetActivationFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
 impl windows_core::RuntimeType for IGuidHelperStatics {
@@ -811,11 +811,6 @@ impl IMemoryBuffer {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IMemoryBuffer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.IMemoryBuffer";
 }
@@ -840,6 +835,11 @@ impl IMemoryBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryBuffer as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMemoryBuffer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBufferFactory {
@@ -882,13 +882,6 @@ impl IMemoryBufferReference {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IMemoryBufferReference_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IMemoryBufferReference {
     const NAME: &'static str = "Windows.Foundation.IMemoryBufferReference";
@@ -934,6 +927,13 @@ impl IMemoryBufferReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryBufferReference as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMemoryBufferReference_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 impl windows_core::RuntimeType for IPropertyValue {
@@ -1157,49 +1157,6 @@ impl IPropertyValue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetRectArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-}
-#[repr(C)]
-pub struct IPropertyValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyType) -> windows_core::HRESULT,
-    pub IsNumericScalar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetUInt8: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
-    pub GetUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub GetUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetSingle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub GetDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub GetChar16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DateTime) -> windows_core::HRESULT,
-    pub GetTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimeSpan) -> windows_core::HRESULT,
-    pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Point) -> windows_core::HRESULT,
-    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Size) -> windows_core::HRESULT,
-    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Rect) -> windows_core::HRESULT,
-    pub GetUInt8Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i16) -> windows_core::HRESULT,
-    pub GetUInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
-    pub GetInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i32) -> windows_core::HRESULT,
-    pub GetUInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u32) -> windows_core::HRESULT,
-    pub GetInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i64) -> windows_core::HRESULT,
-    pub GetUInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u64) -> windows_core::HRESULT,
-    pub GetSingleArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut f32) -> windows_core::HRESULT,
-    pub GetDoubleArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut f64) -> windows_core::HRESULT,
-    pub GetChar16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
-    pub GetBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut bool) -> windows_core::HRESULT,
-    pub GetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::HSTRING) -> windows_core::HRESULT,
-    pub GetInspectableArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::IInspectable) -> windows_core::HRESULT,
-    pub GetGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut DateTime) -> windows_core::HRESULT,
-    pub GetTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut TimeSpan) -> windows_core::HRESULT,
-    pub GetPointArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Point) -> windows_core::HRESULT,
-    pub GetSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Size) -> windows_core::HRESULT,
-    pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
@@ -1571,6 +1528,49 @@ impl IPropertyValue_Vtbl {
         iid == &<IPropertyValue as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IPropertyValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyType) -> windows_core::HRESULT,
+    pub IsNumericScalar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetUInt8: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub GetInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
+    pub GetUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub GetInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub GetUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub GetUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub GetSingle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub GetDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub GetChar16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DateTime) -> windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimeSpan) -> windows_core::HRESULT,
+    pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Point) -> windows_core::HRESULT,
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Size) -> windows_core::HRESULT,
+    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Rect) -> windows_core::HRESULT,
+    pub GetUInt8Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
+    pub GetInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i16) -> windows_core::HRESULT,
+    pub GetUInt16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
+    pub GetInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i32) -> windows_core::HRESULT,
+    pub GetUInt32Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u32) -> windows_core::HRESULT,
+    pub GetInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i64) -> windows_core::HRESULT,
+    pub GetUInt64Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u64) -> windows_core::HRESULT,
+    pub GetSingleArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut f32) -> windows_core::HRESULT,
+    pub GetDoubleArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut f64) -> windows_core::HRESULT,
+    pub GetChar16Array: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
+    pub GetBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut bool) -> windows_core::HRESULT,
+    pub GetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::HSTRING) -> windows_core::HRESULT,
+    pub GetInspectableArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::IInspectable) -> windows_core::HRESULT,
+    pub GetGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut DateTime) -> windows_core::HRESULT,
+    pub GetTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut TimeSpan) -> windows_core::HRESULT,
+    pub GetPointArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Point) -> windows_core::HRESULT,
+    pub GetSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Size) -> windows_core::HRESULT,
+    pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 impl windows_core::RuntimeType for IPropertyValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1860,15 +1860,6 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
         unsafe { (windows_core::Interface::vtable(this).GetRectArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }
-#[repr(C)]
-pub struct IReference_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
 }
@@ -1900,6 +1891,15 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReference<T> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IReference_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2143,15 +2143,6 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
         unsafe { (windows_core::Interface::vtable(this).GetRectArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }
-#[repr(C)]
-pub struct IReferenceArray_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReferenceArray<T> {
     const NAME: &'static str = "Windows.Foundation.IReferenceArray";
 }
@@ -2185,6 +2176,15 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
         iid == &<IReferenceArray<T> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IReferenceArray_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
 windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2198,11 +2198,6 @@ impl IStringable {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStringable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
@@ -2228,6 +2223,11 @@ impl IStringable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStringable as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStringable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
 impl windows_core::RuntimeType for IUriEscapeStatics {
@@ -2308,12 +2308,6 @@ impl IWwwFormUrlDecoderEntry {
         }
     }
 }
-#[repr(C)]
-pub struct IWwwFormUrlDecoderEntry_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IWwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";
 }
@@ -2354,6 +2348,12 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderEntry as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWwwFormUrlDecoderEntry_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);

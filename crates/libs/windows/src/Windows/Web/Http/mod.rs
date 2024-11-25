@@ -156,29 +156,6 @@ impl IHttpContent {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IHttpContent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
-    pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
-    Headers: usize,
-    pub BufferAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub ReadAsBufferAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ReadAsBufferAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ReadAsInputStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ReadAsInputStreamAsync: usize,
-    pub ReadAsStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryComputeLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub WriteToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    WriteToStreamAsync: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl windows_core::RuntimeName for IHttpContent {
     const NAME: &'static str = "Windows.Web.Http.IHttpContent";
@@ -286,6 +263,29 @@ impl IHttpContent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHttpContent as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IHttpContent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
+    Headers: usize,
+    pub BufferAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub ReadAsBufferAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ReadAsBufferAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ReadAsInputStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ReadAsInputStreamAsync: usize,
+    pub ReadAsStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryComputeLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub WriteToStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    WriteToStreamAsync: usize,
 }
 windows_core::imp::define_interface!(IHttpCookie, IHttpCookie_Vtbl, 0x1f5488e2_cc2d_4779_86a7_88f10687d249);
 impl windows_core::RuntimeType for IHttpCookie {

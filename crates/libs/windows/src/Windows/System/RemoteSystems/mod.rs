@@ -257,10 +257,6 @@ impl windows_core::RuntimeType for IRemoteSystemFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IRemoteSystemFilter, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IRemoteSystemFilter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IRemoteSystemFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";
 }
@@ -272,6 +268,10 @@ impl IRemoteSystemFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRemoteSystemFilter as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IRemoteSystemFilter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IRemoteSystemKindFilter, IRemoteSystemKindFilter_Vtbl, 0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
 impl windows_core::RuntimeType for IRemoteSystemKindFilter {

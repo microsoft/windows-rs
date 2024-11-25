@@ -21,15 +21,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
         }
     }
 }
-#[repr(C)]
-pub struct IIterable_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub First: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
 }
@@ -61,6 +52,15 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IIterable_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub First: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -105,18 +105,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IIterator_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub HasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut T, *mut u32) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
@@ -186,6 +174,18 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         iid == &<IIterator<T> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IIterator_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub HasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut T, *mut u32) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IKeyValuePair<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
@@ -216,18 +216,6 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IKeyValuePair_Vtbl<K, V>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<K>) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
-    V: core::marker::PhantomData<V>,
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IKeyValuePair<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IKeyValuePair";
@@ -275,6 +263,18 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKeyValuePair<K, V> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IKeyValuePair_Vtbl<K, V>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<K>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+    V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -373,23 +373,6 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IMap_Vtbl<K, V>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, windows_core::AbiType<V>, *mut bool) -> windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>) -> windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
-    V: core::marker::PhantomData<V>,
-}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMap<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMap";
 }
@@ -485,6 +468,23 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         iid == &<IMap<K, V> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IMap_Vtbl<K, V>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
+    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, windows_core::AbiType<V>, *mut bool) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+    V: core::marker::PhantomData<V>,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
@@ -514,16 +514,6 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
             (windows_core::Interface::vtable(this).Key)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IMapChangedEventArgs_Vtbl<K>
-where
-    K: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
-    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<K>) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
 }
 impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
@@ -568,6 +558,16 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMapChangedEventArgs<K> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMapChangedEventArgs_Vtbl<K>
+where
+    K: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<K>) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -641,20 +641,6 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IMapView_Vtbl<K, V>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
-    pub Split: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
-    V: core::marker::PhantomData<V>,
-}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapView<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapView";
 }
@@ -718,6 +704,20 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMapView<K, V> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMapView_Vtbl<K, V>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
+    pub Split: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+    V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -833,18 +833,6 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IObservableMap_Vtbl<K, V>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveMapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
-    V: core::marker::PhantomData<V>,
-}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IObservableMap<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableMap";
 }
@@ -883,6 +871,18 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IObservableMap<K, V> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IObservableMap_Vtbl<K, V>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveMapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+    V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1016,16 +1016,6 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IObservableVector
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IObservableVector_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub VectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveVectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IObservableVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableVector";
 }
@@ -1062,6 +1052,16 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IObservableVector<T> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IObservableVector_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub VectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveVectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 impl windows_core::RuntimeType for IPropertySet {
@@ -1152,10 +1152,6 @@ impl IntoIterator for &IPropertySet {
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IPropertySet_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IPropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.IPropertySet";
 }
@@ -1167,6 +1163,10 @@ impl IPropertySet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPropertySet as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPropertySet_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1282,26 +1282,6 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
-}
-#[repr(C)]
-pub struct IVector_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
-    pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub InsertAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub RemoveAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
-    pub ReplaceAll: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const T) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
@@ -1426,6 +1406,26 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         iid == &<IVector<T> as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IVector_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
+    pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub InsertAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub RemoveAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
+    pub ReplaceAll: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const T) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
 windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
 impl windows_core::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1446,12 +1446,6 @@ impl IVectorChangedEventArgs {
             (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IVectorChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
-    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IVectorChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
@@ -1491,6 +1485,12 @@ impl IVectorChangedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVectorChangedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVectorChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
+    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1563,18 +1563,6 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
         self.First().unwrap()
     }
 }
-#[repr(C)]
-pub struct IVectorView_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
 }
@@ -1642,6 +1630,18 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVectorView<T> as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVectorView_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

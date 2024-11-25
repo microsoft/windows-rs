@@ -74,15 +74,6 @@ impl IIOControlCode {
         }
     }
 }
-#[repr(C)]
-pub struct IIOControlCode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AccessMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IOControlAccessMode) -> windows_core::HRESULT,
-    pub BufferingMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IOControlBufferingMethod) -> windows_core::HRESULT,
-    pub Function: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub DeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
@@ -157,6 +148,15 @@ impl IIOControlCode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIOControlCode as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IIOControlCode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AccessMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IOControlAccessMode) -> windows_core::HRESULT,
+    pub BufferingMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IOControlBufferingMethod) -> windows_core::HRESULT,
+    pub Function: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub DeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 impl windows_core::RuntimeType for IIOControlCodeFactory {

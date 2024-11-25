@@ -23,11 +23,6 @@ impl IActivatedEventArgsDeferral {
         }
     }
 }
-#[repr(C)]
-pub struct IActivatedEventArgsDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
 }
@@ -55,6 +50,11 @@ impl IActivatedEventArgsDeferral_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivatedEventArgsDeferral as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IActivatedEventArgsDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 impl windows_core::RuntimeType for IActivatedOperation {
@@ -202,12 +202,6 @@ impl IWebUIBackgroundTaskInstance {
         unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
     }
 }
-#[repr(C)]
-pub struct IWebUIBackgroundTaskInstance_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
 }
@@ -241,6 +235,12 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         iid == &<IWebUIBackgroundTaskInstance as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebUIBackgroundTaskInstance_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -273,11 +273,6 @@ impl IWebUINavigatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IWebUINavigatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
 }
@@ -305,6 +300,11 @@ impl IWebUINavigatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebUINavigatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebUINavigatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 impl windows_core::RuntimeType for IWebUINavigatedOperation {

@@ -157,23 +157,6 @@ impl IJsonValue {
         }
     }
 }
-#[repr(C)]
-pub struct IJsonValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JsonValueType) -> windows_core::HRESULT,
-    pub Stringify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetObject: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";
@@ -279,6 +262,23 @@ impl IJsonValue_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IJsonValue as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IJsonValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JsonValueType) -> windows_core::HRESULT,
+    pub Stringify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetObject: usize,
 }
 windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 impl windows_core::RuntimeType for IJsonValueStatics {

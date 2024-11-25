@@ -856,17 +856,6 @@ impl IHumanPresenceSensorExtension {
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IHumanPresenceSensorExtension_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProcessReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProcessReadingTimeoutExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
     const NAME: &'static str = "Windows.Devices.Sensors.IHumanPresenceSensorExtension";
 }
@@ -930,6 +919,17 @@ impl IHumanPresenceSensorExtension_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHumanPresenceSensorExtension as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IHumanPresenceSensorExtension_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProcessReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProcessReadingTimeoutExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHumanPresenceSensorReading, IHumanPresenceSensorReading_Vtbl, 0x83533bf5_a85a_5d50_8be4_6072d745a3bb);
 impl windows_core::RuntimeType for IHumanPresenceSensorReading {
@@ -1757,10 +1757,6 @@ impl windows_core::RuntimeType for ISensorDataThreshold {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ISensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct ISensorDataThreshold_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for ISensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ISensorDataThreshold";
 }
@@ -1772,6 +1768,10 @@ impl ISensorDataThreshold_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISensorDataThreshold as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISensorDataThreshold_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISensorDataThresholdTriggerDetails, ISensorDataThresholdTriggerDetails_Vtbl, 0x9106f1b7_e88d_48b1_bc90_619c7b349391);
 impl windows_core::RuntimeType for ISensorDataThresholdTriggerDetails {

@@ -92,17 +92,6 @@ impl ISpeechRecognitionConstraint {
         unsafe { (windows_core::Interface::vtable(this).SetProbability)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct ISpeechRecognitionConstraint_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionConstraintType) -> windows_core::HRESULT,
-    pub Probability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionConstraintProbability) -> windows_core::HRESULT,
-    pub SetProbability: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechRecognitionConstraintProbability) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISpeechRecognitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint";
 }
@@ -184,6 +173,17 @@ impl ISpeechRecognitionConstraint_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpeechRecognitionConstraint as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISpeechRecognitionConstraint_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionConstraintType) -> windows_core::HRESULT,
+    pub Probability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionConstraintProbability) -> windows_core::HRESULT,
+    pub SetProbability: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechRecognitionConstraintProbability) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionGrammarFileConstraint, ISpeechRecognitionGrammarFileConstraint_Vtbl, 0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 impl windows_core::RuntimeType for ISpeechRecognitionGrammarFileConstraint {

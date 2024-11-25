@@ -197,11 +197,6 @@ impl IInkPointFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IInkPointFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInkPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInkPointFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPointFactory";
 }
@@ -226,6 +221,11 @@ impl IInkPointFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkPointFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInkPointFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInkPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPointFactory2, IInkPointFactory2_Vtbl, 0xe0145e85_daff_45f2_ad69_050d8256a209);
 impl windows_core::RuntimeType for IInkPointFactory2 {
@@ -358,11 +358,6 @@ impl IInkPresenterRulerFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IInkPresenterRulerFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInkPresenterRulerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
 }
@@ -387,6 +382,11 @@ impl IInkPresenterRulerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkPresenterRulerFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInkPresenterRulerFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenterStencil, IInkPresenterStencil_Vtbl, 0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 impl windows_core::RuntimeType for IInkPresenterStencil {
@@ -447,25 +447,6 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
-}
-#[repr(C)]
-pub struct IInkPresenterStencil_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPresenterStencilKind) -> windows_core::HRESULT,
-    pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
-    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
-    pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
-    pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Transform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransform: usize,
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for IInkPresenterStencil {
@@ -569,6 +550,25 @@ impl IInkPresenterStencil_Vtbl {
         iid == &<IInkPresenterStencil as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IInkPresenterStencil_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPresenterStencilKind) -> windows_core::HRESULT,
+    pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
+    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
+    pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
+    pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Transform: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetTransform: usize,
+}
 windows_core::imp::define_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 impl windows_core::RuntimeType for IInkRecognitionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -628,19 +628,6 @@ impl IInkRecognizerContainer {
         }
     }
 }
-#[repr(C)]
-pub struct IInkRecognizerContainer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetDefaultRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RecognizeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, InkRecognitionTarget, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RecognizeAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetRecognizers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetRecognizers: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IInkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognizerContainer";
@@ -690,6 +677,19 @@ impl IInkRecognizerContainer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkRecognizerContainer as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInkRecognizerContainer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetDefaultRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RecognizeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, InkRecognitionTarget, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RecognizeAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetRecognizers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetRecognizers: usize,
 }
 windows_core::imp::define_interface!(IInkStroke, IInkStroke_Vtbl, 0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 impl windows_core::RuntimeType for IInkStroke {
@@ -909,42 +909,6 @@ impl IInkStrokeContainer {
         }
     }
 }
-#[repr(C)]
-pub struct IInkStrokeContainer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub AddStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub MoveSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SelectWithPolyLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SelectWithPolyLine: usize,
-    pub SelectWithLine: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub CopySelectedToClipboard: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PasteFromClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub CanPasteFromClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    LoadAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SaveAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub UpdateRecognitionResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateRecognitionResults: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetStrokes: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetRecognitionResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetRecognitionResults: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IInkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeContainer";
@@ -1116,6 +1080,42 @@ impl IInkStrokeContainer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkStrokeContainer as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInkStrokeContainer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub AddStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub MoveSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SelectWithPolyLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SelectWithPolyLine: usize,
+    pub SelectWithLine: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub CopySelectedToClipboard: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PasteFromClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub CanPasteFromClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    LoadAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SaveAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub UpdateRecognitionResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    UpdateRecognitionResults: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetStrokes: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetRecognitionResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetRecognitionResults: usize,
 }
 windows_core::imp::define_interface!(IInkStrokeContainer2, IInkStrokeContainer2_Vtbl, 0x8901d364_da36_4bcf_9e5c_d195825995b4);
 impl windows_core::RuntimeType for IInkStrokeContainer2 {

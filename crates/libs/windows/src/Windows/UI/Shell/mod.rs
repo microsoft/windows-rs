@@ -12,11 +12,6 @@ impl IAdaptiveCard {
         }
     }
 }
-#[repr(C)]
-pub struct IAdaptiveCard_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
@@ -42,6 +37,11 @@ impl IAdaptiveCard_Vtbl {
         iid == &<IAdaptiveCard as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAdaptiveCard_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IAdaptiveCardBuilderStatics, IAdaptiveCardBuilderStatics_Vtbl, 0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 impl windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -55,11 +55,6 @@ impl IAdaptiveCardBuilderStatics {
             (windows_core::Interface::vtable(this).CreateAdaptiveCardFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IAdaptiveCardBuilderStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
@@ -88,6 +83,11 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAdaptiveCardBuilderStatics as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAdaptiveCardBuilderStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusSession, IFocusSession_Vtbl, 0x069fbab8_0e84_5f2f_8614_9b6544326277);
 impl windows_core::RuntimeType for IFocusSession {

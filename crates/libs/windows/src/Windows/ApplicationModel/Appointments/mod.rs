@@ -371,14 +371,6 @@ impl IAppointmentParticipant {
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-#[repr(C)]
-pub struct IAppointmentParticipant_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";
 }
@@ -431,6 +423,14 @@ impl IAppointmentParticipant_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentParticipant as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAppointmentParticipant_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentPropertiesStatics, IAppointmentPropertiesStatics_Vtbl, 0x25141fe9_68ae_3aae_855f_bc4441caa234);
 impl windows_core::RuntimeType for IAppointmentPropertiesStatics {

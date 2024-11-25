@@ -66,20 +66,6 @@ impl IAdcControllerProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IAdcControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ResolutionInBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MaxValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ChannelMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderAdcChannelMode) -> windows_core::HRESULT,
-    pub SetChannelMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderAdcChannelMode) -> windows_core::HRESULT,
-    pub IsChannelModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderAdcChannelMode, *mut bool) -> windows_core::HRESULT,
-    pub AcquireChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ReleaseChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
@@ -197,6 +183,20 @@ impl IAdcControllerProvider_Vtbl {
         iid == &<IAdcControllerProvider as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAdcControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub ResolutionInBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MaxValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub ChannelMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderAdcChannelMode) -> windows_core::HRESULT,
+    pub SetChannelMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderAdcChannelMode) -> windows_core::HRESULT,
+    pub IsChannelModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderAdcChannelMode, *mut bool) -> windows_core::HRESULT,
+    pub AcquireChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ReleaseChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
 impl windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -211,14 +211,6 @@ impl IAdcProvider {
             (windows_core::Interface::vtable(this).GetControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IAdcProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IAdcProvider {
@@ -247,6 +239,14 @@ impl IAdcProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAdcProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAdcProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControllers: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

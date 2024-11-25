@@ -112,26 +112,6 @@ impl IInkAnalysisNode {
         }
     }
 }
-#[repr(C)]
-pub struct IInkAnalysisNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkAnalysisNodeKind) -> windows_core::HRESULT,
-    pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RotatedBoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RotatedBoundingRect: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Children: usize,
-    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetStrokeIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetStrokeIds: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IInkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisNode";
@@ -238,6 +218,26 @@ impl IInkAnalysisNode_Vtbl {
         iid == &<IInkAnalysisNode as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IInkAnalysisNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkAnalysisNodeKind) -> windows_core::HRESULT,
+    pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RotatedBoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RotatedBoundingRect: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Children: usize,
+    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetStrokeIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetStrokeIds: usize,
+}
 windows_core::imp::define_interface!(IInkAnalysisParagraph, IInkAnalysisParagraph_Vtbl, 0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
 impl windows_core::RuntimeType for IInkAnalysisParagraph {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -316,11 +316,6 @@ impl IInkAnalyzerFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IInkAnalyzerFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateAnalyzer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
 }
@@ -345,6 +340,11 @@ impl IInkAnalyzerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkAnalyzerFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInkAnalyzerFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateAnalyzer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

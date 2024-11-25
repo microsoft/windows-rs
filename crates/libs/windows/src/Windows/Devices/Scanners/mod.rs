@@ -93,14 +93,6 @@ impl IImageScannerFormatConfiguration {
         }
     }
 }
-#[repr(C)]
-pub struct IImageScannerFormatConfiguration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DefaultFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
-    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerFormat) -> windows_core::HRESULT,
-    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerFormat, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
 }
@@ -157,6 +149,14 @@ impl IImageScannerFormatConfiguration_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImageScannerFormatConfiguration as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IImageScannerFormatConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DefaultFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerFormat) -> windows_core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerFormat, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerPreviewResult, IImageScannerPreviewResult_Vtbl, 0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 impl windows_core::RuntimeType for IImageScannerPreviewResult {
@@ -397,39 +397,6 @@ impl IImageScannerSourceConfiguration {
             (windows_core::Interface::vtable(this).IsFormatSupported)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IImageScannerSourceConfiguration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MinScanArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    pub MaxScanArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    pub SelectedScanRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub SetSelectedScanRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub AutoCroppingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerAutoCroppingMode) -> windows_core::HRESULT,
-    pub SetAutoCroppingMode: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerAutoCroppingMode) -> windows_core::HRESULT,
-    pub IsAutoCroppingModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerAutoCroppingMode, *mut bool) -> windows_core::HRESULT,
-    pub MinResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
-    pub MaxResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
-    pub OpticalResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
-    pub DesiredResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
-    pub SetDesiredResolution: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerResolution) -> windows_core::HRESULT,
-    pub ActualResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
-    pub DefaultColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerColorMode) -> windows_core::HRESULT,
-    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerColorMode) -> windows_core::HRESULT,
-    pub SetColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerColorMode) -> windows_core::HRESULT,
-    pub IsColorModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerColorMode, *mut bool) -> windows_core::HRESULT,
-    pub MinBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MaxBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub BrightnessStep: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub DefaultBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Brightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MinContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MaxContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ContrastStep: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub DefaultContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Contrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetContrast: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IImageScannerSourceConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerSourceConfiguration";
@@ -757,6 +724,39 @@ impl IImageScannerSourceConfiguration_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImageScannerSourceConfiguration as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IImageScannerSourceConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MinScanArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
+    pub MaxScanArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
+    pub SelectedScanRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub SetSelectedScanRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
+    pub AutoCroppingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerAutoCroppingMode) -> windows_core::HRESULT,
+    pub SetAutoCroppingMode: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerAutoCroppingMode) -> windows_core::HRESULT,
+    pub IsAutoCroppingModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerAutoCroppingMode, *mut bool) -> windows_core::HRESULT,
+    pub MinResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
+    pub MaxResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
+    pub OpticalResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
+    pub DesiredResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
+    pub SetDesiredResolution: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerResolution) -> windows_core::HRESULT,
+    pub ActualResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerResolution) -> windows_core::HRESULT,
+    pub DefaultColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerColorMode) -> windows_core::HRESULT,
+    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerColorMode) -> windows_core::HRESULT,
+    pub SetColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerColorMode) -> windows_core::HRESULT,
+    pub IsColorModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerColorMode, *mut bool) -> windows_core::HRESULT,
+    pub MinBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MaxBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub BrightnessStep: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub DefaultBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Brightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub MinContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MaxContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub ContrastStep: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub DefaultContrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Contrast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetContrast: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerStatics, IImageScannerStatics_Vtbl, 0xbc57e70e_d804_4477_9fb5_b911b5473897);
 impl windows_core::RuntimeType for IImageScannerStatics {

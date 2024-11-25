@@ -140,11 +140,6 @@ impl IUserActivityContentInfo {
         }
     }
 }
-#[repr(C)]
-pub struct IUserActivityContentInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IUserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityContentInfo";
 }
@@ -169,6 +164,11 @@ impl IUserActivityContentInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserActivityContentInfo as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IUserActivityContentInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserActivityContentInfoStatics, IUserActivityContentInfoStatics_Vtbl, 0x9988c34b_0386_4bc9_968a_8200b004144f);
 impl windows_core::RuntimeType for IUserActivityContentInfoStatics {

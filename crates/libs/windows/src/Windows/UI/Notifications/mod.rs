@@ -24,15 +24,6 @@ impl IAdaptiveNotificationContent {
         }
     }
 }
-#[repr(C)]
-pub struct IAdaptiveNotificationContent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Hints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Hints: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
@@ -75,6 +66,15 @@ impl IAdaptiveNotificationContent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAdaptiveNotificationContent as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAdaptiveNotificationContent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Hints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Hints: usize,
 }
 windows_core::imp::define_interface!(IAdaptiveNotificationText, IAdaptiveNotificationText_Vtbl, 0x46d4a3be_609a_4326_a40b_bfde872034a3);
 impl windows_core::RuntimeType for IAdaptiveNotificationText {

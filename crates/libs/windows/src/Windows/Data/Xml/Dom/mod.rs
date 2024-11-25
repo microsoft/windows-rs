@@ -316,18 +316,6 @@ impl IXmlCharacterData {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-#[repr(C)]
-pub struct IXmlCharacterData_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SubstringData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AppendData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InsertData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub ReplaceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IXmlCharacterData {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlCharacterData";
@@ -413,6 +401,18 @@ impl IXmlCharacterData_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlCharacterData as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IXmlCharacterData_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SubstringData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AppendData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InsertData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    pub ReplaceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlComment, IXmlComment_Vtbl, 0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 impl windows_core::RuntimeType for IXmlComment {
@@ -837,39 +837,6 @@ impl IXmlNode {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-#[repr(C)]
-pub struct IXmlNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NodeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NodeType) -> windows_core::HRESULT,
-    pub NodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ParentNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ChildNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ChildNodes: usize,
-    pub FirstChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LastChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PreviousSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NextSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Attributes: usize,
-    pub HasChildNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub OwnerDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InsertBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReplaceChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AppendChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CloneNode: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Prefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IXmlNode {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNode";
@@ -1164,6 +1131,39 @@ impl IXmlNode_Vtbl {
         iid == &<IXmlNode as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IXmlNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NodeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NodeType) -> windows_core::HRESULT,
+    pub NodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ParentNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ChildNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ChildNodes: usize,
+    pub FirstChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LastChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PreviousSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NextSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Attributes: usize,
+    pub HasChildNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub OwnerDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InsertBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReplaceChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AppendChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CloneNode: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Prefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::define_interface!(IXmlNodeList, IXmlNodeList_Vtbl, 0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 #[cfg(feature = "Foundation_Collections")]
@@ -1219,20 +1219,6 @@ impl IXmlNodeSelector {
             (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IXmlNodeSelector_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SelectSingleNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SelectNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SelectNodes: usize,
-    pub SelectSingleNodeNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SelectNodesNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SelectNodesNS: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IXmlNodeSelector {
@@ -1304,6 +1290,20 @@ impl IXmlNodeSelector_Vtbl {
         iid == &<IXmlNodeSelector as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IXmlNodeSelector_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SelectSingleNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SelectNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SelectNodes: usize,
+    pub SelectSingleNodeNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SelectNodesNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SelectNodesNS: usize,
+}
 windows_core::imp::define_interface!(IXmlNodeSerializer, IXmlNodeSerializer_Vtbl, 0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
 impl windows_core::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1328,13 +1328,6 @@ impl IXmlNodeSerializer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-}
-#[repr(C)]
-pub struct IXmlNodeSerializer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InnerText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetInnerText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IXmlNodeSerializer {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSerializer";
@@ -1382,6 +1375,13 @@ impl IXmlNodeSerializer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlNodeSerializer as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IXmlNodeSerializer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InnerText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetInnerText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlProcessingInstruction, IXmlProcessingInstruction_Vtbl, 0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 impl windows_core::RuntimeType for IXmlProcessingInstruction {
@@ -1678,11 +1678,6 @@ impl IXmlText {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-#[repr(C)]
-pub struct IXmlText_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SplitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IXmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlText";
@@ -1710,6 +1705,11 @@ impl IXmlText_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlText as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IXmlText_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SplitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

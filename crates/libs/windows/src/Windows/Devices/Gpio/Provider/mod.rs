@@ -19,12 +19,6 @@ impl IGpioControllerProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IGpioControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub OpenPinProvider: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ProviderGpioSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IGpioControllerProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioControllerProvider";
 }
@@ -64,6 +58,12 @@ impl IGpioControllerProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGpioControllerProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGpioControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub OpenPinProvider: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ProviderGpioSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900);
 impl windows_core::RuntimeType for IGpioPinProvider {
@@ -139,21 +139,6 @@ impl IGpioPinProvider {
             (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IGpioPinProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub PinNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioSharingMode) -> windows_core::HRESULT,
-    pub IsDriveModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinDriveMode, *mut bool) -> windows_core::HRESULT,
-    pub GetDriveMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinDriveMode) -> windows_core::HRESULT,
-    pub SetDriveMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinDriveMode) -> windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinValue) -> windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinValue) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
@@ -278,6 +263,21 @@ impl IGpioPinProvider_Vtbl {
         iid == &<IGpioPinProvider as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IGpioPinProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetDebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub PinNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioSharingMode) -> windows_core::HRESULT,
+    pub IsDriveModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinDriveMode, *mut bool) -> windows_core::HRESULT,
+    pub GetDriveMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinDriveMode) -> windows_core::HRESULT,
+    pub SetDriveMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinDriveMode) -> windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinValue) -> windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinValue) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -311,14 +311,6 @@ impl IGpioProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IGpioProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IGpioProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioProvider";
@@ -346,6 +338,14 @@ impl IGpioProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGpioProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGpioProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControllers: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

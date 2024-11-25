@@ -370,11 +370,6 @@ impl ICashDrawerEventSourceEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ICashDrawerEventSourceEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CashDrawer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICashDrawerEventSourceEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
 }
@@ -399,6 +394,11 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICashDrawerEventSourceEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICashDrawerEventSourceEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CashDrawer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICashDrawerStatics, ICashDrawerStatics_Vtbl, 0xdfa0955a_d437_4fff_b547_dda969a4f883);
 impl windows_core::RuntimeType for ICashDrawerStatics {
@@ -954,29 +954,6 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
 }
-#[repr(C)]
-pub struct ICommonClaimedPosPrinterStation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetCharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetLineHeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub LineHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub LineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub LineWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetIsLetterQuality: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub IsLetterQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPaperNearEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetColorCartridge: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterColorCartridge) -> windows_core::HRESULT,
-    pub ColorCartridge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterColorCartridge) -> windows_core::HRESULT,
-    pub IsCoverOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsCartridgeRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsCartridgeEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsHeadCleaning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPaperEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsReadyToPrint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ValidateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICommonClaimedPosPrinterStation {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
 }
@@ -1190,6 +1167,29 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         iid == &<ICommonClaimedPosPrinterStation as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICommonClaimedPosPrinterStation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetCharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetLineHeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub LineHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub LineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub LineWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetIsLetterQuality: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub IsLetterQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPaperNearEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetColorCartridge: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterColorCartridge) -> windows_core::HRESULT,
+    pub ColorCartridge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterColorCartridge) -> windows_core::HRESULT,
+    pub IsCoverOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsCartridgeRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsCartridgeEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsHeadCleaning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPaperEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsReadyToPrint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ValidateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICommonPosPrintStationCapabilities, ICommonPosPrintStationCapabilities_Vtbl, 0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
 impl windows_core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1288,26 +1288,6 @@ impl ICommonPosPrintStationCapabilities {
             (windows_core::Interface::vtable(this).SupportedCharactersPerLine)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ICommonPosPrintStationCapabilities_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsPrinterPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsDualColorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ColorCartridgeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterColorCapabilities) -> windows_core::HRESULT,
-    pub CartridgeSensors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterCartridgeSensors) -> windows_core::HRESULT,
-    pub IsBoldSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsItalicSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsUnderlineSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsDoubleHighPrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsDoubleWidePrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsDoubleHighDoubleWidePrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPaperEmptySensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPaperNearEndSensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedCharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCharactersPerLine: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ICommonPosPrintStationCapabilities {
@@ -1484,6 +1464,26 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         iid == &<ICommonPosPrintStationCapabilities as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICommonPosPrintStationCapabilities_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsPrinterPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsDualColorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ColorCartridgeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterColorCapabilities) -> windows_core::HRESULT,
+    pub CartridgeSensors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterCartridgeSensors) -> windows_core::HRESULT,
+    pub IsBoldSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsItalicSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsUnderlineSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsDoubleHighPrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsDoubleWidePrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsDoubleHighDoubleWidePrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPaperEmptySensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPaperNearEndSensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedCharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedCharactersPerLine: usize,
+}
 windows_core::imp::define_interface!(ICommonReceiptSlipCapabilities, ICommonReceiptSlipCapabilities_Vtbl, 0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 impl windows_core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1649,25 +1649,6 @@ impl ICommonReceiptSlipCapabilities {
         }
     }
 }
-#[repr(C)]
-pub struct ICommonReceiptSlipCapabilities_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsBarcodeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsBitmapSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsLeft90RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsRight90RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Is180RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPrintAreaSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub RuledLineCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterRuledLineCapabilities) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedBarcodeRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedBarcodeRotations: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedBitmapRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedBitmapRotations: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ICommonReceiptSlipCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities";
@@ -1795,6 +1776,25 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommonReceiptSlipCapabilities as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICommonReceiptSlipCapabilities_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsBarcodeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsBitmapSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsLeft90RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsRight90RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Is180RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPrintAreaSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub RuledLineCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterRuledLineCapabilities) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedBarcodeRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedBarcodeRotations: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedBitmapRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedBitmapRotations: usize,
 }
 windows_core::imp::define_interface!(IJournalPrintJob, IJournalPrintJob_Vtbl, 0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 impl windows_core::RuntimeType for IJournalPrintJob {
@@ -2383,14 +2383,6 @@ impl IPosPrinterJob {
         }
     }
 }
-#[repr(C)]
-pub struct IPosPrinterJob_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Print: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PrintLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PrintNewline: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExecuteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPosPrinterJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterJob";
 }
@@ -2436,6 +2428,14 @@ impl IPosPrinterJob_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPosPrinterJob as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPosPrinterJob_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Print: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrintLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrintNewline: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExecuteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPosPrinterPrintOptions, IPosPrinterPrintOptions_Vtbl, 0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 impl windows_core::RuntimeType for IPosPrinterPrintOptions {
@@ -2637,49 +2637,6 @@ impl IReceiptOrSlipJob {
         }
     }
 }
-#[repr(C)]
-pub struct IReceiptOrSlipJob_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetBarcodeRotation: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterRotation) -> windows_core::HRESULT,
-    pub SetPrintRotation: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterRotation, bool) -> windows_core::HRESULT,
-    pub SetPrintArea: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, PosPrinterAlignment) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetBitmap: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetBitmapCustomWidthStandardAlign: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, PosPrinterAlignment, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetBitmapCustomWidthStandardAlign: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetCustomAlignedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetCustomAlignedBitmap: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetBitmapCustomWidthCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetBitmapCustomWidthCustomAlign: usize,
-    pub PrintSavedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub DrawRuledLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterLineDirection, u32, PosPrinterLineStyle, u32) -> windows_core::HRESULT,
-    pub PrintBarcode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, PosPrinterBarcodeTextPosition, PosPrinterAlignment) -> windows_core::HRESULT,
-    pub PrintBarcodeCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, PosPrinterBarcodeTextPosition, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub PrintBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterAlignment) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    PrintBitmap: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub PrintBitmapCustomWidthStandardAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterAlignment, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    PrintBitmapCustomWidthStandardAlign: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub PrintCustomAlignedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    PrintCustomAlignedBitmap: usize,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub PrintBitmapCustomWidthCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    PrintBitmapCustomWidthCustomAlign: usize,
-}
 #[cfg(feature = "Graphics_Imaging")]
 impl windows_core::RuntimeName for IReceiptOrSlipJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptOrSlipJob";
@@ -2787,6 +2744,49 @@ impl IReceiptOrSlipJob_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReceiptOrSlipJob as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IReceiptOrSlipJob_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetBarcodeRotation: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterRotation) -> windows_core::HRESULT,
+    pub SetPrintRotation: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterRotation, bool) -> windows_core::HRESULT,
+    pub SetPrintArea: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, PosPrinterAlignment) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetBitmap: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetBitmapCustomWidthStandardAlign: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, PosPrinterAlignment, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetBitmapCustomWidthStandardAlign: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetCustomAlignedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetCustomAlignedBitmap: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetBitmapCustomWidthCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetBitmapCustomWidthCustomAlign: usize,
+    pub PrintSavedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub DrawRuledLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterLineDirection, u32, PosPrinterLineStyle, u32) -> windows_core::HRESULT,
+    pub PrintBarcode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, PosPrinterBarcodeTextPosition, PosPrinterAlignment) -> windows_core::HRESULT,
+    pub PrintBarcodeCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, PosPrinterBarcodeTextPosition, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub PrintBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterAlignment) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    PrintBitmap: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub PrintBitmapCustomWidthStandardAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PosPrinterAlignment, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    PrintBitmapCustomWidthStandardAlign: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub PrintCustomAlignedBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    PrintCustomAlignedBitmap: usize,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub PrintBitmapCustomWidthCustomAlign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    PrintBitmapCustomWidthCustomAlign: usize,
 }
 windows_core::imp::define_interface!(IReceiptPrintJob, IReceiptPrintJob_Vtbl, 0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 impl windows_core::RuntimeType for IReceiptPrintJob {

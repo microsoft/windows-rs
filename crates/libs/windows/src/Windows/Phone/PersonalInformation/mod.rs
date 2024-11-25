@@ -143,44 +143,6 @@ impl IContactInformation {
         }
     }
 }
-#[repr(C)]
-pub struct IContactInformation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GivenName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGivenName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HonorificPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetHonorificPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HonorificSuffix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetHonorificSuffix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetDisplayPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetDisplayPictureAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetDisplayPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetDisplayPictureAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub DisplayPicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    DisplayPicture: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPropertiesAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ToVcardAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ToVcardAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ToVcardWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, VCardFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ToVcardWithOptionsAsync: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation";
@@ -372,6 +334,44 @@ impl IContactInformation_Vtbl {
         iid == &<IContactInformation as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GivenName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGivenName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HonorificPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetHonorificPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HonorificSuffix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetHonorificSuffix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetDisplayPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetDisplayPictureAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetDisplayPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetDisplayPictureAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub DisplayPicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    DisplayPicture: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetPropertiesAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ToVcardAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ToVcardAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ToVcardWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, VCardFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ToVcardWithOptionsAsync: usize,
+}
 windows_core::imp::define_interface!(IContactInformation2, IContactInformation2_Vtbl, 0x3198b20c_621e_4668_ac38_d667b87d06d5);
 impl windows_core::RuntimeType for IContactInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -389,12 +389,6 @@ impl IContactInformation2 {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayPictureDate)(windows_core::Interface::as_raw(this), returnvalue).ok() }
     }
-}
-#[repr(C)]
-pub struct IContactInformation2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayPictureDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub SetDisplayPictureDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IContactInformation2 {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation2";
@@ -428,6 +422,12 @@ impl IContactInformation2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactInformation2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactInformation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DisplayPictureDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub SetDisplayPictureDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactInformationStatics, IContactInformationStatics_Vtbl, 0x0f67bb29_03d0_4be6_b2a5_fb13859f1202);
 impl windows_core::RuntimeType for IContactInformationStatics {

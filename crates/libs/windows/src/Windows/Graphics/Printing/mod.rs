@@ -11,10 +11,6 @@ impl windows_core::RuntimeType for IPrintDocumentSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IPrintDocumentSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IPrintDocumentSource {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintDocumentSource";
 }
@@ -26,6 +22,10 @@ impl IPrintDocumentSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintDocumentSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintDocumentSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IPrintManager, IPrintManager_Vtbl, 0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
 impl windows_core::RuntimeType for IPrintManager {
@@ -190,11 +190,6 @@ impl IPrintTaskOptionsCore {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintTaskOptionsCore_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetPageDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut PrintPageDescription) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPrintTaskOptionsCore {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCore";
 }
@@ -221,6 +216,11 @@ impl IPrintTaskOptionsCore_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTaskOptionsCore as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintTaskOptionsCore_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetPageDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut PrintPageDescription) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreProperties_Vtbl, 0xc1b71832_9e93_4e55_814b_3326a59efce1);
 impl windows_core::RuntimeType for IPrintTaskOptionsCoreProperties {
@@ -363,34 +363,6 @@ impl IPrintTaskOptionsCoreProperties {
             (windows_core::Interface::vtable(this).NumberOfCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IPrintTaskOptionsCoreProperties_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetMediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, PrintMediaSize) -> windows_core::HRESULT,
-    pub MediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintMediaSize) -> windows_core::HRESULT,
-    pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, PrintMediaType) -> windows_core::HRESULT,
-    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintMediaType) -> windows_core::HRESULT,
-    pub SetOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, PrintOrientation) -> windows_core::HRESULT,
-    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOrientation) -> windows_core::HRESULT,
-    pub SetPrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, PrintQuality) -> windows_core::HRESULT,
-    pub PrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintQuality) -> windows_core::HRESULT,
-    pub SetColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, PrintColorMode) -> windows_core::HRESULT,
-    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintColorMode) -> windows_core::HRESULT,
-    pub SetDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, PrintDuplex) -> windows_core::HRESULT,
-    pub Duplex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintDuplex) -> windows_core::HRESULT,
-    pub SetCollation: unsafe extern "system" fn(*mut core::ffi::c_void, PrintCollation) -> windows_core::HRESULT,
-    pub Collation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintCollation) -> windows_core::HRESULT,
-    pub SetStaple: unsafe extern "system" fn(*mut core::ffi::c_void, PrintStaple) -> windows_core::HRESULT,
-    pub Staple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintStaple) -> windows_core::HRESULT,
-    pub SetHolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, PrintHolePunch) -> windows_core::HRESULT,
-    pub HolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintHolePunch) -> windows_core::HRESULT,
-    pub SetBinding: unsafe extern "system" fn(*mut core::ffi::c_void, PrintBinding) -> windows_core::HRESULT,
-    pub Binding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintBinding) -> windows_core::HRESULT,
-    pub MinCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub MaxCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetNumberOfCopies: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub NumberOfCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IPrintTaskOptionsCoreProperties {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreProperties";
@@ -629,6 +601,34 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
         iid == &<IPrintTaskOptionsCoreProperties as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IPrintTaskOptionsCoreProperties_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetMediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, PrintMediaSize) -> windows_core::HRESULT,
+    pub MediaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintMediaSize) -> windows_core::HRESULT,
+    pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, PrintMediaType) -> windows_core::HRESULT,
+    pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintMediaType) -> windows_core::HRESULT,
+    pub SetOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, PrintOrientation) -> windows_core::HRESULT,
+    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOrientation) -> windows_core::HRESULT,
+    pub SetPrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, PrintQuality) -> windows_core::HRESULT,
+    pub PrintQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintQuality) -> windows_core::HRESULT,
+    pub SetColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, PrintColorMode) -> windows_core::HRESULT,
+    pub ColorMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintColorMode) -> windows_core::HRESULT,
+    pub SetDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, PrintDuplex) -> windows_core::HRESULT,
+    pub Duplex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintDuplex) -> windows_core::HRESULT,
+    pub SetCollation: unsafe extern "system" fn(*mut core::ffi::c_void, PrintCollation) -> windows_core::HRESULT,
+    pub Collation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintCollation) -> windows_core::HRESULT,
+    pub SetStaple: unsafe extern "system" fn(*mut core::ffi::c_void, PrintStaple) -> windows_core::HRESULT,
+    pub Staple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintStaple) -> windows_core::HRESULT,
+    pub SetHolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, PrintHolePunch) -> windows_core::HRESULT,
+    pub HolePunch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintHolePunch) -> windows_core::HRESULT,
+    pub SetBinding: unsafe extern "system" fn(*mut core::ffi::c_void, PrintBinding) -> windows_core::HRESULT,
+    pub Binding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintBinding) -> windows_core::HRESULT,
+    pub MinCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub MaxCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetNumberOfCopies: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub NumberOfCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPrintTaskOptionsCoreUIConfiguration, IPrintTaskOptionsCoreUIConfiguration_Vtbl, 0x62e69e23_9a1e_4336_b74f_3cc7f4cff709);
 impl windows_core::RuntimeType for IPrintTaskOptionsCoreUIConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -643,14 +643,6 @@ impl IPrintTaskOptionsCoreUIConfiguration {
             (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DisplayedOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DisplayedOptions: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {
@@ -682,6 +674,14 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTaskOptionsCoreUIConfiguration as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DisplayedOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DisplayedOptions: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskProgressingEventArgs, IPrintTaskProgressingEventArgs_Vtbl, 0x810cd3cb_b410_4282_a073_5ac378234174);
 impl windows_core::RuntimeType for IPrintTaskProgressingEventArgs {

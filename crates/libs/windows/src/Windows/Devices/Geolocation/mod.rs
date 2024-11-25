@@ -321,13 +321,6 @@ impl IGeoshape {
         }
     }
 }
-#[repr(C)]
-pub struct IGeoshape_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GeoshapeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeoshapeType) -> windows_core::HRESULT,
-    pub SpatialReferenceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub AltitudeReferenceSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AltitudeReferenceSystem) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";
 }
@@ -378,6 +371,13 @@ impl IGeoshape_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGeoshape as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGeoshape_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GeoshapeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeoshapeType) -> windows_core::HRESULT,
+    pub SpatialReferenceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub AltitudeReferenceSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AltitudeReferenceSystem) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeovisit, IGeovisit_Vtbl, 0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 impl windows_core::RuntimeType for IGeovisit {

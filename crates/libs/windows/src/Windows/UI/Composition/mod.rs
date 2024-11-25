@@ -70,11 +70,6 @@ impl IAnimationObject {
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IAnimationObject_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PopulatePropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
 }
@@ -95,6 +90,11 @@ impl IAnimationObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAnimationObject as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAnimationObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PopulatePropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAnimationPropertyInfo, IAnimationPropertyInfo_Vtbl, 0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
 impl windows_core::RuntimeType for IAnimationPropertyInfo {
@@ -277,10 +277,6 @@ impl windows_core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ICompositionAnimationBase, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct ICompositionAnimationBase_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for ICompositionAnimationBase {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationBase";
 }
@@ -292,6 +288,10 @@ impl ICompositionAnimationBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionAnimationBase as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICompositionAnimationBase_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICompositionAnimationFactory, ICompositionAnimationFactory_Vtbl, 0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4);
 impl windows_core::RuntimeType for ICompositionAnimationFactory {
@@ -1470,12 +1470,6 @@ impl ICompositionSupportsSystemBackdrop {
         unsafe { (windows_core::Interface::vtable(this).SetSystemBackdrop)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct ICompositionSupportsSystemBackdrop_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
 }
@@ -1510,15 +1504,17 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         iid == &<ICompositionSupportsSystemBackdrop as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICompositionSupportsSystemBackdrop_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICompositionSurface, ICompositionSurface_Vtbl, 0x1527540d_42c7_47a6_a408_668f79a90dfb);
 impl windows_core::RuntimeType for ICompositionSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ICompositionSurface, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct ICompositionSurface_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for ICompositionSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurface";
 }
@@ -1530,6 +1526,10 @@ impl ICompositionSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionSurface as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICompositionSurface_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICompositionSurfaceBrush, ICompositionSurfaceBrush_Vtbl, 0xad016d79_1e4c_4c0d_9c29_83338c87c162);
 impl windows_core::RuntimeType for ICompositionSurfaceBrush {
@@ -1625,11 +1625,6 @@ impl ICompositionSurfaceFacade {
         }
     }
 }
-#[repr(C)]
-pub struct ICompositionSurfaceFacade_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetRealSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICompositionSurfaceFacade {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceFacade";
 }
@@ -1657,6 +1652,11 @@ impl ICompositionSurfaceFacade_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionSurfaceFacade as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICompositionSurfaceFacade_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetRealSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionTarget, ICompositionTarget_Vtbl, 0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
 impl windows_core::RuntimeType for ICompositionTarget {
@@ -2932,10 +2932,6 @@ impl windows_core::RuntimeType for IVisualElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IVisualElement, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IVisualElement_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IVisualElement {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement";
 }
@@ -2947,6 +2943,10 @@ impl IVisualElement_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualElement as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVisualElement_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IVisualElement2, IVisualElement2_Vtbl, 0x993ae8a0_6057_5e40_918c_e06e0b7e7c64);
 impl windows_core::RuntimeType for IVisualElement2 {
@@ -2961,11 +2961,6 @@ impl IVisualElement2 {
             (windows_core::Interface::vtable(this).GetVisualInternal)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IVisualElement2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetVisualInternal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IVisualElement2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement2";
@@ -2991,6 +2986,11 @@ impl IVisualElement2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualElement2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVisualElement2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetVisualInternal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisualFactory, IVisualFactory_Vtbl, 0xad0ff93e_b502_4eb5_87b4_9a38a71d0137);
 impl windows_core::RuntimeType for IVisualFactory {

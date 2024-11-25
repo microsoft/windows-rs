@@ -182,14 +182,6 @@ impl IStorageProviderItemPropertySource {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderItemPropertySource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetItemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemProperties: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageProviderItemPropertySource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertySource";
@@ -220,6 +212,14 @@ impl IStorageProviderItemPropertySource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderItemPropertySource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderItemPropertySource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetItemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetItemProperties: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderKnownFolderEntry, IStorageProviderKnownFolderEntry_Vtbl, 0xeffa7db0_1d44_596b_8464_928800c5e2d8);
 impl windows_core::RuntimeType for IStorageProviderKnownFolderEntry {
@@ -277,13 +277,6 @@ impl IStorageProviderKnownFolderSyncInfoSource {
         unsafe { (windows_core::Interface::vtable(this).RemoveKnownFolderSyncInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetKnownFolderSyncInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub KnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveKnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSource";
 }
@@ -330,6 +323,13 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
         iid == &<IStorageProviderKnownFolderSyncInfoSource as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetKnownFolderSyncInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub KnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveKnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfoSourceFactory, IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl, 0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082);
 impl windows_core::RuntimeType for IStorageProviderKnownFolderSyncInfoSourceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -343,11 +343,6 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory {
             (windows_core::Interface::vtable(this).GetKnownFolderSyncInfoSource)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetKnownFolderSyncInfoSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSourceFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSourceFactory";
@@ -376,6 +371,11 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderKnownFolderSyncInfoSourceFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetKnownFolderSyncInfoSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncRequestArgs, IStorageProviderKnownFolderSyncRequestArgs_Vtbl, 0xeda6d569_b4e8_542f_ab8d_f3613f250a4a);
 impl windows_core::RuntimeType for IStorageProviderKnownFolderSyncRequestArgs {
@@ -419,11 +419,6 @@ impl IStorageProviderPropertyCapabilities {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderPropertyCapabilities_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStorageProviderPropertyCapabilities {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
 }
@@ -450,6 +445,11 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderPropertyCapabilities as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderPropertyCapabilities_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderQuotaUI, IStorageProviderQuotaUI_Vtbl, 0xba6295c3_312e_544f_9fd5_1f81b21f3649);
 impl windows_core::RuntimeType for IStorageProviderQuotaUI {
@@ -513,22 +513,6 @@ impl IStorageProviderShareLinkSource {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderShareLinkSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateLinkAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetDefaultAccessControlStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDefaultAccessControlStringAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetState: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
@@ -585,6 +569,22 @@ impl IStorageProviderShareLinkSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderShareLinkSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderShareLinkSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateLinkAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetDefaultAccessControlStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetDefaultAccessControlStringAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetState: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderStatusUI, IStorageProviderStatusUI_Vtbl, 0xd6b6a758_198d_5b80_977f_5ff73da33118);
 impl windows_core::RuntimeType for IStorageProviderStatusUI {
@@ -644,13 +644,6 @@ impl IStorageProviderStatusUISource {
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusUIChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderStatusUISource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetStatusUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStorageProviderStatusUISource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISource";
 }
@@ -697,6 +690,13 @@ impl IStorageProviderStatusUISource_Vtbl {
         iid == &<IStorageProviderStatusUISource as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageProviderStatusUISource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetStatusUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveStatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageProviderStatusUISourceFactory, IStorageProviderStatusUISourceFactory_Vtbl, 0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8);
 impl windows_core::RuntimeType for IStorageProviderStatusUISourceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -710,11 +710,6 @@ impl IStorageProviderStatusUISourceFactory {
             (windows_core::Interface::vtable(this).GetStatusUISource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(syncrootid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStorageProviderStatusUISourceFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetStatusUISource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStorageProviderStatusUISourceFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISourceFactory";
@@ -743,6 +738,11 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderStatusUISourceFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderStatusUISourceFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetStatusUISource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderSyncRootInfo, IStorageProviderSyncRootInfo_Vtbl, 0x7c1305c4_99f9_41ac_8904_ab055d654926);
 impl windows_core::RuntimeType for IStorageProviderSyncRootInfo {
@@ -878,15 +878,6 @@ impl IStorageProviderUICommand {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IStorageProviderUICommand_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderUICommandState) -> windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStorageProviderUICommand {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUICommand";
 }
@@ -959,6 +950,15 @@ impl IStorageProviderUICommand_Vtbl {
         iid == &<IStorageProviderUICommand as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageProviderUICommand_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderUICommandState) -> windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageProviderUriSource, IStorageProviderUriSource_Vtbl, 0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
 impl windows_core::RuntimeType for IStorageProviderUriSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -979,12 +979,6 @@ impl IStorageProviderUriSource {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetContentInfoForPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), result.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct IStorageProviderUriSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetPathForContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetContentInfoForPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
@@ -1012,6 +1006,12 @@ impl IStorageProviderUriSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderUriSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageProviderUriSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetPathForContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetContentInfoForPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {

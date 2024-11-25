@@ -90,27 +90,6 @@ impl ISmsBinaryMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISmsBinaryMessage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsDataFormat) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Format: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetFormat: usize,
-    #[cfg(feature = "deprecated")]
-    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetData: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetData: usize,
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsBinaryMessage";
 }
@@ -165,6 +144,27 @@ impl ISmsBinaryMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsBinaryMessage as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISmsBinaryMessage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsDataFormat) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Format: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetFormat: usize,
+    #[cfg(feature = "deprecated")]
+    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetData: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetData: usize,
 }
 windows_core::imp::define_interface!(ISmsBroadcastMessage, ISmsBroadcastMessage_Vtbl, 0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 impl windows_core::RuntimeType for ISmsBroadcastMessage {
@@ -280,51 +280,6 @@ impl ISmsDevice {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISmsDevice_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub SendMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SendMessageAsync: usize,
-    #[cfg(feature = "deprecated")]
-    pub CalculateLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut SmsEncodedLength) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CalculateLength: usize,
-    #[cfg(feature = "deprecated")]
-    pub AccountPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AccountPhoneNumber: usize,
-    #[cfg(feature = "deprecated")]
-    pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CellularClass: usize,
-    #[cfg(feature = "deprecated")]
-    pub MessageStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    MessageStore: usize,
-    #[cfg(feature = "deprecated")]
-    pub DeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsDeviceStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DeviceStatus: usize,
-    #[cfg(feature = "deprecated")]
-    pub SmsMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SmsMessageReceived: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveSmsMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSmsMessageReceived: usize,
-    #[cfg(feature = "deprecated")]
-    pub SmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SmsDeviceStatusChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveSmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSmsDeviceStatusChanged: usize,
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsDevice {
@@ -454,6 +409,51 @@ impl ISmsDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsDevice as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISmsDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub SendMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SendMessageAsync: usize,
+    #[cfg(feature = "deprecated")]
+    pub CalculateLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut SmsEncodedLength) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CalculateLength: usize,
+    #[cfg(feature = "deprecated")]
+    pub AccountPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    AccountPhoneNumber: usize,
+    #[cfg(feature = "deprecated")]
+    pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CellularClass: usize,
+    #[cfg(feature = "deprecated")]
+    pub MessageStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    MessageStore: usize,
+    #[cfg(feature = "deprecated")]
+    pub DeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsDeviceStatus) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    DeviceStatus: usize,
+    #[cfg(feature = "deprecated")]
+    pub SmsMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SmsMessageReceived: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveSmsMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveSmsMessageReceived: usize,
+    #[cfg(feature = "deprecated")]
+    pub SmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SmsDeviceStatusChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveSmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveSmsDeviceStatusChanged: usize,
 }
 windows_core::imp::define_interface!(ISmsDevice2, ISmsDevice2_Vtbl, 0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 impl windows_core::RuntimeType for ISmsDevice2 {
@@ -662,12 +662,6 @@ impl ISmsMessage {
         }
     }
 }
-#[repr(C)]
-pub struct ISmsMessage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
 }
@@ -706,6 +700,12 @@ impl ISmsMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsMessage as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISmsMessage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsMessageBase, ISmsMessageBase_Vtbl, 0x2cf0fe30_fe50_4fc6_aa88_4ccfe27a29ea);
 impl windows_core::RuntimeType for ISmsMessageBase {
@@ -748,15 +748,6 @@ impl ISmsMessageBase {
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ISmsMessageBase_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageType) -> windows_core::HRESULT,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
-    pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
-    pub SimIccId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
@@ -834,6 +825,15 @@ impl ISmsMessageBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsMessageBase as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISmsMessageBase_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageType) -> windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
+    pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
+    pub SimIccId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsMessageReceivedEventArgs, ISmsMessageReceivedEventArgs_Vtbl, 0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
@@ -1088,63 +1088,6 @@ impl ISmsTextMessage {
         }
     }
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISmsTextMessage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Timestamp: usize,
-    #[cfg(feature = "deprecated")]
-    pub PartReferenceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PartReferenceId: usize,
-    #[cfg(feature = "deprecated")]
-    pub PartNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PartNumber: usize,
-    #[cfg(feature = "deprecated")]
-    pub PartCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PartCount: usize,
-    #[cfg(feature = "deprecated")]
-    pub To: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    To: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetTo: usize,
-    #[cfg(feature = "deprecated")]
-    pub From: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    From: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetFrom: usize,
-    #[cfg(feature = "deprecated")]
-    pub Body: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Body: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetBody: usize,
-    #[cfg(feature = "deprecated")]
-    pub Encoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsEncoding) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Encoding: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, SmsEncoding) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetEncoding: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub ToBinaryMessages: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    ToBinaryMessages: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl windows_core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
@@ -1298,6 +1241,63 @@ impl ISmsTextMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsTextMessage as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISmsTextMessage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Timestamp: usize,
+    #[cfg(feature = "deprecated")]
+    pub PartReferenceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PartReferenceId: usize,
+    #[cfg(feature = "deprecated")]
+    pub PartNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PartNumber: usize,
+    #[cfg(feature = "deprecated")]
+    pub PartCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PartCount: usize,
+    #[cfg(feature = "deprecated")]
+    pub To: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    To: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetTo: usize,
+    #[cfg(feature = "deprecated")]
+    pub From: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    From: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetFrom: usize,
+    #[cfg(feature = "deprecated")]
+    pub Body: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Body: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetBody: usize,
+    #[cfg(feature = "deprecated")]
+    pub Encoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsEncoding) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Encoding: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, SmsEncoding) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetEncoding: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub ToBinaryMessages: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    ToBinaryMessages: usize,
 }
 windows_core::imp::define_interface!(ISmsTextMessage2, ISmsTextMessage2_Vtbl, 0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 impl windows_core::RuntimeType for ISmsTextMessage2 {

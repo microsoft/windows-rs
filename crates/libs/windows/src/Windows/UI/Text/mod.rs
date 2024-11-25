@@ -346,60 +346,6 @@ impl ITextCharacterFormat {
         }
     }
 }
-#[repr(C)]
-pub struct ITextCharacterFormat_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AllCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetAllCaps: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
-    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
-    pub Bold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetBold: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub FontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontStretch) -> windows_core::HRESULT,
-    pub SetFontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, FontStretch) -> windows_core::HRESULT,
-    pub FontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontStyle) -> windows_core::HRESULT,
-    pub SetFontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, FontStyle) -> windows_core::HRESULT,
-    pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
-    pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
-    pub Hidden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetHidden: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Italic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetItalic: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Kerning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetKerning: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub LanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LinkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LinkType) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Outline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetOutline: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub ProtectedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetProtectedText: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SmallCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetSmallCaps: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Spacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Strikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Subscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetSubscript: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Superscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetSuperscript: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub TextScript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextScript) -> windows_core::HRESULT,
-    pub SetTextScript: unsafe extern "system" fn(*mut core::ffi::c_void, TextScript) -> windows_core::HRESULT,
-    pub Underline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnderlineType) -> windows_core::HRESULT,
-    pub SetUnderline: unsafe extern "system" fn(*mut core::ffi::c_void, UnderlineType) -> windows_core::HRESULT,
-    pub Weight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetWeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ITextCharacterFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextCharacterFormat";
 }
@@ -874,6 +820,60 @@ impl ITextCharacterFormat_Vtbl {
         iid == &<ITextCharacterFormat as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ITextCharacterFormat_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AllCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetAllCaps: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
+    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
+    pub Bold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetBold: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub FontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontStretch) -> windows_core::HRESULT,
+    pub SetFontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, FontStretch) -> windows_core::HRESULT,
+    pub FontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontStyle) -> windows_core::HRESULT,
+    pub SetFontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, FontStyle) -> windows_core::HRESULT,
+    pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
+    pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
+    pub Hidden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetHidden: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Italic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetItalic: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Kerning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetKerning: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub LanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LinkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LinkType) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Outline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetOutline: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub ProtectedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetProtectedText: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SmallCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetSmallCaps: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Spacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub Strikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Subscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetSubscript: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Superscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetSuperscript: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub TextScript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextScript) -> windows_core::HRESULT,
+    pub SetTextScript: unsafe extern "system" fn(*mut core::ffi::c_void, TextScript) -> windows_core::HRESULT,
+    pub Underline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnderlineType) -> windows_core::HRESULT,
+    pub SetUnderline: unsafe extern "system" fn(*mut core::ffi::c_void, UnderlineType) -> windows_core::HRESULT,
+    pub Weight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetWeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ITextConstantsStatics, ITextConstantsStatics_Vtbl, 0x779e7c33_189d_4bfa_97c8_10db135d976e);
 impl windows_core::RuntimeType for ITextConstantsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1060,43 +1060,6 @@ impl ITextDocument {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Undo)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct ITextDocument_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CaretType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CaretType) -> windows_core::HRESULT,
-    pub SetCaretType: unsafe extern "system" fn(*mut core::ffi::c_void, CaretType) -> windows_core::HRESULT,
-    pub DefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UndoLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetUndoLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CanCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CanRedo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CanUndo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ApplyDisplayUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub BatchDisplayUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub BeginUndoGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EndUndoGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDefaultCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDefaultParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetRangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, PointOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    LoadFromStream: usize,
-    pub Redo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SaveToStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SaveToStream: usize,
-    pub SetDefaultCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDefaultParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Undo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for ITextDocument {
@@ -1366,6 +1329,43 @@ impl ITextDocument_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextDocument as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITextDocument_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CaretType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CaretType) -> windows_core::HRESULT,
+    pub SetCaretType: unsafe extern "system" fn(*mut core::ffi::c_void, CaretType) -> windows_core::HRESULT,
+    pub DefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UndoLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetUndoLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CanCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CanRedo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CanUndo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ApplyDisplayUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub BatchDisplayUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub BeginUndoGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub EndUndoGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDefaultCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDefaultParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, PointOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub LoadFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    LoadFromStream: usize,
+    pub Redo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SaveToStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SaveToStream: usize,
+    pub SetDefaultCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDefaultParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Undo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextDocument2, ITextDocument2_Vtbl, 0xf2311112_8c89_49c9_9118_f057cbb814ee);
 impl windows_core::RuntimeType for ITextDocument2 {
@@ -1675,58 +1675,6 @@ impl ITextParagraphFormat {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLineSpacing)(windows_core::Interface::as_raw(this), rule, spacing).ok() }
     }
-}
-#[repr(C)]
-pub struct ITextParagraphFormat_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Alignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ParagraphAlignment) -> windows_core::HRESULT,
-    pub SetAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, ParagraphAlignment) -> windows_core::HRESULT,
-    pub FirstLineIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub KeepTogether: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetKeepTogether: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub KeepWithNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetKeepWithNext: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub LeftIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub LineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub LineSpacingRule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LineSpacingRule) -> windows_core::HRESULT,
-    pub ListAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerAlignment) -> windows_core::HRESULT,
-    pub SetListAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerAlignment) -> windows_core::HRESULT,
-    pub ListLevelIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetListLevelIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ListStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetListStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ListStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerStyle) -> windows_core::HRESULT,
-    pub SetListStyle: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerStyle) -> windows_core::HRESULT,
-    pub ListTab: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetListTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub ListType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerType) -> windows_core::HRESULT,
-    pub SetListType: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerType) -> windows_core::HRESULT,
-    pub NoLineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetNoLineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub PageBreakBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetPageBreakBefore: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub RightIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetRightIndent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub RightToLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetRightToLeft: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub Style: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ParagraphStyle) -> windows_core::HRESULT,
-    pub SetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, ParagraphStyle) -> windows_core::HRESULT,
-    pub SpaceAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSpaceAfter: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SpaceBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSpaceBefore: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub WidowControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
-    pub SetWidowControl: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
-    pub TabCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub AddTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32, TabAlignment, TabLeader) -> windows_core::HRESULT,
-    pub ClearAllTabs: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetTab: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut f32, *mut TabAlignment, *mut TabLeader) -> windows_core::HRESULT,
-    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetIndents: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
-    pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, LineSpacingRule, f32) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ITextParagraphFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextParagraphFormat";
@@ -2176,6 +2124,58 @@ impl ITextParagraphFormat_Vtbl {
         iid == &<ITextParagraphFormat as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ITextParagraphFormat_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Alignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ParagraphAlignment) -> windows_core::HRESULT,
+    pub SetAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, ParagraphAlignment) -> windows_core::HRESULT,
+    pub FirstLineIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub KeepTogether: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetKeepTogether: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub KeepWithNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetKeepWithNext: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub LeftIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub LineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub LineSpacingRule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LineSpacingRule) -> windows_core::HRESULT,
+    pub ListAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerAlignment) -> windows_core::HRESULT,
+    pub SetListAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerAlignment) -> windows_core::HRESULT,
+    pub ListLevelIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetListLevelIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ListStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetListStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ListStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerStyle) -> windows_core::HRESULT,
+    pub SetListStyle: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerStyle) -> windows_core::HRESULT,
+    pub ListTab: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetListTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub ListType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MarkerType) -> windows_core::HRESULT,
+    pub SetListType: unsafe extern "system" fn(*mut core::ffi::c_void, MarkerType) -> windows_core::HRESULT,
+    pub NoLineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetNoLineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub PageBreakBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetPageBreakBefore: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub RightIndent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetRightIndent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub RightToLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetRightToLeft: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub Style: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ParagraphStyle) -> windows_core::HRESULT,
+    pub SetStyle: unsafe extern "system" fn(*mut core::ffi::c_void, ParagraphStyle) -> windows_core::HRESULT,
+    pub SpaceAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSpaceAfter: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SpaceBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSpaceBefore: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub WidowControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
+    pub SetWidowControl: unsafe extern "system" fn(*mut core::ffi::c_void, FormatEffect) -> windows_core::HRESULT,
+    pub TabCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub AddTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32, TabAlignment, TabLeader) -> windows_core::HRESULT,
+    pub ClearAllTabs: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteTab: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetTab: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut f32, *mut TabAlignment, *mut TabLeader) -> windows_core::HRESULT,
+    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetIndents: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
+    pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, LineSpacingRule, f32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ITextRange, ITextRange_Vtbl, 0x5b9e4e57_c072_42a0_8945_af503ee54768);
 impl windows_core::RuntimeType for ITextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2495,71 +2495,6 @@ impl ITextRange {
             (windows_core::Interface::vtable(this).StartOf)(windows_core::Interface::as_raw(this), unit, extend, &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct ITextRange_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Character: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub SetCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub CharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EndPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetEndPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Gravity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RangeGravity) -> windows_core::HRESULT,
-    pub SetGravity: unsafe extern "system" fn(*mut core::ffi::c_void, RangeGravity) -> windows_core::HRESULT,
-    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Link: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetStartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub StoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut bool) -> windows_core::HRESULT,
-    pub ChangeCase: unsafe extern "system" fn(*mut core::ffi::c_void, LetterCase) -> windows_core::HRESULT,
-    pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
-    pub EndOf: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
-    pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, *mut i32) -> windows_core::HRESULT,
-    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, FindOptions, *mut i32) -> windows_core::HRESULT,
-    pub GetCharacterUtf32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, i32) -> windows_core::HRESULT,
-    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, *mut i32) -> windows_core::HRESULT,
-    pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, HorizontalCharacterAlignment, VerticalCharacterAlignment, PointOptions, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
-    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, PointOptions, *mut super::super::Foundation::Rect, *mut i32) -> windows_core::HRESULT,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetTextViaStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetTextViaStream: usize,
-    pub InRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub InsertImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, VerticalCharacterAlignment, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    InsertImage: usize,
-    pub InStory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveEnd: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveStart: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
-    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, PointOptions) -> windows_core::HRESULT,
-    pub MatchSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool) -> windows_core::HRESULT,
-    pub SetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, PointOptions, bool) -> windows_core::HRESULT,
-    pub SetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub SetText2: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetTextViaStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetTextViaStream: usize,
-    pub StartOf: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for ITextRange {
@@ -3047,6 +2982,71 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ITextRange_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Character: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub SetCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
+    pub CharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCharacterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub EndPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetEndPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub Gravity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RangeGravity) -> windows_core::HRESULT,
+    pub SetGravity: unsafe extern "system" fn(*mut core::ffi::c_void, RangeGravity) -> windows_core::HRESULT,
+    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Link: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetParagraphFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetStartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub StoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut bool) -> windows_core::HRESULT,
+    pub ChangeCase: unsafe extern "system" fn(*mut core::ffi::c_void, LetterCase) -> windows_core::HRESULT,
+    pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
+    pub EndOf: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
+    pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, *mut i32) -> windows_core::HRESULT,
+    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, FindOptions, *mut i32) -> windows_core::HRESULT,
+    pub GetCharacterUtf32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, i32) -> windows_core::HRESULT,
+    pub GetClone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, *mut i32) -> windows_core::HRESULT,
+    pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, HorizontalCharacterAlignment, VerticalCharacterAlignment, PointOptions, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
+    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, PointOptions, *mut super::super::Foundation::Rect, *mut i32) -> windows_core::HRESULT,
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetTextViaStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextGetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetTextViaStream: usize,
+    pub InRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub InsertImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, VerticalCharacterAlignment, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    InsertImage: usize,
+    pub InStory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveEnd: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
+    pub MoveStart: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, *mut i32) -> windows_core::HRESULT,
+    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, PointOptions) -> windows_core::HRESULT,
+    pub MatchSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool) -> windows_core::HRESULT,
+    pub SetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, PointOptions, bool) -> windows_core::HRESULT,
+    pub SetRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    pub SetText2: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetTextViaStream: unsafe extern "system" fn(*mut core::ffi::c_void, TextSetOptions, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetTextViaStream: usize,
+    pub StartOf: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ITextSelection, ITextSelection_Vtbl, 0xa6d36724_f28f_430a_b2cf_c343671ec0e9);
 impl windows_core::RuntimeType for ITextSelection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3432,20 +3432,6 @@ impl ITextSelection {
         }
     }
 }
-#[repr(C)]
-pub struct ITextSelection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SelectionOptions) -> windows_core::HRESULT,
-    pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, SelectionOptions) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SelectionType) -> windows_core::HRESULT,
-    pub EndKey: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
-    pub HomeKey: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
-    pub MoveDown: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
-    pub MoveLeft: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
-    pub MoveRight: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
-    pub MoveUp: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
-    pub TypeText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for ITextSelection {
     const NAME: &'static str = "Windows.UI.Text.ITextSelection";
@@ -3571,6 +3557,20 @@ impl ITextSelection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextSelection as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITextSelection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SelectionOptions) -> windows_core::HRESULT,
+    pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, SelectionOptions) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SelectionType) -> windows_core::HRESULT,
+    pub EndKey: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
+    pub HomeKey: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, bool, *mut i32) -> windows_core::HRESULT,
+    pub MoveDown: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
+    pub MoveLeft: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
+    pub MoveRight: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
+    pub MoveUp: unsafe extern "system" fn(*mut core::ffi::c_void, TextRangeUnit, i32, bool, *mut i32) -> windows_core::HRESULT,
+    pub TypeText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

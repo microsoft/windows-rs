@@ -15,11 +15,6 @@ impl II2cControllerProvider {
         }
     }
 }
-#[repr(C)]
-pub struct II2cControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
@@ -47,6 +42,11 @@ impl II2cControllerProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<II2cControllerProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct II2cControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cDeviceProvider, II2cDeviceProvider_Vtbl, 0xad342654_57e8_453e_8329_d1e447d103a9);
 impl windows_core::RuntimeType for II2cDeviceProvider {
@@ -99,17 +99,6 @@ impl II2cDeviceProvider {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct II2cDeviceProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    pub WritePartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub ReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
-    pub WriteRead: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
-    pub WriteReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for II2cDeviceProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cDeviceProvider";
@@ -193,6 +182,17 @@ impl II2cDeviceProvider_Vtbl {
         iid == &<II2cDeviceProvider as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct II2cDeviceProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+    pub WritePartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
+    pub ReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
+    pub WriteRead: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
+    pub WriteReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut ProviderI2cTransferResult) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(II2cProvider, II2cProvider_Vtbl, 0x6f13083e_bf62_4fe2_a95a_f08999669818);
 impl windows_core::RuntimeType for II2cProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -207,14 +207,6 @@ impl II2cProvider {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct II2cProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllersAsync: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for II2cProvider {
@@ -243,6 +235,14 @@ impl II2cProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<II2cProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct II2cProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(IProviderI2cConnectionSettings, IProviderI2cConnectionSettings_Vtbl, 0xe9db4e34_e510_44b7_809d_f2f85b555339);
 impl windows_core::RuntimeType for IProviderI2cConnectionSettings {

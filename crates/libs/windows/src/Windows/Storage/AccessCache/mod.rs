@@ -160,41 +160,6 @@ impl IStorageItemAccessList {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageItemAccessList_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AddOverloadDefaultMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddOrReplaceOverloadDefaultMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddOrReplace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetFileAsync: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub GetFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetFolderAsync: usize,
-    pub GetItemWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetFileWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetFileWithOptionsAsync: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub GetFolderWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetFolderWithOptionsAsync: usize,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContainsItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Entries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Entries: usize,
-    pub MaximumItemsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemAccessList";
@@ -389,6 +354,41 @@ impl IStorageItemAccessList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemAccessList as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItemAccessList_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AddOverloadDefaultMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddOrReplaceOverloadDefaultMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddOrReplace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetFileAsync: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub GetFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetFolderAsync: usize,
+    pub GetItemWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetFileWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetFileWithOptionsAsync: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub GetFolderWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AccessCacheOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetFolderWithOptionsAsync: usize,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ContainsItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Entries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Entries: usize,
+    pub MaximumItemsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList {

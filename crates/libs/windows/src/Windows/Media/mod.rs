@@ -260,14 +260,6 @@ impl IMediaExtension {
         unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IMediaExtension_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetProperties: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IMediaExtension {
     const NAME: &'static str = "Windows.Media.IMediaExtension";
@@ -288,6 +280,14 @@ impl IMediaExtension_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaExtension as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaExtension_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetProperties: usize,
 }
 windows_core::imp::define_interface!(IMediaExtensionManager, IMediaExtensionManager_Vtbl, 0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff);
 impl windows_core::RuntimeType for IMediaExtensionManager {
@@ -426,24 +426,6 @@ impl IMediaFrame {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IMediaFrame_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetIsDiscontinuous: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub IsDiscontinuous: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExtendedProperties: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IMediaFrame {
     const NAME: &'static str = "Windows.Media.IMediaFrame";
@@ -575,6 +557,24 @@ impl IMediaFrame_Vtbl {
         iid == &<IMediaFrame as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IMediaFrame_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetIsDiscontinuous: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub IsDiscontinuous: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExtendedProperties: usize,
+}
 windows_core::imp::define_interface!(IMediaMarker, IMediaMarker_Vtbl, 0x1803def8_dca5_4b6f_9c20_e3d3c0643625);
 impl windows_core::RuntimeType for IMediaMarker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -602,13 +602,6 @@ impl IMediaMarker {
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IMediaMarker_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MediaMarkerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IMediaMarker {
     const NAME: &'static str = "Windows.Media.IMediaMarker";
@@ -663,6 +656,13 @@ impl IMediaMarker_Vtbl {
         iid == &<IMediaMarker as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IMediaMarker_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub MediaMarkerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IMediaMarkerTypesStatics, IMediaMarkerTypesStatics_Vtbl, 0xbb198040_482f_4743_8832_45853821ece0);
 impl windows_core::RuntimeType for IMediaMarkerTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -686,14 +686,6 @@ impl IMediaMarkers {
             (windows_core::Interface::vtable(this).Markers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IMediaMarkers_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Markers: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IMediaMarkers {
@@ -722,6 +714,14 @@ impl IMediaMarkers_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaMarkers as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaMarkers_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Markers: usize,
 }
 windows_core::imp::define_interface!(IMediaProcessingTriggerDetails, IMediaProcessingTriggerDetails_Vtbl, 0xeb8564ac_a351_4f4e_b4f0_9bf2408993db);
 impl windows_core::RuntimeType for IMediaProcessingTriggerDetails {

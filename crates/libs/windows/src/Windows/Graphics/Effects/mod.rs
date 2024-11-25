@@ -17,12 +17,6 @@ impl IGraphicsEffect {
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
     }
 }
-#[repr(C)]
-pub struct IGraphicsEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IGraphicsEffect {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffect";
 }
@@ -57,15 +51,17 @@ impl IGraphicsEffect_Vtbl {
         iid == &<IGraphicsEffect as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IGraphicsEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 impl windows_core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IGraphicsEffectSource, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IGraphicsEffectSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IGraphicsEffectSource {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffectSource";
 }
@@ -77,4 +73,8 @@ impl IGraphicsEffectSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphicsEffectSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGraphicsEffectSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }

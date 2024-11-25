@@ -201,19 +201,6 @@ impl IMediaEnginePlaybackSource {
     }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IMediaEnginePlaybackSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub CurrentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CurrentItem: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetPlaybackSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetPlaybackSource: usize,
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaEnginePlaybackSource";
 }
@@ -249,6 +236,19 @@ impl IMediaEnginePlaybackSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaEnginePlaybackSource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IMediaEnginePlaybackSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub CurrentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CurrentItem: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetPlaybackSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetPlaybackSource: usize,
 }
 windows_core::imp::define_interface!(IMediaItemDisplayProperties, IMediaItemDisplayProperties_Vtbl, 0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
 impl windows_core::RuntimeType for IMediaItemDisplayProperties {
@@ -757,10 +757,6 @@ impl windows_core::RuntimeType for IMediaPlaybackSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IMediaPlaybackSource, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IMediaPlaybackSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IMediaPlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSource";
 }
@@ -772,6 +768,10 @@ impl IMediaPlaybackSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaPlaybackSource as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaPlaybackSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSphericalVideoProjection, IMediaPlaybackSphericalVideoProjection_Vtbl, 0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
 impl windows_core::RuntimeType for IMediaPlaybackSphericalVideoProjection {

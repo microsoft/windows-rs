@@ -104,12 +104,6 @@ impl IMediaProtectionServiceRequest {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaProtectionServiceRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ProtectionSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
@@ -148,6 +142,12 @@ impl IMediaProtectionServiceRequest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaProtectionServiceRequest as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaProtectionServiceRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ProtectionSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 impl windows_core::RuntimeType for IProtectionCapabilities {

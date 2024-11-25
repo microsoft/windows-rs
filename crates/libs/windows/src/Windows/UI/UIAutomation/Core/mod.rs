@@ -27,11 +27,6 @@ impl ICoreAutomationConnectionBoundObjectProvider {
         }
     }
 }
-#[repr(C)]
-pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsComThreadingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreAutomationConnectionBoundObjectProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider";
 }
@@ -54,6 +49,11 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreAutomationConnectionBoundObjectProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsComThreadingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreAutomationRegistrarStatics, ICoreAutomationRegistrarStatics_Vtbl, 0x3e50129b_d6dc_5680_b580_ffff78300304);
 impl windows_core::RuntimeType for ICoreAutomationRegistrarStatics {
@@ -119,12 +119,6 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
         }
     }
 }
-#[repr(C)]
-pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, u32, *const AutomationRemoteOperationOperandId) -> windows_core::HRESULT,
-    pub IsExtensionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider";
 }
@@ -157,6 +151,12 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperationExtensionProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, u32, *const AutomationRemoteOperationOperandId) -> windows_core::HRESULT,
+    pub IsExtensionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteAutomationClientSession, IRemoteAutomationClientSession_Vtbl, 0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 impl windows_core::RuntimeType for IRemoteAutomationClientSession {

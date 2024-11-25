@@ -682,26 +682,6 @@ impl IStorageFile {
         }
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[repr(C)]
-pub struct IStorageFile_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FileType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    OpenAsync: usize,
-    pub OpenTransactedWriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyOverloadDefaultNameAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyOverload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyAndReplaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MoveOverloadDefaultNameAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MoveOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MoveOverload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MoveAndReplaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageFile {
     const NAME: &'static str = "Windows.Storage.IStorageFile";
@@ -876,6 +856,26 @@ impl IStorageFile_Vtbl {
         iid == &<IStorageFile as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+#[repr(C)]
+pub struct IStorageFile_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FileType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    OpenAsync: usize,
+    pub OpenTransactedWriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CopyOverloadDefaultNameAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CopyOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CopyOverload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CopyAndReplaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoveOverloadDefaultNameAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoveOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoveOverload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoveAndReplaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageFile2, IStorageFile2_Vtbl, 0x954e4bcf_0a77_42fb_b777_c2ed58a52e44);
 impl windows_core::RuntimeType for IStorageFile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -897,15 +897,6 @@ impl IStorageFile2 {
             (windows_core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStorageFile2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub OpenWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileAccessMode, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    OpenWithOptionsAsync: usize,
-    pub OpenTransactedWriteWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IStorageFile2 {
@@ -951,6 +942,15 @@ impl IStorageFile2_Vtbl {
         iid == &<IStorageFile2 as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageFile2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub OpenWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileAccessMode, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    OpenWithOptionsAsync: usize,
+    pub OpenTransactedWriteWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageFilePropertiesWithAvailability, IStorageFilePropertiesWithAvailability_Vtbl, 0xafcbbe9b_582b_4133_9648_e44ca46ee491);
 impl windows_core::RuntimeType for IStorageFilePropertiesWithAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -964,11 +964,6 @@ impl IStorageFilePropertiesWithAvailability {
             (windows_core::Interface::vtable(this).IsAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IStorageFilePropertiesWithAvailability_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStorageFilePropertiesWithAvailability {
     const NAME: &'static str = "Windows.Storage.IStorageFilePropertiesWithAvailability";
@@ -996,6 +991,11 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageFilePropertiesWithAvailability as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageFilePropertiesWithAvailability_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFileStatics, IStorageFileStatics_Vtbl, 0x5984c710_daf2_43c8_8bb4_a4d3eacfd03f);
 impl windows_core::RuntimeType for IStorageFileStatics {
@@ -1199,47 +1199,6 @@ impl IStorageFolder {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageFolder_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFileAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFileAsyncOverloadDefaultOptions: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CreationCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFileAsync: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub CreateFolderAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    CreateFolderAsyncOverloadDefaultOptions: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub CreateFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CreationCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    CreateFolderAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetFileAsync: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub GetFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetFolderAsync: usize,
-    pub GetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetFilesAsyncOverloadDefaultOptionsStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetFilesAsyncOverloadDefaultOptionsStartAndCount: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub GetFoldersAsyncOverloadDefaultOptionsStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
-    GetFoldersAsyncOverloadDefaultOptionsStartAndCount: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetItemsAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsyncOverloadDefaultStartAndCount: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "Storage_Search", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageFolder {
     const NAME: &'static str = "Windows.Storage.IStorageFolder";
@@ -1388,6 +1347,47 @@ impl IStorageFolder_Vtbl {
         iid == &<IStorageFolder as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageFolder_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFileAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFileAsyncOverloadDefaultOptions: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CreationCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFileAsync: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub CreateFolderAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    CreateFolderAsyncOverloadDefaultOptions: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub CreateFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CreationCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    CreateFolderAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetFileAsync: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub GetFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetFolderAsync: usize,
+    pub GetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetFilesAsyncOverloadDefaultOptionsStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetFilesAsyncOverloadDefaultOptionsStartAndCount: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    pub GetFoldersAsyncOverloadDefaultOptionsStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
+    GetFoldersAsyncOverloadDefaultOptionsStartAndCount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetItemsAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetItemsAsyncOverloadDefaultStartAndCount: usize,
+}
 windows_core::imp::define_interface!(IStorageFolder2, IStorageFolder2_Vtbl, 0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
 impl windows_core::RuntimeType for IStorageFolder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1401,11 +1401,6 @@ impl IStorageFolder2 {
             (windows_core::Interface::vtable(this).TryGetItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStorageFolder2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TryGetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStorageFolder2 {
     const NAME: &'static str = "Windows.Storage.IStorageFolder2";
@@ -1431,6 +1426,11 @@ impl IStorageFolder2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageFolder2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageFolder2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryGetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFolder3, IStorageFolder3_Vtbl, 0x9f617899_bde1_4124_aeb3_b06ad96f98d4);
 impl windows_core::RuntimeType for IStorageFolder3 {
@@ -1542,23 +1542,6 @@ impl IStorageItem {
             (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IStorageItem_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RenameAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RenameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageDeleteOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub GetBasicPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    GetBasicPropertiesAsync: usize,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FileAttributes) -> windows_core::HRESULT,
-    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, StorageItemTypes, *mut bool) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_FileProperties")]
 impl windows_core::RuntimeName for IStorageItem {
@@ -1705,6 +1688,23 @@ impl IStorageItem_Vtbl {
         iid == &<IStorageItem as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageItem_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RenameAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RenameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageDeleteOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub GetBasicPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    GetBasicPropertiesAsync: usize,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FileAttributes) -> windows_core::HRESULT,
+    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, StorageItemTypes, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStorageItem2, IStorageItem2_Vtbl, 0x53f926d2_083c_4283_b45b_81c007237e44);
 impl windows_core::RuntimeType for IStorageItem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1802,15 +1802,6 @@ impl IStorageItem2 {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageItem2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Search")]
-    pub GetParentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetParentAsync: usize,
-    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 impl windows_core::RuntimeName for IStorageItem2 {
     const NAME: &'static str = "Windows.Storage.IStorageItem2";
@@ -1853,6 +1844,15 @@ impl IStorageItem2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItem2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItem2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Search")]
+    pub GetParentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetParentAsync: usize,
+    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemProperties, IStorageItemProperties_Vtbl, 0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
 impl windows_core::RuntimeType for IStorageItemProperties {
@@ -1913,29 +1913,6 @@ impl IStorageItemProperties {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IStorageItemProperties_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetThumbnailAsyncOverloadDefaultSizeDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetThumbnailAsyncOverloadDefaultSizeDefaultOptions: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetThumbnailAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetThumbnailAsyncOverloadDefaultOptions: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, FileProperties::ThumbnailOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetThumbnailAsync: usize,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisplayType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FolderRelativeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    Properties: usize,
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemProperties {
@@ -2046,6 +2023,29 @@ impl IStorageItemProperties_Vtbl {
         iid == &<IStorageItemProperties as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IStorageItemProperties_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetThumbnailAsyncOverloadDefaultSizeDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetThumbnailAsyncOverloadDefaultSizeDefaultOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetThumbnailAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetThumbnailAsyncOverloadDefaultOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, FileProperties::ThumbnailOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetThumbnailAsync: usize,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FolderRelativeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    Properties: usize,
+}
 windows_core::imp::define_interface!(IStorageItemProperties2, IStorageItemProperties2_Vtbl, 0x8e86a951_04b9_4bd2_929d_fef3f71621d0);
 impl windows_core::RuntimeType for IStorageItemProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2131,22 +2131,6 @@ impl IStorageItemProperties2 {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageItemProperties2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetScaledImageAsThumbnailAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetScaledImageAsThumbnailAsyncOverloadDefaultOptions: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub GetScaledImageAsThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, FileProperties::ThumbnailOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    GetScaledImageAsThumbnailAsync: usize,
-}
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemProperties2 {
     const NAME: &'static str = "Windows.Storage.IStorageItemProperties2";
@@ -2203,6 +2187,22 @@ impl IStorageItemProperties2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemProperties2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItemProperties2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetScaledImageAsThumbnailAsyncOverloadDefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetScaledImageAsThumbnailAsyncOverloadDefaultOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub GetScaledImageAsThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FileProperties::ThumbnailMode, u32, FileProperties::ThumbnailOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    GetScaledImageAsThumbnailAsync: usize,
 }
 windows_core::imp::define_interface!(IStorageItemPropertiesWithProvider, IStorageItemPropertiesWithProvider_Vtbl, 0x861bf39b_6368_4dee_b40e_74684a5ce714);
 impl windows_core::RuntimeType for IStorageItemPropertiesWithProvider {
@@ -2272,11 +2272,6 @@ impl IStorageItemPropertiesWithProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IStorageItemPropertiesWithProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Provider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemPropertiesWithProvider {
     const NAME: &'static str = "Windows.Storage.IStorageItemPropertiesWithProvider";
@@ -2304,6 +2299,11 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemPropertiesWithProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItemPropertiesWithProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Provider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageLibrary, IStorageLibrary_Vtbl, 0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
 impl windows_core::RuntimeType for IStorageLibrary {
@@ -2496,11 +2496,6 @@ impl IStreamedFileDataRequest {
         unsafe { (windows_core::Interface::vtable(this).FailAndClose)(windows_core::Interface::as_raw(this), failuremode).ok() }
     }
 }
-#[repr(C)]
-pub struct IStreamedFileDataRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FailAndClose: unsafe extern "system" fn(*mut core::ffi::c_void, StreamedFileFailureMode) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.IStreamedFileDataRequest";
 }
@@ -2518,6 +2513,11 @@ impl IStreamedFileDataRequest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStreamedFileDataRequest as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStreamedFileDataRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FailAndClose: unsafe extern "system" fn(*mut core::ffi::c_void, StreamedFileFailureMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemAudioProperties, ISystemAudioProperties_Vtbl, 0x3f8f38b7_308c_47e1_924d_8645348e5db7);
 impl windows_core::RuntimeType for ISystemAudioProperties {

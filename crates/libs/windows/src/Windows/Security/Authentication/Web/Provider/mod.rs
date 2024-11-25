@@ -165,15 +165,6 @@ impl IWebAccountProviderBaseReportOperation {
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IWebAccountProviderBaseReportOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Authentication_Web_Core")]
-    pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Authentication_Web_Core"))]
-    ReportError: usize,
-}
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl windows_core::RuntimeName for IWebAccountProviderBaseReportOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderBaseReportOperation";
@@ -203,6 +194,15 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderBaseReportOperation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccountProviderBaseReportOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Authentication_Web_Core")]
+    pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Authentication_Web_Core"))]
+    ReportError: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderDeleteAccountOperation, IWebAccountProviderDeleteAccountOperation_Vtbl, 0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 impl windows_core::RuntimeType for IWebAccountProviderDeleteAccountOperation {
@@ -243,11 +243,6 @@ impl IWebAccountProviderOperation {
         }
     }
 }
-#[repr(C)]
-pub struct IWebAccountProviderOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountProviderOperationKind) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
 }
@@ -271,6 +266,11 @@ impl IWebAccountProviderOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderOperation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccountProviderOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountProviderOperationKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderRetrieveCookiesOperation, IWebAccountProviderRetrieveCookiesOperation_Vtbl, 0x5a040441_0fa3_4ab1_a01c_20b110358594);
 impl windows_core::RuntimeType for IWebAccountProviderRetrieveCookiesOperation {
@@ -334,15 +334,6 @@ impl IWebAccountProviderSilentReportOperation {
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IWebAccountProviderSilentReportOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReportUserInteractionRequired: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Authentication_Web_Core")]
-    pub ReportUserInteractionRequiredWithError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Authentication_Web_Core"))]
-    ReportUserInteractionRequiredWithError: usize,
-}
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl windows_core::RuntimeName for IWebAccountProviderSilentReportOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderSilentReportOperation";
@@ -373,6 +364,15 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
         iid == &<IWebAccountProviderSilentReportOperation as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebAccountProviderSilentReportOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReportUserInteractionRequired: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Authentication_Web_Core")]
+    pub ReportUserInteractionRequiredWithError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Authentication_Web_Core"))]
+    ReportUserInteractionRequiredWithError: usize,
+}
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects, IWebAccountProviderTokenObjects_Vtbl, 0x408f284b_1328_42db_89a4_0bce7a717d8e);
 impl windows_core::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -386,11 +386,6 @@ impl IWebAccountProviderTokenObjects {
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IWebAccountProviderTokenObjects_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
@@ -417,6 +412,11 @@ impl IWebAccountProviderTokenObjects_Vtbl {
         iid == &<IWebAccountProviderTokenObjects as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebAccountProviderTokenObjects_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects2, IWebAccountProviderTokenObjects2_Vtbl, 0x1020b893_5ca5_4fff_95fb_b820273fc395);
 impl windows_core::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -439,14 +439,6 @@ impl IWebAccountProviderTokenObjects2 {
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IWebAccountProviderTokenObjects2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
 }
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for IWebAccountProviderTokenObjects2 {
@@ -475,6 +467,14 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccountProviderTokenObjects2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenOperation, IWebAccountProviderTokenOperation_Vtbl, 0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 impl windows_core::RuntimeType for IWebAccountProviderTokenOperation {
@@ -516,17 +516,6 @@ impl IWebAccountProviderTokenOperation {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IWebAccountProviderTokenOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ProviderRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ProviderResponses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProviderResponses: usize,
-    pub SetCacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IWebAccountProviderTokenOperation {
@@ -590,6 +579,17 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         iid == &<IWebAccountProviderTokenOperation as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebAccountProviderTokenOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ProviderRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ProviderResponses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ProviderResponses: usize,
+    pub SetCacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebAccountProviderUIReportOperation, IWebAccountProviderUIReportOperation_Vtbl, 0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
 impl windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -614,11 +614,6 @@ impl IWebAccountProviderUIReportOperation {
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IWebAccountProviderUIReportOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReportUserCanceled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl windows_core::RuntimeName for IWebAccountProviderUIReportOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderUIReportOperation";
@@ -642,6 +637,11 @@ impl IWebAccountProviderUIReportOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderUIReportOperation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccountProviderUIReportOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReportUserCanceled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountScopeManagerStatics, IWebAccountScopeManagerStatics_Vtbl, 0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
 impl windows_core::RuntimeType for IWebAccountScopeManagerStatics {

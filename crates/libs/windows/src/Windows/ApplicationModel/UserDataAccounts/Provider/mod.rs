@@ -37,11 +37,6 @@ impl IUserDataAccountProviderOperation {
         }
     }
 }
-#[repr(C)]
-pub struct IUserDataAccountProviderOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";
 }
@@ -65,6 +60,11 @@ impl IUserDataAccountProviderOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserDataAccountProviderOperation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IUserDataAccountProviderOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderResolveErrorsOperation_Vtbl, 0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 impl windows_core::RuntimeType for IUserDataAccountProviderResolveErrorsOperation {

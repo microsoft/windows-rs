@@ -131,34 +131,6 @@ impl ISyndicationClient {
         }
     }
 }
-#[repr(C)]
-pub struct ISyndicationClient_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ProxyCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetProxyCredential: usize,
-    pub MaxResponseBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaxResponseBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Timeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub BypassCacheOnRetrieve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetBypassCacheOnRetrieve: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RetrieveFeedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Security_Credentials")]
 impl windows_core::RuntimeName for ISyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationClient";
@@ -287,6 +259,34 @@ impl ISyndicationClient_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISyndicationClient as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISyndicationClient_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ProxyCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetProxyCredential: usize,
+    pub MaxResponseBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetMaxResponseBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Timeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub BypassCacheOnRetrieve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetBypassCacheOnRetrieve: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RetrieveFeedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationClientFactory, ISyndicationClientFactory_Vtbl, 0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4);
 impl windows_core::RuntimeType for ISyndicationClientFactory {
@@ -594,32 +594,6 @@ impl ISyndicationNode {
         }
     }
 }
-#[repr(C)]
-pub struct ISyndicationNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NodeNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNodeNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AttributeExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AttributeExtensions: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ElementExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ElementExtensions: usize,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub GetXmlDocument: unsafe extern "system" fn(*mut core::ffi::c_void, SyndicationFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    GetXmlDocument: usize,
-}
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl windows_core::RuntimeName for ISyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationNode";
@@ -771,6 +745,32 @@ impl ISyndicationNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISyndicationNode as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISyndicationNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NodeNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNodeNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AttributeExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AttributeExtensions: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ElementExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ElementExtensions: usize,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub GetXmlDocument: unsafe extern "system" fn(*mut core::ffi::c_void, SyndicationFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    GetXmlDocument: usize,
 }
 windows_core::imp::define_interface!(ISyndicationNodeFactory, ISyndicationNodeFactory_Vtbl, 0x12902188_4acb_49a8_b777_a5eb92e18a79);
 impl windows_core::RuntimeType for ISyndicationNodeFactory {
@@ -933,22 +933,6 @@ impl ISyndicationText {
         }
     }
 }
-#[repr(C)]
-pub struct ISyndicationText_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub Xml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    Xml: usize,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub SetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    SetXml: usize,
-}
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl windows_core::RuntimeName for ISyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationText";
@@ -1023,6 +1007,22 @@ impl ISyndicationText_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISyndicationText as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISyndicationText_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub Xml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    Xml: usize,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub SetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    SetXml: usize,
 }
 windows_core::imp::define_interface!(ISyndicationTextFactory, ISyndicationTextFactory_Vtbl, 0xee7342f7_11c6_4b25_ab62_e596bd162946);
 impl windows_core::RuntimeType for ISyndicationTextFactory {

@@ -69,10 +69,6 @@ impl windows_core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IWebUICommandBarElement_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
 }
@@ -85,15 +81,15 @@ impl IWebUICommandBarElement_Vtbl {
         iid == &<IWebUICommandBarElement as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebUICommandBarElement_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
 impl windows_core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IWebUICommandBarIcon_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
 }
@@ -105,6 +101,10 @@ impl IWebUICommandBarIcon_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebUICommandBarIcon as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebUICommandBarIcon_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWebUICommandBarIconButton, IWebUICommandBarIconButton_Vtbl, 0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 impl windows_core::RuntimeType for IWebUICommandBarIconButton {

@@ -187,14 +187,6 @@ impl ILearningModelFeatureDescriptor {
         }
     }
 }
-#[repr(C)]
-pub struct ILearningModelFeatureDescriptor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
-    pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILearningModelFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
 }
@@ -260,6 +252,14 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         iid == &<ILearningModelFeatureDescriptor as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ILearningModelFeatureDescriptor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
+    pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
 impl windows_core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -273,11 +273,6 @@ impl ILearningModelFeatureValue {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct ILearningModelFeatureValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
@@ -303,15 +298,16 @@ impl ILearningModelFeatureValue_Vtbl {
         iid == &<ILearningModelFeatureValue as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ILearningModelFeatureValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
 impl windows_core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct ILearningModelOperatorProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
 }
@@ -323,6 +319,10 @@ impl ILearningModelOperatorProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILearningModelOperatorProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 impl windows_core::RuntimeType for ILearningModelSession {
@@ -485,15 +485,6 @@ impl ITensor {
         }
     }
 }
-#[repr(C)]
-pub struct ITensor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shape: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ITensor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ITensor";
@@ -536,6 +527,15 @@ impl ITensor_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITensor as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITensor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 impl windows_core::RuntimeType for ITensorBoolean {

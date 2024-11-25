@@ -248,25 +248,6 @@ impl IBitmapFrame {
         }
     }
 }
-#[repr(C)]
-pub struct IBitmapFrame_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetThumbnailAsync: usize,
-    pub BitmapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BitmapPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BitmapPixelFormat) -> windows_core::HRESULT,
-    pub BitmapAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BitmapAlphaMode) -> windows_core::HRESULT,
-    pub DpiX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub DpiY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub PixelWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub PixelHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub OrientedPixelWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub OrientedPixelHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetPixelDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPixelDataTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IBitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrame";
@@ -433,6 +414,25 @@ impl IBitmapFrame_Vtbl {
         iid == &<IBitmapFrame as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBitmapFrame_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetThumbnailAsync: usize,
+    pub BitmapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BitmapPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BitmapPixelFormat) -> windows_core::HRESULT,
+    pub BitmapAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BitmapAlphaMode) -> windows_core::HRESULT,
+    pub DpiX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub DpiY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub PixelWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub PixelHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub OrientedPixelWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub OrientedPixelHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetPixelDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPixelDataTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBitmapFrameWithSoftwareBitmap, IBitmapFrameWithSoftwareBitmap_Vtbl, 0xfe287c9a_420c_4963_87ad_691436e08383);
 impl windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -553,13 +553,6 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
 }
-#[repr(C)]
-pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetSoftwareBitmapAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSoftwareBitmapConvertedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSoftwareBitmapTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap";
@@ -617,6 +610,13 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         iid == &<IBitmapFrameWithSoftwareBitmap as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetSoftwareBitmapAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSoftwareBitmapConvertedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSoftwareBitmapTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
 impl windows_core::RuntimeType for IBitmapProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -646,14 +646,6 @@ impl IBitmapPropertiesView {
             (windows_core::Interface::vtable(this).GetPropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IBitmapPropertiesView_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPropertiesAsync: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IBitmapPropertiesView {
@@ -685,6 +677,14 @@ impl IBitmapPropertiesView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBitmapPropertiesView as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBitmapPropertiesView_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34);
 impl windows_core::RuntimeType for IBitmapTransform {

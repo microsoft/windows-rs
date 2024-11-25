@@ -42,21 +42,6 @@ impl IGameListEntry {
         }
     }
 }
-#[repr(C)]
-pub struct IGameListEntry_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub DisplayInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    DisplayInfo: usize,
-    pub LaunchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameListCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
 impl windows_core::RuntimeName for IGameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
@@ -138,6 +123,21 @@ impl IGameListEntry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameListEntry as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGameListEntry_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub DisplayInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    DisplayInfo: usize,
+    pub LaunchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameListCategory) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
 impl windows_core::RuntimeType for IGameListEntry2 {

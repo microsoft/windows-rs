@@ -197,33 +197,6 @@ impl IBackgroundTransferBase {
         unsafe { (windows_core::Interface::vtable(this).SetCostPolicy)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTransferBase_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Credentials")]
-    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ProxyCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetProxyCredential: usize,
-    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
-    pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Security_Credentials")]
 impl windows_core::RuntimeName for IBackgroundTransferBase {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferBase";
@@ -342,6 +315,33 @@ impl IBackgroundTransferBase_Vtbl {
         iid == &<IBackgroundTransferBase as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBackgroundTransferBase_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Credentials")]
+    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ProxyCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetProxyCredential: usize,
+    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
+    pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTransferCompletionGroup, IBackgroundTransferCompletionGroup_Vtbl, 0x2d930225_986b_574d_7950_0add47f5d706);
 impl windows_core::RuntimeType for IBackgroundTransferCompletionGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -407,12 +407,6 @@ impl IBackgroundTransferContentPartFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTransferContentPartFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithNameAndFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTransferContentPartFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory";
 }
@@ -453,6 +447,12 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTransferContentPartFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTransferContentPartFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithNameAndFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferErrorStaticMethods, IBackgroundTransferErrorStaticMethods_Vtbl, 0xaad33b04_1192_4bf4_8b68_39c5add244e2);
 impl windows_core::RuntimeType for IBackgroundTransferErrorStaticMethods {
@@ -546,21 +546,6 @@ impl IBackgroundTransferOperation {
             (windows_core::Interface::vtable(this).GetResponseInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IBackgroundTransferOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub RequestedUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
-    pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetResultStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetResultStreamAt: usize,
-    pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IBackgroundTransferOperation {
@@ -675,6 +660,21 @@ impl IBackgroundTransferOperation_Vtbl {
         iid == &<IBackgroundTransferOperation as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBackgroundTransferOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub RequestedUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
+    pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetResultStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetResultStreamAt: usize,
+    pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9);
 impl windows_core::RuntimeType for IBackgroundTransferOperationPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -692,12 +692,6 @@ impl IBackgroundTransferOperationPriority {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-}
-#[repr(C)]
-pub struct IBackgroundTransferOperationPriority_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferPriority) -> windows_core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferPriority) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IBackgroundTransferOperationPriority {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority";
@@ -731,6 +725,12 @@ impl IBackgroundTransferOperationPriority_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTransferOperationPriority as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTransferOperationPriority_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferPriority) -> windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferPriority) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferRangesDownloadedEventArgs, IBackgroundTransferRangesDownloadedEventArgs_Vtbl, 0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
 impl windows_core::RuntimeType for IBackgroundTransferRangesDownloadedEventArgs {

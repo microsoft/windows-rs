@@ -135,11 +135,6 @@ impl IHttpFilter {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IHttpFilter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
@@ -164,6 +159,11 @@ impl IHttpFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHttpFilter as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IHttpFilter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {

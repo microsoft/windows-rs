@@ -140,38 +140,6 @@ impl IStorageItemInformation {
         unsafe { (windows_core::Interface::vtable(this).RemovePropertiesUpdated)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
-#[repr(C)]
-pub struct IStorageItemInformation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub MusicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    MusicProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub VideoProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    VideoProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub ImageProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    ImageProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub DocumentProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    DocumentProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub BasicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    BasicProperties: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    Thumbnail: usize,
-    pub ThumbnailUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveThumbnailUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PropertiesUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePropertiesUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IStorageItemInformation";
@@ -303,6 +271,38 @@ impl IStorageItemInformation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemInformation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStorageItemInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub MusicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    MusicProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub VideoProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    VideoProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub ImageProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    ImageProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub DocumentProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    DocumentProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub BasicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    BasicProperties: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    Thumbnail: usize,
+    pub ThumbnailUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveThumbnailUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PropertiesUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePropertiesUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]

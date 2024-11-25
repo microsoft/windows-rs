@@ -112,10 +112,6 @@ impl windows_core::RuntimeType for IBackgroundCondition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCondition, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IBackgroundCondition_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IBackgroundCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundCondition";
 }
@@ -127,6 +123,10 @@ impl IBackgroundCondition_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCondition as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundCondition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
 impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics {
@@ -176,11 +176,6 @@ impl IBackgroundTask {
         unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), taskinstance.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTask_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
@@ -198,6 +193,11 @@ impl IBackgroundTask_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTask as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTask_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder {
@@ -360,19 +360,6 @@ impl IBackgroundTaskInstance {
         }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTaskInstance_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub Task: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub TriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Canceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SuspendedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTaskInstance {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance";
 }
@@ -487,6 +474,19 @@ impl IBackgroundTaskInstance_Vtbl {
         iid == &<IBackgroundTaskInstance as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBackgroundTaskInstance_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub Task: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub TriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Canceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SuspendedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
 impl windows_core::RuntimeType for IBackgroundTaskInstance2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -562,11 +562,6 @@ impl IBackgroundTaskInstance2 {
         }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTaskInstance2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTaskInstance2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance2";
 }
@@ -593,6 +588,11 @@ impl IBackgroundTaskInstance2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTaskInstance2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
 impl windows_core::RuntimeType for IBackgroundTaskInstance4 {
@@ -670,14 +670,6 @@ impl IBackgroundTaskInstance4 {
         }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTaskInstance4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for IBackgroundTaskInstance4 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance4";
@@ -705,6 +697,14 @@ impl IBackgroundTaskInstance4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance4 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTaskInstance4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31);
 impl windows_core::RuntimeType for IBackgroundTaskProgressEventArgs {
@@ -768,17 +768,6 @@ impl IBackgroundTaskRegistration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), canceltask).ok() }
     }
-}
-#[repr(C)]
-pub struct IBackgroundTaskRegistration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveProgress: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IBackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration";
@@ -862,6 +851,17 @@ impl IBackgroundTaskRegistration_Vtbl {
         iid == &<IBackgroundTaskRegistration as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBackgroundTaskRegistration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveProgress: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -923,11 +923,6 @@ impl IBackgroundTaskRegistration2 {
         unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), canceltask).ok() }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTaskRegistration2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTaskRegistration2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration2";
 }
@@ -952,6 +947,11 @@ impl IBackgroundTaskRegistration2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTaskRegistration2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration3 {
@@ -1014,11 +1014,6 @@ impl IBackgroundTaskRegistration3 {
         unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), canceltask).ok() }
     }
 }
-#[repr(C)]
-pub struct IBackgroundTaskRegistration3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBackgroundTaskRegistration3 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration3";
 }
@@ -1043,6 +1038,11 @@ impl IBackgroundTaskRegistration3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration3 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTaskRegistration3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistration4, IBackgroundTaskRegistration4_Vtbl, 0x169c09c9_b0de_5576_a05b_a02067989879);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration4 {
@@ -1113,10 +1113,6 @@ impl windows_core::RuntimeType for IBackgroundTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IBackgroundTrigger, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IBackgroundTrigger_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IBackgroundTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTrigger";
 }
@@ -1128,6 +1124,10 @@ impl IBackgroundTrigger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTrigger as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundTrigger_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
 impl windows_core::RuntimeType for IBackgroundWorkCostStatics {

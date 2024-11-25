@@ -23,13 +23,6 @@ impl IBuffer {
         unsafe { (windows_core::Interface::vtable(this).SetLength)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct IBuffer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBuffer {
     const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
 }
@@ -75,6 +68,13 @@ impl IBuffer_Vtbl {
         iid == &<IBuffer as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IBuffer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBufferFactory, IBufferFactory_Vtbl, 0x71af914d_c10f_484b_bc50_14bc623b3a27);
 impl windows_core::RuntimeType for IBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -108,11 +108,6 @@ impl IContentTypeProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IContentTypeProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContentTypeProvider {
     const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
 }
@@ -137,6 +132,11 @@ impl IContentTypeProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContentTypeProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContentTypeProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataReader, IDataReader_Vtbl, 0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
 impl windows_core::RuntimeType for IDataReader {
@@ -314,36 +314,6 @@ impl IDataReader {
             (windows_core::Interface::vtable(this).DetachStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IDataReader_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub UnconsumedBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub UnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnicodeEncoding) -> windows_core::HRESULT,
-    pub SetUnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, UnicodeEncoding) -> windows_core::HRESULT,
-    pub ByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ByteOrder) -> windows_core::HRESULT,
-    pub SetByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, ByteOrder) -> windows_core::HRESULT,
-    pub InputStreamOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InputStreamOptions) -> windows_core::HRESULT,
-    pub SetInputStreamOptions: unsafe extern "system" fn(*mut core::ffi::c_void, InputStreamOptions) -> windows_core::HRESULT,
-    pub ReadByte: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub ReadBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub ReadBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ReadGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub ReadInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
-    pub ReadInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ReadInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub ReadUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub ReadUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub ReadUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub ReadSingle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub ReadDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub ReadString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub ReadTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IDataReader {
     const NAME: &'static str = "Windows.Storage.Streams.IDataReader";
@@ -653,6 +623,36 @@ impl IDataReader_Vtbl {
         iid == &<IDataReader as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IDataReader_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UnconsumedBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub UnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnicodeEncoding) -> windows_core::HRESULT,
+    pub SetUnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, UnicodeEncoding) -> windows_core::HRESULT,
+    pub ByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ByteOrder) -> windows_core::HRESULT,
+    pub SetByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, ByteOrder) -> windows_core::HRESULT,
+    pub InputStreamOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InputStreamOptions) -> windows_core::HRESULT,
+    pub SetInputStreamOptions: unsafe extern "system" fn(*mut core::ffi::c_void, InputStreamOptions) -> windows_core::HRESULT,
+    pub ReadByte: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub ReadBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
+    pub ReadBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReadBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ReadGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub ReadInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
+    pub ReadInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub ReadInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub ReadUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub ReadUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ReadUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub ReadSingle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub ReadDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub ReadString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReadDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub ReadTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IDataReaderFactory, IDataReaderFactory_Vtbl, 0xd7527847_57da_4e15_914c_06806699a098);
 impl windows_core::RuntimeType for IDataReaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -818,37 +818,6 @@ impl IDataWriter {
             (windows_core::Interface::vtable(this).DetachStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IDataWriter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub UnstoredBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub UnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnicodeEncoding) -> windows_core::HRESULT,
-    pub SetUnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, UnicodeEncoding) -> windows_core::HRESULT,
-    pub ByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ByteOrder) -> windows_core::HRESULT,
-    pub SetByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, ByteOrder) -> windows_core::HRESULT,
-    pub WriteByte: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub WriteBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    pub WriteBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WriteBufferRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub WriteBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub WriteGuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
-    pub WriteInt16: unsafe extern "system" fn(*mut core::ffi::c_void, i16) -> windows_core::HRESULT,
-    pub WriteInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub WriteInt64: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub WriteUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub WriteUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub WriteUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub WriteSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub WriteDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub WriteDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub WriteTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub WriteString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub MeasureString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub StoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IDataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.IDataWriter";
@@ -1085,6 +1054,37 @@ impl IDataWriter_Vtbl {
         iid == &<IDataWriter as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IDataWriter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UnstoredBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub UnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UnicodeEncoding) -> windows_core::HRESULT,
+    pub SetUnicodeEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, UnicodeEncoding) -> windows_core::HRESULT,
+    pub ByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ByteOrder) -> windows_core::HRESULT,
+    pub SetByteOrder: unsafe extern "system" fn(*mut core::ffi::c_void, ByteOrder) -> windows_core::HRESULT,
+    pub WriteByte: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub WriteBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+    pub WriteBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub WriteBufferRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    pub WriteBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub WriteGuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
+    pub WriteInt16: unsafe extern "system" fn(*mut core::ffi::c_void, i16) -> windows_core::HRESULT,
+    pub WriteInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub WriteInt64: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub WriteUInt16: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
+    pub WriteUInt32: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub WriteUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    pub WriteSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub WriteDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub WriteDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub WriteTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub WriteString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub MeasureString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub StoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IDataWriterFactory, IDataWriterFactory_Vtbl, 0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
 impl windows_core::RuntimeType for IDataWriterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1144,11 +1144,6 @@ impl IInputStream {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IInputStream_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, InputStreamOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStream";
 }
@@ -1174,6 +1169,11 @@ impl IInputStream_Vtbl {
         iid == &<IInputStream as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IInputStream_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, InputStreamOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IInputStreamReference, IInputStreamReference_Vtbl, 0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
 impl windows_core::RuntimeType for IInputStreamReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1187,11 +1187,6 @@ impl IInputStreamReference {
             (windows_core::Interface::vtable(this).OpenSequentialReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IInputStreamReference_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OpenSequentialReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IInputStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStreamReference";
@@ -1221,6 +1216,11 @@ impl IInputStreamReference_Vtbl {
         iid == &<IInputStreamReference as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IInputStreamReference_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OpenSequentialReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IOutputStream, IOutputStream_Vtbl, 0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 impl windows_core::RuntimeType for IOutputStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1249,12 +1249,6 @@ impl IOutputStream {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IOutputStream_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IOutputStream";
@@ -1297,6 +1291,12 @@ impl IOutputStream_Vtbl {
         iid == &<IOutputStream as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IOutputStream_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPropertySetSerializer, IPropertySetSerializer_Vtbl, 0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
 impl windows_core::RuntimeType for IPropertySetSerializer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1323,18 +1323,6 @@ impl IPropertySetSerializer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Deserialize)(windows_core::Interface::as_raw(this), propertyset.param().abi(), buffer.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct IPropertySetSerializer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Serialize: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Deserialize: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPropertySetSerializer {
@@ -1372,6 +1360,18 @@ impl IPropertySetSerializer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPropertySetSerializer as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPropertySetSerializer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Serialize: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Deserialize: usize,
 }
 windows_core::imp::define_interface!(IRandomAccessStream, IRandomAccessStream_Vtbl, 0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 impl windows_core::RuntimeType for IRandomAccessStream {
@@ -1468,19 +1468,6 @@ impl IRandomAccessStream {
             (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IRandomAccessStream_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub GetInputStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetOutputStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub CloneStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CanRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CanWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStream";
@@ -1596,6 +1583,19 @@ impl IRandomAccessStream_Vtbl {
         iid == &<IRandomAccessStream as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IRandomAccessStream_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    pub GetInputStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetOutputStreamAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    pub CloneStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CanRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CanWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IRandomAccessStreamReference, IRandomAccessStreamReference_Vtbl, 0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 impl windows_core::RuntimeType for IRandomAccessStreamReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1609,11 +1609,6 @@ impl IRandomAccessStreamReference {
             (windows_core::Interface::vtable(this).OpenReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IRandomAccessStreamReference_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OpenReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IRandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReference";
@@ -1642,6 +1637,11 @@ impl IRandomAccessStreamReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRandomAccessStreamReference as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IRandomAccessStreamReference_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OpenReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamReferenceStatics, IRandomAccessStreamReferenceStatics_Vtbl, 0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
 impl windows_core::RuntimeType for IRandomAccessStreamReferenceStatics {
@@ -1768,10 +1768,6 @@ impl IRandomAccessStreamWithContentType {
         }
     }
 }
-#[repr(C)]
-pub struct IRandomAccessStreamWithContentType_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IRandomAccessStreamWithContentType {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamWithContentType";
 }
@@ -1783,6 +1779,10 @@ impl IRandomAccessStreamWithContentType_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRandomAccessStreamWithContentType as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IRandomAccessStreamWithContentType_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

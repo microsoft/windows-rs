@@ -64,15 +64,6 @@ impl IAudioEffectDefinition {
         }
     }
 }
-#[repr(C)]
-pub struct IAudioEffectDefinition_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IAudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffectDefinition";
@@ -116,6 +107,15 @@ impl IAudioEffectDefinition_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioEffectDefinition as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAudioEffectDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
 }
 windows_core::imp::define_interface!(IAudioEffectDefinitionFactory, IAudioEffectDefinitionFactory_Vtbl, 0x8e1da646_e705_45ed_8a2b_fc4e4f405a97);
 impl windows_core::RuntimeType for IAudioEffectDefinitionFactory {
@@ -245,22 +245,6 @@ impl IBasicAudioEffect {
         unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IBasicAudioEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub UseInputFrameForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
-    SupportedEncodingProperties: usize,
-    #[cfg(feature = "Media_MediaProperties")]
-    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_MediaProperties"))]
-    SetEncodingProperties: usize,
-    pub ProcessFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IBasicAudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.IBasicAudioEffect";
@@ -327,6 +311,22 @@ impl IBasicAudioEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBasicAudioEffect as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBasicAudioEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UseInputFrameForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
+    SupportedEncodingProperties: usize,
+    #[cfg(feature = "Media_MediaProperties")]
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_MediaProperties"))]
+    SetEncodingProperties: usize,
+    pub ProcessFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBasicVideoEffect, IBasicVideoEffect_Vtbl, 0x8262c7ef_b360_40be_949b_2ff42ff35693);
 impl windows_core::RuntimeType for IBasicVideoEffect {
@@ -396,24 +396,6 @@ impl IBasicVideoEffect {
         let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct IBasicVideoEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SupportedMemoryTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaMemoryTypes) -> windows_core::HRESULT,
-    pub TimeIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
-    SupportedEncodingProperties: usize,
-    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
-    SetEncodingProperties: usize,
-    pub ProcessFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IBasicVideoEffect {
@@ -505,6 +487,24 @@ impl IBasicVideoEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBasicVideoEffect as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBasicVideoEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SupportedMemoryTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaMemoryTypes) -> windows_core::HRESULT,
+    pub TimeIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
+    SupportedEncodingProperties: usize,
+    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
+    SetEncodingProperties: usize,
+    pub ProcessFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositeVideoFrameContext, ICompositeVideoFrameContext_Vtbl, 0x6c30024b_f514_4278_a5f7_b9188049d110);
 impl windows_core::RuntimeType for ICompositeVideoFrameContext {
@@ -601,18 +601,6 @@ impl IVideoCompositor {
         unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IVideoCompositor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TimeIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
-    SetEncodingProperties: usize,
-    pub CompositeFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IVideoCompositor {
     const NAME: &'static str = "Windows.Media.Effects.IVideoCompositor";
@@ -667,6 +655,18 @@ impl IVideoCompositor_Vtbl {
         iid == &<IVideoCompositor as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IVideoCompositor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TimeIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
+    SetEncodingProperties: usize,
+    pub CompositeFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IVideoCompositorDefinition, IVideoCompositorDefinition_Vtbl, 0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 impl windows_core::RuntimeType for IVideoCompositorDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -688,15 +688,6 @@ impl IVideoCompositorDefinition {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IVideoCompositorDefinition_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IVideoCompositorDefinition {
@@ -742,6 +733,15 @@ impl IVideoCompositorDefinition_Vtbl {
         iid == &<IVideoCompositorDefinition as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IVideoCompositorDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+}
 windows_core::imp::define_interface!(IVideoCompositorDefinitionFactory, IVideoCompositorDefinitionFactory_Vtbl, 0x4366fd10_68b8_4d52_89b6_02a968cca899);
 impl windows_core::RuntimeType for IVideoCompositorDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -776,15 +776,6 @@ impl IVideoEffectDefinition {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IVideoEffectDefinition_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IVideoEffectDefinition {
@@ -829,6 +820,15 @@ impl IVideoEffectDefinition_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoEffectDefinition as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVideoEffectDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
 }
 windows_core::imp::define_interface!(IVideoEffectDefinitionFactory, IVideoEffectDefinitionFactory_Vtbl, 0x81439b4e_6e33_428f_9d21_b5aafef7617c);
 impl windows_core::RuntimeType for IVideoEffectDefinitionFactory {

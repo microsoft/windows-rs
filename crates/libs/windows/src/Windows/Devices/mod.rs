@@ -103,30 +103,6 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
 }
-#[repr(C)]
-pub struct ILowLevelDevicesAggregateProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Adc_Provider")]
-    pub AdcControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Adc_Provider"))]
-    AdcControllerProvider: usize,
-    #[cfg(feature = "Devices_Pwm_Provider")]
-    pub PwmControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Pwm_Provider"))]
-    PwmControllerProvider: usize,
-    #[cfg(feature = "Devices_Gpio_Provider")]
-    pub GpioControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Gpio_Provider"))]
-    GpioControllerProvider: usize,
-    #[cfg(feature = "Devices_I2c_Provider")]
-    pub I2cControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_I2c_Provider"))]
-    I2cControllerProvider: usize,
-    #[cfg(feature = "Devices_Spi_Provider")]
-    pub SpiControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Spi_Provider"))]
-    SpiControllerProvider: usize,
-}
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl windows_core::RuntimeName for ILowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.ILowLevelDevicesAggregateProvider";
@@ -209,6 +185,30 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILowLevelDevicesAggregateProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILowLevelDevicesAggregateProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Adc_Provider")]
+    pub AdcControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Adc_Provider"))]
+    AdcControllerProvider: usize,
+    #[cfg(feature = "Devices_Pwm_Provider")]
+    pub PwmControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Pwm_Provider"))]
+    PwmControllerProvider: usize,
+    #[cfg(feature = "Devices_Gpio_Provider")]
+    pub GpioControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Gpio_Provider"))]
+    GpioControllerProvider: usize,
+    #[cfg(feature = "Devices_I2c_Provider")]
+    pub I2cControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_I2c_Provider"))]
+    I2cControllerProvider: usize,
+    #[cfg(feature = "Devices_Spi_Provider")]
+    pub SpiControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Spi_Provider"))]
+    SpiControllerProvider: usize,
 }
 windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 impl windows_core::RuntimeType for ILowLevelDevicesAggregateProviderFactory {

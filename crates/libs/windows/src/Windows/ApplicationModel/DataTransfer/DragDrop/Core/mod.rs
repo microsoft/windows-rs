@@ -144,14 +144,6 @@ impl ICoreDropOperationTarget {
         }
     }
 }
-#[repr(C)]
-pub struct ICoreDropOperationTarget_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub EnterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LeaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DropAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
@@ -218,6 +210,14 @@ impl ICoreDropOperationTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreDropOperationTarget as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreDropOperationTarget_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub EnterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LeaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DropAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDropOperationTargetRequestedEventArgs, ICoreDropOperationTargetRequestedEventArgs_Vtbl, 0x2aca929a_5e28_4ea6_829e_29134e665d6d);
 impl windows_core::RuntimeType for ICoreDropOperationTargetRequestedEventArgs {

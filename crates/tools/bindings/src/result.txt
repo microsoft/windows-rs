@@ -1,6 +1,6 @@
 --in default
 --out crates/libs/result/src/bindings.rs
---flat --sys --no-comment
+--flat --sys --no-deps --no-comment
 
 --filter
     Windows.Win32.Foundation.E_UNEXPECTED

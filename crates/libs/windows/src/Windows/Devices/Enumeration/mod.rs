@@ -81,10 +81,6 @@ impl windows_core::RuntimeType for IDeviceEnumerationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IDeviceEnumerationSettings, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IDeviceEnumerationSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IDeviceEnumerationSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceEnumerationSettings";
 }
@@ -96,6 +92,10 @@ impl IDeviceEnumerationSettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDeviceEnumerationSettings as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDeviceEnumerationSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDeviceInformation, IDeviceInformation_Vtbl, 0xaba0fb95_4398_489d_8e44_e6130927011f);
 impl windows_core::RuntimeType for IDeviceInformation {
@@ -362,10 +362,6 @@ impl windows_core::RuntimeType for IDevicePairingSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IDevicePairingSettings, windows_core::IUnknown, windows_core::IInspectable);
-#[repr(C)]
-pub struct IDevicePairingSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IDevicePairingSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";
 }
@@ -377,6 +373,10 @@ impl IDevicePairingSettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDevicePairingSettings as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDevicePairingSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDevicePicker, IDevicePicker_Vtbl, 0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 impl windows_core::RuntimeType for IDevicePicker {

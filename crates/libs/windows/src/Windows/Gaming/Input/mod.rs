@@ -139,25 +139,6 @@ impl IGameController {
         }
     }
 }
-#[repr(C)]
-pub struct IGameController_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub HeadsetConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveHeadsetConnected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub HeadsetDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveHeadsetDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "System")]
-    pub UserChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    UserChanged: usize,
-    pub RemoveUserChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Headset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsWireless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
@@ -268,6 +249,25 @@ impl IGameController_Vtbl {
         iid == &<IGameController as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IGameController_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub HeadsetConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveHeadsetConnected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub HeadsetDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveHeadsetDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "System")]
+    pub UserChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    UserChanged: usize,
+    pub RemoveUserChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Headset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsWireless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+}
 windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
 impl windows_core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -282,14 +282,6 @@ impl IGameControllerBatteryInfo {
             (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IGameControllerBatteryInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Power")]
-    pub TryGetBatteryReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Power"))]
-    TryGetBatteryReport: usize,
 }
 #[cfg(feature = "Devices_Power")]
 impl windows_core::RuntimeName for IGameControllerBatteryInfo {
@@ -321,6 +313,14 @@ impl IGameControllerBatteryInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameControllerBatteryInfo as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IGameControllerBatteryInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Power")]
+    pub TryGetBatteryReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Power"))]
+    TryGetBatteryReport: usize,
 }
 windows_core::imp::define_interface!(IGamepad, IGamepad_Vtbl, 0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 impl windows_core::RuntimeType for IGamepad {

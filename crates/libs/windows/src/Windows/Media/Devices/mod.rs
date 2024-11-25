@@ -322,12 +322,6 @@ impl IDefaultAudioDeviceChangedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Role: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioDeviceRole) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
 }
@@ -367,6 +361,12 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDefaultAudioDeviceChangedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Role: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioDeviceRole) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialRequestedEventArgs, IDialRequestedEventArgs_Vtbl, 0x037b929e_953c_4286_8866_4f0f376c855a);
 impl windows_core::RuntimeType for IDialRequestedEventArgs {
@@ -765,22 +765,6 @@ impl IMediaDeviceController {
         }
     }
 }
-#[repr(C)]
-pub struct IMediaDeviceController_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub GetAvailableMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties")))]
-    GetAvailableMediaStreamProperties: usize,
-    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub GetMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
-    GetMediaStreamProperties: usize,
-    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub SetMediaStreamPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
-    SetMediaStreamPropertiesAsync: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IMediaDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.IMediaDeviceController";
@@ -837,6 +821,22 @@ impl IMediaDeviceController_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaDeviceController as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMediaDeviceController_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub GetAvailableMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    GetAvailableMediaStreamProperties: usize,
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub GetMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    GetMediaStreamProperties: usize,
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub SetMediaStreamPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    SetMediaStreamPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaDeviceStatics, IMediaDeviceStatics_Vtbl, 0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
 impl windows_core::RuntimeType for IMediaDeviceStatics {

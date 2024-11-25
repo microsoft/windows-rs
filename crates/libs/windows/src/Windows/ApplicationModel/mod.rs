@@ -232,11 +232,6 @@ impl IEnteredBackgroundEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IEnteredBackgroundEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
 }
@@ -261,6 +256,11 @@ impl IEnteredBackgroundEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnteredBackgroundEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IEnteredBackgroundEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFindRelatedPackagesOptions, IFindRelatedPackagesOptions_Vtbl, 0x41dd7eea_b335_521f_b96c_5ea07f5b7329);
 impl windows_core::RuntimeType for IFindRelatedPackagesOptions {
@@ -335,11 +335,6 @@ impl ILeavingBackgroundEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ILeavingBackgroundEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
 }
@@ -364,6 +359,11 @@ impl ILeavingBackgroundEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILeavingBackgroundEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILeavingBackgroundEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILimitedAccessFeatureRequestResult, ILimitedAccessFeatureRequestResult_Vtbl, 0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf);
 impl windows_core::RuntimeType for ILimitedAccessFeatureRequestResult {
@@ -667,11 +667,6 @@ impl IPackageCatalogStatics2 {
         }
     }
 }
-#[repr(C)]
-pub struct IPackageCatalogStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OpenForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
@@ -696,6 +691,11 @@ impl IPackageCatalogStatics2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPackageCatalogStatics2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPackageCatalogStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OpenForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageContentGroup, IPackageContentGroup_Vtbl, 0x8f62695d_120a_4798_b5e1_5800dda8f2e1);
 impl windows_core::RuntimeType for IPackageContentGroup {
@@ -919,11 +919,6 @@ impl ISuspendingDeferral {
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct ISuspendingDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
 }
@@ -942,6 +937,11 @@ impl ISuspendingDeferral_Vtbl {
         iid == &<ISuspendingDeferral as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISuspendingDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
 impl windows_core::RuntimeType for ISuspendingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -955,11 +955,6 @@ impl ISuspendingEventArgs {
             (windows_core::Interface::vtable(this).SuspendingOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ISuspendingEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
@@ -989,6 +984,11 @@ impl ISuspendingEventArgs_Vtbl {
         iid == &<ISuspendingEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISuspendingEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
 impl windows_core::RuntimeType for ISuspendingOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1009,12 +1009,6 @@ impl ISuspendingOperation {
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ISuspendingOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ISuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
@@ -1055,6 +1049,12 @@ impl ISuspendingOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISuspendingOperation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISuspendingOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

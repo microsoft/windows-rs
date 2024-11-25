@@ -446,14 +446,6 @@ impl IContactField {
         }
     }
 }
-#[repr(C)]
-pub struct IContactField_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactFieldType) -> windows_core::HRESULT,
-    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactFieldCategory) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
 }
@@ -519,6 +511,14 @@ impl IContactField_Vtbl {
         iid == &<IContactField as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactField_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactFieldType) -> windows_core::HRESULT,
+    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactFieldCategory) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IContactFieldFactory, IContactFieldFactory_Vtbl, 0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
 impl windows_core::RuntimeType for IContactFieldFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -546,13 +546,6 @@ impl IContactFieldFactory {
             (windows_core::Interface::vtable(this).CreateField_Custom)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), r#type, category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IContactFieldFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateField_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateField_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateField_Custom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
@@ -607,6 +600,13 @@ impl IContactFieldFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactFieldFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactFieldFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateField_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateField_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateField_Custom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactGroup, IContactGroup_Vtbl, 0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
 impl windows_core::RuntimeType for IContactGroup {
@@ -696,13 +696,6 @@ impl IContactInstantMessageFieldFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IContactInstantMessageFieldFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstantMessage_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateInstantMessage_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateInstantMessage_All: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
@@ -756,6 +749,13 @@ impl IContactInstantMessageFieldFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactInstantMessageFieldFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactInstantMessageFieldFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstantMessage_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstantMessage_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstantMessage_All: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactJobInfo, IContactJobInfo_Vtbl, 0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
 impl windows_core::RuntimeType for IContactJobInfo {
@@ -989,13 +989,6 @@ impl IContactLocationFieldFactory {
         }
     }
 }
-#[repr(C)]
-pub struct IContactLocationFieldFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateLocation_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateLocation_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateLocation_All: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
 }
@@ -1049,6 +1042,13 @@ impl IContactLocationFieldFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactLocationFieldFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactLocationFieldFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateLocation_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateLocation_Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateLocation_All: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldCategory, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerForUser, IContactManagerForUser_Vtbl, 0xb74bba57_1076_4bef_aef3_54686d18387d);
 impl windows_core::RuntimeType for IContactManagerForUser {

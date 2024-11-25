@@ -14,11 +14,6 @@ impl IDirect3DDevice {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IDirect3DDevice_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IDirect3DDevice {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice";
 }
@@ -36,6 +31,11 @@ impl IDirect3DDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirect3DDevice as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDirect3DDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 impl windows_core::RuntimeType for IDirect3DSurface {
@@ -55,11 +55,6 @@ impl IDirect3DSurface {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IDirect3DSurface_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Direct3DSurfaceDescription) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IDirect3DSurface {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface";
@@ -84,6 +79,11 @@ impl IDirect3DSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirect3DSurface as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDirect3DSurface_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Direct3DSurfaceDescription) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

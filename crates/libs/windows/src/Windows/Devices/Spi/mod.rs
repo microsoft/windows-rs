@@ -116,14 +116,6 @@ impl ISpiDeviceStatics {
         }
     }
 }
-#[repr(C)]
-pub struct ISpiDeviceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBusInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISpiDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiDeviceStatics";
 }
@@ -190,6 +182,14 @@ impl ISpiDeviceStatics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpiDeviceStatics as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISpiDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetBusInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

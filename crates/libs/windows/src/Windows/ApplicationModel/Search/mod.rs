@@ -167,23 +167,6 @@ impl ISearchPaneQueryChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QueryText: usize,
-    #[cfg(feature = "deprecated")]
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Language: usize,
-    #[cfg(feature = "deprecated")]
-    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LinguisticDetails: usize,
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
 }
@@ -239,6 +222,23 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISearchPaneQueryChangedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QueryText: usize,
+    #[cfg(feature = "deprecated")]
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Language: usize,
+    #[cfg(feature = "deprecated")]
+    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    LinguisticDetails: usize,
 }
 windows_core::imp::define_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 impl windows_core::RuntimeType for ISearchPaneQueryLinguisticDetails {

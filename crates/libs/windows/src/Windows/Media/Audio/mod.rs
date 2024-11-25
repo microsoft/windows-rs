@@ -431,17 +431,6 @@ impl IAudioInputNode {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IAudioInputNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub OutgoingConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OutgoingConnections: usize,
-    pub AddOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddOutgoingConnectionWithGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub RemoveOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode";
@@ -490,6 +479,17 @@ impl IAudioInputNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioInputNode as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAudioInputNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub OutgoingConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    OutgoingConnections: usize,
+    pub AddOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddOutgoingConnectionWithGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub RemoveOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioInputNode2, IAudioInputNode2_Vtbl, 0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2);
 impl windows_core::RuntimeType for IAudioInputNode2 {
@@ -605,11 +605,6 @@ impl IAudioInputNode2 {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IAudioInputNode2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Emitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioInputNode2 {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode2";
@@ -637,6 +632,11 @@ impl IAudioInputNode2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioInputNode2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAudioInputNode2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Emitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioNode, IAudioNode_Vtbl, 0x15389d7f_dbd8_4819_bf03_668e9357cd6d);
 impl windows_core::RuntimeType for IAudioNode {
@@ -715,33 +715,6 @@ impl IAudioNode {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IAudioNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub EffectDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))]
-    EffectDefinitions: usize,
-    pub SetOutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub OutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(feature = "Media_MediaProperties")]
-    pub EncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_MediaProperties"))]
-    EncodingProperties: usize,
-    pub ConsumeInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetConsumeInput: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Media_Effects")]
-    pub DisableEffectsByDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_Effects"))]
-    DisableEffectsByDefinition: usize,
-    #[cfg(feature = "Media_Effects")]
-    pub EnableEffectsByDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_Effects"))]
-    EnableEffectsByDefinition: usize,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioNode {
@@ -852,6 +825,33 @@ impl IAudioNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioNode as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAudioNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    pub EffectDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))]
+    EffectDefinitions: usize,
+    pub SetOutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub OutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "Media_MediaProperties")]
+    pub EncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_MediaProperties"))]
+    EncodingProperties: usize,
+    pub ConsumeInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetConsumeInput: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Media_Effects")]
+    pub DisableEffectsByDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_Effects"))]
+    DisableEffectsByDefinition: usize,
+    #[cfg(feature = "Media_Effects")]
+    pub EnableEffectsByDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_Effects"))]
+    EnableEffectsByDefinition: usize,
 }
 windows_core::imp::define_interface!(IAudioNodeEmitter, IAudioNodeEmitter_Vtbl, 0x3676971d_880a_47b8_adf7_1323a9d965be);
 impl windows_core::RuntimeType for IAudioNodeEmitter {
@@ -1102,12 +1102,6 @@ impl IAudioNodeWithListener {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IAudioNodeWithListener_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetListener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Listener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioNodeWithListener {
     const NAME: &'static str = "Windows.Media.Audio.IAudioNodeWithListener";
@@ -1144,6 +1138,12 @@ impl IAudioNodeWithListener_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioNodeWithListener as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAudioNodeWithListener_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetListener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Listener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioPlaybackConnection, IAudioPlaybackConnection_Vtbl, 0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 impl windows_core::RuntimeType for IAudioPlaybackConnection {

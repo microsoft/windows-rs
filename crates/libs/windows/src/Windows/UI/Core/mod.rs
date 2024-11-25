@@ -88,12 +88,6 @@ impl ICoreAcceleratorKeys {
         unsafe { (windows_core::Interface::vtable(this).RemoveAcceleratorKeyActivated)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
-#[repr(C)]
-pub struct ICoreAcceleratorKeys_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AcceleratorKeyActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAcceleratorKeyActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.ICoreAcceleratorKeys";
 }
@@ -126,6 +120,12 @@ impl ICoreAcceleratorKeys_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreAcceleratorKeys as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreAcceleratorKeys_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AcceleratorKeyActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveAcceleratorKeyActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreClosestInteractiveBoundsRequested, ICoreClosestInteractiveBoundsRequested_Vtbl, 0xf303043a_e8bf_4e8e_ae69_c9dadd57a114);
 impl windows_core::RuntimeType for ICoreClosestInteractiveBoundsRequested {
@@ -274,15 +274,6 @@ impl ICoreInputSourceBase {
         unsafe { (windows_core::Interface::vtable(this).RemoveInputEnabled)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
-#[repr(C)]
-pub struct ICoreInputSourceBase_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub InputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreInputSourceBase {
     const NAME: &'static str = "Windows.UI.Core.ICoreInputSourceBase";
 }
@@ -346,6 +337,15 @@ impl ICoreInputSourceBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreInputSourceBase as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreInputSourceBase_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub InputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreKeyboardInputSource, ICoreKeyboardInputSource_Vtbl, 0x231c9088_e469_4df1_b208_6e490d71cb90);
 impl windows_core::RuntimeType for ICoreKeyboardInputSource {
@@ -514,30 +514,6 @@ impl ICorePointerInputSource {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerWheelChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-}
-#[repr(C)]
-pub struct ICorePointerInputSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReleasePointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HasCapture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub PointerPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
-    pub PointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ICorePointerInputSource {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerInputSource";
@@ -735,6 +711,30 @@ impl ICorePointerInputSource_Vtbl {
         iid == &<ICorePointerInputSource as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICorePointerInputSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReleasePointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HasCapture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub PointerPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
+    pub PointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICorePointerInputSource2, ICorePointerInputSource2_Vtbl, 0xd703708a_4516_4786_b1e5_2751d563f997);
 impl windows_core::RuntimeType for ICorePointerInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -885,14 +885,6 @@ impl ICorePointerInputSource2 {
         unsafe { (windows_core::Interface::vtable(this).RemovePointerWheelChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
-#[repr(C)]
-pub struct ICorePointerInputSource2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub DispatcherQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    DispatcherQueue: usize,
-}
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for ICorePointerInputSource2 {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerInputSource2";
@@ -923,6 +915,14 @@ impl ICorePointerInputSource2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorePointerInputSource2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICorePointerInputSource2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub DispatcherQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    DispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(ICorePointerRedirector, ICorePointerRedirector_Vtbl, 0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
 impl windows_core::RuntimeType for ICorePointerRedirector {
@@ -972,16 +972,6 @@ impl ICorePointerRedirector {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerRoutedReleased)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-}
-#[repr(C)]
-pub struct ICorePointerRedirector_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PointerRoutedAway: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerRoutedAway: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerRoutedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerRoutedTo: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerRoutedReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerRoutedReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ICorePointerRedirector {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerRedirector";
@@ -1051,6 +1041,16 @@ impl ICorePointerRedirector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorePointerRedirector as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICorePointerRedirector_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PointerRoutedAway: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerRoutedAway: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerRoutedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerRoutedTo: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerRoutedReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerRoutedReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreTouchHitTesting, ICoreTouchHitTesting_Vtbl, 0xb1d8a289_3acf_4124_9fa3_ea8aba353c21);
 impl windows_core::RuntimeType for ICoreTouchHitTesting {
@@ -1417,71 +1417,6 @@ impl ICoreWindow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVisibilityChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-}
-#[repr(C)]
-pub struct ICoreWindow_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AutomationHostProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CustomProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CustomProperties: usize,
-    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FlowDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreWindowFlowDirection) -> windows_core::HRESULT,
-    pub SetFlowDirection: unsafe extern "system" fn(*mut core::ffi::c_void, CoreWindowFlowDirection) -> windows_core::HRESULT,
-    pub IsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub PointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PointerPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
-    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "System")]
-    pub GetAsyncKeyState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::VirtualKey, *mut CoreVirtualKeyStates) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    GetAsyncKeyState: usize,
-    #[cfg(feature = "System")]
-    pub GetKeyState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::VirtualKey, *mut CoreVirtualKeyStates) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    GetKeyState: usize,
-    pub ReleasePointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub AutomationProviderRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAutomationProviderRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CharacterReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCharacterReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub InputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub KeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub KeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub TouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveTouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub VisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 impl windows_core::RuntimeName for ICoreWindow {
@@ -1985,6 +1920,71 @@ impl ICoreWindow_Vtbl {
         iid == &<ICoreWindow as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICoreWindow_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AutomationHostProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CustomProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CustomProperties: usize,
+    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FlowDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreWindowFlowDirection) -> windows_core::HRESULT,
+    pub SetFlowDirection: unsafe extern "system" fn(*mut core::ffi::c_void, CoreWindowFlowDirection) -> windows_core::HRESULT,
+    pub IsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub PointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPointerCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PointerPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
+    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "System")]
+    pub GetAsyncKeyState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::VirtualKey, *mut CoreVirtualKeyStates) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    GetAsyncKeyState: usize,
+    #[cfg(feature = "System")]
+    pub GetKeyState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::VirtualKey, *mut CoreVirtualKeyStates) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    GetKeyState: usize,
+    pub ReleasePointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPointerCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AutomationProviderRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveAutomationProviderRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CharacterReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCharacterReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub InputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub KeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub KeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerCaptureLost: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerEntered: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerExited: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerMoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub TouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveTouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub VisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICoreWindow2, ICoreWindow2_Vtbl, 0x7c2b1b85_6917_4361_9c02_0d9e3a420b95);
 impl windows_core::RuntimeType for ICoreWindow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2093,12 +2093,6 @@ impl ICoreWindowEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct ICoreWindowEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICoreWindowEventArgs {
     const NAME: &'static str = "Windows.UI.Core.ICoreWindowEventArgs";
 }
@@ -2131,6 +2125,12 @@ impl ICoreWindowEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWindowEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICoreWindowEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindowFlyout, ICoreWindowFlyout_Vtbl, 0xe89d854d_2050_40bb_b344_f6f355eeb314);
 impl windows_core::RuntimeType for ICoreWindowFlyout {
@@ -2254,11 +2254,6 @@ impl IInitializeWithCoreWindow {
         unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), window.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct IInitializeWithCoreWindow_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IInitializeWithCoreWindow {
     const NAME: &'static str = "Windows.UI.Core.IInitializeWithCoreWindow";
 }
@@ -2276,6 +2271,11 @@ impl IInitializeWithCoreWindow_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInitializeWithCoreWindow as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IInitializeWithCoreWindow_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputEnabledEventArgs, IInputEnabledEventArgs_Vtbl, 0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 impl windows_core::RuntimeType for IInputEnabledEventArgs {

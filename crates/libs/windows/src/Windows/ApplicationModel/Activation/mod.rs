@@ -26,13 +26,6 @@ impl IActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivationKind) -> windows_core::HRESULT,
-    pub PreviousExecutionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationExecutionState) -> windows_core::HRESULT,
-    pub SplashScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IActivatedEventArgs";
 }
@@ -85,6 +78,13 @@ impl IActivatedEventArgs_Vtbl {
         iid == &<IActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivationKind) -> windows_core::HRESULT,
+    pub PreviousExecutionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationExecutionState) -> windows_core::HRESULT,
+    pub SplashScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IActivatedEventArgsWithUser, IActivatedEventArgsWithUser_Vtbl, 0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 impl windows_core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -122,14 +122,6 @@ impl IActivatedEventArgsWithUser {
         }
     }
 }
-#[repr(C)]
-pub struct IActivatedEventArgsWithUser_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for IActivatedEventArgsWithUser {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser";
@@ -157,6 +149,14 @@ impl IActivatedEventArgsWithUser_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivatedEventArgsWithUser as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IActivatedEventArgsWithUser_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewActivatedEventArgs, IApplicationViewActivatedEventArgs_Vtbl, 0x930cef4b_b829_40fc_88f4_8513e8a64738);
 impl windows_core::RuntimeType for IApplicationViewActivatedEventArgs {
@@ -194,11 +194,6 @@ impl IApplicationViewActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IApplicationViewActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IApplicationViewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs";
 }
@@ -225,6 +220,11 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IApplicationViewActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IApplicationViewActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderActivatedEventArgs_Vtbl, 0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
 impl windows_core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
@@ -262,11 +262,6 @@ impl IAppointmentsProviderActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAppointmentsProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderActivatedEventArgs";
 }
@@ -291,6 +286,11 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 impl windows_core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -336,14 +336,6 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub AddAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
-    AddAppointmentOperation: usize,
-}
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl windows_core::RuntimeName for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderAddAppointmentActivatedEventArgs";
@@ -374,6 +366,14 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub AddAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    AddAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl, 0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 impl windows_core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -419,14 +419,6 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub RemoveAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
-    RemoveAppointmentOperation: usize,
-}
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl windows_core::RuntimeName for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderRemoveAppointmentActivatedEventArgs";
@@ -457,6 +449,14 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub RemoveAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    RemoveAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl, 0x1551b7d4_a981_4067_8a62_0524e4ade121);
 impl windows_core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -502,14 +502,6 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub ReplaceAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
-    ReplaceAppointmentOperation: usize,
-}
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl windows_core::RuntimeName for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs";
@@ -540,6 +532,14 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub ReplaceAppointmentOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    ReplaceAppointmentOperation: usize,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl, 0x3958f065_9841_4ca5_999b_885198b9ef2a);
 impl windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -598,13 +598,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub InstanceStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
@@ -659,6 +652,13 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         iid == &<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InstanceStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 impl windows_core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -709,12 +709,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
@@ -754,6 +748,12 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         iid == &<IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d);
 impl windows_core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -768,14 +768,6 @@ impl IBackgroundActivatedEventArgs {
             (windows_core::Interface::vtable(this).TaskInstance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IBackgroundActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Background")]
-    pub TaskInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Background"))]
-    TaskInstance: usize,
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl windows_core::RuntimeName for IBackgroundActivatedEventArgs {
@@ -807,6 +799,14 @@ impl IBackgroundActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBackgroundActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Background")]
+    pub TaskInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Background"))]
+    TaskInstance: usize,
 }
 windows_core::imp::define_interface!(IBarcodeScannerPreviewActivatedEventArgs, IBarcodeScannerPreviewActivatedEventArgs_Vtbl, 0x6772797c_99bf_4349_af22_e4123560371c);
 impl windows_core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
@@ -844,11 +844,6 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IBarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs";
 }
@@ -876,6 +871,11 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 impl windows_core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
@@ -914,14 +914,6 @@ impl ICachedFileUpdaterActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Provider")]
-    pub CachedFileUpdaterUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Provider"))]
-    CachedFileUpdaterUI: usize,
-}
 #[cfg(feature = "Storage_Provider")]
 impl windows_core::RuntimeName for ICachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ICachedFileUpdaterActivatedEventArgs";
@@ -952,6 +944,14 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Provider")]
+    pub CachedFileUpdaterUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Provider"))]
+    CachedFileUpdaterUI: usize,
 }
 windows_core::imp::define_interface!(ICameraSettingsActivatedEventArgs, ICameraSettingsActivatedEventArgs_Vtbl, 0xfb67a508_2dad_490a_9170_dca036eb114b);
 impl windows_core::RuntimeType for ICameraSettingsActivatedEventArgs {
@@ -996,12 +996,6 @@ impl ICameraSettingsActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ICameraSettingsActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub VideoDeviceController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub VideoDeviceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs";
 }
@@ -1043,6 +1037,12 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         iid == &<ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICameraSettingsActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub VideoDeviceController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub VideoDeviceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICommandLineActivatedEventArgs, ICommandLineActivatedEventArgs_Vtbl, 0x4506472c_006a_48eb_8afb_d07ab25e3366);
 impl windows_core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1079,11 +1079,6 @@ impl ICommandLineActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ICommandLineActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs";
 }
@@ -1108,6 +1103,11 @@ impl ICommandLineActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommandLineActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ICommandLineActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 impl windows_core::RuntimeType for ICommandLineActivationOperation {
@@ -1158,11 +1158,6 @@ impl IContactActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContactActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactActivatedEventArgs";
 }
@@ -1187,6 +1182,11 @@ impl IContactActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 impl windows_core::RuntimeType for IContactCallActivatedEventArgs {
@@ -1246,16 +1246,6 @@ impl IContactCallActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactCallActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs";
@@ -1313,6 +1303,16 @@ impl IContactCallActivatedEventArgs_Vtbl {
         iid == &<IContactCallActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactCallActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
+}
 windows_core::imp::define_interface!(IContactMapActivatedEventArgs, IContactMapActivatedEventArgs_Vtbl, 0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 impl windows_core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1365,18 +1365,6 @@ impl IContactMapActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactMapActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Address: usize,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs";
@@ -1420,6 +1408,18 @@ impl IContactMapActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactMapActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactMapActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Address: usize,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
 }
 windows_core::imp::define_interface!(IContactMessageActivatedEventArgs, IContactMessageActivatedEventArgs_Vtbl, 0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 impl windows_core::RuntimeType for IContactMessageActivatedEventArgs {
@@ -1479,16 +1479,6 @@ impl IContactMessageActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactMessageActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs";
@@ -1546,6 +1536,16 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         iid == &<IContactMessageActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactMessageActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
+}
 windows_core::imp::define_interface!(IContactPanelActivatedEventArgs, IContactPanelActivatedEventArgs_Vtbl, 0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 impl windows_core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1568,18 +1568,6 @@ impl IContactPanelActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IContactPanelActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub ContactPanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    ContactPanel: usize,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactPanelActivatedEventArgs {
@@ -1625,6 +1613,18 @@ impl IContactPanelActivatedEventArgs_Vtbl {
         iid == &<IContactPanelActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactPanelActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub ContactPanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    ContactPanel: usize,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
+}
 windows_core::imp::define_interface!(IContactPickerActivatedEventArgs, IContactPickerActivatedEventArgs_Vtbl, 0xce57aae7_6449_45a7_971f_d113be7a8936);
 impl windows_core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1662,14 +1662,6 @@ impl IContactPickerActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactPickerActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Contacts_Provider")]
-    pub ContactPickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts_Provider"))]
-    ContactPickerUI: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 impl windows_core::RuntimeName for IContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs";
@@ -1700,6 +1692,14 @@ impl IContactPickerActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPickerActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactPickerActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Contacts_Provider")]
+    pub ContactPickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts_Provider"))]
+    ContactPickerUI: usize,
 }
 windows_core::imp::define_interface!(IContactPostActivatedEventArgs, IContactPostActivatedEventArgs_Vtbl, 0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 impl windows_core::RuntimeType for IContactPostActivatedEventArgs {
@@ -1759,16 +1759,6 @@ impl IContactPostActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactPostActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs";
@@ -1825,6 +1815,16 @@ impl IContactPostActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPostActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactPostActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
 }
 windows_core::imp::define_interface!(IContactVideoCallActivatedEventArgs, IContactVideoCallActivatedEventArgs_Vtbl, 0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 impl windows_core::RuntimeType for IContactVideoCallActivatedEventArgs {
@@ -1884,16 +1884,6 @@ impl IContactVideoCallActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactVideoCallActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Contacts"))]
-    Contact: usize,
-}
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl windows_core::RuntimeName for IContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs";
@@ -1951,6 +1941,16 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         iid == &<IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContactVideoCallActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
+    Contact: usize,
+}
 windows_core::imp::define_interface!(IContactsProviderActivatedEventArgs, IContactsProviderActivatedEventArgs_Vtbl, 0x4580dca8_5750_4916_aa52_c0829521eb94);
 impl windows_core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1987,11 +1987,6 @@ impl IContactsProviderActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContactsProviderActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContactsProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactsProviderActivatedEventArgs";
 }
@@ -2016,6 +2011,11 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactsProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContactsProviderActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c);
 impl windows_core::RuntimeType for IContinuationActivatedEventArgs {
@@ -2054,14 +2054,6 @@ impl IContinuationActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IContinuationActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ContinuationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ContinuationData: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IContinuationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContinuationActivatedEventArgs";
@@ -2092,6 +2084,14 @@ impl IContinuationActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContinuationActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IContinuationActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ContinuationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ContinuationData: usize,
 }
 windows_core::imp::define_interface!(IDeviceActivatedEventArgs, IDeviceActivatedEventArgs_Vtbl, 0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 impl windows_core::RuntimeType for IDeviceActivatedEventArgs {
@@ -2136,12 +2136,6 @@ impl IDeviceActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IDeviceActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IDeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs";
 }
@@ -2183,6 +2177,12 @@ impl IDeviceActivatedEventArgs_Vtbl {
         iid == &<IDeviceActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IDeviceActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 impl windows_core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2220,14 +2220,6 @@ impl IDevicePairingActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IDevicePairingActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Enumeration")]
-    pub DeviceInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Enumeration"))]
-    DeviceInformation: usize,
-}
 #[cfg(feature = "Devices_Enumeration")]
 impl windows_core::RuntimeName for IDevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs";
@@ -2258,6 +2250,14 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDevicePairingActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDevicePairingActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Enumeration")]
+    pub DeviceInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Enumeration"))]
+    DeviceInformation: usize,
 }
 windows_core::imp::define_interface!(IDialReceiverActivatedEventArgs, IDialReceiverActivatedEventArgs_Vtbl, 0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 impl windows_core::RuntimeType for IDialReceiverActivatedEventArgs {
@@ -2309,11 +2309,6 @@ impl IDialReceiverActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IDialReceiverActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IDialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs";
 }
@@ -2338,6 +2333,11 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDialReceiverActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IDialReceiverActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 impl windows_core::RuntimeType for IFileActivatedEventArgs {
@@ -2383,15 +2383,6 @@ impl IFileActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IFileActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
-    Files: usize,
-    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
 impl windows_core::RuntimeName for IFileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgs";
@@ -2436,6 +2427,15 @@ impl IFileActivatedEventArgs_Vtbl {
         iid == &<IFileActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IFileActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    Files: usize,
+    pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 impl windows_core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2472,11 +2472,6 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         }
     }
 }
-#[repr(C)]
-pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName";
 }
@@ -2504,6 +2499,11 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 impl windows_core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
@@ -2557,14 +2557,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
 }
-#[repr(C)]
-pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Search")]
-    pub NeighboringFilesQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    NeighboringFilesQuery: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl windows_core::RuntimeName for IFileActivatedEventArgsWithNeighboringFiles {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles";
@@ -2595,6 +2587,14 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithNeighboringFiles as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Search")]
+    pub NeighboringFilesQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    NeighboringFilesQuery: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs_Vtbl, 0x72827082_5525_4bf2_bc09_1f5095d4964d);
 impl windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs {
@@ -2633,14 +2633,6 @@ impl IFileOpenPickerActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Pickers_Provider")]
-    pub FileOpenPickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Pickers_Provider"))]
-    FileOpenPickerUI: usize,
-}
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl windows_core::RuntimeName for IFileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs";
@@ -2672,6 +2664,14 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
         iid == &<IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Pickers_Provider")]
+    pub FileOpenPickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Pickers_Provider"))]
+    FileOpenPickerUI: usize,
+}
 windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs2, IFileOpenPickerActivatedEventArgs2_Vtbl, 0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
 impl windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2685,11 +2685,6 @@ impl IFileOpenPickerActivatedEventArgs2 {
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IFileOpenPickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2";
@@ -2718,6 +2713,11 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
@@ -2772,15 +2772,6 @@ impl IFileOpenPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
-    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated")))]
-    Files: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 impl windows_core::RuntimeName for IFileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs";
@@ -2808,6 +2799,15 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated")))]
+    Files: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 impl windows_core::RuntimeType for IFileSavePickerActivatedEventArgs {
@@ -2846,14 +2846,6 @@ impl IFileSavePickerActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IFileSavePickerActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Pickers_Provider")]
-    pub FileSavePickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Pickers_Provider"))]
-    FileSavePickerUI: usize,
-}
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl windows_core::RuntimeName for IFileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs";
@@ -2885,6 +2877,14 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
         iid == &<IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IFileSavePickerActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Pickers_Provider")]
+    pub FileSavePickerUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Pickers_Provider"))]
+    FileSavePickerUI: usize,
+}
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs2, IFileSavePickerActivatedEventArgs2_Vtbl, 0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
 impl windows_core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2905,12 +2905,6 @@ impl IFileSavePickerActivatedEventArgs2 {
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IFileSavePickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2";
@@ -2952,6 +2946,12 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerActivatedEventArgs2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
@@ -3006,15 +3006,6 @@ impl IFileSavePickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IFileSavePickerContinuationEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
-    File: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 impl windows_core::RuntimeName for IFileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs";
@@ -3042,6 +3033,15 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IFileSavePickerContinuationEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    File: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolderPickerContinuationEventArgs_Vtbl, 0x51882366_9f4b_498f_beb0_42684f6e1c29);
@@ -3096,15 +3096,6 @@ impl IFolderPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IFolderPickerContinuationEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
-    pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Search", feature = "deprecated")))]
-    Folder: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "deprecated"))]
 impl windows_core::RuntimeName for IFolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs";
@@ -3132,6 +3123,15 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFolderPickerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IFolderPickerContinuationEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
+    pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_Search", feature = "deprecated")))]
+    Folder: usize,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
@@ -3176,12 +3176,6 @@ impl ILaunchActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ILaunchActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs";
 }
@@ -3222,6 +3216,12 @@ impl ILaunchActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILaunchActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 impl windows_core::RuntimeType for ILaunchActivatedEventArgs2 {
@@ -3273,11 +3273,6 @@ impl ILaunchActivatedEventArgs2 {
         }
     }
 }
-#[repr(C)]
-pub struct ILaunchActivatedEventArgs2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TileActivatedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILaunchActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2";
 }
@@ -3305,6 +3300,11 @@ impl ILaunchActivatedEventArgs2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILaunchActivatedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TileActivatedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenActivatedEventArgs, ILockScreenActivatedEventArgs_Vtbl, 0x3ca77966_6108_4a41_8220_ee7d133c8532);
 impl windows_core::RuntimeType for ILockScreenActivatedEventArgs {
@@ -3342,11 +3342,6 @@ impl ILockScreenActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ILockScreenActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs";
 }
@@ -3371,6 +3366,11 @@ impl ILockScreenActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILockScreenActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILockScreenActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenCallActivatedEventArgs, ILockScreenCallActivatedEventArgs_Vtbl, 0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 impl windows_core::RuntimeType for ILockScreenCallActivatedEventArgs {
@@ -3423,14 +3423,6 @@ impl ILockScreenCallActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ILockScreenCallActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Calls")]
-    pub CallUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Calls"))]
-    CallUI: usize,
-}
 #[cfg(feature = "ApplicationModel_Calls")]
 impl windows_core::RuntimeName for ILockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs";
@@ -3458,6 +3450,14 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILockScreenCallActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Calls")]
+    pub CallUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Calls"))]
+    CallUI: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallActivatedEventArgs, IPhoneCallActivatedEventArgs_Vtbl, 0x54615221_a3c1_4ced_b62f_8c60523619ad);
 impl windows_core::RuntimeType for IPhoneCallActivatedEventArgs {
@@ -3495,11 +3495,6 @@ impl IPhoneCallActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IPhoneCallActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
 }
@@ -3523,6 +3518,11 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhoneCallActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPhoneCallActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPickerReturnedActivatedEventArgs, IPickerReturnedActivatedEventArgs_Vtbl, 0x360defb9_a9d3_4984_a4ed_9ec734604921);
 impl windows_core::RuntimeType for IPickerReturnedActivatedEventArgs {
@@ -3560,11 +3560,6 @@ impl IPickerReturnedActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IPickerReturnedActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs";
 }
@@ -3592,6 +3587,11 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPickerReturnedActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPickerReturnedActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 impl windows_core::RuntimeType for IPrelaunchActivatedEventArgs {
@@ -3629,11 +3629,6 @@ impl IPrelaunchActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IPrelaunchActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PrelaunchActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IPrelaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs";
 }
@@ -3660,6 +3655,11 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrelaunchActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrelaunchActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrelaunchActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs_Vtbl, 0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 impl windows_core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
@@ -3698,14 +3698,6 @@ impl IPrint3DWorkflowActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Printers_Extensions")]
-    pub Workflow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Printers_Extensions"))]
-    Workflow: usize,
-}
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl windows_core::RuntimeName for IPrint3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs";
@@ -3733,6 +3725,14 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Printers_Extensions")]
+    pub Workflow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers_Extensions"))]
+    Workflow: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskSettingsActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs_Vtbl, 0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 impl windows_core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
@@ -3771,14 +3771,6 @@ impl IPrintTaskSettingsActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Printers_Extensions")]
-    pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Printers_Extensions"))]
-    Configuration: usize,
-}
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl windows_core::RuntimeName for IPrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs";
@@ -3809,6 +3801,14 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Printers_Extensions")]
+    pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers_Extensions"))]
+    Configuration: usize,
 }
 windows_core::imp::define_interface!(IProtocolActivatedEventArgs, IProtocolActivatedEventArgs_Vtbl, 0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 impl windows_core::RuntimeType for IProtocolActivatedEventArgs {
@@ -3846,11 +3846,6 @@ impl IProtocolActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IProtocolActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs";
 }
@@ -3875,6 +3870,11 @@ impl IProtocolActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IProtocolActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl, 0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 impl windows_core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
@@ -3920,15 +3920,6 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         }
     }
 }
-#[repr(C)]
-pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Data: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData";
@@ -3973,6 +3964,15 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         iid == &<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Data: usize,
+}
 windows_core::imp::define_interface!(IProtocolForResultsActivatedEventArgs, IProtocolForResultsActivatedEventArgs_Vtbl, 0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 impl windows_core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4010,14 +4010,6 @@ impl IProtocolForResultsActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub ProtocolForResultsOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    ProtocolForResultsOperation: usize,
-}
 #[cfg(feature = "System")]
 impl windows_core::RuntimeName for IProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs";
@@ -4048,6 +4040,14 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub ProtocolForResultsOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    ProtocolForResultsOperation: usize,
 }
 windows_core::imp::define_interface!(IRestrictedLaunchActivatedEventArgs, IRestrictedLaunchActivatedEventArgs_Vtbl, 0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 impl windows_core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
@@ -4085,11 +4085,6 @@ impl IRestrictedLaunchActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SharedContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IRestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs";
 }
@@ -4117,6 +4112,11 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SharedContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchActivatedEventArgs, ISearchActivatedEventArgs_Vtbl, 0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 impl windows_core::RuntimeType for ISearchActivatedEventArgs {
@@ -4161,12 +4161,6 @@ impl ISearchActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct ISearchActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ISearchActivatedEventArgs";
 }
@@ -4208,6 +4202,12 @@ impl ISearchActivatedEventArgs_Vtbl {
         iid == &<ISearchActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISearchActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81);
 impl windows_core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4222,14 +4222,6 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Search")]
-    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Search"))]
-    LinguisticDetails: usize,
 }
 #[cfg(feature = "ApplicationModel_Search")]
 impl windows_core::RuntimeName for ISearchActivatedEventArgsWithLinguisticDetails {
@@ -4261,6 +4253,14 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISearchActivatedEventArgsWithLinguisticDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Search")]
+    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Search"))]
+    LinguisticDetails: usize,
 }
 windows_core::imp::define_interface!(IShareTargetActivatedEventArgs, IShareTargetActivatedEventArgs_Vtbl, 0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 impl windows_core::RuntimeType for IShareTargetActivatedEventArgs {
@@ -4299,14 +4299,6 @@ impl IShareTargetActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IShareTargetActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
-    pub ShareOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_DataTransfer_ShareTarget"))]
-    ShareOperation: usize,
-}
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 impl windows_core::RuntimeName for IShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs";
@@ -4337,6 +4329,14 @@ impl IShareTargetActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IShareTargetActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IShareTargetActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
+    pub ShareOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_DataTransfer_ShareTarget"))]
+    ShareOperation: usize,
 }
 windows_core::imp::define_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 impl windows_core::RuntimeType for ISplashScreen {
@@ -4385,11 +4385,6 @@ impl IStartupTaskActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IStartupTaskActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs";
 }
@@ -4414,6 +4409,11 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStartupTaskActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 impl windows_core::RuntimeType for ITileActivatedInfo {
@@ -4471,15 +4471,6 @@ impl IToastNotificationActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IToastNotificationActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub UserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UserInput: usize,
-}
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs";
@@ -4524,6 +4515,15 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         iid == &<IToastNotificationActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IToastNotificationActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub UserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    UserInput: usize,
+}
 windows_core::imp::define_interface!(IUserDataAccountProviderActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs_Vtbl, 0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 impl windows_core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4561,14 +4561,6 @@ impl IUserDataAccountProviderActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
-    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_UserDataAccounts_Provider"))]
-    Operation: usize,
-}
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
 impl windows_core::RuntimeName for IUserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs";
@@ -4599,6 +4591,14 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
+    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_UserDataAccounts_Provider"))]
+    Operation: usize,
 }
 windows_core::imp::define_interface!(IViewSwitcherProvider, IViewSwitcherProvider_Vtbl, 0x33f288a6_5c2c_4d27_bac7_7536088f1219);
 impl windows_core::RuntimeType for IViewSwitcherProvider {
@@ -4637,14 +4637,6 @@ impl IViewSwitcherProvider {
         }
     }
 }
-#[repr(C)]
-pub struct IViewSwitcherProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_ViewManagement")]
-    pub ViewSwitcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_ViewManagement"))]
-    ViewSwitcher: usize,
-}
 #[cfg(feature = "UI_ViewManagement")]
 impl windows_core::RuntimeName for IViewSwitcherProvider {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IViewSwitcherProvider";
@@ -4672,6 +4664,14 @@ impl IViewSwitcherProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IViewSwitcherProvider as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IViewSwitcherProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI_ViewManagement")]
+    pub ViewSwitcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_ViewManagement"))]
+    ViewSwitcher: usize,
 }
 windows_core::imp::define_interface!(IVoiceCommandActivatedEventArgs, IVoiceCommandActivatedEventArgs_Vtbl, 0xab92dcfd_8d43_4de6_9775_20704b581b00);
 impl windows_core::RuntimeType for IVoiceCommandActivatedEventArgs {
@@ -4710,14 +4710,6 @@ impl IVoiceCommandActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IVoiceCommandActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Media_SpeechRecognition")]
-    pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_SpeechRecognition"))]
-    Result: usize,
-}
 #[cfg(feature = "Media_SpeechRecognition")]
 impl windows_core::RuntimeName for IVoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs";
@@ -4745,6 +4737,14 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVoiceCommandActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Media_SpeechRecognition")]
+    pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_SpeechRecognition"))]
+    Result: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletActionActivatedEventArgs_Vtbl, 0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
@@ -4807,23 +4807,6 @@ impl IWalletActionActivatedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IWalletActionActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ItemId: usize,
-    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
-    pub ActionKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
-    ActionKind: usize,
-    #[cfg(feature = "deprecated")]
-    pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ActionId: usize,
-}
 #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 impl windows_core::RuntimeName for IWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
@@ -4880,6 +4863,23 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         iid == &<IWalletActionActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IWalletActionActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ItemId: usize,
+    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    pub ActionKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
+    ActionKind: usize,
+    #[cfg(feature = "deprecated")]
+    pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ActionId: usize,
+}
 windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1);
 impl windows_core::RuntimeType for IWebAccountProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4917,14 +4917,6 @@ impl IWebAccountProviderActivatedEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Security_Authentication_Web_Provider")]
-    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Authentication_Web_Provider"))]
-    Operation: usize,
-}
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 impl windows_core::RuntimeName for IWebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs";
@@ -4955,6 +4947,14 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Authentication_Web_Provider")]
+    pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Authentication_Web_Provider"))]
+    Operation: usize,
 }
 windows_core::imp::define_interface!(IWebAuthenticationBrokerContinuationEventArgs, IWebAuthenticationBrokerContinuationEventArgs_Vtbl, 0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
@@ -5001,14 +5001,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         }
     }
 }
-#[repr(C)]
-pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Security_Authentication_Web")]
-    pub WebAuthenticationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Authentication_Web"))]
-    WebAuthenticationResult: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
 impl windows_core::RuntimeName for IWebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs";
@@ -5039,6 +5031,14 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Authentication_Web")]
+    pub WebAuthenticationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Authentication_Web"))]
+    WebAuthenticationResult: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

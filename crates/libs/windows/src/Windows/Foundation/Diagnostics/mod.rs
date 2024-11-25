@@ -51,12 +51,6 @@ impl IErrorReportingSettings {
         }
     }
 }
-#[repr(C)]
-pub struct IErrorReportingSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorOptions) -> windows_core::HRESULT,
-    pub GetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ErrorOptions) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IErrorReportingSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorReportingSettings";
 }
@@ -89,6 +83,12 @@ impl IErrorReportingSettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IErrorReportingSettings as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IErrorReportingSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorOptions) -> windows_core::HRESULT,
+    pub GetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ErrorOptions) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileLoggingSession, IFileLoggingSession_Vtbl, 0x24c74216_fed2_404c_895f_1f9699cb02f7);
 impl windows_core::RuntimeType for IFileLoggingSession {
@@ -151,20 +151,6 @@ impl IFileLoggingSession {
         let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-#[repr(C)]
-pub struct IFileLoggingSession_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
-    pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub CloseAndSaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CloseAndSaveToFileAsync: usize,
-    pub LogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveLogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IFileLoggingSession {
@@ -245,6 +231,20 @@ impl IFileLoggingSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileLoggingSession as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IFileLoggingSession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
+    pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub CloseAndSaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CloseAndSaveToFileAsync: usize,
+    pub LogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveLogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileLoggingSessionFactory, IFileLoggingSessionFactory_Vtbl, 0xeea08dce_8447_4daa_9133_12eb46f697d4);
 impl windows_core::RuntimeType for IFileLoggingSessionFactory {
@@ -362,19 +362,6 @@ impl ILoggingChannel {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct ILoggingChannel_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Level: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LoggingLevel) -> windows_core::HRESULT,
-    pub LogMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LogMessageWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
-    pub LogValuePair: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub LogValuePairWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, LoggingLevel) -> windows_core::HRESULT,
-    pub LoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveLoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannel";
 }
@@ -468,6 +455,19 @@ impl ILoggingChannel_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILoggingChannel as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILoggingChannel_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Level: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LoggingLevel) -> windows_core::HRESULT,
+    pub LogMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LogMessageWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
+    pub LogValuePair: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub LogValuePairWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, LoggingLevel) -> windows_core::HRESULT,
+    pub LoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveLoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingChannel2, ILoggingChannel2_Vtbl, 0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
 impl windows_core::RuntimeType for ILoggingChannel2 {
@@ -719,18 +719,6 @@ impl ILoggingSession {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct ILoggingSession_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SaveToFileAsync: usize,
-    pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
-    pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for ILoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingSession";
@@ -792,6 +780,18 @@ impl ILoggingSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILoggingSession as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILoggingSession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SaveToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SaveToFileAsync: usize,
+    pub AddLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
+    pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILoggingSessionFactory, ILoggingSessionFactory_Vtbl, 0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
 impl windows_core::RuntimeType for ILoggingSessionFactory {
@@ -893,21 +893,6 @@ impl ILoggingTarget {
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct ILoggingTarget_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsEnabledWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, *mut bool) -> windows_core::HRESULT,
-    pub IsEnabledWithLevelAndKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, i64, *mut bool) -> windows_core::HRESULT,
-    pub LogEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LogEventWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LogEventWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
-    pub LogEventWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ILoggingTarget {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingTarget";
@@ -1035,6 +1020,21 @@ impl ILoggingTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILoggingTarget as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILoggingTarget_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsEnabledWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, *mut bool) -> windows_core::HRESULT,
+    pub IsEnabledWithLevelAndKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, LoggingLevel, i64, *mut bool) -> windows_core::HRESULT,
+    pub LogEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LogEventWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LogEventWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
+    pub LogEventWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITracingStatusChangedEventArgs, ITracingStatusChangedEventArgs_Vtbl, 0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 impl windows_core::RuntimeType for ITracingStatusChangedEventArgs {

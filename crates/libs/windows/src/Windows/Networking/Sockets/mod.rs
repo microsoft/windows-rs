@@ -46,11 +46,6 @@ impl IControlChannelTriggerEventDetails {
         }
     }
 }
-#[repr(C)]
-pub struct IControlChannelTriggerEventDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ControlChannelTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
 }
@@ -78,6 +73,11 @@ impl IControlChannelTriggerEventDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlChannelTriggerEventDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IControlChannelTriggerEventDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ControlChannelTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IControlChannelTriggerFactory, IControlChannelTriggerFactory_Vtbl, 0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
 impl windows_core::RuntimeType for IControlChannelTriggerFactory {
@@ -116,13 +116,6 @@ impl IControlChannelTriggerResetEventDetails {
             (windows_core::Interface::vtable(this).SoftwareSlotReset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[repr(C)]
-pub struct IControlChannelTriggerResetEventDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ResetReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ControlChannelTriggerResetReason) -> windows_core::HRESULT,
-    pub HardwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SoftwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
@@ -174,6 +167,13 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlChannelTriggerResetEventDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IControlChannelTriggerResetEventDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ResetReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ControlChannelTriggerResetReason) -> windows_core::HRESULT,
+    pub HardwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SoftwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDatagramSocket, IDatagramSocket_Vtbl, 0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 impl windows_core::RuntimeType for IDatagramSocket {
@@ -903,19 +903,6 @@ impl IWebSocket {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IWebSocket_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub OutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    OutputStream: usize,
-    pub ConnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CloseWithStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocket";
@@ -990,6 +977,19 @@ impl IWebSocket_Vtbl {
         iid == &<IWebSocket as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebSocket_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub OutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    OutputStream: usize,
+    pub ConnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CloseWithStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebSocketClosedEventArgs, IWebSocketClosedEventArgs_Vtbl, 0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 impl windows_core::RuntimeType for IWebSocketClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1057,32 +1057,6 @@ impl IWebSocketControl {
             (windows_core::Interface::vtable(this).SupportedProtocols)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IWebSocketControl_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OutboundBufferSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetOutboundBufferSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Security_Credentials")]
-    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetServerCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    ProxyCredential: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    SetProxyCredential: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedProtocols: usize,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl windows_core::RuntimeName for IWebSocketControl {
@@ -1171,6 +1145,32 @@ impl IWebSocketControl_Vtbl {
         iid == &<IWebSocketControl as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IWebSocketControl_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OutboundBufferSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetOutboundBufferSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Security_Credentials")]
+    pub ServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetServerCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetServerCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub ProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    ProxyCredential: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    SetProxyCredential: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedProtocols: usize,
+}
 windows_core::imp::define_interface!(IWebSocketControl2, IWebSocketControl2_Vtbl, 0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 impl windows_core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1238,14 +1238,6 @@ impl IWebSocketControl2 {
         }
     }
 }
-#[repr(C)]
-pub struct IWebSocketControl2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    IgnorableServerCertificateErrors: usize,
-}
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl windows_core::RuntimeName for IWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl2";
@@ -1276,6 +1268,14 @@ impl IWebSocketControl2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebSocketControl2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebSocketControl2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    IgnorableServerCertificateErrors: usize,
 }
 windows_core::imp::define_interface!(IWebSocketErrorStatics, IWebSocketErrorStatics_Vtbl, 0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
 impl windows_core::RuntimeType for IWebSocketErrorStatics {
@@ -1316,13 +1316,6 @@ impl IWebSocketInformation {
             (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IWebSocketInformation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BandwidthStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BandwidthStatistics) -> windows_core::HRESULT,
-    pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
@@ -1376,6 +1369,13 @@ impl IWebSocketInformation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebSocketInformation as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebSocketInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LocalAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BandwidthStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BandwidthStatistics) -> windows_core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebSocketInformation2, IWebSocketInformation2_Vtbl, 0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
 impl windows_core::RuntimeType for IWebSocketInformation2 {
@@ -1436,23 +1436,6 @@ impl IWebSocketInformation2 {
             (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-#[repr(C)]
-pub struct IWebSocketInformation2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub ServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
-    ServerCertificate: usize,
-    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketSslErrorSeverity) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerIntermediateCertificates: usize,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl windows_core::RuntimeName for IWebSocketInformation2 {
@@ -1522,6 +1505,23 @@ impl IWebSocketInformation2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebSocketInformation2 as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebSocketInformation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub ServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
+    ServerCertificate: usize,
+    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketSslErrorSeverity) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerCertificateErrors: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerIntermediateCertificates: usize,
 }
 windows_core::imp::define_interface!(IWebSocketServerCustomValidationRequestedEventArgs, IWebSocketServerCustomValidationRequestedEventArgs_Vtbl, 0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 impl windows_core::RuntimeType for IWebSocketServerCustomValidationRequestedEventArgs {

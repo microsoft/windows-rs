@@ -148,12 +148,6 @@ impl ILampArrayEffect {
         unsafe { (windows_core::Interface::vtable(this).SetZIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct ILampArrayEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
@@ -186,6 +180,12 @@ impl ILampArrayEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILampArrayEffect as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ILampArrayEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 impl windows_core::RuntimeType for ILampArrayEffectPlaylist {

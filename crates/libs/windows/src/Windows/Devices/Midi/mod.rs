@@ -87,16 +87,6 @@ impl IMidiMessage {
         }
     }
 }
-#[repr(C)]
-pub struct IMidiMessage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    RawData: usize,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MidiMessageType) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IMidiMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
@@ -151,6 +141,16 @@ impl IMidiMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMidiMessage as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMidiMessage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    RawData: usize,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MidiMessageType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiMessageReceivedEventArgs, IMidiMessageReceivedEventArgs_Vtbl, 0x76566e56_f328_4b51_907d_b3a8ce96bf80);
 impl windows_core::RuntimeType for IMidiMessageReceivedEventArgs {
@@ -235,16 +235,6 @@ impl IMidiOutPort {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IMidiOutPort_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SendMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SendBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SendBuffer: usize,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for IMidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiOutPort";
@@ -287,6 +277,16 @@ impl IMidiOutPort_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMidiOutPort as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IMidiOutPort_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SendMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SendBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SendBuffer: usize,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiOutPortStatics, IMidiOutPortStatics_Vtbl, 0x065cc3e9_0f88_448b_9b64_a95826c65b8f);
 impl windows_core::RuntimeType for IMidiOutPortStatics {

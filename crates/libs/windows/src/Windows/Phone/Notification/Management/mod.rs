@@ -152,16 +152,6 @@ impl IAccessoryNotificationTriggerDetails {
         unsafe { (windows_core::Interface::vtable(this).SetStartedProcessing)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[repr(C)]
-pub struct IAccessoryNotificationTriggerDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TimeCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub AppDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AccessoryNotificationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AccessoryNotificationType) -> windows_core::HRESULT,
-    pub StartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetStartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAccessoryNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
 }
@@ -244,6 +234,16 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAccessoryNotificationTriggerDetails as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAccessoryNotificationTriggerDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TimeCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub AppDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AccessoryNotificationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AccessoryNotificationType) -> windows_core::HRESULT,
+    pub StartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetStartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAlarmNotificationTriggerDetails, IAlarmNotificationTriggerDetails_Vtbl, 0x38f5fa30_c738_4da2_908c_775d83c36abb);
 impl windows_core::RuntimeType for IAlarmNotificationTriggerDetails {

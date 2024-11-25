@@ -69,15 +69,6 @@ impl IForceFeedbackEffect {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[repr(C)]
-pub struct IForceFeedbackEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Gain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetGain: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ForceFeedbackEffectState) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
 }
@@ -134,6 +125,15 @@ impl IForceFeedbackEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IForceFeedbackEffect as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IForceFeedbackEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Gain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetGain: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ForceFeedbackEffectState) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IForceFeedbackMotor, IForceFeedbackMotor_Vtbl, 0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 impl windows_core::RuntimeType for IForceFeedbackMotor {

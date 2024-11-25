@@ -154,13 +154,6 @@ impl IWebAccount {
         }
     }
 }
-#[repr(C)]
-pub struct IWebAccount_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub WebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountState) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
 }
@@ -213,6 +206,13 @@ impl IWebAccount_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccount as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IWebAccount_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub WebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccount2, IWebAccount2_Vtbl, 0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 impl windows_core::RuntimeType for IWebAccount2 {
