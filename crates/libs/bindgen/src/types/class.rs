@@ -232,8 +232,7 @@ impl Class {
         self.type_name().write(writer, &[])
     }
 
-    // TODO: this can't use required_interfaces because the default might be `Type::Object`?
-    pub fn default_interface(&self) -> Option<Type> {
+    fn default_interface(&self) -> Option<Type> {
         self.def
             .interface_impls()
             .find(|imp| imp.has_attribute("DefaultAttribute"))
@@ -280,7 +279,6 @@ impl Class {
         bases
     }
 
-    // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
     pub fn required_interfaces(&self) -> Vec<Interface> {
         fn walk(def: TypeDef, generics: &[Type], is_base: bool, set: &mut Vec<Interface>) {
             for imp in def.interface_impls() {
