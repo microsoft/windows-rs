@@ -28,11 +28,6 @@ pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 
-// TODO: maybe just order on Item directly
-// 1. order functions first
-// 2. order everything else by name
-// Otherwise it looks weird when you have things like LOAD_LIBRARY_FLAGS sorting before BOOL
-
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub enum Type {
     Void,
@@ -154,7 +149,6 @@ impl Type {
             Remap::None => {}
         }
 
-        // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if code_name.namespace().is_empty() {
                 return Type::CppStruct(outer.nested[code_name.name()].clone());
@@ -858,7 +852,7 @@ impl Type {
 
 impl Type {
     fn write_no_deps(&self, writer: &Writer) -> TokenStream {
-        if !writer.config.no_deps {
+        if !writer.config.no_core {
             return quote! {};
         }
 

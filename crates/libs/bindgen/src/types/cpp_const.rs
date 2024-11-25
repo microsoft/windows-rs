@@ -53,7 +53,7 @@ impl CppConst {
                     let crate_name = writer.write_core();
                     let value = constant.value().write();
 
-                    // TODO: if writer.no_deps then write these literals out as byte strings?
+                    // TODO: if writer.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg

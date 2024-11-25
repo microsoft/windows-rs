@@ -22,12 +22,13 @@ fn main() {
 
     test("--out core_win.rs --filter CoCreateGuid");
     test("--out core_win_flat.rs --filter CoCreateGuid --flat");
-
     test("--out core_sys.rs --filter CoCreateGuid --sys");
     test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat");
+    test("--out core_sys_no_core.rs --filter CoCreateGuid --sys --no-core");
+    test("--out core_sys_flat_no_core.rs --filter CoCreateGuid --sys --flat --no-core");
 
-    test("--out core_sys_no_deps.rs --filter CoCreateGuid --sys --no-deps");
-    test("--out core_sys_flat_no_deps.rs --filter CoCreateGuid --sys --flat --no-deps");
+    // TODO: test derive on different types and sys/win style
+    test("--out derive.rs --filter DateTime TimeSpan --sys --flat --derive DateTime=PartialOrd");
 
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");
@@ -36,8 +37,6 @@ fn main() {
     //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat");
 
     test("--out multi.rs --filter HTTP_VERSION  --flat");
-
-    test("--out derive.rs --filter DateTime TimeSpan --sys --flat --derive DateTime=PartialOrd");
 
     // Very minimal example of generating just a single item.
     test("--out iota.rs --filter GetTickCount --sys --flat --no-allow");
@@ -64,9 +63,6 @@ fn main() {
 
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
     test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
-
-    // Same as 'deps2.rs' but `--no-deps` is implied.
-    test("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
     // TODO: for winrt we could have dedicated .idl files to test the various edge cases like dependencies and other
     // scenarios that are hard to come by.
