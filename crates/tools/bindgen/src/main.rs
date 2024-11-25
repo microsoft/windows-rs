@@ -26,6 +26,9 @@ fn main() {
     test("--out core_sys.rs --filter CoCreateGuid --sys");
     test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat");
 
+    test("--out core_sys_no_deps.rs --filter CoCreateGuid --sys --no-deps");
+    test("--out core_sys_flat_no_deps.rs --filter CoCreateGuid --sys --flat --no-deps");
+
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");
 
