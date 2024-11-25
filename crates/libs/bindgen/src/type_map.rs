@@ -2,8 +2,6 @@ use super::*;
 
 // TODO: call this TypeMap and reuse in Reader?
 
-// TODO: get rid of this in favor of Includes
-
 type Set = HashMap<TypeName, HashSet<Type>>;
 
 // TODO: do we even need a wrapper type at this point?

@@ -190,26 +190,6 @@ impl Reader {
             .cloned()
     }
 
-    // Gets all items with the given name regardless of namespace.
-    // pub fn with_name(&self, name: &str) -> Vec<Type> {
-    //     // This doesn't return an iterator as that would require `name` to be a static reference.
-    //     self.values()
-    //         .flatten()
-    //         .filter_map(|(key, value)| (*key == name).then_some(value))
-    //         .flatten()
-    //         .cloned()
-    //         .collect()
-    // }
-
-    /// Gets all items from the given namespace.
-    pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Type> + '_ {
-        self.get(namespace)
-            .into_iter()
-            .flat_map(|map| map.values())
-            .flatten()
-            .cloned()
-    }
-
     pub fn get_type_name(&self, path: &str) -> TypeName {
         if let Some((namespace, name)) = path.rsplit_once('.') {
             if let Some((namespace, items)) = self.get_key_value(namespace) {

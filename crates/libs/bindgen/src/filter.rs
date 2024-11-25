@@ -71,7 +71,7 @@ impl Filter {
 }
 
 fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
-    if reader.with_namespace(filter).next().is_some() {
+    if reader.contains_key(filter) {
         rules.push((filter.to_string(), include));
         return;
     }
