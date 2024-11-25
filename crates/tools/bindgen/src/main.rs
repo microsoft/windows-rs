@@ -22,7 +22,6 @@ fn main() {
 
     test("--out core_win.rs --filter CoCreateGuid");
     test("--out core_win_flat.rs --filter CoCreateGuid --flat");
-  //  test("--out core_win_ref.rs --filter CoCreateGuid --reference name=crate,style=flat,path=Core");
 
     test("--out core_sys.rs --filter CoCreateGuid --sys");
     test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat");

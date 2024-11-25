@@ -849,7 +849,7 @@ impl Type {
             Self::CppEnum(item) => item.def.underlying_type(),
             Self::Enum(item) => item.def.underlying_type(),
             Self::CppStruct(item) => item.def.underlying_type(),
-            Type::HRESULT => Type::I32,
+            Self::HRESULT => Type::I32,
             // TODO: can we use this for type dependencies or do we need somethign else?
             _ => self.clone(),
         }
