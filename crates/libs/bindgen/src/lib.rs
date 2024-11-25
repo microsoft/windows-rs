@@ -65,6 +65,7 @@ struct Config {
     // and unscoped enum variants?
     pub no_allow: bool,
     pub no_comment: bool,
+    pub no_deps: bool, // TODO: to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows-core/windows/windows-sys/windows-targets etc?
     pub no_toml: bool,
     pub package: bool,
     pub rustfmt: String,
@@ -98,6 +99,7 @@ where
     // let mut minimal = false;
     let mut no_allow = false;
     let mut no_comment = false;
+    let mut no_deps = false; // TODO: can we drop this in favor of --reference ?
     let mut no_toml = false;
     let mut package = false;
     let mut implement = false;
@@ -121,6 +123,7 @@ where
                 "--flat" => flat = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
+                "--no-deps" => no_deps = true,
                 "--no-toml" => no_toml = true,
                 "--package" => package = true,
                 "--sys" => sys = true,
@@ -151,6 +154,10 @@ where
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
+    }
+
+    if !sys && no_deps {
+        panic!("windows-bindgen: `--no-deps` requires the `--sys` option");
     }
 
     if package && flat {
@@ -186,6 +193,7 @@ where
         derive,
         no_allow,
         no_comment,
+        no_deps,
         no_toml,
         package,
         rustfmt,

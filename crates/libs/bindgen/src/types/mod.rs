@@ -858,7 +858,7 @@ impl Type {
 
 impl Type {
     fn write_no_deps(&self, writer: &Writer) -> TokenStream {
-        if !writer.config.sys  || writer.config.package {
+        if !writer.config.no_deps {
             return quote! {};
         }
 
