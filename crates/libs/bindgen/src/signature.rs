@@ -22,7 +22,9 @@ impl Signature {
     }
 
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
-        std::iter::once(&self.return_type.0).chain(self.params.iter().map(|(ty,_)|ty)).map(|ty|ty.decay())
+        std::iter::once(&self.return_type.0)
+            .chain(self.params.iter().map(|(ty, _)| ty))
+            .map(|ty| ty.decay())
     }
 
     //    pub fn included

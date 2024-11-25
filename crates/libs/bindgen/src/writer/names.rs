@@ -5,18 +5,16 @@ impl Writer {
         if self.config.sys {
             if self.config.package || !self.config.no_deps {
                 quote! { windows_sys::core:: }
+            } else if self.config.flat {
+                quote! {}
             } else {
-                if self.config.flat {
-                    quote! {}
-                } else {
-                    let mut tokens = TokenStream::new();
-    
-                    for _ in 0..self.namespace.split('.').count() {
-                        tokens.push_str("super::");
-                    }
-    
-                    tokens
+                let mut tokens = TokenStream::new();
+
+                for _ in 0..self.namespace.split('.').count() {
+                    tokens.push_str("super::");
                 }
+
+                tokens
             }
         } else {
             quote! { windows_core:: }

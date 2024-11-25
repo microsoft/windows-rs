@@ -146,129 +146,95 @@ impl Interface {
             let mut result = quote! {};
 
             if !writer.config.package {
-                    if let Some(guid) = self.def.guid_attribute() {
-                        let name: TokenStream = format!("IID_{}", self.def.name()).into();
-                        result.combine(writer.write_cpp_const_guid(name, &guid));
-                    }
+                if let Some(guid) = self.def.guid_attribute() {
+                    let name: TokenStream = format!("IID_{}", self.def.name()).into();
+                    result.combine(writer.write_cpp_const_guid(name, &guid));
+                }
 
                 result.combine(vtbl);
             }
 
             result
         } else {
-        // TODO: have same vtbl/sys representation for WinRT interfaces as for Cpp interfaces
+            // TODO: have same vtbl/sys representation for WinRT interfaces as for Cpp interfaces
 
-        let mut result = if self.generics.is_empty() {
-            let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
-
-            quote! {
-                #cfg
-                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
-                #cfg
-                impl windows_core::RuntimeType for #name {
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-                }
-            }
-        } else {
-            let guid = self.def.guid_attribute().unwrap();
-            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
-
-            let generics = self.generics.iter().map(|generic| {
-                let name = generic.write_name(writer);
+            let mut result = if self.generics.is_empty() {
+                let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
 
                 quote! {
-                    .push_slice(b";").push_other(#name::SIGNATURE)
+                    #cfg
+                    windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                    #cfg
+                    impl windows_core::RuntimeType for #name {
+                        const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+                    }
                 }
-            });
+            } else {
+                let guid = self.def.guid_attribute().unwrap();
+                let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
-            quote! {
-                #[repr(transparent)]
-                #[derive(Clone, Debug, Eq, PartialEq)]
-                pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
-                impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
-                impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
-                unsafe impl<#constraints> windows_core::Interface for #name {
-                    type Vtable = #vtbl_name;
-                    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-                }
-                impl<#constraints> windows_core::RuntimeType for #name {
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
-                }
-            }
-        };
+                let generics = self.generics.iter().map(|generic| {
+                    let name = generic.write_name(writer);
 
-        if !is_exclusive && self.generics.is_empty() {
-            result.combine(quote! {
+                    quote! {
+                        .push_slice(b";").push_other(#name::SIGNATURE)
+                    }
+                });
+
+                quote! {
+                    #[repr(transparent)]
+                    #[derive(Clone, Debug, Eq, PartialEq)]
+                    pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
+                    impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
+                    impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
+                    unsafe impl<#constraints> windows_core::Interface for #name {
+                        type Vtable = #vtbl_name;
+                        const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+                    }
+                    impl<#constraints> windows_core::RuntimeType for #name {
+                        const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
+                    }
+                }
+            };
+
+            if !is_exclusive && self.generics.is_empty() {
+                result.combine(quote! {
                 #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
             });
-        }
+            }
 
-        if !is_exclusive && !interfaces.is_empty() {
-            if self.generics.is_empty() {
-                let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
+            if !is_exclusive && !interfaces.is_empty() {
+                if self.generics.is_empty() {
+                    let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
 
-                result.combine(quote! {
-                    #cfg
-                    windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
-                });
-            } else {
-                let interfaces = interfaces.iter().map(|ty| {
+                    result.combine(quote! {
+                        #cfg
+                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                    });
+                } else {
+                    let interfaces = interfaces.iter().map(|ty| {
                     let ty = ty.write_name(writer);
                     quote!{
                         impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
                     }
                 });
 
-                result.combine(quote! {
-                    #(#interfaces)*
-                });
-            }
-        }
-
-        if !is_exclusive {
-            let method_names = &mut MethodNames::new();
-            let virtual_names = &mut MethodNames::new();
-            let mut method_tokens = TokenStream::new();
-
-            for method in methods.iter().filter_map(|method| match &method {
-                MethodOrName::Method(method) => Some(method),
-                _ => None,
-            }) {
-                let mut difference = TypeMap::new();
-
-                if writer.config.package {
-                    difference = method.dependencies.difference(&dependencies);
+                    result.combine(quote! {
+                        #(#interfaces)*
+                    });
                 }
-
-                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-
-                let method = method.write(
-                    writer,
-                    self.write_name(writer),
-                    InterfaceKind::Default,
-                    method_names,
-                    virtual_names,
-                );
-
-                method_tokens.combine(quote! {
-                    #cfg
-                    #method
-                });
             }
 
-            for interface in &required_interfaces {
+            if !is_exclusive {
+                let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
+                let mut method_tokens = TokenStream::new();
 
-                for method in
-                    interface
-                        .get_methods(writer)
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
-                            _ => None,
-                        })
-                {
+                for method in methods.iter().filter_map(|method| match &method {
+                    MethodOrName::Method(method) => Some(method),
+                    _ => None,
+                }) {
                     let mut difference = TypeMap::new();
 
                     if writer.config.package {
@@ -279,8 +245,8 @@ impl Interface {
 
                     let method = method.write(
                         writer,
-                        interface.write_name(writer),
-                        interface.kind,
+                        self.write_name(writer),
+                        InterfaceKind::Default,
                         method_names,
                         virtual_names,
                     );
@@ -290,117 +256,152 @@ impl Interface {
                         #method
                     });
                 }
-            }
 
-            if !method_tokens.is_empty() {
-                result.combine(quote! {
-                    #cfg
-                    impl<#constraints> #name {
-                        #method_tokens
-                    }
-                });
-            }
+                for interface in &required_interfaces {
+                    let virtual_names = &mut MethodNames::new();
 
-            if self.def.is_agile() {
-                result.combine(quote! {
-                    #cfg
-                    unsafe impl<#constraints> Send for #name {}
-                    #cfg
-                    unsafe impl<#constraints> Sync for #name {}
-                });
-            }
+                    for method in
+                        interface
+                            .get_methods(writer)
+                            .iter()
+                            .filter_map(|method| match &method {
+                                MethodOrName::Method(method) => Some(method),
+                                _ => None,
+                            })
+                    {
+                        let mut difference = TypeMap::new();
 
-            if let Some(into_iterator) = required_interfaces
-                .iter()
-                .find(|interface| interface.type_name() == TypeName::IIterable)
-                .map(|interface| {
-                    let item = interface.generics[0].write_name(writer);
-                    // TODO: just use typename.write?
-                    let namespace = writer.write_namespace(TypeName::IIterator);
-
-                    quote! {
-                        #cfg
-                        impl<#constraints> IntoIterator for #name {
-                            type Item = #item;
-                            type IntoIter = #namespace IIterator<Self::Item>;
-
-                            fn into_iter(self) -> Self::IntoIter {
-                                IntoIterator::into_iter(&self)
-                            }
-                        }
-                        #cfg
-                        impl<#constraints> IntoIterator for &#name {
-                            type Item = #item;
-                            type IntoIter = #namespace IIterator<Self::Item>;
-
-                            fn into_iter(self) -> Self::IntoIter {
-                                self.First().unwrap()
-                            }
+                        if writer.config.package {
+                            difference = method.dependencies.difference(&dependencies);
                         }
 
-                    }
-                })
-            {
-                result.combine(into_iterator);
-            }
-        }
+                        let cfg =
+                            writer.write_cfg(self.def, self.def.namespace(), &difference, false);
 
-        if writer.config.implement || !is_exclusive {
-            let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
+                        let method = method.write(
+                            writer,
+                            interface.write_name(writer),
+                            interface.kind,
+                            method_names,
+                            virtual_names,
+                        );
 
-            let generics: Vec<_> = self
-                .generics
-                .iter()
-                .map(|ty| ty.write_name(writer))
-                .collect();
-
-            let runtime_name = format!("{type_name}");
-
-            if writer.config.package {
-                fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
-                    for method in interface.get_methods(writer).iter() {
-                        if let MethodOrName::Method(method) = method {
-                            dependencies.combine(&method.dependencies);
-                        }
+                        method_tokens.combine(quote! {
+                            #cfg
+                            #method
+                        });
                     }
                 }
 
-                collect(self, &mut dependencies, writer);
-                required_interfaces
+                if !method_tokens.is_empty() {
+                    result.combine(quote! {
+                        #cfg
+                        impl<#constraints> #name {
+                            #method_tokens
+                        }
+                    });
+                }
+
+                if self.def.is_agile() {
+                    result.combine(quote! {
+                        #cfg
+                        unsafe impl<#constraints> Send for #name {}
+                        #cfg
+                        unsafe impl<#constraints> Sync for #name {}
+                    });
+                }
+
+                if let Some(into_iterator) = required_interfaces
                     .iter()
-                    .for_each(|interface| collect(interface, &mut dependencies, writer));
+                    .find(|interface| interface.type_name() == TypeName::IIterable)
+                    .map(|interface| {
+                        let item = interface.generics[0].write_name(writer);
+                        // TODO: just use typename.write?
+                        let namespace = writer.write_namespace(TypeName::IIterator);
+
+                        quote! {
+                            #cfg
+                            impl<#constraints> IntoIterator for #name {
+                                type Item = #item;
+                                type IntoIter = #namespace IIterator<Self::Item>;
+
+                                fn into_iter(self) -> Self::IntoIter {
+                                    IntoIterator::into_iter(&self)
+                                }
+                            }
+                            #cfg
+                            impl<#constraints> IntoIterator for &#name {
+                                type Item = #item;
+                                type IntoIter = #namespace IIterator<Self::Item>;
+
+                                fn into_iter(self) -> Self::IntoIter {
+                                    self.First().unwrap()
+                                }
+                            }
+
+                        }
+                    })
+                {
+                    result.combine(into_iterator);
+                }
             }
 
-            let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+            if writer.config.implement || !is_exclusive {
+                let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            result.combine(quote! {
-                #cfg
-                impl<#constraints> windows_core::RuntimeName for #name {
-                    const NAME: &'static str = #runtime_name;
+                let generics: Vec<_> = self
+                    .generics
+                    .iter()
+                    .map(|ty| ty.write_name(writer))
+                    .collect();
+
+                let runtime_name = format!("{type_name}");
+
+                if writer.config.package {
+                    fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
+                        for method in interface.get_methods(writer).iter() {
+                            if let MethodOrName::Method(method) = method {
+                                dependencies.combine(&method.dependencies);
+                            }
+                        }
+                    }
+
+                    collect(self, &mut dependencies, writer);
+                    required_interfaces
+                        .iter()
+                        .for_each(|interface| collect(interface, &mut dependencies, writer));
                 }
-            });
 
-            let mut names = MethodNames::new();
+                let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
-            let field_methods: Vec<_> = methods
-                .iter()
-                .map(|method| match method {
-                    MethodOrName::Method(method) => {
-                        let name = names.add(method.def);
-                        quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                result.combine(quote! {
+                    #cfg
+                    impl<#constraints> windows_core::RuntimeName for #name {
+                        const NAME: &'static str = #runtime_name;
                     }
-                    MethodOrName::Name(name) => {
-                        // TODO: test this condition - should cause an AV when method is called
-                        // TODO: does this need to use `MethodNames` for overloading?
-                        let name = to_ident(name);
-                        quote! { #name: 0, }
-                    }
-                })
-                .collect();
+                });
 
-            let mut names = MethodNames::new();
+                let mut names = MethodNames::new();
 
-            let impl_methods: Vec<_> = methods.iter().map(|method| match method {
+                let field_methods: Vec<_> = methods
+                    .iter()
+                    .map(|method| match method {
+                        MethodOrName::Method(method) => {
+                            let name = names.add(method.def);
+                            quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                        }
+                        MethodOrName::Name(name) => {
+                            // TODO: test this condition - should cause an AV when method is called
+                            // TODO: does this need to use `MethodNames` for overloading?
+                            let name = to_ident(name);
+                            quote! { #name: 0, }
+                        }
+                    })
+                    .collect();
+
+                let mut names = MethodNames::new();
+
+                let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(writer, true);
@@ -417,30 +418,30 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-            let mut names = MethodNames::new();
+                let mut names = MethodNames::new();
 
-            let trait_methods: Vec<_> = methods
-                .iter()
-                .map(|method| match method {
-                    MethodOrName::Method(method) => {
-                        let name = names.add(method.def);
-                        let signature = method.write_impl_signature(writer, true, true);
-                        quote! { fn #name #signature; }
-                    }
-                    _ => quote! {},
-                })
-                .collect();
+                let trait_methods: Vec<_> = methods
+                    .iter()
+                    .map(|method| match method {
+                        MethodOrName::Method(method) => {
+                            let name = names.add(method.def);
+                            let signature = method.write_impl_signature(writer, true, true);
+                            quote! { fn #name #signature; }
+                        }
+                        _ => quote! {},
+                    })
+                    .collect();
 
-            let requires = if interfaces.is_empty() {
-                // TODO: doesn't IUnknownImpl require Sized?
-                quote! { Sized + windows_core::IUnknownImpl }
-            } else {
-                let interfaces = interfaces.iter().map(|ty| ty.write_impl_name(writer));
+                let requires = if interfaces.is_empty() {
+                    // TODO: doesn't IUnknownImpl require Sized?
+                    quote! { Sized + windows_core::IUnknownImpl }
+                } else {
+                    let interfaces = interfaces.iter().map(|ty| ty.write_impl_name(writer));
 
-                quote! {  #(#interfaces)+* }
-            };
+                    quote! {  #(#interfaces)+* }
+                };
 
-            result.combine(quote! {
+                result.combine(quote! {
                 #cfg
                 pub trait #impl_name <#(#generics),*> : #requires where #constraints {
                     #(#trait_methods)*
@@ -460,11 +461,11 @@ impl Interface {
                     }
                 }
             });
-        }
+            }
 
-        result.combine(vtbl);
-        result
-    }
+            result.combine(vtbl);
+            result
+        }
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
@@ -516,7 +517,10 @@ impl Interface {
         }
 
         for method in self.def.methods() {
-            for ty in method.signature(self.def.namespace(), &self.generics).types() {
+            for ty in method
+                .signature(self.def.namespace(), &self.generics)
+                .types()
+            {
                 if ty.is_core() {
                     ty.dependencies(dependencies);
                 }

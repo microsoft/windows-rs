@@ -541,16 +541,16 @@ impl Type {
     }
 
     pub fn decay(&self) -> &Self {
-            match self {
-                Type::PtrMut(ty, _) => ty,
-                Type::PtrConst(ty, _) => ty,
-                Type::ArrayFixed(ty, _) => ty.decay(),
-                Type::Array(ty) => ty,
-                Type::ArrayRef(ty) => ty,
-                Type::ConstRef(ty) => ty,
-                Type::PrimitiveOrEnum(_, ty) => ty,
-                _ => self,
-            }
+        match self {
+            Type::PtrMut(ty, _) => ty,
+            Type::PtrConst(ty, _) => ty,
+            Type::ArrayFixed(ty, _) => ty.decay(),
+            Type::Array(ty) => ty,
+            Type::ArrayRef(ty) => ty,
+            Type::ConstRef(ty) => ty,
+            Type::PrimitiveOrEnum(_, ty) => ty,
+            _ => self,
+        }
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
@@ -863,17 +863,17 @@ impl Type {
         }
 
         match self {
-            Self::HRESULT  => quote! { pub type HRESULT = i32; },
+            Self::HRESULT => quote! { pub type HRESULT = i32; },
 
-            Self::PWSTR  => quote! { pub type PWSTR = *mut u16; },
-            Self::PCSTR  => quote! { pub type PCSTR = *const u8; },
-            Self::PSTR  => quote! { pub type PSTR = *mut u8; },
-            Self::PCWSTR  => quote! { pub type PCWSTR = *const u16; },
-            Self::BSTR  => quote! { pub type BSTR = *const u16; },
-            Self::String  => {
+            Self::PWSTR => quote! { pub type PWSTR = *mut u16; },
+            Self::PCSTR => quote! { pub type PCSTR = *const u8; },
+            Self::PSTR => quote! { pub type PSTR = *mut u8; },
+            Self::PCWSTR => quote! { pub type PCWSTR = *const u16; },
+            Self::BSTR => quote! { pub type BSTR = *const u16; },
+            Self::String => {
                 quote! { pub type HSTRING = *mut core::ffi::c_void; }
             }
-            Self::GUID  => quote! {
+            Self::GUID => quote! {
                 #[repr(C)]
                 #[derive(Clone, Copy)]
                 pub struct GUID {
@@ -888,7 +888,7 @@ impl Type {
                     }
                 }
             },
-            Self::IUnknown  => quote! {
+            Self::IUnknown => quote! {
                 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
                 #[repr(C)]
                 pub struct IUnknown_Vtbl {
@@ -897,7 +897,7 @@ impl Type {
                     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
                 }
             },
-            Self::Object  => quote! {
+            Self::Object => quote! {
                 pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
                 #[repr(C)]
                 pub struct IInspectable_Vtbl {
@@ -967,17 +967,19 @@ impl Type {
     }
 
     pub fn is_core(&self) -> bool {
-        matches!(self, 
-            Self::PSTR | 
-            Self::PCSTR | 
-            Self::PWSTR | 
-            Self::PCWSTR | 
-            Self::GUID | 
-            Self::HRESULT | 
-            Self::IUnknown | 
-            Self::Object |
-            Self::BSTR | 
-            Self::String  )
+        matches!(
+            self,
+            Self::PSTR
+                | Self::PCSTR
+                | Self::PWSTR
+                | Self::PCWSTR
+                | Self::GUID
+                | Self::HRESULT
+                | Self::IUnknown
+                | Self::Object
+                | Self::BSTR
+                | Self::String
+        )
     }
 }
 
