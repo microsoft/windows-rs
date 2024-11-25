@@ -4,7 +4,7 @@ use std::path::Path;
 use windows_bindgen::bindgen;
 
 fn test(args: &str) {
-    let mut expand = vec!["--in", "default"];
+    let mut expand = vec!["--no-comment", "--in", "default"];
     expand.extend(args.split_whitespace());
     bindgen(expand);
 }
@@ -20,92 +20,94 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
-    test("--out core_win.rs --filter CoCreateGuid --no-comment");
-    test("--out core_win_flat.rs --filter CoCreateGuid --flat --no-comment");
-    test("--out core_sys.rs --filter CoCreateGuid --sys --no-comment");
-    test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat --no-comment");
+    test("--out core_win.rs --filter CoCreateGuid");
+    test("--out core_win_flat.rs --filter CoCreateGuid --flat");
+  //  test("--out core_win_ref.rs --filter CoCreateGuid --reference name=crate,style=flat,path=Core");
 
-    test("--out class_factory.rs --filter IClassFactory --flat --no-comment");
-    test("--out class_factory_sys.rs --filter IClassFactory --sys --flat --no-comment");
+    test("--out core_sys.rs --filter CoCreateGuid --sys");
+    test("--out core_sys_flat.rs --filter CoCreateGuid --sys --flat");
 
-    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat --no-comment");
-    //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat --no-comment");
+    test("--out class_factory.rs --filter IClassFactory --flat");
+    test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");
 
-    test("--out multi.rs --filter HTTP_VERSION  --flat --no-comment");
+    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat");
+    //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat");
 
-    test("--out derive.rs --filter DateTime TimeSpan --sys --flat --no-comment --derive DateTime=PartialOrd");
+    test("--out multi.rs --filter HTTP_VERSION  --flat");
+
+    test("--out derive.rs --filter DateTime TimeSpan --sys --flat --derive DateTime=PartialOrd");
 
     // Very minimal example of generating just a single item.
-    test("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
+    test("--out iota.rs --filter GetTickCount --sys --flat --no-allow");
 
     // Same as 'iota.rs' but without `--sys`.
-    test("--out cpp_fn_return_none.rs --filter GetTickCount --flat --no-comment");
+    test("--out cpp_fn_return_none.rs --filter GetTickCount --flat");
 
-    test("--out cpp_fn_associated_enum_sys.rs --filter CoInitializeEx --sys --flat --no-comment --no-allow");
-    test("--out cpp_fn_associated_enum_win.rs --filter CoInitializeEx --flat --no-comment");
+    test("--out cpp_fn_associated_enum_sys.rs --filter CoInitializeEx --sys --flat --no-allow");
+    test("--out cpp_fn_associated_enum_win.rs --filter CoInitializeEx --flat");
 
-    test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
+    test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat");
 
-    test("--out cpp_interface.rs --filter IPersist --flat --no-comment");
-    test("--out cpp_interface2.rs --filter IPersistFile --flat --no-comment");
+    test("--out cpp_interface.rs --filter IPersist --flat");
+    test("--out cpp_interface2.rs --filter IPersistFile --flat");
 
     test("--out udt_return_interface.rs --filter ID2D1Bitmap D2D_SIZE_F --flat");
 
-    // test("--out cpp_interface_sys.rs --filter IPersist --flat --no-comment --sys");
+    // test("--out cpp_interface_sys.rs --filter IPersist --flat --sys");
 
-    // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat --no-comment");
+    // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat");
 
     // Generate functions and include dependencies automatically.
-    test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-comment");
+    test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat");
 
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
-    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
+    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
     // Same as 'deps2.rs' but `--no-deps` is implied.
-    test("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
+    test("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
     // TODO: for winrt we could have dedicated .idl files to test the various edge cases like dependencies and other
     // scenarios that are hard to come by.
-    test("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
-    test("--out winrt_struct_with_generic.rs --filter HttpProgress --flat --no-comment");
+    test("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat");
+    test("--out winrt_struct_with_generic.rs --filter HttpProgress --flat");
 
-    test("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
+    test("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat");
 
-    test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
-    test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
-    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat --no-comment");
-    test("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat --no-comment");
+    test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat");
+    test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat");
+    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat");
+    test("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat");
 
-    test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");
-    test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat --no-comment");
+    test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat");
+    test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat");
 
-    test("--out winrt_interface_no_status.rs --filter IAsyncInfo --flat --no-comment");
-    test("--out winrt_interface_status.rs --filter IAsyncInfo AsyncStatus --flat --no-comment");
+    test("--out winrt_interface_no_status.rs --filter IAsyncInfo --flat");
+    test("--out winrt_interface_status.rs --filter IAsyncInfo AsyncStatus --flat");
 
-    test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat --no-comment");
-    test("--out winrt_class_without_handler.rs --filter Deferral --flat --no-comment");
+    test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat");
+    test("--out winrt_class_without_handler.rs --filter Deferral --flat");
 
-    test("--out reference.rs --filter IMemoryBuffer --flat --no-comment --reference name=windows,style=skip-root,path=IMemoryBufferReference");
+    test("--out reference.rs --filter IMemoryBuffer --flat --reference name=windows,style=skip-root,path=IMemoryBufferReference");
 
     // TODO: need to test 3rd party package support and make sure we can compose code gen from different sources
     // test("--out package --filter WwwFormUrlDecoder --package");
 
-    // test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
-    // test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
+    // test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat");
+    // test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat");
 
-    // test("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
+    // test("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat");
 
     // // Tree version
-    // test("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
+    // test("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder");
 
     // // TODO: what does minimal do for methods?
-    // test("--out winrt_class_deps3.rs --filter WwwFormUrlDecoder --flat --minimal --no-comment");
+    // test("--out winrt_class_deps3.rs --filter WwwFormUrlDecoder --flat --minimal");
 
     // // This should exclude WwwFormUrlDecoder's dependencies on the collection interfaces
-    // test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat --no-comment");
+    // test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat");
 
-    // test("--out winrt_class_uri.rs --filter Uri --flat --no-comment");
-    // test("--out winrt_class_uri_no_decoder.rs --filter Uri !WwwFormUrlDecoder --flat --no-comment");
+    // test("--out winrt_class_uri.rs --filter Uri --flat");
+    // test("--out winrt_class_uri_no_decoder.rs --filter Uri !WwwFormUrlDecoder --flat");
 
     // TODO test class with generic default interface
     // TODO test class with async default interface
@@ -115,7 +117,7 @@ fn main() {
     // 1. so in that model --sys bindings imply and the latter is only useful for removing the above dependencies for non-sys bindings
 
     // Same as 'deps3.rs' but with dependency on `windows-core` for core types. TODO: what about other types found in windows?
-    // test("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --no-comment");
+    // test("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS");
 
     // TODO: test with path using white space
 
