@@ -98,3 +98,15 @@ fn invalid_reference_style() {
 fn invalid_reference_type_name() {
     bindgen("--in default --out out.txt --filter POINT --reference windows,full,POINTY");
 }
+
+#[test]
+#[should_panic(expected = "failed to read binary file `invalid.winmd`")]
+fn invalid_input_path() {
+    bindgen("--in invalid.winmd --out out.txt --filter POINT");
+}
+
+#[test]
+#[should_panic(expected = "type not found: `POINT`")]
+fn no_default() {
+    bindgen("--in ../../libs/bindgen/default/Windows.winmd --out out.txt --filter POINT");
+}
