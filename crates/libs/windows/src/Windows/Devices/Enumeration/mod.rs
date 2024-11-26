@@ -999,7 +999,6 @@ windows_core::imp::interface_hierarchy!(DeviceInformationCollection, windows_cor
 windows_core::imp::required_hierarchy!(DeviceInformationCollection, super::super::Foundation::Collections::IIterable<DeviceInformation>);
 #[cfg(feature = "Foundation_Collections")]
 impl DeviceInformationCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<DeviceInformation>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<DeviceInformation>>(self)?;
         unsafe {

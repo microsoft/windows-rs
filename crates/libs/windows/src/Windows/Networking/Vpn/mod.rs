@@ -3738,7 +3738,6 @@ windows_core::imp::interface_hierarchy!(VpnPacketBufferList, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(VpnPacketBufferList, super::super::Foundation::Collections::IIterable<VpnPacketBuffer>);
 #[cfg(feature = "Foundation_Collections")]
 impl VpnPacketBufferList {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<VpnPacketBuffer>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>>(self)?;
         unsafe {

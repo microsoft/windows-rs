@@ -2988,7 +2988,6 @@ impl ApplicationDataCompositeValue {
         static SHARED: windows_core::imp::FactoryCache<ApplicationDataCompositeValue, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::Foundation::Collections::IIterator<super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
@@ -3166,7 +3165,6 @@ windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, window
 windows_core::imp::required_hierarchy ! ( ApplicationDataContainerSettings , super::Foundation::Collections:: IIterable < super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataContainerSettings {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::Foundation::Collections::IIterator<super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {

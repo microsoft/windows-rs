@@ -1440,7 +1440,6 @@ windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(SortEntryVector, super::super::Foundation::Collections::IIterable<SortEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<SortEntry>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<SortEntry>>(self)?;
         unsafe {

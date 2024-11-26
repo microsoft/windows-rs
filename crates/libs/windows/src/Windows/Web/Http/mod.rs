@@ -1110,7 +1110,6 @@ windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnk
 windows_core::imp::required_hierarchy!(HttpCookieCollection, super::super::Foundation::Collections::IIterable<HttpCookie>);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpCookieCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<HttpCookie>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<HttpCookie>>(self)?;
         unsafe {
@@ -1721,7 +1720,6 @@ impl HttpMultipartContent {
             (windows_core::Interface::vtable(this).CreateWithSubtypeAndBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {
@@ -1878,7 +1876,6 @@ impl HttpMultipartFormDataContent {
             (windows_core::Interface::vtable(this).CreateWithBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {

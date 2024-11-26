@@ -7796,7 +7796,6 @@ impl CompositionAnimationGroup {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
         unsafe {
@@ -8786,7 +8785,6 @@ windows_core::imp::interface_hierarchy!(CompositionColorGradientStopCollection, 
 windows_core::imp::required_hierarchy!(CompositionColorGradientStopCollection, super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>, super::super::Foundation::Collections::IVector<CompositionColorGradientStop>);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionColorGradientStopCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>>(self)?;
         unsafe {
@@ -12794,7 +12792,6 @@ impl CompositionProjectedShadowCasterCollection {
             (windows_core::Interface::vtable(this).MaxRespectedCasters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
         unsafe {
@@ -13124,7 +13121,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
         unsafe {
@@ -14495,7 +14491,6 @@ impl CompositionShapeCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
         unsafe {
@@ -15070,7 +15065,6 @@ impl CompositionStrokeDashArray {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<f32>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
         unsafe {
@@ -19467,7 +19461,6 @@ impl ImplicitAnimationCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>>(self)?;
         unsafe {
@@ -19672,7 +19665,6 @@ impl InitialValueExpressionCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
@@ -26279,7 +26271,6 @@ impl VisualCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
         unsafe {
@@ -26487,7 +26478,6 @@ impl VisualUnorderedCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
         unsafe {

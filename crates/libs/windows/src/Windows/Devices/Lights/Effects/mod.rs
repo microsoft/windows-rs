@@ -730,7 +730,6 @@ impl LampArrayEffectPlaylist {
         static SHARED: windows_core::imp::FactoryCache<LampArrayEffectPlaylist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {

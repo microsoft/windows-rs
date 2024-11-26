@@ -4791,7 +4791,6 @@ windows_core::imp::interface_hierarchy!(XmlNamedNodeMap, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(XmlNamedNodeMap, super::super::super::Foundation::Collections::IIterable<IXmlNode>, super::super::super::Foundation::Collections::IVectorView<IXmlNode>);
 #[cfg(feature = "Foundation_Collections")]
 impl XmlNamedNodeMap {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
@@ -4942,7 +4941,6 @@ windows_core::imp::interface_hierarchy!(XmlNodeList, windows_core::IUnknown, win
 windows_core::imp::required_hierarchy!(XmlNodeList, super::super::super::Foundation::Collections::IIterable<IXmlNode>, super::super::super::Foundation::Collections::IVectorView<IXmlNode>);
 #[cfg(feature = "Foundation_Collections")]
 impl XmlNodeList {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {

@@ -288,7 +288,6 @@ windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, windows_
 windows_core::imp::required_hierarchy!(DnssdServiceInstanceCollection, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>);
 #[cfg(feature = "Foundation_Collections")]
 impl DnssdServiceInstanceCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {

@@ -62,6 +62,20 @@ where
     pub First: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
+impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -185,6 +199,16 @@ where
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut T, *mut u32) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
+}
+impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
+    type Item = T;
+    fn next(&mut self) -> Option<Self::Item> {
+        let result = self.Current().ok();
+        if result.is_some() {
+            self.MoveNext().ok()?;
+        }
+        result
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -874,7 +874,6 @@ windows_core::imp::interface_hierarchy!(WindowTabCollection, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(WindowTabCollection, super::super::Foundation::Collections::IIterable<WindowTab>, super::super::Foundation::Collections::IVector<WindowTab>);
 #[cfg(feature = "Foundation_Collections")]
 impl WindowTabCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<WindowTab>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<WindowTab>>(self)?;
         unsafe {

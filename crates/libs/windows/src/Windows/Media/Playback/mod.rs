@@ -1722,7 +1722,6 @@ windows_core::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, windows_cor
 windows_core::imp::required_hierarchy!(MediaPlaybackAudioTrackList, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>, super::Core::ISingleSelectMediaTrackList);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackAudioTrackList {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::AudioTrack>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>>(self)?;
         unsafe {
@@ -3550,7 +3549,6 @@ windows_core::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, win
 windows_core::imp::required_hierarchy!(MediaPlaybackTimedMetadataTrackList, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackTimedMetadataTrackList {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::TimedMetadataTrack>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>>(self)?;
         unsafe {
@@ -3658,7 +3656,6 @@ windows_core::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, windows_cor
 windows_core::imp::required_hierarchy!(MediaPlaybackVideoTrackList, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>, super::Core::ISingleSelectMediaTrackList);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackVideoTrackList {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::VideoTrack>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>>(self)?;
         unsafe {
@@ -4634,7 +4631,6 @@ windows_core::imp::interface_hierarchy!(PlaybackMediaMarkerSequence, windows_cor
 windows_core::imp::required_hierarchy!(PlaybackMediaMarkerSequence, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlaybackMediaMarkerSequence {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<PlaybackMediaMarker>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>>(self)?;
         unsafe {

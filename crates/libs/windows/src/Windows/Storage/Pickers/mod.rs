@@ -242,7 +242,6 @@ windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(FileExtensionVector, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
 impl FileExtensionVector {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>(self)?;
         unsafe {
@@ -508,7 +507,6 @@ windows_core::imp::interface_hierarchy ! ( FilePickerFileTypesOrderedMap , windo
 windows_core::imp::required_hierarchy!(FilePickerFileTypesOrderedMap, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerFileTypesOrderedMap {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>>(self)?;
         unsafe {
@@ -607,7 +605,6 @@ windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_co
 windows_core::imp::required_hierarchy!(FilePickerSelectedFilesArray, super::super::Foundation::Collections::IIterable<super::StorageFile>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl FilePickerSelectedFilesArray {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::StorageFile>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::StorageFile>>(self)?;
         unsafe {

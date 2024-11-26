@@ -187,7 +187,6 @@ windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<PnpObject>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<PnpObject>>(self)?;
         unsafe {

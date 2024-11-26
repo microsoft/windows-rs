@@ -2939,7 +2939,6 @@ windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknow
 windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, Collections::IIterable<IWwwFormUrlDecoderEntry>, Collections::IVectorView<IWwwFormUrlDecoderEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl WwwFormUrlDecoder {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &windows_core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {

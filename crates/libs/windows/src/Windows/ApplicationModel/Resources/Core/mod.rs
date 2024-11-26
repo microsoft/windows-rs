@@ -384,7 +384,6 @@ windows_core::imp::interface_hierarchy!(ResourceCandidateVectorView, windows_cor
 windows_core::imp::required_hierarchy!(ResourceCandidateVectorView, super::super::super::Foundation::Collections::IIterable<ResourceCandidate>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceCandidateVectorView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ResourceCandidate>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ResourceCandidate>>(self)?;
         unsafe {
@@ -607,7 +606,6 @@ windows_core::imp::interface_hierarchy!(ResourceContextLanguagesVectorView, wind
 windows_core::imp::required_hierarchy!(ResourceContextLanguagesVectorView, super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceContextLanguagesVectorView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>(self)?;
         unsafe {
@@ -776,7 +774,6 @@ windows_core::imp::interface_hierarchy!(ResourceMap, windows_core::IUnknown, win
 windows_core::imp::required_hierarchy ! ( ResourceMap , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , NamedResource > > , super::super::super::Foundation::Collections:: IMapView < windows_core::HSTRING , NamedResource > );
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMap {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>(self)?;
         unsafe {
@@ -938,7 +935,6 @@ windows_core::imp::interface_hierarchy ! ( ResourceMapMapView , windows_core::IU
 windows_core::imp::required_hierarchy!(ResourceMapMapView, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>>(self)?;
         unsafe {
@@ -1122,7 +1118,6 @@ windows_core::imp::interface_hierarchy ! ( ResourceQualifierMapView , windows_co
 windows_core::imp::required_hierarchy!(ResourceQualifierMapView, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierMapView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
@@ -1199,7 +1194,6 @@ windows_core::imp::interface_hierarchy ! ( ResourceQualifierObservableMap , wind
 windows_core::imp::required_hierarchy ! ( ResourceQualifierObservableMap , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , super::super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
@@ -1310,7 +1304,6 @@ windows_core::imp::interface_hierarchy!(ResourceQualifierVectorView, windows_cor
 windows_core::imp::required_hierarchy!(ResourceQualifierVectorView, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierVectorView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ResourceQualifier>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>(self)?;
         unsafe {

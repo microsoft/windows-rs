@@ -420,7 +420,6 @@ windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable<AccessListEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
         unsafe {

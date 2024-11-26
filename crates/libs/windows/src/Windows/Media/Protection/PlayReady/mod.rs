@@ -3959,7 +3959,6 @@ pub struct PlayReadyDomainIterable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterable {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
         let this = self;
         unsafe {
@@ -4689,7 +4688,6 @@ impl PlayReadyLicenseIterable {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseIterable, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
         let this = self;
         unsafe {
@@ -5080,7 +5078,6 @@ pub struct PlayReadySecureStopIterable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterable {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
         let this = self;
         unsafe {
