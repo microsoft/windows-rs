@@ -106,6 +106,12 @@ fn invalid_input_path() {
 }
 
 #[test]
+#[should_panic(expected = "failed to read .winmd format `../../libs/bindgen/default/readme.md`")]
+fn invalid_input_format() {
+    bindgen("--in ../../libs/bindgen/default/readme.md --out out.txt --filter POINT");
+}
+
+#[test]
 #[should_panic(expected = "type not found: `POINT`")]
 fn no_default() {
     bindgen("--in ../../libs/bindgen/default/Windows.winmd --out out.txt --filter POINT");
