@@ -79,7 +79,6 @@ impl Writer {
                             unsafe fn free(&mut self) {
                                 if !self.is_invalid() {
                                     #link
-                                    // TODO: maybe inline the [link] here to avoid the dependency?
                                     #free(self.0 #tail);
                                 }
                             }
