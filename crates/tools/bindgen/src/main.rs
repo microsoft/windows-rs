@@ -36,16 +36,19 @@ fn main() {
 
     test("--out enum_win.rs --filter AsyncStatus --flat");
     test("--out enum_sys.rs --filter AsyncStatus --flat --sys");
-
     test("--out enum_flags_win.rs --filter ErrorOptions --flat");
     test("--out enum_flags_sys.rs --filter ErrorOptions --flat --sys");
-
     test("--out enum_cpp_win.rs --filter WAIT_EVENT --flat");
     test("--out enum_cpp_sys.rs --filter WAIT_EVENT --flat --sys");
     test("--out enum_cpp_flags_win.rs --filter GENERIC_ACCESS_RIGHTS --flat");
     test("--out enum_cpp_flags_sys.rs --filter GENERIC_ACCESS_RIGHTS --flat --sys");
     test("--out enum_cpp_scoped_win.rs --filter SECURITY_LOGON_TYPE --flat");
     test("--out enum_cpp_scoped_sys.rs --filter SECURITY_LOGON_TYPE --flat --sys");
+
+    test("--out struct_win.rs --filter RectInt32 --flat");
+    test("--out struct_sys.rs --filter RectInt32 --flat --sys");
+    test("--out struct_cpp_win.rs --filter RECT --flat");
+    test("--out struct_cpp_sys.rs --filter RECT --flat --sys");
 
 
     test("--out class_factory.rs --filter IClassFactory --flat");
@@ -132,10 +135,6 @@ fn main() {
 
     // Same as 'deps3.rs' but with dependency on `windows-core` for core types. TODO: what about other types found in windows?
     // test("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS");
-
-    // TODO: test with path using white space
-
-    // TODO: test failure/panics
 
     write_lib();
 }

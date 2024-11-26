@@ -26,10 +26,14 @@ impl Struct {
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
         let mut derive = DeriveWriter::new(writer, self.type_name());
-        derive.extend(["Clone", "Debug", "Default", "PartialEq"]);
+        derive.extend(["Clone"]);
 
         if is_copyable {
             derive.extend(["Copy"]);
+        }
+
+        if !writer.config.sys {
+            derive.extend(["Default", "Debug", "PartialEq"]);
         }
 
         let fields = fields.iter().map(|(name, ty)| {
@@ -38,13 +42,27 @@ impl Struct {
             quote! { pub #name: #ty, }
         });
 
-        let type_kind = if is_copyable {
-            quote! { CopyType }
+        let win_traits = if writer.config.sys {
+            quote! {}
         } else {
-            quote! { CloneType }
+            let type_kind = if is_copyable {
+                quote! { CopyType }
+            } else {
+                quote! { CloneType }
+            };
+    
+            let signature = Literal::byte_string(&self.runtime_signature());
+    
+            quote! {
+                impl windows_core::TypeKind for #name {
+                    type TypeKind = windows_core::#type_kind;
+                }
+                impl windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
+                }
+            }
         };
 
-        let signature = Literal::byte_string(&self.runtime_signature());
 
         quote! {
             #[repr(C)]
@@ -52,12 +70,7 @@ impl Struct {
             pub struct #name {
                 #(#fields)*
             }
-            impl windows_core::TypeKind for #name {
-                type TypeKind = windows_core::#type_kind;
-            }
-            impl windows_core::RuntimeType for #name {
-                const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
-            }
+            #win_traits
         }
     }
 
