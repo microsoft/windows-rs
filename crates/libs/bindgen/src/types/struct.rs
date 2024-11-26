@@ -50,9 +50,9 @@ impl Struct {
             } else {
                 quote! { CloneType }
             };
-    
+
             let signature = Literal::byte_string(&self.runtime_signature());
-    
+
             quote! {
                 impl windows_core::TypeKind for #name {
                     type TypeKind = windows_core::#type_kind;
@@ -62,7 +62,6 @@ impl Struct {
                 }
             }
         };
-
 
         quote! {
             #[repr(C)]
