@@ -70,6 +70,20 @@ fn main() {
     test("--out interface_required_with_method_sys.rs --filter Windows.Foundation.IAsyncAction AsyncStatus --flat --sys");
     test("--out interface_iterable.rs --filter IVector --flat");
     
+    test("--out fn_win.rs --filter GetTickCount --flat");
+    test("--out fn_sys.rs --filter GetTickCount --flat --sys");
+    test("--out fn_associated_enum_win.rs --filter CoInitializeEx --flat");
+    test("--out fn_associated_enum_sys.rs --filter CoInitializeEx --sys --flat");
+    test("--out fn_return_void_win.rs --filter GlobalMemoryStatus --flat");
+    test("--out fn_return_void_sys.rs --filter GlobalMemoryStatus --flat --sys");
+    test("--out fn_no_return_win.rs --filter FatalExit --flat");
+    test("--out fn_no_return_sys.rs --filter FatalExit --flat --sys");
+    test("--out fn_result_void_sys.rs --filter SetComputerNameA --flat --sys");
+    // TODO: this requires BOOL extensions which are currently only in the `windows` crate
+    // test("--out fn_result_void_win.rs --filter SetComputerNameA --flat");
+
+
+
 
 
     test("--out class_factory.rs --filter IClassFactory --flat");
@@ -83,17 +97,7 @@ fn main() {
     // Very minimal example of generating just a single type.
     test("--out iota.rs --filter GetTickCount --sys --flat --no-allow");
 
-    // Same as 'iota.rs' but without `--sys`.
-    test("--out cpp_fn_return_none.rs --filter GetTickCount --flat");
 
-    test("--out cpp_fn_associated_enum_sys.rs --filter CoInitializeEx --sys --flat --no-allow");
-    test("--out cpp_fn_associated_enum_win.rs --filter CoInitializeEx --flat");
-
-    test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat");
-
-
-
-    // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat");
 
     // Generate functions and include dependencies automatically.
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat");
