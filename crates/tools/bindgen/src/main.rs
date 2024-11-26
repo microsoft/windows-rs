@@ -82,6 +82,8 @@ fn main() {
     // TODO: this requires BOOL extensions which are currently only in the `windows` crate
     // test("--out fn_result_void_win.rs --filter SetComputerNameA --flat");
 
+    test("--out multi.rs --filter HTTP_VERSION  --flat");
+    test("--out multi_sys.rs --filter HTTP_VERSION --flat --sys");
 
 
 
@@ -92,10 +94,6 @@ fn main() {
     //test("--out class_factory_no_deps.rs --filter IClassFactory --flat");
     //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat");
 
-    test("--out multi.rs --filter HTTP_VERSION  --flat");
-
-    // Very minimal example of generating just a single type.
-    test("--out iota.rs --filter GetTickCount --sys --flat --no-allow");
 
 
 
