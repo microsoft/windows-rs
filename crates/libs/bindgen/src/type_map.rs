@@ -1,30 +1,19 @@
 use super::*;
 
-// TODO: call this TypeMap and reuse in Reader?
-
-type Set = HashMap<TypeName, HashSet<Type>>;
-
-// TODO: do we even need a wrapper type at this point?
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(Set);
+pub struct TypeMap(HashMap<TypeName, HashSet<Type>>);
 
 impl std::ops::Deref for TypeMap {
-    type Target = Set;
+    type Target = HashMap<TypeName, HashSet<Type>>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-// impl core::ops::DerefMut for TypeMap {
-//     fn deref_mut(&mut self) -> &mut Self::Target {
-//         &mut self.0
-//     }
-// }
-
 impl TypeMap {
     pub fn new() -> Self {
-        Self(Set::new())
+        Self(HashMap::new())
     }
 
     pub fn filter(reader: &'static Reader, filter: &Filter) -> Self {
@@ -76,10 +65,6 @@ impl TypeMap {
         )
     }
 
-    pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
-        self.0.keys().map(|tn| tn.0)
-    }
-
     pub fn included(&self, config: &Config) -> bool {
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
@@ -89,7 +74,7 @@ impl TypeMap {
             }
 
             // TODO: would it be faster/simpler to search by `ty` instead
-            if config.types.contains(*tn) {
+            if config.types.contains_key(tn) {
                 return true;
             }
 
@@ -97,18 +82,11 @@ impl TypeMap {
                 return true;
             }
 
-            // TODO: maybe have Reference type that includes map for crate association and a Filter for quick type inclusion detection here
-            //if config.reference.values().find(|namespace|namespace)
-
             false
         })
     }
 
     fn excluded(&self, filter: &Filter) -> bool {
         self.0.iter().any(|(tn, _)| filter.excludes_type_name(*tn))
-    }
-
-    pub fn contains(&self, name: TypeName) -> bool {
-        self.0.contains_key(&name)
     }
 }

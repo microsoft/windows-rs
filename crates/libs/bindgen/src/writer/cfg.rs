@@ -43,8 +43,7 @@ impl Writer {
             _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
         }
 
-        // TODO: simpler way to do this? needs a tesd too...
-        let mut compact: Vec<&'static str> = dependencies.namespaces().collect();
+        let mut compact: Vec<&'static str> = dependencies.keys().map(|tn| tn.namespace()).collect();
         compact.sort();
         compact.dedup();
 

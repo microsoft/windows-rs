@@ -95,6 +95,6 @@ impl References {
     pub fn contains(&self, name: TypeName) -> Option<&Reference> {
         self.0
             .iter()
-            .find(|reference| reference.types.contains(name))
+            .find(|reference| reference.types.contains_key(&name))
     }
 }
