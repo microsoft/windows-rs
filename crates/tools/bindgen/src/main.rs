@@ -54,7 +54,23 @@ fn main() {
     test("--out struct_with_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat");
     test("--out struct_with_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat --sys");
 
+    test("--out interface.rs --filter Windows.Foundation.IStringable --flat");
+    test("--out interface_sys.rs --filter Windows.Foundation.IStringable --flat --sys");
+    test("--out interface_sys_no_core.rs --filter Windows.Foundation.IStringable --flat --sys --no-core");
+    test("--out interface_cpp.rs --filter IPersist --flat");
+    test("--out interface_cpp_sys.rs --filter IPersist --flat --sys");
+    test("--out interface_cpp_sys_no_core.rs --filter IPersist --flat --sys --no-core");
+    test("--out interface_cpp_derive.rs --filter IPersistFile --flat");
+    test("--out interface_cpp_derive_sys.rs --filter IPersistFile --flat --sys");
+    test("--out interface_cpp_return_udt.rs --filter ID2D1Bitmap D2D_SIZE_F --flat");
+    test("--out interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat");
+    test("--out interface_required.rs --filter Windows.Foundation.IAsyncAction --flat");
+    test("--out interface_required_sys.rs --filter Windows.Foundation.IAsyncAction --flat --sys");
+    test("--out interface_required_with_method.rs --filter Windows.Foundation.IAsyncAction AsyncStatus --flat");
+    test("--out interface_required_with_method_sys.rs --filter Windows.Foundation.IAsyncAction AsyncStatus --flat --sys");
 
+    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat");
+    
 
 
     test("--out class_factory.rs --filter IClassFactory --flat");
@@ -76,12 +92,7 @@ fn main() {
 
     test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat");
 
-    test("--out cpp_interface.rs --filter IPersist --flat");
-    test("--out cpp_interface2.rs --filter IPersistFile --flat");
 
-    test("--out udt_return_interface.rs --filter ID2D1Bitmap D2D_SIZE_F --flat");
-
-    // test("--out cpp_interface_sys.rs --filter IPersist --flat --sys");
 
     // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat");
 
@@ -92,16 +103,13 @@ fn main() {
     test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
 
-    test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat");
-    test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat");
-    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat");
-    test("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat");
+
+
 
     test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat");
     test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat");
 
-    test("--out winrt_interface_no_status.rs --filter IAsyncInfo --flat");
-    test("--out winrt_interface_status.rs --filter IAsyncInfo AsyncStatus --flat");
+
 
     test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat");
     test("--out winrt_class_without_handler.rs --filter Deferral --flat");
