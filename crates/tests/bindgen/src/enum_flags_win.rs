@@ -16,6 +16,14 @@ impl ErrorOptions {
     pub const UseSetErrorInfo: Self = Self(4u32);
     pub const SuppressSetErrorInfo: Self = Self(8u32);
 }
+impl windows_core::TypeKind for ErrorOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ErrorOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)",
+    );
+}
 impl ErrorOptions {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -48,12 +56,4 @@ impl core::ops::Not for ErrorOptions {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-impl windows_core::TypeKind for ErrorOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ErrorOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)",
-    );
 }

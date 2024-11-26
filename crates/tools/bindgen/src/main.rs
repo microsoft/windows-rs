@@ -50,9 +50,9 @@ fn main() {
     test("--out struct_cpp_win.rs --filter RECT --flat");
     test("--out struct_cpp_sys.rs --filter RECT --flat --sys");
     test("--out struct_disambiguate.rs --filter Windows.Foundation.Rect --flat");
-    test("--out struct_generic.rs --filter HttpProgress --flat");
-    test("--out struct_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat");
-    test("--out struct_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat --sys");
+    test("--out struct_with_generic.rs --filter HttpProgress --flat");
+    test("--out struct_with_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat");
+    test("--out struct_with_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat --sys");
 
 
 
