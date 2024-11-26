@@ -26,21 +26,19 @@ impl Filter {
         Self(rules)
     }
 
-    // TODO: use namespace_starts_with?
-
     pub fn includes_namespace(&self, namespace: &str) -> bool {
         for rule in &self.0 {
             if rule.1 {
                 // include
-                if rule.0.starts_with(namespace) {
+                if namespace_starts_with(&rule.0, namespace) {
                     return true;
                 }
-                if namespace.starts_with(&rule.0) {
+                if namespace_starts_with(namespace, &rule.0) {
                     return true;
                 }
             } else {
                 // exclude
-                if namespace.starts_with(&rule.0) {
+                if namespace_starts_with(namespace, &rule.0) {
                     return false;
                 }
             }

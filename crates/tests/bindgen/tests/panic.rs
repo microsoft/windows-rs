@@ -116,3 +116,15 @@ fn invalid_input_format() {
 fn no_default() {
     bindgen("--in ../../libs/bindgen/default/Windows.winmd --out out.txt --filter POINT");
 }
+
+#[test]
+#[should_panic(expected = "type not found: `Windows.Found`")]
+fn incomplete_namespace() {
+    bindgen("--in default --out out.txt --filter Windows.Found");
+}
+
+#[test]
+#[should_panic(expected = "type not included: `D3D11_RESOURCE_FLAGS`")]
+fn subset_namespace() {
+    bindgen("--in default --out out.txt --sys --filter Windows.Win32.Graphics.Direct3D11 --derive D3D11_RESOURCE_FLAGS=Debug");
+}
