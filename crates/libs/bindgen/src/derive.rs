@@ -19,7 +19,7 @@ impl Derive {
 
             let derive = derive
                 .split(',')
-                .filter_map(|derive| (!derive.is_empty()).then(|| derive.to_string()))
+                .filter(|&derive| (!derive.is_empty())).map(|derive| derive.to_string())
                 .collect();
             map.insert(tn, derive);
         }

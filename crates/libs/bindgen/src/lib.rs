@@ -162,7 +162,7 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let types = TypeMap::filter(reader, &filter);
     let references = References::new(reader, references);
-    let derive = Derive::new(&reader, &types, &derive);
+    let derive = Derive::new(reader, &types, &derive);
 
     let config = Box::leak(Box::new(Config {
         types,
