@@ -8,7 +8,7 @@ impl Derive {
 
         for derive in derive {
             let Some((name, derive)) = derive.split_once('=') else {
-                panic!("invalid `--derive` must be `<type name>=Comma,Separated,List");
+                panic!("`--derive` must be `<type name>=Comma,Separated,List");
             };
 
             let tn = get_type_name(reader, name);

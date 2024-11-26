@@ -11,45 +11,6 @@ impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IClass_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Property:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetProperty:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Flags:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Flags) -> windows_core::HRESULT,
-    pub Int32Array: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        u32,
-        *const i32,
-        u32,
-        *mut i32,
-        *mut u32,
-        *mut *mut i32,
-        *mut u32,
-        *mut *mut i32,
-    ) -> windows_core::HRESULT,
-    pub StringArray: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        u32,
-        *const windows_core::HSTRING,
-        u32,
-        *mut windows_core::HSTRING,
-        *mut u32,
-        *mut *mut windows_core::HSTRING,
-        *mut u32,
-        *mut *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub Input: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_component.IClass";
 }
@@ -211,6 +172,45 @@ impl IClass_Vtbl {
         iid == &<IClass as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IClass_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Property:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetProperty:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub Flags:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Flags) -> windows_core::HRESULT,
+    pub Int32Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *const i32,
+        u32,
+        *mut i32,
+        *mut u32,
+        *mut *mut i32,
+        *mut u32,
+        *mut *mut i32,
+    ) -> windows_core::HRESULT,
+    pub StringArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *const windows_core::HSTRING,
+        u32,
+        *mut windows_core::HSTRING,
+        *mut u32,
+        *mut *mut windows_core::HSTRING,
+        *mut u32,
+        *mut *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Input: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IThing, IThing_Vtbl, 0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
 impl windows_core::RuntimeType for IThing {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -225,11 +225,6 @@ impl IThing {
                 .ok()
         }
     }
-}
-#[repr(C)]
-pub struct IThing_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IThing {
     const NAME: &'static str = "test_component.Nested.IThing";
@@ -253,6 +248,11 @@ impl IThing_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IThing as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IThing_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

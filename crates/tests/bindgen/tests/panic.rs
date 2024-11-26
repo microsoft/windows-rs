@@ -52,7 +52,7 @@ fn flat_package() {
 }
 
 #[test]
-#[should_panic(expected = "invalid `--derive` must be `<type name>=Comma,Separated,List")]
+#[should_panic(expected = "`--derive` must be `<type name>=Comma,Separated,List")]
 fn invalid_derive_format() {
     bindgen("--in default --out out.txt --filter POINT --derive invalid");
 }
@@ -70,19 +70,31 @@ fn excluded_derive_path() {
 }
 
 #[test]
-#[should_panic(expected = "invalid type filter `Windows.Fondation`")]
+#[should_panic(expected = "type not found: `Windows.Fondation`")]
 fn invalid_filter_namespace() {
     bindgen("--in default --out out.txt --filter Windows.Fondation");
 }
 
 #[test]
-#[should_panic(expected = "invalid type filter `AsyncStatos`")]
+#[should_panic(expected = "type not found: `AsyncStatos`")]
 fn invalid_filter_name() {
     bindgen("--in default --out out.txt --filter AsyncStatos");
 }
 
 #[test]
-#[should_panic(expected = "-reference` must be `name=<crate>,style=<full/flat/skip-root>,path=<type name>")]
+#[should_panic(expected = "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>")]
 fn invalid_reference_format() {
     bindgen("--in default --out out.txt --filter POINT --reference invalid");
+}
+
+#[test]
+#[should_panic(expected = "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>")]
+fn invalid_reference_style() {
+    bindgen("--in default --out out.txt --filter POINT --reference windows,style,RECT");
+}
+
+#[test]
+#[should_panic(expected = "type not found: `POINTY`")]
+fn invalid_reference_type_name() {
+    bindgen("--in default --out out.txt --filter POINT --reference windows,full,POINTY");
 }

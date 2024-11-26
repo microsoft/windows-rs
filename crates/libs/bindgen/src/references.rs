@@ -8,7 +8,7 @@ use super::*;
 
 fn invalid_reference() -> ! {
     panic!(
-        "invalid `-reference` must be `name=<crate>,style=<full/flat/skip-root>,path=<type name>"
+        "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>"
     );
 }
 
@@ -30,22 +30,17 @@ impl Default for ReferenceStage {
 
 impl ReferenceStage {
     pub fn parse(arg: &str) -> Self {
-        let mut result = ReferenceStage::default();
+        let arg: Vec<_> = arg.split(',').collect();
 
-        for pair in arg.split(',') {
-            match pair.split_once('=') {
-                Some(("name", value)) => result.name = value.to_string(),
-                Some(("style", value)) => result.style = ReferenceStyle::parse(value),
-                Some(("path", value)) => result.path = value.to_string(),
-                _ => invalid_reference(),
-            }
-        }
-
-        if result.name.is_empty() || result.path.is_empty() {
+        if arg.len() != 3 {
             invalid_reference();
         }
 
-        result
+        Self {
+            name: arg[0].to_string(),
+            style : ReferenceStyle::parse(arg[1]),
+            path: arg[2].to_string(),
+        }
     }
 }
 

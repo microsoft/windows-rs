@@ -104,7 +104,7 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
         return;
     }
 
-    panic!("invalid type filter `{filter}`");
+    panic!("type not found: `{filter}`");
 }
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {

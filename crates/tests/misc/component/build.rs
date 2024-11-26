@@ -32,6 +32,6 @@ fn main() {
         "--implement",
         "--no-comment",
         "--reference",
-        "name=windows,style=skip-root,path=Windows.Foundation",
+        "windows,skip-root,Windows.Foundation",
     ]);
 }
