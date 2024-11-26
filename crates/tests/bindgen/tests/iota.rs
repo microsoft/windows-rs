@@ -1,4 +1,4 @@
-use test_bindgen2::iota::*;
+use test_bindgen::iota::*;
 
 #[test]
 fn test() {

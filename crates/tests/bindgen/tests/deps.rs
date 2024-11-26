@@ -1,4 +1,4 @@
-use test_bindgen2::deps::*;
+use test_bindgen::deps::*;
 
 #[test]
 fn test() {
