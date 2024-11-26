@@ -1,7 +1,6 @@
 use super::*;
 
 impl Writer {
-    // TODO: have an interface-method specific version of this to avoid all the type-specific goo
     pub fn write_cfg<R: HasAttributes>(
         &self,
         row: R,
@@ -60,7 +59,6 @@ impl Writer {
         for dependency in compact {
             if dependency.is_empty()
                 || namespace_starts_with(namespace, dependency)
-                // TODO: do these skips need to be dependent on whether the current namespace is Win32 or not?
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {
