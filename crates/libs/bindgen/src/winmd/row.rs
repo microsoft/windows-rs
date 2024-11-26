@@ -86,7 +86,7 @@ pub trait HasAttributes {
     fn find_attribute(&self, name: &str) -> Option<Attribute>;
     fn has_attribute(&self, name: &str) -> bool;
     fn guid_attribute(&self) -> Option<GUID>;
-    fn arches(&self) -> BTreeSet<&'static str>;
+    fn arches(&self) -> HashSet<&'static str>;
 }
 
 impl<R: AsRow + Into<HasAttribute>> HasAttributes for R {
@@ -142,8 +142,8 @@ impl<R: AsRow + Into<HasAttribute>> HasAttributes for R {
         })
     }
 
-    fn arches(&self) -> BTreeSet<&'static str> {
-        let mut arches = BTreeSet::new();
+    fn arches(&self) -> HashSet<&'static str> {
+        let mut arches = HashSet::new();
 
         if let Some(attribute) = self.find_attribute("SupportedArchitectureAttribute") {
             if let Some((_, Value::I32(value))) = attribute.args().first() {

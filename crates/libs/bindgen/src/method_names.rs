@@ -1,11 +1,10 @@
 use super::*;
 
-// TODO: can we use HashMap instead?
-pub struct MethodNames(BTreeMap<String, u32>);
+pub struct MethodNames(HashMap<String, u32>);
 
 impl MethodNames {
     pub fn new() -> Self {
-        Self(BTreeMap::new())
+        Self(HashMap::new())
     }
 
     pub fn add(&mut self, method: MethodDef) -> TokenStream {

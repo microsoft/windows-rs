@@ -26,10 +26,4 @@ impl Signature {
             .chain(self.params.iter().map(|(ty, _)| ty))
             .map(|ty| ty.decay())
     }
-
-    //    pub fn included
 }
-
-// TODO: put WrapperSignature here? better name...
-
-// Maybe just call it a CppSignature if its only useful to non-WinRT functions/methods

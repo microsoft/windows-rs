@@ -1,15 +1,7 @@
 use super::*;
 
-// --reference name=windows,style=skip-root,path=Windows
-// --reference name=windows-sys,style=skip-root,path=Windows
-
-// --reference windows-numerics:flat:Windows.Foundation.Numerics
-// --reference dia,full
-
 fn invalid_reference() -> ! {
-    panic!(
-        "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>"
-    );
+    panic!("`--reference` must be `<crate>,<full/flat/skip-root>,<type name>");
 }
 
 pub struct ReferenceStage {
@@ -38,7 +30,7 @@ impl ReferenceStage {
 
         Self {
             name: arg[0].to_string(),
-            style : ReferenceStyle::parse(arg[1]),
+            style: ReferenceStyle::parse(arg[1]),
             path: arg[2].to_string(),
         }
     }
@@ -65,7 +57,7 @@ impl ReferenceStyle {
 #[derive(Debug)]
 pub struct Reference {
     pub name: String,          // crate name like "windows"
-    pub types: TypeMap,     // what this reference provides
+    pub types: TypeMap,        // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 
@@ -78,7 +70,6 @@ impl References {
             stage
                 .into_iter()
                 .map(|stage| {
-                    // TODO: does this validate the path?
                     let filter = Filter::new(reader, &[&stage.path], &[]);
                     let types = TypeMap::filter(reader, &filter);
 

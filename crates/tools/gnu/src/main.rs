@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::io::prelude::*;
 use std::process::{Command, Stdio};
 use windows_bindgen::*;
@@ -11,7 +11,7 @@ fn main() {
         "aarch64_gnullvm",
         "i686_gnullvm",
     ];
-    let mut platforms = BTreeSet::new();
+    let mut platforms = HashSet::new();
     for platform in std::env::args().skip(1) {
         if ALL_PLATFORMS.contains(&&*platform) {
             platforms.insert(platform);
@@ -169,7 +169,7 @@ EXPORTS
 fn build_mri(
     output: &std::path::Path,
     ar: &str,
-    libraries: &BTreeMap<String, BTreeMap<String, CallingConvention>>,
+    libraries: &HashMap<String, BTreeMap<String, CallingConvention>>,
 ) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();

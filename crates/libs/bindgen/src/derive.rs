@@ -12,12 +12,15 @@ impl Derive {
             };
 
             let tn = get_type_name(reader, name);
-            
+
             if !types.contains_key(&tn) {
                 panic!("type not included: `{name}`");
             }
 
-            let derive = derive.split(',').filter_map(|derive| (!derive.is_empty()).then(||derive.to_string())).collect();
+            let derive = derive
+                .split(',')
+                .filter_map(|derive| (!derive.is_empty()).then(|| derive.to_string()))
+                .collect();
             map.insert(tn, derive);
         }
 
@@ -29,7 +32,7 @@ impl Derive {
     }
 }
 
-fn get_type_name(reader:&Reader, path: &str) -> TypeName {
+fn get_type_name(reader: &Reader, path: &str) -> TypeName {
     if let Some((namespace, name)) = path.rsplit_once('.') {
         if let Some((namespace, items)) = reader.get_key_value(namespace) {
             if let Some((name, _)) = items.get_key_value(name) {

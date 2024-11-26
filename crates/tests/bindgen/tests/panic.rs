@@ -20,7 +20,6 @@ fn exactly_one_output() {
     bindgen("--in default --out a.txt b.txt");
 }
 
-
 #[test]
 #[should_panic(expected = "at least one `--filter` required")]
 fn at_least_one_filter() {
@@ -144,11 +143,17 @@ fn subset_namespace() {
 #[test]
 #[should_panic(expected = "failed to create directory")]
 fn failed_to_create_directory() {
-    bindgen(&format!("--out {}\\invalid\\out.txt --in default --filter POINT", env!("windir")));
+    bindgen(&format!(
+        "--out {}\\invalid\\out.txt --in default --filter POINT",
+        env!("windir")
+    ));
 }
 
 #[test]
 #[should_panic(expected = "failed to write file")]
 fn failed_to_write_file() {
-    bindgen(&format!("--out {}\\out.txt --in default --filter POINT", env!("windir")));
+    bindgen(&format!(
+        "--out {}\\out.txt --in default --filter POINT",
+        env!("windir")
+    ));
 }

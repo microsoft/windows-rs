@@ -48,12 +48,10 @@ impl TypeName {
         Self(&full_name[0..index], &full_name[index + 1..])
     }
 
-    // TODO: can we just make this return &'static str
     pub fn namespace(&self) -> &'static str {
         self.0
     }
 
-    // TODO: can we just make this return &'static str
     pub fn name(&self) -> &'static str {
         self.1
     }
