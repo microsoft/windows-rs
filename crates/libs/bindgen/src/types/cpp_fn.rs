@@ -53,14 +53,7 @@ impl CppFn {
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
             let ty = if underlying_types {
-                if writer.config.sys {
-                    ty.underlying_type().write_default(writer)
-                } else {
-                    // TODO: maybe write_abi should just call write_default when sys is enabled
-                    ty.underlying_type().write_abi(writer)
-                }
-            } else if writer.config.sys {
-                ty.write_default(writer)
+                ty.underlying_type().write_abi(writer)
             } else {
                 ty.write_abi(writer)
             };

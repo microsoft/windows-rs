@@ -55,12 +55,9 @@ pub const IID_IErrorInfo: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002
 pub struct IErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GUID) -> HRESULT,
-    pub GetSource:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
-    pub GetDescription:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
-    pub GetHelpFile:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
+    pub GetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
     pub GetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
 }
 pub const IID_IRestrictedErrorInfo: GUID = GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
@@ -69,13 +66,12 @@ pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,
     pub GetErrorDetails: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
+        *mut BSTR,
         *mut HRESULT,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
+        *mut BSTR,
+        *mut BSTR,
     ) -> HRESULT,
-    pub GetReference:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
 }
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;

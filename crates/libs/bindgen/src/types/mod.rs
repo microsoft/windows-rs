@@ -439,6 +439,10 @@ impl Type {
     }
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
+        if writer.config.sys {
+            return self.write_default(writer);
+        }
+
         match self {
             Self::IUnknown
             | Self::Object
