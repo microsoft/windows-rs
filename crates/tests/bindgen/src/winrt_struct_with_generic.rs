@@ -345,7 +345,7 @@ impl IPropertyValue {
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
 }
-pub trait IPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     fn IsNumericScalar(&self) -> windows_core::Result<bool>;
     fn GetUInt8(&self) -> windows_core::Result<u8>;
     fn GetInt16(&self) -> windows_core::Result<i16>;

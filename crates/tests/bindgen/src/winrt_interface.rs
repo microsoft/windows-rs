@@ -36,7 +36,7 @@ impl IStringable {
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
-pub trait IStringable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStringable_Impl: windows_core::IUnknownImpl {
     fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {

@@ -34,6 +34,10 @@ fn main() {
     test("--out derive_cpp_enum.rs --filter WAIT_EVENT WIN32_ERROR --flat --derive WAIT_EVENT=PartialOrd");
     test("--out derive_edges.rs --filter POINT SIZE --flat --sys --derive POINT=Debug,Eq,PartialEq,PartialOrd,Ord, SIZE=");
 
+    test("--out enum_win.rs --filter AsyncStatus --flat");
+    test("--out enum_sys.rs --filter AsyncStatus --flat --sys");
+
+
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");
 
@@ -72,8 +76,6 @@ fn main() {
     // scenarios that are hard to come by.
     test("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat");
     test("--out winrt_struct_with_generic.rs --filter HttpProgress --flat");
-
-    test("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat");
 
     test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat");
     test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat");

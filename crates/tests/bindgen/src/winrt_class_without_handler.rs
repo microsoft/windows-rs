@@ -32,7 +32,7 @@ impl IClosable {
 impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
 }
-pub trait IClosable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IClosable_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IClosable_Vtbl {
