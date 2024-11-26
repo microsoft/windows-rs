@@ -5,7 +5,6 @@ use super::*;
 pub struct Method {
     pub def: MethodDef,
     pub signature: Signature,
-    // TODO: this should already exclude the parent/interface dependencies?
     pub dependencies: TypeMap,
 }
 
@@ -22,10 +21,6 @@ impl Method {
             dependencies,
         }
     }
-
-    // pub fn included(&self, filter: &Includes) -> bool {
-    //     self.dependencies.included(filter)
-    // }
 
     pub fn write_upcall(&self, inner: TokenStream, this: bool) -> TokenStream {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
@@ -289,9 +284,6 @@ impl Method {
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
-        // TODO: for config.package the dependencies need to be used to generate [cfg] and for
-        // whether to include the method at all based on filtering/exclusions
-
         let params = if kind == InterfaceKind::Composable {
             &self.signature.params[..self.signature.params.len() - 2]
         } else {
@@ -450,7 +442,6 @@ impl Method {
             quote! { -> windows_core::Result<#return_type> }
         };
 
-        // TODO: have test for difference between name and vname
         let vname = virtual_names.add(self.def);
         let vcall = quote! { (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args) };
 

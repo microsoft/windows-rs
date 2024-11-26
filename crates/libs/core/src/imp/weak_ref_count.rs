@@ -212,8 +212,6 @@ impl TearOff {
             null_mut()
         };
 
-        // TODO: implement IMarshal
-
         if (*interface).is_null() {
             E_NOINTERFACE
         } else {

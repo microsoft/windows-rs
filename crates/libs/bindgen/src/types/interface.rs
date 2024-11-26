@@ -426,7 +426,9 @@ impl Interface {
                 let requires = if required_interfaces.is_empty() {
                     quote! { windows_core::IUnknownImpl }
                 } else {
-                    let interfaces = required_interfaces.iter().map(|ty| ty.write_impl_name(writer));
+                    let interfaces = required_interfaces
+                        .iter()
+                        .map(|ty| ty.write_impl_name(writer));
 
                     quote! {  #(#interfaces)+* }
                 };
@@ -496,7 +498,6 @@ impl Interface {
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         Type::Object.dependencies(dependencies);
 
-        // TODO: does this also need to be outside
         for interface in self.required_interfaces() {
             Type::Interface(interface).dependencies(dependencies);
         }
@@ -516,15 +517,8 @@ impl Interface {
                 }
             }
         }
-
-        // TODO: have "Foundation" dependencies as required?
-        // match TypeName(self.def.namespace(), self.def.name()) {
-        //     TypeName::IIterable => _ = dependencies.insert(TypeName::IIterator.namespace(), TypeName::IIterator.name()),
-        //     _ => {}
-        // }
     }
 
-    // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
     pub fn required_interfaces(&self) -> Vec<Self> {
         fn walk(interface: &Interface, set: &mut Vec<Interface>) {
             for ty in interface

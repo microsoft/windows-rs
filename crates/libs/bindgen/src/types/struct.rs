@@ -32,8 +32,6 @@ impl Struct {
             derive.extend(["Copy"]);
         }
 
-        // TODO: add any user-defined derive names
-
         let fields = fields.iter().map(|(name, ty)| {
             let name = to_ident(name);
             let ty = ty.write_default(writer);

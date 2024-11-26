@@ -222,9 +222,7 @@ impl CppMethod {
                     return_hint = ReturnHint::ResultVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::CppStruct(ty) if !ty.is_handle() => {
-                    return_hint = ReturnHint::ReturnStruct
-                }
+                Type::CppStruct(ty) if !ty.is_handle() => return_hint = ReturnHint::ReturnStruct,
                 _ => {}
             };
         }

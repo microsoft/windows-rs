@@ -423,13 +423,8 @@ impl Type {
 
     pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         match self {
-            Self::IUnknown => {
+            Self::IUnknown | Self::Object => {
                 let name = writer.write_core();
-                quote! { #name IUnknownImpl }
-            }
-            Self::Object => {
-                let name = writer.write_core();
-                // TODO: ideally we can only require RuntimeName tough IInspectable_Impl
                 quote! { #name IUnknownImpl }
             }
             Self::CppInterface(ty) => ty.write_impl_name(writer),
@@ -513,7 +508,6 @@ impl Type {
         }
     }
 
-    // TODO: clean this up
     pub fn split_generic(&self) -> (Type, Vec<Type>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
@@ -848,7 +842,6 @@ impl Type {
             Self::Enum(ty) => ty.def.underlying_type(),
             Self::CppStruct(ty) => ty.def.underlying_type(),
             Self::HRESULT => Type::I32,
-            // TODO: can we use this for type dependencies or do we need somethign else?
             _ => self.clone(),
         }
     }
