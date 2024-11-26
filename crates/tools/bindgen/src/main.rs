@@ -49,6 +49,13 @@ fn main() {
     test("--out struct_sys.rs --filter RectInt32 --flat --sys");
     test("--out struct_cpp_win.rs --filter RECT --flat");
     test("--out struct_cpp_sys.rs --filter RECT --flat --sys");
+    test("--out struct_disambiguate.rs --filter Windows.Foundation.Rect --flat");
+    test("--out struct_generic.rs --filter HttpProgress --flat");
+    //test("--out struct_generic_sys.rs --filter HttpProgress --flat --sys");
+    test("--out struct_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat");
+    test("--out struct_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --flat --sys");
+
+
 
 
     test("--out class_factory.rs --filter IClassFactory --flat");
@@ -85,10 +92,6 @@ fn main() {
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
     test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
-    // TODO: for winrt we could have dedicated .idl files to test the various edge cases like dependencies and other
-    // scenarios that are hard to come by.
-    test("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat");
-    test("--out winrt_struct_with_generic.rs --filter HttpProgress --flat");
 
     test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat");
     test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat");
