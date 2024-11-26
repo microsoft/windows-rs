@@ -4,12 +4,11 @@ use super::*;
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: &'static str,
-    pub nested: BTreeMap<&'static str, CppStruct>, // TODO: why isn't this CppStruct
+    pub nested: BTreeMap<&'static str, CppStruct>,
 }
 
 impl Ord for CppStruct {
     fn cmp(&self, other: &Self) -> Ordering {
-        // TODO: need to do the same for other Cpp types that may have multiple arches
         (self.name, self.def).cmp(&(other.name, other.def))
     }
 }
@@ -48,12 +47,10 @@ impl CppStruct {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-        // TODO: do we need to ass cfg into this?
         if self.is_handle() {
             return writer.write_cpp_handle(self.def);
         }
 
-        // TODO: there are actually structs with fields and GUIDs like LOGGING_PARAMETERS
         if self.def.fields().next().is_none() {
             if let Some(guid) = self.def.guid_attribute() {
                 return writer.write_cpp_const_guid(to_ident(self.name), &guid);
@@ -148,8 +145,6 @@ impl CppStruct {
         if !writer.config.sys && !has_explicit_layout && !has_packing {
             derive.extend(["Debug", "PartialEq"]);
         }
-
-        // TODO: add any user-defined derive names
 
         let type_kind = if writer.config.sys {
             quote! {}

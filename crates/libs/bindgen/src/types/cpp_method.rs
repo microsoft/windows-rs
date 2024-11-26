@@ -273,7 +273,6 @@ impl CppMethod {
         }
     }
 
-    // TODO: this is CppInterface specific so maybe just put it there.
     pub fn write(
         &self,
         writer: &Writer,
@@ -287,8 +286,6 @@ impl CppMethod {
         let params = self.write_params(writer);
         let generics = self.write_generics();
 
-        // TODO: make sure these are consistent across CppFn and CppInterface -
-        // maybe find a way to consolidate code gen?
         match self.return_hint {
             ReturnHint::Query(..) => {
                 let where_clause = self.write_where(writer, true);
@@ -412,7 +409,6 @@ impl CppMethod {
         }
     }
 
-    // TODO: this is only for CppInterface - more it there
     pub fn write_upcall(&self, parent_impl: &TokenStream, name: &TokenStream) -> TokenStream {
         match self.return_hint {
             ReturnHint::ResultValue => {
@@ -524,7 +520,6 @@ impl CppMethod {
             .params
             .iter()
             .map(|(ty, param)| {
-                // TODO: use ty.underlying_types() ?
                 let ty = ty.write_abi(writer);
 
                 if named_params {

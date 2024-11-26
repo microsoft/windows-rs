@@ -220,7 +220,6 @@ impl CppInterface {
 
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            // TODO: need to test code gen each time this split happens
             if writer.config.package {
                 fn collect(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
                     for method in interface.get_methods(writer).iter() {
@@ -254,8 +253,6 @@ impl CppInterface {
                         }
                     }
                     CppMethodOrName::Name(name) => {
-                        // TODO: test this condition - should cause an AV when method is called
-                        // TODO: does this need to use `MethodNames` for overloading?
                         let name = to_ident(name);
                         quote! { #name: 0, }
                     }

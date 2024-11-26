@@ -49,7 +49,6 @@ impl Delegate {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #cfg
                 impl windows_core::RuntimeType for #name {
-                    // TODO: does this need to be different for generic interfaces?
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
                 }
             }
@@ -143,8 +142,6 @@ impl Delegate {
                             core::ptr::null_mut()
                         };
 
-                    // TODO: implement IMarshal
-
                     if (*interface).is_null() {
                         windows_core::HRESULT(-2147467262) // E_NOINTERFACE
                     } else {
@@ -195,24 +192,13 @@ impl Delegate {
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         dependencies.combine(&self.method().dependencies);
-        // TODO: collect generics here?
-        // for ty in &self.generics {
-        //     ty.dependencies(dependencies);
-        // }
+
+        for ty in &self.generics {
+            ty.dependencies(dependencies);
+        }
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         self.type_name().write(writer, &self.generics)
     }
-
-    // pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
-    //     let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
-
-    //     if self.generics.is_empty() {
-    //         name
-    //     } else {
-    //         let generics = self.generics.iter().map(|ty| ty.write_name(writer));
-    //         quote! { #name < #(#generics,)* > }
-    //     }
-    // }
 }
