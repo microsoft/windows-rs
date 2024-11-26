@@ -147,7 +147,7 @@ impl ICoreDropOperationTarget {
 impl windows_core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
-pub trait ICoreDropOperationTarget_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreDropOperationTarget_Impl: windows_core::IUnknownImpl {
     fn EnterAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn OverAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn LeaveAsync(&self, dragInfo: Option<&CoreDragInfo>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>;

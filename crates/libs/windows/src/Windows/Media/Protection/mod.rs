@@ -107,7 +107,7 @@ impl IMediaProtectionServiceRequest {
 impl windows_core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
-pub trait IMediaProtectionServiceRequest_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaProtectionServiceRequest_Impl: windows_core::IUnknownImpl {
     fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID>;
     fn Type(&self) -> windows_core::Result<windows_core::GUID>;
 }

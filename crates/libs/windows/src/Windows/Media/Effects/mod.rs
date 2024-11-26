@@ -69,7 +69,7 @@ impl windows_core::RuntimeName for IAudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffectDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IAudioEffectDefinition_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAudioEffectDefinition_Impl: windows_core::IUnknownImpl {
     fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
@@ -694,7 +694,7 @@ impl windows_core::RuntimeName for IVideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IVideoCompositorDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVideoCompositorDefinition_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVideoCompositorDefinition_Impl: windows_core::IUnknownImpl {
     fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
@@ -782,7 +782,7 @@ impl windows_core::RuntimeName for IVideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IVideoEffectDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVideoEffectDefinition_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVideoEffectDefinition_Impl: windows_core::IUnknownImpl {
     fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
 }

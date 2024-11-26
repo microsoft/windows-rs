@@ -84,7 +84,7 @@ windows_core::imp::interface_hierarchy!(IDeviceEnumerationSettings, windows_core
 impl windows_core::RuntimeName for IDeviceEnumerationSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceEnumerationSettings";
 }
-pub trait IDeviceEnumerationSettings_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IDeviceEnumerationSettings_Impl: windows_core::IUnknownImpl {}
 impl IDeviceEnumerationSettings_Vtbl {
     pub const fn new<Identity: IDeviceEnumerationSettings_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDeviceEnumerationSettings, OFFSET>() }
@@ -365,7 +365,7 @@ windows_core::imp::interface_hierarchy!(IDevicePairingSettings, windows_core::IU
 impl windows_core::RuntimeName for IDevicePairingSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";
 }
-pub trait IDevicePairingSettings_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IDevicePairingSettings_Impl: windows_core::IUnknownImpl {}
 impl IDevicePairingSettings_Vtbl {
     pub const fn new<Identity: IDevicePairingSettings_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDevicePairingSettings, OFFSET>() }

@@ -95,7 +95,7 @@ impl ISpeechRecognitionConstraint {
 impl windows_core::RuntimeName for ISpeechRecognitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint";
 }
-pub trait ISpeechRecognitionConstraint_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISpeechRecognitionConstraint_Impl: windows_core::IUnknownImpl {
     fn IsEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()>;
     fn Tag(&self) -> windows_core::Result<windows_core::HSTRING>;

@@ -307,7 +307,7 @@ impl IAsyncInfo {
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
-pub trait IAsyncInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn Status(&self) -> windows_core::Result<AsyncStatus>;
     fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
@@ -696,7 +696,7 @@ impl IClosable {
 impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
 }
-pub trait IClosable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IClosable_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IClosable_Vtbl {
@@ -751,7 +751,7 @@ impl IGetActivationFactory {
 impl windows_core::RuntimeName for IGetActivationFactory {
     const NAME: &'static str = "Windows.Foundation.IGetActivationFactory";
 }
-pub trait IGetActivationFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetActivationFactory_Impl: windows_core::IUnknownImpl {
     fn GetActivationFactory(&self, activatableClassId: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl IGetActivationFactory_Vtbl {
@@ -1161,7 +1161,7 @@ impl IPropertyValue {
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
 }
-pub trait IPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     fn Type(&self) -> windows_core::Result<PropertyType>;
     fn IsNumericScalar(&self) -> windows_core::Result<bool>;
     fn GetUInt8(&self) -> windows_core::Result<u8>;
@@ -2202,7 +2202,7 @@ impl IStringable {
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
-pub trait IStringable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStringable_Impl: windows_core::IUnknownImpl {
     fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
@@ -2311,7 +2311,7 @@ impl IWwwFormUrlDecoderEntry {
 impl windows_core::RuntimeName for IWwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";
 }
-pub trait IWwwFormUrlDecoderEntry_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWwwFormUrlDecoderEntry_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Value(&self) -> windows_core::Result<windows_core::HSTRING>;
 }

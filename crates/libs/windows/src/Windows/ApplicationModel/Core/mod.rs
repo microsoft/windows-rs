@@ -124,7 +124,7 @@ impl ICoreApplicationUnhandledError {
 impl windows_core::RuntimeName for ICoreApplicationUnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
 }
-pub trait ICoreApplicationUnhandledError_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreApplicationUnhandledError_Impl: windows_core::IUnknownImpl {
     fn UnhandledErrorDetected(&self, handler: Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
 }
@@ -326,7 +326,7 @@ impl windows_core::RuntimeName for IFrameworkView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkView";
 }
 #[cfg(feature = "UI_Core")]
-pub trait IFrameworkView_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFrameworkView_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, applicationView: Option<&CoreApplicationView>) -> windows_core::Result<()>;
     fn SetWindow(&self, window: Option<&super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
     fn Load(&self, entryPoint: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -398,7 +398,7 @@ impl IFrameworkViewSource {
 impl windows_core::RuntimeName for IFrameworkViewSource {
     const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkViewSource";
 }
-pub trait IFrameworkViewSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFrameworkViewSource_Impl: windows_core::IUnknownImpl {
     fn CreateView(&self) -> windows_core::Result<IFrameworkView>;
 }
 impl IFrameworkViewSource_Vtbl {

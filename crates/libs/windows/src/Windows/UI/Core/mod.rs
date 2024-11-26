@@ -91,7 +91,7 @@ impl ICoreAcceleratorKeys {
 impl windows_core::RuntimeName for ICoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.ICoreAcceleratorKeys";
 }
-pub trait ICoreAcceleratorKeys_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreAcceleratorKeys_Impl: windows_core::IUnknownImpl {
     fn AcceleratorKeyActivated(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAcceleratorKeyActivated(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
 }
@@ -277,7 +277,7 @@ impl ICoreInputSourceBase {
 impl windows_core::RuntimeName for ICoreInputSourceBase {
     const NAME: &'static str = "Windows.UI.Core.ICoreInputSourceBase";
 }
-pub trait ICoreInputSourceBase_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreInputSourceBase_Impl: windows_core::IUnknownImpl {
     fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher>;
     fn IsInputEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsInputEnabled(&self, value: bool) -> windows_core::Result<()>;
@@ -518,7 +518,7 @@ impl ICorePointerInputSource {
 impl windows_core::RuntimeName for ICorePointerInputSource {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerInputSource";
 }
-pub trait ICorePointerInputSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICorePointerInputSource_Impl: windows_core::IUnknownImpl {
     fn ReleasePointerCapture(&self) -> windows_core::Result<()>;
     fn SetPointerCapture(&self) -> windows_core::Result<()>;
     fn HasCapture(&self) -> windows_core::Result<bool>;
@@ -976,7 +976,7 @@ impl ICorePointerRedirector {
 impl windows_core::RuntimeName for ICorePointerRedirector {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerRedirector";
 }
-pub trait ICorePointerRedirector_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICorePointerRedirector_Impl: windows_core::IUnknownImpl {
     fn PointerRoutedAway(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePointerRoutedAway(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
     fn PointerRoutedTo(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1423,7 +1423,7 @@ impl windows_core::RuntimeName for ICoreWindow {
     const NAME: &'static str = "Windows.UI.Core.ICoreWindow";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-pub trait ICoreWindow_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreWindow_Impl: windows_core::IUnknownImpl {
     fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect>;
     fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
@@ -2096,7 +2096,7 @@ impl ICoreWindowEventArgs {
 impl windows_core::RuntimeName for ICoreWindowEventArgs {
     const NAME: &'static str = "Windows.UI.Core.ICoreWindowEventArgs";
 }
-pub trait ICoreWindowEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreWindowEventArgs_Impl: windows_core::IUnknownImpl {
     fn Handled(&self) -> windows_core::Result<bool>;
     fn SetHandled(&self, value: bool) -> windows_core::Result<()>;
 }
@@ -2257,7 +2257,7 @@ impl IInitializeWithCoreWindow {
 impl windows_core::RuntimeName for IInitializeWithCoreWindow {
     const NAME: &'static str = "Windows.UI.Core.IInitializeWithCoreWindow";
 }
-pub trait IInitializeWithCoreWindow_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInitializeWithCoreWindow_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, window: Option<&CoreWindow>) -> windows_core::Result<()>;
 }
 impl IInitializeWithCoreWindow_Vtbl {

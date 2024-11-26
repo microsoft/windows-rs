@@ -374,7 +374,7 @@ impl IAppointmentParticipant {
 impl windows_core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";
 }
-pub trait IAppointmentParticipant_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAppointmentParticipant_Impl: windows_core::IUnknownImpl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Address(&self) -> windows_core::Result<windows_core::HSTRING>;

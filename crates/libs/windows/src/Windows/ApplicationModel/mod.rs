@@ -235,7 +235,7 @@ impl IEnteredBackgroundEventArgs {
 impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
 }
-pub trait IEnteredBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnteredBackgroundEventArgs_Impl: windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
 impl IEnteredBackgroundEventArgs_Vtbl {
@@ -338,7 +338,7 @@ impl ILeavingBackgroundEventArgs {
 impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
 }
-pub trait ILeavingBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILeavingBackgroundEventArgs_Impl: windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
 impl ILeavingBackgroundEventArgs_Vtbl {
@@ -670,7 +670,7 @@ impl IPackageCatalogStatics2 {
 impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
-pub trait IPackageCatalogStatics2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPackageCatalogStatics2_Impl: windows_core::IUnknownImpl {
     fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl IPackageCatalogStatics2_Vtbl {
@@ -922,7 +922,7 @@ impl ISuspendingDeferral {
 impl windows_core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
 }
-pub trait ISuspendingDeferral_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISuspendingDeferral_Impl: windows_core::IUnknownImpl {
     fn Complete(&self) -> windows_core::Result<()>;
 }
 impl ISuspendingDeferral_Vtbl {
@@ -959,7 +959,7 @@ impl ISuspendingEventArgs {
 impl windows_core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
 }
-pub trait ISuspendingEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISuspendingEventArgs_Impl: windows_core::IUnknownImpl {
     fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation>;
 }
 impl ISuspendingEventArgs_Vtbl {
@@ -1013,7 +1013,7 @@ impl ISuspendingOperation {
 impl windows_core::RuntimeName for ISuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
 }
-pub trait ISuspendingOperation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISuspendingOperation_Impl: windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral>;
     fn Deadline(&self) -> windows_core::Result<super::Foundation::DateTime>;
 }

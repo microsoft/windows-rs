@@ -72,7 +72,7 @@ impl IForceFeedbackEffect {
 impl windows_core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
 }
-pub trait IForceFeedbackEffect_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IForceFeedbackEffect_Impl: windows_core::IUnknownImpl {
     fn Gain(&self) -> windows_core::Result<f64>;
     fn SetGain(&self, value: f64) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<ForceFeedbackEffectState>;

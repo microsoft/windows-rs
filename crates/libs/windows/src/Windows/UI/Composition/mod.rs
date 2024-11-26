@@ -73,7 +73,7 @@ impl IAnimationObject {
 impl windows_core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
 }
-pub trait IAnimationObject_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAnimationObject_Impl: windows_core::IUnknownImpl {
     fn PopulatePropertyInfo(&self, propertyName: &windows_core::HSTRING, propertyInfo: Option<&AnimationPropertyInfo>) -> windows_core::Result<()>;
 }
 impl IAnimationObject_Vtbl {
@@ -280,7 +280,7 @@ windows_core::imp::interface_hierarchy!(ICompositionAnimationBase, windows_core:
 impl windows_core::RuntimeName for ICompositionAnimationBase {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationBase";
 }
-pub trait ICompositionAnimationBase_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait ICompositionAnimationBase_Impl: windows_core::IUnknownImpl {}
 impl ICompositionAnimationBase_Vtbl {
     pub const fn new<Identity: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionAnimationBase, OFFSET>() }
@@ -1473,7 +1473,7 @@ impl ICompositionSupportsSystemBackdrop {
 impl windows_core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
 }
-pub trait ICompositionSupportsSystemBackdrop_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICompositionSupportsSystemBackdrop_Impl: windows_core::IUnknownImpl {
     fn SystemBackdrop(&self) -> windows_core::Result<CompositionBrush>;
     fn SetSystemBackdrop(&self, value: Option<&CompositionBrush>) -> windows_core::Result<()>;
 }
@@ -1518,7 +1518,7 @@ windows_core::imp::interface_hierarchy!(ICompositionSurface, windows_core::IUnkn
 impl windows_core::RuntimeName for ICompositionSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurface";
 }
-pub trait ICompositionSurface_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait ICompositionSurface_Impl: windows_core::IUnknownImpl {}
 impl ICompositionSurface_Vtbl {
     pub const fn new<Identity: ICompositionSurface_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSurface, OFFSET>() }
@@ -1628,7 +1628,7 @@ impl ICompositionSurfaceFacade {
 impl windows_core::RuntimeName for ICompositionSurfaceFacade {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceFacade";
 }
-pub trait ICompositionSurfaceFacade_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICompositionSurfaceFacade_Impl: windows_core::IUnknownImpl {
     fn GetRealSurface(&self) -> windows_core::Result<ICompositionSurface>;
 }
 impl ICompositionSurfaceFacade_Vtbl {
@@ -2935,7 +2935,7 @@ windows_core::imp::interface_hierarchy!(IVisualElement, windows_core::IUnknown, 
 impl windows_core::RuntimeName for IVisualElement {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement";
 }
-pub trait IVisualElement_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IVisualElement_Impl: windows_core::IUnknownImpl {}
 impl IVisualElement_Vtbl {
     pub const fn new<Identity: IVisualElement_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IVisualElement, OFFSET>() }
@@ -2965,7 +2965,7 @@ impl IVisualElement2 {
 impl windows_core::RuntimeName for IVisualElement2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement2";
 }
-pub trait IVisualElement2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVisualElement2_Impl: windows_core::IUnknownImpl {
     fn GetVisualInternal(&self) -> windows_core::Result<Visual>;
 }
 impl IVisualElement2_Vtbl {

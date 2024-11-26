@@ -404,7 +404,7 @@ impl windows_core::RuntimeName for IWebViewControl {
     const NAME: &'static str = "Windows.Web.UI.IWebViewControl";
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
-pub trait IWebViewControl_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebViewControl_Impl: windows_core::IUnknownImpl {
     fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri>;
     fn SetSource(&self, source: Option<&super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -1037,7 +1037,7 @@ impl IWebViewControl2 {
 impl windows_core::RuntimeName for IWebViewControl2 {
     const NAME: &'static str = "Windows.Web.UI.IWebViewControl2";
 }
-pub trait IWebViewControl2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebViewControl2_Impl: windows_core::IUnknownImpl {
     fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IWebViewControl2_Vtbl {

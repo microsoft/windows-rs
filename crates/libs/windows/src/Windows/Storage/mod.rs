@@ -903,7 +903,7 @@ impl windows_core::RuntimeName for IStorageFile2 {
     const NAME: &'static str = "Windows.Storage.IStorageFile2";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IStorageFile2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageFile2_Impl: windows_core::IUnknownImpl {
     fn OpenWithOptionsAsync(&self, accessMode: FileAccessMode, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
     fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
 }
@@ -968,7 +968,7 @@ impl IStorageFilePropertiesWithAvailability {
 impl windows_core::RuntimeName for IStorageFilePropertiesWithAvailability {
     const NAME: &'static str = "Windows.Storage.IStorageFilePropertiesWithAvailability";
 }
-pub trait IStorageFilePropertiesWithAvailability_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageFilePropertiesWithAvailability_Impl: windows_core::IUnknownImpl {
     fn IsAvailable(&self) -> windows_core::Result<bool>;
 }
 impl IStorageFilePropertiesWithAvailability_Vtbl {
@@ -1405,7 +1405,7 @@ impl IStorageFolder2 {
 impl windows_core::RuntimeName for IStorageFolder2 {
     const NAME: &'static str = "Windows.Storage.IStorageFolder2";
 }
-pub trait IStorageFolder2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageFolder2_Impl: windows_core::IUnknownImpl {
     fn TryGetItemAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
 }
 impl IStorageFolder2_Vtbl {
@@ -1548,7 +1548,7 @@ impl windows_core::RuntimeName for IStorageItem {
     const NAME: &'static str = "Windows.Storage.IStorageItem";
 }
 #[cfg(feature = "Storage_FileProperties")]
-pub trait IStorageItem_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageItem_Impl: windows_core::IUnknownImpl {
     fn RenameAsyncOverloadDefaultOptions(&self, desiredName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction>;
     fn RenameAsync(&self, desiredName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction>;
     fn DeleteAsyncOverloadDefaultOptions(&self) -> windows_core::Result<super::Foundation::IAsyncAction>;
@@ -1919,7 +1919,7 @@ impl windows_core::RuntimeName for IStorageItemProperties {
     const NAME: &'static str = "Windows.Storage.IStorageItemProperties";
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-pub trait IStorageItemProperties_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageItemProperties_Impl: windows_core::IUnknownImpl {
     fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
     fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
     fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
@@ -2499,7 +2499,7 @@ impl IStreamedFileDataRequest {
 impl windows_core::RuntimeName for IStreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.IStreamedFileDataRequest";
 }
-pub trait IStreamedFileDataRequest_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStreamedFileDataRequest_Impl: windows_core::IUnknownImpl {
     fn FailAndClose(&self, failureMode: StreamedFileFailureMode) -> windows_core::Result<()>;
 }
 impl IStreamedFileDataRequest_Vtbl {

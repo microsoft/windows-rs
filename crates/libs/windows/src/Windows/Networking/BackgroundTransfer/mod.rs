@@ -202,7 +202,7 @@ impl windows_core::RuntimeName for IBackgroundTransferBase {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferBase";
 }
 #[cfg(feature = "Security_Credentials")]
-pub trait IBackgroundTransferBase_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTransferBase_Impl: windows_core::IUnknownImpl {
     fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, credential: Option<&super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
@@ -410,7 +410,7 @@ impl IBackgroundTransferContentPartFactory {
 impl windows_core::RuntimeName for IBackgroundTransferContentPartFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory";
 }
-pub trait IBackgroundTransferContentPartFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTransferContentPartFactory_Impl: windows_core::IUnknownImpl {
     fn CreateWithName(&self, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart>;
     fn CreateWithNameAndFileName(&self, name: &windows_core::HSTRING, fileName: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart>;
 }
@@ -552,7 +552,7 @@ impl windows_core::RuntimeName for IBackgroundTransferOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperation";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IBackgroundTransferOperation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTransferOperation_Impl: windows_core::IUnknownImpl {
     fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
     fn RequestedUri(&self) -> windows_core::Result<super::super::Foundation::Uri>;
     fn Method(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -696,7 +696,7 @@ impl IBackgroundTransferOperationPriority {
 impl windows_core::RuntimeName for IBackgroundTransferOperationPriority {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority";
 }
-pub trait IBackgroundTransferOperationPriority_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTransferOperationPriority_Impl: windows_core::IUnknownImpl {
     fn Priority(&self) -> windows_core::Result<BackgroundTransferPriority>;
     fn SetPriority(&self, value: BackgroundTransferPriority) -> windows_core::Result<()>;
 }

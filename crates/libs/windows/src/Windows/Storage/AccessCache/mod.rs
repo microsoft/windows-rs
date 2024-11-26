@@ -165,7 +165,7 @@ impl windows_core::RuntimeName for IStorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemAccessList";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
-pub trait IStorageItemAccessList_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
     fn AddOverloadDefaultMetadata(&self, file: Option<&super::IStorageItem>) -> windows_core::Result<windows_core::HSTRING>;
     fn Add(&self, file: Option<&super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn AddOrReplaceOverloadDefaultMetadata(&self, token: &windows_core::HSTRING, file: Option<&super::IStorageItem>) -> windows_core::Result<()>;

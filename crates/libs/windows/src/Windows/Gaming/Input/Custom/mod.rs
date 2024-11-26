@@ -32,7 +32,7 @@ impl ICustomGameControllerFactory {
 impl windows_core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
 }
-pub trait ICustomGameControllerFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICustomGameControllerFactory_Impl: windows_core::IUnknownImpl {
     fn CreateGameController(&self, provider: Option<&IGameControllerProvider>) -> windows_core::Result<windows_core::IInspectable>;
     fn OnGameControllerAdded(&self, value: Option<&super::IGameController>) -> windows_core::Result<()>;
     fn OnGameControllerRemoved(&self, value: Option<&super::IGameController>) -> windows_core::Result<()>;
@@ -114,7 +114,7 @@ impl IGameControllerInputSink {
 impl windows_core::RuntimeName for IGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerInputSink";
 }
-pub trait IGameControllerInputSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGameControllerInputSink_Impl: windows_core::IUnknownImpl {
     fn OnInputResumed(&self, timestamp: u64) -> windows_core::Result<()>;
     fn OnInputSuspended(&self, timestamp: u64) -> windows_core::Result<()>;
 }
@@ -189,7 +189,7 @@ impl IGameControllerProvider {
 impl windows_core::RuntimeName for IGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerProvider";
 }
-pub trait IGameControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGameControllerProvider_Impl: windows_core::IUnknownImpl {
     fn FirmwareVersionInfo(&self) -> windows_core::Result<GameControllerVersionInfo>;
     fn HardwareProductId(&self) -> windows_core::Result<u16>;
     fn HardwareVendorId(&self) -> windows_core::Result<u16>;

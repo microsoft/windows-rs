@@ -30,7 +30,7 @@ impl ICoreAutomationConnectionBoundObjectProvider {
 impl windows_core::RuntimeName for ICoreAutomationConnectionBoundObjectProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider";
 }
-pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: windows_core::IUnknownImpl {
     fn IsComThreadingRequired(&self) -> bool;
 }
 impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
@@ -122,7 +122,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
 impl windows_core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider";
 }
-pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: windows_core::IUnknownImpl {
     fn CallExtension(&self, extensionId: &windows_core::GUID, context: Option<&CoreAutomationRemoteOperationContext>, operandIds: &[AutomationRemoteOperationOperandId]) -> windows_core::Result<()>;
     fn IsExtensionSupported(&self, extensionId: &windows_core::GUID) -> windows_core::Result<bool>;
 }

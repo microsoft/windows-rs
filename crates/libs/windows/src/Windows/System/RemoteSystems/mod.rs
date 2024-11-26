@@ -260,7 +260,7 @@ windows_core::imp::interface_hierarchy!(IRemoteSystemFilter, windows_core::IUnkn
 impl windows_core::RuntimeName for IRemoteSystemFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";
 }
-pub trait IRemoteSystemFilter_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IRemoteSystemFilter_Impl: windows_core::IUnknownImpl {}
 impl IRemoteSystemFilter_Vtbl {
     pub const fn new<Identity: IRemoteSystemFilter_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IRemoteSystemFilter, OFFSET>() }

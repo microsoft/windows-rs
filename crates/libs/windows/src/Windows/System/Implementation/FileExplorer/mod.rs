@@ -40,7 +40,7 @@ impl ISysStorageProviderEventSource {
 impl windows_core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
-pub trait ISysStorageProviderEventSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISysStorageProviderEventSource_Impl: windows_core::IUnknownImpl {
     fn EventReceived(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveEventReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
 }
@@ -100,7 +100,7 @@ impl ISysStorageProviderHandlerFactory {
 impl windows_core::RuntimeName for ISysStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
 }
-pub trait ISysStorageProviderHandlerFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISysStorageProviderHandlerFactory_Impl: windows_core::IUnknownImpl {
     fn GetHttpRequestProvider(&self, syncRootId: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderHttpRequestProvider>;
     fn GetEventSource(&self, syncRootId: &windows_core::HSTRING, eventName: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderEventSource>;
 }
@@ -167,7 +167,7 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHttpRequestProvider";
 }
 #[cfg(feature = "Web_Http")]
-pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISysStorageProviderHttpRequestProvider_Impl: windows_core::IUnknownImpl {
     fn SendRequestAsync(&self, request: Option<&super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(feature = "Web_Http")]

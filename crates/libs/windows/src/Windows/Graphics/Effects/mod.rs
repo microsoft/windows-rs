@@ -65,7 +65,7 @@ windows_core::imp::interface_hierarchy!(IGraphicsEffectSource, windows_core::IUn
 impl windows_core::RuntimeName for IGraphicsEffectSource {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffectSource";
 }
-pub trait IGraphicsEffectSource_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IGraphicsEffectSource_Impl: windows_core::IUnknownImpl {}
 impl IGraphicsEffectSource_Vtbl {
     pub const fn new<Identity: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }

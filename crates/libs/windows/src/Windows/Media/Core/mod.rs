@@ -455,7 +455,7 @@ impl IMediaCue {
 impl windows_core::RuntimeName for IMediaCue {
     const NAME: &'static str = "Windows.Media.Core.IMediaCue";
 }
-pub trait IMediaCue_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaCue_Impl: windows_core::IUnknownImpl {
     fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
     fn StartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
     fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
@@ -549,7 +549,7 @@ windows_core::imp::interface_hierarchy!(IMediaSource, windows_core::IUnknown, wi
 impl windows_core::RuntimeName for IMediaSource {
     const NAME: &'static str = "Windows.Media.Core.IMediaSource";
 }
-pub trait IMediaSource_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IMediaSource_Impl: windows_core::IUnknownImpl {}
 impl IMediaSource_Vtbl {
     pub const fn new<Identity: IMediaSource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaSource, OFFSET>() }
@@ -801,7 +801,7 @@ impl IMediaStreamDescriptor {
 impl windows_core::RuntimeName for IMediaStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor";
 }
-pub trait IMediaStreamDescriptor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaStreamDescriptor_Impl: windows_core::IUnknownImpl {
     fn IsSelected(&self) -> windows_core::Result<bool>;
     fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -1292,7 +1292,7 @@ impl IMediaTrack {
 impl windows_core::RuntimeName for IMediaTrack {
     const NAME: &'static str = "Windows.Media.Core.IMediaTrack";
 }
-pub trait IMediaTrack_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaTrack_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn TrackKind(&self) -> windows_core::Result<MediaTrackKind>;
@@ -1551,7 +1551,7 @@ impl ISingleSelectMediaTrackList {
 impl windows_core::RuntimeName for ISingleSelectMediaTrackList {
     const NAME: &'static str = "Windows.Media.Core.ISingleSelectMediaTrackList";
 }
-pub trait ISingleSelectMediaTrackList_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISingleSelectMediaTrackList_Impl: windows_core::IUnknownImpl {
     fn SelectedIndexChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSelectedIndexChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
     fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()>;
@@ -1733,7 +1733,7 @@ impl windows_core::RuntimeName for ITimedMetadataTrackProvider {
     const NAME: &'static str = "Windows.Media.Core.ITimedMetadataTrackProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ITimedMetadataTrackProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITimedMetadataTrackProvider_Impl: windows_core::IUnknownImpl {
     fn TimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
 }
 #[cfg(feature = "Foundation_Collections")]

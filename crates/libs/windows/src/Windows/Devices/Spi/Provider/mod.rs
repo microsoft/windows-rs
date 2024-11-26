@@ -45,7 +45,7 @@ impl ISpiControllerProvider {
 impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
-pub trait ISpiControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISpiControllerProvider_Impl: windows_core::IUnknownImpl {
     fn GetDeviceProvider(&self, settings: Option<&ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
 }
 impl ISpiControllerProvider_Vtbl {
@@ -212,7 +212,7 @@ impl windows_core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ISpiProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISpiProvider_Impl: windows_core::IUnknownImpl {
     fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -27,7 +27,7 @@ windows_core::imp::interface_hierarchy!(ICompositionInteractionSource, windows_c
 impl windows_core::RuntimeName for ICompositionInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSource";
 }
-pub trait ICompositionInteractionSource_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait ICompositionInteractionSource_Impl: windows_core::IUnknownImpl {}
 impl ICompositionInteractionSource_Vtbl {
     pub const fn new<Identity: ICompositionInteractionSource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionInteractionSource, OFFSET>() }
@@ -454,7 +454,7 @@ impl IInteractionTrackerOwner {
 impl windows_core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
-pub trait IInteractionTrackerOwner_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInteractionTrackerOwner_Impl: windows_core::IUnknownImpl {
     fn CustomAnimationStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerCustomAnimationStateEnteredArgs>) -> windows_core::Result<()>;
     fn IdleStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerIdleStateEnteredArgs>) -> windows_core::Result<()>;
     fn InertiaStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerInertiaStateEnteredArgs>) -> windows_core::Result<()>;

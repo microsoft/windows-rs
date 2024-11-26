@@ -24,7 +24,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
 }
-pub trait IIterable_Impl<T>: Sized + windows_core::IUnknownImpl
+pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -109,7 +109,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
 }
-pub trait IIterator_Impl<T>: Sized + windows_core::IUnknownImpl
+pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -220,7 +220,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IKeyValuePair<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IKeyValuePair";
 }
-pub trait IKeyValuePair_Impl<K, V>: Sized + windows_core::IUnknownImpl
+pub trait IKeyValuePair_Impl<K, V>: windows_core::IUnknownImpl
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
@@ -518,7 +518,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
 impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
 }
-pub trait IMapChangedEventArgs_Impl<K>: Sized + windows_core::IUnknownImpl
+pub trait IMapChangedEventArgs_Impl<K>: windows_core::IUnknownImpl
 where
     K: windows_core::RuntimeType + 'static,
 {
@@ -1450,7 +1450,7 @@ impl IVectorChangedEventArgs {
 impl windows_core::RuntimeName for IVectorChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
 }
-pub trait IVectorChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVectorChangedEventArgs_Impl: windows_core::IUnknownImpl {
     fn CollectionChange(&self) -> windows_core::Result<CollectionChange>;
     fn Index(&self) -> windows_core::Result<u32>;
 }

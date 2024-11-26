@@ -92,7 +92,7 @@ impl windows_core::RuntimeName for IMidiMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IMidiMessage_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMidiMessage_Impl: windows_core::IUnknownImpl {
     fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
     fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer>;
     fn Type(&self) -> windows_core::Result<MidiMessageType>;

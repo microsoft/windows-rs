@@ -63,7 +63,7 @@ impl IPwmControllerProvider {
 impl windows_core::RuntimeName for IPwmControllerProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
 }
-pub trait IPwmControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPwmControllerProvider_Impl: windows_core::IUnknownImpl {
     fn PinCount(&self) -> windows_core::Result<i32>;
     fn ActualFrequency(&self) -> windows_core::Result<f64>;
     fn SetDesiredFrequency(&self, frequency: f64) -> windows_core::Result<f64>;
@@ -199,7 +199,7 @@ impl windows_core::RuntimeName for IPwmProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPwmProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPwmProvider_Impl: windows_core::IUnknownImpl {
     fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]

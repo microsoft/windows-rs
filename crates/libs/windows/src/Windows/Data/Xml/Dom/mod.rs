@@ -1225,7 +1225,7 @@ impl windows_core::RuntimeName for IXmlNodeSelector {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSelector";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IXmlNodeSelector_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlNodeSelector_Impl: windows_core::IUnknownImpl {
     fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList>;
     fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
@@ -1332,7 +1332,7 @@ impl IXmlNodeSerializer {
 impl windows_core::RuntimeName for IXmlNodeSerializer {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSerializer";
 }
-pub trait IXmlNodeSerializer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlNodeSerializer_Impl: windows_core::IUnknownImpl {
     fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn InnerText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetInnerText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;

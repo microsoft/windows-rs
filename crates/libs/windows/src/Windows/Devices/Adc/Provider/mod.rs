@@ -69,7 +69,7 @@ impl IAdcControllerProvider {
 impl windows_core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
-pub trait IAdcControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAdcControllerProvider_Impl: windows_core::IUnknownImpl {
     fn ChannelCount(&self) -> windows_core::Result<i32>;
     fn ResolutionInBits(&self) -> windows_core::Result<i32>;
     fn MinValue(&self) -> windows_core::Result<i32>;
@@ -217,7 +217,7 @@ impl windows_core::RuntimeName for IAdcProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IAdcProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAdcProvider_Impl: windows_core::IUnknownImpl {
     fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]

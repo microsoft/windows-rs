@@ -49,7 +49,7 @@ impl IControlChannelTriggerEventDetails {
 impl windows_core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
 }
-pub trait IControlChannelTriggerEventDetails_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IControlChannelTriggerEventDetails_Impl: windows_core::IUnknownImpl {
     fn ControlChannelTrigger(&self) -> windows_core::Result<ControlChannelTrigger>;
 }
 impl IControlChannelTriggerEventDetails_Vtbl {
@@ -120,7 +120,7 @@ impl IControlChannelTriggerResetEventDetails {
 impl windows_core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
 }
-pub trait IControlChannelTriggerResetEventDetails_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IControlChannelTriggerResetEventDetails_Impl: windows_core::IUnknownImpl {
     fn ResetReason(&self) -> windows_core::Result<ControlChannelTriggerResetReason>;
     fn HardwareSlotReset(&self) -> windows_core::Result<bool>;
     fn SoftwareSlotReset(&self) -> windows_core::Result<bool>;
@@ -1063,7 +1063,7 @@ impl windows_core::RuntimeName for IWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-pub trait IWebSocketControl_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebSocketControl_Impl: windows_core::IUnknownImpl {
     fn OutboundBufferSizeInBytes(&self) -> windows_core::Result<u32>;
     fn SetOutboundBufferSizeInBytes(&self, value: u32) -> windows_core::Result<()>;
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -1320,7 +1320,7 @@ impl IWebSocketInformation {
 impl windows_core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
 }
-pub trait IWebSocketInformation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebSocketInformation_Impl: windows_core::IUnknownImpl {
     fn LocalAddress(&self) -> windows_core::Result<super::HostName>;
     fn BandwidthStatistics(&self) -> windows_core::Result<BandwidthStatistics>;
     fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING>;

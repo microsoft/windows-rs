@@ -119,7 +119,7 @@ impl ISpiDeviceStatics {
 impl windows_core::RuntimeName for ISpiDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiDeviceStatics";
 }
-pub trait ISpiDeviceStatics_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISpiDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn GetBusInfo(&self, busId: &windows_core::HSTRING) -> windows_core::Result<SpiBusInfo>;

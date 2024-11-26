@@ -193,7 +193,7 @@ impl IVpnChannelStatics {
 impl windows_core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
 }
-pub trait IVpnChannelStatics_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnChannelStatics_Impl: windows_core::IUnknownImpl {
     fn ProcessEventAsync(&self, thirdPartyPlugIn: Option<&windows_core::IInspectable>, event: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IVpnChannelStatics_Vtbl {
@@ -256,7 +256,7 @@ impl windows_core::RuntimeName for IVpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCredential";
 }
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
-pub trait IVpnCredential_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnCredential_Impl: windows_core::IUnknownImpl {
     fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn CertificateCredential(&self) -> windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -430,7 +430,7 @@ impl IVpnCustomPrompt {
 impl windows_core::RuntimeName for IVpnCustomPrompt {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPrompt";
 }
-pub trait IVpnCustomPrompt_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnCustomPrompt_Impl: windows_core::IUnknownImpl {
     fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetCompulsory(&self, value: bool) -> windows_core::Result<()>;
@@ -561,7 +561,7 @@ impl IVpnCustomPromptElement {
 impl windows_core::RuntimeName for IVpnCustomPromptElement {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptElement";
 }
-pub trait IVpnCustomPromptElement_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnCustomPromptElement_Impl: windows_core::IUnknownImpl {
     fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetCompulsory(&self, value: bool) -> windows_core::Result<()>;
@@ -754,7 +754,7 @@ impl windows_core::RuntimeName for IVpnDomainNameInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfoFactory";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnDomainNameInfoFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnDomainNameInfoFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVpnDomainNameInfo(&self, name: &windows_core::HSTRING, nameType: VpnDomainNameType, dnsServerList: Option<&super::super::Foundation::Collections::IIterable<super::HostName>>, proxyServerList: Option<&super::super::Foundation::Collections::IIterable<super::HostName>>) -> windows_core::Result<VpnDomainNameInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -840,7 +840,7 @@ impl IVpnInterfaceIdFactory {
 impl windows_core::RuntimeName for IVpnInterfaceIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";
 }
-pub trait IVpnInterfaceIdFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnInterfaceIdFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVpnInterfaceId(&self, address: &[u8]) -> windows_core::Result<VpnInterfaceId>;
 }
 impl IVpnInterfaceIdFactory_Vtbl {
@@ -961,7 +961,7 @@ impl windows_core::RuntimeName for IVpnNamespaceInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfoFactory";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnNamespaceInfoFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnNamespaceInfoFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVpnNamespaceInfo(&self, name: &windows_core::HSTRING, dnsServerList: Option<&super::super::Foundation::Collections::IVector<super::HostName>>, proxyServerList: Option<&super::super::Foundation::Collections::IVector<super::HostName>>) -> windows_core::Result<VpnNamespaceInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1083,7 +1083,7 @@ impl IVpnPacketBufferFactory {
 impl windows_core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
 }
-pub trait IVpnPacketBufferFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnPacketBufferFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVpnPacketBuffer(&self, parentBuffer: Option<&VpnPacketBuffer>, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>;
 }
 impl IVpnPacketBufferFactory_Vtbl {
@@ -1218,7 +1218,7 @@ impl windows_core::RuntimeName for IVpnPlugIn {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnPlugIn_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnPlugIn_Impl: windows_core::IUnknownImpl {
     fn Connect(&self, channel: Option<&VpnChannel>) -> windows_core::Result<()>;
     fn Disconnect(&self, channel: Option<&VpnChannel>) -> windows_core::Result<()>;
     fn GetKeepAlivePayload(&self, channel: Option<&VpnChannel>, keepAlivePacket: &mut Option<VpnPacketBuffer>) -> windows_core::Result<()>;
@@ -1321,7 +1321,7 @@ impl IVpnPlugInReconnectTransport {
 impl windows_core::RuntimeName for IVpnPlugInReconnectTransport {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
 }
-pub trait IVpnPlugInReconnectTransport_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnPlugInReconnectTransport_Impl: windows_core::IUnknownImpl {
     fn ReconnectTransport(&self, channel: Option<&VpnChannel>, context: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IVpnPlugInReconnectTransport_Vtbl {
@@ -1421,7 +1421,7 @@ impl windows_core::RuntimeName for IVpnProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnProfile";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnProfile_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnProfile_Impl: windows_core::IUnknownImpl {
     fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>>;
@@ -1641,7 +1641,7 @@ impl IVpnRouteFactory {
 impl windows_core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
 }
-pub trait IVpnRouteFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVpnRouteFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVpnRoute(&self, address: Option<&super::HostName>, prefixSize: u8) -> windows_core::Result<VpnRoute>;
 }
 impl IVpnRouteFactory_Vtbl {

@@ -18,7 +18,7 @@ impl II2cControllerProvider {
 impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
-pub trait II2cControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait II2cControllerProvider_Impl: windows_core::IUnknownImpl {
     fn GetDeviceProvider(&self, settings: Option<&ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
 }
 impl II2cControllerProvider_Vtbl {
@@ -213,7 +213,7 @@ impl windows_core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait II2cProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait II2cProvider_Impl: windows_core::IUnknownImpl {
     fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
 }
 #[cfg(feature = "Foundation_Collections")]

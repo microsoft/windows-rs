@@ -71,7 +71,6 @@ impl Interface {
         let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
 
-        // TODO: just return it sorted
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
 
@@ -81,7 +80,6 @@ impl Interface {
         let is_exclusive = self.is_exclusive();
         let constraints = writer.write_generic_constraints(&self.generics);
         let phantoms = writer.write_generic_phantoms(&self.generics);
-        // TODO: should be able to "quote" this from the above
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
 
         let mut dependencies = TypeMap::new();
@@ -92,7 +90,6 @@ impl Interface {
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
-        // TODO: move this up and then use it for the sys representations
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
 
@@ -155,8 +152,6 @@ impl Interface {
 
             result
         } else {
-            // TODO: have same vtbl/sys representation for WinRT interfaces as for Cpp interfaces
-
             let mut result = if self.generics.is_empty() {
                 let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
 
@@ -315,7 +310,6 @@ impl Interface {
                     .find(|interface| interface.type_name() == TypeName::IIterable)
                     .map(|interface| {
                         let ty = interface.generics[0].write_name(writer);
-                        // TODO: just use typename.write?
                         let namespace = writer.write_namespace(TypeName::IIterator);
 
                         quote! {
@@ -390,8 +384,6 @@ impl Interface {
                             quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                         }
                         MethodOrName::Name(name) => {
-                            // TODO: test this condition - should cause an AV when method is called
-                            // TODO: does this need to use `MethodNames` for overloading?
                             let name = to_ident(name);
                             quote! { #name: 0, }
                         }
@@ -432,8 +424,7 @@ impl Interface {
                     .collect();
 
                 let requires = if required_interfaces.is_empty() {
-                    // TODO: doesn't IUnknownImpl require Sized?
-                    quote! { Sized + windows_core::IUnknownImpl }
+                    quote! { windows_core::IUnknownImpl }
                 } else {
                     let interfaces = required_interfaces.iter().map(|ty| ty.write_impl_name(writer));
 

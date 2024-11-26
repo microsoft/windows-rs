@@ -205,7 +205,7 @@ impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaEnginePlaybackSource";
 }
 #[cfg(feature = "deprecated")]
-pub trait IMediaEnginePlaybackSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaEnginePlaybackSource_Impl: windows_core::IUnknownImpl {
     fn CurrentItem(&self) -> windows_core::Result<MediaPlaybackItem>;
     fn SetPlaybackSource(&self, source: Option<&IMediaPlaybackSource>) -> windows_core::Result<()>;
 }
@@ -760,7 +760,7 @@ windows_core::imp::interface_hierarchy!(IMediaPlaybackSource, windows_core::IUnk
 impl windows_core::RuntimeName for IMediaPlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSource";
 }
-pub trait IMediaPlaybackSource_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IMediaPlaybackSource_Impl: windows_core::IUnknownImpl {}
 impl IMediaPlaybackSource_Vtbl {
     pub const fn new<Identity: IMediaPlaybackSource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }

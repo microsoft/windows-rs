@@ -190,7 +190,7 @@ impl ILearningModelFeatureDescriptor {
 impl windows_core::RuntimeName for ILearningModelFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
 }
-pub trait ILearningModelFeatureDescriptor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILearningModelFeatureDescriptor_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Description(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
@@ -277,7 +277,7 @@ impl ILearningModelFeatureValue {
 impl windows_core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
 }
-pub trait ILearningModelFeatureValue_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILearningModelFeatureValue_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
 }
 impl ILearningModelFeatureValue_Vtbl {
@@ -311,7 +311,7 @@ windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, windows_
 impl windows_core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
 }
-pub trait ILearningModelOperatorProvider_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait ILearningModelOperatorProvider_Impl: windows_core::IUnknownImpl {}
 impl ILearningModelOperatorProvider_Vtbl {
     pub const fn new<Identity: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }

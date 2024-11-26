@@ -47,7 +47,7 @@ impl windows_core::RuntimeName for IGameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-pub trait IGameListEntry_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGameListEntry_Impl: windows_core::IUnknownImpl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
     fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
     fn Category(&self) -> windows_core::Result<GameListCategory>;

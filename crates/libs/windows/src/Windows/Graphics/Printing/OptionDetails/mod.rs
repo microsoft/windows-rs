@@ -584,7 +584,7 @@ impl IPrintOptionDetails {
 impl windows_core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
 }
-pub trait IPrintOptionDetails_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
     fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OptionType(&self) -> windows_core::Result<PrintOptionType>;
     fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;

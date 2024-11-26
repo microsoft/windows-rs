@@ -151,7 +151,7 @@ impl ILampArrayEffect {
 impl windows_core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
-pub trait ILampArrayEffect_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILampArrayEffect_Impl: windows_core::IUnknownImpl {
     fn ZIndex(&self) -> windows_core::Result<i32>;
     fn SetZIndex(&self, value: i32) -> windows_core::Result<()>;
 }

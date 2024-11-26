@@ -78,7 +78,7 @@ impl IPropertyAnimation {
 impl windows_core::RuntimeName for IPropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.IPropertyAnimation";
 }
-pub trait IPropertyAnimation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPropertyAnimation_Impl: windows_core::IUnknownImpl {
     fn Type(&self) -> windows_core::Result<PropertyAnimationType>;
     fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;

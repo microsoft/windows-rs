@@ -115,7 +115,7 @@ windows_core::imp::interface_hierarchy!(IBackgroundCondition, windows_core::IUnk
 impl windows_core::RuntimeName for IBackgroundCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundCondition";
 }
-pub trait IBackgroundCondition_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IBackgroundCondition_Impl: windows_core::IUnknownImpl {}
 impl IBackgroundCondition_Vtbl {
     pub const fn new<Identity: IBackgroundCondition_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundCondition, OFFSET>() }
@@ -179,7 +179,7 @@ impl IBackgroundTask {
 impl windows_core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
-pub trait IBackgroundTask_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTask_Impl: windows_core::IUnknownImpl {
     fn Run(&self, taskInstance: Option<&IBackgroundTaskInstance>) -> windows_core::Result<()>;
 }
 impl IBackgroundTask_Vtbl {
@@ -363,7 +363,7 @@ impl IBackgroundTaskInstance {
 impl windows_core::RuntimeName for IBackgroundTaskInstance {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance";
 }
-pub trait IBackgroundTaskInstance_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn InstanceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Task(&self) -> windows_core::Result<BackgroundTaskRegistration>;
     fn Progress(&self) -> windows_core::Result<u32>;
@@ -772,7 +772,7 @@ impl IBackgroundTaskRegistration {
 impl windows_core::RuntimeName for IBackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration";
 }
-pub trait IBackgroundTaskRegistration_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
     fn TaskId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Progress(&self, handler: Option<&BackgroundTaskProgressEventHandler>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1116,7 +1116,7 @@ windows_core::imp::interface_hierarchy!(IBackgroundTrigger, windows_core::IUnkno
 impl windows_core::RuntimeName for IBackgroundTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTrigger";
 }
-pub trait IBackgroundTrigger_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IBackgroundTrigger_Impl: windows_core::IUnknownImpl {}
 impl IBackgroundTrigger_Vtbl {
     pub const fn new<Identity: IBackgroundTrigger_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTrigger, OFFSET>() }

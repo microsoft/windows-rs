@@ -66,7 +66,7 @@ impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
     const NAME: &'static str = "Windows.Phone.StartScreen.IToastNotificationManagerStatics3";
 }
 #[cfg(feature = "UI_Notifications")]
-pub trait IToastNotificationManagerStatics3_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IToastNotificationManagerStatics3_Impl: windows_core::IUnknownImpl {
     fn CreateToastNotifierForSecondaryTile(&self, tileId: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(feature = "UI_Notifications")]

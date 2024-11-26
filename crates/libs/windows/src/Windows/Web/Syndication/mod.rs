@@ -136,7 +136,7 @@ impl windows_core::RuntimeName for ISyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationClient";
 }
 #[cfg(feature = "Security_Credentials")]
-pub trait ISyndicationClient_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISyndicationClient_Impl: windows_core::IUnknownImpl {
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, value: Option<&super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -599,7 +599,7 @@ impl windows_core::RuntimeName for ISyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationNode";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
-pub trait ISyndicationNode_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISyndicationNode_Impl: windows_core::IUnknownImpl {
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn NodeNamespace(&self) -> windows_core::Result<windows_core::HSTRING>;

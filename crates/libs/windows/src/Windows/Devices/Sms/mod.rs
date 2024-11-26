@@ -286,7 +286,7 @@ impl windows_core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
 #[cfg(feature = "deprecated")]
-pub trait ISmsDevice_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
     fn SendMessageAsync(&self, message: Option<&ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
     fn CalculateLength(&self, message: Option<&SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
     fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -665,7 +665,7 @@ impl ISmsMessage {
 impl windows_core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
 }
-pub trait ISmsMessage_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISmsMessage_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn MessageClass(&self) -> windows_core::Result<SmsMessageClass>;
 }
@@ -752,7 +752,7 @@ impl ISmsMessageBase {
 impl windows_core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
 }
-pub trait ISmsMessageBase_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISmsMessageBase_Impl: windows_core::IUnknownImpl {
     fn MessageType(&self) -> windows_core::Result<SmsMessageType>;
     fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn CellularClass(&self) -> windows_core::Result<CellularClass>;

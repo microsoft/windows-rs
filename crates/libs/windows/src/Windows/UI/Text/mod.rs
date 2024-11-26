@@ -349,7 +349,7 @@ impl ITextCharacterFormat {
 impl windows_core::RuntimeName for ITextCharacterFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextCharacterFormat";
 }
-pub trait ITextCharacterFormat_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextCharacterFormat_Impl: windows_core::IUnknownImpl {
     fn AllCaps(&self) -> windows_core::Result<FormatEffect>;
     fn SetAllCaps(&self, value: FormatEffect) -> windows_core::Result<()>;
     fn BackgroundColor(&self) -> windows_core::Result<super::Color>;
@@ -1066,7 +1066,7 @@ impl windows_core::RuntimeName for ITextDocument {
     const NAME: &'static str = "Windows.UI.Text.ITextDocument";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait ITextDocument_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextDocument_Impl: windows_core::IUnknownImpl {
     fn CaretType(&self) -> windows_core::Result<CaretType>;
     fn SetCaretType(&self, value: CaretType) -> windows_core::Result<()>;
     fn DefaultTabStop(&self) -> windows_core::Result<f32>;
@@ -1679,7 +1679,7 @@ impl ITextParagraphFormat {
 impl windows_core::RuntimeName for ITextParagraphFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextParagraphFormat";
 }
-pub trait ITextParagraphFormat_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextParagraphFormat_Impl: windows_core::IUnknownImpl {
     fn Alignment(&self) -> windows_core::Result<ParagraphAlignment>;
     fn SetAlignment(&self, value: ParagraphAlignment) -> windows_core::Result<()>;
     fn FirstLineIndent(&self) -> windows_core::Result<f32>;
@@ -2501,7 +2501,7 @@ impl windows_core::RuntimeName for ITextRange {
     const NAME: &'static str = "Windows.UI.Text.ITextRange";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait ITextRange_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn Character(&self) -> windows_core::Result<u16>;
     fn SetCharacter(&self, value: u16) -> windows_core::Result<()>;
     fn CharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat>;

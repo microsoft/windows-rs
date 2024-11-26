@@ -108,7 +108,7 @@ impl windows_core::RuntimeName for ILowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.ILowLevelDevicesAggregateProvider";
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-pub trait ILowLevelDevicesAggregateProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILowLevelDevicesAggregateProvider_Impl: windows_core::IUnknownImpl {
     fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider>;
     fn PwmControllerProvider(&self) -> windows_core::Result<Pwm::Provider::IPwmControllerProvider>;
     fn GpioControllerProvider(&self) -> windows_core::Result<Gpio::Provider::IGpioControllerProvider>;

@@ -373,7 +373,7 @@ impl ICashDrawerEventSourceEventArgs {
 impl windows_core::RuntimeName for ICashDrawerEventSourceEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
 }
-pub trait ICashDrawerEventSourceEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICashDrawerEventSourceEventArgs_Impl: windows_core::IUnknownImpl {
     fn CashDrawer(&self) -> windows_core::Result<CashDrawer>;
 }
 impl ICashDrawerEventSourceEventArgs_Vtbl {
@@ -957,7 +957,7 @@ impl ICommonClaimedPosPrinterStation {
 impl windows_core::RuntimeName for ICommonClaimedPosPrinterStation {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
 }
-pub trait ICommonClaimedPosPrinterStation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICommonClaimedPosPrinterStation_Impl: windows_core::IUnknownImpl {
     fn SetCharactersPerLine(&self, value: u32) -> windows_core::Result<()>;
     fn CharactersPerLine(&self) -> windows_core::Result<u32>;
     fn SetLineHeight(&self, value: u32) -> windows_core::Result<()>;
@@ -1294,7 +1294,7 @@ impl windows_core::RuntimeName for ICommonPosPrintStationCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ICommonPosPrintStationCapabilities_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICommonPosPrintStationCapabilities_Impl: windows_core::IUnknownImpl {
     fn IsPrinterPresent(&self) -> windows_core::Result<bool>;
     fn IsDualColorSupported(&self) -> windows_core::Result<bool>;
     fn ColorCartridgeCapabilities(&self) -> windows_core::Result<PosPrinterColorCapabilities>;
@@ -2386,7 +2386,7 @@ impl IPosPrinterJob {
 impl windows_core::RuntimeName for IPosPrinterJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterJob";
 }
-pub trait IPosPrinterJob_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPosPrinterJob_Impl: windows_core::IUnknownImpl {
     fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn PrintLine(&self, data: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn PrintNewline(&self) -> windows_core::Result<()>;

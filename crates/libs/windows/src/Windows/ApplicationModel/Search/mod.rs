@@ -171,7 +171,7 @@ impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISearchPaneQueryChangedEventArgs_Impl: windows_core::IUnknownImpl {
     fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;

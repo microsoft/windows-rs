@@ -324,7 +324,7 @@ impl IGeoshape {
 impl windows_core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";
 }
-pub trait IGeoshape_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGeoshape_Impl: windows_core::IUnknownImpl {
     fn GeoshapeType(&self) -> windows_core::Result<GeoshapeType>;
     fn SpatialReferenceId(&self) -> windows_core::Result<u32>;
     fn AltitudeReferenceSystem(&self) -> windows_core::Result<AltitudeReferenceSystem>;

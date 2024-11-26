@@ -29,7 +29,7 @@ impl windows_core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IAdaptiveNotificationContent_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAdaptiveNotificationContent_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind>;
     fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
 }

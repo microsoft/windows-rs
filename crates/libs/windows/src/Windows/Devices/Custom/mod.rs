@@ -77,7 +77,7 @@ impl IIOControlCode {
 impl windows_core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
-pub trait IIOControlCode_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IIOControlCode_Impl: windows_core::IUnknownImpl {
     fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode>;
     fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod>;
     fn Function(&self) -> windows_core::Result<u16>;

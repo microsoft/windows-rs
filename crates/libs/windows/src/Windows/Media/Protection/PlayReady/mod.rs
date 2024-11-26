@@ -120,7 +120,7 @@ impl windows_core::RuntimeName for INDClosedCaptionDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDClosedCaptionDataReceivedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDClosedCaptionDataReceivedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat>;
     fn PresentationTimestamp(&self) -> windows_core::Result<i64>;
     fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>>;
@@ -220,7 +220,7 @@ impl windows_core::RuntimeName for INDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDCustomData";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDCustomData_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDCustomData_Impl: windows_core::IUnknownImpl {
     fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
@@ -365,7 +365,7 @@ impl windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDDownloadEngine_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
     fn Open(&self, uri: Option<&super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
@@ -547,7 +547,7 @@ impl windows_core::RuntimeName for INDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDDownloadEngineNotifier_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnStreamOpened(&self) -> windows_core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
     fn OnContentIDReceived(&self, licenseFetchDescriptor: Option<&INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
@@ -649,7 +649,7 @@ impl windows_core::RuntimeName for INDLicenseFetchCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDLicenseFetchCompletedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDLicenseFetchCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
 #[cfg(feature = "deprecated")]
@@ -732,7 +732,7 @@ impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDLicenseFetchDescriptor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
@@ -850,7 +850,7 @@ impl windows_core::RuntimeName for INDLicenseFetchResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchResult";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDLicenseFetchResult_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDLicenseFetchResult_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
 #[cfg(feature = "deprecated")]
@@ -933,7 +933,7 @@ impl windows_core::RuntimeName for INDMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDMessenger";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDMessenger_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDMessenger_Impl: windows_core::IUnknownImpl {
     fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
@@ -1043,7 +1043,7 @@ impl windows_core::RuntimeName for INDProximityDetectionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDProximityDetectionCompletedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDProximityDetectionCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "deprecated")]
@@ -1122,7 +1122,7 @@ impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDRegistrationCompletedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
     fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
@@ -1224,7 +1224,7 @@ impl windows_core::RuntimeName for INDSendResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDSendResult";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDSendResult_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDSendResult_Impl: windows_core::IUnknownImpl {
     fn Response(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
 #[cfg(feature = "deprecated")]
@@ -1281,7 +1281,7 @@ impl windows_core::RuntimeName for INDStartResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStartResult";
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-pub trait INDStartResult_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDStartResult_Impl: windows_core::IUnknownImpl {
     fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource>;
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
@@ -1340,7 +1340,7 @@ impl windows_core::RuntimeName for INDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStorageFileHelper";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
-pub trait INDStorageFileHelper_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
     fn GetFileURLs(&self, file: Option<&super::super::super::Storage::IStorageFile>) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
@@ -1422,7 +1422,7 @@ impl windows_core::RuntimeName for INDStreamParser {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParser";
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-pub trait INDStreamParser_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
     fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
     fn GetStreamInformation(&self, descriptor: Option<&super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
     fn BeginOfStream(&self) -> windows_core::Result<()>;
@@ -1552,7 +1552,7 @@ impl windows_core::RuntimeName for INDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParserNotifier";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-pub trait INDStreamParserNotifier_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
     fn OnContentIDReceived(&self, licenseFetchDescriptor: Option<&INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
     fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: Option<&super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: Option<&super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
     fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: Option<&super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
@@ -1729,7 +1729,7 @@ impl windows_core::RuntimeName for INDTransmitterProperties {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDTransmitterProperties";
 }
 #[cfg(feature = "deprecated")]
-pub trait INDTransmitterProperties_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
     fn CertificateType(&self) -> windows_core::Result<NDCertificateType>;
     fn PlatformIdentifier(&self) -> windows_core::Result<NDCertificatePlatformID>;
     fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>>;
@@ -2034,7 +2034,7 @@ impl IPlayReadyDomain {
 impl windows_core::RuntimeName for IPlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyDomain";
 }
-pub trait IPlayReadyDomain_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPlayReadyDomain_Impl: windows_core::IUnknownImpl {
     fn AccountId(&self) -> windows_core::Result<windows_core::GUID>;
     fn ServiceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Revision(&self) -> windows_core::Result<u32>;
@@ -2234,7 +2234,7 @@ impl IPlayReadyLicense {
 impl windows_core::RuntimeName for IPlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicense";
 }
-pub trait IPlayReadyLicense_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPlayReadyLicense_Impl: windows_core::IUnknownImpl {
     fn FullyEvaluated(&self) -> windows_core::Result<bool>;
     fn UsableForPlay(&self) -> windows_core::Result<bool>;
     fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -2587,7 +2587,7 @@ impl IPlayReadyLicenseSession {
 impl windows_core::RuntimeName for IPlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
 }
-pub trait IPlayReadyLicenseSession_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPlayReadyLicenseSession_Impl: windows_core::IUnknownImpl {
     fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
     fn ConfigureMediaProtectionManager(&self, mpm: Option<&super::MediaProtectionManager>) -> windows_core::Result<()>;
 }

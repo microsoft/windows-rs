@@ -40,7 +40,7 @@ impl IUserDataAccountProviderOperation {
 impl windows_core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";
 }
-pub trait IUserDataAccountProviderOperation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUserDataAccountProviderOperation_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind>;
 }
 impl IUserDataAccountProviderOperation_Vtbl {

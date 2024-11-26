@@ -157,7 +157,7 @@ impl IWebAccount {
 impl windows_core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
 }
-pub trait IWebAccount_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebAccount_Impl: windows_core::IUnknownImpl {
     fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider>;
     fn UserName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn State(&self) -> windows_core::Result<WebAccountState>;

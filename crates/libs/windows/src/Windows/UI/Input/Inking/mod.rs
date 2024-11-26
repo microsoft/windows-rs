@@ -200,7 +200,7 @@ impl IInkPointFactory {
 impl windows_core::RuntimeName for IInkPointFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPointFactory";
 }
-pub trait IInkPointFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkPointFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInkPoint(&self, position: &super::super::super::Foundation::Point, pressure: f32) -> windows_core::Result<InkPoint>;
 }
 impl IInkPointFactory_Vtbl {
@@ -361,7 +361,7 @@ impl IInkPresenterRulerFactory {
 impl windows_core::RuntimeName for IInkPresenterRulerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
 }
-pub trait IInkPresenterRulerFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkPresenterRulerFactory_Impl: windows_core::IUnknownImpl {
     fn Create(&self, inkPresenter: Option<&InkPresenter>) -> windows_core::Result<InkPresenterRuler>;
 }
 impl IInkPresenterRulerFactory_Vtbl {
@@ -453,7 +453,7 @@ impl windows_core::RuntimeName for IInkPresenterStencil {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterStencil";
 }
 #[cfg(feature = "Foundation_Numerics")]
-pub trait IInkPresenterStencil_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkPresenterStencil_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<InkPresenterStencilKind>;
     fn IsVisible(&self) -> windows_core::Result<bool>;
     fn SetIsVisible(&self, value: bool) -> windows_core::Result<()>;
@@ -633,7 +633,7 @@ impl windows_core::RuntimeName for IInkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognizerContainer";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IInkRecognizerContainer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkRecognizerContainer_Impl: windows_core::IUnknownImpl {
     fn SetDefaultRecognizer(&self, recognizer: Option<&InkRecognizer>) -> windows_core::Result<()>;
     fn RecognizeAsync(&self, strokeCollection: Option<&InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
     fn GetRecognizers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>;
@@ -914,7 +914,7 @@ impl windows_core::RuntimeName for IInkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeContainer";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IInkStrokeContainer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkStrokeContainer_Impl: windows_core::IUnknownImpl {
     fn BoundingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn AddStroke(&self, stroke: Option<&InkStroke>) -> windows_core::Result<()>;
     fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;

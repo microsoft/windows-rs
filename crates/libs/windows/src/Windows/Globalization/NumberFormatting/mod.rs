@@ -87,7 +87,7 @@ impl INumberFormatter {
 impl windows_core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
 }
-pub trait INumberFormatter_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberFormatter_Impl: windows_core::IUnknownImpl {
     fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatDouble(&self, value: f64) -> windows_core::Result<windows_core::HSTRING>;
@@ -176,7 +176,7 @@ impl INumberFormatter2 {
 impl windows_core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
 }
-pub trait INumberFormatter2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberFormatter2_Impl: windows_core::IUnknownImpl {
     fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatDouble(&self, value: f64) -> windows_core::Result<windows_core::HSTRING>;
@@ -330,7 +330,7 @@ impl windows_core::RuntimeName for INumberFormatterOptions {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatterOptions";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait INumberFormatterOptions_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberFormatterOptions_Impl: windows_core::IUnknownImpl {
     fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>;
     fn GeographicRegion(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IntegerDigits(&self) -> windows_core::Result<i32>;
@@ -538,7 +538,7 @@ impl INumberParser {
 impl windows_core::RuntimeName for INumberParser {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberParser";
 }
-pub trait INumberParser_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberParser_Impl: windows_core::IUnknownImpl {
     fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<i64>>;
     fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<u64>>;
     fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<f64>>;
@@ -648,7 +648,7 @@ impl INumberRounder {
 impl windows_core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
 }
-pub trait INumberRounder_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberRounder_Impl: windows_core::IUnknownImpl {
     fn RoundInt32(&self, value: i32) -> windows_core::Result<i32>;
     fn RoundUInt32(&self, value: u32) -> windows_core::Result<u32>;
     fn RoundInt64(&self, value: i64) -> windows_core::Result<i64>;
@@ -766,7 +766,7 @@ impl INumberRounderOption {
 impl windows_core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
 }
-pub trait INumberRounderOption_Impl: Sized + windows_core::IUnknownImpl {
+pub trait INumberRounderOption_Impl: windows_core::IUnknownImpl {
     fn NumberRounder(&self) -> windows_core::Result<INumberRounder>;
     fn SetNumberRounder(&self, value: Option<&INumberRounder>) -> windows_core::Result<()>;
 }
@@ -876,7 +876,7 @@ impl ISignedZeroOption {
 impl windows_core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
 }
-pub trait ISignedZeroOption_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISignedZeroOption_Impl: windows_core::IUnknownImpl {
     fn IsZeroSigned(&self) -> windows_core::Result<bool>;
     fn SetIsZeroSigned(&self, value: bool) -> windows_core::Result<()>;
 }
@@ -945,7 +945,7 @@ impl ISignificantDigitsOption {
 impl windows_core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
 }
-pub trait ISignificantDigitsOption_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISignificantDigitsOption_Impl: windows_core::IUnknownImpl {
     fn SignificantDigits(&self) -> windows_core::Result<i32>;
     fn SetSignificantDigits(&self, value: i32) -> windows_core::Result<()>;
 }

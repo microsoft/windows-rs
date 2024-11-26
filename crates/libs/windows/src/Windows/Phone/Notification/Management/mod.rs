@@ -155,7 +155,7 @@ impl IAccessoryNotificationTriggerDetails {
 impl windows_core::RuntimeName for IAccessoryNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
 }
-pub trait IAccessoryNotificationTriggerDetails_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAccessoryNotificationTriggerDetails_Impl: windows_core::IUnknownImpl {
     fn TimeCreated(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
     fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn AppId(&self) -> windows_core::Result<windows_core::HSTRING>;

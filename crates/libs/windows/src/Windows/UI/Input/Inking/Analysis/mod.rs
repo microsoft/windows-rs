@@ -117,7 +117,7 @@ impl windows_core::RuntimeName for IInkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisNode";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IInkAnalysisNode_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkAnalysisNode_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind>;
     fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect>;
@@ -319,7 +319,7 @@ impl IInkAnalyzerFactory {
 impl windows_core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
 }
-pub trait IInkAnalyzerFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInkAnalyzerFactory_Impl: windows_core::IUnknownImpl {
     fn CreateAnalyzer(&self) -> windows_core::Result<InkAnalyzer>;
 }
 impl IInkAnalyzerFactory_Vtbl {

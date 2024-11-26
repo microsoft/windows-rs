@@ -26,7 +26,7 @@ impl IBuffer {
 impl windows_core::RuntimeName for IBuffer {
     const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
 }
-pub trait IBuffer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBuffer_Impl: windows_core::IUnknownImpl {
     fn Capacity(&self) -> windows_core::Result<u32>;
     fn Length(&self) -> windows_core::Result<u32>;
     fn SetLength(&self, value: u32) -> windows_core::Result<()>;
@@ -111,7 +111,7 @@ impl IContentTypeProvider {
 impl windows_core::RuntimeName for IContentTypeProvider {
     const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
 }
-pub trait IContentTypeProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContentTypeProvider_Impl: windows_core::IUnknownImpl {
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IContentTypeProvider_Vtbl {
@@ -318,7 +318,7 @@ impl IDataReader {
 impl windows_core::RuntimeName for IDataReader {
     const NAME: &'static str = "Windows.Storage.Streams.IDataReader";
 }
-pub trait IDataReader_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDataReader_Impl: windows_core::IUnknownImpl {
     fn UnconsumedBufferLength(&self) -> windows_core::Result<u32>;
     fn UnicodeEncoding(&self) -> windows_core::Result<UnicodeEncoding>;
     fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> windows_core::Result<()>;
@@ -822,7 +822,7 @@ impl IDataWriter {
 impl windows_core::RuntimeName for IDataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.IDataWriter";
 }
-pub trait IDataWriter_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDataWriter_Impl: windows_core::IUnknownImpl {
     fn UnstoredBufferLength(&self) -> windows_core::Result<u32>;
     fn UnicodeEncoding(&self) -> windows_core::Result<UnicodeEncoding>;
     fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> windows_core::Result<()>;
@@ -1191,7 +1191,7 @@ impl IInputStreamReference {
 impl windows_core::RuntimeName for IInputStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStreamReference";
 }
-pub trait IInputStreamReference_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInputStreamReference_Impl: windows_core::IUnknownImpl {
     fn OpenSequentialReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
 }
 impl IInputStreamReference_Vtbl {
@@ -1329,7 +1329,7 @@ impl windows_core::RuntimeName for IPropertySetSerializer {
     const NAME: &'static str = "Windows.Storage.Streams.IPropertySetSerializer";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPropertySetSerializer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPropertySetSerializer_Impl: windows_core::IUnknownImpl {
     fn Serialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
     fn Deserialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>, buffer: Option<&IBuffer>) -> windows_core::Result<()>;
 }
@@ -1613,7 +1613,7 @@ impl IRandomAccessStreamReference {
 impl windows_core::RuntimeName for IRandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReference";
 }
-pub trait IRandomAccessStreamReference_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IRandomAccessStreamReference_Impl: windows_core::IUnknownImpl {
     fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
 }
 impl IRandomAccessStreamReference_Vtbl {

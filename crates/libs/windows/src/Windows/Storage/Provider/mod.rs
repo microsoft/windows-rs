@@ -187,7 +187,7 @@ impl windows_core::RuntimeName for IStorageProviderItemPropertySource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertySource";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IStorageProviderItemPropertySource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderItemPropertySource_Impl: windows_core::IUnknownImpl {
     fn GetItemProperties(&self, itemPath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -280,7 +280,7 @@ impl IStorageProviderKnownFolderSyncInfoSource {
 impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSource";
 }
-pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: windows_core::IUnknownImpl {
     fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo>;
     fn KnownFolderSyncInfoChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveKnownFolderSyncInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
@@ -347,7 +347,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory {
 impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSourceFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSourceFactory";
 }
-pub trait IStorageProviderKnownFolderSyncInfoSourceFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderKnownFolderSyncInfoSourceFactory_Impl: windows_core::IUnknownImpl {
     fn GetKnownFolderSyncInfoSource(&self) -> windows_core::Result<IStorageProviderKnownFolderSyncInfoSource>;
 }
 impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
@@ -422,7 +422,7 @@ impl IStorageProviderPropertyCapabilities {
 impl windows_core::RuntimeName for IStorageProviderPropertyCapabilities {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
 }
-pub trait IStorageProviderPropertyCapabilities_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderPropertyCapabilities_Impl: windows_core::IUnknownImpl {
     fn IsPropertySupported(&self, propertyCanonicalName: &windows_core::HSTRING) -> windows_core::Result<bool>;
 }
 impl IStorageProviderPropertyCapabilities_Vtbl {
@@ -518,7 +518,7 @@ impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IStorageProviderShareLinkSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderShareLinkSource_Impl: windows_core::IUnknownImpl {
     fn CreateLinkAsync(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
     fn GetDefaultAccessControlStringAsync(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
     fn GetState(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
@@ -647,7 +647,7 @@ impl IStorageProviderStatusUISource {
 impl windows_core::RuntimeName for IStorageProviderStatusUISource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISource";
 }
-pub trait IStorageProviderStatusUISource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderStatusUISource_Impl: windows_core::IUnknownImpl {
     fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI>;
     fn StatusUIChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUIChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
@@ -714,7 +714,7 @@ impl IStorageProviderStatusUISourceFactory {
 impl windows_core::RuntimeName for IStorageProviderStatusUISourceFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISourceFactory";
 }
-pub trait IStorageProviderStatusUISourceFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderStatusUISourceFactory_Impl: windows_core::IUnknownImpl {
     fn GetStatusUISource(&self, syncRootId: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderStatusUISource>;
 }
 impl IStorageProviderStatusUISourceFactory_Vtbl {
@@ -881,7 +881,7 @@ impl IStorageProviderUICommand {
 impl windows_core::RuntimeName for IStorageProviderUICommand {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUICommand";
 }
-pub trait IStorageProviderUICommand_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderUICommand_Impl: windows_core::IUnknownImpl {
     fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Description(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Icon(&self) -> windows_core::Result<super::super::Foundation::Uri>;
@@ -983,7 +983,7 @@ impl IStorageProviderUriSource {
 impl windows_core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
 }
-pub trait IStorageProviderUriSource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageProviderUriSource_Impl: windows_core::IUnknownImpl {
     fn GetPathForContentUri(&self, contentUri: &windows_core::HSTRING, result: Option<&StorageProviderGetPathForContentUriResult>) -> windows_core::Result<()>;
     fn GetContentInfoForPath(&self, path: &windows_core::HSTRING, result: Option<&StorageProviderGetContentInfoForPathResult>) -> windows_core::Result<()>;
 }

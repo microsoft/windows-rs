@@ -449,7 +449,7 @@ impl IContactField {
 impl windows_core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
 }
-pub trait IContactField_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactField_Impl: windows_core::IUnknownImpl {
     fn Type(&self) -> windows_core::Result<ContactFieldType>;
     fn Category(&self) -> windows_core::Result<ContactFieldCategory>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -550,7 +550,7 @@ impl IContactFieldFactory {
 impl windows_core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
 }
-pub trait IContactFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactFieldFactory_Impl: windows_core::IUnknownImpl {
     fn CreateField_Default(&self, value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<ContactField>;
     fn CreateField_Category(&self, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
     fn CreateField_Custom(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
@@ -699,7 +699,7 @@ impl IContactInstantMessageFieldFactory {
 impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
-pub trait IContactInstantMessageFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactInstantMessageFieldFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstantMessage_Default(&self, userName: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: Option<&super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
@@ -992,7 +992,7 @@ impl IContactLocationFieldFactory {
 impl windows_core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
 }
-pub trait IContactLocationFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactLocationFieldFactory_Impl: windows_core::IUnknownImpl {
     fn CreateLocation_Default(&self, unstructuredAddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
     fn CreateLocation_Category(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactLocationField>;
     fn CreateLocation_All(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalCode: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;

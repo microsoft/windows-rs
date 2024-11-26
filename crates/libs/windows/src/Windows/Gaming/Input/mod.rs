@@ -144,7 +144,7 @@ impl windows_core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
 }
 #[cfg(feature = "System")]
-pub trait IGameController_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGameController_Impl: windows_core::IUnknownImpl {
     fn HeadsetConnected(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
     fn HeadsetDisconnected(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -288,7 +288,7 @@ impl windows_core::RuntimeName for IGameControllerBatteryInfo {
     const NAME: &'static str = "Windows.Gaming.Input.IGameControllerBatteryInfo";
 }
 #[cfg(feature = "Devices_Power")]
-pub trait IGameControllerBatteryInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGameControllerBatteryInfo_Impl: windows_core::IUnknownImpl {
     fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport>;
 }
 #[cfg(feature = "Devices_Power")]

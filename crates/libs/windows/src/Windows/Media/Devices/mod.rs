@@ -325,7 +325,7 @@ impl IDefaultAudioDeviceChangedEventArgs {
 impl windows_core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
 }
-pub trait IDefaultAudioDeviceChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDefaultAudioDeviceChangedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Role(&self) -> windows_core::Result<AudioDeviceRole>;
 }
@@ -770,7 +770,7 @@ impl windows_core::RuntimeName for IMediaDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.IMediaDeviceController";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-pub trait IMediaDeviceController_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaDeviceController_Impl: windows_core::IUnknownImpl {
     fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
     fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: Option<&super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;

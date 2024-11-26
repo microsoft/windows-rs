@@ -15,7 +15,7 @@ impl IAdaptiveCard {
 impl windows_core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
-pub trait IAdaptiveCard_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAdaptiveCard_Impl: windows_core::IUnknownImpl {
     fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IAdaptiveCard_Vtbl {
@@ -59,7 +59,7 @@ impl IAdaptiveCardBuilderStatics {
 impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
 }
-pub trait IAdaptiveCardBuilderStatics_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IAdaptiveCardBuilderStatics_Impl: windows_core::IUnknownImpl {
     fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard>;
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {

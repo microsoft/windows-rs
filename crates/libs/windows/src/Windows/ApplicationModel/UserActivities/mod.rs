@@ -143,7 +143,7 @@ impl IUserActivityContentInfo {
 impl windows_core::RuntimeName for IUserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityContentInfo";
 }
-pub trait IUserActivityContentInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUserActivityContentInfo_Impl: windows_core::IUnknownImpl {
     fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IUserActivityContentInfo_Vtbl {

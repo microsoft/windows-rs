@@ -148,7 +148,7 @@ impl windows_core::RuntimeName for IContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IContactInformation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactInformation_Impl: windows_core::IUnknownImpl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn FamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -393,7 +393,7 @@ impl IContactInformation2 {
 impl windows_core::RuntimeName for IContactInformation2 {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation2";
 }
-pub trait IContactInformation2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactInformation2_Impl: windows_core::IUnknownImpl {
     fn DisplayPictureDate(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
     fn SetDisplayPictureDate(&self, returnValue: &super::super::Foundation::DateTime) -> windows_core::Result<()>;
 }

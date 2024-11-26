@@ -145,7 +145,7 @@ impl windows_core::RuntimeName for IStorageItemInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IStorageItemInformation";
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-pub trait IStorageItemInformation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageItemInformation_Impl: windows_core::IUnknownImpl {
     fn MusicProperties(&self) -> windows_core::Result<super::FileProperties::MusicProperties>;
     fn VideoProperties(&self) -> windows_core::Result<super::FileProperties::VideoProperties>;
     fn ImageProperties(&self) -> windows_core::Result<super::FileProperties::ImageProperties>;

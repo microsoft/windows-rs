@@ -162,7 +162,7 @@ impl windows_core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IJsonValue_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IJsonValue_Impl: windows_core::IUnknownImpl {
     fn ValueType(&self) -> windows_core::Result<JsonValueType>;
     fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;

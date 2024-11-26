@@ -96,7 +96,7 @@ impl IImageScannerFormatConfiguration {
 impl windows_core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
 }
-pub trait IImageScannerFormatConfiguration_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImageScannerFormatConfiguration_Impl: windows_core::IUnknownImpl {
     fn DefaultFormat(&self) -> windows_core::Result<ImageScannerFormat>;
     fn Format(&self) -> windows_core::Result<ImageScannerFormat>;
     fn SetFormat(&self, value: ImageScannerFormat) -> windows_core::Result<()>;

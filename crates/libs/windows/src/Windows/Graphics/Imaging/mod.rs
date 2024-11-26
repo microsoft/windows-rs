@@ -253,7 +253,7 @@ impl windows_core::RuntimeName for IBitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrame";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IBitmapFrame_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
     fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
     fn BitmapProperties(&self) -> windows_core::Result<BitmapPropertiesView>;
     fn BitmapPixelFormat(&self) -> windows_core::Result<BitmapPixelFormat>;
@@ -652,7 +652,7 @@ impl windows_core::RuntimeName for IBitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapPropertiesView";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IBitmapPropertiesView_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBitmapPropertiesView_Impl: windows_core::IUnknownImpl {
     fn GetPropertiesAsync(&self, propertiesToRetrieve: Option<&super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -859,7 +859,7 @@ impl IHumanPresenceSensorExtension {
 impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
     const NAME: &'static str = "Windows.Devices.Sensors.IHumanPresenceSensorExtension";
 }
-pub trait IHumanPresenceSensorExtension_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IHumanPresenceSensorExtension_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, deviceInterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
     fn ProcessReading(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
@@ -1760,7 +1760,7 @@ windows_core::imp::interface_hierarchy!(ISensorDataThreshold, windows_core::IUnk
 impl windows_core::RuntimeName for ISensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ISensorDataThreshold";
 }
-pub trait ISensorDataThreshold_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait ISensorDataThreshold_Impl: windows_core::IUnknownImpl {}
 impl ISensorDataThreshold_Vtbl {
     pub const fn new<Identity: ISensorDataThreshold_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }

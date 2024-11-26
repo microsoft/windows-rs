@@ -543,7 +543,7 @@ impl IPointerPointTransform {
 impl windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
-pub trait IPointerPointTransform_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPointerPointTransform_Impl: windows_core::IUnknownImpl {
     fn Inverse(&self) -> windows_core::Result<IPointerPointTransform>;
     fn TryTransform(&self, inPoint: &super::super::Foundation::Point, outPoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool>;
     fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect>;

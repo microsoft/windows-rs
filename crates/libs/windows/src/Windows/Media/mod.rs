@@ -265,7 +265,7 @@ impl windows_core::RuntimeName for IMediaExtension {
     const NAME: &'static str = "Windows.Media.IMediaExtension";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IMediaExtension_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaExtension_Impl: windows_core::IUnknownImpl {
     fn SetProperties(&self, configuration: Option<&super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -606,7 +606,7 @@ impl IMediaMarker {
 impl windows_core::RuntimeName for IMediaMarker {
     const NAME: &'static str = "Windows.Media.IMediaMarker";
 }
-pub trait IMediaMarker_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaMarker_Impl: windows_core::IUnknownImpl {
     fn Time(&self) -> windows_core::Result<super::Foundation::TimeSpan>;
     fn MediaMarkerType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Text(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -692,7 +692,7 @@ impl windows_core::RuntimeName for IMediaMarkers {
     const NAME: &'static str = "Windows.Media.IMediaMarkers";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IMediaMarkers_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaMarkers_Impl: windows_core::IUnknownImpl {
     fn Markers(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;
 }
 #[cfg(feature = "Foundation_Collections")]

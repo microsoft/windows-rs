@@ -95,7 +95,7 @@ impl IUICommand {
 impl windows_core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";
 }
-pub trait IUICommand_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUICommand_Impl: windows_core::IUnknownImpl {
     fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler>;

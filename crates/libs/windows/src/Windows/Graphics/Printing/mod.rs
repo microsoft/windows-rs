@@ -14,7 +14,7 @@ windows_core::imp::interface_hierarchy!(IPrintDocumentSource, windows_core::IUnk
 impl windows_core::RuntimeName for IPrintDocumentSource {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintDocumentSource";
 }
-pub trait IPrintDocumentSource_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IPrintDocumentSource_Impl: windows_core::IUnknownImpl {}
 impl IPrintDocumentSource_Vtbl {
     pub const fn new<Identity: IPrintDocumentSource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
@@ -193,7 +193,7 @@ impl IPrintTaskOptionsCore {
 impl windows_core::RuntimeName for IPrintTaskOptionsCore {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCore";
 }
-pub trait IPrintTaskOptionsCore_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPrintTaskOptionsCore_Impl: windows_core::IUnknownImpl {
     fn GetPageDescription(&self, jobPageNumber: u32) -> windows_core::Result<PrintPageDescription>;
 }
 impl IPrintTaskOptionsCore_Vtbl {
@@ -367,7 +367,7 @@ impl IPrintTaskOptionsCoreProperties {
 impl windows_core::RuntimeName for IPrintTaskOptionsCoreProperties {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreProperties";
 }
-pub trait IPrintTaskOptionsCoreProperties_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPrintTaskOptionsCoreProperties_Impl: windows_core::IUnknownImpl {
     fn SetMediaSize(&self, value: PrintMediaSize) -> windows_core::Result<()>;
     fn MediaSize(&self) -> windows_core::Result<PrintMediaSize>;
     fn SetMediaType(&self, value: PrintMediaType) -> windows_core::Result<()>;
@@ -649,7 +649,7 @@ impl windows_core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreUIConfiguration";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: windows_core::IUnknownImpl {
     fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]

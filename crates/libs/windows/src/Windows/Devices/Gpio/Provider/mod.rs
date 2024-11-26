@@ -22,7 +22,7 @@ impl IGpioControllerProvider {
 impl windows_core::RuntimeName for IGpioControllerProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioControllerProvider";
 }
-pub trait IGpioControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGpioControllerProvider_Impl: windows_core::IUnknownImpl {
     fn PinCount(&self) -> windows_core::Result<i32>;
     fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider>;
 }
@@ -143,7 +143,7 @@ impl IGpioPinProvider {
 impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
-pub trait IGpioPinProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
     fn ValueChanged(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveValueChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
     fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for IGpioProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IGpioProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGpioProvider_Impl: windows_core::IUnknownImpl {
     fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]

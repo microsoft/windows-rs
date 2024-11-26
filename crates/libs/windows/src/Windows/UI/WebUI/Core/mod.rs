@@ -72,7 +72,7 @@ windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, windows_core::I
 impl windows_core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
 }
-pub trait IWebUICommandBarElement_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IWebUICommandBarElement_Impl: windows_core::IUnknownImpl {}
 impl IWebUICommandBarElement_Vtbl {
     pub const fn new<Identity: IWebUICommandBarElement_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
@@ -93,7 +93,7 @@ windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, windows_core::IUnk
 impl windows_core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
 }
-pub trait IWebUICommandBarIcon_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IWebUICommandBarIcon_Impl: windows_core::IUnknownImpl {}
 impl IWebUICommandBarIcon_Vtbl {
     pub const fn new<Identity: IWebUICommandBarIcon_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }

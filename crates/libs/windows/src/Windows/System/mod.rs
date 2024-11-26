@@ -733,7 +733,7 @@ impl windows_core::RuntimeName for ILauncherViewOptions {
     const NAME: &'static str = "Windows.System.ILauncherViewOptions";
 }
 #[cfg(feature = "UI_ViewManagement")]
-pub trait ILauncherViewOptions_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILauncherViewOptions_Impl: windows_core::IUnknownImpl {
     fn DesiredRemainingView(&self) -> windows_core::Result<super::UI::ViewManagement::ViewSizePreference>;
     fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> windows_core::Result<()>;
 }

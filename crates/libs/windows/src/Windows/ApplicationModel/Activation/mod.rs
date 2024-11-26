@@ -29,7 +29,7 @@ impl IActivatedEventArgs {
 impl windows_core::RuntimeName for IActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IActivatedEventArgs";
 }
-pub trait IActivatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActivatedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<ActivationKind>;
     fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState>;
     fn SplashScreen(&self) -> windows_core::Result<SplashScreen>;
@@ -774,7 +774,7 @@ impl windows_core::RuntimeName for IBackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-pub trait IBackgroundActivatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IBackgroundActivatedEventArgs_Impl: windows_core::IUnknownImpl {
     fn TaskInstance(&self) -> windows_core::Result<super::Background::IBackgroundTaskInstance>;
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -1574,7 +1574,7 @@ impl windows_core::RuntimeName for IContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
-pub trait IContactPanelActivatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContactPanelActivatedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ContactPanel(&self) -> windows_core::Result<super::Contacts::ContactPanel>;
     fn Contact(&self) -> windows_core::Result<super::Contacts::Contact>;
 }
@@ -2689,7 +2689,7 @@ impl IFileOpenPickerActivatedEventArgs2 {
 impl windows_core::RuntimeName for IFileOpenPickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2";
 }
-pub trait IFileOpenPickerActivatedEventArgs2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFileOpenPickerActivatedEventArgs2_Impl: windows_core::IUnknownImpl {
     fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IFileOpenPickerActivatedEventArgs2_Vtbl {
@@ -2909,7 +2909,7 @@ impl IFileSavePickerActivatedEventArgs2 {
 impl windows_core::RuntimeName for IFileSavePickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2";
 }
-pub trait IFileSavePickerActivatedEventArgs2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFileSavePickerActivatedEventArgs2_Impl: windows_core::IUnknownImpl {
     fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
@@ -4228,7 +4228,7 @@ impl windows_core::RuntimeName for ISearchActivatedEventArgsWithLinguisticDetail
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ISearchActivatedEventArgsWithLinguisticDetails";
 }
 #[cfg(feature = "ApplicationModel_Search")]
-pub trait ISearchActivatedEventArgsWithLinguisticDetails_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISearchActivatedEventArgsWithLinguisticDetails_Impl: windows_core::IUnknownImpl {
     fn LinguisticDetails(&self) -> windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(feature = "ApplicationModel_Search")]

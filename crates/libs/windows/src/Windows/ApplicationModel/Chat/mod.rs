@@ -123,7 +123,7 @@ impl IChatItem {
 impl windows_core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
 }
-pub trait IChatItem_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IChatItem_Impl: windows_core::IUnknownImpl {
     fn ItemKind(&self) -> windows_core::Result<ChatItemKind>;
 }
 impl IChatItem_Vtbl {

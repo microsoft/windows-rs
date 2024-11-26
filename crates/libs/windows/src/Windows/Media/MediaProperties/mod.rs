@@ -345,7 +345,7 @@ impl windows_core::RuntimeName for IMediaEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.IMediaEncodingProperties";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IMediaEncodingProperties_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMediaEncodingProperties_Impl: windows_core::IUnknownImpl {
     fn Properties(&self) -> windows_core::Result<MediaPropertySet>;
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetSubtype(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;

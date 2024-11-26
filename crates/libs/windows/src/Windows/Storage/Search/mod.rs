@@ -133,7 +133,7 @@ impl windows_core::RuntimeName for IIndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IIndexableContent_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IIndexableContent_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>;
@@ -475,7 +475,7 @@ impl windows_core::RuntimeName for IStorageFolderQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IStorageFolderQueryOperations_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageFolderQueryOperations_Impl: windows_core::IUnknownImpl {
     fn GetIndexedStateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
@@ -870,7 +870,7 @@ impl IStorageQueryResultBase {
 impl windows_core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
-pub trait IStorageQueryResultBase_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IStorageQueryResultBase_Impl: windows_core::IUnknownImpl {
     fn GetItemCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
     fn ContentsChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;

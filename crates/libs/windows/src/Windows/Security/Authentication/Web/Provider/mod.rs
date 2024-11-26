@@ -170,7 +170,7 @@ impl windows_core::RuntimeName for IWebAccountProviderBaseReportOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderBaseReportOperation";
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
-pub trait IWebAccountProviderBaseReportOperation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebAccountProviderBaseReportOperation_Impl: windows_core::IUnknownImpl {
     fn ReportCompleted(&self) -> windows_core::Result<()>;
     fn ReportError(&self, value: Option<&super::Core::WebProviderError>) -> windows_core::Result<()>;
 }
@@ -246,7 +246,7 @@ impl IWebAccountProviderOperation {
 impl windows_core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
 }
-pub trait IWebAccountProviderOperation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebAccountProviderOperation_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<WebAccountProviderOperationKind>;
 }
 impl IWebAccountProviderOperation_Vtbl {
@@ -390,7 +390,7 @@ impl IWebAccountProviderTokenObjects {
 impl windows_core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
 }
-pub trait IWebAccountProviderTokenObjects_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWebAccountProviderTokenObjects_Impl: windows_core::IUnknownImpl {
     fn Operation(&self) -> windows_core::Result<IWebAccountProviderOperation>;
 }
 impl IWebAccountProviderTokenObjects_Vtbl {

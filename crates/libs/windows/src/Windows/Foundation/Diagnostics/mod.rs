@@ -54,7 +54,7 @@ impl IErrorReportingSettings {
 impl windows_core::RuntimeName for IErrorReportingSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorReportingSettings";
 }
-pub trait IErrorReportingSettings_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IErrorReportingSettings_Impl: windows_core::IUnknownImpl {
     fn SetErrorOptions(&self, value: ErrorOptions) -> windows_core::Result<()>;
     fn GetErrorOptions(&self) -> windows_core::Result<ErrorOptions>;
 }
@@ -897,7 +897,7 @@ impl ILoggingTarget {
 impl windows_core::RuntimeName for ILoggingTarget {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingTarget";
 }
-pub trait ILoggingTarget_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ILoggingTarget_Impl: windows_core::IUnknownImpl {
     fn IsEnabled(&self) -> windows_core::Result<bool>;
     fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool>;
     fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool>;
