@@ -115,7 +115,7 @@ where
                 if output.is_empty() {
                     output = arg.to_string();
                 } else {
-                    panic!("too many outputs");
+                    panic!("exactly one `--out` is required");
                 }
             }
             ArgKind::Input => input.push(arg.as_str()),
@@ -137,32 +137,32 @@ where
     }
 
     if !sys && no_core {
-        panic!("`--no-core` requires the `--sys` option");
+        panic!("`--no-core` requires `--sys`");
     }
 
     if package && flat {
-        panic!("cannot combine `--package` and `--flat` options");
+        panic!("cannot combine `--package` and `--flat`");
     }
 
     if input.is_empty() {
-        panic!("one `--in` is required");
+        panic!("at least ne `--in` is required");
     };
 
     if output.is_empty() {
-        panic!("one `--out` is required");
+        panic!("exactly one `--out` is required");
     };
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        panic!("at least one `--filter` is required");
+        panic!("at least one `--filter` required");
     }
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
     let types = TypeMap::filter(reader, &filter);
     let references = References::new(reader, references);
-    let derive = Derive::new(reader, &derive);
+    let derive = Derive::new(&reader, &types, &derive);
 
     let config = Box::leak(Box::new(Config {
         types,

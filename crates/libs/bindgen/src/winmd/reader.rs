@@ -189,24 +189,6 @@ impl Reader {
             .flatten()
             .cloned()
     }
-
-    pub fn get_type_name(&self, path: &str) -> TypeName {
-        if let Some((namespace, name)) = path.rsplit_once('.') {
-            if let Some((namespace, items)) = self.get_key_value(namespace) {
-                if let Some((name, _)) = items.get_key_value(name) {
-                    return TypeName(namespace, name);
-                }
-            }
-        } else {
-            for (namespace, items) in self.iter() {
-                if let Some((name, _)) = items.get_key_value(path) {
-                    return TypeName(namespace, name);
-                }
-            }
-        }
-
-        panic!("Type not found: `{path}`");
-    }
 }
 
 enum Category {

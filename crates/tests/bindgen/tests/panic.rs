@@ -1,7 +1,30 @@
-// TODO: why not make this the default
 fn bindgen(args: &str) {
-    // TODO: why not call it "run" - prior art?
     windows_bindgen::bindgen(args.split_whitespace());
+}
+
+#[test]
+#[should_panic(expected = "at least ne `--in` is required")]
+fn at_least_one_input() {
+    bindgen("");
+}
+
+#[test]
+#[should_panic(expected = "exactly one `--out` is required")]
+fn at_least_one_output() {
+    bindgen("--in default");
+}
+
+#[test]
+#[should_panic(expected = "exactly one `--out` is required")]
+fn exactly_one_output() {
+    bindgen("--in default --out a.txt b.txt");
+}
+
+
+#[test]
+#[should_panic(expected = "at least one `--filter` required")]
+fn at_least_one_filter() {
+    bindgen("--in default --out out.txt ");
 }
 
 #[test]
@@ -11,13 +34,55 @@ fn file_not_found() {
 }
 
 #[test]
-#[should_panic(expected = "invalid option `-etc`")]
+#[should_panic(expected = "invalid option `--invalid`")]
 fn invalid_option() {
-    bindgen("-etc");
+    bindgen("--invalid");
+}
+
+#[test]
+#[should_panic(expected = "`--no-core` requires `--sys`")]
+fn no_core() {
+    bindgen("--in default --no-core");
+}
+
+#[test]
+#[should_panic(expected = "cannot combine `--package` and `--flat`")]
+fn flat_package() {
+    bindgen("--in default --flat --package");
 }
 
 #[test]
 #[should_panic(expected = "invalid `--derive` must be `<type name>=Comma,Separated,List")]
-fn invalid_derive() {
+fn invalid_derive_format() {
     bindgen("--in default --out out.txt --filter POINT --derive invalid");
+}
+
+#[test]
+#[should_panic(expected = "type not found: `POINTY`")]
+fn invalid_derive_path() {
+    bindgen("--in default --out out.txt --filter POINT --derive POINTY=PartialOrd");
+}
+
+#[test]
+#[should_panic(expected = "type not included: `RECT`")]
+fn excluded_derive_path() {
+    bindgen("--in default --out out.txt --filter POINT --derive RECT=PartialOrd");
+}
+
+#[test]
+#[should_panic(expected = "invalid type filter `Windows.Fondation`")]
+fn invalid_filter_namespace() {
+    bindgen("--in default --out out.txt --filter Windows.Fondation");
+}
+
+#[test]
+#[should_panic(expected = "invalid type filter `AsyncStatos`")]
+fn invalid_filter_name() {
+    bindgen("--in default --out out.txt --filter AsyncStatos");
+}
+
+#[test]
+#[should_panic(expected = "-reference` must be `name=<crate>,style=<full/flat/skip-root>,path=<type name>")]
+fn invalid_reference_format() {
+    bindgen("--in default --out out.txt --filter POINT --reference invalid");
 }
