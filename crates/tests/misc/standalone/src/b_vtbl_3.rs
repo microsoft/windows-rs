@@ -56,9 +56,6 @@ pub struct IUnknown_Vtbl {
 pub const IID_IStringable: GUID = GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 #[repr(C)]
 pub struct IStringable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    pub base__: IInspectable_Vtbl,
+    pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HSTRING) -> HRESULT,
 }

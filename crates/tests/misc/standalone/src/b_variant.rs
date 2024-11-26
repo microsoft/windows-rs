@@ -69,8 +69,7 @@ pub struct IRecordInfo_Vtbl {
         *mut core::ffi::c_void,
     ) -> HRESULT,
     pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GUID) -> HRESULT,
-    pub GetName:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
     GetTypeInfo: usize,
     pub GetField: unsafe extern "system" fn(
@@ -100,11 +99,8 @@ pub struct IRecordInfo_Vtbl {
         PCWSTR,
         *const VARIANT,
     ) -> HRESULT,
-    pub GetFieldNames: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut u32,
-        *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
+    pub GetFieldNames:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BSTR) -> HRESULT,
     IsMatchingType: usize,
     pub RecordCreate: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
     pub RecordCreateCopy: unsafe extern "system" fn(
