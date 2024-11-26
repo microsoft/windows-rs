@@ -11,6 +11,3 @@ pub const WAIT_TIMEOUT: WAIT_EVENT = WAIT_EVENT(258u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_EVENT(pub u32);
-impl windows_core::TypeKind for WAIT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}

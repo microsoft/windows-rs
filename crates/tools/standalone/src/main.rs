@@ -218,7 +218,7 @@ fn main() {
 }
 
 fn write_sys(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["--flat", "--sys", "--no-deps"]);
+    bindgen(output, filter, &["--flat", "--sys", "--no-core"]);
 }
 
 fn write_win(output: &Path, filter: &[&str]) {
@@ -236,7 +236,7 @@ fn write_no_inner_attr(output: &Path, filter: &[&str]) {
 }
 
 fn write_vtbl(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["--flat", "--sys", "--no-deps"]);
+    bindgen(output, filter, &["--flat", "--sys", "--no-core"]);
 }
 
 fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
