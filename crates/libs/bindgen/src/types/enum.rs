@@ -18,6 +18,13 @@ impl Enum {
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type();
 
+        let mut derive = DeriveWriter::new(writer, self.type_name());
+        derive.extend(["Copy", "Clone"]);
+
+        if !writer.config.sys {
+            derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
+        }
+
         let fields = self
             .def
             .fields()
@@ -78,7 +85,7 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+            #derive
             pub struct #name(pub #underlying_type);
             impl #name {
                 #(#fields)*

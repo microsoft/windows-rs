@@ -25,7 +25,6 @@ impl Struct {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        // BTreeSet for auto sort?
         let mut derive = DeriveWriter::new(writer, self.type_name());
         derive.extend(["Clone", "Debug", "Default", "PartialEq"]);
 

@@ -27,8 +27,11 @@ fn main() {
     test("--out core_sys_no_core.rs --filter CoCreateGuid --sys --no-core");
     test("--out core_sys_flat_no_core.rs --filter CoCreateGuid --sys --flat --no-core");
 
-    // TODO: test derive on different types and sys/win style
-    test("--out derive.rs --filter DateTime TimeSpan --sys --flat --derive DateTime=PartialOrd");
+    test("--out derive_struct.rs --filter DateTime TimeSpan --flat --derive DateTime=PartialOrd");
+    test("--out derive_cpp_struct.rs --filter POINT SIZE --flat --derive POINT=PartialOrd");
+    test("--out derive_cpp_struct_sys.rs --filter POINT SIZE --flat --sys --derive POINT=Debug");
+    test("--out derive_enum.rs --filter AsyncStatus CollectionChange --flat --derive AsyncStatus=PartialOrd");
+    test("--out derive_cpp_enum.rs --filter WAIT_EVENT WIN32_ERROR --flat --derive WAIT_EVENT=PartialOrd");
 
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");

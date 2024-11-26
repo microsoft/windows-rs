@@ -51,6 +51,7 @@ use writer::*;
 mod method_names;
 use method_names::*;
 
+// TODO: maybe have a "Display" trait that spits this out as a comment in the form that it can be reused?
 struct Config {
     pub includes: TypeMap, // TODO: can we get rid of Includes and just use it to create the TypeTree?
     pub references: References,
