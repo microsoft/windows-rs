@@ -1,20 +1,12 @@
 use super::*;
 
-// TODO: maybe use LazyLock to "expand"  the items in place including things like dependencies
-// and required interfaces. This could avoid all the staging steps like Reader > Filter > Includes > TypeTree
-
-// TODO: why sin't this a HashMap<TypeNme, Vec<Type>>
 type ItemMap = HashMap<&'static str, Vec<Type>>;
 type ReaderMap = HashMap<&'static str, ItemMap>;
 
 fn insert(items: &mut ItemMap, name: &'static str, item: Type) {
-    // TODO: debug assert that we're only getting arch dupes on CppStruct and CppFn?
     items.entry(name).or_default().push(item);
 }
 
-// TODO: this is the index for general type queries e.g. when there's a TypeRef or Blob that refers to a type by name
-// then there's transmformations to flatten or filter this but the reader remains immutable to support the queries.
-// This filtering process can then maybe remove actual duplicates?
 pub struct Reader(ReaderMap);
 
 impl std::ops::Deref for Reader {

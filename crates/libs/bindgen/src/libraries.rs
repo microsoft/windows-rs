@@ -32,11 +32,6 @@ fn combine_libraries(
             let flags = impl_map.flags();
             let name = impl_map.import_name().to_string();
 
-            // TODO: don't include these in metadata to begin with
-            if name.starts_with('#') || library == "forceinline" {
-                continue;
-            }
-
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 let arches = item.method.arches();
                 let params = if arches.is_empty() || arches.contains("x86") {
