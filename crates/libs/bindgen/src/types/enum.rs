@@ -38,8 +38,6 @@ impl Enum {
                 }
             });
 
-        let signature = Literal::byte_string(&self.runtime_signature());
-
         let flags = if writer.config.sys || underlying_type != Type::U32 {
             quote! {}
         } else {
@@ -86,6 +84,8 @@ impl Enum {
         let win_traits = if writer.config.sys {
             quote! {}
         } else {
+            let signature = Literal::byte_string(&self.runtime_signature());
+
             quote! {
                 impl windows_core::TypeKind for #name {
                     type TypeKind = windows_core::CopyType;
@@ -103,8 +103,8 @@ impl Enum {
             impl #name {
                 #(#fields)*
             }
-            #flags
             #win_traits
+            #flags
         }
     }
 

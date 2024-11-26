@@ -92,6 +92,7 @@ impl Interface {
 
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
+            let core = writer.write_core();
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -107,7 +108,7 @@ impl Interface {
 
                     if cfg.is_empty() {
                         quote! {
-                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                            pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
                         }
                     } else {
                         let cfg_not =
@@ -115,7 +116,7 @@ impl Interface {
 
                         quote! {
                             #cfg
-                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                            pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
                             #cfg_not
                             #name: usize,
                         }
@@ -131,7 +132,7 @@ impl Interface {
                 #cfg
                 #[repr(C)]
                 pub struct #vtbl_name where #constraints {
-                    pub base__: windows_core::IInspectable_Vtbl,
+                    pub base__: #core IInspectable_Vtbl,
                     #(#vtbl_methods)*
                     #named_phantoms
                 }
@@ -461,7 +462,11 @@ impl Interface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer, &self.generics)
+        if writer.config.sys {
+            quote! { *mut core::ffi::c_void }
+        } else {
+            self.type_name().write(writer, &self.generics)
+        }
     }
 
     fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
