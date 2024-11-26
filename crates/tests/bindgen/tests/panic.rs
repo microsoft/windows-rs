@@ -34,6 +34,12 @@ fn file_not_found() {
 }
 
 #[test]
+#[should_panic(expected = "failed to read file lines `../../libs/bindgen/default/Windows.winmd`")]
+fn not_text_file() {
+    bindgen("--etc ../../libs/bindgen/default/Windows.winmd");
+}
+
+#[test]
 #[should_panic(expected = "invalid option `--invalid`")]
 fn invalid_option() {
     bindgen("--invalid");
@@ -106,6 +112,12 @@ fn invalid_input_path() {
 }
 
 #[test]
+#[should_panic(expected = "failed to find .winmd files in directory `../../libs`")]
+fn input_directory_empty() {
+    bindgen("--in ../../libs --out out.txt --filter POINT");
+}
+
+#[test]
 #[should_panic(expected = "failed to read .winmd format `../../libs/bindgen/default/readme.md`")]
 fn invalid_input_format() {
     bindgen("--in ../../libs/bindgen/default/readme.md --out out.txt --filter POINT");
@@ -127,4 +139,16 @@ fn incomplete_namespace() {
 #[should_panic(expected = "type not included: `D3D11_RESOURCE_FLAGS`")]
 fn subset_namespace() {
     bindgen("--in default --out out.txt --sys --filter Windows.Win32.Graphics.Direct3D11 --derive D3D11_RESOURCE_FLAGS=Debug");
+}
+
+#[test]
+#[should_panic(expected = "failed to create directory")]
+fn failed_to_create_directory() {
+    bindgen(&format!("--out {}\\invalid\\out.txt --in default --filter POINT", env!("windir")));
+}
+
+#[test]
+#[should_panic(expected = "failed to write file")]
+fn failed_to_write_file() {
+    bindgen(&format!("--out {}\\out.txt --in default --filter POINT", env!("windir")));
 }
