@@ -83,6 +83,19 @@ impl Enum {
 
         let underlying_type = underlying_type.write_name(writer);
 
+        let win_traits = if writer.config.sys {
+            quote! {}
+        } else {
+            quote! {
+                impl windows_core::TypeKind for #name {
+                    type TypeKind = windows_core::CopyType;
+                }
+                impl windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
+                }
+            }
+        };
+
         quote! {
             #[repr(transparent)]
             #derive
@@ -90,13 +103,8 @@ impl Enum {
             impl #name {
                 #(#fields)*
             }
-            impl windows_core::TypeKind for #name {
-                type TypeKind = windows_core::CopyType;
-            }
-            impl windows_core::RuntimeType for #name {
-                const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
-            }
             #flags
+            #win_traits
         }
     }
 

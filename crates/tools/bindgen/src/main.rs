@@ -37,6 +37,16 @@ fn main() {
     test("--out enum_win.rs --filter AsyncStatus --flat");
     test("--out enum_sys.rs --filter AsyncStatus --flat --sys");
 
+    test("--out enum_flags_win.rs --filter ErrorOptions --flat");
+    test("--out enum_flags_sys.rs --filter ErrorOptions --flat --sys");
+
+    test("--out enum_cpp_win.rs --filter WAIT_EVENT --flat");
+    test("--out enum_cpp_sys.rs --filter WAIT_EVENT --flat --sys");
+    test("--out enum_cpp_flags_win.rs --filter GENERIC_ACCESS_RIGHTS --flat");
+    test("--out enum_cpp_flags_sys.rs --filter GENERIC_ACCESS_RIGHTS --flat --sys");
+    test("--out enum_cpp_scoped_win.rs --filter SECURITY_LOGON_TYPE --flat");
+    test("--out enum_cpp_scoped_sys.rs --filter SECURITY_LOGON_TYPE --flat --sys");
+
 
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");

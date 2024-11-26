@@ -15,10 +15,3 @@ impl AsyncStatus {
     pub const Error: Self = Self(3i32);
     pub const Started: Self = Self(0i32);
 }
-impl windows_core::TypeKind for AsyncStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AsyncStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
-}
