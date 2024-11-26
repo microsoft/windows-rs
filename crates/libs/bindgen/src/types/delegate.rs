@@ -49,7 +49,7 @@ impl Delegate {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #cfg
                 impl windows_core::RuntimeType for #name {
-                    // tODO: this needs to be different for generic interfaces
+                    // TODO: does this need to be different for generic interfaces?
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
                 }
             }

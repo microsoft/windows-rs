@@ -47,7 +47,6 @@ impl CppDelegate {
 
         let return_sig = writer.write_return_sig(method, &signature, false);
 
-        // TODO: maybe create TypeMap with config as arg and use a trait to capture depdnencies if "package"
         let mut dependencies = TypeMap::new();
 
         if writer.config.package {
@@ -55,8 +54,6 @@ impl CppDelegate {
         }
 
         let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
-
-        // TODO: are all callback "system" ABI?
 
         quote! {
             #cfg

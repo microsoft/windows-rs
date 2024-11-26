@@ -92,7 +92,6 @@ impl Writer {
 
             let writer = self.with_namespace(tree.namespace);
 
-            // TODO: Rename all "ty" to "ty" and all "type_name" to "tn"
             for ty in &tree.types {
                 tokens.combine(ty.write(&writer));
             }

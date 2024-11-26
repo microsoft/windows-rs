@@ -30,7 +30,6 @@ impl CppConst {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.field.name());
 
-        // TODO: is this even needed?
         if let Some(guid) = self.field.guid_attribute() {
             return writer.write_cpp_const_guid(name, &guid);
         }
@@ -53,7 +52,7 @@ impl CppConst {
                     let crate_name = writer.write_core();
                     let value = constant.value().write();
 
-                    // TODO: if writer.no_core then write these literals out as byte strings?
+                    // TODO: if writer.config.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg
@@ -66,7 +65,6 @@ impl CppConst {
                         }
                     }
                 } else {
-                    // TODO: typed value
                     let ty = field_ty.write_name(writer);
                     let value = constant.value().write();
 

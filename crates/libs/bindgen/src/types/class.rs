@@ -85,8 +85,7 @@ impl Class {
 
         let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                // TODO: should be an iterator
-                if interface.get_methods(writer).is_empty() {
+                if interface.def.methods().next().is_none() {
                     None
                 } else {
                         let interface_type = interface.write_name(writer);
