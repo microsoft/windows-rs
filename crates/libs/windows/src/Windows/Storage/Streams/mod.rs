@@ -1670,7 +1670,7 @@ impl windows_core::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamWithContentType, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IRandomAccessStreamWithContentType, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream, IContentTypeProvider);
+windows_core::imp::required_hierarchy!(IRandomAccessStreamWithContentType, super::super::Foundation::IClosable, IContentTypeProvider, IInputStream, IOutputStream, IRandomAccessStream);
 impl IRandomAccessStreamWithContentType {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1771,7 +1771,7 @@ impl IRandomAccessStreamWithContentType {
 impl windows_core::RuntimeName for IRandomAccessStreamWithContentType {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamWithContentType";
 }
-pub trait IRandomAccessStreamWithContentType_Impl: super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl + IContentTypeProvider_Impl {}
+pub trait IRandomAccessStreamWithContentType_Impl: super::super::Foundation::IClosable_Impl + IContentTypeProvider_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl {}
 impl IRandomAccessStreamWithContentType_Vtbl {
     pub const fn new<Identity: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }

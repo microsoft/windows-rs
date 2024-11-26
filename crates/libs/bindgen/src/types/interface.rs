@@ -83,7 +83,6 @@ impl Interface {
         let phantoms = writer.write_generic_phantoms(&self.generics);
         // TODO: should be able to "quote" this from the above
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
-        let interfaces = self.required_interfaces();
 
         let mut dependencies = TypeMap::new();
 
@@ -204,16 +203,16 @@ impl Interface {
             });
             }
 
-            if !is_exclusive && !interfaces.is_empty() {
+            if !is_exclusive && !required_interfaces.is_empty() {
                 if self.generics.is_empty() {
-                    let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
+                    let interfaces = required_interfaces.iter().map(|ty| ty.write_name(writer));
 
                     result.combine(quote! {
                         #cfg
                         windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
                     });
                 } else {
-                    let interfaces = interfaces.iter().map(|ty| {
+                    let interfaces = required_interfaces.iter().map(|ty| {
                     let ty = ty.write_name(writer);
                     quote!{
                         impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
@@ -432,11 +431,11 @@ impl Interface {
                     })
                     .collect();
 
-                let requires = if interfaces.is_empty() {
+                let requires = if required_interfaces.is_empty() {
                     // TODO: doesn't IUnknownImpl require Sized?
                     quote! { Sized + windows_core::IUnknownImpl }
                 } else {
-                    let interfaces = interfaces.iter().map(|ty| ty.write_impl_name(writer));
+                    let interfaces = required_interfaces.iter().map(|ty| ty.write_impl_name(writer));
 
                     quote! {  #(#interfaces)+* }
                 };

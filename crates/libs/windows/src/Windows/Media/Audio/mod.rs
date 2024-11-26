@@ -329,7 +329,7 @@ impl windows_core::RuntimeType for IAudioInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IAudioInputNode, super::super::Foundation::IClosable, IAudioNode);
+windows_core::imp::required_hierarchy!(IAudioInputNode, IAudioNode, super::super::Foundation::IClosable);
 impl IAudioInputNode {
     #[cfg(feature = "Foundation_Collections")]
     pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
@@ -436,7 +436,7 @@ impl windows_core::RuntimeName for IAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioInputNode_Impl: super::super::Foundation::IClosable_Impl + IAudioNode_Impl {
+pub trait IAudioInputNode_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
     fn AddOutgoingConnection(&self, destination: Option<&IAudioNode>) -> windows_core::Result<()>;
     fn AddOutgoingConnectionWithGain(&self, destination: Option<&IAudioNode>, gain: f64) -> windows_core::Result<()>;
@@ -496,7 +496,7 @@ impl windows_core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IAudioInputNode2, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IAudioInputNode2, super::super::Foundation::IClosable, IAudioNode, IAudioInputNode);
+windows_core::imp::required_hierarchy!(IAudioInputNode2, IAudioInputNode, IAudioNode, super::super::Foundation::IClosable);
 impl IAudioInputNode2 {
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = self;
@@ -610,7 +610,7 @@ impl windows_core::RuntimeName for IAudioInputNode2 {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioInputNode2_Impl: super::super::Foundation::IClosable_Impl + IAudioNode_Impl + IAudioInputNode_Impl {
+pub trait IAudioInputNode2_Impl: IAudioInputNode_Impl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
@@ -1015,7 +1015,7 @@ impl windows_core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IAudioNodeWithListener, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IAudioNodeWithListener, super::super::Foundation::IClosable, IAudioNode);
+windows_core::imp::required_hierarchy!(IAudioNodeWithListener, IAudioNode, super::super::Foundation::IClosable);
 impl IAudioNodeWithListener {
     pub fn SetListener<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1107,7 +1107,7 @@ impl windows_core::RuntimeName for IAudioNodeWithListener {
     const NAME: &'static str = "Windows.Media.Audio.IAudioNodeWithListener";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioNodeWithListener_Impl: super::super::Foundation::IClosable_Impl + IAudioNode_Impl {
+pub trait IAudioNodeWithListener_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn SetListener(&self, value: Option<&AudioNodeListener>) -> windows_core::Result<()>;
     fn Listener(&self) -> windows_core::Result<AudioNodeListener>;
 }

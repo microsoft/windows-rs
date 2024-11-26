@@ -44,7 +44,7 @@ impl windows_core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IXmlCharacterData, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IXmlCharacterData, IXmlNodeSelector, IXmlNodeSerializer, IXmlNode);
+windows_core::imp::required_hierarchy!(IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl IXmlCharacterData {
     pub fn Data(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -321,7 +321,7 @@ impl windows_core::RuntimeName for IXmlCharacterData {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlCharacterData";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IXmlCharacterData_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl + IXmlNode_Impl {
+pub trait IXmlCharacterData_Impl: IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Data(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Length(&self) -> windows_core::Result<u32>;
@@ -1399,7 +1399,7 @@ impl windows_core::RuntimeType for IXmlText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IXmlText, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IXmlText, IXmlNodeSelector, IXmlNodeSerializer, IXmlNode, IXmlCharacterData);
+windows_core::imp::required_hierarchy!(IXmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl IXmlText {
     pub fn SplitText(&self, offset: u32) -> windows_core::Result<IXmlText> {
         let this = self;
@@ -1683,7 +1683,7 @@ impl windows_core::RuntimeName for IXmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlText";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IXmlText_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl + IXmlNode_Impl + IXmlCharacterData_Impl {
+pub trait IXmlText_Impl: IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn SplitText(&self, offset: u32) -> windows_core::Result<IXmlText>;
 }
 #[cfg(feature = "Foundation_Collections")]

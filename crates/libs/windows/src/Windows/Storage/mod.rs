@@ -482,7 +482,7 @@ impl windows_core::RuntimeType for IStorageFile {
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(IStorageFile, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(IStorageFile, IStorageItem, Streams::IRandomAccessStreamReference, Streams::IInputStreamReference);
+windows_core::imp::required_hierarchy!(IStorageFile, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference, IStorageItem);
 #[cfg(feature = "Storage_Streams")]
 impl IStorageFile {
     pub fn FileType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -687,7 +687,7 @@ impl windows_core::RuntimeName for IStorageFile {
     const NAME: &'static str = "Windows.Storage.IStorageFile";
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-pub trait IStorageFile_Impl: IStorageItem_Impl + Streams::IRandomAccessStreamReference_Impl + Streams::IInputStreamReference_Impl {
+pub trait IStorageFile_Impl: Streams::IInputStreamReference_Impl + Streams::IRandomAccessStreamReference_Impl + IStorageItem_Impl {
     fn FileType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OpenAsync(&self, accessMode: FileAccessMode) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
