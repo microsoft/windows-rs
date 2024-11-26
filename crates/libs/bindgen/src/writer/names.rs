@@ -57,7 +57,7 @@ impl Writer {
 
         // TODO: this is incredibly slow as contains walks the entire depedency list and this happens thousands of times
         if let Some(reference) = {
-            if self.config.includes.contains(type_name) {
+            if self.config.types.contains(type_name) {
                 None
             } else {
                 self.config.references.contains(type_name)

@@ -89,7 +89,7 @@ impl TypeMap {
             }
 
             // TODO: would it be faster/simpler to search by `ty` instead
-            if config.includes.contains(*tn) {
+            if config.types.contains(*tn) {
                 return true;
             }
 

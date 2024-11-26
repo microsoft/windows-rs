@@ -32,6 +32,7 @@ fn main() {
     test("--out derive_cpp_struct_sys.rs --filter POINT SIZE --flat --sys --derive POINT=Debug");
     test("--out derive_enum.rs --filter AsyncStatus CollectionChange --flat --derive AsyncStatus=PartialOrd");
     test("--out derive_cpp_enum.rs --filter WAIT_EVENT WIN32_ERROR --flat --derive WAIT_EVENT=PartialOrd");
+    test("--out derive_edges.rs --filter POINT SIZE --flat --sys --derive POINT=Debug,Eq,PartialEq,PartialOrd,Ord, SIZE=");
 
     test("--out class_factory.rs --filter IClassFactory --flat");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");

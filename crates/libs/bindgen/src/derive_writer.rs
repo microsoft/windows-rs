@@ -2,20 +2,6 @@ use super::*;
 
 pub struct DeriveWriter(BTreeSet<String>);
 
-// impl std::ops::Deref for DeriveWriter {
-//     type Target = BTreeSet<String>;
-
-//     fn deref(&self) -> &Self::Target {
-//         &self.0
-//     }
-// }
-
-// impl core::ops::DerefMut for DeriveWriter {
-//     fn deref_mut(&mut self) -> &mut BTreeSet<String> {
-//         &mut self.0
-//     }
-// }
-
 impl DeriveWriter {
     pub fn new(writer: &Writer, type_name: TypeName) -> Self {
         let mut derive = BTreeSet::new();

@@ -19,6 +19,7 @@ pub mod deps2;
 pub mod derive_cpp_enum;
 pub mod derive_cpp_struct;
 pub mod derive_cpp_struct_sys;
+pub mod derive_edges;
 pub mod derive_enum;
 pub mod derive_struct;
 pub mod iota;

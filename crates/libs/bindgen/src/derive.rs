@@ -8,13 +8,11 @@ impl Derive {
 
         for derive in derive {
             let Some((name, derive)) = derive.split_once('=') else {
-                invalid_derive();
+                panic!("invalid `--derive` must be `<type name>=Comma,Separated,List");
             };
 
             let type_name = reader.get_type_name(name);
-            let derive = derive.split(',').map(|derive| derive.to_string()).collect();
-
-            // TODO: check for duplicates?
+            let derive = derive.split(',').filter_map(|derive| (!derive.is_empty()).then(||derive.to_string())).collect();
             map.insert(type_name, derive);
         }
 
@@ -24,14 +22,4 @@ impl Derive {
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = String> + '_ {
         self.0.get(&type_name).into_iter().flatten().cloned()
     }
-
-    // pub fn insert(&mut self, arg: &str) {
-    //     if let Some((name, derive)) = arg.split_once('=') {
-    //         derive
-    //     }
-    // }
-}
-
-fn invalid_derive() -> ! {
-    panic!("invalid `--derive` must be `<type name>=Comma,Separated,List");
 }

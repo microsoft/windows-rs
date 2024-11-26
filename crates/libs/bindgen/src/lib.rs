@@ -5,14 +5,12 @@
     clippy::upper_case_acronyms
 )]
 
-//mod dependencies;
 mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
 mod io;
 mod type_map;
-//mod item_tree;
 mod libraries;
 mod references;
 mod signature;
@@ -26,15 +24,12 @@ mod winmd;
 mod writer;
 
 pub use libraries::*;
-
-//use dependencies::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
 use io::*;
 use type_map::*;
-//use item_tree::*;
 use references::*;
 use signature::*;
 use std::cmp::Ordering;
@@ -51,35 +46,19 @@ use writer::*;
 mod method_names;
 use method_names::*;
 
-// TODO: maybe have a "Display" trait that spits this out as a comment in the form that it can be reused?
 struct Config {
-    pub includes: TypeMap, // TODO: can we get rid of Includes and just use it to create the TypeTree?
+    pub types: TypeMap,
     pub references: References,
     pub output: String,
     pub flat: bool,
-    // Editor: probably want to say no to this since it can be achieved in Rust and we should avoid duplicating facilities that Rust itself can provide.
-    // pub skip_root: bool, TODO: need something like this for compat or have a style option like --reference
-    // where you can say style=<full/flat/skip-root> for consistency
-
-    // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
-    // and possibly types who's dependencies are filtered out?
-    // and unscoped enum variants?
     pub no_allow: bool,
     pub no_comment: bool,
-    
-    // TODO: call this "no-core" so we don't confuse it with references?
-    pub no_core: bool, // TODO: to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows-core/windows/windows-sys/windows-targets etc?
+    pub no_core: bool,
     pub no_toml: bool,
     pub package: bool,
     pub rustfmt: String,
-    pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
-
-    // TODO: options to include deprecated APIs - excluded by default?
-    // options to include preview APIs - excluded by default?
-    /// this provides implementation support for exclusive WinRT types only - other types can always
-    /// be implemented
+    pub sys: bool,
     pub implement: bool,
-
     pub derive: Derive,
 }
 
@@ -99,10 +78,9 @@ where
     let mut derive = Vec::new();
 
     let mut flat = false;
-    // let mut minimal = false;
     let mut no_allow = false;
     let mut no_comment = false;
-    let mut no_core = false; // TODO: can we drop this in favor of --reference ?
+    let mut no_core = false;
     let mut no_toml = false;
     let mut package = false;
     let mut implement = false;
@@ -149,7 +127,6 @@ where
                 }
             }
             ArgKind::Reference => {
-                // TODO: need to use Reader to validate reference type path?
                 references.push(ReferenceStage::parse(arg));
             }
             ArgKind::Derive => {
@@ -183,15 +160,13 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    // TODO: for consistency we should allow filter includes to mention core types like "BSTR", "IUnknown", etc.
-    let includes = TypeMap::filter(reader, &filter);
+    let types = TypeMap::filter(reader, &filter);
     let references = References::new(reader, references);
     let derive = Derive::new(reader, &derive);
 
     let config = Box::leak(Box::new(Config {
-        includes,
+        types,
         flat,
-        //  minimal,
         references,
         derive,
         no_allow,
@@ -205,29 +180,14 @@ where
         implement,
     }));
 
-    // // //dbg!(&filter);
-
-    // // // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
-    // // // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-
-    // // // TODO: the "name tree" wouldn't be needed after creating the "item tree" if the root/core named types were represented by Item(...)
-
-    // // // dbg!(&tree);
-
-    // // // TODO: this won't be needed once the TypeMap type has been build and already contains all items - just need to turn
-    // // // it into a tree... - maybe that's what this becomes
-    let items = TypeTree::new(&config.includes);
-
-    // // // TODO: naming item -> type
-
-    // // // dbg!(&config.tree);
+    let tree = TypeTree::new(&config.types);
 
     let writer = Writer {
         config,
         namespace: "",
     };
 
-    writer.write(items)
+    writer.write(tree)
 }
 
 enum ArgKind {
