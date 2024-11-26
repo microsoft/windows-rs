@@ -28,7 +28,6 @@ impl Writer {
         .into()
     }
 
-    // TODO: make method?
     pub fn field_initializer<'a>(&self, field: Field, input: &'a str) -> (TokenStream, &'a str) {
         let name = to_ident(field.name());
 

@@ -41,8 +41,8 @@ impl Writer {
     fn write_flat(&self, tree: TypeTree) -> TokenStream {
         let mut tokens = TokenStream::new();
 
-        for item in tree.flatten_items() {
-            tokens.combine(item.write(self));
+        for ty in tree.flatten_types() {
+            tokens.combine(ty.write(self));
         }
 
         tokens
@@ -51,8 +51,8 @@ impl Writer {
     fn write_modules(&self, tree: &TypeTree) -> TokenStream {
         let mut tokens = TokenStream::new();
 
-        for item in &tree.types {
-            tokens.combine(item.write(self));
+        for ty in &tree.types {
+            tokens.combine(ty.write(self));
         }
 
         for (name, tree) in &tree.nested {
@@ -92,9 +92,9 @@ impl Writer {
 
             let writer = self.with_namespace(tree.namespace);
 
-            // TODO: Rename all "item" to "ty" and all "type_name" to "tn"
-            for item in &tree.types {
-                tokens.combine(item.write(&writer));
+            // TODO: Rename all "ty" to "ty" and all "type_name" to "tn"
+            for ty in &tree.types {
+                tokens.combine(ty.write(&writer));
             }
 
             let output = format!("{directory}/mod.rs");

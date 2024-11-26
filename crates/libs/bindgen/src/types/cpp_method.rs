@@ -214,15 +214,15 @@ impl CppMethod {
                         }
                     }
                 }
-                Type::CppStruct(item)
-                    if TypeName(item.def.namespace(), item.def.name()) == TypeName::BOOL
+                Type::CppStruct(ty)
+                    if TypeName(ty.def.namespace(), ty.def.name()) == TypeName::BOOL
                         && last_error =>
                 {
                     // TODO: maybe use ResultBool here to make the code gen less ambiguous
                     return_hint = ReturnHint::ResultVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::CppStruct(item) if !item.is_handle() => {
+                Type::CppStruct(ty) if !ty.is_handle() => {
                     return_hint = ReturnHint::ReturnStruct
                 }
                 _ => {}
@@ -738,16 +738,16 @@ impl CppMethod {
     pub fn handle_last_error(&self) -> bool {
         if let Some(map) = self.def.impl_map() {
             if map.flags().contains(PInvokeAttributes::SupportsLastError) {
-                if let Type::CppStruct(item) = &self.signature.return_type.0 {
-                    if item.is_handle() {
+                if let Type::CppStruct(ty) = &self.signature.return_type.0 {
+                    if ty.is_handle() {
                         // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
                         if self.def.name() == "LocalFree" {
                             return false;
                         }
-                        if item.def.underlying_type().is_pointer() {
+                        if ty.def.underlying_type().is_pointer() {
                             return true;
                         }
-                        if !item.def.invalid_values().is_empty() {
+                        if !ty.def.invalid_values().is_empty() {
                             return true;
                         }
                     }

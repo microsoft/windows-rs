@@ -42,7 +42,7 @@ fn main() {
 
     test("--out multi.rs --filter HTTP_VERSION  --flat");
 
-    // Very minimal example of generating just a single item.
+    // Very minimal example of generating just a single type.
     test("--out iota.rs --filter GetTickCount --sys --flat --no-allow");
 
     // Same as 'iota.rs' but without `--sys`.

@@ -108,13 +108,13 @@ impl CppConst {
                 panic!()
             };
 
-            let Type::CppStruct(item) = &field_ty else {
+            let Type::CppStruct(ty) = &field_ty else {
                 panic!()
             };
 
             let mut tokens = quote! {};
 
-            for field in item.def.fields() {
+            for field in ty.def.fields() {
                 let (value, rest) = writer.field_initializer(field, input);
                 input = rest;
                 tokens.combine(value);
@@ -146,7 +146,7 @@ fn is_ansi_encoding(row: Field) -> bool {
 fn is_signed_error(ty: &Type) -> bool {
     match ty {
         Type::HRESULT => true,
-        Type::CppStruct(item) => item.type_name() == TypeName::NTSTATUS,
+        Type::CppStruct(ty) => ty.type_name() == TypeName::NTSTATUS,
         _ => false,
     }
 }

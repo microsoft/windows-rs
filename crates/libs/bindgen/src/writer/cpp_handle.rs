@@ -1,9 +1,9 @@
 use super::*;
 
 impl Writer {
-    pub fn write_cpp_handle(&self, item: TypeDef) -> TokenStream {
-        let name = to_ident(item.name());
-        let ty = item.underlying_type();
+    pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
+        let name = to_ident(def.name());
+        let ty = def.underlying_type();
         let ty_name = ty.write_name(self);
 
         if self.config.sys {
@@ -26,7 +26,7 @@ impl Writer {
                 quote! {}
             };
 
-            let invalid = item.invalid_values();
+            let invalid = def.invalid_values();
 
             let is_invalid = if ty.is_pointer() && (invalid.is_empty() || invalid == [0]) {
                 quote! {
@@ -57,14 +57,14 @@ impl Writer {
                 }
             };
 
-            let free = if let Some(function) = item.free_function() {
+            let free = if let Some(function) = def.free_function() {
                 if is_invalid.is_empty() {
                     // TODO: https://github.com/microsoft/win32metadata/issues/1891
                     quote! {}
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature = function.method.signature(item.namespace(), &[]);
+                    let signature = function.method.signature(def.namespace(), &[]);
 
                     // BCryptCloseAlgorithmProvider has an unused trailing parameter.
                     let tail = if signature.params.len() > 1 {
@@ -101,14 +101,14 @@ impl Writer {
                 #default
             };
 
-            if let Some(attribute) = item.find_attribute("AlsoUsableForAttribute") {
+            if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
                 if let Some((_, Value::Str(type_name))) = attribute.args().first() {
-                    if let Some(item) = item
+                    if let Some(ty) = def
                         .reader()
-                        .with_full_name(item.namespace(), type_name)
+                        .with_full_name(def.namespace(), type_name)
                         .next()
                     {
-                        let ty = item.write_name(self);
+                        let ty = ty.write_name(self);
 
                         result.combine(quote! {
                             impl windows_core::imp::CanInto<#ty> for #name {}

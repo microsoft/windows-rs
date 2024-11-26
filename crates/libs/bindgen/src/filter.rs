@@ -83,8 +83,8 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
 
     let mut pushed = false;
 
-    for (namespace, items) in reader.iter() {
-        if items.get(filter).is_some() {
+    for (namespace, types) in reader.iter() {
+        if types.get(filter).is_some() {
             rules.push((format!("{namespace}.{filter}"), include));
             pushed = true;
         }

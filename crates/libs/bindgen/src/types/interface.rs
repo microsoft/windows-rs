@@ -315,14 +315,14 @@ impl Interface {
                     .iter()
                     .find(|interface| interface.type_name() == TypeName::IIterable)
                     .map(|interface| {
-                        let item = interface.generics[0].write_name(writer);
+                        let ty = interface.generics[0].write_name(writer);
                         // TODO: just use typename.write?
                         let namespace = writer.write_namespace(TypeName::IIterator);
 
                         quote! {
                             #cfg
                             impl<#constraints> IntoIterator for #name {
-                                type Item = #item;
+                                type Item = #ty;
                                 type IntoIter = #namespace IIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {
@@ -331,7 +331,7 @@ impl Interface {
                             }
                             #cfg
                             impl<#constraints> IntoIterator for &#name {
-                                type Item = #item;
+                                type Item = #ty;
                                 type IntoIter = #namespace IIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {

@@ -69,8 +69,8 @@ impl CppInterface {
                 Some(Type::Object) => {
                     quote! { pub base__: #core IInspectable_Vtbl, }
                 }
-                Some(Type::CppInterface(item)) => {
-                    let name = item.write_vtbl_name(writer);
+                Some(Type::CppInterface(ty)) => {
+                    let name = ty.write_vtbl_name(writer);
                     quote! { pub base__: #name, }
                 }
                 _ => quote! {},
@@ -232,8 +232,8 @@ impl CppInterface {
 
                 collect(self, &mut dependencies, writer);
                 base_interfaces.iter().for_each(|interface| {
-                    if let Type::CppInterface(item) = interface {
-                        collect(item, &mut dependencies, writer);
+                    if let Type::CppInterface(ty) = interface {
+                        collect(ty, &mut dependencies, writer);
                     }
                 });
             }
@@ -310,8 +310,8 @@ impl CppInterface {
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
                     Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
-                    Type::CppInterface(item) => {
-                        let ty = item.write_vtbl_name(writer);
+                    Type::CppInterface(ty) => {
+                        let ty = ty.write_vtbl_name(writer);
                         if has_unknown_base {
                             quote! { base__: #ty::new::<Identity, OFFSET>(), }
                         } else {
@@ -325,8 +325,8 @@ impl CppInterface {
             result.combine( if has_unknown_base {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
-                        Type::CppInterface(item) => {
-                            let name = item.write_name(writer);
+                        Type::CppInterface(ty) => {
+                            let name = ty.write_name(writer);
                             Some(quote! { || iid == &<#name as windows_core::Interface>::IID })
                         }
                         _ => None,
@@ -447,8 +447,8 @@ impl CppInterface {
 
         while let Some(base) = def.interface_impls().map(move |imp| imp.ty(&[])).next() {
             match base {
-                Type::CppInterface(ref item) => {
-                    def = item.def;
+                Type::CppInterface(ref ty) => {
+                    def = ty.def;
                     bases.insert(0, base);
                 }
                 Type::Object => {

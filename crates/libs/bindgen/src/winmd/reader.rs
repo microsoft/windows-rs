@@ -1,16 +1,13 @@
 use super::*;
 
-type ItemMap = HashMap<&'static str, Vec<Type>>;
-type ReaderMap = HashMap<&'static str, ItemMap>;
-
-fn insert(items: &mut ItemMap, name: &'static str, item: Type) {
-    items.entry(name).or_default().push(item);
+fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
+    types.entry(name).or_default().push(ty);
 }
 
-pub struct Reader(ReaderMap);
+pub struct Reader(HashMap<&'static str, HashMap<&'static str, Vec<Type>>>);
 
 impl std::ops::Deref for Reader {
-    type Target = ReaderMap;
+    type Target = HashMap<&'static str, HashMap<&'static str, Vec<Type>>>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -43,11 +40,11 @@ impl Reader {
                     continue;
                 }
 
-                let items = reader.0.entry(type_name.namespace()).or_default();
+                let types = reader.0.entry(type_name.namespace()).or_default();
                 let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
-                    let item = match category {
+                    let ty = match category {
                         Category::Attribute => continue,
                         Category::Class => Type::Class(Class { def }),
                         Category::Delegate => Type::Delegate(Delegate {
@@ -70,7 +67,7 @@ impl Reader {
                         }
                     };
 
-                    insert(items, type_name.1, item);
+                    insert(types, type_name.1, ty);
                 } else {
                     match category {
                         Category::Attribute => continue,
@@ -88,7 +85,7 @@ impl Reader {
 
                                     let name = method.name();
                                     insert(
-                                        items,
+                                        types,
                                         name,
                                         Type::CppFn(CppFn {
                                             namespace: def.namespace(),
@@ -100,7 +97,7 @@ impl Reader {
                                 for field in def.fields() {
                                     let name = field.name();
                                     insert(
-                                        items,
+                                        types,
                                         name,
                                         Type::CppConst(CppConst {
                                             namespace: def.namespace(),
@@ -111,17 +108,17 @@ impl Reader {
                             }
                         }
                         Category::Delegate => {
-                            insert(items, type_name.1, Type::CppDelegate(CppDelegate { def }));
+                            insert(types, type_name.1, Type::CppDelegate(CppDelegate { def }));
                         }
                         Category::Enum => {
-                            insert(items, type_name.1, Type::CppEnum(CppEnum { def }));
+                            insert(types, type_name.1, Type::CppEnum(CppEnum { def }));
 
                             if !def.has_attribute("ScopedEnumAttribute") {
                                 for field in def.fields() {
                                     if field.flags().contains(FieldAttributes::Literal) {
                                         let name = field.name();
                                         insert(
-                                            items,
+                                            types,
                                             name,
                                             Type::CppConst(CppConst {
                                                 namespace: def.namespace(),
@@ -133,7 +130,7 @@ impl Reader {
                             }
                         }
                         Category::Interface => {
-                            insert(items, type_name.1, Type::CppInterface(CppInterface { def }));
+                            insert(types, type_name.1, Type::CppInterface(CppInterface { def }));
                         }
                         Category::Struct => {
                             fn make(
@@ -141,7 +138,7 @@ impl Reader {
                                 name: &'static str,
                                 nested: &HashMap<TypeDef, Vec<TypeDef>>,
                             ) -> CppStruct {
-                                let mut item = CppStruct {
+                                let mut ty = CppStruct {
                                     def,
                                     name,
                                     nested: BTreeMap::new(),
@@ -150,17 +147,17 @@ impl Reader {
                                 for (index, def) in
                                     nested.get(&def).into_iter().flatten().enumerate()
                                 {
-                                    item.nested.insert(
+                                    ty.nested.insert(
                                         def.name(),
-                                        make(*def, format!("{}_{index}", item.name).leak(), nested),
+                                        make(*def, format!("{}_{index}", ty.name).leak(), nested),
                                     );
                                 }
 
-                                item
+                                ty
                             }
 
                             insert(
-                                items,
+                                types,
                                 type_name.1,
                                 Type::CppStruct(make(def, def.name(), &nested)),
                             );
@@ -173,10 +170,10 @@ impl Reader {
         reader
     }
 
-    /// Gets all items matching the given namespace and name.
+    /// Gets all types matching the given namespace and name.
     pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
         self.get(namespace)
-            .and_then(|items| items.get(name))
+            .and_then(|types| types.get(name))
             .into_iter()
             .flatten()
             .cloned()

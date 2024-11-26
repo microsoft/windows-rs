@@ -22,20 +22,20 @@ fn combine_libraries(
 ) {
     for types in reader.values() {
         for ty in types.values() {
-            let Some(item) = cpp_fn(ty) else {
+            let Some(ty) = cpp_fn(ty) else {
                 continue;
             };
 
             // Windows libs are always produced with lower case module names.
-            let library = item.method.module_name().to_lowercase();
-            let impl_map = item.method.impl_map().expect("ImplMap not found");
+            let library = ty.method.module_name().to_lowercase();
+            let impl_map = ty.method.impl_map().expect("ImplMap not found");
             let flags = impl_map.flags();
             let name = impl_map.import_name().to_string();
 
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-                let arches = item.method.arches();
+                let arches = ty.method.arches();
                 let params = if arches.is_empty() || arches.contains("x86") {
-                    item.method.signature(item.namespace, &[]).size()
+                    ty.method.signature(ty.namespace, &[]).size()
                 } else {
                     0
                 };
@@ -60,15 +60,15 @@ fn cpp_fn(types: &[Type]) -> Option<CppFn> {
     let mut functions = vec![];
 
     for ty in types {
-        if let Type::CppFn(item) = ty {
-            functions.push(item.clone());
+        if let Type::CppFn(ty) = ty {
+            functions.push(ty.clone());
         }
     }
 
-    for item in &functions {
-        let arches = item.method.arches();
+    for ty in &functions {
+        let arches = ty.method.arches();
         if arches.is_empty() || arches.contains("x86") {
-            return Some(item.clone());
+            return Some(ty.clone());
         }
     }
 

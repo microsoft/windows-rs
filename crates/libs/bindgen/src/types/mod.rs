@@ -155,12 +155,12 @@ impl Type {
             }
         }
 
-        if let Some(item) = code
+        if let Some(ty) = code
             .reader()
             .with_full_name(code_name.namespace(), code_name.name())
             .next()
         {
-            item
+            ty
         } else {
             panic!("type not found: {code_name}")
         }
@@ -234,7 +234,7 @@ impl Type {
                 let code = blob.decode::<TypeDefOrRef>();
                 let code_name = code.type_name();
 
-                let mut item = blob
+                let mut ty = blob
                     .reader()
                     .with_full_name(code_name.namespace(), code_name.name())
                     .next()
@@ -246,8 +246,8 @@ impl Type {
                     item_generics.push(Self::from_blob_impl(blob, enclosing, generics));
                 }
 
-                item.set_generics(item_generics);
-                item
+                ty.set_generics(item_generics);
+                ty
             }
             rest => panic!("{rest:?}"),
         }
@@ -364,17 +364,17 @@ impl Type {
                 let name = writer.write_core();
                 quote! { #name PCWSTR }
             }
-            Self::CppInterface(item) => item.write_name(writer),
-            Self::Struct(item) => item.write_name(writer),
-            Self::Enum(item) => item.write_name(writer),
-            Self::Interface(item) => item.write_name(writer),
-            Self::CppStruct(item) => item.write_name(writer),
-            Self::CppEnum(item) => item.write_name(writer),
-            Self::CppFn(item) => item.write_name(writer),
-            Self::CppConst(item) => item.write_name(writer),
-            Self::CppDelegate(item) => item.write_name(writer),
-            Self::Delegate(item) => item.write_name(writer),
-            Self::Class(item) => item.write_name(writer),
+            Self::CppInterface(ty) => ty.write_name(writer),
+            Self::Struct(ty) => ty.write_name(writer),
+            Self::Enum(ty) => ty.write_name(writer),
+            Self::Interface(ty) => ty.write_name(writer),
+            Self::CppStruct(ty) => ty.write_name(writer),
+            Self::CppEnum(ty) => ty.write_name(writer),
+            Self::CppFn(ty) => ty.write_name(writer),
+            Self::CppConst(ty) => ty.write_name(writer),
+            Self::CppDelegate(ty) => ty.write_name(writer),
+            Self::Delegate(ty) => ty.write_name(writer),
+            Self::Class(ty) => ty.write_name(writer),
             Self::Param(param) => to_ident(param),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
@@ -394,11 +394,11 @@ impl Type {
             Self::Array(ty) => ty.write_name(writer),
             Self::ArrayRef(ty) => ty.write_name(writer),
             Self::ConstRef(ty) => ty.write_name(writer),
-            Self::PrimitiveOrEnum(ty, item) => {
+            Self::PrimitiveOrEnum(primitive, ty) => {
                 if writer.config.sys {
-                    ty.write_name(writer)
+                    primitive.write_name(writer)
                 } else {
-                    item.write_name(writer)
+                    ty.write_name(writer)
                 }
             }
             rest => panic!("{rest:?}"),
@@ -432,8 +432,8 @@ impl Type {
                 // TODO: ideally we can only require RuntimeName tough IInspectable_Impl
                 quote! { #name IUnknownImpl }
             }
-            Self::CppInterface(item) => item.write_impl_name(writer),
-            Self::Interface(item) => item.write_impl_name(writer),
+            Self::CppInterface(ty) => ty.write_impl_name(writer),
+            Self::Interface(ty) => ty.write_impl_name(writer),
             rest => panic!("{rest:?}"),
         }
     }
@@ -457,9 +457,9 @@ impl Type {
                 let name = to_ident(name);
                 quote! { windows_core::AbiType<#name> }
             }
-            Self::Struct(item) => {
+            Self::Struct(ty) => {
                 let name = self.write_name(writer);
-                if item.is_copyable() {
+                if ty.is_copyable() {
                     name
                 } else {
                     quote! { core::mem::MaybeUninit<#name> }
@@ -500,11 +500,11 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Class(item) => item.runtime_signature(),
-            Self::Delegate(item) => item.runtime_signature(),
-            Self::Enum(item) => item.runtime_signature(),
-            Self::Interface(item) => item.runtime_signature(),
-            Self::Struct(item) => item.runtime_signature(),
+            Self::Class(ty) => ty.runtime_signature(),
+            Self::Delegate(ty) => ty.runtime_signature(),
+            Self::Enum(ty) => ty.runtime_signature(),
+            Self::Interface(ty) => ty.runtime_signature(),
+            Self::Struct(ty) => ty.runtime_signature(),
             rest => panic!("{rest:?}"),
         }
     }
@@ -588,16 +588,16 @@ impl Type {
         }
 
         match &ty {
-            Self::Class(item) => item.dependencies(dependencies),
-            Self::Delegate(item) => item.dependencies(dependencies),
+            Self::Class(ty) => ty.dependencies(dependencies),
+            Self::Delegate(ty) => ty.dependencies(dependencies),
             Self::Enum(..) => {}
-            Self::Interface(item) => item.dependencies(dependencies),
-            Self::Struct(item) => item.dependencies(dependencies),
-            Self::CppConst(item) => item.dependencies(dependencies),
-            Self::CppDelegate(item) => item.dependencies(dependencies),
-            Self::CppFn(item) => item.dependencies(dependencies),
-            Self::CppInterface(item) => item.dependencies(dependencies),
-            Self::CppStruct(item) => item.dependencies(dependencies),
+            Self::Interface(ty) => ty.dependencies(dependencies),
+            Self::Struct(ty) => ty.dependencies(dependencies),
+            Self::CppConst(ty) => ty.dependencies(dependencies),
+            Self::CppDelegate(ty) => ty.dependencies(dependencies),
+            Self::CppFn(ty) => ty.dependencies(dependencies),
+            Self::CppInterface(ty) => ty.dependencies(dependencies),
+            Self::CppStruct(ty) => ty.dependencies(dependencies),
             Self::CppEnum(..) => {}
 
             Self::IUnknown => {
@@ -652,24 +652,24 @@ impl Type {
     //         Self::HRESULT => {
     //             dependencies.insert(TypeName("", "HRESULT"));
     //         }
-    //         Self::Class(item) => item.dependencies(dependencies),
-    //         Self::Delegate(item) => item.dependencies(dependencies),
-    //         Self::Enum(item) => item.dependencies(dependencies),
-    //         Self::Interface(item) => item.dependencies(dependencies),
-    //         Self::Struct(item) => item.dependencies(dependencies),
-    //         Self::CppConst(item) => item.dependencies(dependencies),
-    //         Self::CppDelegate(item) => item.dependencies(dependencies),
-    //         Self::CppFn(item) => item.dependencies(dependencies),
-    //         Self::CppInterface(item) => item.dependencies(dependencies),
-    //         Self::CppStruct(item) => item.dependencies(dependencies),
-    //         Self::CppEnum(item) => item.dependencies(dependencies),
+    //         Self::Class(ty) => ty.dependencies(dependencies),
+    //         Self::Delegate(ty) => ty.dependencies(dependencies),
+    //         Self::Enum(ty) => ty.dependencies(dependencies),
+    //         Self::Interface(ty) => ty.dependencies(dependencies),
+    //         Self::Struct(ty) => ty.dependencies(dependencies),
+    //         Self::CppConst(ty) => ty.dependencies(dependencies),
+    //         Self::CppDelegate(ty) => ty.dependencies(dependencies),
+    //         Self::CppFn(ty) => ty.dependencies(dependencies),
+    //         Self::CppInterface(ty) => ty.dependencies(dependencies),
+    //         Self::CppStruct(ty) => ty.dependencies(dependencies),
+    //         Self::CppEnum(ty) => ty.dependencies(dependencies),
     //         _ => {}
     //     }
     // }
 
     pub fn is_exclusive(&self) -> bool {
         match self {
-            Self::Interface(item) => item.def.has_attribute("ExclusiveToAttribute"),
+            Self::Interface(ty) => ty.def.has_attribute("ExclusiveToAttribute"),
             _ => false,
         }
     }
@@ -684,15 +684,15 @@ impl Type {
 
     pub fn is_async(&self) -> bool {
         match self {
-            Self::Interface(item) => item.def.is_async(),
+            Self::Interface(ty) => ty.def.is_async(),
             _ => false,
         }
     }
 
     pub fn is_copyable(&self) -> bool {
         match self {
-            Self::Struct(item) => item.is_copyable(),
-            Self::CppStruct(item) => item.is_copyable(),
+            Self::Struct(ty) => ty.is_copyable(),
+            Self::CppStruct(ty) => ty.is_copyable(),
             Self::Enum(_) => true,
             Self::CppEnum(_) => true,
             Self::CppDelegate(_) => true,
@@ -710,7 +710,7 @@ impl Type {
 
     pub fn is_dropped(&self) -> bool {
         match self {
-            Self::Struct(item) => !item.is_copyable(),
+            Self::Struct(ty) => !ty.is_copyable(),
             Self::CppInterface(..) => true,
             Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
             Self::ArrayFixed(ty, _) => ty.is_dropped(),
@@ -720,7 +720,7 @@ impl Type {
 
     pub fn is_convertible(&self) -> bool {
         match self {
-            Self::CppStruct(item) => item.is_convertible(),
+            Self::CppStruct(ty) => ty.is_convertible(),
             Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
                 true
             }
@@ -736,7 +736,7 @@ impl Type {
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
-            Self::CppStruct(item) => item.is_handle(),
+            Self::CppStruct(ty) => ty.is_handle(),
             Self::Bool
             | Self::Char
             | Self::I8
@@ -771,7 +771,7 @@ impl Type {
 
     pub fn has_explicit_layout(&self) -> bool {
         match self {
-            Self::CppStruct(item) => item.has_explicit_layout(),
+            Self::CppStruct(ty) => ty.has_explicit_layout(),
             Self::ArrayFixed(ty, _) => ty.has_explicit_layout(),
             _ => false,
         }
@@ -779,7 +779,7 @@ impl Type {
 
     pub fn has_packing(&self) -> bool {
         match self {
-            Self::CppStruct(item) => item.has_packing(),
+            Self::CppStruct(ty) => ty.has_packing(),
             Self::ArrayFixed(ty, _) => ty.has_packing(),
             _ => false,
         }
@@ -794,8 +794,8 @@ impl Type {
     }
 
     pub fn is_handle(&self) -> bool {
-        if let Self::CppStruct(item) = self {
-            item.is_handle()
+        if let Self::CppStruct(ty) = self {
+            ty.is_handle()
         } else {
             false
         }
@@ -817,9 +817,9 @@ impl Type {
             Type::GUID => 16,
             Type::ArrayFixed(ty, len) => ty.size() * len,
             Type::PrimitiveOrEnum(ty, _) => ty.size(),
-            Self::CppStruct(item) => item.size(),
-            Self::Struct(item) => item.size(),
-            Self::CppEnum(item) => item.size(),
+            Self::CppStruct(ty) => ty.size(),
+            Self::Struct(ty) => ty.size(),
+            Self::CppEnum(ty) => ty.size(),
             _ => 4,
         }
     }
@@ -830,19 +830,19 @@ impl Type {
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
             Type::ArrayFixed(ty, len) => ty.align() * len,
-            Self::CppStruct(item) => item.align(),
-            Self::Struct(item) => item.align(),
-            Self::CppEnum(item) => item.align(),
+            Self::CppStruct(ty) => ty.align(),
+            Self::Struct(ty) => ty.align(),
+            Self::CppEnum(ty) => ty.align(),
             _ => 4,
         }
     }
 
     pub fn underlying_type(&self) -> Self {
         match self {
-            Self::Struct(item) => item.def.underlying_type(),
-            Self::CppEnum(item) => item.def.underlying_type(),
-            Self::Enum(item) => item.def.underlying_type(),
-            Self::CppStruct(item) => item.def.underlying_type(),
+            Self::Struct(ty) => ty.def.underlying_type(),
+            Self::CppEnum(ty) => ty.def.underlying_type(),
+            Self::Enum(ty) => ty.def.underlying_type(),
+            Self::CppStruct(ty) => ty.def.underlying_type(),
             Self::HRESULT => Type::I32,
             // TODO: can we use this for type dependencies or do we need somethign else?
             _ => self.clone(),
@@ -908,17 +908,17 @@ impl Type {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         match self {
-            Self::Struct(item) => item.write(writer),
-            Self::Enum(item) => item.write(writer),
-            Self::Interface(item) => item.write(writer),
-            Self::CppStruct(item) => item.write(writer),
-            Self::CppEnum(item) => item.write(writer),
-            Self::CppFn(item) => item.write(writer),
-            Self::CppConst(item) => item.write(writer),
-            Self::CppDelegate(item) => item.write(writer),
-            Self::Delegate(item) => item.write(writer),
-            Self::Class(item) => item.write(writer),
-            Self::CppInterface(item) => item.write(writer),
+            Self::Struct(ty) => ty.write(writer),
+            Self::Enum(ty) => ty.write(writer),
+            Self::Interface(ty) => ty.write(writer),
+            Self::CppStruct(ty) => ty.write(writer),
+            Self::CppEnum(ty) => ty.write(writer),
+            Self::CppFn(ty) => ty.write(writer),
+            Self::CppConst(ty) => ty.write(writer),
+            Self::CppDelegate(ty) => ty.write(writer),
+            Self::Delegate(ty) => ty.write(writer),
+            Self::Class(ty) => ty.write(writer),
+            Self::CppInterface(ty) => ty.write(writer),
 
             _ => self.write_no_deps(writer),
         }
@@ -926,25 +926,25 @@ impl Type {
 
     pub fn set_generics(&mut self, generics: Vec<Type>) {
         match self {
-            Self::Interface(item) => item.generics = generics,
-            Self::Delegate(item) => item.generics = generics,
+            Self::Interface(ty) => ty.generics = generics,
+            Self::Delegate(ty) => ty.generics = generics,
             rest => panic!("{rest:?}"),
         }
     }
 
     pub fn type_name(&self) -> TypeName {
         match self {
-            Self::Class(item) => item.type_name(),
-            Self::Delegate(item) => item.type_name(),
-            Self::Enum(item) => item.type_name(),
-            Self::Interface(item) => item.type_name(),
-            Self::Struct(item) => item.type_name(),
-            Self::CppDelegate(item) => item.type_name(),
-            Self::CppEnum(item) => item.type_name(),
-            Self::CppInterface(item) => item.type_name(),
-            Self::CppStruct(item) => item.type_name(),
-            Self::CppConst(item) => item.type_name(),
-            Self::CppFn(item) => item.type_name(),
+            Self::Class(ty) => ty.type_name(),
+            Self::Delegate(ty) => ty.type_name(),
+            Self::Enum(ty) => ty.type_name(),
+            Self::Interface(ty) => ty.type_name(),
+            Self::Struct(ty) => ty.type_name(),
+            Self::CppDelegate(ty) => ty.type_name(),
+            Self::CppEnum(ty) => ty.type_name(),
+            Self::CppInterface(ty) => ty.type_name(),
+            Self::CppStruct(ty) => ty.type_name(),
+            Self::CppConst(ty) => ty.type_name(),
+            Self::CppFn(ty) => ty.type_name(),
 
             Self::PSTR => TypeName("", "PSTR"),
             Self::PCSTR => TypeName("", "PCSTR"),

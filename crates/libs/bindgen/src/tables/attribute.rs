@@ -44,12 +44,12 @@ impl Attribute {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::Str(values.read_str()),
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
-                Type::CppEnum(item) => {
-                    let underlying_type = item.def.underlying_type();
+                Type::CppEnum(ty) => {
+                    let underlying_type = ty.def.underlying_type();
                     values.read_integer(underlying_type)
                 }
-                Type::Enum(item) => {
-                    let underlying_type = item.def.underlying_type();
+                Type::Enum(ty) => {
+                    let underlying_type = ty.def.underlying_type();
                     values.read_integer(underlying_type)
                 }
                 rest => panic!("{rest:?}"),

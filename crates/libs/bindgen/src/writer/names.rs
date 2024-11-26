@@ -55,7 +55,6 @@ impl Writer {
             return tokens;
         }
 
-        // TODO: this is incredibly slow as contains walks the entire depedency list and this happens thousands of times
         if let Some(reference) = {
             if self.config.types.contains_key(&type_name) {
                 None

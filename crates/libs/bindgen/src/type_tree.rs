@@ -33,10 +33,10 @@ impl TypeTree {
         flatten
     }
 
-    // This is used to actually remove the tree structure and just have a flat iterator or items
-    // that just happen to be sorted, thanks to BTreeSet, so that a flat list of items can be
+    // This is used to actually remove the tree structure and just have a flat iterator or types
+    // that just happen to be sorted, thanks to BTreeSet, so that a flat list of types can be
     // generated in sort order.
-    pub fn flatten_items(mut self) -> BTreeSet<Type> {
+    pub fn flatten_types(mut self) -> BTreeSet<Type> {
         fn flatten(set: &mut BTreeSet<Type>, tree: &mut TypeTree) {
             set.append(&mut tree.types);
 
