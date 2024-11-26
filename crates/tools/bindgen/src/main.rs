@@ -82,40 +82,19 @@ fn main() {
     // TODO: this requires BOOL extensions which are currently only in the `windows` crate
     // test("--out fn_result_void_win.rs --filter SetComputerNameA --flat");
 
+    test("--out delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat");
+    test("--out delegate_generic.rs --filter Windows.Foundation.EventHandler --flat");
+
+    test("--out class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat");
+    test("--out class_without_handler.rs --filter Deferral --flat");
+
     test("--out multi.rs --filter HTTP_VERSION  --flat");
     test("--out multi_sys.rs --filter HTTP_VERSION --flat --sys");
 
+    test("--out reference.rs --filter IMemoryBuffer --flat --reference windows,skip-root,IMemoryBufferReference");
 
-
-
-    test("--out class_factory.rs --filter IClassFactory --flat");
-    test("--out class_factory_sys.rs --filter IClassFactory --sys --flat");
-
-    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat");
-    //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat");
-
-
-
-
-    // Generate functions and include dependencies automatically.
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat");
 
-    // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
-    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
-
-
-
-
-
-    test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat");
-    test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat");
-
-
-
-    test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat");
-    test("--out winrt_class_without_handler.rs --filter Deferral --flat");
-
-    test("--out reference.rs --filter IMemoryBuffer --flat --reference windows,skip-root,IMemoryBufferReference");
 
     // TODO: need to test 3rd party package support and make sure we can compose code gen from different sources
     // test("--out package --filter WwwFormUrlDecoder --package");
