@@ -38,6 +38,7 @@ pub mod interface_cpp_return_udt;
 pub mod interface_cpp_sys;
 pub mod interface_cpp_sys_no_core;
 pub mod interface_generic;
+pub mod interface_iterable;
 pub mod interface_required;
 pub mod interface_required_sys;
 pub mod interface_required_with_method;

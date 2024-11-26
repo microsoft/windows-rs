@@ -68,8 +68,7 @@ fn main() {
     test("--out interface_required_sys.rs --filter Windows.Foundation.IAsyncAction --flat --sys");
     test("--out interface_required_with_method.rs --filter Windows.Foundation.IAsyncAction AsyncStatus --flat");
     test("--out interface_required_with_method_sys.rs --filter Windows.Foundation.IAsyncAction AsyncStatus --flat --sys");
-
-    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat");
+    test("--out interface_iterable.rs --filter IVector --flat");
     
 
 
