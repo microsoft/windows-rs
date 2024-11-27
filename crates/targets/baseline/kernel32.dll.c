@@ -1027,20 +1027,20 @@ void __stdcall ResizePseudoConsole(int p0, int p1) {}
 void __stdcall ResolveLocaleName(int p0, int p1, int p2) {}
 void __stdcall RestoreThreadPreferredUILanguages(int p0) {}
 void __stdcall ResumeThread(int p0) {}
-void __stdcall RtlAddFunctionTable(int p0, int p1, int p2, int p3) {}
+void __stdcall RtlAddFunctionTable() {}
 void __stdcall RtlCaptureContext(int p0) {}
-void __stdcall RtlCaptureContext2(int p0) {}
+void __stdcall RtlCaptureContext2() {}
 void __stdcall RtlCaptureStackBackTrace(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlCompareMemory(int p0, int p1, int p2) {}
-void __stdcall RtlDeleteFunctionTable(int p0) {}
-void __stdcall RtlInstallFunctionTableCallback(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
-void __stdcall RtlLookupFunctionEntry(int p0, int p1, int p2, int p3) {}
+void __stdcall RtlDeleteFunctionTable() {}
+void __stdcall RtlInstallFunctionTableCallback() {}
+void __stdcall RtlLookupFunctionEntry() {}
 void __stdcall RtlPcToFileHeader(int p0, int p1) {}
 void __stdcall RtlRaiseException(int p0) {}
 void __cdecl RtlRestoreContext() {}
 void __stdcall RtlUnwind(int p0, int p1, int p2, int p3) {}
-void __stdcall RtlUnwindEx(int p0, int p1, int p2, int p3, int p4, int p5) {}
-void __stdcall RtlVirtualUnwind(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall RtlUnwindEx() {}
+void __stdcall RtlVirtualUnwind() {}
 void __stdcall ScrollConsoleScreenBufferA(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ScrollConsoleScreenBufferW(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall SearchPathA(int p0, int p1, int p2, int p3, int p4, int p5) {}
@@ -1339,11 +1339,11 @@ void __stdcall lstrcpynA(int p0, int p1, int p2) {}
 void __stdcall lstrcpynW(int p0, int p1, int p2) {}
 void __stdcall lstrlenA(int p0) {}
 void __stdcall lstrlenW(int p0) {}
-void __stdcall uaw_lstrcmpW(int p0, int p1) {}
-void __stdcall uaw_lstrcmpiW(int p0, int p1) {}
-void __stdcall uaw_lstrlenW(int p0) {}
-void __stdcall uaw_wcschr(int p0, int p1) {}
-void __stdcall uaw_wcscpy(int p0, int p1) {}
-void __stdcall uaw_wcsicmp(int p0, int p1) {}
-void __stdcall uaw_wcslen(int p0) {}
-void __stdcall uaw_wcsrchr(int p0, int p1) {}
+void __stdcall uaw_lstrcmpW() {}
+void __stdcall uaw_lstrcmpiW() {}
+void __stdcall uaw_lstrlenW() {}
+void __stdcall uaw_wcschr() {}
+void __stdcall uaw_wcscpy() {}
+void __stdcall uaw_wcsicmp() {}
+void __stdcall uaw_wcslen() {}
+void __stdcall uaw_wcsrchr() {}
