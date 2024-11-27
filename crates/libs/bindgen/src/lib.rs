@@ -1,38 +1,92 @@
 #![doc = include_str!("../readme.md")]
+#![allow(
+    non_upper_case_globals,
+    clippy::enum_variant_names,
+    clippy::upper_case_acronyms
+)]
 
-mod args;
-mod error;
-mod metadata;
-mod rust;
+mod derive;
+mod derive_writer;
+mod filter;
+mod guid;
+mod io;
+mod libraries;
+mod references;
+mod signature;
+mod tables;
 mod tokens;
-mod tree;
+mod type_map;
+mod type_name;
+mod type_tree;
+mod types;
+mod value;
+mod winmd;
+mod writer;
 
-pub use error::{Error, Result};
-use tree::Tree;
+use derive::*;
+use derive_writer::*;
+use filter::*;
+use guid::*;
+use io::*;
+pub use libraries::*;
+use references::*;
+use signature::*;
+use std::cmp::Ordering;
+use std::collections::*;
+use std::fmt::Write;
+use tables::*;
+use tokens::*;
+use type_map::*;
+use type_name::*;
+use type_tree::*;
+use types::*;
+use value::*;
+use winmd::*;
+use writer::*;
+mod method_names;
+use method_names::*;
 
-enum ArgKind {
-    None,
-    Input,
-    Output,
-    Filter,
-    Config,
+struct Config {
+    pub types: TypeMap,
+    pub references: References,
+    pub output: String,
+    pub flat: bool,
+    pub no_allow: bool,
+    pub no_comment: bool,
+    pub no_core: bool,
+    pub no_toml: bool,
+    pub package: bool,
+    pub rustfmt: String,
+    pub sys: bool,
+    pub implement: bool,
+    pub derive: Derive,
 }
 
-/// Windows metadata compiler.
-pub fn bindgen<I, S>(args: I) -> Result<String>
+/// The Windows code generator.
+#[track_caller]
+pub fn bindgen<I, S>(args: I)
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
 {
-    let time = std::time::Instant::now();
-    let args = args::expand(args)?;
-
+    let args = expand_args(args);
     let mut kind = ArgKind::None;
-    let mut output = None;
-    let mut input = Vec::<&str>::new();
-    let mut include = Vec::<&str>::new();
-    let mut exclude = Vec::<&str>::new();
-    let mut config = std::collections::BTreeMap::<&str, &str>::new();
+    let mut input = Vec::new();
+    let mut include = Vec::new();
+    let mut exclude = Vec::new();
+    let mut references = Vec::new();
+    let mut derive = Vec::new();
+
+    let mut flat = false;
+    let mut no_allow = false;
+    let mut no_comment = false;
+    let mut no_core = false;
+    let mut no_toml = false;
+    let mut package = false;
+    let mut implement = false;
+    let mut rustfmt = String::new();
+    let mut output = String::new();
+    let mut sys = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -41,17 +95,27 @@ where
 
         match kind {
             ArgKind::None => match arg.as_str() {
-                "-i" | "--in" => kind = ArgKind::Input,
-                "-o" | "--out" => kind = ArgKind::Output,
-                "-f" | "--filter" => kind = ArgKind::Filter,
-                "--config" => kind = ArgKind::Config,
-                _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
+                "--in" => kind = ArgKind::Input,
+                "--out" => kind = ArgKind::Output,
+                "--filter" => kind = ArgKind::Filter,
+                "--rustfmt" => kind = ArgKind::Rustfmt,
+                "--reference" => kind = ArgKind::Reference,
+                "--derive" => kind = ArgKind::Derive,
+                "--flat" => flat = true,
+                "--no-allow" => no_allow = true,
+                "--no-comment" => no_comment = true,
+                "--no-core" => no_core = true,
+                "--no-toml" => no_toml = true,
+                "--package" => package = true,
+                "--sys" => sys = true,
+                "--implement" => implement = true,
+                _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if output.is_none() {
-                    output = Some(arg.as_str());
+                if output.is_empty() {
+                    output = arg.to_string();
                 } else {
-                    return Err(Error::new("too many outputs"));
+                    panic!("exactly one `--out` is required");
                 }
             }
             ArgKind::Input => input.push(arg.as_str()),
@@ -62,181 +126,211 @@ where
                     include.push(arg.as_str());
                 }
             }
-            ArgKind::Config => {
-                if let Some((key, value)) = arg.split_once('=') {
-                    config.insert(key, value);
-                } else {
-                    config.insert(arg, "");
-                }
+            ArgKind::Reference => {
+                references.push(ReferenceStage::parse(arg));
             }
+            ArgKind::Derive => {
+                derive.push(arg.as_str());
+            }
+            ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
     }
 
-    let Some(output) = output else {
-        return Err(Error::new("no output"));
+    if !sys && no_core {
+        panic!("`--no-core` requires `--sys`");
+    }
+
+    if package && flat {
+        panic!("cannot combine `--package` and `--flat`");
+    }
+
+    if input.is_empty() {
+        panic!("at least ne `--in` is required");
+    };
+
+    if output.is_empty() {
+        panic!("exactly one `--out` is required");
     };
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        return Err(Error::new("at least one `--filter` must be specified"));
+        panic!("at least one `--filter` required");
     }
 
-    let output = canonicalize(output)?;
+    let reader = Reader::new(expand_input(&input));
+    let filter = Filter::new(reader, &include, &exclude);
+    let types = TypeMap::filter(reader, &filter);
+    let references = References::new(reader, references);
+    let derive = Derive::new(reader, &types, &derive);
 
-    let input = read_input(&input)?;
-    let reader = metadata::Reader::filter(input, &include, &exclude);
+    let config = Box::leak(Box::new(Config {
+        types,
+        flat,
+        references,
+        derive,
+        no_allow,
+        no_comment,
+        no_core,
+        no_toml,
+        package,
+        rustfmt,
+        output,
+        sys,
+        implement,
+    }));
 
-    match extension(&output) {
-        "rs" => rust::from_reader(reader, config, &output)?,
-        _ => return Err(Error::new("output extension must be one of `rs`")),
-    }
+    let tree = TypeTree::new(&config.types);
 
-    let elapsed = time.elapsed().as_secs_f32();
+    let writer = Writer {
+        config,
+        namespace: "",
+    };
 
-    if elapsed > 0.1 {
-        Ok(format!(
-            "  Finished writing `{}` in {:.2}s",
-            output,
-            time.elapsed().as_secs_f32()
-        ))
-    } else {
-        Ok(format!("  Finished writing `{}`", output,))
-    }
+    writer.write(tree)
 }
 
-fn filter_input(input: &[&str], extensions: &[&str]) -> Result<Vec<String>> {
-    fn try_push(path: &str, extensions: &[&str], results: &mut Vec<String>) -> Result<()> {
-        // First canonicalize input so that the extension check below will match the case of the path.
-        let path = canonicalize(path)?;
+enum ArgKind {
+    None,
+    Input,
+    Output,
+    Filter,
+    Rustfmt,
+    Reference,
+    Derive,
+}
 
-        if extensions.contains(&extension(&path)) {
-            results.push(path);
-        }
-
-        Ok(())
+fn expand_args<I, S>(args: I) -> Vec<String>
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<str>,
+{
+    // This function is needed to avoid a recursion limit in the Rust compiler.
+    fn from_string(result: &mut Vec<String>, value: &str) {
+        expand_args(result, value.split_whitespace().map(|arg| arg.to_string()))
     }
 
-    let mut results = vec![];
+    fn expand_args<I, S>(result: &mut Vec<String>, args: I)
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        let mut expand = false;
 
-    for input in input {
+        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
+            if arg.starts_with('-') {
+                expand = false;
+            }
+            if expand {
+                for args in io::read_file_lines(&arg) {
+                    if !args.starts_with("//") {
+                        from_string(result, &args);
+                    }
+                }
+            } else if arg == "--etc" {
+                expand = true;
+            } else {
+                result.push(arg);
+            }
+        }
+    }
+
+    let mut result = vec![];
+    expand_args(&mut result, args);
+    result
+}
+
+fn expand_input(input: &[&str]) -> Vec<File> {
+    fn expand_input(result: &mut Vec<String>, input: &str) {
         let path = std::path::Path::new(input);
 
-        if !path.exists() {
-            return Err(Error::new("failed to read input").with_path(input));
-        }
-
         if path.is_dir() {
-            for entry in path
-                .read_dir()
-                .map_err(|_| Error::new("failed to read directory").with_path(input))?
-                .flatten()
-            {
-                let path = entry.path();
+            let prev_len = result.len();
 
-                if path.is_file() {
-                    try_push(&path.to_string_lossy(), extensions, &mut results)?;
+            for path in path
+                .read_dir()
+                .unwrap_or_else(|_| panic!("failed to read directory `{input}`"))
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if path.is_file()
+                    && path
+                        .extension()
+                        .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
+                {
+                    result.push(path.to_string_lossy().to_string());
                 }
             }
+
+            if result.len() == prev_len {
+                panic!("failed to find .winmd files in directory `{input}`");
+            }
         } else {
-            try_push(&path.to_string_lossy(), extensions, &mut results)?;
+            result.push(input.to_string());
         }
     }
-    Ok(results)
-}
 
-fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
-    let input = filter_input(input, &["winmd", "rdl"])?;
-    let mut results = vec![];
+    let mut paths = vec![];
+    let mut use_default = false;
 
-    if cfg!(feature = "metadata") {
-        results.push(
-            metadata::File::new(std::include_bytes!("../default/Windows.winmd").to_vec()).unwrap(),
-        );
-        results.push(
-            metadata::File::new(std::include_bytes!("../default/Windows.Win32.winmd").to_vec())
-                .unwrap(),
-        );
-        results.push(
-            metadata::File::new(std::include_bytes!("../default/Windows.Wdk.winmd").to_vec())
-                .unwrap(),
-        );
-    } else if input.is_empty() {
-        return Err(Error::new("no inputs"));
+    for input in input {
+        if *input == "default" {
+            use_default = true;
+        } else {
+            expand_input(&mut paths, input);
+        }
     }
 
-    for input in &input {
-        results.push(read_winmd_file(input)?);
+    let mut input = vec![];
+
+    if use_default {
+        input = [
+            std::include_bytes!("../default/Windows.winmd").to_vec(),
+            std::include_bytes!("../default/Windows.Win32.winmd").to_vec(),
+            std::include_bytes!("../default/Windows.Wdk.winmd").to_vec(),
+        ]
+        .into_iter()
+        .map(|bytes| File::new(bytes).unwrap())
+        .collect();
     }
 
-    Ok(results)
+    input.extend(paths.iter().map(|path| {
+        let bytes =
+            std::fs::read(path).unwrap_or_else(|_| panic!("failed to read binary file `{path}`"));
+
+        File::new(bytes).unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
+    }));
+
+    input
 }
 
-fn read_file_bytes(path: &str) -> Result<Vec<u8>> {
-    std::fs::read(path).map_err(|_| Error::new("failed to read binary file"))
+fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
+    namespace.starts_with(starts_with)
+        && (namespace.len() == starts_with.len()
+            || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-fn read_file_lines(path: &str) -> Result<Vec<String>> {
-    use std::io::BufRead;
-    fn error(path: &str) -> Error {
-        Error::new("failed to read lines").with_path(path)
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_starts_with() {
+        assert!(namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11on12"
+        ));
+        assert!(namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics"
+        ));
+        assert!(!namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
+        assert!(!namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
     }
-    let file = std::io::BufReader::new(std::fs::File::open(path).map_err(|_| error(path))?);
-    let mut lines = vec![];
-    for line in file.lines() {
-        lines.push(line.map_err(|_| error(path))?);
-    }
-    Ok(lines)
-}
-
-fn read_winmd_file(path: &str) -> Result<metadata::File> {
-    read_file_bytes(path).and_then(|bytes| {
-        metadata::File::new(bytes)
-            .ok_or_else(|| Error::new("failed to read .winmd format").with_path(path))
-    })
-}
-
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<()> {
-    if let Some(parent) = std::path::Path::new(path).parent() {
-        std::fs::create_dir_all(parent)
-            .map_err(|_| Error::new("failed to create directory").with_path(path))?;
-    }
-
-    std::fs::write(path, contents).map_err(|_| Error::new("failed to write file").with_path(path))
-}
-
-fn canonicalize(value: &str) -> Result<String> {
-    let temp = !std::path::Path::new(value).exists();
-
-    // `std::fs::canonicalize` only works if the file exists so we temporarily create it here.
-    if temp {
-        write_to_file(value, "")?;
-    }
-
-    let path = std::fs::canonicalize(value)
-        .map_err(|_| Error::new("failed to find path").with_path(value))?;
-
-    if temp {
-        std::fs::remove_file(value)
-            .map_err(|_| Error::new("failed to remove temporary file").with_path(value))?;
-    }
-
-    let path = path
-        .to_string_lossy()
-        .trim_start_matches(r"\\?\")
-        .to_string();
-
-    match path.rsplit_once('.') {
-        Some((file, extension)) => Ok(format!("{file}.{}", extension.to_lowercase())),
-        _ => Ok(path),
-    }
-}
-
-fn extension(path: &str) -> &str {
-    path.rsplit_once('.').map_or("", |(_, extension)| extension)
-}
-
-fn directory(path: &str) -> &str {
-    path.rsplit_once(['/', '\\'])
-        .map_or("", |(directory, _)| directory)
 }

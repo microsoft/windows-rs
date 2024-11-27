@@ -28,9 +28,9 @@ impl TokenStream {
     /// Appends another stream to the stream
     ///
     /// note: a space will be inserted before the other stream
-    pub fn combine(&mut self, other: &TokenStream) {
+    pub fn combine<T: AsRef<TokenStream>>(&mut self, other: T) {
         self.push_space();
-        self.0.push_str(&other.0)
+        self.0.push_str(&other.as_ref().0)
     }
 
     #[must_use]
@@ -97,6 +97,18 @@ impl FromIterator<TokenStream> for TokenStream {
     }
 }
 
+impl AsRef<TokenStream> for TokenStream {
+    fn as_ref(&self) -> &Self {
+        self
+    }
+}
+
+impl AsRef<[u8]> for TokenStream {
+    fn as_ref(&self) -> &[u8] {
+        self.0.as_ref()
+    }
+}
+
 /// A delimiter around a block of code
 #[derive(Copy, Clone)]
 pub enum Delimiter {
@@ -150,12 +162,9 @@ impl Literal {
     unsuffixed!(u16 => u16_unsuffixed);
     unsuffixed!(u8 => u8_unsuffixed);
 
-    pub fn byte_string(s: &[u8]) -> Self {
+    pub fn byte_string(s: &str) -> Self {
         Self {
-            inner: format!(
-                "b\"{}\"",
-                core::str::from_utf8(s).expect("Could not turn bytes into byte literal")
-            ),
+            inner: format!("b\"{s}\""),
         }
     }
 
