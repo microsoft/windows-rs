@@ -1,17 +1,17 @@
---out crates/libs/windows/src/lib.rs
---config package no-bindgen-comment
---config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
---config prepend:Windows.Win32.Foundation.BOOL=#[must_use]
---config prepend:Windows.Win32.Foundation.NTSTATUS=#[must_use]
---config prepend:Windows.Win32.System.Rpc.RPC_STATUS=#[must_use]
---config rustfmt-config=max_width=800,newline_style=Unix
+--in default
+--out crates/libs/windows
+--package --no-comment --no-allow
+//--config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
+//--config prepend:Windows.Win32.Foundation.BOOL=#[must_use]
+//--config prepend:Windows.Win32.Foundation.NTSTATUS=#[must_use]
+//--config prepend:Windows.Win32.System.Rpc.RPC_STATUS=#[must_use]
+--rustfmt max_width=800,newline_style=Unix
 
 --filter
     Windows
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
     !Windows.ApplicationModel.Store
-    !Windows.Devices.AllJoyn
     !Windows.Devices.Perception
     !Windows.Security.Authentication.Identity.Provider
     !Windows.Services.Cortana

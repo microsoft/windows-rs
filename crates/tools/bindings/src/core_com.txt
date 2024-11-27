@@ -1,7 +1,8 @@
 // These will use `windows` style bindings and include COM APIs.
 
+--in default
 --out crates/libs/core/src/imp/com_bindings.rs
---config flatten minimal no-bindgen-comment
+--flat --no-comment
 
 --filter
     Windows.Win32.Foundation.CO_E_NOTINITIALIZED
@@ -16,5 +17,6 @@
     Windows.Win32.System.Com.IAgileObject
     Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT
     Windows.Win32.System.WinRT.IAgileReference
+    Windows.Win32.System.WinRT.IWeakReference
     Windows.Win32.System.WinRT.IWeakReferenceSource
     Windows.Win32.System.WinRT.RoGetAgileReference

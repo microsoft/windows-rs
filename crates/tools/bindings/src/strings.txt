@@ -1,7 +1,8 @@
 // These will use `windows-sys` style bindings.
 
+--in default
 --out crates/libs/strings/src/bindings.rs
---config flatten sys minimal no-bindgen-comment
+--flat --sys --no-core --no-comment
 
 --filter
     Windows.Win32.Foundation.SysAllocStringLen
