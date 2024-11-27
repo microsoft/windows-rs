@@ -4,6 +4,71 @@ pub mod Automation;
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PerceptionTimestamp(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
+impl PerceptionTimestamp {
+    pub fn TargetTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
+        let this = &windows_core::Interface::cast::<IPerceptionTimestamp2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PerceptionTimestamp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
+}
+unsafe impl windows_core::Interface for PerceptionTimestamp {
+    type Vtable = <IPerceptionTimestamp as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPerceptionTimestamp as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PerceptionTimestamp {
+    const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
+}
+unsafe impl Send for PerceptionTimestamp {}
+unsafe impl Sync for PerceptionTimestamp {}
+pub struct PerceptionTimestampHelper;
+impl PerceptionTimestampHelper {
+    pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> windows_core::Result<PerceptionTimestamp> {
+        Self::IPerceptionTimestampHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromHistoricalTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> windows_core::Result<PerceptionTimestamp> {
+        Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PerceptionTimestampHelper {
+    const NAME: &'static str = "Windows.Perception.PerceptionTimestampHelper";
+}
 windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 impl windows_core::RuntimeType for IPerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -40,69 +105,4 @@ impl windows_core::RuntimeType for IPerceptionTimestampHelperStatics2 {
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
-pub struct PerceptionTimestamp(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
-impl PerceptionTimestamp {
-    pub fn TargetTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
-        let this = &windows_core::Interface::cast::<IPerceptionTimestamp2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for PerceptionTimestamp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
-}
-unsafe impl windows_core::Interface for PerceptionTimestamp {
-    type Vtable = IPerceptionTimestamp_Vtbl;
-    const IID: windows_core::GUID = <IPerceptionTimestamp as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PerceptionTimestamp {
-    const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
-}
-unsafe impl Send for PerceptionTimestamp {}
-unsafe impl Sync for PerceptionTimestamp {}
-pub struct PerceptionTimestampHelper;
-impl PerceptionTimestampHelper {
-    pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> windows_core::Result<PerceptionTimestamp> {
-        Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromHistoricalTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> windows_core::Result<PerceptionTimestamp> {
-        Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PerceptionTimestampHelper {
-    const NAME: &'static str = "Windows.Perception.PerceptionTimestampHelper";
 }

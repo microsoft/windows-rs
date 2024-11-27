@@ -1,25 +1,5 @@
-windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
-impl windows_core::RuntimeType for IApplicationDataManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IApplicationDataManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
-impl windows_core::RuntimeType for IApplicationDataManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IApplicationDataManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
-    pub CreateForPackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
-    CreateForPackageFamily: usize,
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationDataManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationDataManager {
@@ -39,7 +19,7 @@ impl windows_core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationDataManager>();
 }
 unsafe impl windows_core::Interface for ApplicationDataManager {
-    type Vtable = IApplicationDataManager_Vtbl;
+    type Vtable = <IApplicationDataManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationDataManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ApplicationDataManager {
@@ -47,3 +27,23 @@ impl windows_core::RuntimeName for ApplicationDataManager {
 }
 unsafe impl Send for ApplicationDataManager {}
 unsafe impl Sync for ApplicationDataManager {}
+windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
+impl windows_core::RuntimeType for IApplicationDataManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationDataManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+impl windows_core::RuntimeType for IApplicationDataManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationDataManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage")]
+    pub CreateForPackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage"))]
+    CreateForPackageFamily: usize,
+}

@@ -4,13 +4,13 @@ pub mod Common;
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
     windows_targets::link!("d2d1.dll" "system" fn D2D1ComputeMaximumScaleFactor(matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2) -> f32);
-    D2D1ComputeMaximumScaleFactor(matrix)
+    D2D1ComputeMaximumScaleFactor(core::mem::transmute(matrix))
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
     windows_targets::link!("d2d1.dll" "system" fn D2D1ConvertColorSpace(sourcecolorspace : D2D1_COLOR_SPACE, destinationcolorspace : D2D1_COLOR_SPACE, color : *const Common:: D2D1_COLOR_F) -> Common:: D2D1_COLOR_F);
-    D2D1ConvertColorSpace(sourcecolorspace, destinationcolorspace, color)
+    D2D1ConvertColorSpace(core::mem::transmute(sourcecolorspace), core::mem::transmute(destinationcolorspace), core::mem::transmute(color))
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
@@ -39,79 +39,87 @@ where
 {
     windows_targets::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    D2D1CreateFactory(factorytype, &T::IID, core::mem::transmute(pfactoryoptions.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    D2D1CreateFactory(core::mem::transmute(factorytype), &T::IID, core::mem::transmute(pfactoryoptions.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
     windows_targets::link!("d2d1.dll" "system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0 : *const Common:: D2D_POINT_2F, ppoint1 : *const Common:: D2D_POINT_2F, ppoint2 : *const Common:: D2D_POINT_2F, ppoint3 : *const Common:: D2D_POINT_2F, ppoint4 : *const Common:: D2D_POINT_2F, ppoint5 : *const Common:: D2D_POINT_2F, ppoint6 : *const Common:: D2D_POINT_2F, ppoint7 : *const Common:: D2D_POINT_2F, ppoint8 : *const Common:: D2D_POINT_2F, ppoint9 : *const Common:: D2D_POINT_2F, ppoint10 : *const Common:: D2D_POINT_2F, ppoint11 : *const Common:: D2D_POINT_2F, ptensorpoint11 : *mut Common:: D2D_POINT_2F, ptensorpoint12 : *mut Common:: D2D_POINT_2F, ptensorpoint21 : *mut Common:: D2D_POINT_2F, ptensorpoint22 : *mut Common:: D2D_POINT_2F));
-    D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0, ppoint1, ppoint2, ppoint3, ppoint4, ppoint5, ppoint6, ppoint7, ppoint8, ppoint9, ppoint10, ppoint11, ptensorpoint11, ptensorpoint12, ptensorpoint21, ptensorpoint22)
+    D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
+        core::mem::transmute(ppoint0),
+        core::mem::transmute(ppoint1),
+        core::mem::transmute(ppoint2),
+        core::mem::transmute(ppoint3),
+        core::mem::transmute(ppoint4),
+        core::mem::transmute(ppoint5),
+        core::mem::transmute(ppoint6),
+        core::mem::transmute(ppoint7),
+        core::mem::transmute(ppoint8),
+        core::mem::transmute(ppoint9),
+        core::mem::transmute(ppoint10),
+        core::mem::transmute(ppoint11),
+        core::mem::transmute(ptensorpoint11),
+        core::mem::transmute(ptensorpoint12),
+        core::mem::transmute(ptensorpoint21),
+        core::mem::transmute(ptensorpoint22),
+    )
 }
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     windows_targets::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2) -> super::super::Foundation:: BOOL);
-    D2D1InvertMatrix(matrix)
+    D2D1InvertMatrix(core::mem::transmute(matrix))
 }
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     windows_targets::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2) -> super::super::Foundation:: BOOL);
-    D2D1IsMatrixInvertible(matrix)
+    D2D1IsMatrixInvertible(core::mem::transmute(matrix))
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     windows_targets::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle : f32, center : Common:: D2D_POINT_2F, matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2));
-    D2D1MakeRotateMatrix(angle, core::mem::transmute(center), matrix)
+    D2D1MakeRotateMatrix(core::mem::transmute(angle), core::mem::transmute(center), core::mem::transmute(matrix))
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     windows_targets::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(anglex : f32, angley : f32, center : Common:: D2D_POINT_2F, matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2));
-    D2D1MakeSkewMatrix(anglex, angley, core::mem::transmute(center), matrix)
+    D2D1MakeSkewMatrix(core::mem::transmute(anglex), core::mem::transmute(angley), core::mem::transmute(center), core::mem::transmute(matrix))
 }
 #[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     windows_targets::link!("d2d1.dll" "system" fn D2D1SinCos(angle : f32, s : *mut f32, c : *mut f32));
-    D2D1SinCos(angle, s, c)
+    D2D1SinCos(core::mem::transmute(angle), core::mem::transmute(s), core::mem::transmute(c))
 }
 #[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     windows_targets::link!("d2d1.dll" "system" fn D2D1Tan(angle : f32) -> f32);
-    D2D1Tan(angle)
+    D2D1Tan(core::mem::transmute(angle))
 }
 #[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     windows_targets::link!("d2d1.dll" "system" fn D2D1Vec3Length(x : f32, y : f32, z : f32) -> f32);
-    D2D1Vec3Length(x, y, z)
+    D2D1Vec3Length(core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(z))
 }
 windows_core::imp::define_interface!(ID2D1AnalysisTransform, ID2D1AnalysisTransform_Vtbl, 0x0359dc30_95e6_4568_9055_27720d130e93);
-impl core::ops::Deref for ID2D1AnalysisTransform {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1AnalysisTransform, windows_core::IUnknown);
 impl ID2D1AnalysisTransform {
     pub unsafe fn ProcessAnalysisResults(&self, analysisdata: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ProcessAnalysisResults)(windows_core::Interface::as_raw(self), core::mem::transmute(analysisdata.as_ptr()), analysisdata.len().try_into().unwrap()).ok()
     }
 }
-unsafe impl Send for ID2D1AnalysisTransform {}
-unsafe impl Sync for ID2D1AnalysisTransform {}
 #[repr(C)]
 pub struct ID2D1AnalysisTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessAnalysisResults: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1AnalysisTransform_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1AnalysisTransform_Impl: windows_core::IUnknownImpl {
     fn ProcessAnalysisResults(&self, analysisdata: *const u8, analysisdatacount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1AnalysisTransform {}
 impl ID2D1AnalysisTransform_Vtbl {
-    pub const fn new<Identity: ID2D1AnalysisTransform_Impl, const OFFSET: isize>() -> ID2D1AnalysisTransform_Vtbl {
+    pub const fn new<Identity: ID2D1AnalysisTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessAnalysisResults<Identity: ID2D1AnalysisTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysisdata: *const u8, analysisdatacount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1AnalysisTransform_Impl::ProcessAnalysisResults(this, core::mem::transmute_copy(&analysisdata), core::mem::transmute_copy(&analysisdatacount)).into()
@@ -122,6 +130,9 @@ impl ID2D1AnalysisTransform_Vtbl {
         iid == &<ID2D1AnalysisTransform as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1AnalysisTransform {}
+unsafe impl Send for ID2D1AnalysisTransform {}
+unsafe impl Sync for ID2D1AnalysisTransform {}
 windows_core::imp::define_interface!(ID2D1Bitmap, ID2D1Bitmap_Vtbl, 0xa2296057_ea42_4099_983b_539fb6505426);
 impl core::ops::Deref for ID2D1Bitmap {
     type Target = ID2D1Image;
@@ -150,29 +161,27 @@ impl ID2D1Bitmap {
         result__
     }
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
-        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), dpix, dpiy)
+        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn CopyFromBitmap<P0>(&self, destpoint: Option<*const Common::D2D_POINT_2U>, bitmap: P0, srcrect: Option<*const Common::D2D_RECT_U>) -> windows_core::Result<()>
+    pub unsafe fn CopyFromBitmap<P1>(&self, destpoint: Option<*const Common::D2D_POINT_2U>, bitmap: P1, srcrect: Option<*const Common::D2D_RECT_U>) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Bitmap>,
+        P1: windows_core::Param<ID2D1Bitmap>,
     {
         (windows_core::Interface::vtable(self).CopyFromBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(destpoint.unwrap_or(core::ptr::null())), bitmap.param().abi(), core::mem::transmute(srcrect.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn CopyFromRenderTarget<P0>(&self, destpoint: Option<*const Common::D2D_POINT_2U>, rendertarget: P0, srcrect: Option<*const Common::D2D_RECT_U>) -> windows_core::Result<()>
+    pub unsafe fn CopyFromRenderTarget<P1>(&self, destpoint: Option<*const Common::D2D_POINT_2U>, rendertarget: P1, srcrect: Option<*const Common::D2D_RECT_U>) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1RenderTarget>,
+        P1: windows_core::Param<ID2D1RenderTarget>,
     {
         (windows_core::Interface::vtable(self).CopyFromRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(destpoint.unwrap_or(core::ptr::null())), rendertarget.param().abi(), core::mem::transmute(srcrect.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CopyFromMemory(&self, dstrect: Option<*const Common::D2D_RECT_U>, srcdata: *const core::ffi::c_void, pitch: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CopyFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(dstrect.unwrap_or(core::ptr::null())), srcdata, pitch).ok()
+        (windows_core::Interface::vtable(self).CopyFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(dstrect.unwrap_or(core::ptr::null())), core::mem::transmute(srcdata), core::mem::transmute(pitch)).ok()
     }
 }
-unsafe impl Send for ID2D1Bitmap {}
-unsafe impl Sync for ID2D1Bitmap {}
 #[repr(C)]
 pub struct ID2D1Bitmap_Vtbl {
     pub base__: ID2D1Image_Vtbl,
@@ -203,7 +212,7 @@ pub struct ID2D1Bitmap_Vtbl {
     CopyFromMemory: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID2D1Bitmap_Impl: Sized + ID2D1Image_Impl {
+pub trait ID2D1Bitmap_Impl: ID2D1Image_Impl {
     fn GetSize(&self) -> Common::D2D_SIZE_F;
     fn GetPixelSize(&self) -> Common::D2D_SIZE_U;
     fn GetPixelFormat(&self) -> Common::D2D1_PIXEL_FORMAT;
@@ -213,10 +222,8 @@ pub trait ID2D1Bitmap_Impl: Sized + ID2D1Image_Impl {
     fn CopyFromMemory(&self, dstrect: *const Common::D2D_RECT_U, srcdata: *const core::ffi::c_void, pitch: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::RuntimeName for ID2D1Bitmap {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID2D1Bitmap_Vtbl {
-    pub const fn new<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>() -> ID2D1Bitmap_Vtbl {
+    pub const fn new<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSize<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID2D1Bitmap_Impl::GetSize(this)
@@ -260,6 +267,12 @@ impl ID2D1Bitmap_Vtbl {
         iid == &<ID2D1Bitmap as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::RuntimeName for ID2D1Bitmap {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1Bitmap {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1Bitmap {}
 windows_core::imp::define_interface!(ID2D1Bitmap1, ID2D1Bitmap1_Vtbl, 0xa898a84c_3873_4588_b08b_ebbf978df041);
 impl core::ops::Deref for ID2D1Bitmap1 {
     type Target = ID2D1Bitmap;
@@ -284,14 +297,12 @@ impl ID2D1Bitmap1 {
     }
     pub unsafe fn Map(&self, options: D2D1_MAP_OPTIONS) -> windows_core::Result<D2D1_MAPPED_RECT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), options, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).map(|| result__)
     }
     pub unsafe fn Unmap(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1Bitmap1 {}
-unsafe impl Sync for ID2D1Bitmap1 {}
 #[repr(C)]
 pub struct ID2D1Bitmap1_Vtbl {
     pub base__: ID2D1Bitmap_Vtbl,
@@ -305,7 +316,7 @@ pub struct ID2D1Bitmap1_Vtbl {
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID2D1Bitmap1_Impl: Sized + ID2D1Bitmap_Impl {
+pub trait ID2D1Bitmap1_Impl: ID2D1Bitmap_Impl {
     fn GetColorContext(&self, colorcontext: *mut Option<ID2D1ColorContext>);
     fn GetOptions(&self) -> D2D1_BITMAP_OPTIONS;
     fn GetSurface(&self) -> windows_core::Result<super::Dxgi::IDXGISurface>;
@@ -313,10 +324,8 @@ pub trait ID2D1Bitmap1_Impl: Sized + ID2D1Bitmap_Impl {
     fn Unmap(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::RuntimeName for ID2D1Bitmap1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID2D1Bitmap1_Vtbl {
-    pub const fn new<Identity: ID2D1Bitmap1_Impl, const OFFSET: isize>() -> ID2D1Bitmap1_Vtbl {
+    pub const fn new<Identity: ID2D1Bitmap1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColorContext<Identity: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorcontext: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Bitmap1_Impl::GetColorContext(this, core::mem::transmute_copy(&colorcontext))
@@ -362,6 +371,12 @@ impl ID2D1Bitmap1_Vtbl {
         iid == &<ID2D1Bitmap1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1Bitmap as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::RuntimeName for ID2D1Bitmap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1Bitmap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1Bitmap1 {}
 windows_core::imp::define_interface!(ID2D1BitmapBrush, ID2D1BitmapBrush_Vtbl, 0x2cd906aa_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1BitmapBrush {
     type Target = ID2D1Brush;
@@ -372,13 +387,13 @@ impl core::ops::Deref for ID2D1BitmapBrush {
 windows_core::imp::interface_hierarchy!(ID2D1BitmapBrush, windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ID2D1BitmapBrush {
     pub unsafe fn SetExtendModeX(&self, extendmodex: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), extendmodex)
+        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmodex))
     }
     pub unsafe fn SetExtendModeY(&self, extendmodey: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), extendmodey)
+        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmodey))
     }
     pub unsafe fn SetInterpolationMode(&self, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE) {
-        (windows_core::Interface::vtable(self).SetInterpolationMode)(windows_core::Interface::as_raw(self), interpolationmode)
+        (windows_core::Interface::vtable(self).SetInterpolationMode)(windows_core::Interface::as_raw(self), core::mem::transmute(interpolationmode))
     }
     pub unsafe fn SetBitmap<P0>(&self, bitmap: P0)
     where
@@ -401,8 +416,6 @@ impl ID2D1BitmapBrush {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1BitmapBrush {}
-unsafe impl Sync for ID2D1BitmapBrush {}
 #[repr(C)]
 pub struct ID2D1BitmapBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
@@ -416,7 +429,7 @@ pub struct ID2D1BitmapBrush_Vtbl {
     pub GetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 #[cfg(feature = "Foundation_Numerics")]
-pub trait ID2D1BitmapBrush_Impl: Sized + ID2D1Brush_Impl {
+pub trait ID2D1BitmapBrush_Impl: ID2D1Brush_Impl {
     fn SetExtendModeX(&self, extendmodex: D2D1_EXTEND_MODE);
     fn SetExtendModeY(&self, extendmodey: D2D1_EXTEND_MODE);
     fn SetInterpolationMode(&self, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE);
@@ -427,10 +440,8 @@ pub trait ID2D1BitmapBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetBitmap(&self, bitmap: *mut Option<ID2D1Bitmap>);
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl windows_core::RuntimeName for ID2D1BitmapBrush {}
-#[cfg(feature = "Foundation_Numerics")]
 impl ID2D1BitmapBrush_Vtbl {
-    pub const fn new<Identity: ID2D1BitmapBrush_Impl, const OFFSET: isize>() -> ID2D1BitmapBrush_Vtbl {
+    pub const fn new<Identity: ID2D1BitmapBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetExtendModeX<Identity: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodex: D2D1_EXTEND_MODE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1BitmapBrush_Impl::SetExtendModeX(this, core::mem::transmute_copy(&extendmodex))
@@ -479,6 +490,12 @@ impl ID2D1BitmapBrush_Vtbl {
         iid == &<ID2D1BitmapBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::RuntimeName for ID2D1BitmapBrush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1BitmapBrush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1BitmapBrush {}
 windows_core::imp::define_interface!(ID2D1BitmapBrush1, ID2D1BitmapBrush1_Vtbl, 0x41343a53_e41a_49a2_91cd_21793bbb62e5);
 impl core::ops::Deref for ID2D1BitmapBrush1 {
     type Target = ID2D1BitmapBrush;
@@ -489,14 +506,12 @@ impl core::ops::Deref for ID2D1BitmapBrush1 {
 windows_core::imp::interface_hierarchy!(ID2D1BitmapBrush1, windows_core::IUnknown, ID2D1Resource, ID2D1Brush, ID2D1BitmapBrush);
 impl ID2D1BitmapBrush1 {
     pub unsafe fn SetInterpolationMode1(&self, interpolationmode: D2D1_INTERPOLATION_MODE) {
-        (windows_core::Interface::vtable(self).SetInterpolationMode1)(windows_core::Interface::as_raw(self), interpolationmode)
+        (windows_core::Interface::vtable(self).SetInterpolationMode1)(windows_core::Interface::as_raw(self), core::mem::transmute(interpolationmode))
     }
     pub unsafe fn GetInterpolationMode1(&self) -> D2D1_INTERPOLATION_MODE {
         (windows_core::Interface::vtable(self).GetInterpolationMode1)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1BitmapBrush1 {}
-unsafe impl Sync for ID2D1BitmapBrush1 {}
 #[repr(C)]
 pub struct ID2D1BitmapBrush1_Vtbl {
     pub base__: ID2D1BitmapBrush_Vtbl,
@@ -504,15 +519,13 @@ pub struct ID2D1BitmapBrush1_Vtbl {
     pub GetInterpolationMode1: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_INTERPOLATION_MODE,
 }
 #[cfg(feature = "Foundation_Numerics")]
-pub trait ID2D1BitmapBrush1_Impl: Sized + ID2D1BitmapBrush_Impl {
+pub trait ID2D1BitmapBrush1_Impl: ID2D1BitmapBrush_Impl {
     fn SetInterpolationMode1(&self, interpolationmode: D2D1_INTERPOLATION_MODE);
     fn GetInterpolationMode1(&self) -> D2D1_INTERPOLATION_MODE;
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl windows_core::RuntimeName for ID2D1BitmapBrush1 {}
-#[cfg(feature = "Foundation_Numerics")]
 impl ID2D1BitmapBrush1_Vtbl {
-    pub const fn new<Identity: ID2D1BitmapBrush1_Impl, const OFFSET: isize>() -> ID2D1BitmapBrush1_Vtbl {
+    pub const fn new<Identity: ID2D1BitmapBrush1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInterpolationMode1<Identity: ID2D1BitmapBrush1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: D2D1_INTERPOLATION_MODE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1BitmapBrush1_Impl::SetInterpolationMode1(this, core::mem::transmute_copy(&interpolationmode))
@@ -531,6 +544,12 @@ impl ID2D1BitmapBrush1_Vtbl {
         iid == &<ID2D1BitmapBrush1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID || iid == &<ID2D1BitmapBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::RuntimeName for ID2D1BitmapBrush1 {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1BitmapBrush1 {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1BitmapBrush1 {}
 windows_core::imp::define_interface!(ID2D1BitmapRenderTarget, ID2D1BitmapRenderTarget_Vtbl, 0x2cd90695_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1BitmapRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -545,22 +564,18 @@ impl ID2D1BitmapRenderTarget {
         (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1BitmapRenderTarget {}
-unsafe impl Sync for ID2D1BitmapRenderTarget {}
 #[repr(C)]
 pub struct ID2D1BitmapRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     pub GetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1BitmapRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
+pub trait ID2D1BitmapRenderTarget_Impl: ID2D1RenderTarget_Impl {
     fn GetBitmap(&self) -> windows_core::Result<ID2D1Bitmap>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1BitmapRenderTarget {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1BitmapRenderTarget_Vtbl {
-    pub const fn new<Identity: ID2D1BitmapRenderTarget_Impl, const OFFSET: isize>() -> ID2D1BitmapRenderTarget_Vtbl {
+    pub const fn new<Identity: ID2D1BitmapRenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBitmap<Identity: ID2D1BitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1BitmapRenderTarget_Impl::GetBitmap(this) {
@@ -577,6 +592,12 @@ impl ID2D1BitmapRenderTarget_Vtbl {
         iid == &<ID2D1BitmapRenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1BitmapRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1BitmapRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1BitmapRenderTarget {}
 windows_core::imp::define_interface!(ID2D1BlendTransform, ID2D1BlendTransform_Vtbl, 0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
 impl core::ops::Deref for ID2D1BlendTransform {
     type Target = ID2D1ConcreteTransform;
@@ -587,27 +608,24 @@ impl core::ops::Deref for ID2D1BlendTransform {
 windows_core::imp::interface_hierarchy!(ID2D1BlendTransform, windows_core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ID2D1BlendTransform {
     pub unsafe fn SetDescription(&self, description: *const D2D1_BLEND_DESCRIPTION) {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), description)
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(description))
     }
     pub unsafe fn GetDescription(&self, description: *mut D2D1_BLEND_DESCRIPTION) {
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), description)
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(description))
     }
 }
-unsafe impl Send for ID2D1BlendTransform {}
-unsafe impl Sync for ID2D1BlendTransform {}
 #[repr(C)]
 pub struct ID2D1BlendTransform_Vtbl {
     pub base__: ID2D1ConcreteTransform_Vtbl,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_BLEND_DESCRIPTION),
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_BLEND_DESCRIPTION),
 }
-pub trait ID2D1BlendTransform_Impl: Sized + ID2D1ConcreteTransform_Impl {
+pub trait ID2D1BlendTransform_Impl: ID2D1ConcreteTransform_Impl {
     fn SetDescription(&self, description: *const D2D1_BLEND_DESCRIPTION);
     fn GetDescription(&self, description: *mut D2D1_BLEND_DESCRIPTION);
 }
-impl windows_core::RuntimeName for ID2D1BlendTransform {}
 impl ID2D1BlendTransform_Vtbl {
-    pub const fn new<Identity: ID2D1BlendTransform_Impl, const OFFSET: isize>() -> ID2D1BlendTransform_Vtbl {
+    pub const fn new<Identity: ID2D1BlendTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDescription<Identity: ID2D1BlendTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *const D2D1_BLEND_DESCRIPTION) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1BlendTransform_Impl::SetDescription(this, core::mem::transmute_copy(&description))
@@ -626,6 +644,9 @@ impl ID2D1BlendTransform_Vtbl {
         iid == &<ID2D1BlendTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1BlendTransform {}
+unsafe impl Send for ID2D1BlendTransform {}
+unsafe impl Sync for ID2D1BlendTransform {}
 windows_core::imp::define_interface!(ID2D1BorderTransform, ID2D1BorderTransform_Vtbl, 0x4998735c_3a19_473c_9781_656847e3a347);
 impl core::ops::Deref for ID2D1BorderTransform {
     type Target = ID2D1ConcreteTransform;
@@ -636,10 +657,10 @@ impl core::ops::Deref for ID2D1BorderTransform {
 windows_core::imp::interface_hierarchy!(ID2D1BorderTransform, windows_core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ID2D1BorderTransform {
     pub unsafe fn SetExtendModeX(&self, extendmode: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), extendmode)
+        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmode))
     }
     pub unsafe fn SetExtendModeY(&self, extendmode: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), extendmode)
+        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmode))
     }
     pub unsafe fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE {
         (windows_core::Interface::vtable(self).GetExtendModeX)(windows_core::Interface::as_raw(self))
@@ -648,8 +669,6 @@ impl ID2D1BorderTransform {
         (windows_core::Interface::vtable(self).GetExtendModeY)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1BorderTransform {}
-unsafe impl Sync for ID2D1BorderTransform {}
 #[repr(C)]
 pub struct ID2D1BorderTransform_Vtbl {
     pub base__: ID2D1ConcreteTransform_Vtbl,
@@ -658,15 +677,14 @@ pub struct ID2D1BorderTransform_Vtbl {
     pub GetExtendModeX: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_EXTEND_MODE,
     pub GetExtendModeY: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_EXTEND_MODE,
 }
-pub trait ID2D1BorderTransform_Impl: Sized + ID2D1ConcreteTransform_Impl {
+pub trait ID2D1BorderTransform_Impl: ID2D1ConcreteTransform_Impl {
     fn SetExtendModeX(&self, extendmode: D2D1_EXTEND_MODE);
     fn SetExtendModeY(&self, extendmode: D2D1_EXTEND_MODE);
     fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
     fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
 }
-impl windows_core::RuntimeName for ID2D1BorderTransform {}
 impl ID2D1BorderTransform_Vtbl {
-    pub const fn new<Identity: ID2D1BorderTransform_Impl, const OFFSET: isize>() -> ID2D1BorderTransform_Vtbl {
+    pub const fn new<Identity: ID2D1BorderTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetExtendModeX<Identity: ID2D1BorderTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmode: D2D1_EXTEND_MODE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1BorderTransform_Impl::SetExtendModeX(this, core::mem::transmute_copy(&extendmode))
@@ -695,6 +713,9 @@ impl ID2D1BorderTransform_Vtbl {
         iid == &<ID2D1BorderTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1BorderTransform {}
+unsafe impl Send for ID2D1BorderTransform {}
+unsafe impl Sync for ID2D1BorderTransform {}
 windows_core::imp::define_interface!(ID2D1BoundsAdjustmentTransform, ID2D1BoundsAdjustmentTransform_Vtbl, 0x90f732e2_5092_4606_a819_8651970baccd);
 impl core::ops::Deref for ID2D1BoundsAdjustmentTransform {
     type Target = ID2D1TransformNode;
@@ -705,7 +726,7 @@ impl core::ops::Deref for ID2D1BoundsAdjustmentTransform {
 windows_core::imp::interface_hierarchy!(ID2D1BoundsAdjustmentTransform, windows_core::IUnknown, ID2D1TransformNode);
 impl ID2D1BoundsAdjustmentTransform {
     pub unsafe fn SetOutputBounds(&self, outputbounds: *const super::super::Foundation::RECT) {
-        (windows_core::Interface::vtable(self).SetOutputBounds)(windows_core::Interface::as_raw(self), outputbounds)
+        (windows_core::Interface::vtable(self).SetOutputBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(outputbounds))
     }
     pub unsafe fn GetOutputBounds(&self) -> super::super::Foundation::RECT {
         let mut result__ = core::mem::zeroed();
@@ -713,21 +734,18 @@ impl ID2D1BoundsAdjustmentTransform {
         result__
     }
 }
-unsafe impl Send for ID2D1BoundsAdjustmentTransform {}
-unsafe impl Sync for ID2D1BoundsAdjustmentTransform {}
 #[repr(C)]
 pub struct ID2D1BoundsAdjustmentTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOutputBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT),
     pub GetOutputBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT),
 }
-pub trait ID2D1BoundsAdjustmentTransform_Impl: Sized + ID2D1TransformNode_Impl {
+pub trait ID2D1BoundsAdjustmentTransform_Impl: ID2D1TransformNode_Impl {
     fn SetOutputBounds(&self, outputbounds: *const super::super::Foundation::RECT);
     fn GetOutputBounds(&self, outputbounds: *mut super::super::Foundation::RECT);
 }
-impl windows_core::RuntimeName for ID2D1BoundsAdjustmentTransform {}
 impl ID2D1BoundsAdjustmentTransform_Vtbl {
-    pub const fn new<Identity: ID2D1BoundsAdjustmentTransform_Impl, const OFFSET: isize>() -> ID2D1BoundsAdjustmentTransform_Vtbl {
+    pub const fn new<Identity: ID2D1BoundsAdjustmentTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutputBounds<Identity: ID2D1BoundsAdjustmentTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputbounds: *const super::super::Foundation::RECT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1BoundsAdjustmentTransform_Impl::SetOutputBounds(this, core::mem::transmute_copy(&outputbounds))
@@ -746,6 +764,9 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
         iid == &<ID2D1BoundsAdjustmentTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1BoundsAdjustmentTransform {}
+unsafe impl Send for ID2D1BoundsAdjustmentTransform {}
+unsafe impl Sync for ID2D1BoundsAdjustmentTransform {}
 windows_core::imp::define_interface!(ID2D1Brush, ID2D1Brush_Vtbl, 0x2cd906a8_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Brush {
     type Target = ID2D1Resource;
@@ -756,22 +777,20 @@ impl core::ops::Deref for ID2D1Brush {
 windows_core::imp::interface_hierarchy!(ID2D1Brush, windows_core::IUnknown, ID2D1Resource);
 impl ID2D1Brush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
-        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity)
+        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), core::mem::transmute(opacity))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
     pub unsafe fn GetOpacity(&self) -> f32 {
         (windows_core::Interface::vtable(self).GetOpacity)(windows_core::Interface::as_raw(self))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
 }
-unsafe impl Send for ID2D1Brush {}
-unsafe impl Sync for ID2D1Brush {}
 #[repr(C)]
 pub struct ID2D1Brush_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -787,17 +806,15 @@ pub struct ID2D1Brush_Vtbl {
     GetTransform: usize,
 }
 #[cfg(feature = "Foundation_Numerics")]
-pub trait ID2D1Brush_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Brush_Impl: ID2D1Resource_Impl {
     fn SetOpacity(&self, opacity: f32);
     fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2);
     fn GetOpacity(&self) -> f32;
     fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2);
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl windows_core::RuntimeName for ID2D1Brush {}
-#[cfg(feature = "Foundation_Numerics")]
 impl ID2D1Brush_Vtbl {
-    pub const fn new<Identity: ID2D1Brush_Impl, const OFFSET: isize>() -> ID2D1Brush_Vtbl {
+    pub const fn new<Identity: ID2D1Brush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOpacity<Identity: ID2D1Brush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Brush_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity))
@@ -826,6 +843,12 @@ impl ID2D1Brush_Vtbl {
         iid == &<ID2D1Brush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::RuntimeName for ID2D1Brush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1Brush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1Brush {}
 windows_core::imp::define_interface!(ID2D1ColorContext, ID2D1ColorContext_Vtbl, 0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
 impl core::ops::Deref for ID2D1ColorContext {
     type Target = ID2D1Resource;
@@ -845,8 +868,6 @@ impl ID2D1ColorContext {
         (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(profile.as_ptr()), profile.len().try_into().unwrap()).ok()
     }
 }
-unsafe impl Send for ID2D1ColorContext {}
-unsafe impl Sync for ID2D1ColorContext {}
 #[repr(C)]
 pub struct ID2D1ColorContext_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -854,14 +875,13 @@ pub struct ID2D1ColorContext_Vtbl {
     pub GetProfileSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1ColorContext_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1ColorContext_Impl: ID2D1Resource_Impl {
     fn GetColorSpace(&self) -> D2D1_COLOR_SPACE;
     fn GetProfileSize(&self) -> u32;
     fn GetProfile(&self, profile: *mut u8, profilesize: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1ColorContext {}
 impl ID2D1ColorContext_Vtbl {
-    pub const fn new<Identity: ID2D1ColorContext_Impl, const OFFSET: isize>() -> ID2D1ColorContext_Vtbl {
+    pub const fn new<Identity: ID2D1ColorContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColorSpace<Identity: ID2D1ColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_SPACE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ColorContext_Impl::GetColorSpace(this)
@@ -885,6 +905,9 @@ impl ID2D1ColorContext_Vtbl {
         iid == &<ID2D1ColorContext as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ColorContext {}
+unsafe impl Send for ID2D1ColorContext {}
+unsafe impl Sync for ID2D1ColorContext {}
 windows_core::imp::define_interface!(ID2D1ColorContext1, ID2D1ColorContext1_Vtbl, 0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
 impl core::ops::Deref for ID2D1ColorContext1 {
     type Target = ID2D1ColorContext;
@@ -903,11 +926,9 @@ impl ID2D1ColorContext1 {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSimpleColorProfile(&self, simpleprofile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSimpleColorProfile)(windows_core::Interface::as_raw(self), simpleprofile).ok()
+        (windows_core::Interface::vtable(self).GetSimpleColorProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(simpleprofile)).ok()
     }
 }
-unsafe impl Send for ID2D1ColorContext1 {}
-unsafe impl Sync for ID2D1ColorContext1 {}
 #[repr(C)]
 pub struct ID2D1ColorContext1_Vtbl {
     pub base__: ID2D1ColorContext_Vtbl,
@@ -922,16 +943,14 @@ pub struct ID2D1ColorContext1_Vtbl {
     GetSimpleColorProfile: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID2D1ColorContext1_Impl: Sized + ID2D1ColorContext_Impl {
+pub trait ID2D1ColorContext1_Impl: ID2D1ColorContext_Impl {
     fn GetColorContextType(&self) -> D2D1_COLOR_CONTEXT_TYPE;
     fn GetDXGIColorSpace(&self) -> super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE;
     fn GetSimpleColorProfile(&self, simpleprofile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::RuntimeName for ID2D1ColorContext1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID2D1ColorContext1_Vtbl {
-    pub const fn new<Identity: ID2D1ColorContext1_Impl, const OFFSET: isize>() -> ID2D1ColorContext1_Vtbl {
+    pub const fn new<Identity: ID2D1ColorContext1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColorContextType<Identity: ID2D1ColorContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_CONTEXT_TYPE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ColorContext1_Impl::GetColorContextType(this)
@@ -955,6 +974,12 @@ impl ID2D1ColorContext1_Vtbl {
         iid == &<ID2D1ColorContext1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1ColorContext as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::RuntimeName for ID2D1ColorContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1ColorContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1ColorContext1 {}
 windows_core::imp::define_interface!(ID2D1CommandList, ID2D1CommandList_Vtbl, 0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
 impl core::ops::Deref for ID2D1CommandList {
     type Target = ID2D1Image;
@@ -974,21 +999,18 @@ impl ID2D1CommandList {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandList {}
-unsafe impl Sync for ID2D1CommandList {}
 #[repr(C)]
 pub struct ID2D1CommandList_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1CommandList_Impl: Sized + ID2D1Image_Impl {
+pub trait ID2D1CommandList_Impl: ID2D1Image_Impl {
     fn Stream(&self, sink: Option<&ID2D1CommandSink>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1CommandList {}
 impl ID2D1CommandList_Vtbl {
-    pub const fn new<Identity: ID2D1CommandList_Impl, const OFFSET: isize>() -> ID2D1CommandList_Vtbl {
+    pub const fn new<Identity: ID2D1CommandList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Stream<Identity: ID2D1CommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandList_Impl::Stream(this, windows_core::from_raw_borrowed(&sink)).into()
@@ -1003,13 +1025,10 @@ impl ID2D1CommandList_Vtbl {
         iid == &<ID2D1CommandList as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1CommandList {}
+unsafe impl Send for ID2D1CommandList {}
+unsafe impl Sync for ID2D1CommandList {}
 windows_core::imp::define_interface!(ID2D1CommandSink, ID2D1CommandSink_Vtbl, 0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
-impl core::ops::Deref for ID2D1CommandSink {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1CommandSink, windows_core::IUnknown);
 impl ID2D1CommandSink {
     pub unsafe fn BeginDraw(&self) -> windows_core::Result<()> {
@@ -1019,13 +1038,13 @@ impl ID2D1CommandSink {
         (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetAntialiasMode(&self, antialiasmode: D2D1_ANTIALIAS_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAntialiasMode)(windows_core::Interface::as_raw(self), antialiasmode).ok()
+        (windows_core::Interface::vtable(self).SetAntialiasMode)(windows_core::Interface::as_raw(self), core::mem::transmute(antialiasmode)).ok()
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTags)(windows_core::Interface::as_raw(self), tag1, tag2).ok()
+        (windows_core::Interface::vtable(self).SetTags)(windows_core::Interface::as_raw(self), core::mem::transmute(tag1), core::mem::transmute(tag2)).ok()
     }
     pub unsafe fn SetTextAntialiasMode(&self, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTextAntialiasMode)(windows_core::Interface::as_raw(self), textantialiasmode).ok()
+        (windows_core::Interface::vtable(self).SetTextAntialiasMode)(windows_core::Interface::as_raw(self), core::mem::transmute(textantialiasmode)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
     pub unsafe fn SetTextRenderingParams<P0>(&self, textrenderingparams: P0) -> windows_core::Result<()>
@@ -1036,62 +1055,62 @@ impl ID2D1CommandSink {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform).ok()
+        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform)).ok()
     }
     pub unsafe fn SetPrimitiveBlend(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrimitiveBlend)(windows_core::Interface::as_raw(self), primitiveblend).ok()
+        (windows_core::Interface::vtable(self).SetPrimitiveBlend)(windows_core::Interface::as_raw(self), core::mem::transmute(primitiveblend)).ok()
     }
     pub unsafe fn SetUnitMode(&self, unitmode: D2D1_UNIT_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUnitMode)(windows_core::Interface::as_raw(self), unitmode).ok()
+        (windows_core::Interface::vtable(self).SetUnitMode)(windows_core::Interface::as_raw(self), core::mem::transmute(unitmode)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Clear(&self, color: Option<*const Common::D2D1_COLOR_F>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), core::mem::transmute(color.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawGlyphRun<P0>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P0, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> windows_core::Result<()>
+    pub unsafe fn DrawGlyphRun<P3>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), measuringmode).ok()
+        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), core::mem::transmute(measuringmode)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawLine<P0, P1>(&self, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: P0, strokewidth: f32, strokestyle: P1) -> windows_core::Result<()>
+    pub unsafe fn DrawLine<P2, P4>(&self, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: P2, strokewidth: f32, strokestyle: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P2: windows_core::Param<ID2D1Brush>,
+        P4: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawLine)(windows_core::Interface::as_raw(self), core::mem::transmute(point0), core::mem::transmute(point1), brush.param().abi(), strokewidth, strokestyle.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DrawLine)(windows_core::Interface::as_raw(self), core::mem::transmute(point0), core::mem::transmute(point1), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi()).ok()
     }
-    pub unsafe fn DrawGeometry<P0, P1, P2>(&self, geometry: P0, brush: P1, strokewidth: f32, strokestyle: P2) -> windows_core::Result<()>
+    pub unsafe fn DrawGeometry<P0, P1, P3>(&self, geometry: P0, brush: P1, strokewidth: f32, strokestyle: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1Geometry>,
         P1: windows_core::Param<ID2D1Brush>,
-        P2: windows_core::Param<ID2D1StrokeStyle>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawGeometry)(windows_core::Interface::as_raw(self), geometry.param().abi(), brush.param().abi(), strokewidth, strokestyle.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DrawGeometry)(windows_core::Interface::as_raw(self), geometry.param().abi(), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawRectangle<P0, P1>(&self, rect: *const Common::D2D_RECT_F, brush: P0, strokewidth: f32, strokestyle: P1) -> windows_core::Result<()>
+    pub unsafe fn DrawRectangle<P1, P3>(&self, rect: *const Common::D2D_RECT_F, brush: P1, strokewidth: f32, strokestyle: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P1: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawRectangle)(windows_core::Interface::as_raw(self), rect, brush.param().abi(), strokewidth, strokestyle.param().abi()).ok()
+        (windows_core::Interface::vtable(self).DrawRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(rect), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap<P0>(&self, bitmap: P0, destinationrectangle: Option<*const Common::D2D_RECT_F>, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: Option<*const Common::D2D_RECT_F>, perspectivetransform: Option<*const Common::D2D_MATRIX_4X4_F>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1Bitmap>,
     {
-        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), opacity, interpolationmode, core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(perspectivetransform.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(opacity), core::mem::transmute(interpolationmode), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(perspectivetransform.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawImage<P0>(&self, image: P0, targetoffset: Option<*const Common::D2D_POINT_2F>, imagerectangle: Option<*const Common::D2D_RECT_F>, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1Image>,
     {
-        (windows_core::Interface::vtable(self).DrawImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), interpolationmode, compositemode).ok()
+        (windows_core::Interface::vtable(self).DrawImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(interpolationmode), core::mem::transmute(compositemode)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile<P0>(&self, gdimetafile: P0, targetoffset: Option<*const Common::D2D_POINT_2F>) -> windows_core::Result<()>
@@ -1124,22 +1143,22 @@ impl ID2D1CommandSink {
         (windows_core::Interface::vtable(self).FillGeometry)(windows_core::Interface::as_raw(self), geometry.param().abi(), brush.param().abi(), opacitybrush.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn FillRectangle<P0>(&self, rect: *const Common::D2D_RECT_F, brush: P0) -> windows_core::Result<()>
+    pub unsafe fn FillRectangle<P1>(&self, rect: *const Common::D2D_RECT_F, brush: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P1: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).FillRectangle)(windows_core::Interface::as_raw(self), rect, brush.param().abi()).ok()
+        (windows_core::Interface::vtable(self).FillRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(rect), brush.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PushAxisAlignedClip)(windows_core::Interface::as_raw(self), cliprect, antialiasmode).ok()
+        (windows_core::Interface::vtable(self).PushAxisAlignedClip)(windows_core::Interface::as_raw(self), core::mem::transmute(cliprect), core::mem::transmute(antialiasmode)).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn PushLayer<P0>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: P0) -> windows_core::Result<()>
+    pub unsafe fn PushLayer<P1>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Layer>,
+        P1: windows_core::Param<ID2D1Layer>,
     {
-        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), layerparameters1, layer.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), core::mem::transmute(layerparameters1), layer.param().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PopAxisAlignedClip)(windows_core::Interface::as_raw(self)).ok()
@@ -1148,8 +1167,6 @@ impl ID2D1CommandSink {
         (windows_core::Interface::vtable(self).PopLayer)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink {}
-unsafe impl Sync for ID2D1CommandSink {}
 #[repr(C)]
 pub struct ID2D1CommandSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -1219,7 +1236,7 @@ pub struct ID2D1CommandSink_Vtbl {
     pub PopLayer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1CommandSink_Impl: windows_core::IUnknownImpl {
     fn BeginDraw(&self) -> windows_core::Result<()>;
     fn EndDraw(&self) -> windows_core::Result<()>;
     fn SetAntialiasMode(&self, antialiasmode: D2D1_ANTIALIAS_MODE) -> windows_core::Result<()>;
@@ -1247,10 +1264,8 @@ pub trait ID2D1CommandSink_Impl: Sized + windows_core::IUnknownImpl {
     fn PopLayer(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink_Impl, const OFFSET: isize>() -> ID2D1CommandSink_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BeginDraw<Identity: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink_Impl::BeginDraw(this).into()
@@ -1384,6 +1399,12 @@ impl ID2D1CommandSink_Vtbl {
         iid == &<ID2D1CommandSink as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink {}
 windows_core::imp::define_interface!(ID2D1CommandSink1, ID2D1CommandSink1_Vtbl, 0x9eb767fd_4269_4467_b8c2_eb30cb305743);
 impl core::ops::Deref for ID2D1CommandSink1 {
     type Target = ID2D1CommandSink;
@@ -1394,25 +1415,21 @@ impl core::ops::Deref for ID2D1CommandSink1 {
 windows_core::imp::interface_hierarchy!(ID2D1CommandSink1, windows_core::IUnknown, ID2D1CommandSink);
 impl ID2D1CommandSink1 {
     pub unsafe fn SetPrimitiveBlend1(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrimitiveBlend1)(windows_core::Interface::as_raw(self), primitiveblend).ok()
+        (windows_core::Interface::vtable(self).SetPrimitiveBlend1)(windows_core::Interface::as_raw(self), core::mem::transmute(primitiveblend)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink1 {}
-unsafe impl Sync for ID2D1CommandSink1 {}
 #[repr(C)]
 pub struct ID2D1CommandSink1_Vtbl {
     pub base__: ID2D1CommandSink_Vtbl,
     pub SetPrimitiveBlend1: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink1_Impl: Sized + ID2D1CommandSink_Impl {
+pub trait ID2D1CommandSink1_Impl: ID2D1CommandSink_Impl {
     fn SetPrimitiveBlend1(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink1 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink1_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink1_Impl, const OFFSET: isize>() -> ID2D1CommandSink1_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPrimitiveBlend1<Identity: ID2D1CommandSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink1_Impl::SetPrimitiveBlend1(this, core::mem::transmute_copy(&primitiveblend)).into()
@@ -1423,6 +1440,12 @@ impl ID2D1CommandSink1_Vtbl {
         iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink1 {}
 windows_core::imp::define_interface!(ID2D1CommandSink2, ID2D1CommandSink2_Vtbl, 0x3bab440e_417e_47df_a2e2_bc0be6a00916);
 impl core::ops::Deref for ID2D1CommandSink2 {
     type Target = ID2D1CommandSink1;
@@ -1454,8 +1477,6 @@ impl ID2D1CommandSink2 {
         (windows_core::Interface::vtable(self).DrawGdiMetafile)(windows_core::Interface::as_raw(self), gdimetafile.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null()))).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink2 {}
-unsafe impl Sync for ID2D1CommandSink2 {}
 #[repr(C)]
 pub struct ID2D1CommandSink2_Vtbl {
     pub base__: ID2D1CommandSink1_Vtbl,
@@ -1467,16 +1488,14 @@ pub struct ID2D1CommandSink2_Vtbl {
     DrawGdiMetafile: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink2_Impl: Sized + ID2D1CommandSink1_Impl {
+pub trait ID2D1CommandSink2_Impl: ID2D1CommandSink1_Impl {
     fn DrawInk(&self, ink: Option<&ID2D1Ink>, brush: Option<&ID2D1Brush>, inkstyle: Option<&ID2D1InkStyle>) -> windows_core::Result<()>;
     fn DrawGradientMesh(&self, gradientmesh: Option<&ID2D1GradientMesh>) -> windows_core::Result<()>;
     fn DrawGdiMetafile(&self, gdimetafile: Option<&ID2D1GdiMetafile>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink2 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink2_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink2_Impl, const OFFSET: isize>() -> ID2D1CommandSink2_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DrawInk<Identity: ID2D1CommandSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, inkstyle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink2_Impl::DrawInk(this, windows_core::from_raw_borrowed(&ink), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&inkstyle)).into()
@@ -1500,6 +1519,12 @@ impl ID2D1CommandSink2_Vtbl {
         iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink2 {}
 windows_core::imp::define_interface!(ID2D1CommandSink3, ID2D1CommandSink3_Vtbl, 0x18079135_4cf3_4868_bc8e_06067e6d242d);
 impl core::ops::Deref for ID2D1CommandSink3 {
     type Target = ID2D1CommandSink2;
@@ -1509,30 +1534,26 @@ impl core::ops::Deref for ID2D1CommandSink3 {
 }
 windows_core::imp::interface_hierarchy!(ID2D1CommandSink3, windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2);
 impl ID2D1CommandSink3 {
-    pub unsafe fn DrawSpriteBatch<P0, P1>(&self, spritebatch: P0, startindex: u32, spritecount: u32, bitmap: P1, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> windows_core::Result<()>
+    pub unsafe fn DrawSpriteBatch<P0, P3>(&self, spritebatch: P0, startindex: u32, spritecount: u32, bitmap: P3, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1SpriteBatch>,
-        P1: windows_core::Param<ID2D1Bitmap>,
+        P3: windows_core::Param<ID2D1Bitmap>,
     {
-        (windows_core::Interface::vtable(self).DrawSpriteBatch)(windows_core::Interface::as_raw(self), spritebatch.param().abi(), startindex, spritecount, bitmap.param().abi(), interpolationmode, spriteoptions).ok()
+        (windows_core::Interface::vtable(self).DrawSpriteBatch)(windows_core::Interface::as_raw(self), spritebatch.param().abi(), core::mem::transmute(startindex), core::mem::transmute(spritecount), bitmap.param().abi(), core::mem::transmute(interpolationmode), core::mem::transmute(spriteoptions)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink3 {}
-unsafe impl Sync for ID2D1CommandSink3 {}
 #[repr(C)]
 pub struct ID2D1CommandSink3_Vtbl {
     pub base__: ID2D1CommandSink2_Vtbl,
     pub DrawSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, D2D1_BITMAP_INTERPOLATION_MODE, D2D1_SPRITE_OPTIONS) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink3_Impl: Sized + ID2D1CommandSink2_Impl {
+pub trait ID2D1CommandSink3_Impl: ID2D1CommandSink2_Impl {
     fn DrawSpriteBatch(&self, spritebatch: Option<&ID2D1SpriteBatch>, startindex: u32, spritecount: u32, bitmap: Option<&ID2D1Bitmap>, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink3 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink3_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink3_Impl, const OFFSET: isize>() -> ID2D1CommandSink3_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DrawSpriteBatch<Identity: ID2D1CommandSink3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritebatch: *mut core::ffi::c_void, startindex: u32, spritecount: u32, bitmap: *mut core::ffi::c_void, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink3_Impl::DrawSpriteBatch(this, windows_core::from_raw_borrowed(&spritebatch), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&spriteoptions)).into()
@@ -1543,6 +1564,12 @@ impl ID2D1CommandSink3_Vtbl {
         iid == &<ID2D1CommandSink3 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink3 {}
 windows_core::imp::define_interface!(ID2D1CommandSink4, ID2D1CommandSink4_Vtbl, 0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
 impl core::ops::Deref for ID2D1CommandSink4 {
     type Target = ID2D1CommandSink3;
@@ -1553,25 +1580,21 @@ impl core::ops::Deref for ID2D1CommandSink4 {
 windows_core::imp::interface_hierarchy!(ID2D1CommandSink4, windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3);
 impl ID2D1CommandSink4 {
     pub unsafe fn SetPrimitiveBlend2(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrimitiveBlend2)(windows_core::Interface::as_raw(self), primitiveblend).ok()
+        (windows_core::Interface::vtable(self).SetPrimitiveBlend2)(windows_core::Interface::as_raw(self), core::mem::transmute(primitiveblend)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink4 {}
-unsafe impl Sync for ID2D1CommandSink4 {}
 #[repr(C)]
 pub struct ID2D1CommandSink4_Vtbl {
     pub base__: ID2D1CommandSink3_Vtbl,
     pub SetPrimitiveBlend2: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink4_Impl: Sized + ID2D1CommandSink3_Impl {
+pub trait ID2D1CommandSink4_Impl: ID2D1CommandSink3_Impl {
     fn SetPrimitiveBlend2(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink4 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink4_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink4_Impl, const OFFSET: isize>() -> ID2D1CommandSink4_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPrimitiveBlend2<Identity: ID2D1CommandSink4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink4_Impl::SetPrimitiveBlend2(this, core::mem::transmute_copy(&primitiveblend)).into()
@@ -1582,6 +1605,12 @@ impl ID2D1CommandSink4_Vtbl {
         iid == &<ID2D1CommandSink4 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink3 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink4 {}
 windows_core::imp::define_interface!(ID2D1CommandSink5, ID2D1CommandSink5_Vtbl, 0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
 impl core::ops::Deref for ID2D1CommandSink5 {
     type Target = ID2D1CommandSink4;
@@ -1596,11 +1625,9 @@ impl ID2D1CommandSink5 {
     where
         P0: windows_core::Param<ID2D1Image>,
     {
-        (windows_core::Interface::vtable(self).BlendImage)(windows_core::Interface::as_raw(self), image.param().abi(), blendmode, core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), interpolationmode).ok()
+        (windows_core::Interface::vtable(self).BlendImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(blendmode), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(interpolationmode)).ok()
     }
 }
-unsafe impl Send for ID2D1CommandSink5 {}
-unsafe impl Sync for ID2D1CommandSink5 {}
 #[repr(C)]
 pub struct ID2D1CommandSink5_Vtbl {
     pub base__: ID2D1CommandSink4_Vtbl,
@@ -1610,14 +1637,12 @@ pub struct ID2D1CommandSink5_Vtbl {
     BlendImage: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1CommandSink5_Impl: Sized + ID2D1CommandSink4_Impl {
+pub trait ID2D1CommandSink5_Impl: ID2D1CommandSink4_Impl {
     fn BlendImage(&self, image: Option<&ID2D1Image>, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1CommandSink5 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1CommandSink5_Vtbl {
-    pub const fn new<Identity: ID2D1CommandSink5_Impl, const OFFSET: isize>() -> ID2D1CommandSink5_Vtbl {
+    pub const fn new<Identity: ID2D1CommandSink5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BlendImage<Identity: ID2D1CommandSink5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1CommandSink5_Impl::BlendImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode)).into()
@@ -1628,6 +1653,12 @@ impl ID2D1CommandSink5_Vtbl {
         iid == &<ID2D1CommandSink5 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink3 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink4 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1CommandSink5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink5 {}
 windows_core::imp::define_interface!(ID2D1ComputeInfo, ID2D1ComputeInfo_Vtbl, 0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
 impl core::ops::Deref for ID2D1ComputeInfo {
     type Target = ID2D1RenderInfo;
@@ -1641,17 +1672,15 @@ impl ID2D1ComputeInfo {
         (windows_core::Interface::vtable(self).SetComputeShaderConstantBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetComputeShader(&self, shaderid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetComputeShader)(windows_core::Interface::as_raw(self), shaderid).ok()
+        (windows_core::Interface::vtable(self).SetComputeShader)(windows_core::Interface::as_raw(self), core::mem::transmute(shaderid)).ok()
     }
-    pub unsafe fn SetResourceTexture<P0>(&self, textureindex: u32, resourcetexture: P0) -> windows_core::Result<()>
+    pub unsafe fn SetResourceTexture<P1>(&self, textureindex: u32, resourcetexture: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1ResourceTexture>,
+        P1: windows_core::Param<ID2D1ResourceTexture>,
     {
-        (windows_core::Interface::vtable(self).SetResourceTexture)(windows_core::Interface::as_raw(self), textureindex, resourcetexture.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetResourceTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(textureindex), resourcetexture.param().abi()).ok()
     }
 }
-unsafe impl Send for ID2D1ComputeInfo {}
-unsafe impl Sync for ID2D1ComputeInfo {}
 #[repr(C)]
 pub struct ID2D1ComputeInfo_Vtbl {
     pub base__: ID2D1RenderInfo_Vtbl,
@@ -1659,14 +1688,13 @@ pub struct ID2D1ComputeInfo_Vtbl {
     pub SetComputeShader: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SetResourceTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1ComputeInfo_Impl: Sized + ID2D1RenderInfo_Impl {
+pub trait ID2D1ComputeInfo_Impl: ID2D1RenderInfo_Impl {
     fn SetComputeShaderConstantBuffer(&self, buffer: *const u8, buffercount: u32) -> windows_core::Result<()>;
     fn SetComputeShader(&self, shaderid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetResourceTexture(&self, textureindex: u32, resourcetexture: Option<&ID2D1ResourceTexture>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1ComputeInfo {}
 impl ID2D1ComputeInfo_Vtbl {
-    pub const fn new<Identity: ID2D1ComputeInfo_Impl, const OFFSET: isize>() -> ID2D1ComputeInfo_Vtbl {
+    pub const fn new<Identity: ID2D1ComputeInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetComputeShaderConstantBuffer<Identity: ID2D1ComputeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *const u8, buffercount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ComputeInfo_Impl::SetComputeShaderConstantBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
@@ -1690,6 +1718,9 @@ impl ID2D1ComputeInfo_Vtbl {
         iid == &<ID2D1ComputeInfo as windows_core::Interface>::IID || iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ComputeInfo {}
+unsafe impl Send for ID2D1ComputeInfo {}
+unsafe impl Sync for ID2D1ComputeInfo {}
 windows_core::imp::define_interface!(ID2D1ComputeTransform, ID2D1ComputeTransform_Vtbl, 0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
 impl core::ops::Deref for ID2D1ComputeTransform {
     type Target = ID2D1Transform;
@@ -1706,24 +1737,21 @@ impl ID2D1ComputeTransform {
         (windows_core::Interface::vtable(self).SetComputeInfo)(windows_core::Interface::as_raw(self), computeinfo.param().abi()).ok()
     }
     pub unsafe fn CalculateThreadgroups(&self, outputrect: *const super::super::Foundation::RECT, dimensionx: *mut u32, dimensiony: *mut u32, dimensionz: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CalculateThreadgroups)(windows_core::Interface::as_raw(self), outputrect, dimensionx, dimensiony, dimensionz).ok()
+        (windows_core::Interface::vtable(self).CalculateThreadgroups)(windows_core::Interface::as_raw(self), core::mem::transmute(outputrect), core::mem::transmute(dimensionx), core::mem::transmute(dimensiony), core::mem::transmute(dimensionz)).ok()
     }
 }
-unsafe impl Send for ID2D1ComputeTransform {}
-unsafe impl Sync for ID2D1ComputeTransform {}
 #[repr(C)]
 pub struct ID2D1ComputeTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
     pub SetComputeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CalculateThreadgroups: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1ComputeTransform_Impl: Sized + ID2D1Transform_Impl {
+pub trait ID2D1ComputeTransform_Impl: ID2D1Transform_Impl {
     fn SetComputeInfo(&self, computeinfo: Option<&ID2D1ComputeInfo>) -> windows_core::Result<()>;
     fn CalculateThreadgroups(&self, outputrect: *const super::super::Foundation::RECT, dimensionx: *mut u32, dimensiony: *mut u32, dimensionz: *mut u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1ComputeTransform {}
 impl ID2D1ComputeTransform_Vtbl {
-    pub const fn new<Identity: ID2D1ComputeTransform_Impl, const OFFSET: isize>() -> ID2D1ComputeTransform_Vtbl {
+    pub const fn new<Identity: ID2D1ComputeTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetComputeInfo<Identity: ID2D1ComputeTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, computeinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ComputeTransform_Impl::SetComputeInfo(this, windows_core::from_raw_borrowed(&computeinfo)).into()
@@ -1742,6 +1770,9 @@ impl ID2D1ComputeTransform_Vtbl {
         iid == &<ID2D1ComputeTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ComputeTransform {}
+unsafe impl Send for ID2D1ComputeTransform {}
+unsafe impl Sync for ID2D1ComputeTransform {}
 windows_core::imp::define_interface!(ID2D1ConcreteTransform, ID2D1ConcreteTransform_Vtbl, 0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
 impl core::ops::Deref for ID2D1ConcreteTransform {
     type Target = ID2D1TransformNode;
@@ -1752,7 +1783,7 @@ impl core::ops::Deref for ID2D1ConcreteTransform {
 windows_core::imp::interface_hierarchy!(ID2D1ConcreteTransform, windows_core::IUnknown, ID2D1TransformNode);
 impl ID2D1ConcreteTransform {
     pub unsafe fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), bufferprecision, channeldepth).ok()
+        (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision), core::mem::transmute(channeldepth)).ok()
     }
     pub unsafe fn SetCached<P0>(&self, iscached: P0)
     where
@@ -1761,21 +1792,18 @@ impl ID2D1ConcreteTransform {
         (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.param().abi())
     }
 }
-unsafe impl Send for ID2D1ConcreteTransform {}
-unsafe impl Sync for ID2D1ConcreteTransform {}
 #[repr(C)]
 pub struct ID2D1ConcreteTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOutputBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT,
     pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
-pub trait ID2D1ConcreteTransform_Impl: Sized + ID2D1TransformNode_Impl {
+pub trait ID2D1ConcreteTransform_Impl: ID2D1TransformNode_Impl {
     fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()>;
     fn SetCached(&self, iscached: super::super::Foundation::BOOL);
 }
-impl windows_core::RuntimeName for ID2D1ConcreteTransform {}
 impl ID2D1ConcreteTransform_Vtbl {
-    pub const fn new<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>() -> ID2D1ConcreteTransform_Vtbl {
+    pub const fn new<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutputBuffer<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ConcreteTransform_Impl::SetOutputBuffer(this, core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
@@ -1794,6 +1822,9 @@ impl ID2D1ConcreteTransform_Vtbl {
         iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ConcreteTransform {}
+unsafe impl Send for ID2D1ConcreteTransform {}
+unsafe impl Sync for ID2D1ConcreteTransform {}
 windows_core::imp::define_interface!(ID2D1DCRenderTarget, ID2D1DCRenderTarget_Vtbl, 0x1c51bc64_de61_46fd_9899_63a5d8f03950);
 impl core::ops::Deref for ID2D1DCRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -1808,11 +1839,9 @@ impl ID2D1DCRenderTarget {
     where
         P0: windows_core::Param<super::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).BindDC)(windows_core::Interface::as_raw(self), hdc.param().abi(), psubrect).ok()
+        (windows_core::Interface::vtable(self).BindDC)(windows_core::Interface::as_raw(self), hdc.param().abi(), core::mem::transmute(psubrect)).ok()
     }
 }
-unsafe impl Send for ID2D1DCRenderTarget {}
-unsafe impl Sync for ID2D1DCRenderTarget {}
 #[repr(C)]
 pub struct ID2D1DCRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
@@ -1822,14 +1851,12 @@ pub struct ID2D1DCRenderTarget_Vtbl {
     BindDC: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DCRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
+pub trait ID2D1DCRenderTarget_Impl: ID2D1RenderTarget_Impl {
     fn BindDC(&self, hdc: super::Gdi::HDC, psubrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DCRenderTarget {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DCRenderTarget_Vtbl {
-    pub const fn new<Identity: ID2D1DCRenderTarget_Impl, const OFFSET: isize>() -> ID2D1DCRenderTarget_Vtbl {
+    pub const fn new<Identity: ID2D1DCRenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BindDC<Identity: ID2D1DCRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::Gdi::HDC, psubrect: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DCRenderTarget_Impl::BindDC(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&psubrect)).into()
@@ -1840,6 +1867,12 @@ impl ID2D1DCRenderTarget_Vtbl {
         iid == &<ID2D1DCRenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DCRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DCRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DCRenderTarget {}
 windows_core::imp::define_interface!(ID2D1Device, ID2D1Device_Vtbl, 0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
 impl core::ops::Deref for ID2D1Device {
     type Target = ID2D1Resource;
@@ -1851,7 +1884,7 @@ windows_core::imp::interface_hierarchy!(ID2D1Device, windows_core::IUnknown, ID2
 impl ID2D1Device {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
     pub unsafe fn CreatePrintControl<P0, P1>(&self, wicfactory: P0, documenttarget: P1, printcontrolproperties: Option<*const D2D1_PRINT_CONTROL_PROPERTIES>) -> windows_core::Result<ID2D1PrintControl>
@@ -1863,17 +1896,15 @@ impl ID2D1Device {
         (windows_core::Interface::vtable(self).CreatePrintControl)(windows_core::Interface::as_raw(self), wicfactory.param().abi(), documenttarget.param().abi(), core::mem::transmute(printcontrolproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMaximumTextureMemory(&self, maximuminbytes: u64) {
-        (windows_core::Interface::vtable(self).SetMaximumTextureMemory)(windows_core::Interface::as_raw(self), maximuminbytes)
+        (windows_core::Interface::vtable(self).SetMaximumTextureMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(maximuminbytes))
     }
     pub unsafe fn GetMaximumTextureMemory(&self) -> u64 {
         (windows_core::Interface::vtable(self).GetMaximumTextureMemory)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn ClearResources(&self, millisecondssinceuse: u32) {
-        (windows_core::Interface::vtable(self).ClearResources)(windows_core::Interface::as_raw(self), millisecondssinceuse)
+        (windows_core::Interface::vtable(self).ClearResources)(windows_core::Interface::as_raw(self), core::mem::transmute(millisecondssinceuse))
     }
 }
-unsafe impl Send for ID2D1Device {}
-unsafe impl Sync for ID2D1Device {}
 #[repr(C)]
 pub struct ID2D1Device_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -1887,7 +1918,7 @@ pub struct ID2D1Device_Vtbl {
     pub ClearResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Device_Impl: ID2D1Resource_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext>;
     fn CreatePrintControl(&self, wicfactory: Option<&super::Imaging::IWICImagingFactory>, documenttarget: Option<&super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>, printcontrolproperties: *const D2D1_PRINT_CONTROL_PROPERTIES) -> windows_core::Result<ID2D1PrintControl>;
     fn SetMaximumTextureMemory(&self, maximuminbytes: u64);
@@ -1895,10 +1926,8 @@ pub trait ID2D1Device_Impl: Sized + ID2D1Resource_Impl {
     fn ClearResources(&self, millisecondssinceuse: u32);
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device {}
-#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device_Vtbl {
-    pub const fn new<Identity: ID2D1Device_Impl, const OFFSET: isize>() -> ID2D1Device_Vtbl {
+    pub const fn new<Identity: ID2D1Device_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -1944,6 +1973,12 @@ impl ID2D1Device_Vtbl {
         iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device {}
 windows_core::imp::define_interface!(ID2D1Device1, ID2D1Device1_Vtbl, 0xd21768e1_23a4_4823_a14b_7c3eba85d658);
 impl core::ops::Deref for ID2D1Device1 {
     type Target = ID2D1Device;
@@ -1957,15 +1992,13 @@ impl ID2D1Device1 {
         (windows_core::Interface::vtable(self).GetRenderingPriority)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn SetRenderingPriority(&self, renderingpriority: D2D1_RENDERING_PRIORITY) {
-        (windows_core::Interface::vtable(self).SetRenderingPriority)(windows_core::Interface::as_raw(self), renderingpriority)
+        (windows_core::Interface::vtable(self).SetRenderingPriority)(windows_core::Interface::as_raw(self), core::mem::transmute(renderingpriority))
     }
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device1 {}
-unsafe impl Sync for ID2D1Device1 {}
 #[repr(C)]
 pub struct ID2D1Device1_Vtbl {
     pub base__: ID2D1Device_Vtbl,
@@ -1974,16 +2007,14 @@ pub struct ID2D1Device1_Vtbl {
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device1_Impl: Sized + ID2D1Device_Impl {
+pub trait ID2D1Device1_Impl: ID2D1Device_Impl {
     fn GetRenderingPriority(&self) -> D2D1_RENDERING_PRIORITY;
     fn SetRenderingPriority(&self, renderingpriority: D2D1_RENDERING_PRIORITY);
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext1>;
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device1 {}
-#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device1_Vtbl {
-    pub const fn new<Identity: ID2D1Device1_Impl, const OFFSET: isize>() -> ID2D1Device1_Vtbl {
+    pub const fn new<Identity: ID2D1Device1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRenderingPriority<Identity: ID2D1Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_RENDERING_PRIORITY {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Device1_Impl::GetRenderingPriority(this)
@@ -2013,6 +2044,12 @@ impl ID2D1Device1_Vtbl {
         iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device1 {}
 windows_core::imp::define_interface!(ID2D1Device2, ID2D1Device2_Vtbl, 0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
 impl core::ops::Deref for ID2D1Device2 {
     type Target = ID2D1Device1;
@@ -2024,7 +2061,7 @@ windows_core::imp::interface_hierarchy!(ID2D1Device2, windows_core::IUnknown, ID
 impl ID2D1Device2 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext2> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FlushDeviceContexts<P0>(&self, bitmap: P0)
     where
@@ -2038,8 +2075,6 @@ impl ID2D1Device2 {
         (windows_core::Interface::vtable(self).GetDxgiDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device2 {}
-unsafe impl Sync for ID2D1Device2 {}
 #[repr(C)]
 pub struct ID2D1Device2_Vtbl {
     pub base__: ID2D1Device1_Vtbl,
@@ -2051,16 +2086,14 @@ pub struct ID2D1Device2_Vtbl {
     GetDxgiDevice: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device2_Impl: Sized + ID2D1Device1_Impl {
+pub trait ID2D1Device2_Impl: ID2D1Device1_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext2>;
     fn FlushDeviceContexts(&self, bitmap: Option<&ID2D1Bitmap>);
     fn GetDxgiDevice(&self) -> windows_core::Result<super::Dxgi::IDXGIDevice>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device2 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device2_Vtbl {
-    pub const fn new<Identity: ID2D1Device2_Impl, const OFFSET: isize>() -> ID2D1Device2_Vtbl {
+    pub const fn new<Identity: ID2D1Device2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device2_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2096,6 +2129,12 @@ impl ID2D1Device2_Vtbl {
         iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device2 {}
 windows_core::imp::define_interface!(ID2D1Device3, ID2D1Device3_Vtbl, 0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
 impl core::ops::Deref for ID2D1Device3 {
     type Target = ID2D1Device2;
@@ -2107,25 +2146,21 @@ windows_core::imp::interface_hierarchy!(ID2D1Device3, windows_core::IUnknown, ID
 impl ID2D1Device3 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext3> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device3 {}
-unsafe impl Sync for ID2D1Device3 {}
 #[repr(C)]
 pub struct ID2D1Device3_Vtbl {
     pub base__: ID2D1Device2_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device3_Impl: Sized + ID2D1Device2_Impl {
+pub trait ID2D1Device3_Impl: ID2D1Device2_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext3>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device3 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device3_Vtbl {
-    pub const fn new<Identity: ID2D1Device3_Impl, const OFFSET: isize>() -> ID2D1Device3_Vtbl {
+    pub const fn new<Identity: ID2D1Device3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device3_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2142,6 +2177,12 @@ impl ID2D1Device3_Vtbl {
         iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device3 {}
 windows_core::imp::define_interface!(ID2D1Device4, ID2D1Device4_Vtbl, 0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
 impl core::ops::Deref for ID2D1Device4 {
     type Target = ID2D1Device3;
@@ -2153,17 +2194,15 @@ windows_core::imp::interface_hierarchy!(ID2D1Device4, windows_core::IUnknown, ID
 impl ID2D1Device4 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext4> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64) {
-        (windows_core::Interface::vtable(self).SetMaximumColorGlyphCacheMemory)(windows_core::Interface::as_raw(self), maximuminbytes)
+        (windows_core::Interface::vtable(self).SetMaximumColorGlyphCacheMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(maximuminbytes))
     }
     pub unsafe fn GetMaximumColorGlyphCacheMemory(&self) -> u64 {
         (windows_core::Interface::vtable(self).GetMaximumColorGlyphCacheMemory)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1Device4 {}
-unsafe impl Sync for ID2D1Device4 {}
 #[repr(C)]
 pub struct ID2D1Device4_Vtbl {
     pub base__: ID2D1Device3_Vtbl,
@@ -2172,16 +2211,14 @@ pub struct ID2D1Device4_Vtbl {
     pub GetMaximumColorGlyphCacheMemory: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device4_Impl: Sized + ID2D1Device3_Impl {
+pub trait ID2D1Device4_Impl: ID2D1Device3_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext4>;
     fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64);
     fn GetMaximumColorGlyphCacheMemory(&self) -> u64;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device4 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device4_Vtbl {
-    pub const fn new<Identity: ID2D1Device4_Impl, const OFFSET: isize>() -> ID2D1Device4_Vtbl {
+    pub const fn new<Identity: ID2D1Device4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device4_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2211,6 +2248,12 @@ impl ID2D1Device4_Vtbl {
         iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device4 {}
 windows_core::imp::define_interface!(ID2D1Device5, ID2D1Device5_Vtbl, 0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
 impl core::ops::Deref for ID2D1Device5 {
     type Target = ID2D1Device4;
@@ -2222,25 +2265,21 @@ windows_core::imp::interface_hierarchy!(ID2D1Device5, windows_core::IUnknown, ID
 impl ID2D1Device5 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext5> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device5 {}
-unsafe impl Sync for ID2D1Device5 {}
 #[repr(C)]
 pub struct ID2D1Device5_Vtbl {
     pub base__: ID2D1Device4_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device5_Impl: Sized + ID2D1Device4_Impl {
+pub trait ID2D1Device5_Impl: ID2D1Device4_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext5>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device5 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device5_Vtbl {
-    pub const fn new<Identity: ID2D1Device5_Impl, const OFFSET: isize>() -> ID2D1Device5_Vtbl {
+    pub const fn new<Identity: ID2D1Device5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device5_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2257,6 +2296,12 @@ impl ID2D1Device5_Vtbl {
         iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device5 {}
 windows_core::imp::define_interface!(ID2D1Device6, ID2D1Device6_Vtbl, 0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
 impl core::ops::Deref for ID2D1Device6 {
     type Target = ID2D1Device5;
@@ -2268,25 +2313,21 @@ windows_core::imp::interface_hierarchy!(ID2D1Device6, windows_core::IUnknown, ID
 impl ID2D1Device6 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext6> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device6 {}
-unsafe impl Sync for ID2D1Device6 {}
 #[repr(C)]
 pub struct ID2D1Device6_Vtbl {
     pub base__: ID2D1Device5_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device6_Impl: Sized + ID2D1Device5_Impl {
+pub trait ID2D1Device6_Impl: ID2D1Device5_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext6>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device6 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device6_Vtbl {
-    pub const fn new<Identity: ID2D1Device6_Impl, const OFFSET: isize>() -> ID2D1Device6_Vtbl {
+    pub const fn new<Identity: ID2D1Device6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device6_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2303,6 +2344,12 @@ impl ID2D1Device6_Vtbl {
         iid == &<ID2D1Device6 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Device5 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device6 {}
 windows_core::imp::define_interface!(ID2D1Device7, ID2D1Device7_Vtbl, 0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb);
 impl core::ops::Deref for ID2D1Device7 {
     type Target = ID2D1Device6;
@@ -2314,25 +2361,21 @@ windows_core::imp::interface_hierarchy!(ID2D1Device7, windows_core::IUnknown, ID
 impl ID2D1Device7 {
     pub unsafe fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext7> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDeviceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Device7 {}
-unsafe impl Sync for ID2D1Device7 {}
 #[repr(C)]
 pub struct ID2D1Device7_Vtbl {
     pub base__: ID2D1Device6_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-pub trait ID2D1Device7_Impl: Sized + ID2D1Device6_Impl {
+pub trait ID2D1Device7_Impl: ID2D1Device6_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext7>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
-impl windows_core::RuntimeName for ID2D1Device7 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device7_Vtbl {
-    pub const fn new<Identity: ID2D1Device7_Impl, const OFFSET: isize>() -> ID2D1Device7_Vtbl {
+    pub const fn new<Identity: ID2D1Device7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDeviceContext<Identity: ID2D1Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Device7_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
@@ -2349,6 +2392,12 @@ impl ID2D1Device7_Vtbl {
         iid == &<ID2D1Device7 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Device6 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl windows_core::RuntimeName for ID2D1Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device7 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext, ID2D1DeviceContext_Vtbl, 0xe8f7fe7a_191c_466d_ad95_975678bda998);
 impl core::ops::Deref for ID2D1DeviceContext {
     type Target = ID2D1RenderTarget;
@@ -2361,7 +2410,7 @@ impl ID2D1DeviceContext {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap(&self, size: Common::D2D_SIZE_U, sourcedata: Option<*const core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(size), core::mem::transmute(sourcedata.unwrap_or(core::ptr::null())), pitch, bitmapproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(size), core::mem::transmute(sourcedata.unwrap_or(core::ptr::null())), core::mem::transmute(pitch), core::mem::transmute(bitmapproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap<P0>(&self, wicbitmapsource: P0, bitmapproperties: Option<*const D2D1_BITMAP_PROPERTIES1>) -> windows_core::Result<ID2D1Bitmap1>
@@ -2373,7 +2422,7 @@ impl ID2D1DeviceContext {
     }
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: Option<&[u8]>) -> windows_core::Result<ID2D1ColorContext> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, core::mem::transmute(profile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), profile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), core::mem::transmute(space), core::mem::transmute(profile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), profile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> windows_core::Result<ID2D1ColorContext>
     where
@@ -2400,12 +2449,12 @@ impl ID2D1DeviceContext {
     }
     pub unsafe fn CreateEffect(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Effect> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), effectid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection(&self, straightalphagradientstops: &[Common::D2D1_GRADIENT_STOP], preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(straightalphagradientstops.as_ptr()), straightalphagradientstops.len().try_into().unwrap(), preinterpolationspace, postinterpolationspace, bufferprecision, extendmode, colorinterpolationmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(straightalphagradientstops.as_ptr()), straightalphagradientstops.len().try_into().unwrap(), core::mem::transmute(preinterpolationspace), core::mem::transmute(postinterpolationspace), core::mem::transmute(bufferprecision), core::mem::transmute(extendmode), core::mem::transmute(colorinterpolationmode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn CreateImageBrush<P0>(&self, image: P0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>) -> windows_core::Result<ID2D1ImageBrush>
@@ -2413,7 +2462,7 @@ impl ID2D1DeviceContext {
         P0: windows_core::Param<ID2D1Image>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImageBrush)(windows_core::Interface::as_raw(self), image.param().abi(), imagebrushproperties, core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImageBrush)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(imagebrushproperties), core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush<P0>(&self, bitmap: P0, bitmapbrushproperties: Option<*const D2D1_BITMAP_BRUSH_PROPERTIES1>, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>) -> windows_core::Result<ID2D1BitmapBrush1>
@@ -2429,10 +2478,10 @@ impl ID2D1DeviceContext {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).IsDxgiFormatSupported)(windows_core::Interface::as_raw(self), format)
+        (windows_core::Interface::vtable(self).IsDxgiFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(format))
     }
     pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), bufferprecision)
+        (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetImageLocalBounds<P0>(&self, image: P0) -> windows_core::Result<Common::D2D_RECT_F>
@@ -2453,7 +2502,7 @@ impl ID2D1DeviceContext {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> windows_core::Result<Common::D2D_RECT_F> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetGlyphRunWorldBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, measuringmode, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetGlyphRunWorldBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), core::mem::transmute(measuringmode), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID2D1Device> {
         let mut result__ = core::mem::zeroed();
@@ -2473,7 +2522,7 @@ impl ID2D1DeviceContext {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetRenderingControls(&self, renderingcontrols: *const D2D1_RENDERING_CONTROLS) {
-        (windows_core::Interface::vtable(self).SetRenderingControls)(windows_core::Interface::as_raw(self), renderingcontrols)
+        (windows_core::Interface::vtable(self).SetRenderingControls)(windows_core::Interface::as_raw(self), core::mem::transmute(renderingcontrols))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetRenderingControls(&self) -> D2D1_RENDERING_CONTROLS {
@@ -2482,30 +2531,30 @@ impl ID2D1DeviceContext {
         result__
     }
     pub unsafe fn SetPrimitiveBlend(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) {
-        (windows_core::Interface::vtable(self).SetPrimitiveBlend)(windows_core::Interface::as_raw(self), primitiveblend)
+        (windows_core::Interface::vtable(self).SetPrimitiveBlend)(windows_core::Interface::as_raw(self), core::mem::transmute(primitiveblend))
     }
     pub unsafe fn GetPrimitiveBlend(&self) -> D2D1_PRIMITIVE_BLEND {
         (windows_core::Interface::vtable(self).GetPrimitiveBlend)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn SetUnitMode(&self, unitmode: D2D1_UNIT_MODE) {
-        (windows_core::Interface::vtable(self).SetUnitMode)(windows_core::Interface::as_raw(self), unitmode)
+        (windows_core::Interface::vtable(self).SetUnitMode)(windows_core::Interface::as_raw(self), core::mem::transmute(unitmode))
     }
     pub unsafe fn GetUnitMode(&self) -> D2D1_UNIT_MODE {
         (windows_core::Interface::vtable(self).GetUnitMode)(windows_core::Interface::as_raw(self))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawGlyphRun<P0>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P0, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawGlyphRun<P3>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), measuringmode)
+        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), core::mem::transmute(measuringmode))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawImage<P0>(&self, image: P0, targetoffset: Option<*const Common::D2D_POINT_2F>, imagerectangle: Option<*const Common::D2D_RECT_F>, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE)
     where
         P0: windows_core::Param<ID2D1Image>,
     {
-        (windows_core::Interface::vtable(self).DrawImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), interpolationmode, compositemode)
+        (windows_core::Interface::vtable(self).DrawImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(interpolationmode), core::mem::transmute(compositemode))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile<P0>(&self, gdimetafile: P0, targetoffset: Option<*const Common::D2D_POINT_2F>)
@@ -2519,21 +2568,21 @@ impl ID2D1DeviceContext {
     where
         P0: windows_core::Param<ID2D1Bitmap>,
     {
-        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), opacity, interpolationmode, core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(perspectivetransform.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(opacity), core::mem::transmute(interpolationmode), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(perspectivetransform.unwrap_or(core::ptr::null())))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn PushLayer<P0>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: P0)
+    pub unsafe fn PushLayer<P1>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: P1)
     where
-        P0: windows_core::Param<ID2D1Layer>,
+        P1: windows_core::Param<ID2D1Layer>,
     {
-        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), layerparameters, layer.param().abi())
+        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), core::mem::transmute(layerparameters), layer.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn InvalidateEffectInputRectangle<P0>(&self, effect: P0, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1Effect>,
     {
-        (windows_core::Interface::vtable(self).InvalidateEffectInputRectangle)(windows_core::Interface::as_raw(self), effect.param().abi(), input, inputrectangle).ok()
+        (windows_core::Interface::vtable(self).InvalidateEffectInputRectangle)(windows_core::Interface::as_raw(self), effect.param().abi(), core::mem::transmute(input), core::mem::transmute(inputrectangle)).ok()
     }
     pub unsafe fn GetEffectInvalidRectangleCount<P0>(&self, effect: P0) -> windows_core::Result<u32>
     where
@@ -2554,7 +2603,7 @@ impl ID2D1DeviceContext {
     where
         P0: windows_core::Param<ID2D1Effect>,
     {
-        (windows_core::Interface::vtable(self).GetEffectRequiredInputRectangles)(windows_core::Interface::as_raw(self), rendereffect.param().abi(), core::mem::transmute(renderimagerectangle.unwrap_or(core::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
+        (windows_core::Interface::vtable(self).GetEffectRequiredInputRectangles)(windows_core::Interface::as_raw(self), rendereffect.param().abi(), core::mem::transmute(renderimagerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(inputdescriptions), core::mem::transmute(requiredinputrects), core::mem::transmute(inputcount)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask<P0, P1>(&self, opacitymask: P0, brush: P1, destinationrectangle: Option<*const Common::D2D_RECT_F>, sourcerectangle: Option<*const Common::D2D_RECT_F>)
@@ -2565,8 +2614,6 @@ impl ID2D1DeviceContext {
         (windows_core::Interface::vtable(self).FillOpacityMask)(windows_core::Interface::as_raw(self), opacitymask.param().abi(), brush.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())))
     }
 }
-unsafe impl Send for ID2D1DeviceContext {}
-unsafe impl Sync for ID2D1DeviceContext {}
 #[repr(C)]
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
@@ -2673,7 +2720,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     FillOpacityMask: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
+pub trait ID2D1DeviceContext_Impl: ID2D1RenderTarget_Impl {
     fn CreateBitmap(&self, size: &Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
     fn CreateBitmapFromWicBitmap(&self, wicbitmapsource: Option<&super::Imaging::IWICBitmapSource>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
     fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> windows_core::Result<ID2D1ColorContext>;
@@ -2711,10 +2758,8 @@ pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
     fn FillOpacityMask(&self, opacitymask: Option<&ID2D1Bitmap>, brush: Option<&ID2D1Brush>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>() -> ID2D1DeviceContext_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBitmap<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&sourcedata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
@@ -2988,6 +3033,12 @@ impl ID2D1DeviceContext_Vtbl {
         iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext {}
 windows_core::imp::define_interface!(ID2D1DeviceContext1, ID2D1DeviceContext1_Vtbl, 0xd37f57e4_6908_459f_a199_e72f24f79987);
 impl core::ops::Deref for ID2D1DeviceContext1 {
     type Target = ID2D1DeviceContext;
@@ -3002,15 +3053,15 @@ impl ID2D1DeviceContext1 {
         P0: windows_core::Param<ID2D1Geometry>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateFilledGeometryRealization)(windows_core::Interface::as_raw(self), geometry.param().abi(), flatteningtolerance, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFilledGeometryRealization)(windows_core::Interface::as_raw(self), geometry.param().abi(), core::mem::transmute(flatteningtolerance), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateStrokedGeometryRealization<P0, P1>(&self, geometry: P0, flatteningtolerance: f32, strokewidth: f32, strokestyle: P1) -> windows_core::Result<ID2D1GeometryRealization>
+    pub unsafe fn CreateStrokedGeometryRealization<P0, P3>(&self, geometry: P0, flatteningtolerance: f32, strokewidth: f32, strokestyle: P3) -> windows_core::Result<ID2D1GeometryRealization>
     where
         P0: windows_core::Param<ID2D1Geometry>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStrokedGeometryRealization)(windows_core::Interface::as_raw(self), geometry.param().abi(), flatteningtolerance, strokewidth, strokestyle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateStrokedGeometryRealization)(windows_core::Interface::as_raw(self), geometry.param().abi(), core::mem::transmute(flatteningtolerance), core::mem::transmute(strokewidth), strokestyle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DrawGeometryRealization<P0, P1>(&self, geometryrealization: P0, brush: P1)
     where
@@ -3020,8 +3071,6 @@ impl ID2D1DeviceContext1 {
         (windows_core::Interface::vtable(self).DrawGeometryRealization)(windows_core::Interface::as_raw(self), geometryrealization.param().abi(), brush.param().abi())
     }
 }
-unsafe impl Send for ID2D1DeviceContext1 {}
-unsafe impl Sync for ID2D1DeviceContext1 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext1_Vtbl {
     pub base__: ID2D1DeviceContext_Vtbl,
@@ -3030,16 +3079,14 @@ pub struct ID2D1DeviceContext1_Vtbl {
     pub DrawGeometryRealization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DeviceContext1_Impl: Sized + ID2D1DeviceContext_Impl {
+pub trait ID2D1DeviceContext1_Impl: ID2D1DeviceContext_Impl {
     fn CreateFilledGeometryRealization(&self, geometry: Option<&ID2D1Geometry>, flatteningtolerance: f32) -> windows_core::Result<ID2D1GeometryRealization>;
     fn CreateStrokedGeometryRealization(&self, geometry: Option<&ID2D1Geometry>, flatteningtolerance: f32, strokewidth: f32, strokestyle: Option<&ID2D1StrokeStyle>) -> windows_core::Result<ID2D1GeometryRealization>;
     fn DrawGeometryRealization(&self, geometryrealization: Option<&ID2D1GeometryRealization>, brush: Option<&ID2D1Brush>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext1 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext1_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext1_Impl, const OFFSET: isize>() -> ID2D1DeviceContext1_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFilledGeometryRealization<Identity: ID2D1DeviceContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, flatteningtolerance: f32, geometryrealization: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext1_Impl::CreateFilledGeometryRealization(this, windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance)) {
@@ -3075,6 +3122,12 @@ impl ID2D1DeviceContext1_Vtbl {
         iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext1 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext2, ID2D1DeviceContext2_Vtbl, 0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
 impl core::ops::Deref for ID2D1DeviceContext2 {
     type Target = ID2D1DeviceContext1;
@@ -3086,7 +3139,7 @@ windows_core::imp::interface_hierarchy!(ID2D1DeviceContext2, windows_core::IUnkn
 impl ID2D1DeviceContext2 {
     pub unsafe fn CreateInk(&self, startpoint: *const D2D1_INK_POINT) -> windows_core::Result<ID2D1Ink> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateInk)(windows_core::Interface::as_raw(self), startpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateInk)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: Option<*const D2D1_INK_STYLE_PROPERTIES>) -> windows_core::Result<ID2D1InkStyle> {
@@ -3104,16 +3157,16 @@ impl ID2D1DeviceContext2 {
         P0: windows_core::Param<super::Imaging::IWICBitmapSource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImageSourceFromWic)(windows_core::Interface::as_raw(self), wicbitmapsource.param().abi(), loadingoptions, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImageSourceFromWic)(windows_core::Interface::as_raw(self), wicbitmapsource.param().abi(), core::mem::transmute(loadingoptions), core::mem::transmute(alphamode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> windows_core::Result<ID2D1LookupTable3D> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, core::mem::transmute(extents.as_ptr()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(strides.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), core::mem::transmute(precision), core::mem::transmute(extents.as_ptr()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(strides.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: &[Option<super::Dxgi::IDXGISurface>], colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> windows_core::Result<ID2D1ImageSource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImageSourceFromDxgi)(windows_core::Interface::as_raw(self), core::mem::transmute(surfaces.as_ptr()), surfaces.len().try_into().unwrap(), colorspace, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImageSourceFromDxgi)(windows_core::Interface::as_raw(self), core::mem::transmute(surfaces.as_ptr()), surfaces.len().try_into().unwrap(), core::mem::transmute(colorspace), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetGradientMeshWorldBounds<P0>(&self, gradientmesh: P0) -> windows_core::Result<Common::D2D_RECT_F>
@@ -3149,11 +3202,9 @@ impl ID2D1DeviceContext2 {
         P0: windows_core::Param<ID2D1ImageSource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTransformedImageSource)(windows_core::Interface::as_raw(self), imagesource.param().abi(), properties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTransformedImageSource)(windows_core::Interface::as_raw(self), imagesource.param().abi(), core::mem::transmute(properties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1DeviceContext2 {}
-unsafe impl Sync for ID2D1DeviceContext2 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext2_Vtbl {
     pub base__: ID2D1DeviceContext1_Vtbl,
@@ -3188,7 +3239,7 @@ pub struct ID2D1DeviceContext2_Vtbl {
     pub CreateTransformedImageSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DeviceContext2_Impl: Sized + ID2D1DeviceContext1_Impl {
+pub trait ID2D1DeviceContext2_Impl: ID2D1DeviceContext1_Impl {
     fn CreateInk(&self, startpoint: *const D2D1_INK_POINT) -> windows_core::Result<ID2D1Ink>;
     fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> windows_core::Result<ID2D1InkStyle>;
     fn CreateGradientMesh(&self, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32) -> windows_core::Result<ID2D1GradientMesh>;
@@ -3202,10 +3253,8 @@ pub trait ID2D1DeviceContext2_Impl: Sized + ID2D1DeviceContext1_Impl {
     fn CreateTransformedImageSource(&self, imagesource: Option<&ID2D1ImageSource>, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> windows_core::Result<ID2D1TransformedImageSource>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext2 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext2_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext2_Impl, const OFFSET: isize>() -> ID2D1DeviceContext2_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInk<Identity: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const D2D1_INK_POINT, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext2_Impl::CreateInk(this, core::mem::transmute_copy(&startpoint)) {
@@ -3317,6 +3366,12 @@ impl ID2D1DeviceContext2_Vtbl {
         iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext2 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext3, ID2D1DeviceContext3_Vtbl, 0x235a7496_8351_414c_bcd4_6672ab2d8e00);
 impl core::ops::Deref for ID2D1DeviceContext3 {
     type Target = ID2D1DeviceContext2;
@@ -3330,16 +3385,14 @@ impl ID2D1DeviceContext3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSpriteBatch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DrawSpriteBatch<P0, P1>(&self, spritebatch: P0, startindex: u32, spritecount: u32, bitmap: P1, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS)
+    pub unsafe fn DrawSpriteBatch<P0, P3>(&self, spritebatch: P0, startindex: u32, spritecount: u32, bitmap: P3, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS)
     where
         P0: windows_core::Param<ID2D1SpriteBatch>,
-        P1: windows_core::Param<ID2D1Bitmap>,
+        P3: windows_core::Param<ID2D1Bitmap>,
     {
-        (windows_core::Interface::vtable(self).DrawSpriteBatch)(windows_core::Interface::as_raw(self), spritebatch.param().abi(), startindex, spritecount, bitmap.param().abi(), interpolationmode, spriteoptions)
+        (windows_core::Interface::vtable(self).DrawSpriteBatch)(windows_core::Interface::as_raw(self), spritebatch.param().abi(), core::mem::transmute(startindex), core::mem::transmute(spritecount), bitmap.param().abi(), core::mem::transmute(interpolationmode), core::mem::transmute(spriteoptions))
     }
 }
-unsafe impl Send for ID2D1DeviceContext3 {}
-unsafe impl Sync for ID2D1DeviceContext3 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext3_Vtbl {
     pub base__: ID2D1DeviceContext2_Vtbl,
@@ -3347,15 +3400,13 @@ pub struct ID2D1DeviceContext3_Vtbl {
     pub DrawSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, D2D1_BITMAP_INTERPOLATION_MODE, D2D1_SPRITE_OPTIONS),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DeviceContext3_Impl: Sized + ID2D1DeviceContext2_Impl {
+pub trait ID2D1DeviceContext3_Impl: ID2D1DeviceContext2_Impl {
     fn CreateSpriteBatch(&self) -> windows_core::Result<ID2D1SpriteBatch>;
     fn DrawSpriteBatch(&self, spritebatch: Option<&ID2D1SpriteBatch>, startindex: u32, spritecount: u32, bitmap: Option<&ID2D1Bitmap>, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext3 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext3_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext3_Impl, const OFFSET: isize>() -> ID2D1DeviceContext3_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSpriteBatch<Identity: ID2D1DeviceContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritebatch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext3_Impl::CreateSpriteBatch(this) {
@@ -3380,6 +3431,12 @@ impl ID2D1DeviceContext3_Vtbl {
         iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext3 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext4, ID2D1DeviceContext4_Vtbl, 0x8c427831_3d90_4476_b647_c4fae349e4db);
 impl core::ops::Deref for ID2D1DeviceContext4 {
     type Target = ID2D1DeviceContext3;
@@ -3394,56 +3451,54 @@ impl ID2D1DeviceContext4 {
         (windows_core::Interface::vtable(self).CreateSvgGlyphStyle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawText<P0, P1, P2>(&self, string: &[u16], textformat: P0, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: P1, svgglyphstyle: P2, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawText<P2, P4, P5>(&self, string: &[u16], textformat: P2, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: P4, svgglyphstyle: P5, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteTextFormat>,
-        P1: windows_core::Param<ID2D1Brush>,
-        P2: windows_core::Param<ID2D1SvgGlyphStyle>,
+        P2: windows_core::Param<super::DirectWrite::IDWriteTextFormat>,
+        P4: windows_core::Param<ID2D1Brush>,
+        P5: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options, measuringmode)
+        (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), core::mem::transmute(layoutrect), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(options), core::mem::transmute(measuringmode))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawTextLayout<P0, P1, P2>(&self, origin: Common::D2D_POINT_2F, textlayout: P0, defaultfillbrush: P1, svgglyphstyle: P2, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS)
+    pub unsafe fn DrawTextLayout<P1, P2, P3>(&self, origin: Common::D2D_POINT_2F, textlayout: P1, defaultfillbrush: P2, svgglyphstyle: P3, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS)
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteTextLayout>,
-        P1: windows_core::Param<ID2D1Brush>,
-        P2: windows_core::Param<ID2D1SvgGlyphStyle>,
-    {
-        (windows_core::Interface::vtable(self).DrawTextLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(origin), textlayout.param().abi(), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options)
-    }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
-        (windows_core::Interface::vtable(self).DrawColorBitmapGlyphRun)(windows_core::Interface::as_raw(self), glyphimageformat, core::mem::transmute(baselineorigin), glyphrun, measuringmode, bitmapsnapoption)
-    }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawSvgGlyphRun<P0, P1>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: P0, svgglyphstyle: P1, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
-    where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1SvgGlyphStyle>,
-    {
-        (windows_core::Interface::vtable(self).DrawSvgGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, measuringmode)
-    }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn GetColorBitmapGlyphImage<P0, P1>(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: P0, fontemsize: f32, glyphindex: u16, issideways: P1, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1Image>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).GetColorBitmapGlyphImage)(windows_core::Interface::as_raw(self), glyphimageformat, core::mem::transmute(glyphorigin), fontface.param().abi(), fontemsize, glyphindex, issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), dpix, dpiy, glyphtransform, core::mem::transmute(glyphimage)).ok()
-    }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn GetSvgGlyphImage<P0, P1, P2, P3>(&self, glyphorigin: Common::D2D_POINT_2F, fontface: P0, fontemsize: f32, glyphindex: u16, issideways: P1, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, defaultfillbrush: P2, svgglyphstyle: P3, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1CommandList>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::DirectWrite::IDWriteTextLayout>,
         P2: windows_core::Param<ID2D1Brush>,
         P3: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
-        (windows_core::Interface::vtable(self).GetSvgGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphorigin), fontface.param().abi(), fontemsize, glyphindex, issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, glyphtransform, core::mem::transmute(glyphimage)).ok()
+        (windows_core::Interface::vtable(self).DrawTextLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(origin), textlayout.param().abi(), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(options))
+    }
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub unsafe fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
+        (windows_core::Interface::vtable(self).DrawColorBitmapGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphimageformat), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), core::mem::transmute(measuringmode), core::mem::transmute(bitmapsnapoption))
+    }
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub unsafe fn DrawSvgGlyphRun<P2, P3>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: P2, svgglyphstyle: P3, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    where
+        P2: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1SvgGlyphStyle>,
+    {
+        (windows_core::Interface::vtable(self).DrawSvgGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(measuringmode))
+    }
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub unsafe fn GetColorBitmapGlyphImage<P2, P5>(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: P2, fontemsize: f32, glyphindex: u16, issideways: P5, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1Image>) -> windows_core::Result<()>
+    where
+        P2: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
+        P5: windows_core::Param<super::super::Foundation::BOOL>,
+    {
+        (windows_core::Interface::vtable(self).GetColorBitmapGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphimageformat), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(dpix), core::mem::transmute(dpiy), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
+    }
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub unsafe fn GetSvgGlyphImage<P1, P4, P6, P7>(&self, glyphorigin: Common::D2D_POINT_2F, fontface: P1, fontemsize: f32, glyphindex: u16, issideways: P4, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, defaultfillbrush: P6, svgglyphstyle: P7, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1CommandList>) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::DirectWrite::IDWriteFontFace>,
+        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P6: windows_core::Param<ID2D1Brush>,
+        P7: windows_core::Param<ID2D1SvgGlyphStyle>,
+    {
+        (windows_core::Interface::vtable(self).GetSvgGlyphImage)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphorigin), fontface.param().abi(), core::mem::transmute(fontemsize), core::mem::transmute(glyphindex), issideways.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(glyphtransform), core::mem::transmute(glyphimage)).ok()
     }
 }
-unsafe impl Send for ID2D1DeviceContext4 {}
-unsafe impl Sync for ID2D1DeviceContext4 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext4_Vtbl {
     pub base__: ID2D1DeviceContext3_Vtbl,
@@ -3474,7 +3529,7 @@ pub struct ID2D1DeviceContext4_Vtbl {
     GetSvgGlyphImage: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1DeviceContext4_Impl: Sized + ID2D1DeviceContext3_Impl {
+pub trait ID2D1DeviceContext4_Impl: ID2D1DeviceContext3_Impl {
     fn CreateSvgGlyphStyle(&self) -> windows_core::Result<ID2D1SvgGlyphStyle>;
     fn DrawText(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: Option<&super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn DrawTextLayout(&self, origin: &Common::D2D_POINT_2F, textlayout: Option<&super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
@@ -3484,10 +3539,8 @@ pub trait ID2D1DeviceContext4_Impl: Sized + ID2D1DeviceContext3_Impl {
     fn GetSvgGlyphImage(&self, glyphorigin: &Common::D2D_POINT_2F, fontface: Option<&super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1CommandList>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext4 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext4_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>() -> ID2D1DeviceContext4_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSvgGlyphStyle<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, svgglyphstyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext4_Impl::CreateSvgGlyphStyle(this) {
@@ -3537,6 +3590,12 @@ impl ID2D1DeviceContext4_Vtbl {
         iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext4 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext5, ID2D1DeviceContext5_Vtbl, 0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
 impl core::ops::Deref for ID2D1DeviceContext5 {
     type Target = ID2D1DeviceContext4;
@@ -3563,16 +3622,14 @@ impl ID2D1DeviceContext5 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateColorContextFromDxgiColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<ID2D1ColorContext1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContextFromDxgiColorSpace)(windows_core::Interface::as_raw(self), colorspace, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContextFromDxgiColorSpace)(windows_core::Interface::as_raw(self), core::mem::transmute(colorspace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateColorContextFromSimpleColorProfile(&self, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<ID2D1ColorContext1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContextFromSimpleColorProfile)(windows_core::Interface::as_raw(self), simpleprofile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContextFromSimpleColorProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(simpleprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1DeviceContext5 {}
-unsafe impl Sync for ID2D1DeviceContext5 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext5_Vtbl {
     pub base__: ID2D1DeviceContext4_Vtbl,
@@ -3591,17 +3648,15 @@ pub struct ID2D1DeviceContext5_Vtbl {
     CreateColorContextFromSimpleColorProfile: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1DeviceContext5_Impl: Sized + ID2D1DeviceContext4_Impl {
+pub trait ID2D1DeviceContext5_Impl: ID2D1DeviceContext4_Impl {
     fn CreateSvgDocument(&self, inputxmlstream: Option<&super::super::System::Com::IStream>, viewportsize: &Common::D2D_SIZE_F) -> windows_core::Result<ID2D1SvgDocument>;
     fn DrawSvgDocument(&self, svgdocument: Option<&ID2D1SvgDocument>);
     fn CreateColorContextFromDxgiColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<ID2D1ColorContext1>;
     fn CreateColorContextFromSimpleColorProfile(&self, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<ID2D1ColorContext1>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext5 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1DeviceContext5_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext5_Impl, const OFFSET: isize>() -> ID2D1DeviceContext5_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSvgDocument<Identity: ID2D1DeviceContext5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputxmlstream: *mut core::ffi::c_void, viewportsize: Common::D2D_SIZE_F, svgdocument: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1DeviceContext5_Impl::CreateSvgDocument(this, windows_core::from_raw_borrowed(&inputxmlstream), core::mem::transmute(&viewportsize)) {
@@ -3648,6 +3703,12 @@ impl ID2D1DeviceContext5_Vtbl {
         iid == &<ID2D1DeviceContext5 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext5 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext6, ID2D1DeviceContext6_Vtbl, 0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
 impl core::ops::Deref for ID2D1DeviceContext6 {
     type Target = ID2D1DeviceContext5;
@@ -3662,11 +3723,9 @@ impl ID2D1DeviceContext6 {
     where
         P0: windows_core::Param<ID2D1Image>,
     {
-        (windows_core::Interface::vtable(self).BlendImage)(windows_core::Interface::as_raw(self), image.param().abi(), blendmode, core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), interpolationmode)
+        (windows_core::Interface::vtable(self).BlendImage)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(blendmode), core::mem::transmute(targetoffset.unwrap_or(core::ptr::null())), core::mem::transmute(imagerectangle.unwrap_or(core::ptr::null())), core::mem::transmute(interpolationmode))
     }
 }
-unsafe impl Send for ID2D1DeviceContext6 {}
-unsafe impl Sync for ID2D1DeviceContext6 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext6_Vtbl {
     pub base__: ID2D1DeviceContext5_Vtbl,
@@ -3676,14 +3735,12 @@ pub struct ID2D1DeviceContext6_Vtbl {
     BlendImage: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1DeviceContext6_Impl: Sized + ID2D1DeviceContext5_Impl {
+pub trait ID2D1DeviceContext6_Impl: ID2D1DeviceContext5_Impl {
     fn BlendImage(&self, image: Option<&ID2D1Image>, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext6 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1DeviceContext6_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext6_Impl, const OFFSET: isize>() -> ID2D1DeviceContext6_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BlendImage<Identity: ID2D1DeviceContext6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DeviceContext6_Impl::BlendImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode))
@@ -3694,6 +3751,12 @@ impl ID2D1DeviceContext6_Vtbl {
         iid == &<ID2D1DeviceContext6 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext6 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext7, ID2D1DeviceContext7_Vtbl, 0xec891cf7_9b69_4851_9def_4e0915771e62);
 impl core::ops::Deref for ID2D1DeviceContext7 {
     type Target = ID2D1DeviceContext6;
@@ -3708,23 +3771,21 @@ impl ID2D1DeviceContext7 {
         (windows_core::Interface::vtable(self).GetPaintFeatureLevel)(windows_core::Interface::as_raw(self))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawPaintGlyphRun<P0>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: P0, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawPaintGlyphRun<P2>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: P2, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P2: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawPaintGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, defaultfillbrush.param().abi(), colorpaletteindex, measuringmode)
+        (windows_core::Interface::vtable(self).DrawPaintGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), defaultfillbrush.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(measuringmode))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawGlyphRunWithColorSupport<P0, P1>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P0, svgglyphstyle: P1, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION)
+    pub unsafe fn DrawGlyphRunWithColorSupport<P3, P4>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: Option<*const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION>, foregroundbrush: P3, svgglyphstyle: P4, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION)
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1SvgGlyphStyle>,
+        P3: windows_core::Param<ID2D1Brush>,
+        P4: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawGlyphRunWithColorSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, measuringmode, bitmapsnapoption)
+        (windows_core::Interface::vtable(self).DrawGlyphRunWithColorSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), core::mem::transmute(glyphrundescription.unwrap_or(core::ptr::null())), foregroundbrush.param().abi(), svgglyphstyle.param().abi(), core::mem::transmute(colorpaletteindex), core::mem::transmute(measuringmode), core::mem::transmute(bitmapsnapoption))
     }
 }
-unsafe impl Send for ID2D1DeviceContext7 {}
-unsafe impl Sync for ID2D1DeviceContext7 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext7_Vtbl {
     pub base__: ID2D1DeviceContext6_Vtbl,
@@ -3742,16 +3803,14 @@ pub struct ID2D1DeviceContext7_Vtbl {
     DrawGlyphRunWithColorSupport: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1DeviceContext7_Impl: Sized + ID2D1DeviceContext6_Impl {
+pub trait ID2D1DeviceContext7_Impl: ID2D1DeviceContext6_Impl {
     fn GetPaintFeatureLevel(&self) -> super::DirectWrite::DWRITE_PAINT_FEATURE_LEVEL;
     fn DrawPaintGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: Option<&ID2D1Brush>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn DrawGlyphRunWithColorSupport(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1DeviceContext7 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1DeviceContext7_Vtbl {
-    pub const fn new<Identity: ID2D1DeviceContext7_Impl, const OFFSET: isize>() -> ID2D1DeviceContext7_Vtbl {
+    pub const fn new<Identity: ID2D1DeviceContext7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPaintFeatureLevel<Identity: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::DirectWrite::DWRITE_PAINT_FEATURE_LEVEL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DeviceContext7_Impl::GetPaintFeatureLevel(this)
@@ -3775,6 +3834,12 @@ impl ID2D1DeviceContext7_Vtbl {
         iid == &<ID2D1DeviceContext7 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext6 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1DeviceContext7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext7 {}
 windows_core::imp::define_interface!(ID2D1DrawInfo, ID2D1DrawInfo_Vtbl, 0x693ce632_7f2f_45de_93fe_18d88b37aa21);
 impl core::ops::Deref for ID2D1DrawInfo {
     type Target = ID2D1RenderInfo;
@@ -3787,27 +3852,25 @@ impl ID2D1DrawInfo {
     pub unsafe fn SetPixelShaderConstantBuffer(&self, buffer: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPixelShaderConstantBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn SetResourceTexture<P0>(&self, textureindex: u32, resourcetexture: P0) -> windows_core::Result<()>
+    pub unsafe fn SetResourceTexture<P1>(&self, textureindex: u32, resourcetexture: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1ResourceTexture>,
+        P1: windows_core::Param<ID2D1ResourceTexture>,
     {
-        (windows_core::Interface::vtable(self).SetResourceTexture)(windows_core::Interface::as_raw(self), textureindex, resourcetexture.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetResourceTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(textureindex), resourcetexture.param().abi()).ok()
     }
     pub unsafe fn SetVertexShaderConstantBuffer(&self, buffer: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetVertexShaderConstantBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetPixelShader(&self, shaderid: *const windows_core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPixelShader)(windows_core::Interface::as_raw(self), shaderid, pixeloptions).ok()
+        (windows_core::Interface::vtable(self).SetPixelShader)(windows_core::Interface::as_raw(self), core::mem::transmute(shaderid), core::mem::transmute(pixeloptions)).ok()
     }
     pub unsafe fn SetVertexProcessing<P0>(&self, vertexbuffer: P0, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: Option<*const D2D1_BLEND_DESCRIPTION>, vertexrange: Option<*const D2D1_VERTEX_RANGE>, vertexshader: Option<*const windows_core::GUID>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1VertexBuffer>,
     {
-        (windows_core::Interface::vtable(self).SetVertexProcessing)(windows_core::Interface::as_raw(self), vertexbuffer.param().abi(), vertexoptions, core::mem::transmute(blenddescription.unwrap_or(core::ptr::null())), core::mem::transmute(vertexrange.unwrap_or(core::ptr::null())), core::mem::transmute(vertexshader.unwrap_or(core::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetVertexProcessing)(windows_core::Interface::as_raw(self), vertexbuffer.param().abi(), core::mem::transmute(vertexoptions), core::mem::transmute(blenddescription.unwrap_or(core::ptr::null())), core::mem::transmute(vertexrange.unwrap_or(core::ptr::null())), core::mem::transmute(vertexshader.unwrap_or(core::ptr::null()))).ok()
     }
 }
-unsafe impl Send for ID2D1DrawInfo {}
-unsafe impl Sync for ID2D1DrawInfo {}
 #[repr(C)]
 pub struct ID2D1DrawInfo_Vtbl {
     pub base__: ID2D1RenderInfo_Vtbl,
@@ -3817,16 +3880,15 @@ pub struct ID2D1DrawInfo_Vtbl {
     pub SetPixelShader: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, D2D1_PIXEL_OPTIONS) -> windows_core::HRESULT,
     pub SetVertexProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D2D1_VERTEX_OPTIONS, *const D2D1_BLEND_DESCRIPTION, *const D2D1_VERTEX_RANGE, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait ID2D1DrawInfo_Impl: Sized + ID2D1RenderInfo_Impl {
+pub trait ID2D1DrawInfo_Impl: ID2D1RenderInfo_Impl {
     fn SetPixelShaderConstantBuffer(&self, buffer: *const u8, buffercount: u32) -> windows_core::Result<()>;
     fn SetResourceTexture(&self, textureindex: u32, resourcetexture: Option<&ID2D1ResourceTexture>) -> windows_core::Result<()>;
     fn SetVertexShaderConstantBuffer(&self, buffer: *const u8, buffercount: u32) -> windows_core::Result<()>;
     fn SetPixelShader(&self, shaderid: *const windows_core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> windows_core::Result<()>;
     fn SetVertexProcessing(&self, vertexbuffer: Option<&ID2D1VertexBuffer>, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: *const D2D1_BLEND_DESCRIPTION, vertexrange: *const D2D1_VERTEX_RANGE, vertexshader: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1DrawInfo {}
 impl ID2D1DrawInfo_Vtbl {
-    pub const fn new<Identity: ID2D1DrawInfo_Impl, const OFFSET: isize>() -> ID2D1DrawInfo_Vtbl {
+    pub const fn new<Identity: ID2D1DrawInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPixelShaderConstantBuffer<Identity: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *const u8, buffercount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DrawInfo_Impl::SetPixelShaderConstantBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
@@ -3860,6 +3922,9 @@ impl ID2D1DrawInfo_Vtbl {
         iid == &<ID2D1DrawInfo as windows_core::Interface>::IID || iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1DrawInfo {}
+unsafe impl Send for ID2D1DrawInfo {}
+unsafe impl Sync for ID2D1DrawInfo {}
 windows_core::imp::define_interface!(ID2D1DrawTransform, ID2D1DrawTransform_Vtbl, 0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
 impl core::ops::Deref for ID2D1DrawTransform {
     type Target = ID2D1Transform;
@@ -3876,19 +3941,16 @@ impl ID2D1DrawTransform {
         (windows_core::Interface::vtable(self).SetDrawInfo)(windows_core::Interface::as_raw(self), drawinfo.param().abi()).ok()
     }
 }
-unsafe impl Send for ID2D1DrawTransform {}
-unsafe impl Sync for ID2D1DrawTransform {}
 #[repr(C)]
 pub struct ID2D1DrawTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
     pub SetDrawInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1DrawTransform_Impl: Sized + ID2D1Transform_Impl {
+pub trait ID2D1DrawTransform_Impl: ID2D1Transform_Impl {
     fn SetDrawInfo(&self, drawinfo: Option<&ID2D1DrawInfo>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1DrawTransform {}
 impl ID2D1DrawTransform_Vtbl {
-    pub const fn new<Identity: ID2D1DrawTransform_Impl, const OFFSET: isize>() -> ID2D1DrawTransform_Vtbl {
+    pub const fn new<Identity: ID2D1DrawTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDrawInfo<Identity: ID2D1DrawTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DrawTransform_Impl::SetDrawInfo(this, windows_core::from_raw_borrowed(&drawinfo)).into()
@@ -3899,6 +3961,9 @@ impl ID2D1DrawTransform_Vtbl {
         iid == &<ID2D1DrawTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1DrawTransform {}
+unsafe impl Send for ID2D1DrawTransform {}
+unsafe impl Sync for ID2D1DrawTransform {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock, ID2D1DrawingStateBlock_Vtbl, 0x28506e39_ebf6_46a1_bb47_fd85565ab957);
 impl core::ops::Deref for ID2D1DrawingStateBlock {
     type Target = ID2D1Resource;
@@ -3910,11 +3975,11 @@ windows_core::imp::interface_hierarchy!(ID2D1DrawingStateBlock, windows_core::IU
 impl ID2D1DrawingStateBlock {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION) {
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), statedescription)
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(statedescription))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION) {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), statedescription)
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(statedescription))
     }
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
     pub unsafe fn SetTextRenderingParams<P0>(&self, textrenderingparams: P0)
@@ -3930,8 +3995,6 @@ impl ID2D1DrawingStateBlock {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1DrawingStateBlock {}
-unsafe impl Sync for ID2D1DrawingStateBlock {}
 #[repr(C)]
 pub struct ID2D1DrawingStateBlock_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -3953,17 +4016,15 @@ pub struct ID2D1DrawingStateBlock_Vtbl {
     GetTextRenderingParams: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1DrawingStateBlock_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1DrawingStateBlock_Impl: ID2D1Resource_Impl {
     fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
     fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
     fn SetTextRenderingParams(&self, textrenderingparams: Option<&super::DirectWrite::IDWriteRenderingParams>);
     fn GetTextRenderingParams(&self, textrenderingparams: *mut Option<super::DirectWrite::IDWriteRenderingParams>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1DrawingStateBlock {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1DrawingStateBlock_Vtbl {
-    pub const fn new<Identity: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>() -> ID2D1DrawingStateBlock_Vtbl {
+    pub const fn new<Identity: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDescription<Identity: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DrawingStateBlock_Impl::GetDescription(this, core::mem::transmute_copy(&statedescription))
@@ -3992,6 +4053,12 @@ impl ID2D1DrawingStateBlock_Vtbl {
         iid == &<ID2D1DrawingStateBlock as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1DrawingStateBlock {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1DrawingStateBlock {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1DrawingStateBlock {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock1, ID2D1DrawingStateBlock1_Vtbl, 0x689f1f85_c72e_4e33_8f19_85754efd5ace);
 impl core::ops::Deref for ID2D1DrawingStateBlock1 {
     type Target = ID2D1DrawingStateBlock;
@@ -4003,15 +4070,13 @@ windows_core::imp::interface_hierarchy!(ID2D1DrawingStateBlock1, windows_core::I
 impl ID2D1DrawingStateBlock1 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), statedescription)
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(statedescription))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1) {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), statedescription)
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(statedescription))
     }
 }
-unsafe impl Send for ID2D1DrawingStateBlock1 {}
-unsafe impl Sync for ID2D1DrawingStateBlock1 {}
 #[repr(C)]
 pub struct ID2D1DrawingStateBlock1_Vtbl {
     pub base__: ID2D1DrawingStateBlock_Vtbl,
@@ -4025,15 +4090,13 @@ pub struct ID2D1DrawingStateBlock1_Vtbl {
     SetDescription: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-pub trait ID2D1DrawingStateBlock1_Impl: Sized + ID2D1DrawingStateBlock_Impl {
+pub trait ID2D1DrawingStateBlock1_Impl: ID2D1DrawingStateBlock_Impl {
     fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1);
     fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-impl windows_core::RuntimeName for ID2D1DrawingStateBlock1 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1DrawingStateBlock1_Vtbl {
-    pub const fn new<Identity: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>() -> ID2D1DrawingStateBlock1_Vtbl {
+    pub const fn new<Identity: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDescription<Identity: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1DrawingStateBlock1_Impl::GetDescription(this, core::mem::transmute_copy(&statedescription))
@@ -4052,6 +4115,12 @@ impl ID2D1DrawingStateBlock1_Vtbl {
         iid == &<ID2D1DrawingStateBlock1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1DrawingStateBlock as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+impl windows_core::RuntimeName for ID2D1DrawingStateBlock1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1DrawingStateBlock1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1DrawingStateBlock1 {}
 windows_core::imp::define_interface!(ID2D1Effect, ID2D1Effect_Vtbl, 0x28211a43_7d89_476f_8181_2d6159b220ad);
 impl core::ops::Deref for ID2D1Effect {
     type Target = ID2D1Properties;
@@ -4061,19 +4130,19 @@ impl core::ops::Deref for ID2D1Effect {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Effect, windows_core::IUnknown, ID2D1Properties);
 impl ID2D1Effect {
-    pub unsafe fn SetInput<P0, P1>(&self, index: u32, input: P0, invalidate: P1)
+    pub unsafe fn SetInput<P1, P2>(&self, index: u32, input: P1, invalidate: P2)
     where
-        P0: windows_core::Param<ID2D1Image>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<ID2D1Image>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), index, input.param().abi(), invalidate.param().abi())
+        (windows_core::Interface::vtable(self).SetInput)(windows_core::Interface::as_raw(self), core::mem::transmute(index), input.param().abi(), invalidate.param().abi())
     }
     pub unsafe fn SetInputCount(&self, inputcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInputCount)(windows_core::Interface::as_raw(self), inputcount).ok()
+        (windows_core::Interface::vtable(self).SetInputCount)(windows_core::Interface::as_raw(self), core::mem::transmute(inputcount)).ok()
     }
     pub unsafe fn GetInput(&self, index: u32) -> windows_core::Result<ID2D1Image> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInput)(windows_core::Interface::as_raw(self), index, &mut result__);
+        (windows_core::Interface::vtable(self).GetInput)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__);
         windows_core::Type::from_abi(result__)
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -4085,8 +4154,6 @@ impl ID2D1Effect {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1Effect {}
-unsafe impl Sync for ID2D1Effect {}
 #[repr(C)]
 pub struct ID2D1Effect_Vtbl {
     pub base__: ID2D1Properties_Vtbl,
@@ -4096,16 +4163,15 @@ pub struct ID2D1Effect_Vtbl {
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
-pub trait ID2D1Effect_Impl: Sized + ID2D1Properties_Impl {
+pub trait ID2D1Effect_Impl: ID2D1Properties_Impl {
     fn SetInput(&self, index: u32, input: Option<&ID2D1Image>, invalidate: super::super::Foundation::BOOL);
     fn SetInputCount(&self, inputcount: u32) -> windows_core::Result<()>;
     fn GetInput(&self, index: u32, input: *mut Option<ID2D1Image>);
     fn GetInputCount(&self) -> u32;
     fn GetOutput(&self, outputimage: *mut Option<ID2D1Image>);
 }
-impl windows_core::RuntimeName for ID2D1Effect {}
 impl ID2D1Effect_Vtbl {
-    pub const fn new<Identity: ID2D1Effect_Impl, const OFFSET: isize>() -> ID2D1Effect_Vtbl {
+    pub const fn new<Identity: ID2D1Effect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInput<Identity: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, input: *mut core::ffi::c_void, invalidate: super::super::Foundation::BOOL) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Effect_Impl::SetInput(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&input), core::mem::transmute_copy(&invalidate))
@@ -4139,21 +4205,18 @@ impl ID2D1Effect_Vtbl {
         iid == &<ID2D1Effect as windows_core::Interface>::IID || iid == &<ID2D1Properties as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Effect {}
+unsafe impl Send for ID2D1Effect {}
+unsafe impl Sync for ID2D1Effect {}
 windows_core::imp::define_interface!(ID2D1EffectContext, ID2D1EffectContext_Vtbl, 0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
-impl core::ops::Deref for ID2D1EffectContext {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1EffectContext, windows_core::IUnknown);
 impl ID2D1EffectContext {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
-        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), dpix, dpiy)
+        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy))
     }
     pub unsafe fn CreateEffect(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Effect> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), effectid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetMaximumSupportedFeatureLevel(&self, featurelevels: &[super::Direct3D::D3D_FEATURE_LEVEL]) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
@@ -4169,11 +4232,11 @@ impl ID2D1EffectContext {
     }
     pub unsafe fn CreateBlendTransform(&self, numinputs: u32, blenddescription: *const D2D1_BLEND_DESCRIPTION) -> windows_core::Result<ID2D1BlendTransform> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBlendTransform)(windows_core::Interface::as_raw(self), numinputs, blenddescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBlendTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(numinputs), core::mem::transmute(blenddescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateBorderTransform(&self, extendmodex: D2D1_EXTEND_MODE, extendmodey: D2D1_EXTEND_MODE) -> windows_core::Result<ID2D1BorderTransform> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBorderTransform)(windows_core::Interface::as_raw(self), extendmodex, extendmodey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBorderTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmodex), core::mem::transmute(extendmodey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateOffsetTransform(&self, offset: super::super::Foundation::POINT) -> windows_core::Result<ID2D1OffsetTransform> {
         let mut result__ = core::mem::zeroed();
@@ -4181,40 +4244,40 @@ impl ID2D1EffectContext {
     }
     pub unsafe fn CreateBoundsAdjustmentTransform(&self, outputrectangle: *const super::super::Foundation::RECT) -> windows_core::Result<ID2D1BoundsAdjustmentTransform> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBoundsAdjustmentTransform)(windows_core::Interface::as_raw(self), outputrectangle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBoundsAdjustmentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(outputrectangle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LoadPixelShader(&self, shaderid: *const windows_core::GUID, shaderbuffer: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LoadPixelShader)(windows_core::Interface::as_raw(self), shaderid, core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).LoadPixelShader)(windows_core::Interface::as_raw(self), core::mem::transmute(shaderid), core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn LoadVertexShader(&self, resourceid: *const windows_core::GUID, shaderbuffer: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LoadVertexShader)(windows_core::Interface::as_raw(self), resourceid, core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).LoadVertexShader)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid), core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn LoadComputeShader(&self, resourceid: *const windows_core::GUID, shaderbuffer: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LoadComputeShader)(windows_core::Interface::as_raw(self), resourceid, core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).LoadComputeShader)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid), core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn IsShaderLoaded(&self, shaderid: *const windows_core::GUID) -> super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).IsShaderLoaded)(windows_core::Interface::as_raw(self), shaderid)
+        (windows_core::Interface::vtable(self).IsShaderLoaded)(windows_core::Interface::as_raw(self), core::mem::transmute(shaderid))
     }
     pub unsafe fn CreateResourceTexture(&self, resourceid: Option<*const windows_core::GUID>, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: Option<&[u8]>, strides: Option<*const u32>) -> windows_core::Result<ID2D1ResourceTexture> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateResourceTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid.unwrap_or(core::ptr::null())), resourcetextureproperties, core::mem::transmute(data.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(strides.unwrap_or(core::ptr::null())), data.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateResourceTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid.unwrap_or(core::ptr::null())), core::mem::transmute(resourcetextureproperties), core::mem::transmute(data.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(strides.unwrap_or(core::ptr::null())), data.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindResourceTexture(&self, resourceid: *const windows_core::GUID) -> windows_core::Result<ID2D1ResourceTexture> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindResourceTexture)(windows_core::Interface::as_raw(self), resourceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindResourceTexture)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVertexBuffer(&self, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: Option<*const windows_core::GUID>, customvertexbufferproperties: Option<*const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES>) -> windows_core::Result<ID2D1VertexBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateVertexBuffer)(windows_core::Interface::as_raw(self), vertexbufferproperties, core::mem::transmute(resourceid.unwrap_or(core::ptr::null())), core::mem::transmute(customvertexbufferproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateVertexBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(vertexbufferproperties), core::mem::transmute(resourceid.unwrap_or(core::ptr::null())), core::mem::transmute(customvertexbufferproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindVertexBuffer(&self, resourceid: *const windows_core::GUID) -> windows_core::Result<ID2D1VertexBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindVertexBuffer)(windows_core::Interface::as_raw(self), resourceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindVertexBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(resourceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: Option<&[u8]>) -> windows_core::Result<ID2D1ColorContext> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, core::mem::transmute(profile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), profile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), core::mem::transmute(space), core::mem::transmute(profile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), profile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> windows_core::Result<ID2D1ColorContext>
     where
@@ -4232,14 +4295,12 @@ impl ID2D1EffectContext {
         (windows_core::Interface::vtable(self).CreateColorContextFromWicColorContext)(windows_core::Interface::as_raw(self), wiccolorcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featuresupportdata, featuresupportdatasize).ok()
+        (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), core::mem::transmute(feature), core::mem::transmute(featuresupportdata), core::mem::transmute(featuresupportdatasize)).ok()
     }
     pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), bufferprecision)
+        (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision))
     }
 }
-unsafe impl Send for ID2D1EffectContext {}
-unsafe impl Sync for ID2D1EffectContext {}
 #[repr(C)]
 pub struct ID2D1EffectContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -4275,7 +4336,7 @@ pub struct ID2D1EffectContext_Vtbl {
     pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1EffectContext_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1EffectContext_Impl: windows_core::IUnknownImpl {
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32);
     fn CreateEffect(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Effect>;
     fn GetMaximumSupportedFeatureLevel(&self, featurelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevelscount: u32) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
@@ -4299,10 +4360,8 @@ pub trait ID2D1EffectContext_Impl: Sized + windows_core::IUnknownImpl {
     fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1EffectContext {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1EffectContext_Vtbl {
-    pub const fn new<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>() -> ID2D1EffectContext_Vtbl {
+    pub const fn new<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDpi<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1EffectContext_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
@@ -4500,6 +4559,12 @@ impl ID2D1EffectContext_Vtbl {
         iid == &<ID2D1EffectContext as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1EffectContext {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext {}
 windows_core::imp::define_interface!(ID2D1EffectContext1, ID2D1EffectContext1_Vtbl, 0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
 impl core::ops::Deref for ID2D1EffectContext1 {
     type Target = ID2D1EffectContext;
@@ -4511,25 +4576,21 @@ windows_core::imp::interface_hierarchy!(ID2D1EffectContext1, windows_core::IUnkn
 impl ID2D1EffectContext1 {
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> windows_core::Result<ID2D1LookupTable3D> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, core::mem::transmute(extents.as_ptr()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(strides.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), core::mem::transmute(precision), core::mem::transmute(extents.as_ptr()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(strides.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1EffectContext1 {}
-unsafe impl Sync for ID2D1EffectContext1 {}
 #[repr(C)]
 pub struct ID2D1EffectContext1_Vtbl {
     pub base__: ID2D1EffectContext_Vtbl,
     pub CreateLookupTable3D: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, *const u32, *const u8, u32, *const u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1EffectContext1_Impl: Sized + ID2D1EffectContext_Impl {
+pub trait ID2D1EffectContext1_Impl: ID2D1EffectContext_Impl {
     fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> windows_core::Result<ID2D1LookupTable3D>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1EffectContext1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1EffectContext1_Vtbl {
-    pub const fn new<Identity: ID2D1EffectContext1_Impl, const OFFSET: isize>() -> ID2D1EffectContext1_Vtbl {
+    pub const fn new<Identity: ID2D1EffectContext1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLookupTable3D<Identity: ID2D1EffectContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32, lookuptable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1EffectContext1_Impl::CreateLookupTable3D(this, core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
@@ -4546,6 +4607,12 @@ impl ID2D1EffectContext1_Vtbl {
         iid == &<ID2D1EffectContext1 as windows_core::Interface>::IID || iid == &<ID2D1EffectContext as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1EffectContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext1 {}
 windows_core::imp::define_interface!(ID2D1EffectContext2, ID2D1EffectContext2_Vtbl, 0x577ad2a0_9fc7_4dda_8b18_dab810140052);
 impl core::ops::Deref for ID2D1EffectContext2 {
     type Target = ID2D1EffectContext1;
@@ -4558,16 +4625,14 @@ impl ID2D1EffectContext2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateColorContextFromDxgiColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<ID2D1ColorContext1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContextFromDxgiColorSpace)(windows_core::Interface::as_raw(self), colorspace, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContextFromDxgiColorSpace)(windows_core::Interface::as_raw(self), core::mem::transmute(colorspace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateColorContextFromSimpleColorProfile(&self, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<ID2D1ColorContext1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateColorContextFromSimpleColorProfile)(windows_core::Interface::as_raw(self), simpleprofile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateColorContextFromSimpleColorProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(simpleprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1EffectContext2 {}
-unsafe impl Sync for ID2D1EffectContext2 {}
 #[repr(C)]
 pub struct ID2D1EffectContext2_Vtbl {
     pub base__: ID2D1EffectContext1_Vtbl,
@@ -4581,15 +4646,13 @@ pub struct ID2D1EffectContext2_Vtbl {
     CreateColorContextFromSimpleColorProfile: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1EffectContext2_Impl: Sized + ID2D1EffectContext1_Impl {
+pub trait ID2D1EffectContext2_Impl: ID2D1EffectContext1_Impl {
     fn CreateColorContextFromDxgiColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<ID2D1ColorContext1>;
     fn CreateColorContextFromSimpleColorProfile(&self, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::Result<ID2D1ColorContext1>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1EffectContext2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1EffectContext2_Vtbl {
-    pub const fn new<Identity: ID2D1EffectContext2_Impl, const OFFSET: isize>() -> ID2D1EffectContext2_Vtbl {
+    pub const fn new<Identity: ID2D1EffectContext2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateColorContextFromDxgiColorSpace<Identity: ID2D1EffectContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1EffectContext2_Impl::CreateColorContextFromDxgiColorSpace(this, core::mem::transmute_copy(&colorspace)) {
@@ -4620,13 +4683,13 @@ impl ID2D1EffectContext2_Vtbl {
         iid == &<ID2D1EffectContext2 as windows_core::Interface>::IID || iid == &<ID2D1EffectContext as windows_core::Interface>::IID || iid == &<ID2D1EffectContext1 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1EffectContext2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext2 {}
 windows_core::imp::define_interface!(ID2D1EffectImpl, ID2D1EffectImpl_Vtbl, 0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
-impl core::ops::Deref for ID2D1EffectImpl {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1EffectImpl, windows_core::IUnknown);
 impl ID2D1EffectImpl {
     pub unsafe fn Initialize<P0, P1>(&self, effectcontext: P0, transformgraph: P1) -> windows_core::Result<()>
@@ -4637,7 +4700,7 @@ impl ID2D1EffectImpl {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), effectcontext.param().abi(), transformgraph.param().abi()).ok()
     }
     pub unsafe fn PrepareForRender(&self, changetype: D2D1_CHANGE_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PrepareForRender)(windows_core::Interface::as_raw(self), changetype).ok()
+        (windows_core::Interface::vtable(self).PrepareForRender)(windows_core::Interface::as_raw(self), core::mem::transmute(changetype)).ok()
     }
     pub unsafe fn SetGraph<P0>(&self, transformgraph: P0) -> windows_core::Result<()>
     where
@@ -4646,8 +4709,6 @@ impl ID2D1EffectImpl {
         (windows_core::Interface::vtable(self).SetGraph)(windows_core::Interface::as_raw(self), transformgraph.param().abi()).ok()
     }
 }
-unsafe impl Send for ID2D1EffectImpl {}
-unsafe impl Sync for ID2D1EffectImpl {}
 #[repr(C)]
 pub struct ID2D1EffectImpl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -4655,14 +4716,13 @@ pub struct ID2D1EffectImpl_Vtbl {
     pub PrepareForRender: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_CHANGE_TYPE) -> windows_core::HRESULT,
     pub SetGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1EffectImpl_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1EffectImpl_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, effectcontext: Option<&ID2D1EffectContext>, transformgraph: Option<&ID2D1TransformGraph>) -> windows_core::Result<()>;
     fn PrepareForRender(&self, changetype: D2D1_CHANGE_TYPE) -> windows_core::Result<()>;
     fn SetGraph(&self, transformgraph: Option<&ID2D1TransformGraph>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1EffectImpl {}
 impl ID2D1EffectImpl_Vtbl {
-    pub const fn new<Identity: ID2D1EffectImpl_Impl, const OFFSET: isize>() -> ID2D1EffectImpl_Vtbl {
+    pub const fn new<Identity: ID2D1EffectImpl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ID2D1EffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectcontext: *mut core::ffi::c_void, transformgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1EffectImpl_Impl::Initialize(this, windows_core::from_raw_borrowed(&effectcontext), windows_core::from_raw_borrowed(&transformgraph)).into()
@@ -4686,6 +4746,9 @@ impl ID2D1EffectImpl_Vtbl {
         iid == &<ID2D1EffectImpl as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1EffectImpl {}
+unsafe impl Send for ID2D1EffectImpl {}
+unsafe impl Sync for ID2D1EffectImpl {}
 windows_core::imp::define_interface!(ID2D1EllipseGeometry, ID2D1EllipseGeometry_Vtbl, 0x2cd906a4_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1EllipseGeometry {
     type Target = ID2D1Geometry;
@@ -4702,8 +4765,6 @@ impl ID2D1EllipseGeometry {
         result__
     }
 }
-unsafe impl Send for ID2D1EllipseGeometry {}
-unsafe impl Sync for ID2D1EllipseGeometry {}
 #[repr(C)]
 pub struct ID2D1EllipseGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -4713,14 +4774,12 @@ pub struct ID2D1EllipseGeometry_Vtbl {
     GetEllipse: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1EllipseGeometry_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1EllipseGeometry_Impl: ID2D1Geometry_Impl {
     fn GetEllipse(&self, ellipse: *mut D2D1_ELLIPSE);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1EllipseGeometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1EllipseGeometry_Vtbl {
-    pub const fn new<Identity: ID2D1EllipseGeometry_Impl, const OFFSET: isize>() -> ID2D1EllipseGeometry_Vtbl {
+    pub const fn new<Identity: ID2D1EllipseGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEllipse<Identity: ID2D1EllipseGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ellipse: *mut D2D1_ELLIPSE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1EllipseGeometry_Impl::GetEllipse(this, core::mem::transmute_copy(&ellipse))
@@ -4731,40 +4790,40 @@ impl ID2D1EllipseGeometry_Vtbl {
         iid == &<ID2D1EllipseGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1EllipseGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1EllipseGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1EllipseGeometry {}
 windows_core::imp::define_interface!(ID2D1Factory, ID2D1Factory_Vtbl, 0x06152247_6f50_465a_9245_118bfd3b6007);
-impl core::ops::Deref for ID2D1Factory {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1Factory, windows_core::IUnknown);
 impl ID2D1Factory {
     pub unsafe fn ReloadSystemMetrics(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReloadSystemMetrics)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDesktopDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
-        (windows_core::Interface::vtable(self).GetDesktopDpi)(windows_core::Interface::as_raw(self), dpix, dpiy)
+        (windows_core::Interface::vtable(self).GetDesktopDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateRectangleGeometry(&self, rectangle: *const Common::D2D_RECT_F) -> windows_core::Result<ID2D1RectangleGeometry> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRectangleGeometry)(windows_core::Interface::as_raw(self), rectangle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRectangleGeometry)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateRoundedRectangleGeometry(&self, roundedrectangle: *const D2D1_ROUNDED_RECT) -> windows_core::Result<ID2D1RoundedRectangleGeometry> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRoundedRectangleGeometry)(windows_core::Interface::as_raw(self), roundedrectangle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRoundedRectangleGeometry)(windows_core::Interface::as_raw(self), core::mem::transmute(roundedrectangle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateEllipseGeometry(&self, ellipse: *const D2D1_ELLIPSE) -> windows_core::Result<ID2D1EllipseGeometry> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateEllipseGeometry)(windows_core::Interface::as_raw(self), ellipse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateEllipseGeometry)(windows_core::Interface::as_raw(self), core::mem::transmute(ellipse), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGeometryGroup(&self, fillmode: Common::D2D1_FILL_MODE, geometries: &[Option<ID2D1Geometry>]) -> windows_core::Result<ID2D1GeometryGroup> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGeometryGroup)(windows_core::Interface::as_raw(self), fillmode, core::mem::transmute(geometries.as_ptr()), geometries.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGeometryGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(fillmode), core::mem::transmute(geometries.as_ptr()), geometries.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateTransformedGeometry<P0>(&self, sourcegeometry: P0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<ID2D1TransformedGeometry>
@@ -4772,7 +4831,7 @@ impl ID2D1Factory {
         P0: windows_core::Param<ID2D1Geometry>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTransformedGeometry)(windows_core::Interface::as_raw(self), sourcegeometry.param().abi(), transform, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTransformedGeometry)(windows_core::Interface::as_raw(self), sourcegeometry.param().abi(), core::mem::transmute(transform), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry> {
         let mut result__ = core::mem::zeroed();
@@ -4780,12 +4839,12 @@ impl ID2D1Factory {
     }
     pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: Option<&[f32]>) -> windows_core::Result<ID2D1StrokeStyle> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(strokestyleproperties), core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn CreateDrawingStateBlock<P0>(&self, drawingstatedescription: Option<*const D2D1_DRAWING_STATE_DESCRIPTION>, textrenderingparams: P0) -> windows_core::Result<ID2D1DrawingStateBlock>
+    pub unsafe fn CreateDrawingStateBlock<P1>(&self, drawingstatedescription: Option<*const D2D1_DRAWING_STATE_DESCRIPTION>, textrenderingparams: P1) -> windows_core::Result<ID2D1DrawingStateBlock>
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteRenderingParams>,
+        P1: windows_core::Param<super::DirectWrite::IDWriteRenderingParams>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDrawingStateBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(drawingstatedescription.unwrap_or(core::ptr::null())), textrenderingparams.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4796,12 +4855,12 @@ impl ID2D1Factory {
         P0: windows_core::Param<super::Imaging::IWICBitmap>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateWicBitmapRenderTarget)(windows_core::Interface::as_raw(self), target.param().abi(), rendertargetproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateWicBitmapRenderTarget)(windows_core::Interface::as_raw(self), target.param().abi(), core::mem::transmute(rendertargetproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateHwndRenderTarget(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES) -> windows_core::Result<ID2D1HwndRenderTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateHwndRenderTarget)(windows_core::Interface::as_raw(self), rendertargetproperties, hwndrendertargetproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateHwndRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(rendertargetproperties), core::mem::transmute(hwndrendertargetproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<P0>(&self, dxgisurface: P0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::Result<ID2D1RenderTarget>
@@ -4809,16 +4868,14 @@ impl ID2D1Factory {
         P0: windows_core::Param<super::Dxgi::IDXGISurface>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDxgiSurfaceRenderTarget)(windows_core::Interface::as_raw(self), dxgisurface.param().abi(), rendertargetproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDxgiSurfaceRenderTarget)(windows_core::Interface::as_raw(self), dxgisurface.param().abi(), core::mem::transmute(rendertargetproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDCRenderTarget(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::Result<ID2D1DCRenderTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDCRenderTarget)(windows_core::Interface::as_raw(self), rendertargetproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDCRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(rendertargetproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory {}
-unsafe impl Sync for ID2D1Factory {}
 #[repr(C)]
 pub struct ID2D1Factory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -4868,7 +4925,7 @@ pub struct ID2D1Factory_Vtbl {
     CreateDCRenderTarget: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1Factory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1Factory_Impl: windows_core::IUnknownImpl {
     fn ReloadSystemMetrics(&self) -> windows_core::Result<()>;
     fn GetDesktopDpi(&self, dpix: *mut f32, dpiy: *mut f32);
     fn CreateRectangleGeometry(&self, rectangle: *const Common::D2D_RECT_F) -> windows_core::Result<ID2D1RectangleGeometry>;
@@ -4885,10 +4942,8 @@ pub trait ID2D1Factory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateDCRenderTarget(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::Result<ID2D1DCRenderTarget>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1Factory {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1Factory_Vtbl {
-    pub const fn new<Identity: ID2D1Factory_Impl, const OFFSET: isize>() -> ID2D1Factory_Vtbl {
+    pub const fn new<Identity: ID2D1Factory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReloadSystemMetrics<Identity: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Factory_Impl::ReloadSystemMetrics(this).into()
@@ -5039,6 +5094,12 @@ impl ID2D1Factory_Vtbl {
         iid == &<ID2D1Factory as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1Factory {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1Factory {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1Factory {}
 windows_core::imp::define_interface!(ID2D1Factory1, ID2D1Factory1_Vtbl, 0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
 impl core::ops::Deref for ID2D1Factory1 {
     type Target = ID2D1Factory;
@@ -5058,16 +5119,16 @@ impl ID2D1Factory1 {
     }
     pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: Option<&[f32]>) -> windows_core::Result<ID2D1StrokeStyle1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(strokestyleproperties), core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePathGeometry)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn CreateDrawingStateBlock<P0>(&self, drawingstatedescription: Option<*const D2D1_DRAWING_STATE_DESCRIPTION1>, textrenderingparams: P0) -> windows_core::Result<ID2D1DrawingStateBlock1>
+    pub unsafe fn CreateDrawingStateBlock<P1>(&self, drawingstatedescription: Option<*const D2D1_DRAWING_STATE_DESCRIPTION1>, textrenderingparams: P1) -> windows_core::Result<ID2D1DrawingStateBlock1>
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteRenderingParams>,
+        P1: windows_core::Param<super::DirectWrite::IDWriteRenderingParams>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateDrawingStateBlock)(windows_core::Interface::as_raw(self), core::mem::transmute(drawingstatedescription.unwrap_or(core::ptr::null())), textrenderingparams.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5081,31 +5142,29 @@ impl ID2D1Factory1 {
         (windows_core::Interface::vtable(self).CreateGdiMetafile)(windows_core::Interface::as_raw(self), metafilestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RegisterEffectFromStream<P0>(&self, classid: *const windows_core::GUID, propertyxml: P0, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>
+    pub unsafe fn RegisterEffectFromStream<P1>(&self, classid: *const windows_core::GUID, propertyxml: P1, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
+        P1: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory).ok()
+        (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), core::mem::transmute(classid), propertyxml.param().abi(), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(effectfactory)).ok()
     }
-    pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const windows_core::GUID, propertyxml: P0, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>
+    pub unsafe fn RegisterEffectFromString<P1>(&self, classid: *const windows_core::GUID, propertyxml: P1, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory).ok()
+        (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), core::mem::transmute(classid), propertyxml.param().abi(), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterEffect)(windows_core::Interface::as_raw(self), classid).ok()
+        (windows_core::Interface::vtable(self).UnregisterEffect)(windows_core::Interface::as_raw(self), core::mem::transmute(classid)).ok()
     }
     pub unsafe fn GetRegisteredEffects(&self, effects: Option<&mut [windows_core::GUID]>, effectsreturned: Option<*mut u32>, effectsregistered: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRegisteredEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(effects.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), effects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(effectsreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(effectsregistered.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetEffectProperties(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Properties> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEffectProperties)(windows_core::Interface::as_raw(self), effectid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetEffectProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory1 {}
-unsafe impl Sync for ID2D1Factory1 {}
 #[repr(C)]
 pub struct ID2D1Factory1_Vtbl {
     pub base__: ID2D1Factory_Vtbl,
@@ -5133,7 +5192,7 @@ pub struct ID2D1Factory1_Vtbl {
     pub GetEffectProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
+pub trait ID2D1Factory1_Impl: ID2D1Factory_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device>;
     fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> windows_core::Result<ID2D1StrokeStyle1>;
     fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1>;
@@ -5146,10 +5205,8 @@ pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
     fn GetEffectProperties(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Properties>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory1 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory1_Vtbl {
-    pub const fn new<Identity: ID2D1Factory1_Impl, const OFFSET: isize>() -> ID2D1Factory1_Vtbl {
+    pub const fn new<Identity: ID2D1Factory1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory1_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5244,6 +5301,12 @@ impl ID2D1Factory1_Vtbl {
         iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory1 {}
 windows_core::imp::define_interface!(ID2D1Factory2, ID2D1Factory2_Vtbl, 0x94f81a73_9212_4376_9c58_b16a3a0d3992);
 impl core::ops::Deref for ID2D1Factory2 {
     type Target = ID2D1Factory1;
@@ -5262,8 +5325,6 @@ impl ID2D1Factory2 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory2 {}
-unsafe impl Sync for ID2D1Factory2 {}
 #[repr(C)]
 pub struct ID2D1Factory2_Vtbl {
     pub base__: ID2D1Factory1_Vtbl,
@@ -5273,14 +5334,12 @@ pub struct ID2D1Factory2_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory2_Impl: Sized + ID2D1Factory1_Impl {
+pub trait ID2D1Factory2_Impl: ID2D1Factory1_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device1>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory2 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory2_Vtbl {
-    pub const fn new<Identity: ID2D1Factory2_Impl, const OFFSET: isize>() -> ID2D1Factory2_Vtbl {
+    pub const fn new<Identity: ID2D1Factory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory2_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5297,6 +5356,12 @@ impl ID2D1Factory2_Vtbl {
         iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory2 {}
 windows_core::imp::define_interface!(ID2D1Factory3, ID2D1Factory3_Vtbl, 0x0869759f_4f00_413f_b03e_2bda45404d0f);
 impl core::ops::Deref for ID2D1Factory3 {
     type Target = ID2D1Factory2;
@@ -5315,8 +5380,6 @@ impl ID2D1Factory3 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory3 {}
-unsafe impl Sync for ID2D1Factory3 {}
 #[repr(C)]
 pub struct ID2D1Factory3_Vtbl {
     pub base__: ID2D1Factory2_Vtbl,
@@ -5326,14 +5389,12 @@ pub struct ID2D1Factory3_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory3_Impl: Sized + ID2D1Factory2_Impl {
+pub trait ID2D1Factory3_Impl: ID2D1Factory2_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device2>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory3 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory3_Vtbl {
-    pub const fn new<Identity: ID2D1Factory3_Impl, const OFFSET: isize>() -> ID2D1Factory3_Vtbl {
+    pub const fn new<Identity: ID2D1Factory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory3_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5350,6 +5411,12 @@ impl ID2D1Factory3_Vtbl {
         iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory3 {}
 windows_core::imp::define_interface!(ID2D1Factory4, ID2D1Factory4_Vtbl, 0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
 impl core::ops::Deref for ID2D1Factory4 {
     type Target = ID2D1Factory3;
@@ -5368,8 +5435,6 @@ impl ID2D1Factory4 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory4 {}
-unsafe impl Sync for ID2D1Factory4 {}
 #[repr(C)]
 pub struct ID2D1Factory4_Vtbl {
     pub base__: ID2D1Factory3_Vtbl,
@@ -5379,14 +5444,12 @@ pub struct ID2D1Factory4_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory4_Impl: Sized + ID2D1Factory3_Impl {
+pub trait ID2D1Factory4_Impl: ID2D1Factory3_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory4 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory4_Vtbl {
-    pub const fn new<Identity: ID2D1Factory4_Impl, const OFFSET: isize>() -> ID2D1Factory4_Vtbl {
+    pub const fn new<Identity: ID2D1Factory4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory4_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5403,6 +5466,12 @@ impl ID2D1Factory4_Vtbl {
         iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory4 {}
 windows_core::imp::define_interface!(ID2D1Factory5, ID2D1Factory5_Vtbl, 0xc4349994_838e_4b0f_8cab_44997d9eeacc);
 impl core::ops::Deref for ID2D1Factory5 {
     type Target = ID2D1Factory4;
@@ -5421,8 +5490,6 @@ impl ID2D1Factory5 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory5 {}
-unsafe impl Sync for ID2D1Factory5 {}
 #[repr(C)]
 pub struct ID2D1Factory5_Vtbl {
     pub base__: ID2D1Factory4_Vtbl,
@@ -5432,14 +5499,12 @@ pub struct ID2D1Factory5_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory5_Impl: Sized + ID2D1Factory4_Impl {
+pub trait ID2D1Factory5_Impl: ID2D1Factory4_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device4>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory5 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory5_Vtbl {
-    pub const fn new<Identity: ID2D1Factory5_Impl, const OFFSET: isize>() -> ID2D1Factory5_Vtbl {
+    pub const fn new<Identity: ID2D1Factory5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory5_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5456,6 +5521,12 @@ impl ID2D1Factory5_Vtbl {
         iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory5 {}
 windows_core::imp::define_interface!(ID2D1Factory6, ID2D1Factory6_Vtbl, 0xf9976f46_f642_44c1_97ca_da32ea2a2635);
 impl core::ops::Deref for ID2D1Factory6 {
     type Target = ID2D1Factory5;
@@ -5474,8 +5545,6 @@ impl ID2D1Factory6 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory6 {}
-unsafe impl Sync for ID2D1Factory6 {}
 #[repr(C)]
 pub struct ID2D1Factory6_Vtbl {
     pub base__: ID2D1Factory5_Vtbl,
@@ -5485,14 +5554,12 @@ pub struct ID2D1Factory6_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory6_Impl: Sized + ID2D1Factory5_Impl {
+pub trait ID2D1Factory6_Impl: ID2D1Factory5_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device5>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory6 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory6_Vtbl {
-    pub const fn new<Identity: ID2D1Factory6_Impl, const OFFSET: isize>() -> ID2D1Factory6_Vtbl {
+    pub const fn new<Identity: ID2D1Factory6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory6_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5509,6 +5576,12 @@ impl ID2D1Factory6_Vtbl {
         iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory6 {}
 windows_core::imp::define_interface!(ID2D1Factory7, ID2D1Factory7_Vtbl, 0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
 impl core::ops::Deref for ID2D1Factory7 {
     type Target = ID2D1Factory6;
@@ -5527,8 +5600,6 @@ impl ID2D1Factory7 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory7 {}
-unsafe impl Sync for ID2D1Factory7 {}
 #[repr(C)]
 pub struct ID2D1Factory7_Vtbl {
     pub base__: ID2D1Factory6_Vtbl,
@@ -5538,14 +5609,12 @@ pub struct ID2D1Factory7_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory7_Impl: Sized + ID2D1Factory6_Impl {
+pub trait ID2D1Factory7_Impl: ID2D1Factory6_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device6>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory7 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory7_Vtbl {
-    pub const fn new<Identity: ID2D1Factory7_Impl, const OFFSET: isize>() -> ID2D1Factory7_Vtbl {
+    pub const fn new<Identity: ID2D1Factory7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory7_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5562,6 +5631,12 @@ impl ID2D1Factory7_Vtbl {
         iid == &<ID2D1Factory7 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory6 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory7 {}
 windows_core::imp::define_interface!(ID2D1Factory8, ID2D1Factory8_Vtbl, 0x677c9311_f36d_4b1f_ae86_86d1223ffd3a);
 impl core::ops::Deref for ID2D1Factory8 {
     type Target = ID2D1Factory7;
@@ -5580,8 +5655,6 @@ impl ID2D1Factory8 {
         (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Factory8 {}
-unsafe impl Sync for ID2D1Factory8 {}
 #[repr(C)]
 pub struct ID2D1Factory8_Vtbl {
     pub base__: ID2D1Factory7_Vtbl,
@@ -5591,14 +5664,12 @@ pub struct ID2D1Factory8_Vtbl {
     CreateDevice: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-pub trait ID2D1Factory8_Impl: Sized + ID2D1Factory7_Impl {
+pub trait ID2D1Factory8_Impl: ID2D1Factory7_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device7>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1Factory8 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory8_Vtbl {
-    pub const fn new<Identity: ID2D1Factory8_Impl, const OFFSET: isize>() -> ID2D1Factory8_Vtbl {
+    pub const fn new<Identity: ID2D1Factory8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDevice<Identity: ID2D1Factory8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Factory8_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
@@ -5615,26 +5686,24 @@ impl ID2D1Factory8_Vtbl {
         iid == &<ID2D1Factory8 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory7 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1Factory8 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory8 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory8 {}
 windows_core::imp::define_interface!(ID2D1GdiInteropRenderTarget, ID2D1GdiInteropRenderTarget_Vtbl, 0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
-impl core::ops::Deref for ID2D1GdiInteropRenderTarget {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1GdiInteropRenderTarget, windows_core::IUnknown);
 impl ID2D1GdiInteropRenderTarget {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, mode: D2D1_DC_INITIALIZE_MODE) -> windows_core::Result<super::Gdi::HDC> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), mode, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), core::mem::transmute(mode), &mut result__).map(|| result__)
     }
     pub unsafe fn ReleaseDC(&self, update: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), core::mem::transmute(update.unwrap_or(core::ptr::null()))).ok()
     }
 }
-unsafe impl Send for ID2D1GdiInteropRenderTarget {}
-unsafe impl Sync for ID2D1GdiInteropRenderTarget {}
 #[repr(C)]
 pub struct ID2D1GdiInteropRenderTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -5645,15 +5714,13 @@ pub struct ID2D1GdiInteropRenderTarget_Vtbl {
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait ID2D1GdiInteropRenderTarget_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1GdiInteropRenderTarget_Impl: windows_core::IUnknownImpl {
     fn GetDC(&self, mode: D2D1_DC_INITIALIZE_MODE) -> windows_core::Result<super::Gdi::HDC>;
     fn ReleaseDC(&self, update: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::RuntimeName for ID2D1GdiInteropRenderTarget {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ID2D1GdiInteropRenderTarget_Vtbl {
-    pub const fn new<Identity: ID2D1GdiInteropRenderTarget_Impl, const OFFSET: isize>() -> ID2D1GdiInteropRenderTarget_Vtbl {
+    pub const fn new<Identity: ID2D1GdiInteropRenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDC<Identity: ID2D1GdiInteropRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: D2D1_DC_INITIALIZE_MODE, hdc: *mut super::Gdi::HDC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1GdiInteropRenderTarget_Impl::GetDC(this, core::mem::transmute_copy(&mode)) {
@@ -5674,6 +5741,12 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
         iid == &<ID2D1GdiInteropRenderTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for ID2D1GdiInteropRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for ID2D1GdiInteropRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for ID2D1GdiInteropRenderTarget {}
 windows_core::imp::define_interface!(ID2D1GdiMetafile, ID2D1GdiMetafile_Vtbl, 0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
 impl core::ops::Deref for ID2D1GdiMetafile {
     type Target = ID2D1Resource;
@@ -5695,8 +5768,6 @@ impl ID2D1GdiMetafile {
         (windows_core::Interface::vtable(self).GetBounds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1GdiMetafile {}
-unsafe impl Sync for ID2D1GdiMetafile {}
 #[repr(C)]
 pub struct ID2D1GdiMetafile_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -5707,15 +5778,13 @@ pub struct ID2D1GdiMetafile_Vtbl {
     GetBounds: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GdiMetafile_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1GdiMetafile_Impl: ID2D1Resource_Impl {
     fn Stream(&self, sink: Option<&ID2D1GdiMetafileSink>) -> windows_core::Result<()>;
     fn GetBounds(&self) -> windows_core::Result<Common::D2D_RECT_F>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GdiMetafile {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GdiMetafile_Vtbl {
-    pub const fn new<Identity: ID2D1GdiMetafile_Impl, const OFFSET: isize>() -> ID2D1GdiMetafile_Vtbl {
+    pub const fn new<Identity: ID2D1GdiMetafile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Stream<Identity: ID2D1GdiMetafile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GdiMetafile_Impl::Stream(this, windows_core::from_raw_borrowed(&sink)).into()
@@ -5736,6 +5805,12 @@ impl ID2D1GdiMetafile_Vtbl {
         iid == &<ID2D1GdiMetafile as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GdiMetafile {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GdiMetafile {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GdiMetafile {}
 windows_core::imp::define_interface!(ID2D1GdiMetafile1, ID2D1GdiMetafile1_Vtbl, 0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
 impl core::ops::Deref for ID2D1GdiMetafile1 {
     type Target = ID2D1GdiMetafile;
@@ -5746,7 +5821,7 @@ impl core::ops::Deref for ID2D1GdiMetafile1 {
 windows_core::imp::interface_hierarchy!(ID2D1GdiMetafile1, windows_core::IUnknown, ID2D1Resource, ID2D1GdiMetafile);
 impl ID2D1GdiMetafile1 {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), dpix, dpiy).ok()
+        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSourceBounds(&self) -> windows_core::Result<Common::D2D_RECT_F> {
@@ -5754,8 +5829,6 @@ impl ID2D1GdiMetafile1 {
         (windows_core::Interface::vtable(self).GetSourceBounds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1GdiMetafile1 {}
-unsafe impl Sync for ID2D1GdiMetafile1 {}
 #[repr(C)]
 pub struct ID2D1GdiMetafile1_Vtbl {
     pub base__: ID2D1GdiMetafile_Vtbl,
@@ -5766,15 +5839,13 @@ pub struct ID2D1GdiMetafile1_Vtbl {
     GetSourceBounds: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GdiMetafile1_Impl: Sized + ID2D1GdiMetafile_Impl {
+pub trait ID2D1GdiMetafile1_Impl: ID2D1GdiMetafile_Impl {
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) -> windows_core::Result<()>;
     fn GetSourceBounds(&self) -> windows_core::Result<Common::D2D_RECT_F>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GdiMetafile1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GdiMetafile1_Vtbl {
-    pub const fn new<Identity: ID2D1GdiMetafile1_Impl, const OFFSET: isize>() -> ID2D1GdiMetafile1_Vtbl {
+    pub const fn new<Identity: ID2D1GdiMetafile1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDpi<Identity: ID2D1GdiMetafile1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GdiMetafile1_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy)).into()
@@ -5799,32 +5870,29 @@ impl ID2D1GdiMetafile1_Vtbl {
         iid == &<ID2D1GdiMetafile1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1GdiMetafile as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GdiMetafile1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GdiMetafile1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GdiMetafile1 {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink, ID2D1GdiMetafileSink_Vtbl, 0x82237326_8111_4f7c_bcf4_b5c1175564fe);
-impl core::ops::Deref for ID2D1GdiMetafileSink {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink, windows_core::IUnknown);
 impl ID2D1GdiMetafileSink {
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: Option<*const core::ffi::c_void>, recorddatasize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessRecord)(windows_core::Interface::as_raw(self), recordtype, core::mem::transmute(recorddata.unwrap_or(core::ptr::null())), recorddatasize).ok()
+        (windows_core::Interface::vtable(self).ProcessRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(recordtype), core::mem::transmute(recorddata.unwrap_or(core::ptr::null())), core::mem::transmute(recorddatasize)).ok()
     }
 }
-unsafe impl Send for ID2D1GdiMetafileSink {}
-unsafe impl Sync for ID2D1GdiMetafileSink {}
 #[repr(C)]
 pub struct ID2D1GdiMetafileSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1GdiMetafileSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1GdiMetafileSink_Impl: windows_core::IUnknownImpl {
     fn ProcessRecord(&self, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1GdiMetafileSink {}
 impl ID2D1GdiMetafileSink_Vtbl {
-    pub const fn new<Identity: ID2D1GdiMetafileSink_Impl, const OFFSET: isize>() -> ID2D1GdiMetafileSink_Vtbl {
+    pub const fn new<Identity: ID2D1GdiMetafileSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessRecord<Identity: ID2D1GdiMetafileSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GdiMetafileSink_Impl::ProcessRecord(this, core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize)).into()
@@ -5835,6 +5903,9 @@ impl ID2D1GdiMetafileSink_Vtbl {
         iid == &<ID2D1GdiMetafileSink as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1GdiMetafileSink {}
+unsafe impl Send for ID2D1GdiMetafileSink {}
+unsafe impl Sync for ID2D1GdiMetafileSink {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink1, ID2D1GdiMetafileSink1_Vtbl, 0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
 impl core::ops::Deref for ID2D1GdiMetafileSink1 {
     type Target = ID2D1GdiMetafileSink;
@@ -5845,22 +5916,19 @@ impl core::ops::Deref for ID2D1GdiMetafileSink1 {
 windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink1, windows_core::IUnknown, ID2D1GdiMetafileSink);
 impl ID2D1GdiMetafileSink1 {
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: Option<*const core::ffi::c_void>, recorddatasize: u32, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessRecord)(windows_core::Interface::as_raw(self), recordtype, core::mem::transmute(recorddata.unwrap_or(core::ptr::null())), recorddatasize, flags).ok()
+        (windows_core::Interface::vtable(self).ProcessRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(recordtype), core::mem::transmute(recorddata.unwrap_or(core::ptr::null())), core::mem::transmute(recorddatasize), core::mem::transmute(flags)).ok()
     }
 }
-unsafe impl Send for ID2D1GdiMetafileSink1 {}
-unsafe impl Sync for ID2D1GdiMetafileSink1 {}
 #[repr(C)]
 pub struct ID2D1GdiMetafileSink1_Vtbl {
     pub base__: ID2D1GdiMetafileSink_Vtbl,
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1GdiMetafileSink1_Impl: Sized + ID2D1GdiMetafileSink_Impl {
+pub trait ID2D1GdiMetafileSink1_Impl: ID2D1GdiMetafileSink_Impl {
     fn ProcessRecord(&self, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1GdiMetafileSink1 {}
 impl ID2D1GdiMetafileSink1_Vtbl {
-    pub const fn new<Identity: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>() -> ID2D1GdiMetafileSink1_Vtbl {
+    pub const fn new<Identity: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessRecord<Identity: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GdiMetafileSink1_Impl::ProcessRecord(this, core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize), core::mem::transmute_copy(&flags)).into()
@@ -5871,6 +5939,9 @@ impl ID2D1GdiMetafileSink1_Vtbl {
         iid == &<ID2D1GdiMetafileSink1 as windows_core::Interface>::IID || iid == &<ID2D1GdiMetafileSink as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1GdiMetafileSink1 {}
+unsafe impl Send for ID2D1GdiMetafileSink1 {}
+unsafe impl Sync for ID2D1GdiMetafileSink1 {}
 windows_core::imp::define_interface!(ID2D1Geometry, ID2D1Geometry_Vtbl, 0x2cd906a1_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Geometry {
     type Target = ID2D1Resource;
@@ -5886,25 +5957,25 @@ impl ID2D1Geometry {
         (windows_core::Interface::vtable(self).GetBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetWidenedBounds<P0>(&self, strokewidth: f32, strokestyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<Common::D2D_RECT_F>
+    pub unsafe fn GetWidenedBounds<P1>(&self, strokewidth: f32, strokestyle: P1, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<Common::D2D_RECT_F>
     where
-        P0: windows_core::Param<ID2D1StrokeStyle>,
+        P1: windows_core::Param<ID2D1StrokeStyle>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetWidenedBounds)(windows_core::Interface::as_raw(self), strokewidth, strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetWidenedBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(strokewidth), strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn StrokeContainsPoint<P0>(&self, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn StrokeContainsPoint<P2>(&self, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: P2, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::Param<ID2D1StrokeStyle>,
+        P2: windows_core::Param<ID2D1StrokeStyle>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).StrokeContainsPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), strokewidth, strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StrokeContainsPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), core::mem::transmute(strokewidth), strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn FillContainsPoint(&self, point: Common::D2D_POINT_2F, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FillContainsPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).FillContainsPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CompareWithGeometry<P0>(&self, inputgeometry: P0, inputgeometrytransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<D2D1_GEOMETRY_RELATION>
@@ -5912,62 +5983,60 @@ impl ID2D1Geometry {
         P0: windows_core::Param<ID2D1Geometry>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareWithGeometry)(windows_core::Interface::as_raw(self), inputgeometry.param().abi(), core::mem::transmute(inputgeometrytransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareWithGeometry)(windows_core::Interface::as_raw(self), inputgeometry.param().abi(), core::mem::transmute(inputgeometrytransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn Simplify<P0>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P0) -> windows_core::Result<()>
+    pub unsafe fn Simplify<P3>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
+        P3: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
-        (windows_core::Interface::vtable(self).Simplify)(windows_core::Interface::as_raw(self), simplificationoption, core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, geometrysink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Simplify)(windows_core::Interface::as_raw(self), core::mem::transmute(simplificationoption), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), geometrysink.param().abi()).ok()
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub unsafe fn Tessellate<P0>(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, tessellationsink: P0) -> windows_core::Result<()>
+    pub unsafe fn Tessellate<P2>(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, tessellationsink: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1TessellationSink>,
+        P2: windows_core::Param<ID2D1TessellationSink>,
     {
-        (windows_core::Interface::vtable(self).Tessellate)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, tessellationsink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Tessellate)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), tessellationsink.param().abi()).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn CombineWithGeometry<P0, P1>(&self, inputgeometry: P0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P1) -> windows_core::Result<()>
+    pub unsafe fn CombineWithGeometry<P0, P4>(&self, inputgeometry: P0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1Geometry>,
-        P1: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
+        P4: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
-        (windows_core::Interface::vtable(self).CombineWithGeometry)(windows_core::Interface::as_raw(self), inputgeometry.param().abi(), combinemode, core::mem::transmute(inputgeometrytransform.unwrap_or(core::ptr::null())), flatteningtolerance, geometrysink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).CombineWithGeometry)(windows_core::Interface::as_raw(self), inputgeometry.param().abi(), core::mem::transmute(combinemode), core::mem::transmute(inputgeometrytransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), geometrysink.param().abi()).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn Outline<P0>(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P0) -> windows_core::Result<()>
+    pub unsafe fn Outline<P2>(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
+        P2: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
-        (windows_core::Interface::vtable(self).Outline)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, geometrysink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Outline)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), geometrysink.param().abi()).ok()
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn ComputeArea(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ComputeArea)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ComputeArea)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn ComputeLength(&self, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ComputeLength)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ComputeLength)(windows_core::Interface::as_raw(self), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, point: Option<*mut Common::D2D_POINT_2F>, unittangentvector: Option<*mut Common::D2D_POINT_2F>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ComputePointAtLength)(windows_core::Interface::as_raw(self), length, core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, core::mem::transmute(point.unwrap_or(core::ptr::null_mut())), core::mem::transmute(unittangentvector.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ComputePointAtLength)(windows_core::Interface::as_raw(self), core::mem::transmute(length), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), core::mem::transmute(point.unwrap_or(core::ptr::null_mut())), core::mem::transmute(unittangentvector.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn Widen<P0, P1>(&self, strokewidth: f32, strokestyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P1) -> windows_core::Result<()>
+    pub unsafe fn Widen<P1, P4>(&self, strokewidth: f32, strokestyle: P1, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1StrokeStyle>,
-        P1: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
+        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P4: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
-        (windows_core::Interface::vtable(self).Widen)(windows_core::Interface::as_raw(self), strokewidth, strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, geometrysink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Widen)(windows_core::Interface::as_raw(self), core::mem::transmute(strokewidth), strokestyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), geometrysink.param().abi()).ok()
     }
 }
-unsafe impl Send for ID2D1Geometry {}
-unsafe impl Sync for ID2D1Geometry {}
 #[repr(C)]
 pub struct ID2D1Geometry_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -6025,7 +6094,7 @@ pub struct ID2D1Geometry_Vtbl {
     Widen: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1Geometry_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Geometry_Impl: ID2D1Resource_Impl {
     fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<Common::D2D_RECT_F>;
     fn GetWidenedBounds(&self, strokewidth: f32, strokestyle: Option<&ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<Common::D2D_RECT_F>;
     fn StrokeContainsPoint(&self, point: &Common::D2D_POINT_2F, strokewidth: f32, strokestyle: Option<&ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>;
@@ -6041,10 +6110,8 @@ pub trait ID2D1Geometry_Impl: Sized + ID2D1Resource_Impl {
     fn Widen(&self, strokewidth: f32, strokestyle: Option<&ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Option<&Common::ID2D1SimplifiedGeometrySink>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1Geometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1Geometry_Vtbl {
-    pub const fn new<Identity: ID2D1Geometry_Impl, const OFFSET: isize>() -> ID2D1Geometry_Vtbl {
+    pub const fn new<Identity: ID2D1Geometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBounds<Identity: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Geometry_Impl::GetBounds(this, core::mem::transmute_copy(&worldtransform)) {
@@ -6160,6 +6227,12 @@ impl ID2D1Geometry_Vtbl {
         iid == &<ID2D1Geometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1Geometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1Geometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1Geometry {}
 windows_core::imp::define_interface!(ID2D1GeometryGroup, ID2D1GeometryGroup_Vtbl, 0x2cd906a6_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1GeometryGroup {
     type Target = ID2D1Geometry;
@@ -6180,8 +6253,6 @@ impl ID2D1GeometryGroup {
         (windows_core::Interface::vtable(self).GetSourceGeometries)(windows_core::Interface::as_raw(self), core::mem::transmute(geometries.as_ptr()), geometries.len().try_into().unwrap())
     }
 }
-unsafe impl Send for ID2D1GeometryGroup {}
-unsafe impl Sync for ID2D1GeometryGroup {}
 #[repr(C)]
 pub struct ID2D1GeometryGroup_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -6193,16 +6264,14 @@ pub struct ID2D1GeometryGroup_Vtbl {
     pub GetSourceGeometries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1GeometryGroup_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1GeometryGroup_Impl: ID2D1Geometry_Impl {
     fn GetFillMode(&self) -> Common::D2D1_FILL_MODE;
     fn GetSourceGeometryCount(&self) -> u32;
     fn GetSourceGeometries(&self, geometries: *mut Option<ID2D1Geometry>, geometriescount: u32);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1GeometryGroup {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1GeometryGroup_Vtbl {
-    pub const fn new<Identity: ID2D1GeometryGroup_Impl, const OFFSET: isize>() -> ID2D1GeometryGroup_Vtbl {
+    pub const fn new<Identity: ID2D1GeometryGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFillMode<Identity: ID2D1GeometryGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Common::D2D1_FILL_MODE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GeometryGroup_Impl::GetFillMode(this)
@@ -6226,6 +6295,12 @@ impl ID2D1GeometryGroup_Vtbl {
         iid == &<ID2D1GeometryGroup as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1GeometryGroup {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1GeometryGroup {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1GeometryGroup {}
 windows_core::imp::define_interface!(ID2D1GeometryRealization, ID2D1GeometryRealization_Vtbl, 0xa16907d7_bc02_4801_99e8_8cf7f485f774);
 impl core::ops::Deref for ID2D1GeometryRealization {
     type Target = ID2D1Resource;
@@ -6234,23 +6309,22 @@ impl core::ops::Deref for ID2D1GeometryRealization {
     }
 }
 windows_core::imp::interface_hierarchy!(ID2D1GeometryRealization, windows_core::IUnknown, ID2D1Resource);
-impl ID2D1GeometryRealization {}
-unsafe impl Send for ID2D1GeometryRealization {}
-unsafe impl Sync for ID2D1GeometryRealization {}
 #[repr(C)]
 pub struct ID2D1GeometryRealization_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
-pub trait ID2D1GeometryRealization_Impl: Sized + ID2D1Resource_Impl {}
-impl windows_core::RuntimeName for ID2D1GeometryRealization {}
+pub trait ID2D1GeometryRealization_Impl: ID2D1Resource_Impl {}
 impl ID2D1GeometryRealization_Vtbl {
-    pub const fn new<Identity: ID2D1GeometryRealization_Impl, const OFFSET: isize>() -> ID2D1GeometryRealization_Vtbl {
+    pub const fn new<Identity: ID2D1GeometryRealization_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GeometryRealization as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1GeometryRealization {}
+unsafe impl Send for ID2D1GeometryRealization {}
+unsafe impl Sync for ID2D1GeometryRealization {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 windows_core::imp::define_interface!(ID2D1GeometrySink, ID2D1GeometrySink_Vtbl, 0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6270,11 +6344,11 @@ impl ID2D1GeometrySink {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddBezier(&self, bezier: *const Common::D2D1_BEZIER_SEGMENT) {
-        (windows_core::Interface::vtable(self).AddBezier)(windows_core::Interface::as_raw(self), bezier)
+        (windows_core::Interface::vtable(self).AddBezier)(windows_core::Interface::as_raw(self), core::mem::transmute(bezier))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddQuadraticBezier(&self, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT) {
-        (windows_core::Interface::vtable(self).AddQuadraticBezier)(windows_core::Interface::as_raw(self), bezier)
+        (windows_core::Interface::vtable(self).AddQuadraticBezier)(windows_core::Interface::as_raw(self), core::mem::transmute(bezier))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddQuadraticBeziers(&self, beziers: &[D2D1_QUADRATIC_BEZIER_SEGMENT]) {
@@ -6282,13 +6356,9 @@ impl ID2D1GeometrySink {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddArc(&self, arc: *const D2D1_ARC_SEGMENT) {
-        (windows_core::Interface::vtable(self).AddArc)(windows_core::Interface::as_raw(self), arc)
+        (windows_core::Interface::vtable(self).AddArc)(windows_core::Interface::as_raw(self), core::mem::transmute(arc))
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for ID2D1GeometrySink {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for ID2D1GeometrySink {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
 pub struct ID2D1GeometrySink_Vtbl {
@@ -6315,7 +6385,7 @@ pub struct ID2D1GeometrySink_Vtbl {
     AddArc: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GeometrySink_Impl: Sized + Common::ID2D1SimplifiedGeometrySink_Impl {
+pub trait ID2D1GeometrySink_Impl: Common::ID2D1SimplifiedGeometrySink_Impl {
     fn AddLine(&self, point: &Common::D2D_POINT_2F);
     fn AddBezier(&self, bezier: *const Common::D2D1_BEZIER_SEGMENT);
     fn AddQuadraticBezier(&self, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT);
@@ -6323,10 +6393,8 @@ pub trait ID2D1GeometrySink_Impl: Sized + Common::ID2D1SimplifiedGeometrySink_Im
     fn AddArc(&self, arc: *const D2D1_ARC_SEGMENT);
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GeometrySink {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GeometrySink_Vtbl {
-    pub const fn new<Identity: ID2D1GeometrySink_Impl, const OFFSET: isize>() -> ID2D1GeometrySink_Vtbl {
+    pub const fn new<Identity: ID2D1GeometrySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddLine<Identity: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GeometrySink_Impl::AddLine(this, core::mem::transmute(&point))
@@ -6360,6 +6428,12 @@ impl ID2D1GeometrySink_Vtbl {
         iid == &<ID2D1GeometrySink as windows_core::Interface>::IID || iid == &<Common::ID2D1SimplifiedGeometrySink as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GeometrySink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GeometrySink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GeometrySink {}
 windows_core::imp::define_interface!(ID2D1GradientMesh, ID2D1GradientMesh_Vtbl, 0xf292e401_c050_4cde_83d7_04962d3b23c2);
 impl core::ops::Deref for ID2D1GradientMesh {
     type Target = ID2D1Resource;
@@ -6374,11 +6448,9 @@ impl ID2D1GradientMesh {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetPatches(&self, startindex: u32, patches: &mut [D2D1_GRADIENT_MESH_PATCH]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPatches)(windows_core::Interface::as_raw(self), startindex, core::mem::transmute(patches.as_ptr()), patches.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetPatches)(windows_core::Interface::as_raw(self), core::mem::transmute(startindex), core::mem::transmute(patches.as_ptr()), patches.len().try_into().unwrap()).ok()
     }
 }
-unsafe impl Send for ID2D1GradientMesh {}
-unsafe impl Sync for ID2D1GradientMesh {}
 #[repr(C)]
 pub struct ID2D1GradientMesh_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -6389,15 +6461,13 @@ pub struct ID2D1GradientMesh_Vtbl {
     GetPatches: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GradientMesh_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1GradientMesh_Impl: ID2D1Resource_Impl {
     fn GetPatchCount(&self) -> u32;
     fn GetPatches(&self, startindex: u32, patches: *mut D2D1_GRADIENT_MESH_PATCH, patchescount: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GradientMesh {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GradientMesh_Vtbl {
-    pub const fn new<Identity: ID2D1GradientMesh_Impl, const OFFSET: isize>() -> ID2D1GradientMesh_Vtbl {
+    pub const fn new<Identity: ID2D1GradientMesh_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPatchCount<Identity: ID2D1GradientMesh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GradientMesh_Impl::GetPatchCount(this)
@@ -6416,6 +6486,12 @@ impl ID2D1GradientMesh_Vtbl {
         iid == &<ID2D1GradientMesh as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GradientMesh {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientMesh {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientMesh {}
 windows_core::imp::define_interface!(ID2D1GradientStopCollection, ID2D1GradientStopCollection_Vtbl, 0x2cd906a7_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1GradientStopCollection {
     type Target = ID2D1Resource;
@@ -6439,8 +6515,6 @@ impl ID2D1GradientStopCollection {
         (windows_core::Interface::vtable(self).GetExtendMode)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1GradientStopCollection {}
-unsafe impl Sync for ID2D1GradientStopCollection {}
 #[repr(C)]
 pub struct ID2D1GradientStopCollection_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -6453,17 +6527,15 @@ pub struct ID2D1GradientStopCollection_Vtbl {
     pub GetExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_EXTEND_MODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GradientStopCollection_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1GradientStopCollection_Impl: ID2D1Resource_Impl {
     fn GetGradientStopCount(&self) -> u32;
     fn GetGradientStops(&self, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32);
     fn GetColorInterpolationGamma(&self) -> D2D1_GAMMA;
     fn GetExtendMode(&self) -> D2D1_EXTEND_MODE;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GradientStopCollection {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GradientStopCollection_Vtbl {
-    pub const fn new<Identity: ID2D1GradientStopCollection_Impl, const OFFSET: isize>() -> ID2D1GradientStopCollection_Vtbl {
+    pub const fn new<Identity: ID2D1GradientStopCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGradientStopCount<Identity: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GradientStopCollection_Impl::GetGradientStopCount(this)
@@ -6492,6 +6564,12 @@ impl ID2D1GradientStopCollection_Vtbl {
         iid == &<ID2D1GradientStopCollection as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GradientStopCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientStopCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientStopCollection {}
 windows_core::imp::define_interface!(ID2D1GradientStopCollection1, ID2D1GradientStopCollection1_Vtbl, 0xae1572f4_5dd0_4777_998b_9279472ae63b);
 impl core::ops::Deref for ID2D1GradientStopCollection1 {
     type Target = ID2D1GradientStopCollection;
@@ -6518,8 +6596,6 @@ impl ID2D1GradientStopCollection1 {
         (windows_core::Interface::vtable(self).GetColorInterpolationMode)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1GradientStopCollection1 {}
-unsafe impl Sync for ID2D1GradientStopCollection1 {}
 #[repr(C)]
 pub struct ID2D1GradientStopCollection1_Vtbl {
     pub base__: ID2D1GradientStopCollection_Vtbl,
@@ -6533,7 +6609,7 @@ pub struct ID2D1GradientStopCollection1_Vtbl {
     pub GetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_COLOR_INTERPOLATION_MODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1GradientStopCollection1_Impl: Sized + ID2D1GradientStopCollection_Impl {
+pub trait ID2D1GradientStopCollection1_Impl: ID2D1GradientStopCollection_Impl {
     fn GetGradientStops1(&self, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32);
     fn GetPreInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
     fn GetPostInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
@@ -6541,10 +6617,8 @@ pub trait ID2D1GradientStopCollection1_Impl: Sized + ID2D1GradientStopCollection
     fn GetColorInterpolationMode(&self) -> D2D1_COLOR_INTERPOLATION_MODE;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1GradientStopCollection1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GradientStopCollection1_Vtbl {
-    pub const fn new<Identity: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>() -> ID2D1GradientStopCollection1_Vtbl {
+    pub const fn new<Identity: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGradientStops1<Identity: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1GradientStopCollection1_Impl::GetGradientStops1(this, core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount))
@@ -6578,6 +6652,12 @@ impl ID2D1GradientStopCollection1_Vtbl {
         iid == &<ID2D1GradientStopCollection1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1GradientStopCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1GradientStopCollection1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientStopCollection1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientStopCollection1 {}
 windows_core::imp::define_interface!(ID2D1HwndRenderTarget, ID2D1HwndRenderTarget_Vtbl, 0x2cd90698_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1HwndRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -6592,14 +6672,12 @@ impl ID2D1HwndRenderTarget {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn Resize(&self, pixelsize: *const Common::D2D_SIZE_U) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), pixelsize).ok()
+        (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(pixelsize)).ok()
     }
     pub unsafe fn GetHwnd(&self) -> super::super::Foundation::HWND {
         (windows_core::Interface::vtable(self).GetHwnd)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1HwndRenderTarget {}
-unsafe impl Sync for ID2D1HwndRenderTarget {}
 #[repr(C)]
 pub struct ID2D1HwndRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
@@ -6611,16 +6689,14 @@ pub struct ID2D1HwndRenderTarget_Vtbl {
     pub GetHwnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HWND,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1HwndRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
+pub trait ID2D1HwndRenderTarget_Impl: ID2D1RenderTarget_Impl {
     fn CheckWindowState(&self) -> D2D1_WINDOW_STATE;
     fn Resize(&self, pixelsize: *const Common::D2D_SIZE_U) -> windows_core::Result<()>;
     fn GetHwnd(&self) -> super::super::Foundation::HWND;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1HwndRenderTarget {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1HwndRenderTarget_Vtbl {
-    pub const fn new<Identity: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>() -> ID2D1HwndRenderTarget_Vtbl {
+    pub const fn new<Identity: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckWindowState<Identity: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_WINDOW_STATE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1HwndRenderTarget_Impl::CheckWindowState(this)
@@ -6644,6 +6720,12 @@ impl ID2D1HwndRenderTarget_Vtbl {
         iid == &<ID2D1HwndRenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1HwndRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1HwndRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1HwndRenderTarget {}
 windows_core::imp::define_interface!(ID2D1Image, ID2D1Image_Vtbl, 0x65019f75_8da2_497c_b32c_dfa34e48ede6);
 impl core::ops::Deref for ID2D1Image {
     type Target = ID2D1Resource;
@@ -6652,23 +6734,22 @@ impl core::ops::Deref for ID2D1Image {
     }
 }
 windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D1Resource);
-impl ID2D1Image {}
-unsafe impl Send for ID2D1Image {}
-unsafe impl Sync for ID2D1Image {}
 #[repr(C)]
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
-pub trait ID2D1Image_Impl: Sized + ID2D1Resource_Impl {}
-impl windows_core::RuntimeName for ID2D1Image {}
+pub trait ID2D1Image_Impl: ID2D1Resource_Impl {}
 impl ID2D1Image_Vtbl {
-    pub const fn new<Identity: ID2D1Image_Impl, const OFFSET: isize>() -> ID2D1Image_Vtbl {
+    pub const fn new<Identity: ID2D1Image_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Image {}
+unsafe impl Send for ID2D1Image {}
+unsafe impl Sync for ID2D1Image {}
 windows_core::imp::define_interface!(ID2D1ImageBrush, ID2D1ImageBrush_Vtbl, 0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
 impl core::ops::Deref for ID2D1ImageBrush {
     type Target = ID2D1Brush;
@@ -6685,17 +6766,17 @@ impl ID2D1ImageBrush {
         (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), image.param().abi())
     }
     pub unsafe fn SetExtendModeX(&self, extendmodex: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), extendmodex)
+        (windows_core::Interface::vtable(self).SetExtendModeX)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmodex))
     }
     pub unsafe fn SetExtendModeY(&self, extendmodey: D2D1_EXTEND_MODE) {
-        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), extendmodey)
+        (windows_core::Interface::vtable(self).SetExtendModeY)(windows_core::Interface::as_raw(self), core::mem::transmute(extendmodey))
     }
     pub unsafe fn SetInterpolationMode(&self, interpolationmode: D2D1_INTERPOLATION_MODE) {
-        (windows_core::Interface::vtable(self).SetInterpolationMode)(windows_core::Interface::as_raw(self), interpolationmode)
+        (windows_core::Interface::vtable(self).SetInterpolationMode)(windows_core::Interface::as_raw(self), core::mem::transmute(interpolationmode))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetSourceRectangle(&self, sourcerectangle: *const Common::D2D_RECT_F) {
-        (windows_core::Interface::vtable(self).SetSourceRectangle)(windows_core::Interface::as_raw(self), sourcerectangle)
+        (windows_core::Interface::vtable(self).SetSourceRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(sourcerectangle))
     }
     pub unsafe fn GetImage(&self) -> windows_core::Result<ID2D1Image> {
         let mut result__ = core::mem::zeroed();
@@ -6718,8 +6799,6 @@ impl ID2D1ImageBrush {
         result__
     }
 }
-unsafe impl Send for ID2D1ImageBrush {}
-unsafe impl Sync for ID2D1ImageBrush {}
 #[repr(C)]
 pub struct ID2D1ImageBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
@@ -6741,7 +6820,7 @@ pub struct ID2D1ImageBrush_Vtbl {
     GetSourceRectangle: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1ImageBrush_Impl: Sized + ID2D1Brush_Impl {
+pub trait ID2D1ImageBrush_Impl: ID2D1Brush_Impl {
     fn SetImage(&self, image: Option<&ID2D1Image>);
     fn SetExtendModeX(&self, extendmodex: D2D1_EXTEND_MODE);
     fn SetExtendModeY(&self, extendmodey: D2D1_EXTEND_MODE);
@@ -6754,10 +6833,8 @@ pub trait ID2D1ImageBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetSourceRectangle(&self, sourcerectangle: *mut Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1ImageBrush {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1ImageBrush_Vtbl {
-    pub const fn new<Identity: ID2D1ImageBrush_Impl, const OFFSET: isize>() -> ID2D1ImageBrush_Vtbl {
+    pub const fn new<Identity: ID2D1ImageBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetImage<Identity: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ImageBrush_Impl::SetImage(this, windows_core::from_raw_borrowed(&image))
@@ -6816,6 +6893,12 @@ impl ID2D1ImageBrush_Vtbl {
         iid == &<ID2D1ImageBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1ImageBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1ImageBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1ImageBrush {}
 windows_core::imp::define_interface!(ID2D1ImageSource, ID2D1ImageSource_Vtbl, 0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
 impl core::ops::Deref for ID2D1ImageSource {
     type Target = ID2D1Image;
@@ -6833,21 +6916,18 @@ impl ID2D1ImageSource {
         (windows_core::Interface::vtable(self).TryReclaimResources)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1ImageSource {}
-unsafe impl Sync for ID2D1ImageSource {}
 #[repr(C)]
 pub struct ID2D1ImageSource_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait ID2D1ImageSource_Impl: Sized + ID2D1Image_Impl {
+pub trait ID2D1ImageSource_Impl: ID2D1Image_Impl {
     fn OfferResources(&self) -> windows_core::Result<()>;
     fn TryReclaimResources(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
-impl windows_core::RuntimeName for ID2D1ImageSource {}
 impl ID2D1ImageSource_Vtbl {
-    pub const fn new<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>() -> ID2D1ImageSource_Vtbl {
+    pub const fn new<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OfferResources<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ImageSource_Impl::OfferResources(this).into()
@@ -6872,6 +6952,9 @@ impl ID2D1ImageSource_Vtbl {
         iid == &<ID2D1ImageSource as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ImageSource {}
+unsafe impl Send for ID2D1ImageSource {}
+unsafe impl Sync for ID2D1ImageSource {}
 windows_core::imp::define_interface!(ID2D1ImageSourceFromWic, ID2D1ImageSourceFromWic_Vtbl, 0x77395441_1c8f_4555_8683_f50dab0fe792);
 impl core::ops::Deref for ID2D1ImageSourceFromWic {
     type Target = ID2D1ImageSource;
@@ -6896,8 +6979,6 @@ impl ID2D1ImageSourceFromWic {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1ImageSourceFromWic {}
-unsafe impl Sync for ID2D1ImageSourceFromWic {}
 #[repr(C)]
 pub struct ID2D1ImageSourceFromWic_Vtbl {
     pub base__: ID2D1ImageSource_Vtbl,
@@ -6915,16 +6996,14 @@ pub struct ID2D1ImageSourceFromWic_Vtbl {
     GetSource: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1ImageSourceFromWic_Impl: Sized + ID2D1ImageSource_Impl {
+pub trait ID2D1ImageSourceFromWic_Impl: ID2D1ImageSource_Impl {
     fn EnsureCached(&self, rectangletofill: *const Common::D2D_RECT_U) -> windows_core::Result<()>;
     fn TrimCache(&self, rectangletopreserve: *const Common::D2D_RECT_U) -> windows_core::Result<()>;
     fn GetSource(&self, wicbitmapsource: *mut Option<super::Imaging::IWICBitmapSource>);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1ImageSourceFromWic {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1ImageSourceFromWic_Vtbl {
-    pub const fn new<Identity: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>() -> ID2D1ImageSourceFromWic_Vtbl {
+    pub const fn new<Identity: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnsureCached<Identity: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangletofill: *const Common::D2D_RECT_U) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ImageSourceFromWic_Impl::EnsureCached(this, core::mem::transmute_copy(&rectangletofill)).into()
@@ -6948,6 +7027,12 @@ impl ID2D1ImageSourceFromWic_Vtbl {
         iid == &<ID2D1ImageSourceFromWic as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1ImageSource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1ImageSourceFromWic {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1ImageSourceFromWic {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1ImageSourceFromWic {}
 windows_core::imp::define_interface!(ID2D1Ink, ID2D1Ink_Vtbl, 0xb499923b_7029_478f_a8b3_432c7c5f5312);
 impl core::ops::Deref for ID2D1Ink {
     type Target = ID2D1Resource;
@@ -6958,7 +7043,7 @@ impl core::ops::Deref for ID2D1Ink {
 windows_core::imp::interface_hierarchy!(ID2D1Ink, windows_core::IUnknown, ID2D1Resource);
 impl ID2D1Ink {
     pub unsafe fn SetStartPoint(&self, startpoint: *const D2D1_INK_POINT) {
-        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint)
+        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint))
     }
     pub unsafe fn GetStartPoint(&self) -> D2D1_INK_POINT {
         let mut result__ = core::mem::zeroed();
@@ -6969,27 +7054,27 @@ impl ID2D1Ink {
         (windows_core::Interface::vtable(self).AddSegments)(windows_core::Interface::as_raw(self), core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RemoveSegmentsAtEnd(&self, segmentscount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveSegmentsAtEnd)(windows_core::Interface::as_raw(self), segmentscount).ok()
+        (windows_core::Interface::vtable(self).RemoveSegmentsAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentscount)).ok()
     }
     pub unsafe fn SetSegments(&self, startsegment: u32, segments: &[D2D1_INK_BEZIER_SEGMENT]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), startsegment, core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), core::mem::transmute(startsegment), core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetSegmentAtEnd(&self, segment: *const D2D1_INK_BEZIER_SEGMENT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSegmentAtEnd)(windows_core::Interface::as_raw(self), segment).ok()
+        (windows_core::Interface::vtable(self).SetSegmentAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(segment)).ok()
     }
     pub unsafe fn GetSegmentCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetSegmentCount)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetSegments(&self, startsegment: u32, segments: &mut [D2D1_INK_BEZIER_SEGMENT]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSegments)(windows_core::Interface::as_raw(self), startsegment, core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetSegments)(windows_core::Interface::as_raw(self), core::mem::transmute(startsegment), core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn StreamAsGeometry<P0, P1>(&self, inkstyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P1) -> windows_core::Result<()>
+    pub unsafe fn StreamAsGeometry<P0, P3>(&self, inkstyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1InkStyle>,
-        P1: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
+        P3: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
-        (windows_core::Interface::vtable(self).StreamAsGeometry)(windows_core::Interface::as_raw(self), inkstyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, geometrysink.param().abi()).ok()
+        (windows_core::Interface::vtable(self).StreamAsGeometry)(windows_core::Interface::as_raw(self), inkstyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), geometrysink.param().abi()).ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn GetBounds<P0>(&self, inkstyle: P0, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>) -> windows_core::Result<Common::D2D_RECT_F>
@@ -7000,8 +7085,6 @@ impl ID2D1Ink {
         (windows_core::Interface::vtable(self).GetBounds)(windows_core::Interface::as_raw(self), inkstyle.param().abi(), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1Ink {}
-unsafe impl Sync for ID2D1Ink {}
 #[repr(C)]
 pub struct ID2D1Ink_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -7023,7 +7106,7 @@ pub struct ID2D1Ink_Vtbl {
     GetBounds: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1Ink_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Ink_Impl: ID2D1Resource_Impl {
     fn SetStartPoint(&self, startpoint: *const D2D1_INK_POINT);
     fn GetStartPoint(&self) -> D2D1_INK_POINT;
     fn AddSegments(&self, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> windows_core::Result<()>;
@@ -7036,10 +7119,8 @@ pub trait ID2D1Ink_Impl: Sized + ID2D1Resource_Impl {
     fn GetBounds(&self, inkstyle: Option<&ID2D1InkStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<Common::D2D_RECT_F>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1Ink {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1Ink_Vtbl {
-    pub const fn new<Identity: ID2D1Ink_Impl, const OFFSET: isize>() -> ID2D1Ink_Vtbl {
+    pub const fn new<Identity: ID2D1Ink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetStartPoint<Identity: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const D2D1_INK_POINT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Ink_Impl::SetStartPoint(this, core::mem::transmute_copy(&startpoint))
@@ -7104,6 +7185,12 @@ impl ID2D1Ink_Vtbl {
         iid == &<ID2D1Ink as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1Ink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1Ink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1Ink {}
 windows_core::imp::define_interface!(ID2D1InkStyle, ID2D1InkStyle_Vtbl, 0xbae8b344_23fc_4071_8cb5_d05d6f073848);
 impl core::ops::Deref for ID2D1InkStyle {
     type Target = ID2D1Resource;
@@ -7115,21 +7202,19 @@ windows_core::imp::interface_hierarchy!(ID2D1InkStyle, windows_core::IUnknown, I
 impl ID2D1InkStyle {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetNibTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).SetNibTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).SetNibTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetNibTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).GetNibTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).GetNibTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
     pub unsafe fn SetNibShape(&self, nibshape: D2D1_INK_NIB_SHAPE) {
-        (windows_core::Interface::vtable(self).SetNibShape)(windows_core::Interface::as_raw(self), nibshape)
+        (windows_core::Interface::vtable(self).SetNibShape)(windows_core::Interface::as_raw(self), core::mem::transmute(nibshape))
     }
     pub unsafe fn GetNibShape(&self) -> D2D1_INK_NIB_SHAPE {
         (windows_core::Interface::vtable(self).GetNibShape)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1InkStyle {}
-unsafe impl Sync for ID2D1InkStyle {}
 #[repr(C)]
 pub struct ID2D1InkStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -7145,17 +7230,15 @@ pub struct ID2D1InkStyle_Vtbl {
     pub GetNibShape: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_INK_NIB_SHAPE,
 }
 #[cfg(feature = "Foundation_Numerics")]
-pub trait ID2D1InkStyle_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1InkStyle_Impl: ID2D1Resource_Impl {
     fn SetNibTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2);
     fn GetNibTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2);
     fn SetNibShape(&self, nibshape: D2D1_INK_NIB_SHAPE);
     fn GetNibShape(&self) -> D2D1_INK_NIB_SHAPE;
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl windows_core::RuntimeName for ID2D1InkStyle {}
-#[cfg(feature = "Foundation_Numerics")]
 impl ID2D1InkStyle_Vtbl {
-    pub const fn new<Identity: ID2D1InkStyle_Impl, const OFFSET: isize>() -> ID2D1InkStyle_Vtbl {
+    pub const fn new<Identity: ID2D1InkStyle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNibTransform<Identity: ID2D1InkStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1InkStyle_Impl::SetNibTransform(this, core::mem::transmute_copy(&transform))
@@ -7184,6 +7267,12 @@ impl ID2D1InkStyle_Vtbl {
         iid == &<ID2D1InkStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::RuntimeName for ID2D1InkStyle {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1InkStyle {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1InkStyle {}
 windows_core::imp::define_interface!(ID2D1Layer, ID2D1Layer_Vtbl, 0x2cd9069b_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Layer {
     type Target = ID2D1Resource;
@@ -7200,8 +7289,6 @@ impl ID2D1Layer {
         result__
     }
 }
-unsafe impl Send for ID2D1Layer {}
-unsafe impl Sync for ID2D1Layer {}
 #[repr(C)]
 pub struct ID2D1Layer_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -7211,14 +7298,12 @@ pub struct ID2D1Layer_Vtbl {
     GetSize: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1Layer_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Layer_Impl: ID2D1Resource_Impl {
     fn GetSize(&self) -> Common::D2D_SIZE_F;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1Layer {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1Layer_Vtbl {
-    pub const fn new<Identity: ID2D1Layer_Impl, const OFFSET: isize>() -> ID2D1Layer_Vtbl {
+    pub const fn new<Identity: ID2D1Layer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSize<Identity: ID2D1Layer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID2D1Layer_Impl::GetSize(this)
@@ -7229,6 +7314,12 @@ impl ID2D1Layer_Vtbl {
         iid == &<ID2D1Layer as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1Layer {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1Layer {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1Layer {}
 windows_core::imp::define_interface!(ID2D1LinearGradientBrush, ID2D1LinearGradientBrush_Vtbl, 0x2cd906ab_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1LinearGradientBrush {
     type Target = ID2D1Brush;
@@ -7264,8 +7355,6 @@ impl ID2D1LinearGradientBrush {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1LinearGradientBrush {}
-unsafe impl Sync for ID2D1LinearGradientBrush {}
 #[repr(C)]
 pub struct ID2D1LinearGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
@@ -7288,7 +7377,7 @@ pub struct ID2D1LinearGradientBrush_Vtbl {
     pub GetGradientStopCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1LinearGradientBrush_Impl: Sized + ID2D1Brush_Impl {
+pub trait ID2D1LinearGradientBrush_Impl: ID2D1Brush_Impl {
     fn SetStartPoint(&self, startpoint: &Common::D2D_POINT_2F);
     fn SetEndPoint(&self, endpoint: &Common::D2D_POINT_2F);
     fn GetStartPoint(&self) -> Common::D2D_POINT_2F;
@@ -7296,10 +7385,8 @@ pub trait ID2D1LinearGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetGradientStopCollection(&self, gradientstopcollection: *mut Option<ID2D1GradientStopCollection>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1LinearGradientBrush {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1LinearGradientBrush_Vtbl {
-    pub const fn new<Identity: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>() -> ID2D1LinearGradientBrush_Vtbl {
+    pub const fn new<Identity: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetStartPoint<Identity: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: Common::D2D_POINT_2F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1LinearGradientBrush_Impl::SetStartPoint(this, core::mem::transmute(&startpoint))
@@ -7333,6 +7420,12 @@ impl ID2D1LinearGradientBrush_Vtbl {
         iid == &<ID2D1LinearGradientBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1LinearGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1LinearGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1LinearGradientBrush {}
 windows_core::imp::define_interface!(ID2D1LookupTable3D, ID2D1LookupTable3D_Vtbl, 0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
 impl core::ops::Deref for ID2D1LookupTable3D {
     type Target = ID2D1Resource;
@@ -7341,23 +7434,22 @@ impl core::ops::Deref for ID2D1LookupTable3D {
     }
 }
 windows_core::imp::interface_hierarchy!(ID2D1LookupTable3D, windows_core::IUnknown, ID2D1Resource);
-impl ID2D1LookupTable3D {}
-unsafe impl Send for ID2D1LookupTable3D {}
-unsafe impl Sync for ID2D1LookupTable3D {}
 #[repr(C)]
 pub struct ID2D1LookupTable3D_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
-pub trait ID2D1LookupTable3D_Impl: Sized + ID2D1Resource_Impl {}
-impl windows_core::RuntimeName for ID2D1LookupTable3D {}
+pub trait ID2D1LookupTable3D_Impl: ID2D1Resource_Impl {}
 impl ID2D1LookupTable3D_Vtbl {
-    pub const fn new<Identity: ID2D1LookupTable3D_Impl, const OFFSET: isize>() -> ID2D1LookupTable3D_Vtbl {
+    pub const fn new<Identity: ID2D1LookupTable3D_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1LookupTable3D as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1LookupTable3D {}
+unsafe impl Send for ID2D1LookupTable3D {}
+unsafe impl Sync for ID2D1LookupTable3D {}
 windows_core::imp::define_interface!(ID2D1Mesh, ID2D1Mesh_Vtbl, 0x2cd906c2_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Mesh {
     type Target = ID2D1Resource;
@@ -7372,19 +7464,16 @@ impl ID2D1Mesh {
         (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Mesh {}
-unsafe impl Sync for ID2D1Mesh {}
 #[repr(C)]
 pub struct ID2D1Mesh_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1Mesh_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1Mesh_Impl: ID2D1Resource_Impl {
     fn Open(&self) -> windows_core::Result<ID2D1TessellationSink>;
 }
-impl windows_core::RuntimeName for ID2D1Mesh {}
 impl ID2D1Mesh_Vtbl {
-    pub const fn new<Identity: ID2D1Mesh_Impl, const OFFSET: isize>() -> ID2D1Mesh_Vtbl {
+    pub const fn new<Identity: ID2D1Mesh_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ID2D1Mesh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tessellationsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1Mesh_Impl::Open(this) {
@@ -7401,13 +7490,10 @@ impl ID2D1Mesh_Vtbl {
         iid == &<ID2D1Mesh as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Mesh {}
+unsafe impl Send for ID2D1Mesh {}
+unsafe impl Sync for ID2D1Mesh {}
 windows_core::imp::define_interface!(ID2D1Multithread, ID2D1Multithread_Vtbl, 0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
-impl core::ops::Deref for ID2D1Multithread {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1Multithread, windows_core::IUnknown);
 impl ID2D1Multithread {
     pub unsafe fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL {
@@ -7420,8 +7506,6 @@ impl ID2D1Multithread {
         (windows_core::Interface::vtable(self).Leave)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1Multithread {}
-unsafe impl Sync for ID2D1Multithread {}
 #[repr(C)]
 pub struct ID2D1Multithread_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -7429,14 +7513,13 @@ pub struct ID2D1Multithread_Vtbl {
     pub Enter: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Leave: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
-pub trait ID2D1Multithread_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1Multithread_Impl: windows_core::IUnknownImpl {
     fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
     fn Enter(&self);
     fn Leave(&self);
 }
-impl windows_core::RuntimeName for ID2D1Multithread {}
 impl ID2D1Multithread_Vtbl {
-    pub const fn new<Identity: ID2D1Multithread_Impl, const OFFSET: isize>() -> ID2D1Multithread_Vtbl {
+    pub const fn new<Identity: ID2D1Multithread_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMultithreadProtected<Identity: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Multithread_Impl::GetMultithreadProtected(this)
@@ -7460,6 +7543,9 @@ impl ID2D1Multithread_Vtbl {
         iid == &<ID2D1Multithread as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Multithread {}
+unsafe impl Send for ID2D1Multithread {}
+unsafe impl Sync for ID2D1Multithread {}
 windows_core::imp::define_interface!(ID2D1OffsetTransform, ID2D1OffsetTransform_Vtbl, 0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
 impl core::ops::Deref for ID2D1OffsetTransform {
     type Target = ID2D1TransformNode;
@@ -7478,21 +7564,18 @@ impl ID2D1OffsetTransform {
         result__
     }
 }
-unsafe impl Send for ID2D1OffsetTransform {}
-unsafe impl Sync for ID2D1OffsetTransform {}
 #[repr(C)]
 pub struct ID2D1OffsetTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::POINT),
     pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT),
 }
-pub trait ID2D1OffsetTransform_Impl: Sized + ID2D1TransformNode_Impl {
+pub trait ID2D1OffsetTransform_Impl: ID2D1TransformNode_Impl {
     fn SetOffset(&self, offset: &super::super::Foundation::POINT);
     fn GetOffset(&self) -> super::super::Foundation::POINT;
 }
-impl windows_core::RuntimeName for ID2D1OffsetTransform {}
 impl ID2D1OffsetTransform_Vtbl {
-    pub const fn new<Identity: ID2D1OffsetTransform_Impl, const OFFSET: isize>() -> ID2D1OffsetTransform_Vtbl {
+    pub const fn new<Identity: ID2D1OffsetTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOffset<Identity: ID2D1OffsetTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: super::super::Foundation::POINT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1OffsetTransform_Impl::SetOffset(this, core::mem::transmute(&offset))
@@ -7507,6 +7590,9 @@ impl ID2D1OffsetTransform_Vtbl {
         iid == &<ID2D1OffsetTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1OffsetTransform {}
+unsafe impl Send for ID2D1OffsetTransform {}
+unsafe impl Sync for ID2D1OffsetTransform {}
 windows_core::imp::define_interface!(ID2D1PathGeometry, ID2D1PathGeometry_Vtbl, 0x2cd906a5_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1PathGeometry {
     type Target = ID2D1Geometry;
@@ -7537,8 +7623,6 @@ impl ID2D1PathGeometry {
         (windows_core::Interface::vtable(self).GetFigureCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1PathGeometry {}
-unsafe impl Sync for ID2D1PathGeometry {}
 #[repr(C)]
 pub struct ID2D1PathGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -7554,17 +7638,15 @@ pub struct ID2D1PathGeometry_Vtbl {
     pub GetFigureCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1PathGeometry_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1PathGeometry_Impl: ID2D1Geometry_Impl {
     fn Open(&self) -> windows_core::Result<ID2D1GeometrySink>;
     fn Stream(&self, geometrysink: Option<&ID2D1GeometrySink>) -> windows_core::Result<()>;
     fn GetSegmentCount(&self) -> windows_core::Result<u32>;
     fn GetFigureCount(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1PathGeometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1PathGeometry_Vtbl {
-    pub const fn new<Identity: ID2D1PathGeometry_Impl, const OFFSET: isize>() -> ID2D1PathGeometry_Vtbl {
+    pub const fn new<Identity: ID2D1PathGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ID2D1PathGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometrysink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1PathGeometry_Impl::Open(this) {
@@ -7611,6 +7693,12 @@ impl ID2D1PathGeometry_Vtbl {
         iid == &<ID2D1PathGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1PathGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1PathGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1PathGeometry {}
 windows_core::imp::define_interface!(ID2D1PathGeometry1, ID2D1PathGeometry1_Vtbl, 0x62baa2d2_ab54_41b7_b872_787e0106a421);
 impl core::ops::Deref for ID2D1PathGeometry1 {
     type Target = ID2D1PathGeometry;
@@ -7622,11 +7710,9 @@ windows_core::imp::interface_hierarchy!(ID2D1PathGeometry1, windows_core::IUnkno
 impl ID2D1PathGeometry1 {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputePointAndSegmentAtLength(&self, length: f32, startsegment: u32, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ComputePointAndSegmentAtLength)(windows_core::Interface::as_raw(self), length, startsegment, core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), flatteningtolerance, pointdescription).ok()
+        (windows_core::Interface::vtable(self).ComputePointAndSegmentAtLength)(windows_core::Interface::as_raw(self), core::mem::transmute(length), core::mem::transmute(startsegment), core::mem::transmute(worldtransform.unwrap_or(core::ptr::null())), core::mem::transmute(flatteningtolerance), core::mem::transmute(pointdescription)).ok()
     }
 }
-unsafe impl Send for ID2D1PathGeometry1 {}
-unsafe impl Sync for ID2D1PathGeometry1 {}
 #[repr(C)]
 pub struct ID2D1PathGeometry1_Vtbl {
     pub base__: ID2D1PathGeometry_Vtbl,
@@ -7636,14 +7722,12 @@ pub struct ID2D1PathGeometry1_Vtbl {
     ComputePointAndSegmentAtLength: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1PathGeometry1_Impl: Sized + ID2D1PathGeometry_Impl {
+pub trait ID2D1PathGeometry1_Impl: ID2D1PathGeometry_Impl {
     fn ComputePointAndSegmentAtLength(&self, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1PathGeometry1_Vtbl {
-    pub const fn new<Identity: ID2D1PathGeometry1_Impl, const OFFSET: isize>() -> ID2D1PathGeometry1_Vtbl {
+    pub const fn new<Identity: ID2D1PathGeometry1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ComputePointAndSegmentAtLength<Identity: ID2D1PathGeometry1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1PathGeometry1_Impl::ComputePointAndSegmentAtLength(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&pointdescription)).into()
@@ -7654,20 +7738,20 @@ impl ID2D1PathGeometry1_Vtbl {
         iid == &<ID2D1PathGeometry1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID || iid == &<ID2D1PathGeometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1PathGeometry1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1PathGeometry1 {}
 windows_core::imp::define_interface!(ID2D1PrintControl, ID2D1PrintControl_Vtbl, 0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
-impl core::ops::Deref for ID2D1PrintControl {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1PrintControl, windows_core::IUnknown);
 impl ID2D1PrintControl {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
-    pub unsafe fn AddPage<P0, P1>(&self, commandlist: P0, pagesize: Common::D2D_SIZE_F, pageprintticketstream: P1, tag1: Option<*mut u64>, tag2: Option<*mut u64>) -> windows_core::Result<()>
+    pub unsafe fn AddPage<P0, P2>(&self, commandlist: P0, pagesize: Common::D2D_SIZE_F, pageprintticketstream: P2, tag1: Option<*mut u64>, tag2: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID2D1CommandList>,
-        P1: windows_core::Param<super::super::System::Com::IStream>,
+        P2: windows_core::Param<super::super::System::Com::IStream>,
     {
         (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), commandlist.param().abi(), core::mem::transmute(pagesize), pageprintticketstream.param().abi(), core::mem::transmute(tag1.unwrap_or(core::ptr::null_mut())), core::mem::transmute(tag2.unwrap_or(core::ptr::null_mut()))).ok()
     }
@@ -7675,8 +7759,6 @@ impl ID2D1PrintControl {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1PrintControl {}
-unsafe impl Sync for ID2D1PrintControl {}
 #[repr(C)]
 pub struct ID2D1PrintControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -7687,15 +7769,13 @@ pub struct ID2D1PrintControl_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
-pub trait ID2D1PrintControl_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1PrintControl_Impl: windows_core::IUnknownImpl {
     fn AddPage(&self, commandlist: Option<&ID2D1CommandList>, pagesize: &Common::D2D_SIZE_F, pageprintticketstream: Option<&super::super::System::Com::IStream>, tag1: *mut u64, tag2: *mut u64) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1PrintControl {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl ID2D1PrintControl_Vtbl {
-    pub const fn new<Identity: ID2D1PrintControl_Impl, const OFFSET: isize>() -> ID2D1PrintControl_Vtbl {
+    pub const fn new<Identity: ID2D1PrintControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPage<Identity: ID2D1PrintControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut core::ffi::c_void, pagesize: Common::D2D_SIZE_F, pageprintticketstream: *mut core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1PrintControl_Impl::AddPage(this, windows_core::from_raw_borrowed(&commandlist), core::mem::transmute(&pagesize), windows_core::from_raw_borrowed(&pageprintticketstream), core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
@@ -7710,26 +7790,26 @@ impl ID2D1PrintControl_Vtbl {
         iid == &<ID2D1PrintControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1PrintControl {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1PrintControl {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1PrintControl {}
 windows_core::imp::define_interface!(ID2D1Properties, ID2D1Properties_Vtbl, 0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
-impl core::ops::Deref for ID2D1Properties {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1Properties, windows_core::IUnknown);
 impl ID2D1Properties {
     pub unsafe fn GetPropertyCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetPropertyName(&self, index: u32, name: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetPropertyName)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetPropertyNameLength(&self, index: u32) -> u32 {
-        (windows_core::Interface::vtable(self).GetPropertyNameLength)(windows_core::Interface::as_raw(self), index)
+        (windows_core::Interface::vtable(self).GetPropertyNameLength)(windows_core::Interface::as_raw(self), core::mem::transmute(index))
     }
     pub unsafe fn GetType(&self, index: u32) -> D2D1_PROPERTY_TYPE {
-        (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), index)
+        (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), core::mem::transmute(index))
     }
     pub unsafe fn GetPropertyIndex<P0>(&self, name: P0) -> u32
     where
@@ -7741,30 +7821,28 @@ impl ID2D1Properties {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(r#type), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), index, r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(r#type), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
-        (windows_core::Interface::vtable(self).GetValueSize)(windows_core::Interface::as_raw(self), index)
+        (windows_core::Interface::vtable(self).GetValueSize)(windows_core::Interface::as_raw(self), core::mem::transmute(index))
     }
     pub unsafe fn GetSubProperties(&self, index: u32) -> windows_core::Result<ID2D1Properties> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubProperties)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1Properties {}
-unsafe impl Sync for ID2D1Properties {}
 #[repr(C)]
 pub struct ID2D1Properties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -7780,7 +7858,7 @@ pub struct ID2D1Properties_Vtbl {
     pub GetValueSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetSubProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1Properties_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1Properties_Impl: windows_core::IUnknownImpl {
     fn GetPropertyCount(&self) -> u32;
     fn GetPropertyName(&self, index: u32, name: windows_core::PWSTR, namecount: u32) -> windows_core::Result<()>;
     fn GetPropertyNameLength(&self, index: u32) -> u32;
@@ -7793,9 +7871,8 @@ pub trait ID2D1Properties_Impl: Sized + windows_core::IUnknownImpl {
     fn GetValueSize(&self, index: u32) -> u32;
     fn GetSubProperties(&self, index: u32) -> windows_core::Result<ID2D1Properties>;
 }
-impl windows_core::RuntimeName for ID2D1Properties {}
 impl ID2D1Properties_Vtbl {
-    pub const fn new<Identity: ID2D1Properties_Impl, const OFFSET: isize>() -> ID2D1Properties_Vtbl {
+    pub const fn new<Identity: ID2D1Properties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyCount<Identity: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Properties_Impl::GetPropertyCount(this)
@@ -7865,6 +7942,9 @@ impl ID2D1Properties_Vtbl {
         iid == &<ID2D1Properties as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Properties {}
+unsafe impl Send for ID2D1Properties {}
+unsafe impl Sync for ID2D1Properties {}
 windows_core::imp::define_interface!(ID2D1RadialGradientBrush, ID2D1RadialGradientBrush_Vtbl, 0x2cd906ac_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RadialGradientBrush {
     type Target = ID2D1Brush;
@@ -7883,10 +7963,10 @@ impl ID2D1RadialGradientBrush {
         (windows_core::Interface::vtable(self).SetGradientOriginOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientoriginoffset))
     }
     pub unsafe fn SetRadiusX(&self, radiusx: f32) {
-        (windows_core::Interface::vtable(self).SetRadiusX)(windows_core::Interface::as_raw(self), radiusx)
+        (windows_core::Interface::vtable(self).SetRadiusX)(windows_core::Interface::as_raw(self), core::mem::transmute(radiusx))
     }
     pub unsafe fn SetRadiusY(&self, radiusy: f32) {
-        (windows_core::Interface::vtable(self).SetRadiusY)(windows_core::Interface::as_raw(self), radiusy)
+        (windows_core::Interface::vtable(self).SetRadiusY)(windows_core::Interface::as_raw(self), core::mem::transmute(radiusy))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetCenter(&self) -> Common::D2D_POINT_2F {
@@ -7912,8 +7992,6 @@ impl ID2D1RadialGradientBrush {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1RadialGradientBrush {}
-unsafe impl Sync for ID2D1RadialGradientBrush {}
 #[repr(C)]
 pub struct ID2D1RadialGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
@@ -7940,7 +8018,7 @@ pub struct ID2D1RadialGradientBrush_Vtbl {
     pub GetGradientStopCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1RadialGradientBrush_Impl: Sized + ID2D1Brush_Impl {
+pub trait ID2D1RadialGradientBrush_Impl: ID2D1Brush_Impl {
     fn SetCenter(&self, center: &Common::D2D_POINT_2F);
     fn SetGradientOriginOffset(&self, gradientoriginoffset: &Common::D2D_POINT_2F);
     fn SetRadiusX(&self, radiusx: f32);
@@ -7952,10 +8030,8 @@ pub trait ID2D1RadialGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn GetGradientStopCollection(&self, gradientstopcollection: *mut Option<ID2D1GradientStopCollection>);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1RadialGradientBrush {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1RadialGradientBrush_Vtbl {
-    pub const fn new<Identity: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>() -> ID2D1RadialGradientBrush_Vtbl {
+    pub const fn new<Identity: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCenter<Identity: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: Common::D2D_POINT_2F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1RadialGradientBrush_Impl::SetCenter(this, core::mem::transmute(&center))
@@ -8009,6 +8085,12 @@ impl ID2D1RadialGradientBrush_Vtbl {
         iid == &<ID2D1RadialGradientBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1RadialGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RadialGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RadialGradientBrush {}
 windows_core::imp::define_interface!(ID2D1RectangleGeometry, ID2D1RectangleGeometry_Vtbl, 0x2cd906a2_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RectangleGeometry {
     type Target = ID2D1Geometry;
@@ -8025,8 +8107,6 @@ impl ID2D1RectangleGeometry {
         result__
     }
 }
-unsafe impl Send for ID2D1RectangleGeometry {}
-unsafe impl Sync for ID2D1RectangleGeometry {}
 #[repr(C)]
 pub struct ID2D1RectangleGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -8036,14 +8116,12 @@ pub struct ID2D1RectangleGeometry_Vtbl {
     GetRect: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1RectangleGeometry_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1RectangleGeometry_Impl: ID2D1Geometry_Impl {
     fn GetRect(&self, rect: *mut Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1RectangleGeometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1RectangleGeometry_Vtbl {
-    pub const fn new<Identity: ID2D1RectangleGeometry_Impl, const OFFSET: isize>() -> ID2D1RectangleGeometry_Vtbl {
+    pub const fn new<Identity: ID2D1RectangleGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRect<Identity: ID2D1RectangleGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *mut Common::D2D_RECT_F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1RectangleGeometry_Impl::GetRect(this, core::mem::transmute_copy(&rect))
@@ -8054,20 +8132,20 @@ impl ID2D1RectangleGeometry_Vtbl {
         iid == &<ID2D1RectangleGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1RectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RectangleGeometry {}
 windows_core::imp::define_interface!(ID2D1RenderInfo, ID2D1RenderInfo_Vtbl, 0x519ae1bd_d19a_420d_b849_364f594776b7);
-impl core::ops::Deref for ID2D1RenderInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1RenderInfo, windows_core::IUnknown);
 impl ID2D1RenderInfo {
     pub unsafe fn SetInputDescription(&self, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInputDescription)(windows_core::Interface::as_raw(self), inputindex, core::mem::transmute(inputdescription)).ok()
+        (windows_core::Interface::vtable(self).SetInputDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(inputindex), core::mem::transmute(inputdescription)).ok()
     }
     pub unsafe fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), bufferprecision, channeldepth).ok()
+        (windows_core::Interface::vtable(self).SetOutputBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(bufferprecision), core::mem::transmute(channeldepth)).ok()
     }
     pub unsafe fn SetCached<P0>(&self, iscached: P0)
     where
@@ -8076,11 +8154,9 @@ impl ID2D1RenderInfo {
         (windows_core::Interface::vtable(self).SetCached)(windows_core::Interface::as_raw(self), iscached.param().abi())
     }
     pub unsafe fn SetInstructionCountHint(&self, instructioncount: u32) {
-        (windows_core::Interface::vtable(self).SetInstructionCountHint)(windows_core::Interface::as_raw(self), instructioncount)
+        (windows_core::Interface::vtable(self).SetInstructionCountHint)(windows_core::Interface::as_raw(self), core::mem::transmute(instructioncount))
     }
 }
-unsafe impl Send for ID2D1RenderInfo {}
-unsafe impl Sync for ID2D1RenderInfo {}
 #[repr(C)]
 pub struct ID2D1RenderInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -8089,15 +8165,14 @@ pub struct ID2D1RenderInfo_Vtbl {
     pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
     pub SetInstructionCountHint: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
-pub trait ID2D1RenderInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1RenderInfo_Impl: windows_core::IUnknownImpl {
     fn SetInputDescription(&self, inputindex: u32, inputdescription: &D2D1_INPUT_DESCRIPTION) -> windows_core::Result<()>;
     fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()>;
     fn SetCached(&self, iscached: super::super::Foundation::BOOL);
     fn SetInstructionCountHint(&self, instructioncount: u32);
 }
-impl windows_core::RuntimeName for ID2D1RenderInfo {}
 impl ID2D1RenderInfo_Vtbl {
-    pub const fn new<Identity: ID2D1RenderInfo_Impl, const OFFSET: isize>() -> ID2D1RenderInfo_Vtbl {
+    pub const fn new<Identity: ID2D1RenderInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInputDescription<Identity: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1RenderInfo_Impl::SetInputDescription(this, core::mem::transmute_copy(&inputindex), core::mem::transmute(&inputdescription)).into()
@@ -8126,6 +8201,9 @@ impl ID2D1RenderInfo_Vtbl {
         iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1RenderInfo {}
+unsafe impl Send for ID2D1RenderInfo {}
+unsafe impl Sync for ID2D1RenderInfo {}
 windows_core::imp::define_interface!(ID2D1RenderTarget, ID2D1RenderTarget_Vtbl, 0x2cd90694_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RenderTarget {
     type Target = ID2D1Resource;
@@ -8138,7 +8216,7 @@ impl ID2D1RenderTarget {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap(&self, size: Common::D2D_SIZE_U, srcdata: Option<*const core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES) -> windows_core::Result<ID2D1Bitmap> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(size), core::mem::transmute(srcdata.unwrap_or(core::ptr::null())), pitch, bitmapproperties, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(size), core::mem::transmute(srcdata.unwrap_or(core::ptr::null())), core::mem::transmute(pitch), core::mem::transmute(bitmapproperties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap<P0>(&self, wicbitmapsource: P0, bitmapproperties: Option<*const D2D1_BITMAP_PROPERTIES>) -> windows_core::Result<ID2D1Bitmap>
@@ -8150,7 +8228,7 @@ impl ID2D1RenderTarget {
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSharedBitmap(&self, riid: *const windows_core::GUID, data: *mut core::ffi::c_void, bitmapproperties: Option<*const D2D1_BITMAP_PROPERTIES>, bitmap: *mut Option<ID2D1Bitmap>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateSharedBitmap)(windows_core::Interface::as_raw(self), riid, data, core::mem::transmute(bitmapproperties.unwrap_or(core::ptr::null())), core::mem::transmute(bitmap)).ok()
+        (windows_core::Interface::vtable(self).CreateSharedBitmap)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(data), core::mem::transmute(bitmapproperties.unwrap_or(core::ptr::null())), core::mem::transmute(bitmap)).ok()
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush<P0>(&self, bitmap: P0, bitmapbrushproperties: Option<*const D2D1_BITMAP_BRUSH_PROPERTIES>, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>) -> windows_core::Result<ID2D1BitmapBrush>
@@ -8163,33 +8241,33 @@ impl ID2D1RenderTarget {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>) -> windows_core::Result<ID2D1SolidColorBrush> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSolidColorBrush)(windows_core::Interface::as_raw(self), color, core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSolidColorBrush)(windows_core::Interface::as_raw(self), core::mem::transmute(color), core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection(&self, gradientstops: &[Common::D2D1_GRADIENT_STOP], colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> windows_core::Result<ID2D1GradientStopCollection> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientstops.as_ptr()), gradientstops.len().try_into().unwrap(), colorinterpolationgamma, extendmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientstops.as_ptr()), gradientstops.len().try_into().unwrap(), core::mem::transmute(colorinterpolationgamma), core::mem::transmute(extendmode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn CreateLinearGradientBrush<P0>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>, gradientstopcollection: P0) -> windows_core::Result<ID2D1LinearGradientBrush>
+    pub unsafe fn CreateLinearGradientBrush<P2>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>, gradientstopcollection: P2) -> windows_core::Result<ID2D1LinearGradientBrush>
     where
-        P0: windows_core::Param<ID2D1GradientStopCollection>,
+        P2: windows_core::Param<ID2D1GradientStopCollection>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLinearGradientBrush)(windows_core::Interface::as_raw(self), lineargradientbrushproperties, core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), gradientstopcollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLinearGradientBrush)(windows_core::Interface::as_raw(self), core::mem::transmute(lineargradientbrushproperties), core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), gradientstopcollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn CreateRadialGradientBrush<P0>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>, gradientstopcollection: P0) -> windows_core::Result<ID2D1RadialGradientBrush>
+    pub unsafe fn CreateRadialGradientBrush<P2>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>, gradientstopcollection: P2) -> windows_core::Result<ID2D1RadialGradientBrush>
     where
-        P0: windows_core::Param<ID2D1GradientStopCollection>,
+        P2: windows_core::Param<ID2D1GradientStopCollection>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRadialGradientBrush)(windows_core::Interface::as_raw(self), radialgradientbrushproperties, core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), gradientstopcollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRadialGradientBrush)(windows_core::Interface::as_raw(self), core::mem::transmute(radialgradientbrushproperties), core::mem::transmute(brushproperties.unwrap_or(core::ptr::null())), gradientstopcollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateCompatibleRenderTarget(&self, desiredsize: Option<*const Common::D2D_SIZE_F>, desiredpixelsize: Option<*const Common::D2D_SIZE_U>, desiredformat: Option<*const Common::D2D1_PIXEL_FORMAT>, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS) -> windows_core::Result<ID2D1BitmapRenderTarget> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompatibleRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(desiredsize.unwrap_or(core::ptr::null())), core::mem::transmute(desiredpixelsize.unwrap_or(core::ptr::null())), core::mem::transmute(desiredformat.unwrap_or(core::ptr::null())), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompatibleRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(desiredsize.unwrap_or(core::ptr::null())), core::mem::transmute(desiredpixelsize.unwrap_or(core::ptr::null())), core::mem::transmute(desiredformat.unwrap_or(core::ptr::null())), core::mem::transmute(options), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateLayer(&self, size: Option<*const Common::D2D_SIZE_F>) -> windows_core::Result<ID2D1Layer> {
@@ -8201,65 +8279,65 @@ impl ID2D1RenderTarget {
         (windows_core::Interface::vtable(self).CreateMesh)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawLine<P0, P1>(&self, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: P0, strokewidth: f32, strokestyle: P1)
+    pub unsafe fn DrawLine<P2, P4>(&self, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: P2, strokewidth: f32, strokestyle: P4)
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P2: windows_core::Param<ID2D1Brush>,
+        P4: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawLine)(windows_core::Interface::as_raw(self), core::mem::transmute(point0), core::mem::transmute(point1), brush.param().abi(), strokewidth, strokestyle.param().abi())
+        (windows_core::Interface::vtable(self).DrawLine)(windows_core::Interface::as_raw(self), core::mem::transmute(point0), core::mem::transmute(point1), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawRectangle<P0, P1>(&self, rect: *const Common::D2D_RECT_F, brush: P0, strokewidth: f32, strokestyle: P1)
+    pub unsafe fn DrawRectangle<P1, P3>(&self, rect: *const Common::D2D_RECT_F, brush: P1, strokewidth: f32, strokestyle: P3)
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P1: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawRectangle)(windows_core::Interface::as_raw(self), rect, brush.param().abi(), strokewidth, strokestyle.param().abi())
+        (windows_core::Interface::vtable(self).DrawRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(rect), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn FillRectangle<P0>(&self, rect: *const Common::D2D_RECT_F, brush: P0)
+    pub unsafe fn FillRectangle<P1>(&self, rect: *const Common::D2D_RECT_F, brush: P1)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P1: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).FillRectangle)(windows_core::Interface::as_raw(self), rect, brush.param().abi())
+        (windows_core::Interface::vtable(self).FillRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(rect), brush.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawRoundedRectangle<P0, P1>(&self, roundedrect: *const D2D1_ROUNDED_RECT, brush: P0, strokewidth: f32, strokestyle: P1)
+    pub unsafe fn DrawRoundedRectangle<P1, P3>(&self, roundedrect: *const D2D1_ROUNDED_RECT, brush: P1, strokewidth: f32, strokestyle: P3)
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P1: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawRoundedRectangle)(windows_core::Interface::as_raw(self), roundedrect, brush.param().abi(), strokewidth, strokestyle.param().abi())
+        (windows_core::Interface::vtable(self).DrawRoundedRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(roundedrect), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn FillRoundedRectangle<P0>(&self, roundedrect: *const D2D1_ROUNDED_RECT, brush: P0)
+    pub unsafe fn FillRoundedRectangle<P1>(&self, roundedrect: *const D2D1_ROUNDED_RECT, brush: P1)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P1: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).FillRoundedRectangle)(windows_core::Interface::as_raw(self), roundedrect, brush.param().abi())
+        (windows_core::Interface::vtable(self).FillRoundedRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(roundedrect), brush.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn DrawEllipse<P0, P1>(&self, ellipse: *const D2D1_ELLIPSE, brush: P0, strokewidth: f32, strokestyle: P1)
+    pub unsafe fn DrawEllipse<P1, P3>(&self, ellipse: *const D2D1_ELLIPSE, brush: P1, strokewidth: f32, strokestyle: P3)
     where
-        P0: windows_core::Param<ID2D1Brush>,
-        P1: windows_core::Param<ID2D1StrokeStyle>,
+        P1: windows_core::Param<ID2D1Brush>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawEllipse)(windows_core::Interface::as_raw(self), ellipse, brush.param().abi(), strokewidth, strokestyle.param().abi())
+        (windows_core::Interface::vtable(self).DrawEllipse)(windows_core::Interface::as_raw(self), core::mem::transmute(ellipse), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn FillEllipse<P0>(&self, ellipse: *const D2D1_ELLIPSE, brush: P0)
+    pub unsafe fn FillEllipse<P1>(&self, ellipse: *const D2D1_ELLIPSE, brush: P1)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P1: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).FillEllipse)(windows_core::Interface::as_raw(self), ellipse, brush.param().abi())
+        (windows_core::Interface::vtable(self).FillEllipse)(windows_core::Interface::as_raw(self), core::mem::transmute(ellipse), brush.param().abi())
     }
-    pub unsafe fn DrawGeometry<P0, P1, P2>(&self, geometry: P0, brush: P1, strokewidth: f32, strokestyle: P2)
+    pub unsafe fn DrawGeometry<P0, P1, P3>(&self, geometry: P0, brush: P1, strokewidth: f32, strokestyle: P3)
     where
         P0: windows_core::Param<ID2D1Geometry>,
         P1: windows_core::Param<ID2D1Brush>,
-        P2: windows_core::Param<ID2D1StrokeStyle>,
+        P3: windows_core::Param<ID2D1StrokeStyle>,
     {
-        (windows_core::Interface::vtable(self).DrawGeometry)(windows_core::Interface::as_raw(self), geometry.param().abi(), brush.param().abi(), strokewidth, strokestyle.param().abi())
+        (windows_core::Interface::vtable(self).DrawGeometry)(windows_core::Interface::as_raw(self), geometry.param().abi(), brush.param().abi(), core::mem::transmute(strokewidth), strokestyle.param().abi())
     }
     pub unsafe fn FillGeometry<P0, P1, P2>(&self, geometry: P0, brush: P1, opacitybrush: P2)
     where
@@ -8282,54 +8360,54 @@ impl ID2D1RenderTarget {
         P0: windows_core::Param<ID2D1Bitmap>,
         P1: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).FillOpacityMask)(windows_core::Interface::as_raw(self), opacitymask.param().abi(), brush.param().abi(), content, core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).FillOpacityMask)(windows_core::Interface::as_raw(self), opacitymask.param().abi(), brush.param().abi(), core::mem::transmute(content), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap<P0>(&self, bitmap: P0, destinationrectangle: Option<*const Common::D2D_RECT_F>, opacity: f32, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, sourcerectangle: Option<*const Common::D2D_RECT_F>)
     where
         P0: windows_core::Param<ID2D1Bitmap>,
     {
-        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), opacity, interpolationmode, core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())))
+        (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bitmap.param().abi(), core::mem::transmute(destinationrectangle.unwrap_or(core::ptr::null())), core::mem::transmute(opacity), core::mem::transmute(interpolationmode), core::mem::transmute(sourcerectangle.unwrap_or(core::ptr::null())))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawText<P0, P1>(&self, string: &[u16], textformat: P0, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: P1, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawText<P2, P4>(&self, string: &[u16], textformat: P2, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: P4, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteTextFormat>,
-        P1: windows_core::Param<ID2D1Brush>,
+        P2: windows_core::Param<super::DirectWrite::IDWriteTextFormat>,
+        P4: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), options, measuringmode)
+        (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), core::mem::transmute(layoutrect), defaultfillbrush.param().abi(), core::mem::transmute(options), core::mem::transmute(measuringmode))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawTextLayout<P0, P1>(&self, origin: Common::D2D_POINT_2F, textlayout: P0, defaultfillbrush: P1, options: D2D1_DRAW_TEXT_OPTIONS)
+    pub unsafe fn DrawTextLayout<P1, P2>(&self, origin: Common::D2D_POINT_2F, textlayout: P1, defaultfillbrush: P2, options: D2D1_DRAW_TEXT_OPTIONS)
     where
-        P0: windows_core::Param<super::DirectWrite::IDWriteTextLayout>,
-        P1: windows_core::Param<ID2D1Brush>,
+        P1: windows_core::Param<super::DirectWrite::IDWriteTextLayout>,
+        P2: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawTextLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(origin), textlayout.param().abi(), defaultfillbrush.param().abi(), options)
+        (windows_core::Interface::vtable(self).DrawTextLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(origin), textlayout.param().abi(), defaultfillbrush.param().abi(), core::mem::transmute(options))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub unsafe fn DrawGlyphRun<P0>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: P0, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawGlyphRun<P2>(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: P2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE)
     where
-        P0: windows_core::Param<ID2D1Brush>,
+        P2: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.param().abi(), measuringmode)
+        (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), foregroundbrush.param().abi(), core::mem::transmute(measuringmode))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
     pub unsafe fn SetAntialiasMode(&self, antialiasmode: D2D1_ANTIALIAS_MODE) {
-        (windows_core::Interface::vtable(self).SetAntialiasMode)(windows_core::Interface::as_raw(self), antialiasmode)
+        (windows_core::Interface::vtable(self).SetAntialiasMode)(windows_core::Interface::as_raw(self), core::mem::transmute(antialiasmode))
     }
     pub unsafe fn GetAntialiasMode(&self) -> D2D1_ANTIALIAS_MODE {
         (windows_core::Interface::vtable(self).GetAntialiasMode)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn SetTextAntialiasMode(&self, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) {
-        (windows_core::Interface::vtable(self).SetTextAntialiasMode)(windows_core::Interface::as_raw(self), textantialiasmode)
+        (windows_core::Interface::vtable(self).SetTextAntialiasMode)(windows_core::Interface::as_raw(self), core::mem::transmute(textantialiasmode))
     }
     pub unsafe fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE {
         (windows_core::Interface::vtable(self).GetTextAntialiasMode)(windows_core::Interface::as_raw(self))
@@ -8348,17 +8426,17 @@ impl ID2D1RenderTarget {
         windows_core::Type::from_abi(result__)
     }
     pub unsafe fn SetTags(&self, tag1: u64, tag2: u64) {
-        (windows_core::Interface::vtable(self).SetTags)(windows_core::Interface::as_raw(self), tag1, tag2)
+        (windows_core::Interface::vtable(self).SetTags)(windows_core::Interface::as_raw(self), core::mem::transmute(tag1), core::mem::transmute(tag2))
     }
     pub unsafe fn GetTags(&self, tag1: Option<*mut u64>, tag2: Option<*mut u64>) {
         (windows_core::Interface::vtable(self).GetTags)(windows_core::Interface::as_raw(self), core::mem::transmute(tag1.unwrap_or(core::ptr::null_mut())), core::mem::transmute(tag2.unwrap_or(core::ptr::null_mut())))
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn PushLayer<P0>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: P0)
+    pub unsafe fn PushLayer<P1>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: P1)
     where
-        P0: windows_core::Param<ID2D1Layer>,
+        P1: windows_core::Param<ID2D1Layer>,
     {
-        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), layerparameters, layer.param().abi())
+        (windows_core::Interface::vtable(self).PushLayer)(windows_core::Interface::as_raw(self), core::mem::transmute(layerparameters), layer.param().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (windows_core::Interface::vtable(self).PopLayer)(windows_core::Interface::as_raw(self))
@@ -8380,7 +8458,7 @@ impl ID2D1RenderTarget {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) {
-        (windows_core::Interface::vtable(self).PushAxisAlignedClip)(windows_core::Interface::as_raw(self), cliprect, antialiasmode)
+        (windows_core::Interface::vtable(self).PushAxisAlignedClip)(windows_core::Interface::as_raw(self), core::mem::transmute(cliprect), core::mem::transmute(antialiasmode))
     }
     pub unsafe fn PopAxisAlignedClip(&self) {
         (windows_core::Interface::vtable(self).PopAxisAlignedClip)(windows_core::Interface::as_raw(self))
@@ -8402,10 +8480,10 @@ impl ID2D1RenderTarget {
         result__
     }
     pub unsafe fn SetDpi(&self, dpix: f32, dpiy: f32) {
-        (windows_core::Interface::vtable(self).SetDpi)(windows_core::Interface::as_raw(self), dpix, dpiy)
+        (windows_core::Interface::vtable(self).SetDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy))
     }
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
-        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), dpix, dpiy)
+        (windows_core::Interface::vtable(self).GetDpi)(windows_core::Interface::as_raw(self), core::mem::transmute(dpix), core::mem::transmute(dpiy))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSize(&self) -> Common::D2D_SIZE_F {
@@ -8424,11 +8502,9 @@ impl ID2D1RenderTarget {
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).IsSupported)(windows_core::Interface::as_raw(self), rendertargetproperties)
+        (windows_core::Interface::vtable(self).IsSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(rendertargetproperties))
     }
 }
-unsafe impl Send for ID2D1RenderTarget {}
-unsafe impl Sync for ID2D1RenderTarget {}
 #[repr(C)]
 pub struct ID2D1RenderTarget_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -8586,7 +8662,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     IsSupported: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1RenderTarget_Impl: ID2D1Resource_Impl {
     fn CreateBitmap(&self, size: &Common::D2D_SIZE_U, srcdata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES) -> windows_core::Result<ID2D1Bitmap>;
     fn CreateBitmapFromWicBitmap(&self, wicbitmapsource: Option<&super::Imaging::IWICBitmapSource>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES) -> windows_core::Result<ID2D1Bitmap>;
     fn CreateSharedBitmap(&self, riid: *const windows_core::GUID, data: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut Option<ID2D1Bitmap>) -> windows_core::Result<()>;
@@ -8642,10 +8718,8 @@ pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-impl windows_core::RuntimeName for ID2D1RenderTarget {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1RenderTarget_Vtbl {
-    pub const fn new<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>() -> ID2D1RenderTarget_Vtbl {
+    pub const fn new<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBitmap<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: Common::D2D_SIZE_U, srcdata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID2D1RenderTarget_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
@@ -8979,13 +9053,13 @@ impl ID2D1RenderTarget_Vtbl {
         iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl windows_core::RuntimeName for ID2D1RenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1RenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1RenderTarget {}
 windows_core::imp::define_interface!(ID2D1Resource, ID2D1Resource_Vtbl, 0x2cd90691_12e2_11dc_9fed_001143a055f9);
-impl core::ops::Deref for ID2D1Resource {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1Resource, windows_core::IUnknown);
 impl ID2D1Resource {
     pub unsafe fn GetFactory(&self) -> windows_core::Result<ID2D1Factory> {
@@ -8994,19 +9068,16 @@ impl ID2D1Resource {
         windows_core::Type::from_abi(result__)
     }
 }
-unsafe impl Send for ID2D1Resource {}
-unsafe impl Sync for ID2D1Resource {}
 #[repr(C)]
 pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
-pub trait ID2D1Resource_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1Resource_Impl: windows_core::IUnknownImpl {
     fn GetFactory(&self, factory: *mut Option<ID2D1Factory>);
 }
-impl windows_core::RuntimeName for ID2D1Resource {}
 impl ID2D1Resource_Vtbl {
-    pub const fn new<Identity: ID2D1Resource_Impl, const OFFSET: isize>() -> ID2D1Resource_Vtbl {
+    pub const fn new<Identity: ID2D1Resource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFactory<Identity: ID2D1Resource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Resource_Impl::GetFactory(this, core::mem::transmute_copy(&factory))
@@ -9017,32 +9088,26 @@ impl ID2D1Resource_Vtbl {
         iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Resource {}
+unsafe impl Send for ID2D1Resource {}
+unsafe impl Sync for ID2D1Resource {}
 windows_core::imp::define_interface!(ID2D1ResourceTexture, ID2D1ResourceTexture_Vtbl, 0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
-impl core::ops::Deref for ID2D1ResourceTexture {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1ResourceTexture, windows_core::IUnknown);
 impl ID2D1ResourceTexture {
     pub unsafe fn Update(&self, minimumextents: Option<*const u32>, maximimumextents: Option<*const u32>, strides: Option<*const u32>, dimensions: u32, data: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(minimumextents.unwrap_or(core::ptr::null())), core::mem::transmute(maximimumextents.unwrap_or(core::ptr::null())), core::mem::transmute(strides.unwrap_or(core::ptr::null())), dimensions, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(minimumextents.unwrap_or(core::ptr::null())), core::mem::transmute(maximimumextents.unwrap_or(core::ptr::null())), core::mem::transmute(strides.unwrap_or(core::ptr::null())), core::mem::transmute(dimensions), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
 }
-unsafe impl Send for ID2D1ResourceTexture {}
-unsafe impl Sync for ID2D1ResourceTexture {}
 #[repr(C)]
 pub struct ID2D1ResourceTexture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, *const u32, *const u32, u32, *const u8, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1ResourceTexture_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1ResourceTexture_Impl: windows_core::IUnknownImpl {
     fn Update(&self, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1ResourceTexture {}
 impl ID2D1ResourceTexture_Vtbl {
-    pub const fn new<Identity: ID2D1ResourceTexture_Impl, const OFFSET: isize>() -> ID2D1ResourceTexture_Vtbl {
+    pub const fn new<Identity: ID2D1ResourceTexture_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: ID2D1ResourceTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1ResourceTexture_Impl::Update(this, core::mem::transmute_copy(&minimumextents), core::mem::transmute_copy(&maximimumextents), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount)).into()
@@ -9053,6 +9118,9 @@ impl ID2D1ResourceTexture_Vtbl {
         iid == &<ID2D1ResourceTexture as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1ResourceTexture {}
+unsafe impl Send for ID2D1ResourceTexture {}
+unsafe impl Sync for ID2D1ResourceTexture {}
 windows_core::imp::define_interface!(ID2D1RoundedRectangleGeometry, ID2D1RoundedRectangleGeometry_Vtbl, 0x2cd906a3_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RoundedRectangleGeometry {
     type Target = ID2D1Geometry;
@@ -9064,11 +9132,9 @@ windows_core::imp::interface_hierarchy!(ID2D1RoundedRectangleGeometry, windows_c
 impl ID2D1RoundedRectangleGeometry {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetRoundedRect(&self, roundedrect: *mut D2D1_ROUNDED_RECT) {
-        (windows_core::Interface::vtable(self).GetRoundedRect)(windows_core::Interface::as_raw(self), roundedrect)
+        (windows_core::Interface::vtable(self).GetRoundedRect)(windows_core::Interface::as_raw(self), core::mem::transmute(roundedrect))
     }
 }
-unsafe impl Send for ID2D1RoundedRectangleGeometry {}
-unsafe impl Sync for ID2D1RoundedRectangleGeometry {}
 #[repr(C)]
 pub struct ID2D1RoundedRectangleGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -9078,14 +9144,12 @@ pub struct ID2D1RoundedRectangleGeometry_Vtbl {
     GetRoundedRect: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1RoundedRectangleGeometry_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1RoundedRectangleGeometry_Impl: ID2D1Geometry_Impl {
     fn GetRoundedRect(&self, roundedrect: *mut D2D1_ROUNDED_RECT);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1RoundedRectangleGeometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1RoundedRectangleGeometry_Vtbl {
-    pub const fn new<Identity: ID2D1RoundedRectangleGeometry_Impl, const OFFSET: isize>() -> ID2D1RoundedRectangleGeometry_Vtbl {
+    pub const fn new<Identity: ID2D1RoundedRectangleGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRoundedRect<Identity: ID2D1RoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roundedrect: *mut D2D1_ROUNDED_RECT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1RoundedRectangleGeometry_Impl::GetRoundedRect(this, core::mem::transmute_copy(&roundedrect))
@@ -9096,6 +9160,12 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
         iid == &<ID2D1RoundedRectangleGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1RoundedRectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RoundedRectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RoundedRectangleGeometry {}
 windows_core::imp::define_interface!(ID2D1SolidColorBrush, ID2D1SolidColorBrush_Vtbl, 0x2cd906a9_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1SolidColorBrush {
     type Target = ID2D1Brush;
@@ -9107,7 +9177,7 @@ windows_core::imp::interface_hierarchy!(ID2D1SolidColorBrush, windows_core::IUnk
 impl ID2D1SolidColorBrush {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetColor(&self, color: *const Common::D2D1_COLOR_F) {
-        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color)
+        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetColor(&self) -> Common::D2D1_COLOR_F {
@@ -9116,8 +9186,6 @@ impl ID2D1SolidColorBrush {
         result__
     }
 }
-unsafe impl Send for ID2D1SolidColorBrush {}
-unsafe impl Sync for ID2D1SolidColorBrush {}
 #[repr(C)]
 pub struct ID2D1SolidColorBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
@@ -9131,15 +9199,13 @@ pub struct ID2D1SolidColorBrush_Vtbl {
     GetColor: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1SolidColorBrush_Impl: Sized + ID2D1Brush_Impl {
+pub trait ID2D1SolidColorBrush_Impl: ID2D1Brush_Impl {
     fn SetColor(&self, color: *const Common::D2D1_COLOR_F);
     fn GetColor(&self) -> Common::D2D1_COLOR_F;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1SolidColorBrush_Vtbl {
-    pub const fn new<Identity: ID2D1SolidColorBrush_Impl, const OFFSET: isize>() -> ID2D1SolidColorBrush_Vtbl {
+    pub const fn new<Identity: ID2D1SolidColorBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetColor<Identity: ID2D1SolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const Common::D2D1_COLOR_F) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SolidColorBrush_Impl::SetColor(this, core::mem::transmute_copy(&color))
@@ -9154,6 +9220,12 @@ impl ID2D1SolidColorBrush_Vtbl {
         iid == &<ID2D1SolidColorBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1SolidColorBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1SolidColorBrush {}
 windows_core::imp::define_interface!(ID2D1SourceTransform, ID2D1SourceTransform_Vtbl, 0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
 impl core::ops::Deref for ID2D1SourceTransform {
     type Target = ID2D1Transform;
@@ -9174,11 +9246,9 @@ impl ID2D1SourceTransform {
     where
         P0: windows_core::Param<ID2D1Bitmap1>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), target.param().abi(), drawrect, core::mem::transmute(targetorigin)).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), target.param().abi(), core::mem::transmute(drawrect), core::mem::transmute(targetorigin)).ok()
     }
 }
-unsafe impl Send for ID2D1SourceTransform {}
-unsafe impl Sync for ID2D1SourceTransform {}
 #[repr(C)]
 pub struct ID2D1SourceTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
@@ -9189,15 +9259,13 @@ pub struct ID2D1SourceTransform_Vtbl {
     Draw: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1SourceTransform_Impl: Sized + ID2D1Transform_Impl {
+pub trait ID2D1SourceTransform_Impl: ID2D1Transform_Impl {
     fn SetRenderInfo(&self, renderinfo: Option<&ID2D1RenderInfo>) -> windows_core::Result<()>;
     fn Draw(&self, target: Option<&ID2D1Bitmap1>, drawrect: *const super::super::Foundation::RECT, targetorigin: &Common::D2D_POINT_2U) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1SourceTransform {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1SourceTransform_Vtbl {
-    pub const fn new<Identity: ID2D1SourceTransform_Impl, const OFFSET: isize>() -> ID2D1SourceTransform_Vtbl {
+    pub const fn new<Identity: ID2D1SourceTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRenderInfo<Identity: ID2D1SourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SourceTransform_Impl::SetRenderInfo(this, windows_core::from_raw_borrowed(&renderinfo)).into()
@@ -9212,6 +9280,12 @@ impl ID2D1SourceTransform_Vtbl {
         iid == &<ID2D1SourceTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1SourceTransform {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SourceTransform {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SourceTransform {}
 windows_core::imp::define_interface!(ID2D1SpriteBatch, ID2D1SpriteBatch_Vtbl, 0x4dc583bf_3a10_438a_8722_e9765224f1f1);
 impl core::ops::Deref for ID2D1SpriteBatch {
     type Target = ID2D1Resource;
@@ -9223,15 +9297,40 @@ windows_core::imp::interface_hierarchy!(ID2D1SpriteBatch, windows_core::IUnknown
 impl ID2D1SpriteBatch {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn AddSprites(&self, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: Option<*const Common::D2D_RECT_U>, colors: Option<*const Common::D2D1_COLOR_F>, transforms: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddSprites)(windows_core::Interface::as_raw(self), spritecount, destinationrectangles, core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null())), core::mem::transmute(colors.unwrap_or(core::ptr::null())), core::mem::transmute(transforms.unwrap_or(core::ptr::null())), destinationrectanglesstride, sourcerectanglesstride, colorsstride, transformsstride).ok()
+        (windows_core::Interface::vtable(self).AddSprites)(
+            windows_core::Interface::as_raw(self),
+            core::mem::transmute(spritecount),
+            core::mem::transmute(destinationrectangles),
+            core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null())),
+            core::mem::transmute(colors.unwrap_or(core::ptr::null())),
+            core::mem::transmute(transforms.unwrap_or(core::ptr::null())),
+            core::mem::transmute(destinationrectanglesstride),
+            core::mem::transmute(sourcerectanglesstride),
+            core::mem::transmute(colorsstride),
+            core::mem::transmute(transformsstride),
+        )
+        .ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn SetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: Option<*const Common::D2D_RECT_F>, sourcerectangles: Option<*const Common::D2D_RECT_U>, colors: Option<*const Common::D2D1_COLOR_F>, transforms: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSprites)(windows_core::Interface::as_raw(self), startindex, spritecount, core::mem::transmute(destinationrectangles.unwrap_or(core::ptr::null())), core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null())), core::mem::transmute(colors.unwrap_or(core::ptr::null())), core::mem::transmute(transforms.unwrap_or(core::ptr::null())), destinationrectanglesstride, sourcerectanglesstride, colorsstride, transformsstride).ok()
+        (windows_core::Interface::vtable(self).SetSprites)(
+            windows_core::Interface::as_raw(self),
+            core::mem::transmute(startindex),
+            core::mem::transmute(spritecount),
+            core::mem::transmute(destinationrectangles.unwrap_or(core::ptr::null())),
+            core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null())),
+            core::mem::transmute(colors.unwrap_or(core::ptr::null())),
+            core::mem::transmute(transforms.unwrap_or(core::ptr::null())),
+            core::mem::transmute(destinationrectanglesstride),
+            core::mem::transmute(sourcerectanglesstride),
+            core::mem::transmute(colorsstride),
+            core::mem::transmute(transformsstride),
+        )
+        .ok()
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: Option<*mut Common::D2D_RECT_F>, sourcerectangles: Option<*mut Common::D2D_RECT_U>, colors: Option<*mut Common::D2D1_COLOR_F>, transforms: Option<*mut super::super::super::Foundation::Numerics::Matrix3x2>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSprites)(windows_core::Interface::as_raw(self), startindex, spritecount, core::mem::transmute(destinationrectangles.unwrap_or(core::ptr::null_mut())), core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null_mut())), core::mem::transmute(colors.unwrap_or(core::ptr::null_mut())), core::mem::transmute(transforms.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSprites)(windows_core::Interface::as_raw(self), core::mem::transmute(startindex), core::mem::transmute(spritecount), core::mem::transmute(destinationrectangles.unwrap_or(core::ptr::null_mut())), core::mem::transmute(sourcerectangles.unwrap_or(core::ptr::null_mut())), core::mem::transmute(colors.unwrap_or(core::ptr::null_mut())), core::mem::transmute(transforms.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSpriteCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetSpriteCount)(windows_core::Interface::as_raw(self))
@@ -9240,8 +9339,6 @@ impl ID2D1SpriteBatch {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1SpriteBatch {}
-unsafe impl Sync for ID2D1SpriteBatch {}
 #[repr(C)]
 pub struct ID2D1SpriteBatch_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -9261,7 +9358,7 @@ pub struct ID2D1SpriteBatch_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1SpriteBatch_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1SpriteBatch_Impl: ID2D1Resource_Impl {
     fn AddSprites(&self, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::Result<()>;
     fn SetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::Result<()>;
     fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()>;
@@ -9269,10 +9366,8 @@ pub trait ID2D1SpriteBatch_Impl: Sized + ID2D1Resource_Impl {
     fn Clear(&self);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1SpriteBatch {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1SpriteBatch_Vtbl {
-    pub const fn new<Identity: ID2D1SpriteBatch_Impl, const OFFSET: isize>() -> ID2D1SpriteBatch_Vtbl {
+    pub const fn new<Identity: ID2D1SpriteBatch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddSprites<Identity: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SpriteBatch_Impl::AddSprites(this, core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&destinationrectanglesstride), core::mem::transmute_copy(&sourcerectanglesstride), core::mem::transmute_copy(&colorsstride), core::mem::transmute_copy(&transformsstride)).into()
@@ -9306,6 +9401,12 @@ impl ID2D1SpriteBatch_Vtbl {
         iid == &<ID2D1SpriteBatch as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1SpriteBatch {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1SpriteBatch {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1SpriteBatch {}
 windows_core::imp::define_interface!(ID2D1StrokeStyle, ID2D1StrokeStyle_Vtbl, 0x2cd9069d_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1StrokeStyle {
     type Target = ID2D1Resource;
@@ -9343,8 +9444,6 @@ impl ID2D1StrokeStyle {
         (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap())
     }
 }
-unsafe impl Send for ID2D1StrokeStyle {}
-unsafe impl Sync for ID2D1StrokeStyle {}
 #[repr(C)]
 pub struct ID2D1StrokeStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -9358,7 +9457,7 @@ pub struct ID2D1StrokeStyle_Vtbl {
     pub GetDashesCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetDashes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32),
 }
-pub trait ID2D1StrokeStyle_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1StrokeStyle_Impl: ID2D1Resource_Impl {
     fn GetStartCap(&self) -> D2D1_CAP_STYLE;
     fn GetEndCap(&self) -> D2D1_CAP_STYLE;
     fn GetDashCap(&self) -> D2D1_CAP_STYLE;
@@ -9369,9 +9468,8 @@ pub trait ID2D1StrokeStyle_Impl: Sized + ID2D1Resource_Impl {
     fn GetDashesCount(&self) -> u32;
     fn GetDashes(&self, dashes: *mut f32, dashescount: u32);
 }
-impl windows_core::RuntimeName for ID2D1StrokeStyle {}
 impl ID2D1StrokeStyle_Vtbl {
-    pub const fn new<Identity: ID2D1StrokeStyle_Impl, const OFFSET: isize>() -> ID2D1StrokeStyle_Vtbl {
+    pub const fn new<Identity: ID2D1StrokeStyle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStartCap<Identity: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_CAP_STYLE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1StrokeStyle_Impl::GetStartCap(this)
@@ -9425,6 +9523,9 @@ impl ID2D1StrokeStyle_Vtbl {
         iid == &<ID2D1StrokeStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1StrokeStyle {}
+unsafe impl Send for ID2D1StrokeStyle {}
+unsafe impl Sync for ID2D1StrokeStyle {}
 windows_core::imp::define_interface!(ID2D1StrokeStyle1, ID2D1StrokeStyle1_Vtbl, 0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
 impl core::ops::Deref for ID2D1StrokeStyle1 {
     type Target = ID2D1StrokeStyle;
@@ -9438,19 +9539,16 @@ impl ID2D1StrokeStyle1 {
         (windows_core::Interface::vtable(self).GetStrokeTransformType)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1StrokeStyle1 {}
-unsafe impl Sync for ID2D1StrokeStyle1 {}
 #[repr(C)]
 pub struct ID2D1StrokeStyle1_Vtbl {
     pub base__: ID2D1StrokeStyle_Vtbl,
     pub GetStrokeTransformType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE,
 }
-pub trait ID2D1StrokeStyle1_Impl: Sized + ID2D1StrokeStyle_Impl {
+pub trait ID2D1StrokeStyle1_Impl: ID2D1StrokeStyle_Impl {
     fn GetStrokeTransformType(&self) -> D2D1_STROKE_TRANSFORM_TYPE;
 }
-impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
 impl ID2D1StrokeStyle1_Vtbl {
-    pub const fn new<Identity: ID2D1StrokeStyle1_Impl, const OFFSET: isize>() -> ID2D1StrokeStyle1_Vtbl {
+    pub const fn new<Identity: ID2D1StrokeStyle1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStrokeTransformType<Identity: ID2D1StrokeStyle1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1StrokeStyle1_Impl::GetStrokeTransformType(this)
@@ -9461,6 +9559,9 @@ impl ID2D1StrokeStyle1_Vtbl {
         iid == &<ID2D1StrokeStyle1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1StrokeStyle as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
+unsafe impl Send for ID2D1StrokeStyle1 {}
+unsafe impl Sync for ID2D1StrokeStyle1 {}
 windows_core::imp::define_interface!(ID2D1SvgAttribute, ID2D1SvgAttribute_Vtbl, 0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
 impl core::ops::Deref for ID2D1SvgAttribute {
     type Target = ID2D1Resource;
@@ -9480,21 +9581,18 @@ impl ID2D1SvgAttribute {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1SvgAttribute {}
-unsafe impl Sync for ID2D1SvgAttribute {}
 #[repr(C)]
 pub struct ID2D1SvgAttribute_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1SvgAttribute_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1SvgAttribute_Impl: ID2D1Resource_Impl {
     fn GetElement(&self, element: *mut Option<ID2D1SvgElement>);
     fn Clone(&self) -> windows_core::Result<ID2D1SvgAttribute>;
 }
-impl windows_core::RuntimeName for ID2D1SvgAttribute {}
 impl ID2D1SvgAttribute_Vtbl {
-    pub const fn new<Identity: ID2D1SvgAttribute_Impl, const OFFSET: isize>() -> ID2D1SvgAttribute_Vtbl {
+    pub const fn new<Identity: ID2D1SvgAttribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetElement<Identity: ID2D1SvgAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgAttribute_Impl::GetElement(this, core::mem::transmute_copy(&element))
@@ -9515,6 +9613,9 @@ impl ID2D1SvgAttribute_Vtbl {
         iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1SvgAttribute {}
+unsafe impl Send for ID2D1SvgAttribute {}
+unsafe impl Sync for ID2D1SvgAttribute {}
 windows_core::imp::define_interface!(ID2D1SvgDocument, ID2D1SvgDocument_Vtbl, 0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
 impl core::ops::Deref for ID2D1SvgDocument {
     type Target = ID2D1Resource;
@@ -9569,12 +9670,12 @@ impl ID2D1SvgDocument {
         (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), inputxmlstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn CreatePaint<P0>(&self, painttype: D2D1_SVG_PAINT_TYPE, color: Option<*const Common::D2D1_COLOR_F>, id: P0) -> windows_core::Result<ID2D1SvgPaint>
+    pub unsafe fn CreatePaint<P2>(&self, painttype: D2D1_SVG_PAINT_TYPE, color: Option<*const Common::D2D1_COLOR_F>, id: P2) -> windows_core::Result<ID2D1SvgPaint>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePaint)(windows_core::Interface::as_raw(self), painttype, core::mem::transmute(color.unwrap_or(core::ptr::null())), id.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePaint)(windows_core::Interface::as_raw(self), core::mem::transmute(painttype), core::mem::transmute(color.unwrap_or(core::ptr::null())), id.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateStrokeDashArray(&self, dashes: Option<&[D2D1_SVG_LENGTH]>) -> windows_core::Result<ID2D1SvgStrokeDashArray> {
         let mut result__ = core::mem::zeroed();
@@ -9590,8 +9691,6 @@ impl ID2D1SvgDocument {
         (windows_core::Interface::vtable(self).CreatePathData)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), segmentdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commands.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), commands.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1SvgDocument {}
-unsafe impl Sync for ID2D1SvgDocument {}
 #[repr(C)]
 pub struct ID2D1SvgDocument_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -9626,7 +9725,7 @@ pub struct ID2D1SvgDocument_Vtbl {
     pub CreatePathData: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32, *const D2D1_SVG_PATH_COMMAND, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
-pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1SvgDocument_Impl: ID2D1Resource_Impl {
     fn SetViewportSize(&self, viewportsize: &Common::D2D_SIZE_F) -> windows_core::Result<()>;
     fn GetViewportSize(&self) -> Common::D2D_SIZE_F;
     fn SetRoot(&self, root: Option<&ID2D1SvgElement>) -> windows_core::Result<()>;
@@ -9640,10 +9739,8 @@ pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
     fn CreatePathData(&self, segmentdata: *const f32, segmentdatacount: u32, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: u32) -> windows_core::Result<ID2D1SvgPathData>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for ID2D1SvgDocument {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl ID2D1SvgDocument_Vtbl {
-    pub const fn new<Identity: ID2D1SvgDocument_Impl, const OFFSET: isize>() -> ID2D1SvgDocument_Vtbl {
+    pub const fn new<Identity: ID2D1SvgDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetViewportSize<Identity: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewportsize: Common::D2D_SIZE_F) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgDocument_Impl::SetViewportSize(this, core::mem::transmute(&viewportsize)).into()
@@ -9743,6 +9840,12 @@ impl ID2D1SvgDocument_Vtbl {
         iid == &<ID2D1SvgDocument as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for ID2D1SvgDocument {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1SvgDocument {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1SvgDocument {}
 windows_core::imp::define_interface!(ID2D1SvgElement, ID2D1SvgElement_Vtbl, 0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
 impl core::ops::Deref for ID2D1SvgElement {
     type Target = ID2D1Resource;
@@ -9841,10 +9944,10 @@ impl ID2D1SvgElement {
         (windows_core::Interface::vtable(self).GetSpecifiedAttributeCount)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetSpecifiedAttributeName(&self, index: u32, name: &mut [u16], inherited: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSpecifiedAttributeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap(), core::mem::transmute(inherited.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSpecifiedAttributeName)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap(), core::mem::transmute(inherited.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSpecifiedAttributeNameLength)(windows_core::Interface::as_raw(self), index, namelength, core::mem::transmute(inherited.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSpecifiedAttributeNameLength)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(namelength), core::mem::transmute(inherited.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveAttribute<P0>(&self, name: P0) -> windows_core::Result<()>
     where
@@ -9872,14 +9975,14 @@ impl ID2D1SvgElement {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAttributeValue2)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, value, valuesizeinbytes).ok()
+        (windows_core::Interface::vtable(self).SetAttributeValue2)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), core::mem::transmute(value), core::mem::transmute(valuesizeinbytes)).ok()
     }
-    pub unsafe fn SetAttributeValue3<P0, P1>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: P1) -> windows_core::Result<()>
+    pub unsafe fn SetAttributeValue3<P0, P2>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAttributeValue3)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAttributeValue3)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), value.param().abi()).ok()
     }
     pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0) -> windows_core::Result<T>
     where
@@ -9893,24 +9996,22 @@ impl ID2D1SvgElement {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetAttributeValue2)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, value, valuesizeinbytes).ok()
+        (windows_core::Interface::vtable(self).GetAttributeValue2)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), core::mem::transmute(value), core::mem::transmute(valuesizeinbytes)).ok()
     }
     pub unsafe fn GetAttributeValue3<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: &mut [u16]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetAttributeValue3)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).GetAttributeValue3)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetAttributeValueLength<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeValueLength)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAttributeValueLength)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1SvgElement {}
-unsafe impl Sync for ID2D1SvgElement {}
 #[repr(C)]
 pub struct ID2D1SvgElement_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -9945,7 +10046,7 @@ pub struct ID2D1SvgElement_Vtbl {
     pub GetAttributeValue3: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, D2D1_SVG_ATTRIBUTE_STRING_TYPE, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     pub GetAttributeValueLength: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, D2D1_SVG_ATTRIBUTE_STRING_TYPE, *mut u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1SvgElement_Impl: ID2D1Resource_Impl {
     fn GetDocument(&self, document: *mut Option<ID2D1SvgDocument>);
     fn GetTagName(&self, name: windows_core::PWSTR, namecount: u32) -> windows_core::Result<()>;
     fn GetTagNameLength(&self) -> u32;
@@ -9977,9 +10078,8 @@ pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
     fn GetAttributeValue3(&self, name: &windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: windows_core::PWSTR, valuecount: u32) -> windows_core::Result<()>;
     fn GetAttributeValueLength(&self, name: &windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> windows_core::Result<u32>;
 }
-impl windows_core::RuntimeName for ID2D1SvgElement {}
 impl ID2D1SvgElement_Vtbl {
-    pub const fn new<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>() -> ID2D1SvgElement_Vtbl {
+    pub const fn new<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocument<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgElement_Impl::GetDocument(this, core::mem::transmute_copy(&document))
@@ -10162,6 +10262,9 @@ impl ID2D1SvgElement_Vtbl {
         iid == &<ID2D1SvgElement as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1SvgElement {}
+unsafe impl Send for ID2D1SvgElement {}
+unsafe impl Sync for ID2D1SvgElement {}
 windows_core::imp::define_interface!(ID2D1SvgGlyphStyle, ID2D1SvgGlyphStyle_Vtbl, 0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
 impl core::ops::Deref for ID2D1SvgGlyphStyle {
     type Target = ID2D1Resource;
@@ -10186,7 +10289,7 @@ impl ID2D1SvgGlyphStyle {
     where
         P0: windows_core::Param<ID2D1Brush>,
     {
-        (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), strokewidth, core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset).ok()
+        (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), core::mem::transmute(strokewidth), core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dashoffset)).ok()
     }
     pub unsafe fn GetStrokeDashesCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetStrokeDashesCount)(windows_core::Interface::as_raw(self))
@@ -10195,8 +10298,6 @@ impl ID2D1SvgGlyphStyle {
         (windows_core::Interface::vtable(self).GetStroke)(windows_core::Interface::as_raw(self), core::mem::transmute(brush.unwrap_or(core::ptr::null_mut())), core::mem::transmute(strokewidth.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dashoffset.unwrap_or(core::ptr::null_mut())))
     }
 }
-unsafe impl Send for ID2D1SvgGlyphStyle {}
-unsafe impl Sync for ID2D1SvgGlyphStyle {}
 #[repr(C)]
 pub struct ID2D1SvgGlyphStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
@@ -10206,16 +10307,15 @@ pub struct ID2D1SvgGlyphStyle_Vtbl {
     pub GetStrokeDashesCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut f32, *mut f32, u32, *mut f32),
 }
-pub trait ID2D1SvgGlyphStyle_Impl: Sized + ID2D1Resource_Impl {
+pub trait ID2D1SvgGlyphStyle_Impl: ID2D1Resource_Impl {
     fn SetFill(&self, brush: Option<&ID2D1Brush>) -> windows_core::Result<()>;
     fn GetFill(&self, brush: *mut Option<ID2D1Brush>);
     fn SetStroke(&self, brush: Option<&ID2D1Brush>, strokewidth: f32, dashes: *const f32, dashescount: u32, dashoffset: f32) -> windows_core::Result<()>;
     fn GetStrokeDashesCount(&self) -> u32;
     fn GetStroke(&self, brush: *mut Option<ID2D1Brush>, strokewidth: *mut f32, dashes: *mut f32, dashescount: u32, dashoffset: *mut f32);
 }
-impl windows_core::RuntimeName for ID2D1SvgGlyphStyle {}
 impl ID2D1SvgGlyphStyle_Vtbl {
-    pub const fn new<Identity: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>() -> ID2D1SvgGlyphStyle_Vtbl {
+    pub const fn new<Identity: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFill<Identity: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgGlyphStyle_Impl::SetFill(this, windows_core::from_raw_borrowed(&brush)).into()
@@ -10249,6 +10349,9 @@ impl ID2D1SvgGlyphStyle_Vtbl {
         iid == &<ID2D1SvgGlyphStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1SvgGlyphStyle {}
+unsafe impl Send for ID2D1SvgGlyphStyle {}
+unsafe impl Sync for ID2D1SvgGlyphStyle {}
 windows_core::imp::define_interface!(ID2D1SvgPaint, ID2D1SvgPaint_Vtbl, 0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
 impl core::ops::Deref for ID2D1SvgPaint {
     type Target = ID2D1SvgAttribute;
@@ -10259,14 +10362,14 @@ impl core::ops::Deref for ID2D1SvgPaint {
 windows_core::imp::interface_hierarchy!(ID2D1SvgPaint, windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ID2D1SvgPaint {
     pub unsafe fn SetPaintType(&self, painttype: D2D1_SVG_PAINT_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPaintType)(windows_core::Interface::as_raw(self), painttype).ok()
+        (windows_core::Interface::vtable(self).SetPaintType)(windows_core::Interface::as_raw(self), core::mem::transmute(painttype)).ok()
     }
     pub unsafe fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE {
         (windows_core::Interface::vtable(self).GetPaintType)(windows_core::Interface::as_raw(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetColor(&self, color: *const Common::D2D1_COLOR_F) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color).ok()
+        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetColor(&self) -> Common::D2D1_COLOR_F {
@@ -10287,8 +10390,6 @@ impl ID2D1SvgPaint {
         (windows_core::Interface::vtable(self).GetIdLength)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1SvgPaint {}
-unsafe impl Sync for ID2D1SvgPaint {}
 #[repr(C)]
 pub struct ID2D1SvgPaint_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
@@ -10307,7 +10408,7 @@ pub struct ID2D1SvgPaint_Vtbl {
     pub GetIdLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1SvgPaint_Impl: Sized + ID2D1SvgAttribute_Impl {
+pub trait ID2D1SvgPaint_Impl: ID2D1SvgAttribute_Impl {
     fn SetPaintType(&self, painttype: D2D1_SVG_PAINT_TYPE) -> windows_core::Result<()>;
     fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
     fn SetColor(&self, color: *const Common::D2D1_COLOR_F) -> windows_core::Result<()>;
@@ -10317,10 +10418,8 @@ pub trait ID2D1SvgPaint_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn GetIdLength(&self) -> u32;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1SvgPaint {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1SvgPaint_Vtbl {
-    pub const fn new<Identity: ID2D1SvgPaint_Impl, const OFFSET: isize>() -> ID2D1SvgPaint_Vtbl {
+    pub const fn new<Identity: ID2D1SvgPaint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPaintType<Identity: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgPaint_Impl::SetPaintType(this, core::mem::transmute_copy(&painttype)).into()
@@ -10364,6 +10463,12 @@ impl ID2D1SvgPaint_Vtbl {
         iid == &<ID2D1SvgPaint as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1SvgPaint {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPaint {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPaint {}
 windows_core::imp::define_interface!(ID2D1SvgPathData, ID2D1SvgPathData_Vtbl, 0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
 impl core::ops::Deref for ID2D1SvgPathData {
     type Target = ID2D1SvgAttribute;
@@ -10374,25 +10479,25 @@ impl core::ops::Deref for ID2D1SvgPathData {
 windows_core::imp::interface_hierarchy!(ID2D1SvgPathData, windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ID2D1SvgPathData {
     pub unsafe fn RemoveSegmentDataAtEnd(&self, datacount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveSegmentDataAtEnd)(windows_core::Interface::as_raw(self), datacount).ok()
+        (windows_core::Interface::vtable(self).RemoveSegmentDataAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(datacount)).ok()
     }
     pub unsafe fn UpdateSegmentData(&self, data: &[f32], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetSegmentData(&self, data: &mut [f32], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetSegmentDataCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetSegmentDataCount)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn RemoveCommandsAtEnd(&self, commandscount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveCommandsAtEnd)(windows_core::Interface::as_raw(self), commandscount).ok()
+        (windows_core::Interface::vtable(self).RemoveCommandsAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(commandscount)).ok()
     }
     pub unsafe fn UpdateCommands(&self, commands: &[D2D1_SVG_PATH_COMMAND], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetCommands(&self, commands: &mut [D2D1_SVG_PATH_COMMAND], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetCommandsCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetCommandsCount)(windows_core::Interface::as_raw(self))
@@ -10400,11 +10505,9 @@ impl ID2D1SvgPathData {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreatePathGeometry(&self, fillmode: Common::D2D1_FILL_MODE) -> windows_core::Result<ID2D1PathGeometry1> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePathGeometry)(windows_core::Interface::as_raw(self), fillmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePathGeometry)(windows_core::Interface::as_raw(self), core::mem::transmute(fillmode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-unsafe impl Send for ID2D1SvgPathData {}
-unsafe impl Sync for ID2D1SvgPathData {}
 #[repr(C)]
 pub struct ID2D1SvgPathData_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
@@ -10422,7 +10525,7 @@ pub struct ID2D1SvgPathData_Vtbl {
     CreatePathGeometry: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1SvgPathData_Impl: Sized + ID2D1SvgAttribute_Impl {
+pub trait ID2D1SvgPathData_Impl: ID2D1SvgAttribute_Impl {
     fn RemoveSegmentDataAtEnd(&self, datacount: u32) -> windows_core::Result<()>;
     fn UpdateSegmentData(&self, data: *const f32, datacount: u32, startindex: u32) -> windows_core::Result<()>;
     fn GetSegmentData(&self, data: *mut f32, datacount: u32, startindex: u32) -> windows_core::Result<()>;
@@ -10434,10 +10537,8 @@ pub trait ID2D1SvgPathData_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn CreatePathGeometry(&self, fillmode: Common::D2D1_FILL_MODE) -> windows_core::Result<ID2D1PathGeometry1>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1SvgPathData {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1SvgPathData_Vtbl {
-    pub const fn new<Identity: ID2D1SvgPathData_Impl, const OFFSET: isize>() -> ID2D1SvgPathData_Vtbl {
+    pub const fn new<Identity: ID2D1SvgPathData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RemoveSegmentDataAtEnd<Identity: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datacount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgPathData_Impl::RemoveSegmentDataAtEnd(this, core::mem::transmute_copy(&datacount)).into()
@@ -10497,6 +10598,12 @@ impl ID2D1SvgPathData_Vtbl {
         iid == &<ID2D1SvgPathData as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1SvgPathData {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPathData {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPathData {}
 windows_core::imp::define_interface!(ID2D1SvgPointCollection, ID2D1SvgPointCollection_Vtbl, 0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
 impl core::ops::Deref for ID2D1SvgPointCollection {
     type Target = ID2D1SvgAttribute;
@@ -10507,22 +10614,20 @@ impl core::ops::Deref for ID2D1SvgPointCollection {
 windows_core::imp::interface_hierarchy!(ID2D1SvgPointCollection, windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ID2D1SvgPointCollection {
     pub unsafe fn RemovePointsAtEnd(&self, pointscount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemovePointsAtEnd)(windows_core::Interface::as_raw(self), pointscount).ok()
+        (windows_core::Interface::vtable(self).RemovePointsAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(pointscount)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn UpdatePoints(&self, points: &[Common::D2D_POINT_2F], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetPoints(&self, points: &mut [Common::D2D_POINT_2F], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetPointsCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetPointsCount)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1SvgPointCollection {}
-unsafe impl Sync for ID2D1SvgPointCollection {}
 #[repr(C)]
 pub struct ID2D1SvgPointCollection_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
@@ -10538,17 +10643,15 @@ pub struct ID2D1SvgPointCollection_Vtbl {
     pub GetPointsCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1SvgPointCollection_Impl: Sized + ID2D1SvgAttribute_Impl {
+pub trait ID2D1SvgPointCollection_Impl: ID2D1SvgAttribute_Impl {
     fn RemovePointsAtEnd(&self, pointscount: u32) -> windows_core::Result<()>;
     fn UpdatePoints(&self, points: *const Common::D2D_POINT_2F, pointscount: u32, startindex: u32) -> windows_core::Result<()>;
     fn GetPoints(&self, points: *mut Common::D2D_POINT_2F, pointscount: u32, startindex: u32) -> windows_core::Result<()>;
     fn GetPointsCount(&self) -> u32;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1SvgPointCollection {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1SvgPointCollection_Vtbl {
-    pub const fn new<Identity: ID2D1SvgPointCollection_Impl, const OFFSET: isize>() -> ID2D1SvgPointCollection_Vtbl {
+    pub const fn new<Identity: ID2D1SvgPointCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RemovePointsAtEnd<Identity: ID2D1SvgPointCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointscount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgPointCollection_Impl::RemovePointsAtEnd(this, core::mem::transmute_copy(&pointscount)).into()
@@ -10577,6 +10680,12 @@ impl ID2D1SvgPointCollection_Vtbl {
         iid == &<ID2D1SvgPointCollection as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1SvgPointCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPointCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPointCollection {}
 windows_core::imp::define_interface!(ID2D1SvgStrokeDashArray, ID2D1SvgStrokeDashArray_Vtbl, 0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
 impl core::ops::Deref for ID2D1SvgStrokeDashArray {
     type Target = ID2D1SvgAttribute;
@@ -10587,26 +10696,24 @@ impl core::ops::Deref for ID2D1SvgStrokeDashArray {
 windows_core::imp::interface_hierarchy!(ID2D1SvgStrokeDashArray, windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ID2D1SvgStrokeDashArray {
     pub unsafe fn RemoveDashesAtEnd(&self, dashescount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveDashesAtEnd)(windows_core::Interface::as_raw(self), dashescount).ok()
+        (windows_core::Interface::vtable(self).RemoveDashesAtEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(dashescount)).ok()
     }
     pub unsafe fn UpdateDashes(&self, dashes: &[D2D1_SVG_LENGTH], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn UpdateDashes2(&self, dashes: &[f32], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetDashes(&self, dashes: &mut [D2D1_SVG_LENGTH], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetDashes2(&self, dashes: &mut [f32], startindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex).ok()
+        (windows_core::Interface::vtable(self).GetDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), core::mem::transmute(startindex)).ok()
     }
     pub unsafe fn GetDashesCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetDashesCount)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1SvgStrokeDashArray {}
-unsafe impl Sync for ID2D1SvgStrokeDashArray {}
 #[repr(C)]
 pub struct ID2D1SvgStrokeDashArray_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
@@ -10617,7 +10724,7 @@ pub struct ID2D1SvgStrokeDashArray_Vtbl {
     pub GetDashes2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
     pub GetDashesCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-pub trait ID2D1SvgStrokeDashArray_Impl: Sized + ID2D1SvgAttribute_Impl {
+pub trait ID2D1SvgStrokeDashArray_Impl: ID2D1SvgAttribute_Impl {
     fn RemoveDashesAtEnd(&self, dashescount: u32) -> windows_core::Result<()>;
     fn UpdateDashes(&self, dashes: *const D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> windows_core::Result<()>;
     fn UpdateDashes2(&self, dashes: *const f32, dashescount: u32, startindex: u32) -> windows_core::Result<()>;
@@ -10625,9 +10732,8 @@ pub trait ID2D1SvgStrokeDashArray_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn GetDashes2(&self, dashes: *mut f32, dashescount: u32, startindex: u32) -> windows_core::Result<()>;
     fn GetDashesCount(&self) -> u32;
 }
-impl windows_core::RuntimeName for ID2D1SvgStrokeDashArray {}
 impl ID2D1SvgStrokeDashArray_Vtbl {
-    pub const fn new<Identity: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>() -> ID2D1SvgStrokeDashArray_Vtbl {
+    pub const fn new<Identity: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RemoveDashesAtEnd<Identity: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashescount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1SvgStrokeDashArray_Impl::RemoveDashesAtEnd(this, core::mem::transmute_copy(&dashescount)).into()
@@ -10666,13 +10772,10 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
         iid == &<ID2D1SvgStrokeDashArray as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1SvgStrokeDashArray {}
+unsafe impl Send for ID2D1SvgStrokeDashArray {}
+unsafe impl Sync for ID2D1SvgStrokeDashArray {}
 windows_core::imp::define_interface!(ID2D1TessellationSink, ID2D1TessellationSink_Vtbl, 0x2cd906c1_12e2_11dc_9fed_001143a055f9);
-impl core::ops::Deref for ID2D1TessellationSink {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, windows_core::IUnknown);
 impl ID2D1TessellationSink {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10683,8 +10786,6 @@ impl ID2D1TessellationSink {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1TessellationSink {}
-unsafe impl Sync for ID2D1TessellationSink {}
 #[repr(C)]
 pub struct ID2D1TessellationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -10695,15 +10796,13 @@ pub struct ID2D1TessellationSink_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub trait ID2D1TessellationSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1TessellationSink_Impl: windows_core::IUnknownImpl {
     fn AddTriangles(&self, triangles: *const D2D1_TRIANGLE, trianglescount: u32);
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::RuntimeName for ID2D1TessellationSink {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1TessellationSink_Vtbl {
-    pub const fn new<Identity: ID2D1TessellationSink_Impl, const OFFSET: isize>() -> ID2D1TessellationSink_Vtbl {
+    pub const fn new<Identity: ID2D1TessellationSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTriangles<Identity: ID2D1TessellationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, triangles: *const D2D1_TRIANGLE, trianglescount: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1TessellationSink_Impl::AddTriangles(this, core::mem::transmute_copy(&triangles), core::mem::transmute_copy(&trianglescount))
@@ -10718,6 +10817,12 @@ impl ID2D1TessellationSink_Vtbl {
         iid == &<ID2D1TessellationSink as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::RuntimeName for ID2D1TessellationSink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1TessellationSink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1TessellationSink {}
 windows_core::imp::define_interface!(ID2D1Transform, ID2D1Transform_Vtbl, 0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
 impl core::ops::Deref for ID2D1Transform {
     type Target = ID2D1TransformNode;
@@ -10728,18 +10833,16 @@ impl core::ops::Deref for ID2D1Transform {
 windows_core::imp::interface_hierarchy!(ID2D1Transform, windows_core::IUnknown, ID2D1TransformNode);
 impl ID2D1Transform {
     pub unsafe fn MapOutputRectToInputRects(&self, outputrect: *const super::super::Foundation::RECT, inputrects: &mut [super::super::Foundation::RECT]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MapOutputRectToInputRects)(windows_core::Interface::as_raw(self), outputrect, core::mem::transmute(inputrects.as_ptr()), inputrects.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).MapOutputRectToInputRects)(windows_core::Interface::as_raw(self), core::mem::transmute(outputrect), core::mem::transmute(inputrects.as_ptr()), inputrects.len().try_into().unwrap()).ok()
     }
     pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MapInputRectsToOutputRect)(windows_core::Interface::as_raw(self), inputrects, inputopaquesubrects, inputrectcount, outputrect, outputopaquesubrect).ok()
+        (windows_core::Interface::vtable(self).MapInputRectsToOutputRect)(windows_core::Interface::as_raw(self), core::mem::transmute(inputrects), core::mem::transmute(inputopaquesubrects), core::mem::transmute(inputrectcount), core::mem::transmute(outputrect), core::mem::transmute(outputopaquesubrect)).ok()
     }
     pub unsafe fn MapInvalidRect(&self, inputindex: u32, invalidinputrect: super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MapInvalidRect)(windows_core::Interface::as_raw(self), inputindex, core::mem::transmute(invalidinputrect), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MapInvalidRect)(windows_core::Interface::as_raw(self), core::mem::transmute(inputindex), core::mem::transmute(invalidinputrect), &mut result__).map(|| result__)
     }
 }
-unsafe impl Send for ID2D1Transform {}
-unsafe impl Sync for ID2D1Transform {}
 #[repr(C)]
 pub struct ID2D1Transform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
@@ -10747,14 +10850,13 @@ pub struct ID2D1Transform_Vtbl {
     pub MapInputRectsToOutputRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, u32, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub MapInvalidRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
-pub trait ID2D1Transform_Impl: Sized + ID2D1TransformNode_Impl {
+pub trait ID2D1Transform_Impl: ID2D1TransformNode_Impl {
     fn MapOutputRectToInputRects(&self, outputrect: *const super::super::Foundation::RECT, inputrects: *mut super::super::Foundation::RECT, inputrectscount: u32) -> windows_core::Result<()>;
     fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn MapInvalidRect(&self, inputindex: u32, invalidinputrect: &super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::RECT>;
 }
-impl windows_core::RuntimeName for ID2D1Transform {}
 impl ID2D1Transform_Vtbl {
-    pub const fn new<Identity: ID2D1Transform_Impl, const OFFSET: isize>() -> ID2D1Transform_Vtbl {
+    pub const fn new<Identity: ID2D1Transform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MapOutputRectToInputRects<Identity: ID2D1Transform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputrect: *const super::super::Foundation::RECT, inputrects: *mut super::super::Foundation::RECT, inputrectscount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1Transform_Impl::MapOutputRectToInputRects(this, core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&inputrects), core::mem::transmute_copy(&inputrectscount)).into()
@@ -10784,13 +10886,10 @@ impl ID2D1Transform_Vtbl {
         iid == &<ID2D1Transform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1Transform {}
+unsafe impl Send for ID2D1Transform {}
+unsafe impl Sync for ID2D1Transform {}
 windows_core::imp::define_interface!(ID2D1TransformGraph, ID2D1TransformGraph_Vtbl, 0x13d29038_c3e6_4034_9081_13b53a417992);
-impl core::ops::Deref for ID2D1TransformGraph {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1TransformGraph, windows_core::IUnknown);
 impl ID2D1TransformGraph {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -10825,23 +10924,21 @@ impl ID2D1TransformGraph {
         P0: windows_core::Param<ID2D1TransformNode>,
         P1: windows_core::Param<ID2D1TransformNode>,
     {
-        (windows_core::Interface::vtable(self).ConnectNode)(windows_core::Interface::as_raw(self), fromnode.param().abi(), tonode.param().abi(), tonodeinputindex).ok()
+        (windows_core::Interface::vtable(self).ConnectNode)(windows_core::Interface::as_raw(self), fromnode.param().abi(), tonode.param().abi(), core::mem::transmute(tonodeinputindex)).ok()
     }
-    pub unsafe fn ConnectToEffectInput<P0>(&self, toeffectinputindex: u32, node: P0, tonodeinputindex: u32) -> windows_core::Result<()>
+    pub unsafe fn ConnectToEffectInput<P1>(&self, toeffectinputindex: u32, node: P1, tonodeinputindex: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1TransformNode>,
+        P1: windows_core::Param<ID2D1TransformNode>,
     {
-        (windows_core::Interface::vtable(self).ConnectToEffectInput)(windows_core::Interface::as_raw(self), toeffectinputindex, node.param().abi(), tonodeinputindex).ok()
+        (windows_core::Interface::vtable(self).ConnectToEffectInput)(windows_core::Interface::as_raw(self), core::mem::transmute(toeffectinputindex), node.param().abi(), core::mem::transmute(tonodeinputindex)).ok()
     }
     pub unsafe fn Clear(&self) {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn SetPassthroughGraph(&self, effectinputindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPassthroughGraph)(windows_core::Interface::as_raw(self), effectinputindex).ok()
+        (windows_core::Interface::vtable(self).SetPassthroughGraph)(windows_core::Interface::as_raw(self), core::mem::transmute(effectinputindex)).ok()
     }
 }
-unsafe impl Send for ID2D1TransformGraph {}
-unsafe impl Sync for ID2D1TransformGraph {}
 #[repr(C)]
 pub struct ID2D1TransformGraph_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
@@ -10855,7 +10952,7 @@ pub struct ID2D1TransformGraph_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub SetPassthroughGraph: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait ID2D1TransformGraph_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1TransformGraph_Impl: windows_core::IUnknownImpl {
     fn GetInputCount(&self) -> u32;
     fn SetSingleTransformNode(&self, node: Option<&ID2D1TransformNode>) -> windows_core::Result<()>;
     fn AddNode(&self, node: Option<&ID2D1TransformNode>) -> windows_core::Result<()>;
@@ -10866,9 +10963,8 @@ pub trait ID2D1TransformGraph_Impl: Sized + windows_core::IUnknownImpl {
     fn Clear(&self);
     fn SetPassthroughGraph(&self, effectinputindex: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1TransformGraph {}
 impl ID2D1TransformGraph_Vtbl {
-    pub const fn new<Identity: ID2D1TransformGraph_Impl, const OFFSET: isize>() -> ID2D1TransformGraph_Vtbl {
+    pub const fn new<Identity: ID2D1TransformGraph_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInputCount<Identity: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1TransformGraph_Impl::GetInputCount(this)
@@ -10922,32 +11018,26 @@ impl ID2D1TransformGraph_Vtbl {
         iid == &<ID2D1TransformGraph as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1TransformGraph {}
+unsafe impl Send for ID2D1TransformGraph {}
+unsafe impl Sync for ID2D1TransformGraph {}
 windows_core::imp::define_interface!(ID2D1TransformNode, ID2D1TransformNode_Vtbl, 0xb2efe1e7_729f_4102_949f_505fa21bf666);
-impl core::ops::Deref for ID2D1TransformNode {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1TransformNode, windows_core::IUnknown);
 impl ID2D1TransformNode {
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl Send for ID2D1TransformNode {}
-unsafe impl Sync for ID2D1TransformNode {}
 #[repr(C)]
 pub struct ID2D1TransformNode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-pub trait ID2D1TransformNode_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1TransformNode_Impl: windows_core::IUnknownImpl {
     fn GetInputCount(&self) -> u32;
 }
-impl windows_core::RuntimeName for ID2D1TransformNode {}
 impl ID2D1TransformNode_Vtbl {
-    pub const fn new<Identity: ID2D1TransformNode_Impl, const OFFSET: isize>() -> ID2D1TransformNode_Vtbl {
+    pub const fn new<Identity: ID2D1TransformNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInputCount<Identity: ID2D1TransformNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1TransformNode_Impl::GetInputCount(this)
@@ -10958,6 +11048,9 @@ impl ID2D1TransformNode_Vtbl {
         iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1TransformNode {}
+unsafe impl Send for ID2D1TransformNode {}
+unsafe impl Sync for ID2D1TransformNode {}
 windows_core::imp::define_interface!(ID2D1TransformedGeometry, ID2D1TransformedGeometry_Vtbl, 0x2cd906bb_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1TransformedGeometry {
     type Target = ID2D1Geometry;
@@ -10974,11 +11067,9 @@ impl ID2D1TransformedGeometry {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), transform)
+        (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform))
     }
 }
-unsafe impl Send for ID2D1TransformedGeometry {}
-unsafe impl Sync for ID2D1TransformedGeometry {}
 #[repr(C)]
 pub struct ID2D1TransformedGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
@@ -10989,15 +11080,13 @@ pub struct ID2D1TransformedGeometry_Vtbl {
     GetTransform: usize,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-pub trait ID2D1TransformedGeometry_Impl: Sized + ID2D1Geometry_Impl {
+pub trait ID2D1TransformedGeometry_Impl: ID2D1Geometry_Impl {
     fn GetSourceGeometry(&self, sourcegeometry: *mut Option<ID2D1Geometry>);
     fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::RuntimeName for ID2D1TransformedGeometry {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ID2D1TransformedGeometry_Vtbl {
-    pub const fn new<Identity: ID2D1TransformedGeometry_Impl, const OFFSET: isize>() -> ID2D1TransformedGeometry_Vtbl {
+    pub const fn new<Identity: ID2D1TransformedGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSourceGeometry<Identity: ID2D1TransformedGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcegeometry: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1TransformedGeometry_Impl::GetSourceGeometry(this, core::mem::transmute_copy(&sourcegeometry))
@@ -11016,6 +11105,12 @@ impl ID2D1TransformedGeometry_Vtbl {
         iid == &<ID2D1TransformedGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::RuntimeName for ID2D1TransformedGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1TransformedGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1TransformedGeometry {}
 windows_core::imp::define_interface!(ID2D1TransformedImageSource, ID2D1TransformedImageSource_Vtbl, 0x7f1f79e5_2796_416c_8f55_700f911445e5);
 impl core::ops::Deref for ID2D1TransformedImageSource {
     type Target = ID2D1Image;
@@ -11031,24 +11126,21 @@ impl ID2D1TransformedImageSource {
         windows_core::Type::from_abi(result__)
     }
     pub unsafe fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) {
-        (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), properties)
+        (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(properties))
     }
 }
-unsafe impl Send for ID2D1TransformedImageSource {}
-unsafe impl Sync for ID2D1TransformedImageSource {}
 #[repr(C)]
 pub struct ID2D1TransformedImageSource_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES),
 }
-pub trait ID2D1TransformedImageSource_Impl: Sized + ID2D1Image_Impl {
+pub trait ID2D1TransformedImageSource_Impl: ID2D1Image_Impl {
     fn GetSource(&self, imagesource: *mut Option<ID2D1ImageSource>);
     fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
 }
-impl windows_core::RuntimeName for ID2D1TransformedImageSource {}
 impl ID2D1TransformedImageSource_Vtbl {
-    pub const fn new<Identity: ID2D1TransformedImageSource_Impl, const OFFSET: isize>() -> ID2D1TransformedImageSource_Vtbl {
+    pub const fn new<Identity: ID2D1TransformedImageSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSource<Identity: ID2D1TransformedImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagesource: *mut *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1TransformedImageSource_Impl::GetSource(this, core::mem::transmute_copy(&imagesource))
@@ -11063,37 +11155,31 @@ impl ID2D1TransformedImageSource_Vtbl {
         iid == &<ID2D1TransformedImageSource as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ID2D1TransformedImageSource {}
+unsafe impl Send for ID2D1TransformedImageSource {}
+unsafe impl Sync for ID2D1TransformedImageSource {}
 windows_core::imp::define_interface!(ID2D1VertexBuffer, ID2D1VertexBuffer_Vtbl, 0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
-impl core::ops::Deref for ID2D1VertexBuffer {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ID2D1VertexBuffer, windows_core::IUnknown);
 impl ID2D1VertexBuffer {
     pub unsafe fn Map(&self, data: *mut *mut u8, buffersize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), data, buffersize).ok()
+        (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), core::mem::transmute(data), core::mem::transmute(buffersize)).ok()
     }
     pub unsafe fn Unmap(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self)).ok()
     }
 }
-unsafe impl Send for ID2D1VertexBuffer {}
-unsafe impl Sync for ID2D1VertexBuffer {}
 #[repr(C)]
 pub struct ID2D1VertexBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, u32) -> windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ID2D1VertexBuffer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ID2D1VertexBuffer_Impl: windows_core::IUnknownImpl {
     fn Map(&self, data: *mut *mut u8, buffersize: u32) -> windows_core::Result<()>;
     fn Unmap(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ID2D1VertexBuffer {}
 impl ID2D1VertexBuffer_Vtbl {
-    pub const fn new<Identity: ID2D1VertexBuffer_Impl, const OFFSET: isize>() -> ID2D1VertexBuffer_Vtbl {
+    pub const fn new<Identity: ID2D1VertexBuffer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Map<Identity: ID2D1VertexBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut *mut u8, buffersize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID2D1VertexBuffer_Impl::Map(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&buffersize)).into()
@@ -11107,6 +11193,1905 @@ impl ID2D1VertexBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1VertexBuffer as windows_core::Interface>::IID
     }
+}
+impl windows_core::RuntimeName for ID2D1VertexBuffer {}
+unsafe impl Send for ID2D1VertexBuffer {}
+unsafe impl Sync for ID2D1VertexBuffer {}
+pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
+pub type PD2D1_PROPERTY_GET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> windows_core::HRESULT>;
+pub type PD2D1_PROPERTY_SET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *const u8, datasize: u32) -> windows_core::HRESULT>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_2DAFFINETRANSFORM_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_3DTRANSFORM_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_ANTIALIAS_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_ARC_SIZE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_ATLAS_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAPSOURCE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BITMAP_OPTIONS(pub i32);
+impl D2D1_BITMAP_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_BITMAP_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_BITMAP_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BLEND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BLEND_OPERATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BLEND_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BORDER_EDGE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BORDER_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BRIGHTNESS_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_BUFFER_PRECISION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CAP_STYLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CHANGE_TYPE(pub i32);
+impl D2D1_CHANGE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_CHANGE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_CHANGE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CHANNEL_DEPTH(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CHANNEL_SELECTOR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CHROMAKEY_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLORMANAGEMENT_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLORMANAGEMENT_QUALITY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLORMATRIX_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLOR_CONTEXT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLOR_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COLOR_SPACE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COMBINE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub i32);
+impl D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_COMPOSITE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CONTRAST_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CONVOLVEMATRIX_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CROP_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_CROSSFADE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DASH_STYLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DC_INITIALIZE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DEBUG_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub i32);
+impl D2D1_DEVICE_CONTEXT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DIRECTIONALBLUR_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISCRETETRANSFER_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISPLACEMENTMAP_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISTANTDIFFUSE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISTANTSPECULAR_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DPICOMPENSATION_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_DRAW_TEXT_OPTIONS(pub i32);
+impl D2D1_DRAW_TEXT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_DRAW_TEXT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_DRAW_TEXT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_EDGEDETECTION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_EDGEDETECTION_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_EMBOSS_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_EXPOSURE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_EXTEND_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_FACTORY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_FEATURE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_FEATURE_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_FILTER(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_FLOOD_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GAMMA(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GAMMA1(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GAMMATRANSFER_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GAUSSIANBLUR_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GEOMETRY_RELATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HDRTONEMAP_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HISTOGRAM_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HUEROTATION_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_HUETORGB_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub i32);
+impl D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub i32);
+impl D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_INK_NIB_SHAPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_LAYER_OPTIONS(pub i32);
+impl D2D1_LAYER_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_LAYER_OPTIONS1(pub i32);
+impl D2D1_LAYER_OPTIONS1 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS1 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS1 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_LINEARTRANSFER_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_LINE_JOIN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_LOOKUPTABLE3D_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_MAP_OPTIONS(pub i32);
+impl D2D1_MAP_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_MAP_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_MAP_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_MORPHOLOGY_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_MORPHOLOGY_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_OPACITYMETADATA_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_OPACITY_MASK_CONTENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_OPACITY_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_ORIENTATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PATCH_EDGE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PIXEL_OPTIONS(pub i32);
+impl D2D1_PIXEL_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_PIXEL_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_PIXEL_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_POINTDIFFUSE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_POINTSPECULAR_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_POSTERIZE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PRESENT_OPTIONS(pub i32);
+impl D2D1_PRESENT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_PRESENT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_PRESENT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PRIMITIVE_BLEND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PROPERTY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_PROPERTY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_RENDERING_PRIORITY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_RENDER_TARGET_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_RENDER_TARGET_USAGE(pub i32);
+impl D2D1_RENDER_TARGET_USAGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_RENDER_TARGET_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_RENDER_TARGET_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_RGBTOHUE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SATURATION_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SCALE_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SCALE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SEPIA_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SHADOW_OPTIMIZATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SHADOW_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SHARPEN_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SPOTDIFFUSE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SPOTSPECULAR_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SPRITE_OPTIONS(pub i32);
+impl D2D1_SPRITE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_SPRITE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_SPRITE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_STRAIGHTEN_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_STROKE_TRANSFORM_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SUBPROPERTY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_ASPECT_ALIGN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_ASPECT_SCALING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_DISPLAY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_LENGTH_UNITS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_LINE_CAP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_LINE_JOIN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_OVERFLOW(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_PAINT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_PATH_COMMAND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_UNIT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SVG_VISIBILITY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_SWEEP_DIRECTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TABLETRANSFER_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TEMPERATUREANDTINT_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TEXT_ANTIALIAS_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_THREADING_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TILE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TINT_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub i32);
+impl D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_TURBULENCE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_UNIT_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_VERTEX_OPTIONS(pub i32);
+impl D2D1_VERTEX_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_VERTEX_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_VERTEX_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_VERTEX_USAGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_VIGNETTE_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_WINDOW_STATE(pub i32);
+impl D2D1_WINDOW_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D2D1_WINDOW_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D2D1_WINDOW_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D1_YCBCR_PROP(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_ARC_SEGMENT {
+    pub point: Common::D2D_POINT_2F,
+    pub size: Common::D2D_SIZE_F,
+    pub rotationAngle: f32,
+    pub sweepDirection: D2D1_SWEEP_DIRECTION,
+    pub arcSize: D2D1_ARC_SIZE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_ARC_SEGMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_ARC_SEGMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
+}
+impl Default for D2D1_BITMAP_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+}
+impl Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_BITMAP_PROPERTIES {
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D2D1_BITMAP_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D2D1_BITMAP_PROPERTIES1 {
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+    pub bitmapOptions: D2D1_BITMAP_OPTIONS,
+    pub colorContext: core::mem::ManuallyDrop<Option<ID2D1ColorContext>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D2D1_BITMAP_PROPERTIES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES1 {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_BLEND_DESCRIPTION {
+    pub sourceBlend: D2D1_BLEND,
+    pub destinationBlend: D2D1_BLEND,
+    pub blendOperation: D2D1_BLEND_OPERATION,
+    pub sourceBlendAlpha: D2D1_BLEND,
+    pub destinationBlendAlpha: D2D1_BLEND,
+    pub blendOperationAlpha: D2D1_BLEND_OPERATION,
+    pub blendFactor: [f32; 4],
+}
+impl Default for D2D1_BLEND_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_BLEND_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_BRUSH_PROPERTIES {
+    pub opacity: f32,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl Default for D2D1_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::TypeKind for D2D1_BRUSH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_CREATION_PROPERTIES {
+    pub threadingMode: D2D1_THREADING_MODE,
+    pub debugLevel: D2D1_DEBUG_LEVEL,
+    pub options: D2D1_DEVICE_CONTEXT_OPTIONS,
+}
+impl Default for D2D1_CREATION_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_CREATION_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    pub shaderBufferWithInputSignature: *const u8,
+    pub shaderBufferSize: u32,
+    pub inputElements: *const D2D1_INPUT_ELEMENT_DESC,
+    pub elementCount: u32,
+    pub stride: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl windows_core::TypeKind for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_DRAWING_STATE_DESCRIPTION {
+    pub antialiasMode: D2D1_ANTIALIAS_MODE,
+    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
+    pub tag1: u64,
+    pub tag2: u64,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
+    pub antialiasMode: D2D1_ANTIALIAS_MODE,
+    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
+    pub tag1: u64,
+    pub tag2: u64,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub primitiveBlend: D2D1_PRIMITIVE_BLEND,
+    pub unitMode: D2D1_UNIT_MODE,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
+    pub effect: core::mem::ManuallyDrop<Option<ID2D1Effect>>,
+    pub inputIndex: u32,
+    pub inputRectangle: Common::D2D_RECT_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_EFFECT_INPUT_DESCRIPTION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_ELLIPSE {
+    pub point: Common::D2D_POINT_2F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_ELLIPSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_ELLIPSE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_FACTORY_OPTIONS {
+    pub debugLevel: D2D1_DEBUG_LEVEL,
+}
+impl Default for D2D1_FACTORY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_FACTORY_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
+}
+impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_FEATURE_DATA_DOUBLES {
+    pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
+}
+impl Default for D2D1_FEATURE_DATA_DOUBLES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_FEATURE_DATA_DOUBLES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_GRADIENT_MESH_PATCH {
+    pub point00: Common::D2D_POINT_2F,
+    pub point01: Common::D2D_POINT_2F,
+    pub point02: Common::D2D_POINT_2F,
+    pub point03: Common::D2D_POINT_2F,
+    pub point10: Common::D2D_POINT_2F,
+    pub point11: Common::D2D_POINT_2F,
+    pub point12: Common::D2D_POINT_2F,
+    pub point13: Common::D2D_POINT_2F,
+    pub point20: Common::D2D_POINT_2F,
+    pub point21: Common::D2D_POINT_2F,
+    pub point22: Common::D2D_POINT_2F,
+    pub point23: Common::D2D_POINT_2F,
+    pub point30: Common::D2D_POINT_2F,
+    pub point31: Common::D2D_POINT_2F,
+    pub point32: Common::D2D_POINT_2F,
+    pub point33: Common::D2D_POINT_2F,
+    pub color00: Common::D2D1_COLOR_F,
+    pub color03: Common::D2D1_COLOR_F,
+    pub color30: Common::D2D1_COLOR_F,
+    pub color33: Common::D2D1_COLOR_F,
+    pub topEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub leftEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub bottomEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_GRADIENT_MESH_PATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_GRADIENT_MESH_PATCH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    pub hwnd: super::super::Foundation::HWND,
+    pub pixelSize: Common::D2D_SIZE_U,
+    pub presentOptions: D2D1_PRESENT_OPTIONS,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
+    pub sourceRectangle: Common::D2D_RECT_F,
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_IMAGE_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_IMAGE_BRUSH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_INK_BEZIER_SEGMENT {
+    pub point1: D2D1_INK_POINT,
+    pub point2: D2D1_INK_POINT,
+    pub point3: D2D1_INK_POINT,
+}
+impl Default for D2D1_INK_BEZIER_SEGMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_INK_BEZIER_SEGMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_INK_POINT {
+    pub x: f32,
+    pub y: f32,
+    pub radius: f32,
+}
+impl Default for D2D1_INK_POINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_INK_POINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_INK_STYLE_PROPERTIES {
+    pub nibShape: D2D1_INK_NIB_SHAPE,
+    pub nibTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl Default for D2D1_INK_STYLE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl windows_core::TypeKind for D2D1_INK_STYLE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_INPUT_DESCRIPTION {
+    pub filter: D2D1_FILTER,
+    pub levelOfDetailCount: u32,
+}
+impl Default for D2D1_INPUT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_INPUT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_INPUT_ELEMENT_DESC {
+    pub semanticName: windows_core::PCSTR,
+    pub semanticIndex: u32,
+    pub format: super::Dxgi::Common::DXGI_FORMAT,
+    pub inputSlot: u32,
+    pub alignedByteOffset: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D2D1_INPUT_ELEMENT_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl windows_core::TypeKind for D2D1_INPUT_ELEMENT_DESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D2D1_LAYER_PARAMETERS {
+    pub contentBounds: Common::D2D_RECT_F,
+    pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,
+    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub opacity: f32,
+    pub opacityBrush: core::mem::ManuallyDrop<Option<ID2D1Brush>>,
+    pub layerOptions: D2D1_LAYER_OPTIONS,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl Default for D2D1_LAYER_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D2D1_LAYER_PARAMETERS1 {
+    pub contentBounds: Common::D2D_RECT_F,
+    pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,
+    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub opacity: f32,
+    pub opacityBrush: core::mem::ManuallyDrop<Option<ID2D1Brush>>,
+    pub layerOptions: D2D1_LAYER_OPTIONS1,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl Default for D2D1_LAYER_PARAMETERS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS1 {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    pub startPoint: Common::D2D_POINT_2F,
+    pub endPoint: Common::D2D_POINT_2F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_MAPPED_RECT {
+    pub pitch: u32,
+    pub bits: *mut u8,
+}
+impl Default for D2D1_MAPPED_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_MAPPED_RECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_POINT_DESCRIPTION {
+    pub point: Common::D2D_POINT_2F,
+    pub unitTangentVector: Common::D2D_POINT_2F,
+    pub endSegment: u32,
+    pub endFigure: u32,
+    pub lengthToEndSegment: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_POINT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_POINT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_PRINT_CONTROL_PROPERTIES {
+    pub fontSubset: D2D1_PRINT_FONT_SUBSET_MODE,
+    pub rasterDPI: f32,
+    pub colorSpace: D2D1_COLOR_SPACE,
+}
+impl Default for D2D1_PRINT_CONTROL_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_PRINT_CONTROL_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_PROPERTY_BINDING {
+    pub propertyName: windows_core::PCWSTR,
+    pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,
+    pub getFunction: PD2D1_PROPERTY_GET_FUNCTION,
+}
+impl Default for D2D1_PROPERTY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_PROPERTY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
+    pub point1: Common::D2D_POINT_2F,
+    pub point2: Common::D2D_POINT_2F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_QUADRATIC_BEZIER_SEGMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    pub center: Common::D2D_POINT_2F,
+    pub gradientOriginOffset: Common::D2D_POINT_2F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_RENDERING_CONTROLS {
+    pub bufferPrecision: D2D1_BUFFER_PRECISION,
+    pub tileSize: Common::D2D_SIZE_U,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_RENDERING_CONTROLS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_RENDERING_CONTROLS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_RENDER_TARGET_PROPERTIES {
+    pub r#type: D2D1_RENDER_TARGET_TYPE,
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+    pub usage: D2D1_RENDER_TARGET_USAGE,
+    pub minLevel: D2D1_FEATURE_LEVEL,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D2D1_RENDER_TARGET_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::TypeKind for D2D1_RENDER_TARGET_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    pub extents: *const u32,
+    pub dimensions: u32,
+    pub bufferPrecision: D2D1_BUFFER_PRECISION,
+    pub channelDepth: D2D1_CHANNEL_DEPTH,
+    pub filter: D2D1_FILTER,
+    pub extendModes: *const D2D1_EXTEND_MODE,
+}
+impl Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_ROUNDED_RECT {
+    pub rect: Common::D2D_RECT_F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_ROUNDED_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_ROUNDED_RECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_SIMPLE_COLOR_PROFILE {
+    pub redPrimary: Common::D2D_POINT_2F,
+    pub greenPrimary: Common::D2D_POINT_2F,
+    pub bluePrimary: Common::D2D_POINT_2F,
+    pub whitePointXZ: Common::D2D_POINT_2F,
+    pub gamma: D2D1_GAMMA1,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_SIMPLE_COLOR_PROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_SIMPLE_COLOR_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_STROKE_STYLE_PROPERTIES {
+    pub startCap: D2D1_CAP_STYLE,
+    pub endCap: D2D1_CAP_STYLE,
+    pub dashCap: D2D1_CAP_STYLE,
+    pub lineJoin: D2D1_LINE_JOIN,
+    pub miterLimit: f32,
+    pub dashStyle: D2D1_DASH_STYLE,
+    pub dashOffset: f32,
+}
+impl Default for D2D1_STROKE_STYLE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
+    pub startCap: D2D1_CAP_STYLE,
+    pub endCap: D2D1_CAP_STYLE,
+    pub dashCap: D2D1_CAP_STYLE,
+    pub lineJoin: D2D1_LINE_JOIN,
+    pub miterLimit: f32,
+    pub dashStyle: D2D1_DASH_STYLE,
+    pub dashOffset: f32,
+    pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
+}
+impl Default for D2D1_STROKE_STYLE_PROPERTIES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_SVG_LENGTH {
+    pub value: f32,
+    pub units: D2D1_SVG_LENGTH_UNITS,
+}
+impl Default for D2D1_SVG_LENGTH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_SVG_LENGTH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    pub defer: super::super::Foundation::BOOL,
+    pub align: D2D1_SVG_ASPECT_ALIGN,
+    pub meetOrSlice: D2D1_SVG_ASPECT_SCALING,
+}
+impl Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_SVG_VIEWBOX {
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+impl Default for D2D1_SVG_VIEWBOX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_SVG_VIEWBOX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    pub orientation: D2D1_ORIENTATION,
+    pub scaleX: f32,
+    pub scaleY: f32,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+    pub options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
+}
+impl Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_TRIANGLE {
+    pub point1: Common::D2D_POINT_2F,
+    pub point2: Common::D2D_POINT_2F,
+    pub point3: Common::D2D_POINT_2F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for D2D1_TRIANGLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for D2D1_TRIANGLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
+    pub inputCount: u32,
+    pub usage: D2D1_VERTEX_USAGE,
+    pub data: *const u8,
+    pub byteWidth: u32,
+}
+impl Default for D2D1_VERTEX_BUFFER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_VERTEX_BUFFER_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D2D1_VERTEX_RANGE {
+    pub startVertex: u32,
+    pub vertexCount: u32,
+}
+impl Default for D2D1_VERTEX_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D2D1_VERTEX_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 pub const CLSID_D2D12DAffineTransform: windows_core::GUID = windows_core::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);
 pub const CLSID_D2D13DPerspectiveTransform: windows_core::GUID = windows_core::GUID::from_u128(0xc2844d0b_3d86_46e7_85ba_526c9240f3fb);
@@ -11858,3243 +13843,3 @@ pub const D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(
 pub const D2D1_YCBCR_PROP_INTERPOLATION_MODE: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(2i32);
 pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(1i32);
 pub const FACILITY_D2D: u32 = 2201u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_2DAFFINETRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_2DAFFINETRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_2DAFFINETRANSFORM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_2DAFFINETRANSFORM_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_3DTRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_3DTRANSFORM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_3DTRANSFORM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_3DTRANSFORM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_3DTRANSFORM_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_ANTIALIAS_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_ANTIALIAS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_ANTIALIAS_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_ANTIALIAS_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_ARC_SIZE(pub i32);
-impl windows_core::TypeKind for D2D1_ARC_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_ARC_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_ARC_SIZE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_ARITHMETICCOMPOSITE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_ARITHMETICCOMPOSITE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_ARITHMETICCOMPOSITE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_ATLAS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_ATLAS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_ATLAS_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_ATLAS_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAPSOURCE_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAPSOURCE_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAPSOURCE_ORIENTATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAPSOURCE_ORIENTATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAPSOURCE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAPSOURCE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAPSOURCE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAPSOURCE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAP_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAP_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAP_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BITMAP_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_BITMAP_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BITMAP_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BITMAP_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_BITMAP_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_BITMAP_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_BITMAP_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_BITMAP_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_BITMAP_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_BITMAP_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BLEND(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BLEND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BLEND").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BLEND_OPERATION(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BLEND_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BLEND_OPERATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BLEND_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BLEND_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BLEND_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BLEND_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BORDER_EDGE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_BORDER_EDGE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BORDER_EDGE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BORDER_EDGE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BORDER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BORDER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BORDER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BORDER_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BRIGHTNESS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_BRIGHTNESS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BRIGHTNESS_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BRIGHTNESS_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_BUFFER_PRECISION(pub i32);
-impl windows_core::TypeKind for D2D1_BUFFER_PRECISION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_BUFFER_PRECISION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_BUFFER_PRECISION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CAP_STYLE(pub i32);
-impl windows_core::TypeKind for D2D1_CAP_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CAP_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CAP_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_CHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
-impl D2D1_CHANGE_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_CHANGE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_CHANGE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_CHANGE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_CHANGE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_CHANGE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CHANNEL_DEPTH(pub i32);
-impl windows_core::TypeKind for D2D1_CHANNEL_DEPTH {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CHANNEL_DEPTH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CHANNEL_DEPTH").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CHANNEL_SELECTOR(pub i32);
-impl windows_core::TypeKind for D2D1_CHANNEL_SELECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CHANNEL_SELECTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CHANNEL_SELECTOR").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CHROMAKEY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CHROMAKEY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CHROMAKEY_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CHROMAKEY_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLORMANAGEMENT_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLORMANAGEMENT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLORMANAGEMENT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLORMANAGEMENT_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLORMANAGEMENT_QUALITY(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_QUALITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLORMANAGEMENT_QUALITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLORMANAGEMENT_QUALITY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLORMANAGEMENT_RENDERING_INTENT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLORMATRIX_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COLORMATRIX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLORMATRIX_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLORMATRIX_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLOR_CONTEXT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_CONTEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLOR_CONTEXT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLOR_CONTEXT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLOR_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLOR_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLOR_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COLOR_SPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COLOR_SPACE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COMBINE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_COMBINE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COMBINE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COMBINE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_COMPOSITE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_COMPOSITE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_COMPOSITE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_COMPOSITE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CONTRAST_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CONTRAST_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CONTRAST_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CONTRAST_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CONVOLVEMATRIX_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CONVOLVEMATRIX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CONVOLVEMATRIX_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CONVOLVEMATRIX_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CONVOLVEMATRIX_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CROP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CROP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CROP_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CROP_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_CROSSFADE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_CROSSFADE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_CROSSFADE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_CROSSFADE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DASH_STYLE(pub i32);
-impl windows_core::TypeKind for D2D1_DASH_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DASH_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DASH_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DC_INITIALIZE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DC_INITIALIZE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DC_INITIALIZE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DC_INITIALIZE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DEBUG_LEVEL(pub i32);
-impl windows_core::TypeKind for D2D1_DEBUG_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DEBUG_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DEBUG_LEVEL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_DEVICE_CONTEXT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DEVICE_CONTEXT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DEVICE_CONTEXT_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_DEVICE_CONTEXT_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_DEVICE_CONTEXT_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_DEVICE_CONTEXT_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DIRECTIONALBLUR_OPTIMIZATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DIRECTIONALBLUR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DIRECTIONALBLUR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DIRECTIONALBLUR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DIRECTIONALBLUR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISCRETETRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISCRETETRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISCRETETRANSFER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISCRETETRANSFER_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISPLACEMENTMAP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISPLACEMENTMAP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISPLACEMENTMAP_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISPLACEMENTMAP_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISTANTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISTANTDIFFUSE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISTANTDIFFUSE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISTANTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISTANTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISTANTSPECULAR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISTANTSPECULAR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DISTANTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DPICOMPENSATION_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DPICOMPENSATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_DPICOMPENSATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DPICOMPENSATION_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DPICOMPENSATION_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_DRAW_TEXT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_DRAW_TEXT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_DRAW_TEXT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_DRAW_TEXT_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_DRAW_TEXT_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_DRAW_TEXT_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_DRAW_TEXT_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_DRAW_TEXT_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_DRAW_TEXT_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_EDGEDETECTION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_EDGEDETECTION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_EDGEDETECTION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_EDGEDETECTION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_EDGEDETECTION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EDGEDETECTION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_EDGEDETECTION_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_EDGEDETECTION_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_EMBOSS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EMBOSS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_EMBOSS_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_EMBOSS_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_EXPOSURE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_EXPOSURE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_EXPOSURE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_EXPOSURE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_EXTEND_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_EXTEND_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_EXTEND_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_EXTEND_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_FACTORY_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_FACTORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_FACTORY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_FACTORY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_FEATURE(pub i32);
-impl windows_core::TypeKind for D2D1_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_FEATURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_FEATURE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for D2D1_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_FEATURE_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_FEATURE_LEVEL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_FILTER(pub i32);
-impl windows_core::TypeKind for D2D1_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_FILTER").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_FLOOD_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_FLOOD_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_FLOOD_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_FLOOD_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GAMMA(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMA {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GAMMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GAMMA").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GAMMA1(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMA1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GAMMA1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GAMMA1").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GAMMATRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_GAMMATRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GAMMATRANSFER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GAMMATRANSFER_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GAUSSIANBLUR_OPTIMIZATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GAUSSIANBLUR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_GAUSSIANBLUR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GAUSSIANBLUR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GAUSSIANBLUR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GEOMETRY_RELATION(pub i32);
-impl windows_core::TypeKind for D2D1_GEOMETRY_RELATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GEOMETRY_RELATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GEOMETRY_RELATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub i32);
-impl windows_core::TypeKind for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_GEOMETRY_SIMPLIFICATION_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HDRTONEMAP_DISPLAY_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HDRTONEMAP_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HDRTONEMAP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HDRTONEMAP_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HDRTONEMAP_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub i32);
-impl windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HISTOGRAM_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HISTOGRAM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HISTOGRAM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HISTOGRAM_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HUEROTATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HUEROTATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HUEROTATION_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HUEROTATION_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HUETORGB_INPUT_COLOR_SPACE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_HUETORGB_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_HUETORGB_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_HUETORGB_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_HUETORGB_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_IMAGE_SOURCE_LOADING_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_INK_NIB_SHAPE(pub i32);
-impl windows_core::TypeKind for D2D1_INK_NIB_SHAPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_INK_NIB_SHAPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_INK_NIB_SHAPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
-impl windows_core::TypeKind for D2D1_INTERPOLATION_MODE_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_INTERPOLATION_MODE_DEFINITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_INTERPOLATION_MODE_DEFINITION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_LAYER_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_LAYER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_LAYER_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_LAYER_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_LAYER_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_LAYER_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_LAYER_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_LAYER_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_LAYER_OPTIONS1(pub i32);
-impl windows_core::TypeKind for D2D1_LAYER_OPTIONS1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_LAYER_OPTIONS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_LAYER_OPTIONS1").field(&self.0).finish()
-    }
-}
-impl D2D1_LAYER_OPTIONS1 {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_LAYER_OPTIONS1 {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_LAYER_OPTIONS1 {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS1 {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS1 {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_LAYER_OPTIONS1 {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_LINEARTRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_LINEARTRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_LINEARTRANSFER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_LINEARTRANSFER_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for D2D1_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_LINE_JOIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_LINE_JOIN").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_LOOKUPTABLE3D_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_LOOKUPTABLE3D_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_LOOKUPTABLE3D_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_LOOKUPTABLE3D_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_MAP_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_MAP_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_MAP_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_MAP_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_MAP_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_MAP_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_MAP_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_MAP_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_MAP_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_MAP_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_MORPHOLOGY_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_MORPHOLOGY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_MORPHOLOGY_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_MORPHOLOGY_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_MORPHOLOGY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_MORPHOLOGY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_MORPHOLOGY_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_MORPHOLOGY_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_OPACITYMETADATA_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITYMETADATA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_OPACITYMETADATA_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_OPACITYMETADATA_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_OPACITY_MASK_CONTENT(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITY_MASK_CONTENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_OPACITY_MASK_CONTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_OPACITY_MASK_CONTENT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_OPACITY_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_OPACITY_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_OPACITY_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_OPACITY_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_ORIENTATION(pub i32);
-impl windows_core::TypeKind for D2D1_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_ORIENTATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_ORIENTATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PATCH_EDGE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_PATCH_EDGE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PATCH_EDGE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PATCH_EDGE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PIXEL_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_PIXEL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PIXEL_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PIXEL_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_PIXEL_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_PIXEL_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_PIXEL_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_PIXEL_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_PIXEL_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_PIXEL_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_POINTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POINTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_POINTDIFFUSE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_POINTDIFFUSE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_POINTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_POINTDIFFUSE_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_POINTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_POINTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POINTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_POINTSPECULAR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_POINTSPECULAR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_POINTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_POINTSPECULAR_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_POINTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_POSTERIZE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_POSTERIZE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_POSTERIZE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_POSTERIZE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PRESENT_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_PRESENT_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PRESENT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PRESENT_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_PRESENT_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_PRESENT_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_PRESENT_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_PRESENT_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_PRESENT_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_PRESENT_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PRIMITIVE_BLEND(pub i32);
-impl windows_core::TypeKind for D2D1_PRIMITIVE_BLEND {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PRIMITIVE_BLEND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PRIMITIVE_BLEND").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_PRINT_FONT_SUBSET_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PRINT_FONT_SUBSET_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PRINT_FONT_SUBSET_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PROPERTY(pub i32);
-impl windows_core::TypeKind for D2D1_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PROPERTY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_PROPERTY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_PROPERTY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_RENDERING_PRIORITY(pub i32);
-impl windows_core::TypeKind for D2D1_RENDERING_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_RENDERING_PRIORITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_RENDERING_PRIORITY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_RENDER_TARGET_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_RENDER_TARGET_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_RENDER_TARGET_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_RENDER_TARGET_USAGE(pub i32);
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_RENDER_TARGET_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_RENDER_TARGET_USAGE").field(&self.0).finish()
-    }
-}
-impl D2D1_RENDER_TARGET_USAGE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_RENDER_TARGET_USAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_RENDER_TARGET_USAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_RENDER_TARGET_USAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_RENDER_TARGET_USAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_RENDER_TARGET_USAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub i32);
-impl windows_core::TypeKind for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_RGBTOHUE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_RGBTOHUE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_RGBTOHUE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_RGBTOHUE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SATURATION_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SATURATION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SATURATION_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SATURATION_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SCALE_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SCALE_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SCALE_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SCALE_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SCALE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SCALE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SCALE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SCALE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SEPIA_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SEPIA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SEPIA_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SEPIA_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SHADOW_OPTIMIZATION(pub i32);
-impl windows_core::TypeKind for D2D1_SHADOW_OPTIMIZATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SHADOW_OPTIMIZATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SHADOW_OPTIMIZATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SHADOW_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SHADOW_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SHADOW_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SHADOW_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SHARPEN_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SHARPEN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SHARPEN_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SHARPEN_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SPOTDIFFUSE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTDIFFUSE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SPOTDIFFUSE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SPOTDIFFUSE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SPOTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SPOTSPECULAR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTSPECULAR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SPOTSPECULAR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SPOTSPECULAR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_SPOTSPECULAR_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SPOTSPECULAR_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SPOTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SPRITE_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_SPRITE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SPRITE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SPRITE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_SPRITE_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_SPRITE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_SPRITE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_SPRITE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_SPRITE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_SPRITE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_STRAIGHTEN_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_STRAIGHTEN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_STRAIGHTEN_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_STRAIGHTEN_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_STRAIGHTEN_SCALE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_STRAIGHTEN_SCALE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_STRAIGHTEN_SCALE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_STROKE_TRANSFORM_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_STROKE_TRANSFORM_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_STROKE_TRANSFORM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_STROKE_TRANSFORM_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SUBPROPERTY(pub i32);
-impl windows_core::TypeKind for D2D1_SUBPROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SUBPROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SUBPROPERTY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_ASPECT_ALIGN(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ASPECT_ALIGN {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_ASPECT_ALIGN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_ASPECT_ALIGN").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_ASPECT_SCALING(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ASPECT_SCALING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_ASPECT_SCALING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_ASPECT_SCALING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_ATTRIBUTE_POD_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_ATTRIBUTE_STRING_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_DISPLAY(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_DISPLAY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_DISPLAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_DISPLAY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_LENGTH_UNITS(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LENGTH_UNITS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_LENGTH_UNITS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_LENGTH_UNITS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_LINE_CAP(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LINE_CAP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_LINE_CAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_LINE_CAP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_LINE_JOIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_LINE_JOIN").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_OVERFLOW(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_OVERFLOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_OVERFLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_OVERFLOW").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_PAINT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_PAINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_PAINT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_PAINT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_PATH_COMMAND(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_PATH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_PATH_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_PATH_COMMAND").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_UNIT_TYPE(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_UNIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_UNIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_UNIT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SVG_VISIBILITY(pub i32);
-impl windows_core::TypeKind for D2D1_SVG_VISIBILITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SVG_VISIBILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SVG_VISIBILITY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_SWEEP_DIRECTION(pub i32);
-impl windows_core::TypeKind for D2D1_SWEEP_DIRECTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_SWEEP_DIRECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_SWEEP_DIRECTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TABLETRANSFER_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TABLETRANSFER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TABLETRANSFER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TABLETRANSFER_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TEMPERATUREANDTINT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TEMPERATUREANDTINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TEMPERATUREANDTINT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TEMPERATUREANDTINT_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TEXT_ANTIALIAS_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_TEXT_ANTIALIAS_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TEXT_ANTIALIAS_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TEXT_ANTIALIAS_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_THREADING_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_THREADING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_THREADING_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_THREADING_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TILE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TILE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TILE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TILE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TINT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TINT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TINT_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_TURBULENCE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_TURBULENCE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_TURBULENCE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_TURBULENCE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_UNIT_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_UNIT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_UNIT_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_UNIT_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_VERTEX_OPTIONS(pub i32);
-impl windows_core::TypeKind for D2D1_VERTEX_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_VERTEX_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_VERTEX_OPTIONS").field(&self.0).finish()
-    }
-}
-impl D2D1_VERTEX_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_VERTEX_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_VERTEX_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_VERTEX_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_VERTEX_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_VERTEX_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_VERTEX_USAGE(pub i32);
-impl windows_core::TypeKind for D2D1_VERTEX_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_VERTEX_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_VERTEX_USAGE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_VIGNETTE_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_VIGNETTE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_VIGNETTE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_VIGNETTE_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_WHITELEVELADJUSTMENT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_WHITELEVELADJUSTMENT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_WHITELEVELADJUSTMENT_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_WINDOW_STATE(pub i32);
-impl windows_core::TypeKind for D2D1_WINDOW_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_WINDOW_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_WINDOW_STATE").field(&self.0).finish()
-    }
-}
-impl D2D1_WINDOW_STATE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for D2D1_WINDOW_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for D2D1_WINDOW_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for D2D1_WINDOW_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for D2D1_WINDOW_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for D2D1_WINDOW_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_YCBCR_CHROMA_SUBSAMPLING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_INTERPOLATION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_YCBCR_INTERPOLATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_YCBCR_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct D2D1_YCBCR_PROP(pub i32);
-impl windows_core::TypeKind for D2D1_YCBCR_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for D2D1_YCBCR_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("D2D1_YCBCR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_ARC_SEGMENT {
-    pub point: Common::D2D_POINT_2F,
-    pub size: Common::D2D_SIZE_F,
-    pub rotationAngle: f32,
-    pub sweepDirection: D2D1_SWEEP_DIRECTION,
-    pub arcSize: D2D1_ARC_SIZE,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ARC_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_ARC_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
-    pub extendModeX: D2D1_EXTEND_MODE,
-    pub extendModeY: D2D1_EXTEND_MODE,
-    pub interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
-}
-impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_BITMAP_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    pub extendModeX: D2D1_EXTEND_MODE,
-    pub extendModeY: D2D1_EXTEND_MODE,
-    pub interpolationMode: D2D1_INTERPOLATION_MODE,
-}
-impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_BITMAP_PROPERTIES {
-    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
-    pub dpiX: f32,
-    pub dpiY: f32,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D2D1_BITMAP_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
-pub struct D2D1_BITMAP_PROPERTIES1 {
-    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
-    pub dpiX: f32,
-    pub dpiY: f32,
-    pub bitmapOptions: D2D1_BITMAP_OPTIONS,
-    pub colorContext: core::mem::ManuallyDrop<Option<ID2D1ColorContext>>,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D2D1_BITMAP_PROPERTIES1 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D2D1_BITMAP_PROPERTIES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_BLEND_DESCRIPTION {
-    pub sourceBlend: D2D1_BLEND,
-    pub destinationBlend: D2D1_BLEND,
-    pub blendOperation: D2D1_BLEND_OPERATION,
-    pub sourceBlendAlpha: D2D1_BLEND,
-    pub destinationBlendAlpha: D2D1_BLEND,
-    pub blendOperationAlpha: D2D1_BLEND_OPERATION,
-    pub blendFactor: [f32; 4],
-}
-impl windows_core::TypeKind for D2D1_BLEND_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_BLEND_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_BRUSH_PROPERTIES {
-    pub opacity: f32,
-    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for D2D1_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_CREATION_PROPERTIES {
-    pub threadingMode: D2D1_THREADING_MODE,
-    pub debugLevel: D2D1_DEBUG_LEVEL,
-    pub options: D2D1_DEVICE_CONTEXT_OPTIONS,
-}
-impl windows_core::TypeKind for D2D1_CREATION_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_CREATION_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    pub shaderBufferWithInputSignature: *const u8,
-    pub shaderBufferSize: u32,
-    pub inputElements: *const D2D1_INPUT_ELEMENT_DESC,
-    pub elementCount: u32,
-    pub stride: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION {
-    pub antialiasMode: D2D1_ANTIALIAS_MODE,
-    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
-    pub tag1: u64,
-    pub tag2: u64,
-    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
-    pub antialiasMode: D2D1_ANTIALIAS_MODE,
-    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
-    pub tag1: u64,
-    pub tag2: u64,
-    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
-    pub primitiveBlend: D2D1_PRIMITIVE_BLEND,
-    pub unitMode: D2D1_UNIT_MODE,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Debug, PartialEq)]
-pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
-    pub effect: core::mem::ManuallyDrop<Option<ID2D1Effect>>,
-    pub inputIndex: u32,
-    pub inputRectangle: Common::D2D_RECT_F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for D2D1_EFFECT_INPUT_DESCRIPTION {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_EFFECT_INPUT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_ELLIPSE {
-    pub point: Common::D2D_POINT_2F,
-    pub radiusX: f32,
-    pub radiusY: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ELLIPSE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_ELLIPSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_FACTORY_OPTIONS {
-    pub debugLevel: D2D1_DEBUG_LEVEL,
-}
-impl windows_core::TypeKind for D2D1_FACTORY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_FACTORY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_FEATURE_DATA_DOUBLES {
-    pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for D2D1_FEATURE_DATA_DOUBLES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_FEATURE_DATA_DOUBLES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_GRADIENT_MESH_PATCH {
-    pub point00: Common::D2D_POINT_2F,
-    pub point01: Common::D2D_POINT_2F,
-    pub point02: Common::D2D_POINT_2F,
-    pub point03: Common::D2D_POINT_2F,
-    pub point10: Common::D2D_POINT_2F,
-    pub point11: Common::D2D_POINT_2F,
-    pub point12: Common::D2D_POINT_2F,
-    pub point13: Common::D2D_POINT_2F,
-    pub point20: Common::D2D_POINT_2F,
-    pub point21: Common::D2D_POINT_2F,
-    pub point22: Common::D2D_POINT_2F,
-    pub point23: Common::D2D_POINT_2F,
-    pub point30: Common::D2D_POINT_2F,
-    pub point31: Common::D2D_POINT_2F,
-    pub point32: Common::D2D_POINT_2F,
-    pub point33: Common::D2D_POINT_2F,
-    pub color00: Common::D2D1_COLOR_F,
-    pub color03: Common::D2D1_COLOR_F,
-    pub color30: Common::D2D1_COLOR_F,
-    pub color33: Common::D2D1_COLOR_F,
-    pub topEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub leftEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub bottomEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_GRADIENT_MESH_PATCH {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_GRADIENT_MESH_PATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    pub hwnd: super::super::Foundation::HWND,
-    pub pixelSize: Common::D2D_SIZE_U,
-    pub presentOptions: D2D1_PRESENT_OPTIONS,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
-    pub sourceRectangle: Common::D2D_RECT_F,
-    pub extendModeX: D2D1_EXTEND_MODE,
-    pub extendModeY: D2D1_EXTEND_MODE,
-    pub interpolationMode: D2D1_INTERPOLATION_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_IMAGE_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_IMAGE_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_INK_BEZIER_SEGMENT {
-    pub point1: D2D1_INK_POINT,
-    pub point2: D2D1_INK_POINT,
-    pub point3: D2D1_INK_POINT,
-}
-impl windows_core::TypeKind for D2D1_INK_BEZIER_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_INK_BEZIER_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_INK_POINT {
-    pub x: f32,
-    pub y: f32,
-    pub radius: f32,
-}
-impl windows_core::TypeKind for D2D1_INK_POINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_INK_POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_INK_STYLE_PROPERTIES {
-    pub nibShape: D2D1_INK_NIB_SHAPE,
-    pub nibTransform: super::super::super::Foundation::Numerics::Matrix3x2,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_INK_STYLE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for D2D1_INK_STYLE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_INPUT_DESCRIPTION {
-    pub filter: D2D1_FILTER,
-    pub levelOfDetailCount: u32,
-}
-impl windows_core::TypeKind for D2D1_INPUT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_INPUT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_INPUT_ELEMENT_DESC {
-    pub semanticName: windows_core::PCSTR,
-    pub semanticIndex: u32,
-    pub format: super::Dxgi::Common::DXGI_FORMAT,
-    pub inputSlot: u32,
-    pub alignedByteOffset: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D2D1_INPUT_ELEMENT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D2D1_INPUT_ELEMENT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[derive(Debug, PartialEq)]
-pub struct D2D1_LAYER_PARAMETERS {
-    pub contentBounds: Common::D2D_RECT_F,
-    pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,
-    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
-    pub opacity: f32,
-    pub opacityBrush: core::mem::ManuallyDrop<Option<ID2D1Brush>>,
-    pub layerOptions: D2D1_LAYER_OPTIONS,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Clone for D2D1_LAYER_PARAMETERS {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Default for D2D1_LAYER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[derive(Debug, PartialEq)]
-pub struct D2D1_LAYER_PARAMETERS1 {
-    pub contentBounds: Common::D2D_RECT_F,
-    pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,
-    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
-    pub opacity: f32,
-    pub opacityBrush: core::mem::ManuallyDrop<Option<ID2D1Brush>>,
-    pub layerOptions: D2D1_LAYER_OPTIONS1,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Clone for D2D1_LAYER_PARAMETERS1 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl Default for D2D1_LAYER_PARAMETERS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    pub startPoint: Common::D2D_POINT_2F,
-    pub endPoint: Common::D2D_POINT_2F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_MAPPED_RECT {
-    pub pitch: u32,
-    pub bits: *mut u8,
-}
-impl windows_core::TypeKind for D2D1_MAPPED_RECT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_MAPPED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_POINT_DESCRIPTION {
-    pub point: Common::D2D_POINT_2F,
-    pub unitTangentVector: Common::D2D_POINT_2F,
-    pub endSegment: u32,
-    pub endFigure: u32,
-    pub lengthToEndSegment: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_POINT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_POINT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_PRINT_CONTROL_PROPERTIES {
-    pub fontSubset: D2D1_PRINT_FONT_SUBSET_MODE,
-    pub rasterDPI: f32,
-    pub colorSpace: D2D1_COLOR_SPACE,
-}
-impl windows_core::TypeKind for D2D1_PRINT_CONTROL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_PRINT_CONTROL_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_PROPERTY_BINDING {
-    pub propertyName: windows_core::PCWSTR,
-    pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,
-    pub getFunction: PD2D1_PROPERTY_GET_FUNCTION,
-}
-impl windows_core::TypeKind for D2D1_PROPERTY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_PROPERTY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
-    pub point1: Common::D2D_POINT_2F,
-    pub point2: Common::D2D_POINT_2F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    pub center: Common::D2D_POINT_2F,
-    pub gradientOriginOffset: Common::D2D_POINT_2F,
-    pub radiusX: f32,
-    pub radiusY: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_RENDERING_CONTROLS {
-    pub bufferPrecision: D2D1_BUFFER_PRECISION,
-    pub tileSize: Common::D2D_SIZE_U,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_RENDERING_CONTROLS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_RENDERING_CONTROLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_RENDER_TARGET_PROPERTIES {
-    pub r#type: D2D1_RENDER_TARGET_TYPE,
-    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
-    pub dpiX: f32,
-    pub dpiY: f32,
-    pub usage: D2D1_RENDER_TARGET_USAGE,
-    pub minLevel: D2D1_FEATURE_LEVEL,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D2D1_RENDER_TARGET_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    pub extents: *const u32,
-    pub dimensions: u32,
-    pub bufferPrecision: D2D1_BUFFER_PRECISION,
-    pub channelDepth: D2D1_CHANNEL_DEPTH,
-    pub filter: D2D1_FILTER,
-    pub extendModes: *const D2D1_EXTEND_MODE,
-}
-impl windows_core::TypeKind for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_ROUNDED_RECT {
-    pub rect: Common::D2D_RECT_F,
-    pub radiusX: f32,
-    pub radiusY: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ROUNDED_RECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_ROUNDED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_SIMPLE_COLOR_PROFILE {
-    pub redPrimary: Common::D2D_POINT_2F,
-    pub greenPrimary: Common::D2D_POINT_2F,
-    pub bluePrimary: Common::D2D_POINT_2F,
-    pub whitePointXZ: Common::D2D_POINT_2F,
-    pub gamma: D2D1_GAMMA1,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_SIMPLE_COLOR_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_SIMPLE_COLOR_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_STROKE_STYLE_PROPERTIES {
-    pub startCap: D2D1_CAP_STYLE,
-    pub endCap: D2D1_CAP_STYLE,
-    pub dashCap: D2D1_CAP_STYLE,
-    pub lineJoin: D2D1_LINE_JOIN,
-    pub miterLimit: f32,
-    pub dashStyle: D2D1_DASH_STYLE,
-    pub dashOffset: f32,
-}
-impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_STROKE_STYLE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
-    pub startCap: D2D1_CAP_STYLE,
-    pub endCap: D2D1_CAP_STYLE,
-    pub dashCap: D2D1_CAP_STYLE,
-    pub lineJoin: D2D1_LINE_JOIN,
-    pub miterLimit: f32,
-    pub dashStyle: D2D1_DASH_STYLE,
-    pub dashOffset: f32,
-    pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
-}
-impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_STROKE_STYLE_PROPERTIES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_SVG_LENGTH {
-    pub value: f32,
-    pub units: D2D1_SVG_LENGTH_UNITS,
-}
-impl windows_core::TypeKind for D2D1_SVG_LENGTH {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_SVG_LENGTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    pub defer: super::super::Foundation::BOOL,
-    pub align: D2D1_SVG_ASPECT_ALIGN,
-    pub meetOrSlice: D2D1_SVG_ASPECT_SCALING,
-}
-impl windows_core::TypeKind for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_SVG_VIEWBOX {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
-}
-impl windows_core::TypeKind for D2D1_SVG_VIEWBOX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_SVG_VIEWBOX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    pub orientation: D2D1_ORIENTATION,
-    pub scaleX: f32,
-    pub scaleY: f32,
-    pub interpolationMode: D2D1_INTERPOLATION_MODE,
-    pub options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
-}
-impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D2D1_TRIANGLE {
-    pub point1: Common::D2D_POINT_2F,
-    pub point2: Common::D2D_POINT_2F,
-    pub point3: Common::D2D_POINT_2F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_TRIANGLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for D2D1_TRIANGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
-    pub inputCount: u32,
-    pub usage: D2D1_VERTEX_USAGE,
-    pub data: *const u8,
-    pub byteWidth: u32,
-}
-impl windows_core::TypeKind for D2D1_VERTEX_BUFFER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_VERTEX_BUFFER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D2D1_VERTEX_RANGE {
-    pub startVertex: u32,
-    pub vertexCount: u32,
-}
-impl windows_core::TypeKind for D2D1_VERTEX_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D2D1_VERTEX_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
-pub type PD2D1_PROPERTY_GET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> windows_core::HRESULT>;
-pub type PD2D1_PROPERTY_SET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *const u8, datasize: u32) -> windows_core::HRESULT>;

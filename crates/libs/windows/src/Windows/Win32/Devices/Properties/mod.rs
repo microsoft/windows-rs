@@ -1,3 +1,46 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVPROPSTORE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVPROPTYPE(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVPROPCOMPKEY {
+    pub Key: super::super::Foundation::DEVPROPKEY,
+    pub Store: DEVPROPSTORE,
+    pub LocaleName: windows_core::PCWSTR,
+}
+impl Default for DEVPROPCOMPKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPROPCOMPKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVPROPERTY {
+    pub CompKey: DEVPROPCOMPKEY,
+    pub Type: DEVPROPTYPE,
+    pub BufferSize: u32,
+    pub Buffer: *mut core::ffi::c_void,
+}
+impl Default for DEVPROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct DEVPROP_BOOLEAN(pub u8);
+impl windows_core::TypeKind for DEVPROP_BOOLEAN {
+    type TypeKind = windows_core::CopyType;
+}
 pub const DEVPKEY_DevQuery_ObjectType: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13673f42_a3d6_49f6_b4da_ae46e0c5237c), pid: 2 };
 pub const DEVPKEY_DeviceClass_Characteristics: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 29 };
 pub const DEVPKEY_DeviceClass_ClassCoInstallers: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x713d1703_a2e2_49f5_9214_56472ef3da5c), pid: 2 };
@@ -235,67 +278,3 @@ pub const DEVPROP_TYPE_UINT32: DEVPROPTYPE = DEVPROPTYPE(7u32);
 pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = DEVPROPTYPE(9u32);
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEVPROPSTORE(pub i32);
-impl windows_core::TypeKind for DEVPROPSTORE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEVPROPSTORE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEVPROPTYPE(pub u32);
-impl windows_core::TypeKind for DEVPROPTYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEVPROPTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVPROPTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVPROPCOMPKEY {
-    pub Key: super::super::Foundation::DEVPROPKEY,
-    pub Store: DEVPROPSTORE,
-    pub LocaleName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for DEVPROPCOMPKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DEVPROPCOMPKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVPROPERTY {
-    pub CompKey: DEVPROPCOMPKEY,
-    pub Type: DEVPROPTYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for DEVPROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DEVPROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DEVPROP_BOOLEAN(pub u8);
-impl Default for DEVPROP_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVPROP_BOOLEAN {
-    type TypeKind = windows_core::CopyType;
-}
