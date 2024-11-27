@@ -24,7 +24,7 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
-    // Test interactions with core types
+    // Test interactions with core types and namespaces
     test_raw("--out core_win.rs --no-comment --in default --filter CoCreateGuid");
     test_raw("--out core_win_flat.rs --no-comment --in default --filter CoCreateGuid --flat");
     test_raw("--out core_sys.rs --no-comment --in default --filter CoCreateGuid --sys");
