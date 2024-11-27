@@ -3671,6 +3671,7 @@ pub struct RPC_NOTIFICATIONS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
+#[must_use]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_STATUS(pub i32);

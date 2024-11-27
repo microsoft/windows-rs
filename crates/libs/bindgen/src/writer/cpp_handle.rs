@@ -2,6 +2,7 @@ use super::*;
 
 impl Writer {
     pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
+        let tn = def.type_name();
         let name = to_ident(def.name());
         let ty = def.underlying_type();
         let ty_name = ty.write_name(self);
@@ -89,7 +90,14 @@ impl Writer {
                 quote! {}
             };
 
+            let must_use = if matches!(tn, TypeName::BOOL | TypeName::NTSTATUS | TypeName::RPC_STATUS) {
+                quote! { #[must_use] }
+            } else {
+                quote! {}
+            };
+
             let mut result = quote! {
+                #must_use
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);

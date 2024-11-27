@@ -10463,6 +10463,7 @@ impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_EVENT(pub u32);
+#[must_use]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_ERROR(pub u32);
@@ -10479,6 +10480,7 @@ impl Default for APP_LOCAL_DEVICE_ID {
 impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
     type TypeKind = windows_core::CopyType;
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BOOL(pub i32);
@@ -10882,6 +10884,7 @@ impl Default for LUID {
 impl windows_core::TypeKind for LUID {
     type TypeKind = windows_core::CopyType;
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NTSTATUS(pub i32);

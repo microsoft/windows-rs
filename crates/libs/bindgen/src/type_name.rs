@@ -30,6 +30,8 @@ impl TypeName {
     pub const CHAR: Self = Self("Windows.Win32.Foundation", "CHAR");
     pub const BOOL: Self = Self("Windows.Win32.Foundation", "BOOL");
     pub const NTSTATUS: Self = Self("Windows.Win32.Foundation", "NTSTATUS");
+    pub const WIN32_ERROR: Self = Self("Windows.Win32.Foundation", "WIN32_ERROR");
+    pub const RPC_STATUS: Self = Self("Windows.Win32.System.Rpc", "RPC_STATUS");
 
     pub const D2D_MATRIX_3X2_F: Self =
         Self("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
