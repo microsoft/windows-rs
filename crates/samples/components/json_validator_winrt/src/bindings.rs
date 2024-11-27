@@ -17,19 +17,10 @@ impl windows_core::RuntimeType for IJsonValidator {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IJsonValidator_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Validate: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IJsonValidator {
     const NAME: &'static str = "Sample.IJsonValidator";
 }
-pub trait IJsonValidator_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IJsonValidator_Impl: windows_core::IUnknownImpl {
     fn Validate(
         &self,
         value: &windows_core::HSTRING,
@@ -61,6 +52,15 @@ impl IJsonValidator_Vtbl {
         iid == &<IJsonValidator as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IJsonValidator_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Validate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IJsonValidatorFactory,
     IJsonValidatorFactory_Vtbl,
@@ -70,19 +70,10 @@ impl windows_core::RuntimeType for IJsonValidatorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IJsonValidatorFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IJsonValidatorFactory {
     const NAME: &'static str = "Sample.IJsonValidatorFactory";
 }
-pub trait IJsonValidatorFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IJsonValidatorFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(&self, schema: &windows_core::HSTRING)
         -> windows_core::Result<JsonValidator>;
 }
@@ -115,6 +106,15 @@ impl IJsonValidatorFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IJsonValidatorFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IJsonValidatorFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

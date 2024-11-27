@@ -1,5 +1,6 @@
 use super::*;
 
+#[track_caller]
 fn invalid_reference() -> ! {
     panic!("`--reference` must be `<crate>,<full/flat/skip-root>,<type name>");
 }
@@ -21,6 +22,7 @@ impl Default for ReferenceStage {
 }
 
 impl ReferenceStage {
+    #[track_caller]
     pub fn parse(arg: &str) -> Self {
         let arg: Vec<_> = arg.split(',').collect();
 
@@ -44,6 +46,7 @@ pub enum ReferenceStyle {
 }
 
 impl ReferenceStyle {
+    #[track_caller]
     fn parse(arg: &str) -> Self {
         match arg {
             "full" => Self::Full,

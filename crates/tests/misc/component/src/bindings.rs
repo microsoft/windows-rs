@@ -14,7 +14,7 @@ impl windows_core::RuntimeType for IClass {
 impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_component.IClass";
 }
-pub trait IClass_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn Property(&self) -> windows_core::Result<i32>;
     fn SetProperty(&self, value: i32) -> windows_core::Result<()>;
     fn Flags(&self) -> windows_core::Result<Flags>;
@@ -229,7 +229,7 @@ impl IThing {
 impl windows_core::RuntimeName for IThing {
     const NAME: &'static str = "test_component.Nested.IThing";
 }
-pub trait IThing_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IThing_Impl: windows_core::IUnknownImpl {
     fn Method(&self) -> windows_core::Result<()>;
 }
 impl IThing_Vtbl {

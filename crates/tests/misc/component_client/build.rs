@@ -10,6 +10,6 @@ fn main() {
         "--no-comment",
         "--flat",
         "--reference",
-        "name=windows,style=skip-root,path=Windows.Foundation",
+        "windows,skip-root,Windows.Foundation",
     ]);
 }

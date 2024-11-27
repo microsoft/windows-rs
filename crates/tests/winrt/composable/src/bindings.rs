@@ -15,24 +15,10 @@ impl windows_core::RuntimeType for ICompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct ICompositor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateSpriteVisual: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub CreateContainerVisual: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ICompositor {
     const NAME: &'static str = "test_composable.ICompositor";
 }
-pub trait ICompositor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICompositor_Impl: windows_core::IUnknownImpl {
     fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual>;
     fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual>;
 }
@@ -84,6 +70,20 @@ impl ICompositor_Vtbl {
         iid == &<ICompositor as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ICompositor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateSpriteVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CreateContainerVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IContainerVisual,
     IContainerVisual_Vtbl,
@@ -93,16 +93,10 @@ impl windows_core::RuntimeType for IContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IContainerVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Children:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IContainerVisual {
     const NAME: &'static str = "test_composable.IContainerVisual";
 }
-pub trait IContainerVisual_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContainerVisual_Impl: windows_core::IUnknownImpl {
     fn Children(&self) -> i32;
 }
 impl IContainerVisual_Vtbl {
@@ -125,6 +119,12 @@ impl IContainerVisual_Vtbl {
         iid == &<IContainerVisual as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContainerVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Children:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IContainerVisualFactory,
     IContainerVisualFactory_Vtbl,
@@ -134,14 +134,10 @@ impl windows_core::RuntimeType for IContainerVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IContainerVisualFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IContainerVisualFactory {
     const NAME: &'static str = "test_composable.IContainerVisualFactory";
 }
-pub trait IContainerVisualFactory_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IContainerVisualFactory_Impl: windows_core::IUnknownImpl {}
 impl IContainerVisualFactory_Vtbl {
     pub const fn new<Identity: IContainerVisualFactory_Impl, const OFFSET: isize>() -> Self {
         Self {
@@ -153,6 +149,10 @@ impl IContainerVisualFactory_Vtbl {
         iid == &<IContainerVisualFactory as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IContainerVisualFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 windows_core::imp::define_interface!(
     ISpriteVisual,
     ISpriteVisual_Vtbl,
@@ -162,15 +162,10 @@ impl windows_core::RuntimeType for ISpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct ISpriteVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for ISpriteVisual {
     const NAME: &'static str = "test_composable.ISpriteVisual";
 }
-pub trait ISpriteVisual_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISpriteVisual_Impl: windows_core::IUnknownImpl {
     fn Brush(&self) -> i32;
 }
 impl ISpriteVisual_Vtbl {
@@ -193,6 +188,11 @@ impl ISpriteVisual_Vtbl {
         iid == &<ISpriteVisual as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct ISpriteVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IVisual,
     IVisual_Vtbl,
@@ -202,18 +202,10 @@ impl windows_core::RuntimeType for IVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Compositor: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IVisual {
     const NAME: &'static str = "test_composable.IVisual";
 }
-pub trait IVisual_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVisual_Impl: windows_core::IUnknownImpl {
     fn Compositor(&self) -> windows_core::Result<Compositor>;
 }
 impl IVisual_Vtbl {
@@ -241,6 +233,14 @@ impl IVisual_Vtbl {
         iid == &<IVisual as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compositor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IVisualFactory,
     IVisualFactory_Vtbl,
@@ -250,14 +250,10 @@ impl windows_core::RuntimeType for IVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IVisualFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 impl windows_core::RuntimeName for IVisualFactory {
     const NAME: &'static str = "test_composable.IVisualFactory";
 }
-pub trait IVisualFactory_Impl: Sized + windows_core::IUnknownImpl {}
+pub trait IVisualFactory_Impl: windows_core::IUnknownImpl {}
 impl IVisualFactory_Vtbl {
     pub const fn new<Identity: IVisualFactory_Impl, const OFFSET: isize>() -> Self {
         Self {
@@ -267,6 +263,10 @@ impl IVisualFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IVisualFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

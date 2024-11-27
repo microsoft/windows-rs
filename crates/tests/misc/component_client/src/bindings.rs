@@ -65,15 +65,10 @@ impl IThing {
         }
     }
 }
-#[repr(C)]
-pub struct IThing_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IThing {
     const NAME: &'static str = "test_component.Nested.IThing";
 }
-pub trait IThing_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IThing_Impl: windows_core::IUnknownImpl {
     fn Method(&self) -> windows_core::Result<()>;
 }
 impl IThing_Vtbl {
@@ -92,6 +87,11 @@ impl IThing_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IThing as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IThing_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

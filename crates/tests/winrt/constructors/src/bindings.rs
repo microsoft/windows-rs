@@ -15,16 +15,10 @@ impl windows_core::RuntimeType for IActivatable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IActivatable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Property:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IActivatable {
     const NAME: &'static str = "test_constructors.IActivatable";
 }
-pub trait IActivatable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActivatable_Impl: windows_core::IUnknownImpl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IActivatable_Vtbl {
@@ -51,6 +45,12 @@ impl IActivatable_Vtbl {
         iid == &<IActivatable as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IActivatable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Property:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IActivatableFactory,
     IActivatableFactory_Vtbl,
@@ -60,19 +60,10 @@ impl windows_core::RuntimeType for IActivatableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IActivatableFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub WithValue: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IActivatableFactory {
     const NAME: &'static str = "test_constructors.IActivatableFactory";
 }
-pub trait IActivatableFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActivatableFactory_Impl: windows_core::IUnknownImpl {
     fn WithValue(&self, arg: i32) -> windows_core::Result<Activatable>;
 }
 impl IActivatableFactory_Vtbl {
@@ -104,6 +95,15 @@ impl IActivatableFactory_Vtbl {
         iid == &<IActivatableFactory as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IActivatableFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub WithValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IComposable,
     IComposable_Vtbl,
@@ -113,16 +113,10 @@ impl windows_core::RuntimeType for IComposable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IComposable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Property:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IComposable {
     const NAME: &'static str = "test_constructors.IComposable";
 }
-pub trait IComposable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IComposable_Impl: windows_core::IUnknownImpl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IComposable_Vtbl {
@@ -149,6 +143,12 @@ impl IComposable_Vtbl {
         iid == &<IComposable as windows_core::Interface>::IID
     }
 }
+#[repr(C)]
+pub struct IComposable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Property:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IComposableFactory,
     IComposableFactory_Vtbl,
@@ -158,27 +158,10 @@ impl windows_core::RuntimeType for IComposableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct IComposableFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub WithValue: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IComposableFactory {
     const NAME: &'static str = "test_constructors.IComposableFactory";
 }
-pub trait IComposableFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IComposableFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(
         &self,
         baseInterface: Option<&windows_core::IInspectable>,
@@ -250,6 +233,23 @@ impl IComposableFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IComposableFactory as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IComposableFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub WithValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
