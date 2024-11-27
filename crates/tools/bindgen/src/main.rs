@@ -107,7 +107,9 @@ fn main() {
     test("--out multi_sys.rs --filter HTTP_VERSION --sys");
 
     // Tests for external references e.g. references to other crates
-    test("--out reference.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
+    test("--out reference_windows.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
+    test("--out reference_dependency.rs --filter IMemoryBufferReference");
+    test("--out reference_dependent.rs --filter IMemoryBuffer --reference crate::reference_dependency,flat,IMemoryBufferReference");
 
     // Tests for dependency tracking
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
