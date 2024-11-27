@@ -50,6 +50,293 @@ windows_targets::link!("user32.dll" "system" fn VkKeyScanW(ch : u16) -> i16);
 windows_targets::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn keybd_event(bvk : u8, bscan : u8, dwflags : KEYBD_EVENT_FLAGS, dwextrainfo : usize));
 windows_targets::link!("user32.dll" "system" fn mouse_event(dwflags : MOUSE_EVENT_FLAGS, dx : i32, dy : i32, dwdata : i32, dwextrainfo : usize));
+pub type ACTIVATE_KEYBOARD_LAYOUT_FLAGS = u32;
+pub type GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = u32;
+pub type HOT_KEY_MODIFIERS = u32;
+pub type INPUT_TYPE = u32;
+pub type KEYBD_EVENT_FLAGS = u32;
+pub type MAP_VIRTUAL_KEY_TYPE = u32;
+pub type MOUSE_EVENT_FLAGS = u32;
+pub type TRACKMOUSEEVENT_FLAGS = u32;
+pub type VIRTUAL_KEY = u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEADKEY {
+    pub dwBoth: u32,
+    pub wchComposed: u16,
+    pub uFlags: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HARDWAREINPUT {
+    pub uMsg: u32,
+    pub wParamL: u16,
+    pub wParamH: u16,
+}
+pub type HKL = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INPUT {
+    pub r#type: INPUT_TYPE,
+    pub Anonymous: INPUT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union INPUT_0 {
+    pub mi: MOUSEINPUT,
+    pub ki: KEYBDINPUT,
+    pub hi: HARDWAREINPUT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDNLSTABLES {
+    pub OEMIdentifier: u16,
+    pub LayoutInformation: u16,
+    pub NumOfVkToF: u32,
+    pub pVkToF: *mut VK_F,
+    pub NumOfMouseVKey: i32,
+    pub pusMouseVKey: *mut u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDTABLES {
+    pub pCharModifiers: *mut MODIFIERS,
+    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
+    pub pDeadKey: *mut DEADKEY,
+    pub pKeyNames: *mut VSC_LPWSTR,
+    pub pKeyNamesExt: *mut VSC_LPWSTR,
+    pub pKeyNamesDead: *mut *mut u16,
+    pub pusVSCtoVK: *mut u16,
+    pub bMaxVSCtoVK: u8,
+    pub pVSCtoVK_E0: *mut VSC_VK,
+    pub pVSCtoVK_E1: *mut VSC_VK,
+    pub fLocaleFlags: u32,
+    pub nLgMax: u8,
+    pub cbLgEntry: u8,
+    pub pLigature: *mut LIGATURE1,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDTABLE_DESC {
+    pub wszDllName: [u16; 32],
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDTABLE_MULTI {
+    pub nTables: u32,
+    pub aKbdTables: [KBDTABLE_DESC; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBD_TYPE_INFO {
+    pub dwVersion: u32,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KEYBDINPUT {
+    pub wVk: VIRTUAL_KEY,
+    pub wScan: u16,
+    pub dwFlags: KEYBD_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LASTINPUTINFO {
+    pub cbSize: u32,
+    pub dwTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LIGATURE1 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LIGATURE2 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LIGATURE3 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LIGATURE4 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LIGATURE5 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 5],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODIFIERS {
+    pub pVkToBit: *mut VK_TO_BIT,
+    pub wMaxModBits: u16,
+    pub ModNumber: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEINPUT {
+    pub dx: i32,
+    pub dy: i32,
+    pub mouseData: u32,
+    pub dwFlags: MOUSE_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEMOVEPOINT {
+    pub x: i32,
+    pub y: i32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRACKMOUSEEVENT {
+    pub cbSize: u32,
+    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
+    pub hwndTrack: super::super::super::Foundation::HWND,
+    pub dwHoverTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_F {
+    pub Vk: u8,
+    pub NLSFEProcType: u8,
+    pub NLSFEProcCurrent: u8,
+    pub NLSFEProcSwitch: u8,
+    pub NLSFEProc: [VK_FPARAM; 8],
+    pub NLSFEProcAlt: [VK_FPARAM; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_FPARAM {
+    pub NLSFEProcIndex: u8,
+    pub NLSFEProcParam: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_BIT {
+    pub Vk: u8,
+    pub ModBits: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS1 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS10 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 10],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS2 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS3 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS4 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS5 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 5],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS6 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS7 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 7],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS8 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS9 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHAR_TABLE {
+    pub pVkToWchars: *mut VK_TO_WCHARS1,
+    pub nModifications: u8,
+    pub cbSize: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_VSC {
+    pub Vk: u8,
+    pub Vsc: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VSC_LPWSTR {
+    pub vsc: u8,
+    pub pwsz: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VSC_VK {
+    pub Vsc: u8,
+    pub Vk: u16,
+}
 pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 pub const BREVE: u32 = 774u32;
@@ -476,290 +763,3 @@ pub const wszRING: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{30a}");
 pub const wszTILDE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{303}");
 pub const wszTONOS: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{384}");
 pub const wszUMLAUT: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{308}");
-pub type ACTIVATE_KEYBOARD_LAYOUT_FLAGS = u32;
-pub type GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = u32;
-pub type HOT_KEY_MODIFIERS = u32;
-pub type INPUT_TYPE = u32;
-pub type KEYBD_EVENT_FLAGS = u32;
-pub type MAP_VIRTUAL_KEY_TYPE = u32;
-pub type MOUSE_EVENT_FLAGS = u32;
-pub type TRACKMOUSEEVENT_FLAGS = u32;
-pub type VIRTUAL_KEY = u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEADKEY {
-    pub dwBoth: u32,
-    pub wchComposed: u16,
-    pub uFlags: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HARDWAREINPUT {
-    pub uMsg: u32,
-    pub wParamL: u16,
-    pub wParamH: u16,
-}
-pub type HKL = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INPUT {
-    pub r#type: INPUT_TYPE,
-    pub Anonymous: INPUT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union INPUT_0 {
-    pub mi: MOUSEINPUT,
-    pub ki: KEYBDINPUT,
-    pub hi: HARDWAREINPUT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDNLSTABLES {
-    pub OEMIdentifier: u16,
-    pub LayoutInformation: u16,
-    pub NumOfVkToF: u32,
-    pub pVkToF: *mut VK_F,
-    pub NumOfMouseVKey: i32,
-    pub pusMouseVKey: *mut u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDTABLES {
-    pub pCharModifiers: *mut MODIFIERS,
-    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
-    pub pDeadKey: *mut DEADKEY,
-    pub pKeyNames: *mut VSC_LPWSTR,
-    pub pKeyNamesExt: *mut VSC_LPWSTR,
-    pub pKeyNamesDead: *mut *mut u16,
-    pub pusVSCtoVK: *mut u16,
-    pub bMaxVSCtoVK: u8,
-    pub pVSCtoVK_E0: *mut VSC_VK,
-    pub pVSCtoVK_E1: *mut VSC_VK,
-    pub fLocaleFlags: u32,
-    pub nLgMax: u8,
-    pub cbLgEntry: u8,
-    pub pLigature: *mut LIGATURE1,
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDTABLE_DESC {
-    pub wszDllName: [u16; 32],
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDTABLE_MULTI {
-    pub nTables: u32,
-    pub aKbdTables: [KBDTABLE_DESC; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBD_TYPE_INFO {
-    pub dwVersion: u32,
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KEYBDINPUT {
-    pub wVk: VIRTUAL_KEY,
-    pub wScan: u16,
-    pub dwFlags: KEYBD_EVENT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LASTINPUTINFO {
-    pub cbSize: u32,
-    pub dwTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LIGATURE1 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LIGATURE2 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LIGATURE3 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LIGATURE4 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LIGATURE5 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 5],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODIFIERS {
-    pub pVkToBit: *mut VK_TO_BIT,
-    pub wMaxModBits: u16,
-    pub ModNumber: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEINPUT {
-    pub dx: i32,
-    pub dy: i32,
-    pub mouseData: u32,
-    pub dwFlags: MOUSE_EVENT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEMOVEPOINT {
-    pub x: i32,
-    pub y: i32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRACKMOUSEEVENT {
-    pub cbSize: u32,
-    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
-    pub hwndTrack: super::super::super::Foundation::HWND,
-    pub dwHoverTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_F {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [VK_FPARAM; 8],
-    pub NLSFEProcAlt: [VK_FPARAM; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_FPARAM {
-    pub NLSFEProcIndex: u8,
-    pub NLSFEProcParam: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_BIT {
-    pub Vk: u8,
-    pub ModBits: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS1 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS10 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 10],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS2 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS3 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS4 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS5 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 5],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS6 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS7 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 7],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS8 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS9 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHAR_TABLE {
-    pub pVkToWchars: *mut VK_TO_WCHARS1,
-    pub nModifications: u8,
-    pub cbSize: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_VSC {
-    pub Vk: u8,
-    pub Vsc: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VSC_LPWSTR {
-    pub vsc: u8,
-    pub pwsz: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VSC_VK {
-    pub Vsc: u8,
-    pub Vk: u16,
-}

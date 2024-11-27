@@ -93,6 +93,203 @@ windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerFreeBuffer(hpro
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbackid : TRANSPORTPROVIDER_CALLBACK_ID, pfncallback : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsmc.dll" "cdecl" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_sys::core::PCWSTR, ...) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_sys::core::PCWSTR, params : *const i8) -> windows_sys::core::HRESULT);
+pub type PFN_WdsCliCallback = Option<unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const core::ffi::c_void)>;
+pub type PFN_WdsCliTraceFunction = Option<unsafe extern "system" fn(pwszformat: windows_sys::core::PCWSTR, params: *const i8)>;
+pub type PFN_WdsTransportClientReceiveContents = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pcontents: *const core::ffi::c_void, ulsize: u32, pullcontentoffset: *const u64)>;
+pub type PFN_WdsTransportClientReceiveMetadata = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pmetadata: *const core::ffi::c_void, ulsize: u32)>;
+pub type PFN_WdsTransportClientSessionComplete = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, dwerror: u32)>;
+pub type PFN_WdsTransportClientSessionNegotiate = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pinfo: *const TRANSPORTCLIENT_SESSION_INFO, hnegotiatekey: super::super::Foundation::HANDLE)>;
+pub type PFN_WdsTransportClientSessionStart = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, ullfilesize: *const u64)>;
+pub type PFN_WdsTransportClientSessionStartEx = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO)>;
+pub type CPU_ARCHITECTURE = u32;
+pub type PFN_WDS_CLI_CALLBACK_MESSAGE_ID = u32;
+pub type TRANSPORTCLIENT_CALLBACK_ID = i32;
+pub type TRANSPORTPROVIDER_CALLBACK_ID = i32;
+pub type WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = i32;
+pub type WDSTRANSPORT_DISCONNECT_TYPE = i32;
+pub type WDSTRANSPORT_FEATURE_FLAGS = i32;
+pub type WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = i32;
+pub type WDSTRANSPORT_IP_ADDRESS_TYPE = i32;
+pub type WDSTRANSPORT_NAMESPACE_TYPE = i32;
+pub type WDSTRANSPORT_NETWORK_PROFILE_TYPE = i32;
+pub type WDSTRANSPORT_PROTOCOL_FLAGS = i32;
+pub type WDSTRANSPORT_SERVICE_NOTIFICATION = i32;
+pub type WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = i32;
+pub type WDSTRANSPORT_TFTP_CAPABILITY = i32;
+pub type WDSTRANSPORT_UDP_PORT_POLICY = i32;
+pub type WDS_CLI_FIRMWARE_TYPE = i32;
+pub type WDS_CLI_IMAGE_PARAM_TYPE = i32;
+pub type WDS_CLI_IMAGE_TYPE = i32;
+pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PXE_ADDRESS {
+    pub uFlags: u32,
+    pub Anonymous: PXE_ADDRESS_0,
+    pub uAddrLen: u32,
+    pub uPort: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PXE_ADDRESS_0 {
+    pub bAddress: [u8; 16],
+    pub uIpAddress: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCPV6_MESSAGE {
+    pub MessageType: u8,
+    pub TransactionIDByte1: u8,
+    pub TransactionIDByte2: u8,
+    pub TransactionIDByte3: u8,
+    pub Options: [PXE_DHCPV6_OPTION; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCPV6_MESSAGE_HEADER {
+    pub MessageType: u8,
+    pub Message: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
+    pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
+    pub cbRelayMessage: u32,
+    pub pInterfaceIdOption: *mut core::ffi::c_void,
+    pub cbInterfaceIdOption: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCPV6_OPTION {
+    pub OptionCode: u16,
+    pub DataLength: u16,
+    pub Data: [u8; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCPV6_RELAY_MESSAGE {
+    pub MessageType: u8,
+    pub HopCount: u8,
+    pub LinkAddress: [u8; 16],
+    pub PeerAddress: [u8; 16],
+    pub Options: [PXE_DHCPV6_OPTION; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCP_MESSAGE {
+    pub Operation: u8,
+    pub HardwareAddressType: u8,
+    pub HardwareAddressLength: u8,
+    pub HopCount: u8,
+    pub TransactionID: u32,
+    pub SecondsSinceBoot: u16,
+    pub Reserved: u16,
+    pub ClientIpAddress: u32,
+    pub YourIpAddress: u32,
+    pub BootstrapServerAddress: u32,
+    pub RelayAgentIpAddress: u32,
+    pub HardwareAddress: [u8; 16],
+    pub HostName: [u8; 64],
+    pub BootFileName: [u8; 128],
+    pub Anonymous: PXE_DHCP_MESSAGE_0,
+    pub Option: PXE_DHCP_OPTION,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union PXE_DHCP_MESSAGE_0 {
+    pub bMagicCookie: [u8; 4],
+    pub uMagicCookie: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PXE_DHCP_OPTION {
+    pub OptionType: u8,
+    pub OptionLength: u8,
+    pub OptionValue: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PXE_PROVIDER {
+    pub uSizeOfStruct: u32,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pwszFilePath: windows_sys::core::PWSTR,
+    pub bIsCritical: super::super::Foundation::BOOL,
+    pub uIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSPORTCLIENT_SESSION_INFO {
+    pub ulStructureLength: u32,
+    pub ullFileSize: u64,
+    pub ulBlockSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDS_CLI_CRED {
+    pub pwszUserName: windows_sys::core::PCWSTR,
+    pub pwszDomain: windows_sys::core::PCWSTR,
+    pub pwszPassword: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
+    pub SessionStart: PFN_WdsTransportClientSessionStart,
+    pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
+    pub ReceiveContents: PFN_WdsTransportClientReceiveContents,
+    pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
+    pub SessionComplete: PFN_WdsTransportClientSessionComplete,
+    pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDS_TRANSPORTCLIENT_REQUEST {
+    pub ulLength: u32,
+    pub ulApiVersion: u32,
+    pub ulAuthLevel: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL,
+    pub pwszServer: windows_sys::core::PCWSTR,
+    pub pwszNamespace: windows_sys::core::PCWSTR,
+    pub pwszObjectName: windows_sys::core::PCWSTR,
+    pub ulCacheSize: u32,
+    pub ulProtocol: u32,
+    pub pvProtocolData: *mut core::ffi::c_void,
+    pub ulProtocolDataLength: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
+    pub ulLength: u32,
+    pub ulMcServerVersion: u32,
+    pub hRegistryKey: super::Registry::HKEY,
+    pub hProvider: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
+    pub ulLength: u32,
+    pub ulProviderVersion: u32,
+}
+pub const WdsTransportCacheable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
+pub const WdsTransportClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
+pub const WdsTransportCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
+pub const WdsTransportConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
+pub const WdsTransportContent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a891fe7_4a3f_4c65_b6f2_1467619679ea);
+pub const WdsTransportContentProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0be741f_5a75_4eb9_8a2d_5e189b45f327);
+pub const WdsTransportDiagnosticsPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb3333e1_a7ad_46f5_80d6_6b740204e509);
+pub const WdsTransportManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf21523f6_837c_4a58_af99_8a7e27f8ff59);
+pub const WdsTransportMulticastSessionPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c6bc3f4_6418_472a_b6f1_52d457195437);
+pub const WdsTransportNamespace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8385768_0732_4ec1_95ea_16da581908a1);
+pub const WdsTransportNamespaceAutoCast: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb091f5a8_6a99_478d_b23b_09e8fee04574);
+pub const WdsTransportNamespaceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf08cdb63_85de_4a28_a1a9_5ca3e7efda73);
+pub const WdsTransportNamespaceScheduledCast: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbadc1897_7025_44eb_9108_fb61c4055792);
+pub const WdsTransportNamespaceScheduledCastAutoStart: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1107052_122c_4b81_9b7c_386e6855383f);
+pub const WdsTransportNamespaceScheduledCastManualStart: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3e1a2aa_caac_460e_b98a_47f9f318a1fa);
+pub const WdsTransportServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea19b643_4adf_4413_942c_14f379118760);
+pub const WdsTransportServicePolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
+pub const WdsTransportSession: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);
+pub const WdsTransportSetupManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7beeaad_9f04_4923_9f0c_fbf52bc7590f);
+pub const WdsTransportTftpClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
+pub const WdsTransportTftpManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);
 pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = 9u32;
 pub const CPU_ARCHITECTURE_IA64: CPU_ARCHITECTURE = 6u32;
 pub const CPU_ARCHITECTURE_INTEL: CPU_ARCHITECTURE = 0u32;
@@ -366,200 +563,3 @@ pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = 1i32;
 pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = 2i32;
 pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = 0i32;
 pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = 1i32;
-pub type CPU_ARCHITECTURE = u32;
-pub type PFN_WDS_CLI_CALLBACK_MESSAGE_ID = u32;
-pub type TRANSPORTCLIENT_CALLBACK_ID = i32;
-pub type TRANSPORTPROVIDER_CALLBACK_ID = i32;
-pub type WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = i32;
-pub type WDSTRANSPORT_DISCONNECT_TYPE = i32;
-pub type WDSTRANSPORT_FEATURE_FLAGS = i32;
-pub type WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = i32;
-pub type WDSTRANSPORT_IP_ADDRESS_TYPE = i32;
-pub type WDSTRANSPORT_NAMESPACE_TYPE = i32;
-pub type WDSTRANSPORT_NETWORK_PROFILE_TYPE = i32;
-pub type WDSTRANSPORT_PROTOCOL_FLAGS = i32;
-pub type WDSTRANSPORT_SERVICE_NOTIFICATION = i32;
-pub type WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = i32;
-pub type WDSTRANSPORT_TFTP_CAPABILITY = i32;
-pub type WDSTRANSPORT_UDP_PORT_POLICY = i32;
-pub type WDS_CLI_FIRMWARE_TYPE = i32;
-pub type WDS_CLI_IMAGE_PARAM_TYPE = i32;
-pub type WDS_CLI_IMAGE_TYPE = i32;
-pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PXE_ADDRESS {
-    pub uFlags: u32,
-    pub Anonymous: PXE_ADDRESS_0,
-    pub uAddrLen: u32,
-    pub uPort: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PXE_ADDRESS_0 {
-    pub bAddress: [u8; 16],
-    pub uIpAddress: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCPV6_MESSAGE {
-    pub MessageType: u8,
-    pub TransactionIDByte1: u8,
-    pub TransactionIDByte2: u8,
-    pub TransactionIDByte3: u8,
-    pub Options: [PXE_DHCPV6_OPTION; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCPV6_MESSAGE_HEADER {
-    pub MessageType: u8,
-    pub Message: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
-    pub cbRelayMessage: u32,
-    pub pInterfaceIdOption: *mut core::ffi::c_void,
-    pub cbInterfaceIdOption: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCPV6_OPTION {
-    pub OptionCode: u16,
-    pub DataLength: u16,
-    pub Data: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCPV6_RELAY_MESSAGE {
-    pub MessageType: u8,
-    pub HopCount: u8,
-    pub LinkAddress: [u8; 16],
-    pub PeerAddress: [u8; 16],
-    pub Options: [PXE_DHCPV6_OPTION; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCP_MESSAGE {
-    pub Operation: u8,
-    pub HardwareAddressType: u8,
-    pub HardwareAddressLength: u8,
-    pub HopCount: u8,
-    pub TransactionID: u32,
-    pub SecondsSinceBoot: u16,
-    pub Reserved: u16,
-    pub ClientIpAddress: u32,
-    pub YourIpAddress: u32,
-    pub BootstrapServerAddress: u32,
-    pub RelayAgentIpAddress: u32,
-    pub HardwareAddress: [u8; 16],
-    pub HostName: [u8; 64],
-    pub BootFileName: [u8; 128],
-    pub Anonymous: PXE_DHCP_MESSAGE_0,
-    pub Option: PXE_DHCP_OPTION,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union PXE_DHCP_MESSAGE_0 {
-    pub bMagicCookie: [u8; 4],
-    pub uMagicCookie: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PXE_DHCP_OPTION {
-    pub OptionType: u8,
-    pub OptionLength: u8,
-    pub OptionValue: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PXE_PROVIDER {
-    pub uSizeOfStruct: u32,
-    pub pwszName: windows_sys::core::PWSTR,
-    pub pwszFilePath: windows_sys::core::PWSTR,
-    pub bIsCritical: super::super::Foundation::BOOL,
-    pub uIndex: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSPORTCLIENT_SESSION_INFO {
-    pub ulStructureLength: u32,
-    pub ullFileSize: u64,
-    pub ulBlockSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDS_CLI_CRED {
-    pub pwszUserName: windows_sys::core::PCWSTR,
-    pub pwszDomain: windows_sys::core::PCWSTR,
-    pub pwszPassword: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
-    pub SessionStart: PFN_WdsTransportClientSessionStart,
-    pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
-    pub ReceiveContents: PFN_WdsTransportClientReceiveContents,
-    pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
-    pub SessionComplete: PFN_WdsTransportClientSessionComplete,
-    pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDS_TRANSPORTCLIENT_REQUEST {
-    pub ulLength: u32,
-    pub ulApiVersion: u32,
-    pub ulAuthLevel: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL,
-    pub pwszServer: windows_sys::core::PCWSTR,
-    pub pwszNamespace: windows_sys::core::PCWSTR,
-    pub pwszObjectName: windows_sys::core::PCWSTR,
-    pub ulCacheSize: u32,
-    pub ulProtocol: u32,
-    pub pvProtocolData: *mut core::ffi::c_void,
-    pub ulProtocolDataLength: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    pub ulLength: u32,
-    pub ulMcServerVersion: u32,
-    pub hRegistryKey: super::Registry::HKEY,
-    pub hProvider: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
-    pub ulLength: u32,
-    pub ulProviderVersion: u32,
-}
-pub const WdsTransportCacheable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
-pub const WdsTransportClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
-pub const WdsTransportCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
-pub const WdsTransportConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
-pub const WdsTransportContent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a891fe7_4a3f_4c65_b6f2_1467619679ea);
-pub const WdsTransportContentProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0be741f_5a75_4eb9_8a2d_5e189b45f327);
-pub const WdsTransportDiagnosticsPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb3333e1_a7ad_46f5_80d6_6b740204e509);
-pub const WdsTransportManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf21523f6_837c_4a58_af99_8a7e27f8ff59);
-pub const WdsTransportMulticastSessionPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c6bc3f4_6418_472a_b6f1_52d457195437);
-pub const WdsTransportNamespace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8385768_0732_4ec1_95ea_16da581908a1);
-pub const WdsTransportNamespaceAutoCast: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb091f5a8_6a99_478d_b23b_09e8fee04574);
-pub const WdsTransportNamespaceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf08cdb63_85de_4a28_a1a9_5ca3e7efda73);
-pub const WdsTransportNamespaceScheduledCast: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbadc1897_7025_44eb_9108_fb61c4055792);
-pub const WdsTransportNamespaceScheduledCastAutoStart: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1107052_122c_4b81_9b7c_386e6855383f);
-pub const WdsTransportNamespaceScheduledCastManualStart: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3e1a2aa_caac_460e_b98a_47f9f318a1fa);
-pub const WdsTransportServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea19b643_4adf_4413_942c_14f379118760);
-pub const WdsTransportServicePolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
-pub const WdsTransportSession: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);
-pub const WdsTransportSetupManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7beeaad_9f04_4923_9f0c_fbf52bc7590f);
-pub const WdsTransportTftpClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
-pub const WdsTransportTftpManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);
-pub type PFN_WdsCliCallback = Option<unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const core::ffi::c_void)>;
-pub type PFN_WdsCliTraceFunction = Option<unsafe extern "system" fn(pwszformat: windows_sys::core::PCWSTR, params: *const i8)>;
-pub type PFN_WdsTransportClientReceiveContents = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pcontents: *const core::ffi::c_void, ulsize: u32, pullcontentoffset: *const u64)>;
-pub type PFN_WdsTransportClientReceiveMetadata = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pmetadata: *const core::ffi::c_void, ulsize: u32)>;
-pub type PFN_WdsTransportClientSessionComplete = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, dwerror: u32)>;
-pub type PFN_WdsTransportClientSessionNegotiate = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, pinfo: *const TRANSPORTCLIENT_SESSION_INFO, hnegotiatekey: super::super::Foundation::HANDLE)>;
-pub type PFN_WdsTransportClientSessionStart = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, ullfilesize: *const u64)>;
-pub type PFN_WdsTransportClientSessionStartEx = Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const core::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO)>;

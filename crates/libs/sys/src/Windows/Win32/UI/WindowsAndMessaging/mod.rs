@@ -452,6 +452,1059 @@ windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : windows_sys::c
 windows_targets::link!("user32.dll" "cdecl" fn wsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, ...) -> i32);
 windows_targets::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_targets::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
+pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
+pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[cfg(feature = "Win32_UI_Shell")]
+pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
+pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
+pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
+pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
+pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type ACCEL_VIRT_FLAGS = u8;
+pub type ANIMATE_WINDOW_FLAGS = u32;
+pub type CASCADE_WINDOWS_HOW = u32;
+pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
+pub type CURSORINFO_FLAGS = u32;
+pub type CWP_FLAGS = u32;
+pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
+pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
+pub type DI_FLAGS = u32;
+pub type EDIT_CONTROL_FEATURE = i32;
+pub type FLASHWINFO_FLAGS = u32;
+pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
+pub type GDI_IMAGE_TYPE = u32;
+pub type GET_ANCESTOR_FLAGS = u32;
+pub type GET_CLASS_LONG_INDEX = i32;
+pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
+pub type GET_WINDOW_CMD = u32;
+pub type GUITHREADINFO_FLAGS = u32;
+pub type HANDEDNESS = i32;
+pub type IMAGE_FLAGS = u32;
+pub type KBDLLHOOKSTRUCT_FLAGS = u32;
+pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
+pub type MENUGETOBJECTINFO_FLAGS = u32;
+pub type MENUINFO_MASK = u32;
+pub type MENUINFO_STYLE = u32;
+pub type MENU_ITEM_FLAGS = u32;
+pub type MENU_ITEM_MASK = u32;
+pub type MENU_ITEM_STATE = u32;
+pub type MENU_ITEM_TYPE = u32;
+pub type MESSAGEBOX_RESULT = i32;
+pub type MESSAGEBOX_STYLE = u32;
+pub type MINIMIZEDMETRICS_ARRANGE = i32;
+pub type MSGFLTINFO_STATUS = u32;
+pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
+pub type MrmDumpType = i32;
+pub type MrmIndexerFlags = i32;
+pub type MrmPackagingMode = i32;
+pub type MrmPackagingOptions = i32;
+pub type MrmPlatformVersion = i32;
+pub type MrmResourceIndexerMessageSeverity = i32;
+pub type OBJECT_IDENTIFIER = i32;
+pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
+pub type POINTER_INPUT_TYPE = i32;
+pub type QUEUE_STATUS_FLAGS = u32;
+pub type REGISTER_NOTIFICATION_FLAGS = u32;
+pub type SCROLLBAR_COMMAND = i32;
+pub type SCROLLBAR_CONSTANTS = i32;
+pub type SCROLLINFO_MASK = u32;
+pub type SCROLL_WINDOW_FLAGS = u32;
+pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
+pub type SET_WINDOW_POS_FLAGS = u32;
+pub type SHOW_WINDOW_CMD = i32;
+pub type SHOW_WINDOW_STATUS = u32;
+pub type SYSTEM_CURSOR_ID = u32;
+pub type SYSTEM_METRICS_INDEX = i32;
+pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
+pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
+pub type TILE_WINDOWS_HOW = u32;
+pub type TOOLTIP_DISMISS_FLAGS = i32;
+pub type TRACK_POPUP_MENU_FLAGS = u32;
+pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
+pub type WINDOWPLACEMENT_FLAGS = u32;
+pub type WINDOWS_HOOK_ID = i32;
+pub type WINDOW_DISPLAY_AFFINITY = u32;
+pub type WINDOW_EX_STYLE = u32;
+pub type WINDOW_LONG_PTR_INDEX = i32;
+pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
+pub type WINDOW_STYLE = u32;
+pub type WNDCLASS_STYLES = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCEL {
+    pub fVirt: ACCEL_VIRT_FLAGS,
+    pub key: u16,
+    pub cmd: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ALTTABINFO {
+    pub cbSize: u32,
+    pub cItems: i32,
+    pub cColumns: i32,
+    pub cRows: i32,
+    pub iColFocus: i32,
+    pub iRowFocus: i32,
+    pub cxItem: i32,
+    pub cyItem: i32,
+    pub ptStart: super::super::Foundation::POINT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ANIMATIONINFO {
+    pub cbSize: u32,
+    pub iMinAnimate: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIODESCRIPTION {
+    pub cbSize: u32,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub Locale: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CBTACTIVATESTRUCT {
+    pub fMouse: super::super::Foundation::BOOL,
+    pub hWndActive: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CBT_CREATEWNDA {
+    pub lpcs: *mut CREATESTRUCTA,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CBT_CREATEWNDW {
+    pub lpcs: *mut CREATESTRUCTW,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CHANGEFILTERSTRUCT {
+    pub cbSize: u32,
+    pub ExtStatus: MSGFLTINFO_STATUS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLIENTCREATESTRUCT {
+    pub hWindowMenu: super::super::Foundation::HANDLE,
+    pub idFirstChild: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREATESTRUCTA {
+    pub lpCreateParams: *mut core::ffi::c_void,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hMenu: HMENU,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub cy: i32,
+    pub cx: i32,
+    pub y: i32,
+    pub x: i32,
+    pub style: i32,
+    pub lpszName: windows_sys::core::PCSTR,
+    pub lpszClass: windows_sys::core::PCSTR,
+    pub dwExStyle: WINDOW_EX_STYLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREATESTRUCTW {
+    pub lpCreateParams: *mut core::ffi::c_void,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hMenu: HMENU,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub cy: i32,
+    pub cx: i32,
+    pub y: i32,
+    pub x: i32,
+    pub style: i32,
+    pub lpszName: windows_sys::core::PCWSTR,
+    pub lpszClass: windows_sys::core::PCWSTR,
+    pub dwExStyle: WINDOW_EX_STYLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CURSORINFO {
+    pub cbSize: u32,
+    pub flags: CURSORINFO_FLAGS,
+    pub hCursor: HCURSOR,
+    pub ptScreenPos: super::super::Foundation::POINT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CURSORSHAPE {
+    pub xHotSpot: i32,
+    pub yHotSpot: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub cbWidth: i32,
+    pub Planes: u8,
+    pub BitsPixel: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CWPRETSTRUCT {
+    pub lResult: super::super::Foundation::LRESULT,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub message: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CWPSTRUCT {
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub message: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUGHOOKINFO {
+    pub idThread: u32,
+    pub idThreadInstaller: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub code: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_EVENT_BECOMING_READY {
+    pub Version: u32,
+    pub Reason: u32,
+    pub Estimated100msToReady: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
+    pub Version: u32,
+    pub DeviceClass: u32,
+    pub ButtonStatus: u16,
+    pub Request: u16,
+    pub SystemTime: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_EVENT_GENERIC_DATA {
+    pub EventNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_EVENT_MOUNT {
+    pub Version: u32,
+    pub Flags: u32,
+    pub FileSystemNameLength: u32,
+    pub FileSystemNameOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVICE_EVENT_RBC_DATA {
+    pub EventNumber: u32,
+    pub SenseQualifier: u8,
+    pub SenseCode: u8,
+    pub SenseKey: u8,
+    pub Reserved: u8,
+    pub Information: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: windows_sys::core::GUID,
+    pub dbcc_name: [i8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: windows_sys::core::GUID,
+    pub dbcc_name: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_DEVNODE {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+    pub dbcd_devnode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_HANDLE {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: super::super::Foundation::HANDLE,
+    pub dbch_hdevnotify: HDEVNOTIFY,
+    pub dbch_eventguid: windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_HANDLE32 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u32,
+    pub dbch_hdevnotify: u32,
+    pub dbch_eventguid: windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_HANDLE64 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u64,
+    pub dbch_hdevnotify: u64,
+    pub dbch_eventguid: windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_HDR {
+    pub dbch_size: u32,
+    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
+    pub dbch_reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_NET {
+    pub dbcn_size: u32,
+    pub dbcn_devicetype: u32,
+    pub dbcn_reserved: u32,
+    pub dbcn_resource: u32,
+    pub dbcn_flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_OEM {
+    pub dbco_size: u32,
+    pub dbco_devicetype: u32,
+    pub dbco_reserved: u32,
+    pub dbco_identifier: u32,
+    pub dbco_suppfunc: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_PORT_A {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [i8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_PORT_W {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEV_BROADCAST_VOLUME {
+    pub dbcv_size: u32,
+    pub dbcv_devicetype: u32,
+    pub dbcv_reserved: u32,
+    pub dbcv_unitmask: u32,
+    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISK_HEALTH_NOTIFICATION_DATA {
+    pub DeviceGuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGITEMTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+    pub id: u16,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub cdit: u16,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DROPSTRUCT {
+    pub hwndSource: super::super::Foundation::HWND,
+    pub hwndSink: super::super::Foundation::HWND,
+    pub wFmt: u32,
+    pub dwData: usize,
+    pub ptDrop: super::super::Foundation::POINT,
+    pub dwControlData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENTMSG {
+    pub message: u32,
+    pub paramL: u32,
+    pub paramH: u32,
+    pub time: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLASHWINFO {
+    pub cbSize: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub dwFlags: FLASHWINFO_FLAGS,
+    pub uCount: u32,
+    pub dwTimeout: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GETCLIPBMETADATA {
+    pub Version: u32,
+    pub IsDelayRendered: super::super::Foundation::BOOL,
+    pub IsSynthetic: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    pub DiskNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUITHREADINFO {
+    pub cbSize: u32,
+    pub flags: GUITHREADINFO_FLAGS,
+    pub hwndActive: super::super::Foundation::HWND,
+    pub hwndFocus: super::super::Foundation::HWND,
+    pub hwndCapture: super::super::Foundation::HWND,
+    pub hwndMenuOwner: super::super::Foundation::HWND,
+    pub hwndMoveSize: super::super::Foundation::HWND,
+    pub hwndCaret: super::super::Foundation::HWND,
+    pub rcCaret: super::super::Foundation::RECT,
+}
+pub type HACCEL = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HARDWAREHOOKSTRUCT {
+    pub hwnd: super::super::Foundation::HWND,
+    pub message: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+pub type HCURSOR = *mut core::ffi::c_void;
+pub type HDEVNOTIFY = *mut core::ffi::c_void;
+pub type HDWP = *mut core::ffi::c_void;
+pub type HHOOK = *mut core::ffi::c_void;
+pub type HICON = *mut core::ffi::c_void;
+pub type HMENU = *mut core::ffi::c_void;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFO {
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFOEXA {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [i8; 260],
+    pub szResName: [i8; 260],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFOEXW {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [u16; 260],
+    pub szResName: [u16; 260],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONMETRICSA {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONMETRICSW {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IndexedResourceQualifier {
+    pub name: windows_sys::core::PWSTR,
+    pub value: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDLLHOOKSTRUCT {
+    pub vkCode: u32,
+    pub scanCode: u32,
+    pub flags: KBDLLHOOKSTRUCT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDICREATESTRUCTA {
+    pub szClass: windows_sys::core::PCSTR,
+    pub szTitle: windows_sys::core::PCSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDICREATESTRUCTW {
+    pub szClass: windows_sys::core::PCWSTR,
+    pub szTitle: windows_sys::core::PCWSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDINEXTMENU {
+    pub hmenuIn: HMENU,
+    pub hmenuNext: HMENU,
+    pub hwndNext: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUBARINFO {
+    pub cbSize: u32,
+    pub rcBar: super::super::Foundation::RECT,
+    pub hMenu: HMENU,
+    pub hwndMenu: super::super::Foundation::HWND,
+    pub _bitfield: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUEX_TEMPLATE_HEADER {
+    pub wVersion: u16,
+    pub wOffset: u16,
+    pub dwHelpId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUEX_TEMPLATE_ITEM {
+    pub dwType: u32,
+    pub dwState: u32,
+    pub uId: u32,
+    pub wFlags: u16,
+    pub szText: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUGETOBJECTINFO {
+    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
+    pub uPos: u32,
+    pub hmenu: HMENU,
+    pub riid: *mut core::ffi::c_void,
+    pub pvObj: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUINFO {
+    pub cbSize: u32,
+    pub fMask: MENUINFO_MASK,
+    pub dwStyle: MENUINFO_STYLE,
+    pub cyMax: u32,
+    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
+    pub dwContextHelpID: u32,
+    pub dwMenuData: usize,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUITEMINFOA {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_sys::core::PSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUITEMINFOW {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_sys::core::PWSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUITEMTEMPLATE {
+    pub mtOption: u16,
+    pub mtID: u16,
+    pub mtString: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUITEMTEMPLATEHEADER {
+    pub versionNumber: u16,
+    pub offset: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX {
+    pub Anonymous: MENUTEMPLATEEX_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MENUTEMPLATEEX_0 {
+    pub Menu: MENUTEMPLATEEX_0_0,
+    pub MenuEx: MENUTEMPLATEEX_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_BLOCK {
+    pub LowId: u32,
+    pub HighId: u32,
+    pub OffsetToEntries: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_DATA {
+    pub NumberOfBlocks: u32,
+    pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_ENTRY {
+    pub Length: u16,
+    pub Flags: u16,
+    pub Text: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MINIMIZEDMETRICS {
+    pub cbSize: u32,
+    pub iWidth: i32,
+    pub iHorzGap: i32,
+    pub iVertGap: i32,
+    pub iArrange: MINIMIZEDMETRICS_ARRANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MINMAXINFO {
+    pub ptReserved: super::super::Foundation::POINT,
+    pub ptMaxSize: super::super::Foundation::POINT,
+    pub ptMaxPosition: super::super::Foundation::POINT,
+    pub ptMinTrackSize: super::super::Foundation::POINT,
+    pub ptMaxTrackSize: super::super::Foundation::POINT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEHOOKSTRUCT {
+    pub pt: super::super::Foundation::POINT,
+    pub hwnd: super::super::Foundation::HWND,
+    pub wHitTestCode: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEHOOKSTRUCTEX {
+    pub Base: MOUSEHOOKSTRUCT,
+    pub mouseData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSG {
+    pub hwnd: super::super::Foundation::HWND,
+    pub message: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub time: u32,
+    pub pt: super::super::Foundation::POINT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
+pub struct MSGBOXPARAMSA {
+    pub cbSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_sys::core::PCSTR,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub dwStyle: MESSAGEBOX_STYLE,
+    pub lpszIcon: windows_sys::core::PCSTR,
+    pub dwContextHelpId: usize,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
+    pub dwLanguageId: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
+pub struct MSGBOXPARAMSW {
+    pub cbSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_sys::core::PCWSTR,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub dwStyle: MESSAGEBOX_STYLE,
+    pub lpszIcon: windows_sys::core::PCWSTR,
+    pub dwContextHelpId: usize,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
+    pub dwLanguageId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSLLHOOKSTRUCT {
+    pub pt: super::super::Foundation::POINT,
+    pub mouseData: u32,
+    pub flags: u32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MrmResourceIndexerHandle {
+    pub handle: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MrmResourceIndexerMessage {
+    pub severity: MrmResourceIndexerMessageSeverity,
+    pub id: u32,
+    pub text: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NCCALCSIZE_PARAMS {
+    pub rgrc: [super::super::Foundation::RECT; 3],
+    pub lppos: *mut WINDOWPOS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct NONCLIENTMETRICSA {
+    pub cbSize: u32,
+    pub iBorderWidth: i32,
+    pub iScrollWidth: i32,
+    pub iScrollHeight: i32,
+    pub iCaptionWidth: i32,
+    pub iCaptionHeight: i32,
+    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iSmCaptionWidth: i32,
+    pub iSmCaptionHeight: i32,
+    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iMenuWidth: i32,
+    pub iMenuHeight: i32,
+    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iPaddedBorderWidth: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct NONCLIENTMETRICSW {
+    pub cbSize: u32,
+    pub iBorderWidth: i32,
+    pub iScrollWidth: i32,
+    pub iScrollHeight: i32,
+    pub iCaptionWidth: i32,
+    pub iCaptionHeight: i32,
+    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iSmCaptionWidth: i32,
+    pub iSmCaptionHeight: i32,
+    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iMenuWidth: i32,
+    pub iMenuHeight: i32,
+    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iPaddedBorderWidth: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCROLLBARINFO {
+    pub cbSize: u32,
+    pub rcScrollBar: super::super::Foundation::RECT,
+    pub dxyLineButton: i32,
+    pub xyThumbTop: i32,
+    pub xyThumbBottom: i32,
+    pub reserved: i32,
+    pub rgstate: [u32; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCROLLINFO {
+    pub cbSize: u32,
+    pub fMask: SCROLLINFO_MASK,
+    pub nMin: i32,
+    pub nMax: i32,
+    pub nPage: u32,
+    pub nPos: i32,
+    pub nTrackPos: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHELLHOOKINFO {
+    pub hwnd: super::super::Foundation::HWND,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STYLESTRUCT {
+    pub styleOld: u32,
+    pub styleNew: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TITLEBARINFO {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TITLEBARINFOEX {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+    pub rgrect: [super::super::Foundation::RECT; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TOUCHPREDICTIONPARAMETERS {
+    pub cbSize: u32,
+    pub dwLatency: u32,
+    pub dwSampleTime: u32,
+    pub bUseHWTimeStamp: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TPMPARAMS {
+    pub cbSize: u32,
+    pub rcExclude: super::super::Foundation::RECT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct UPDATELAYEREDWINDOWINFO {
+    pub cbSize: u32,
+    pub hdcDst: super::super::Graphics::Gdi::HDC,
+    pub pptDst: *const super::super::Foundation::POINT,
+    pub psize: *const super::super::Foundation::SIZE,
+    pub hdcSrc: super::super::Graphics::Gdi::HDC,
+    pub pptSrc: *const super::super::Foundation::POINT,
+    pub crKey: super::super::Foundation::COLORREF,
+    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
+    pub prcDirty: *const super::super::Foundation::RECT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VolLockBroadcast {
+    pub vlb_dbh: DEV_BROADCAST_HDR,
+    pub vlb_owner: u32,
+    pub vlb_perms: u8,
+    pub vlb_lockType: u8,
+    pub vlb_drive: u8,
+    pub vlb_flags: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWINFO {
+    pub cbSize: u32,
+    pub rcWindow: super::super::Foundation::RECT,
+    pub rcClient: super::super::Foundation::RECT,
+    pub dwStyle: WINDOW_STYLE,
+    pub dwExStyle: WINDOW_EX_STYLE,
+    pub dwWindowStatus: u32,
+    pub cxWindowBorders: u32,
+    pub cyWindowBorders: u32,
+    pub atomWindowType: u16,
+    pub wCreatorVersion: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWPLACEMENT {
+    pub length: u32,
+    pub flags: WINDOWPLACEMENT_FLAGS,
+    pub showCmd: u32,
+    pub ptMinPosition: super::super::Foundation::POINT,
+    pub ptMaxPosition: super::super::Foundation::POINT,
+    pub rcNormalPosition: super::super::Foundation::RECT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWPOS {
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub flags: SET_WINDOW_POS_FLAGS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSA {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCSTR,
+    pub lpszClassName: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSEXA {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCSTR,
+    pub lpszClassName: windows_sys::core::PCSTR,
+    pub hIconSm: HICON,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSEXW {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCWSTR,
+    pub lpszClassName: windows_sys::core::PCWSTR,
+    pub hIconSm: HICON,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSW {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCWSTR,
+    pub lpszClassName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _DEV_BROADCAST_HEADER {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _DEV_BROADCAST_USERDEFINED {
+    pub dbud_dbh: DEV_BROADCAST_HDR,
+    pub dbud_szName: [i8; 1],
+}
 pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0i32;
 pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
 pub const ARW_DOWN: i32 = 4i32;
@@ -2704,1057 +3757,3 @@ pub const __WARNING_RANGE_POSTCONDITION_VIOLATION: u32 = 26061u32;
 pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
-pub type ACCEL_VIRT_FLAGS = u8;
-pub type ANIMATE_WINDOW_FLAGS = u32;
-pub type CASCADE_WINDOWS_HOW = u32;
-pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
-pub type CURSORINFO_FLAGS = u32;
-pub type CWP_FLAGS = u32;
-pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
-pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
-pub type DI_FLAGS = u32;
-pub type EDIT_CONTROL_FEATURE = i32;
-pub type FLASHWINFO_FLAGS = u32;
-pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
-pub type GDI_IMAGE_TYPE = u32;
-pub type GET_ANCESTOR_FLAGS = u32;
-pub type GET_CLASS_LONG_INDEX = i32;
-pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
-pub type GET_WINDOW_CMD = u32;
-pub type GUITHREADINFO_FLAGS = u32;
-pub type HANDEDNESS = i32;
-pub type IMAGE_FLAGS = u32;
-pub type KBDLLHOOKSTRUCT_FLAGS = u32;
-pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
-pub type MENUGETOBJECTINFO_FLAGS = u32;
-pub type MENUINFO_MASK = u32;
-pub type MENUINFO_STYLE = u32;
-pub type MENU_ITEM_FLAGS = u32;
-pub type MENU_ITEM_MASK = u32;
-pub type MENU_ITEM_STATE = u32;
-pub type MENU_ITEM_TYPE = u32;
-pub type MESSAGEBOX_RESULT = i32;
-pub type MESSAGEBOX_STYLE = u32;
-pub type MINIMIZEDMETRICS_ARRANGE = i32;
-pub type MSGFLTINFO_STATUS = u32;
-pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
-pub type MrmDumpType = i32;
-pub type MrmIndexerFlags = i32;
-pub type MrmPackagingMode = i32;
-pub type MrmPackagingOptions = i32;
-pub type MrmPlatformVersion = i32;
-pub type MrmResourceIndexerMessageSeverity = i32;
-pub type OBJECT_IDENTIFIER = i32;
-pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
-pub type POINTER_INPUT_TYPE = i32;
-pub type QUEUE_STATUS_FLAGS = u32;
-pub type REGISTER_NOTIFICATION_FLAGS = u32;
-pub type SCROLLBAR_COMMAND = i32;
-pub type SCROLLBAR_CONSTANTS = i32;
-pub type SCROLLINFO_MASK = u32;
-pub type SCROLL_WINDOW_FLAGS = u32;
-pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
-pub type SET_WINDOW_POS_FLAGS = u32;
-pub type SHOW_WINDOW_CMD = i32;
-pub type SHOW_WINDOW_STATUS = u32;
-pub type SYSTEM_CURSOR_ID = u32;
-pub type SYSTEM_METRICS_INDEX = i32;
-pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
-pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
-pub type TILE_WINDOWS_HOW = u32;
-pub type TOOLTIP_DISMISS_FLAGS = i32;
-pub type TRACK_POPUP_MENU_FLAGS = u32;
-pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
-pub type WINDOWPLACEMENT_FLAGS = u32;
-pub type WINDOWS_HOOK_ID = i32;
-pub type WINDOW_DISPLAY_AFFINITY = u32;
-pub type WINDOW_EX_STYLE = u32;
-pub type WINDOW_LONG_PTR_INDEX = i32;
-pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
-pub type WINDOW_STYLE = u32;
-pub type WNDCLASS_STYLES = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCEL {
-    pub fVirt: ACCEL_VIRT_FLAGS,
-    pub key: u16,
-    pub cmd: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ALTTABINFO {
-    pub cbSize: u32,
-    pub cItems: i32,
-    pub cColumns: i32,
-    pub cRows: i32,
-    pub iColFocus: i32,
-    pub iRowFocus: i32,
-    pub cxItem: i32,
-    pub cyItem: i32,
-    pub ptStart: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ANIMATIONINFO {
-    pub cbSize: u32,
-    pub iMinAnimate: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIODESCRIPTION {
-    pub cbSize: u32,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub Locale: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CBTACTIVATESTRUCT {
-    pub fMouse: super::super::Foundation::BOOL,
-    pub hWndActive: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CBT_CREATEWNDA {
-    pub lpcs: *mut CREATESTRUCTA,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CBT_CREATEWNDW {
-    pub lpcs: *mut CREATESTRUCTW,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CHANGEFILTERSTRUCT {
-    pub cbSize: u32,
-    pub ExtStatus: MSGFLTINFO_STATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLIENTCREATESTRUCT {
-    pub hWindowMenu: super::super::Foundation::HANDLE,
-    pub idFirstChild: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREATESTRUCTA {
-    pub lpCreateParams: *mut core::ffi::c_void,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hMenu: HMENU,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub cy: i32,
-    pub cx: i32,
-    pub y: i32,
-    pub x: i32,
-    pub style: i32,
-    pub lpszName: windows_sys::core::PCSTR,
-    pub lpszClass: windows_sys::core::PCSTR,
-    pub dwExStyle: WINDOW_EX_STYLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREATESTRUCTW {
-    pub lpCreateParams: *mut core::ffi::c_void,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hMenu: HMENU,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub cy: i32,
-    pub cx: i32,
-    pub y: i32,
-    pub x: i32,
-    pub style: i32,
-    pub lpszName: windows_sys::core::PCWSTR,
-    pub lpszClass: windows_sys::core::PCWSTR,
-    pub dwExStyle: WINDOW_EX_STYLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CURSORINFO {
-    pub cbSize: u32,
-    pub flags: CURSORINFO_FLAGS,
-    pub hCursor: HCURSOR,
-    pub ptScreenPos: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CURSORSHAPE {
-    pub xHotSpot: i32,
-    pub yHotSpot: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub cbWidth: i32,
-    pub Planes: u8,
-    pub BitsPixel: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CWPRETSTRUCT {
-    pub lResult: super::super::Foundation::LRESULT,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub message: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CWPSTRUCT {
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub message: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUGHOOKINFO {
-    pub idThread: u32,
-    pub idThreadInstaller: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub code: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_EVENT_BECOMING_READY {
-    pub Version: u32,
-    pub Reason: u32,
-    pub Estimated100msToReady: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
-    pub Version: u32,
-    pub DeviceClass: u32,
-    pub ButtonStatus: u16,
-    pub Request: u16,
-    pub SystemTime: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_EVENT_GENERIC_DATA {
-    pub EventNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_EVENT_MOUNT {
-    pub Version: u32,
-    pub Flags: u32,
-    pub FileSystemNameLength: u32,
-    pub FileSystemNameOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVICE_EVENT_RBC_DATA {
-    pub EventNumber: u32,
-    pub SenseQualifier: u8,
-    pub SenseCode: u8,
-    pub SenseKey: u8,
-    pub Reserved: u8,
-    pub Information: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
-    pub dbcc_size: u32,
-    pub dbcc_devicetype: u32,
-    pub dbcc_reserved: u32,
-    pub dbcc_classguid: windows_sys::core::GUID,
-    pub dbcc_name: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
-    pub dbcc_size: u32,
-    pub dbcc_devicetype: u32,
-    pub dbcc_reserved: u32,
-    pub dbcc_classguid: windows_sys::core::GUID,
-    pub dbcc_name: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_DEVNODE {
-    pub dbcd_size: u32,
-    pub dbcd_devicetype: u32,
-    pub dbcd_reserved: u32,
-    pub dbcd_devnode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_HANDLE {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: super::super::Foundation::HANDLE,
-    pub dbch_hdevnotify: HDEVNOTIFY,
-    pub dbch_eventguid: windows_sys::core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_HANDLE32 {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: u32,
-    pub dbch_hdevnotify: u32,
-    pub dbch_eventguid: windows_sys::core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_HANDLE64 {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: u64,
-    pub dbch_hdevnotify: u64,
-    pub dbch_eventguid: windows_sys::core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_HDR {
-    pub dbch_size: u32,
-    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
-    pub dbch_reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_NET {
-    pub dbcn_size: u32,
-    pub dbcn_devicetype: u32,
-    pub dbcn_reserved: u32,
-    pub dbcn_resource: u32,
-    pub dbcn_flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_OEM {
-    pub dbco_size: u32,
-    pub dbco_devicetype: u32,
-    pub dbco_reserved: u32,
-    pub dbco_identifier: u32,
-    pub dbco_suppfunc: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_PORT_A {
-    pub dbcp_size: u32,
-    pub dbcp_devicetype: u32,
-    pub dbcp_reserved: u32,
-    pub dbcp_name: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_PORT_W {
-    pub dbcp_size: u32,
-    pub dbcp_devicetype: u32,
-    pub dbcp_reserved: u32,
-    pub dbcp_name: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEV_BROADCAST_VOLUME {
-    pub dbcv_size: u32,
-    pub dbcv_devicetype: u32,
-    pub dbcv_reserved: u32,
-    pub dbcv_unitmask: u32,
-    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISK_HEALTH_NOTIFICATION_DATA {
-    pub DeviceGuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGITEMTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-    pub id: u16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub cdit: u16,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DROPSTRUCT {
-    pub hwndSource: super::super::Foundation::HWND,
-    pub hwndSink: super::super::Foundation::HWND,
-    pub wFmt: u32,
-    pub dwData: usize,
-    pub ptDrop: super::super::Foundation::POINT,
-    pub dwControlData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENTMSG {
-    pub message: u32,
-    pub paramL: u32,
-    pub paramH: u32,
-    pub time: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLASHWINFO {
-    pub cbSize: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub dwFlags: FLASHWINFO_FLAGS,
-    pub uCount: u32,
-    pub dwTimeout: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GETCLIPBMETADATA {
-    pub Version: u32,
-    pub IsDelayRendered: super::super::Foundation::BOOL,
-    pub IsSynthetic: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    pub DiskNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUITHREADINFO {
-    pub cbSize: u32,
-    pub flags: GUITHREADINFO_FLAGS,
-    pub hwndActive: super::super::Foundation::HWND,
-    pub hwndFocus: super::super::Foundation::HWND,
-    pub hwndCapture: super::super::Foundation::HWND,
-    pub hwndMenuOwner: super::super::Foundation::HWND,
-    pub hwndMoveSize: super::super::Foundation::HWND,
-    pub hwndCaret: super::super::Foundation::HWND,
-    pub rcCaret: super::super::Foundation::RECT,
-}
-pub type HACCEL = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HARDWAREHOOKSTRUCT {
-    pub hwnd: super::super::Foundation::HWND,
-    pub message: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-pub type HCURSOR = *mut core::ffi::c_void;
-pub type HDEVNOTIFY = *mut core::ffi::c_void;
-pub type HDWP = *mut core::ffi::c_void;
-pub type HHOOK = *mut core::ffi::c_void;
-pub type HICON = *mut core::ffi::c_void;
-pub type HMENU = *mut core::ffi::c_void;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFO {
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFOEXA {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [i8; 260],
-    pub szResName: [i8; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFOEXW {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [u16; 260],
-    pub szResName: [u16; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONMETRICSA {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONMETRICSW {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IndexedResourceQualifier {
-    pub name: windows_sys::core::PWSTR,
-    pub value: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDLLHOOKSTRUCT {
-    pub vkCode: u32,
-    pub scanCode: u32,
-    pub flags: KBDLLHOOKSTRUCT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDICREATESTRUCTA {
-    pub szClass: windows_sys::core::PCSTR,
-    pub szTitle: windows_sys::core::PCSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDICREATESTRUCTW {
-    pub szClass: windows_sys::core::PCWSTR,
-    pub szTitle: windows_sys::core::PCWSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDINEXTMENU {
-    pub hmenuIn: HMENU,
-    pub hmenuNext: HMENU,
-    pub hwndNext: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUBARINFO {
-    pub cbSize: u32,
-    pub rcBar: super::super::Foundation::RECT,
-    pub hMenu: HMENU,
-    pub hwndMenu: super::super::Foundation::HWND,
-    pub _bitfield: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUEX_TEMPLATE_HEADER {
-    pub wVersion: u16,
-    pub wOffset: u16,
-    pub dwHelpId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUEX_TEMPLATE_ITEM {
-    pub dwType: u32,
-    pub dwState: u32,
-    pub uId: u32,
-    pub wFlags: u16,
-    pub szText: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUGETOBJECTINFO {
-    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
-    pub uPos: u32,
-    pub hmenu: HMENU,
-    pub riid: *mut core::ffi::c_void,
-    pub pvObj: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUINFO {
-    pub cbSize: u32,
-    pub fMask: MENUINFO_MASK,
-    pub dwStyle: MENUINFO_STYLE,
-    pub cyMax: u32,
-    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
-    pub dwContextHelpID: u32,
-    pub dwMenuData: usize,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUITEMINFOA {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_sys::core::PSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUITEMINFOW {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_sys::core::PWSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUITEMTEMPLATE {
-    pub mtOption: u16,
-    pub mtID: u16,
-    pub mtString: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUITEMTEMPLATEHEADER {
-    pub versionNumber: u16,
-    pub offset: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX {
-    pub Anonymous: MENUTEMPLATEEX_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MENUTEMPLATEEX_0 {
-    pub Menu: MENUTEMPLATEEX_0_0,
-    pub MenuEx: MENUTEMPLATEEX_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_1 {
-    pub mexHeader: MENUEX_TEMPLATE_HEADER,
-    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_0 {
-    pub mitHeader: MENUITEMTEMPLATEHEADER,
-    pub miTemplate: [MENUITEMTEMPLATE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_BLOCK {
-    pub LowId: u32,
-    pub HighId: u32,
-    pub OffsetToEntries: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_DATA {
-    pub NumberOfBlocks: u32,
-    pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_ENTRY {
-    pub Length: u16,
-    pub Flags: u16,
-    pub Text: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MINIMIZEDMETRICS {
-    pub cbSize: u32,
-    pub iWidth: i32,
-    pub iHorzGap: i32,
-    pub iVertGap: i32,
-    pub iArrange: MINIMIZEDMETRICS_ARRANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MINMAXINFO {
-    pub ptReserved: super::super::Foundation::POINT,
-    pub ptMaxSize: super::super::Foundation::POINT,
-    pub ptMaxPosition: super::super::Foundation::POINT,
-    pub ptMinTrackSize: super::super::Foundation::POINT,
-    pub ptMaxTrackSize: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEHOOKSTRUCT {
-    pub pt: super::super::Foundation::POINT,
-    pub hwnd: super::super::Foundation::HWND,
-    pub wHitTestCode: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEHOOKSTRUCTEX {
-    pub Base: MOUSEHOOKSTRUCT,
-    pub mouseData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSG {
-    pub hwnd: super::super::Foundation::HWND,
-    pub message: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub time: u32,
-    pub pt: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
-pub struct MSGBOXPARAMSA {
-    pub cbSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_sys::core::PCSTR,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: windows_sys::core::PCSTR,
-    pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
-pub struct MSGBOXPARAMSW {
-    pub cbSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_sys::core::PCWSTR,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: windows_sys::core::PCWSTR,
-    pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSLLHOOKSTRUCT {
-    pub pt: super::super::Foundation::POINT,
-    pub mouseData: u32,
-    pub flags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MrmResourceIndexerHandle {
-    pub handle: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MrmResourceIndexerMessage {
-    pub severity: MrmResourceIndexerMessageSeverity,
-    pub id: u32,
-    pub text: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NCCALCSIZE_PARAMS {
-    pub rgrc: [super::super::Foundation::RECT; 3],
-    pub lppos: *mut WINDOWPOS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct NONCLIENTMETRICSA {
-    pub cbSize: u32,
-    pub iBorderWidth: i32,
-    pub iScrollWidth: i32,
-    pub iScrollHeight: i32,
-    pub iCaptionWidth: i32,
-    pub iCaptionHeight: i32,
-    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iSmCaptionWidth: i32,
-    pub iSmCaptionHeight: i32,
-    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iMenuWidth: i32,
-    pub iMenuHeight: i32,
-    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iPaddedBorderWidth: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct NONCLIENTMETRICSW {
-    pub cbSize: u32,
-    pub iBorderWidth: i32,
-    pub iScrollWidth: i32,
-    pub iScrollHeight: i32,
-    pub iCaptionWidth: i32,
-    pub iCaptionHeight: i32,
-    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iSmCaptionWidth: i32,
-    pub iSmCaptionHeight: i32,
-    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iMenuWidth: i32,
-    pub iMenuHeight: i32,
-    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iPaddedBorderWidth: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCROLLBARINFO {
-    pub cbSize: u32,
-    pub rcScrollBar: super::super::Foundation::RECT,
-    pub dxyLineButton: i32,
-    pub xyThumbTop: i32,
-    pub xyThumbBottom: i32,
-    pub reserved: i32,
-    pub rgstate: [u32; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCROLLINFO {
-    pub cbSize: u32,
-    pub fMask: SCROLLINFO_MASK,
-    pub nMin: i32,
-    pub nMax: i32,
-    pub nPage: u32,
-    pub nPos: i32,
-    pub nTrackPos: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHELLHOOKINFO {
-    pub hwnd: super::super::Foundation::HWND,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STYLESTRUCT {
-    pub styleOld: u32,
-    pub styleNew: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TITLEBARINFO {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TITLEBARINFOEX {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-    pub rgrect: [super::super::Foundation::RECT; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TOUCHPREDICTIONPARAMETERS {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TPMPARAMS {
-    pub cbSize: u32,
-    pub rcExclude: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct UPDATELAYEREDWINDOWINFO {
-    pub cbSize: u32,
-    pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub pptDst: *const super::super::Foundation::POINT,
-    pub psize: *const super::super::Foundation::SIZE,
-    pub hdcSrc: super::super::Graphics::Gdi::HDC,
-    pub pptSrc: *const super::super::Foundation::POINT,
-    pub crKey: super::super::Foundation::COLORREF,
-    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
-    pub prcDirty: *const super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VolLockBroadcast {
-    pub vlb_dbh: DEV_BROADCAST_HDR,
-    pub vlb_owner: u32,
-    pub vlb_perms: u8,
-    pub vlb_lockType: u8,
-    pub vlb_drive: u8,
-    pub vlb_flags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWINFO {
-    pub cbSize: u32,
-    pub rcWindow: super::super::Foundation::RECT,
-    pub rcClient: super::super::Foundation::RECT,
-    pub dwStyle: WINDOW_STYLE,
-    pub dwExStyle: WINDOW_EX_STYLE,
-    pub dwWindowStatus: u32,
-    pub cxWindowBorders: u32,
-    pub cyWindowBorders: u32,
-    pub atomWindowType: u16,
-    pub wCreatorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWPLACEMENT {
-    pub length: u32,
-    pub flags: WINDOWPLACEMENT_FLAGS,
-    pub showCmd: u32,
-    pub ptMinPosition: super::super::Foundation::POINT,
-    pub ptMaxPosition: super::super::Foundation::POINT,
-    pub rcNormalPosition: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWPOS {
-    pub hwnd: super::super::Foundation::HWND,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub flags: SET_WINDOW_POS_FLAGS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSA {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCSTR,
-    pub lpszClassName: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSEXA {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCSTR,
-    pub lpszClassName: windows_sys::core::PCSTR,
-    pub hIconSm: HICON,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSEXW {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCWSTR,
-    pub lpszClassName: windows_sys::core::PCWSTR,
-    pub hIconSm: HICON,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSW {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCWSTR,
-    pub lpszClassName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _DEV_BROADCAST_HEADER {
-    pub dbcd_size: u32,
-    pub dbcd_devicetype: u32,
-    pub dbcd_reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _DEV_BROADCAST_USERDEFINED {
-    pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [i8; 1],
-}
-pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
-pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[cfg(feature = "Win32_UI_Shell")]
-pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
-pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
-pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
-pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
-pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-core::include!("../../../../includes/Win32/UI/WindowsAndMessaging/WindowLong.rs");

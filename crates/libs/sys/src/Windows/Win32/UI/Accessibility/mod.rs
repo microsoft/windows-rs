@@ -1,10 +1,10 @@
 windows_targets::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -21,9 +21,10 @@ windows_targets::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, l
 windows_targets::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -59,10 +60,10 @@ windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj :
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : windows_sys::core::BSTR, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_sys::core::HRESULT);
@@ -91,7 +92,7 @@ windows_targets::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(h
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut windows_sys::core::BSTR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -100,15 +101,15 @@ windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode 
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaLookupId(r#type : AutomationIdentifierType, pguid : *const windows_sys::core::GUID) -> i32);
 #[cfg(feature = "Win32_System_Com")]
@@ -122,13 +123,14 @@ windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pp
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : * mut core::ffi::c_void, idchild : i32, dwflags : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut core::ffi::c_void, textrange : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut core::ffi::c_void, id : UIA_EVENT_ID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : windows_sys::core::BSTR, activityid : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> windows_sys::core::HRESULT);
@@ -147,10 +149,391 @@ windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwn
 windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut core::ffi::c_void, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT>;
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut core::ffi::c_void) -> super::super::Foundation::LRESULT>;
+pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_Com")]
+pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_sys::core::BSTR)>;
+#[cfg(feature = "Win32_System_Com")]
+pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
+pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
+pub type ACC_UTILITY_STATE_FLAGS = u32;
+pub type ActiveEnd = i32;
+pub type AnimationStyle = i32;
+pub type AnnoScope = i32;
+pub type AsyncContentLoadedState = i32;
+pub type AutomationElementMode = i32;
+pub type AutomationIdentifierType = i32;
+pub type BulletStyle = i32;
+pub type CapStyle = i32;
+pub type CaretBidiMode = i32;
+pub type CaretPosition = i32;
+pub type CoalesceEventsOptions = i32;
+pub type ConditionType = i32;
+pub type ConnectionRecoveryBehaviorOptions = i32;
+pub type DockPosition = i32;
+pub type EventArgsType = i32;
+pub type ExpandCollapseState = i32;
+pub type FillType = i32;
+pub type FlowDirections = i32;
+pub type HIGHCONTRASTW_FLAGS = u32;
+pub type HorizontalTextAlignment = i32;
+pub type LiveSetting = i32;
+pub type NavigateDirection = i32;
+pub type NormalizeState = i32;
+pub type NotificationKind = i32;
+pub type NotificationProcessing = i32;
+pub type OrientationType = i32;
+pub type OutlineStyles = i32;
+pub type PropertyConditionFlags = i32;
+pub type ProviderOptions = i32;
+pub type ProviderType = i32;
+pub type RowOrColumnMajor = i32;
+pub type SERIALKEYS_FLAGS = u32;
+pub type SOUNDSENTRY_FLAGS = u32;
+pub type SOUNDSENTRY_TEXT_EFFECT = u32;
+pub type SOUNDSENTRY_WINDOWS_EFFECT = u32;
+pub type SOUND_SENTRY_GRAPHICS_EFFECT = u32;
+pub type STICKYKEYS_FLAGS = u32;
+pub type SayAsInterpretAs = i32;
+pub type ScrollAmount = i32;
+pub type StructureChangeType = i32;
+pub type SupportedTextSelection = i32;
+pub type SynchronizedInputType = i32;
+pub type TextDecorationLineStyle = i32;
+pub type TextEditChangeType = i32;
+pub type TextPatternRangeEndpoint = i32;
+pub type TextUnit = i32;
+pub type ToggleState = i32;
+pub type TreeScope = i32;
+pub type TreeTraversalOptions = i32;
+pub type UIA_ANNOTATIONTYPE = i32;
+pub type UIA_CHANGE_ID = i32;
+pub type UIA_CONTROLTYPE_ID = i32;
+pub type UIA_EVENT_ID = i32;
+pub type UIA_HEADINGLEVEL_ID = i32;
+pub type UIA_LANDMARKTYPE_ID = i32;
+pub type UIA_METADATA_ID = i32;
+pub type UIA_PATTERN_ID = i32;
+pub type UIA_PROPERTY_ID = i32;
+pub type UIA_STYLE_ID = i32;
+pub type UIA_TEXTATTRIBUTE_ID = i32;
+pub type UIAutomationType = i32;
+pub type VisualEffects = i32;
+pub type WindowInteractionState = i32;
+pub type WindowVisualState = i32;
+pub type ZoomUnit = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACCESSTIMEOUT {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iTimeOutMSec: u32,
+}
+pub const CAccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CUIAutomation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
+pub const CUIAutomation8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationRegistrar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ExtendedProperty {
+    pub PropertyName: windows_sys::core::BSTR,
+    pub PropertyValue: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILTERKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iWaitMSec: u32,
+    pub iDelayMSec: u32,
+    pub iRepeatMSec: u32,
+    pub iBounceMSec: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIGHCONTRASTA {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIGHCONTRASTW {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: windows_sys::core::PWSTR,
+}
+pub type HUIAEVENT = *mut core::ffi::c_void;
+pub type HUIANODE = *mut core::ffi::c_void;
+pub type HUIAPATTERNOBJECT = *mut core::ffi::c_void;
+pub type HUIATEXTRANGE = *mut core::ffi::c_void;
+pub type HWINEVENTHOOK = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iMaxSpeed: u32,
+    pub iTimeToMaxSpeed: u32,
+    pub iCtrlSpeed: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSAAMENUINFO {
+    pub dwMSAASignature: u32,
+    pub cchWText: u32,
+    pub pszWText: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SERIALKEYSA {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: windows_sys::core::PSTR,
+    pub lpszPort: windows_sys::core::PSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SERIALKEYSW {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: windows_sys::core::PWSTR,
+    pub lpszPort: windows_sys::core::PWSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOUNDSENTRYA {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOUNDSENTRYW {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STICKYKEYS {
+    pub cbSize: u32,
+    pub dwFlags: STICKYKEYS_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TOGGLEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationEventInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationMethodInfo {
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub doSetFocus: super::super::Foundation::BOOL,
+    pub cInParameters: u32,
+    pub cOutParameters: u32,
+    pub pParameterTypes: *mut UIAutomationType,
+    pub pParameterNames: *const windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationParameter {
+    pub r#type: UIAutomationType,
+    pub pData: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationPatternInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub providerInterfaceId: windows_sys::core::GUID,
+    pub clientInterfaceId: windows_sys::core::GUID,
+    pub cProperties: u32,
+    pub pProperties: *mut UIAutomationPropertyInfo,
+    pub cMethods: u32,
+    pub pMethods: *mut UIAutomationMethodInfo,
+    pub cEvents: u32,
+    pub pEvents: *mut UIAutomationEventInfo,
+    pub pPatternHandler: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationPropertyInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub r#type: UIAutomationType,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaAndOrCondition {
+    pub ConditionType: ConditionType,
+    pub ppConditions: *mut *mut UiaCondition,
+    pub cConditions: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaAsyncContentLoadedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub AsyncContentLoadedState: AsyncContentLoadedState,
+    pub PercentComplete: f64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaCacheRequest {
+    pub pViewCondition: *mut UiaCondition,
+    pub Scope: TreeScope,
+    pub pProperties: *mut i32,
+    pub cProperties: i32,
+    pub pPatterns: *mut i32,
+    pub cPatterns: i32,
+    pub automationElementMode: AutomationElementMode,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaChangeInfo {
+    pub uiaId: i32,
+    pub payload: super::super::System::Variant::VARIANT,
+    pub extraInfo: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaChangesEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub EventIdCount: i32,
+    pub pUiaChanges: *mut UiaChangeInfo,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaCondition {
+    pub ConditionType: ConditionType,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaFindParams {
+    pub MaxDepth: i32,
+    pub FindFirst: super::super::Foundation::BOOL,
+    pub ExcludeRoot: super::super::Foundation::BOOL,
+    pub pFindCondition: *mut UiaCondition,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaNotCondition {
+    pub ConditionType: ConditionType,
+    pub pCondition: *mut UiaCondition,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaPoint {
+    pub x: f64,
+    pub y: f64,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaPropertyChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: UIA_EVENT_ID,
+    pub PropertyId: i32,
+    pub OldValue: super::super::System::Variant::VARIANT,
+    pub NewValue: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaPropertyCondition {
+    pub ConditionType: ConditionType,
+    pub PropertyId: UIA_PROPERTY_ID,
+    pub Value: super::super::System::Variant::VARIANT,
+    pub Flags: PropertyConditionFlags,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaRect {
+    pub left: f64,
+    pub top: f64,
+    pub width: f64,
+    pub height: f64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaStructureChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub StructureChangeType: StructureChangeType,
+    pub pRuntimeId: *mut i32,
+    pub cRuntimeIdLen: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct UiaTextEditTextChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub TextEditChangeType: TextEditChangeType,
+    pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaWindowClosedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub pRuntimeId: *mut i32,
+    pub cRuntimeIdLen: i32,
+}
 pub const ANNO_CONTAINER: AnnoScope = 1i32;
 pub const ANNO_THIS: AnnoScope = 0i32;
 pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = 1u32;
@@ -1406,383 +1789,3 @@ pub const ZoomUnit_LargeIncrement: ZoomUnit = 3i32;
 pub const ZoomUnit_NoAmount: ZoomUnit = 0i32;
 pub const ZoomUnit_SmallDecrement: ZoomUnit = 2i32;
 pub const ZoomUnit_SmallIncrement: ZoomUnit = 4i32;
-pub type ACC_UTILITY_STATE_FLAGS = u32;
-pub type ActiveEnd = i32;
-pub type AnimationStyle = i32;
-pub type AnnoScope = i32;
-pub type AsyncContentLoadedState = i32;
-pub type AutomationElementMode = i32;
-pub type AutomationIdentifierType = i32;
-pub type BulletStyle = i32;
-pub type CapStyle = i32;
-pub type CaretBidiMode = i32;
-pub type CaretPosition = i32;
-pub type CoalesceEventsOptions = i32;
-pub type ConditionType = i32;
-pub type ConnectionRecoveryBehaviorOptions = i32;
-pub type DockPosition = i32;
-pub type EventArgsType = i32;
-pub type ExpandCollapseState = i32;
-pub type FillType = i32;
-pub type FlowDirections = i32;
-pub type HIGHCONTRASTW_FLAGS = u32;
-pub type HorizontalTextAlignment = i32;
-pub type LiveSetting = i32;
-pub type NavigateDirection = i32;
-pub type NormalizeState = i32;
-pub type NotificationKind = i32;
-pub type NotificationProcessing = i32;
-pub type OrientationType = i32;
-pub type OutlineStyles = i32;
-pub type PropertyConditionFlags = i32;
-pub type ProviderOptions = i32;
-pub type ProviderType = i32;
-pub type RowOrColumnMajor = i32;
-pub type SERIALKEYS_FLAGS = u32;
-pub type SOUNDSENTRY_FLAGS = u32;
-pub type SOUNDSENTRY_TEXT_EFFECT = u32;
-pub type SOUNDSENTRY_WINDOWS_EFFECT = u32;
-pub type SOUND_SENTRY_GRAPHICS_EFFECT = u32;
-pub type STICKYKEYS_FLAGS = u32;
-pub type SayAsInterpretAs = i32;
-pub type ScrollAmount = i32;
-pub type StructureChangeType = i32;
-pub type SupportedTextSelection = i32;
-pub type SynchronizedInputType = i32;
-pub type TextDecorationLineStyle = i32;
-pub type TextEditChangeType = i32;
-pub type TextPatternRangeEndpoint = i32;
-pub type TextUnit = i32;
-pub type ToggleState = i32;
-pub type TreeScope = i32;
-pub type TreeTraversalOptions = i32;
-pub type UIA_ANNOTATIONTYPE = i32;
-pub type UIA_CHANGE_ID = i32;
-pub type UIA_CONTROLTYPE_ID = i32;
-pub type UIA_EVENT_ID = i32;
-pub type UIA_HEADINGLEVEL_ID = i32;
-pub type UIA_LANDMARKTYPE_ID = i32;
-pub type UIA_METADATA_ID = i32;
-pub type UIA_PATTERN_ID = i32;
-pub type UIA_PROPERTY_ID = i32;
-pub type UIA_STYLE_ID = i32;
-pub type UIA_TEXTATTRIBUTE_ID = i32;
-pub type UIAutomationType = i32;
-pub type VisualEffects = i32;
-pub type WindowInteractionState = i32;
-pub type WindowVisualState = i32;
-pub type ZoomUnit = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACCESSTIMEOUT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iTimeOutMSec: u32,
-}
-pub const CAccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-pub const CUIAutomation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
-pub const CUIAutomation8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
-pub const CUIAutomationRegistrar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ExtendedProperty {
-    pub PropertyName: windows_sys::core::BSTR,
-    pub PropertyValue: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILTERKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iWaitMSec: u32,
-    pub iDelayMSec: u32,
-    pub iRepeatMSec: u32,
-    pub iBounceMSec: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIGHCONTRASTA {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIGHCONTRASTW {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: windows_sys::core::PWSTR,
-}
-pub type HUIAEVENT = *mut core::ffi::c_void;
-pub type HUIANODE = *mut core::ffi::c_void;
-pub type HUIAPATTERNOBJECT = *mut core::ffi::c_void;
-pub type HUIATEXTRANGE = *mut core::ffi::c_void;
-pub type HWINEVENTHOOK = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iMaxSpeed: u32,
-    pub iTimeToMaxSpeed: u32,
-    pub iCtrlSpeed: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSAAMENUINFO {
-    pub dwMSAASignature: u32,
-    pub cchWText: u32,
-    pub pszWText: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SERIALKEYSA {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: windows_sys::core::PSTR,
-    pub lpszPort: windows_sys::core::PSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SERIALKEYSW {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: windows_sys::core::PWSTR,
-    pub lpszPort: windows_sys::core::PWSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOUNDSENTRYA {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOUNDSENTRYW {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STICKYKEYS {
-    pub cbSize: u32,
-    pub dwFlags: STICKYKEYS_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TOGGLEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationEventInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationMethodInfo {
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub doSetFocus: super::super::Foundation::BOOL,
-    pub cInParameters: u32,
-    pub cOutParameters: u32,
-    pub pParameterTypes: *mut UIAutomationType,
-    pub pParameterNames: *const windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationParameter {
-    pub r#type: UIAutomationType,
-    pub pData: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationPatternInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub providerInterfaceId: windows_sys::core::GUID,
-    pub clientInterfaceId: windows_sys::core::GUID,
-    pub cProperties: u32,
-    pub pProperties: *mut UIAutomationPropertyInfo,
-    pub cMethods: u32,
-    pub pMethods: *mut UIAutomationMethodInfo,
-    pub cEvents: u32,
-    pub pEvents: *mut UIAutomationEventInfo,
-    pub pPatternHandler: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationPropertyInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub r#type: UIAutomationType,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaAndOrCondition {
-    pub ConditionType: ConditionType,
-    pub ppConditions: *mut *mut UiaCondition,
-    pub cConditions: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaAsyncContentLoadedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub AsyncContentLoadedState: AsyncContentLoadedState,
-    pub PercentComplete: f64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaCacheRequest {
-    pub pViewCondition: *mut UiaCondition,
-    pub Scope: TreeScope,
-    pub pProperties: *mut i32,
-    pub cProperties: i32,
-    pub pPatterns: *mut i32,
-    pub cPatterns: i32,
-    pub automationElementMode: AutomationElementMode,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaChangeInfo {
-    pub uiaId: i32,
-    pub payload: super::super::System::Variant::VARIANT,
-    pub extraInfo: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaChangesEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub EventIdCount: i32,
-    pub pUiaChanges: *mut UiaChangeInfo,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaCondition {
-    pub ConditionType: ConditionType,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaFindParams {
-    pub MaxDepth: i32,
-    pub FindFirst: super::super::Foundation::BOOL,
-    pub ExcludeRoot: super::super::Foundation::BOOL,
-    pub pFindCondition: *mut UiaCondition,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaNotCondition {
-    pub ConditionType: ConditionType,
-    pub pCondition: *mut UiaCondition,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaPoint {
-    pub x: f64,
-    pub y: f64,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaPropertyChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: UIA_EVENT_ID,
-    pub PropertyId: i32,
-    pub OldValue: super::super::System::Variant::VARIANT,
-    pub NewValue: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaPropertyCondition {
-    pub ConditionType: ConditionType,
-    pub PropertyId: UIA_PROPERTY_ID,
-    pub Value: super::super::System::Variant::VARIANT,
-    pub Flags: PropertyConditionFlags,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaRect {
-    pub left: f64,
-    pub top: f64,
-    pub width: f64,
-    pub height: f64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaStructureChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub StructureChangeType: StructureChangeType,
-    pub pRuntimeId: *mut i32,
-    pub cRuntimeIdLen: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct UiaTextEditTextChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub TextEditChangeType: TextEditChangeType,
-    pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaWindowClosedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub pRuntimeId: *mut i32,
-    pub cRuntimeIdLen: i32,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut core::ffi::c_void, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT>;
-pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut core::ffi::c_void) -> super::super::Foundation::LRESULT>;
-pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_Com")]
-pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_sys::core::BSTR)>;
-#[cfg(feature = "Win32_System_Com")]
-pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
-pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;

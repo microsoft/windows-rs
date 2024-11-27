@@ -61,6 +61,297 @@ windows_targets::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSyste
 windows_targets::link!("kernel32.dll" "system" fn VerSetConditionMask(conditionmask : u64, typemask : VER_FLAGS, condition : u8) -> u64);
 windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoA(lpversioninformation : *mut OSVERSIONINFOEXA, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoW(lpversioninformation : *mut OSVERSIONINFOEXW, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> super::super::Foundation:: BOOL);
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PSTR, usize: u32) -> u32>;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PWSTR, usize: u32) -> u32>;
+pub type COMPUTER_NAME_FORMAT = i32;
+pub type CPU_SET_INFORMATION_TYPE = i32;
+pub type DEP_SYSTEM_POLICY_TYPE = i32;
+pub type DEVELOPER_DRIVE_ENABLEMENT_STATE = i32;
+pub type DEVICEFAMILYDEVICEFORM = u32;
+pub type DEVICEFAMILYINFOENUM = u32;
+pub type FIRMWARE_TABLE_PROVIDER = u32;
+pub type FIRMWARE_TYPE = i32;
+pub type IMAGE_FILE_MACHINE = u16;
+pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
+pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
+pub type OS_PRODUCT_TYPE = u32;
+pub type PROCESSOR_ARCHITECTURE = u16;
+pub type PROCESSOR_CACHE_TYPE = i32;
+pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
+pub type USER_CET_ENVIRONMENT = u32;
+pub type VER_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CACHE_DESCRIPTOR {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub Size: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CACHE_RELATIONSHIP {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub CacheSize: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: CACHE_RELATIONSHIP_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CACHE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_AFFINITY {
+    pub Mask: usize,
+    pub Group: u16,
+    pub Reserved: [u16; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_RELATIONSHIP {
+    pub MaximumGroupCount: u16,
+    pub ActiveGroupCount: u16,
+    pub Reserved: [u8; 20],
+    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORYSTATUS {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub dwTotalPhys: usize,
+    pub dwAvailPhys: usize,
+    pub dwTotalPageFile: usize,
+    pub dwAvailPageFile: usize,
+    pub dwTotalVirtual: usize,
+    pub dwAvailVirtual: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORYSTATUSEX {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub ullTotalPhys: u64,
+    pub ullAvailPhys: u64,
+    pub ullTotalPageFile: u64,
+    pub ullAvailPageFile: u64,
+    pub ullTotalVirtual: u64,
+    pub ullAvailVirtual: u64,
+    pub ullAvailExtendedVirtual: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NUMA_NODE_RELATIONSHIP {
+    pub NodeNumber: u32,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NUMA_NODE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOEXA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [i8; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_GROUP_INFO {
+    pub MaximumProcessorCount: u8,
+    pub ActiveProcessorCount: u8,
+    pub Reserved: [u8; 38],
+    pub ActiveProcessorMask: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_RELATIONSHIP {
+    pub Flags: u8,
+    pub EfficiencyClass: u8,
+    pub Reserved: [u8; 20],
+    pub GroupCount: u16,
+    pub GroupMask: [GROUP_AFFINITY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CPU_SET_INFORMATION {
+    pub Size: u32,
+    pub Type: CPU_SET_INFORMATION_TYPE,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0 {
+    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
+    pub Id: u32,
+    pub Group: u16,
+    pub LogicalProcessorIndex: u8,
+    pub CoreIndex: u8,
+    pub LastLevelCacheIndex: u8,
+    pub NumaNodeIndex: u8,
+    pub EfficiencyClass: u8,
+    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
+    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
+    pub AllocationTag: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    pub AllFlags: u8,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    pub Reserved: u32,
+    pub SchedulingClass: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_INFO {
+    pub Anonymous: SYSTEM_INFO_0,
+    pub dwPageSize: u32,
+    pub lpMinimumApplicationAddress: *mut core::ffi::c_void,
+    pub lpMaximumApplicationAddress: *mut core::ffi::c_void,
+    pub dwActiveProcessorMask: usize,
+    pub dwNumberOfProcessors: u32,
+    pub dwProcessorType: u32,
+    pub dwAllocationGranularity: u32,
+    pub wProcessorLevel: u16,
+    pub wProcessorRevision: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_INFO_0 {
+    pub dwOemId: u32,
+    pub Anonymous: SYSTEM_INFO_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_INFO_0_0 {
+    pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
+    pub wReserved: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    pub ProcessorMask: usize,
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
+    pub Cache: CACHE_DESCRIPTOR,
+    pub Reserved: [u64; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    pub NodeNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    pub Flags: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Size: u32,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    pub Processor: PROCESSOR_RELATIONSHIP,
+    pub NumaNode: NUMA_NODE_RELATIONSHIP,
+    pub Cache: CACHE_RELATIONSHIP,
+    pub Group: GROUP_RELATIONSHIP,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_POOL_ZEROING_INFORMATION {
+    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    pub CycleTime: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    pub _bitfield: u32,
+}
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = 1094930505u32;
 pub const CacheData: PROCESSOR_CACHE_TYPE = 2i32;
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = 1i32;
@@ -458,294 +749,3 @@ pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
 pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
 pub const _WIN32_WINNT_WS03: u32 = 1282u32;
 pub const _WIN32_WINNT_WS08: u32 = 1536u32;
-pub type COMPUTER_NAME_FORMAT = i32;
-pub type CPU_SET_INFORMATION_TYPE = i32;
-pub type DEP_SYSTEM_POLICY_TYPE = i32;
-pub type DEVELOPER_DRIVE_ENABLEMENT_STATE = i32;
-pub type DEVICEFAMILYDEVICEFORM = u32;
-pub type DEVICEFAMILYINFOENUM = u32;
-pub type FIRMWARE_TABLE_PROVIDER = u32;
-pub type FIRMWARE_TYPE = i32;
-pub type IMAGE_FILE_MACHINE = u16;
-pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
-pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
-pub type OS_PRODUCT_TYPE = u32;
-pub type PROCESSOR_ARCHITECTURE = u16;
-pub type PROCESSOR_CACHE_TYPE = i32;
-pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
-pub type USER_CET_ENVIRONMENT = u32;
-pub type VER_FLAGS = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CACHE_DESCRIPTOR {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub Size: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CACHE_RELATIONSHIP {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub CacheSize: u32,
-    pub Type: PROCESSOR_CACHE_TYPE,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: CACHE_RELATIONSHIP_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CACHE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_AFFINITY {
-    pub Mask: usize,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_RELATIONSHIP {
-    pub MaximumGroupCount: u16,
-    pub ActiveGroupCount: u16,
-    pub Reserved: [u8; 20],
-    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORYSTATUS {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub dwTotalPhys: usize,
-    pub dwAvailPhys: usize,
-    pub dwTotalPageFile: usize,
-    pub dwAvailPageFile: usize,
-    pub dwTotalVirtual: usize,
-    pub dwAvailVirtual: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORYSTATUSEX {
-    pub dwLength: u32,
-    pub dwMemoryLoad: u32,
-    pub ullTotalPhys: u64,
-    pub ullAvailPhys: u64,
-    pub ullTotalPageFile: u64,
-    pub ullAvailPageFile: u64,
-    pub ullTotalVirtual: u64,
-    pub ullAvailVirtual: u64,
-    pub ullAvailExtendedVirtual: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NUMA_NODE_RELATIONSHIP {
-    pub NodeNumber: u32,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
-    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NUMA_NODE_RELATIONSHIP_0 {
-    pub GroupMask: GROUP_AFFINITY,
-    pub GroupMasks: [GROUP_AFFINITY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOEXA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOEXW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_GROUP_INFO {
-    pub MaximumProcessorCount: u8,
-    pub ActiveProcessorCount: u8,
-    pub Reserved: [u8; 38],
-    pub ActiveProcessorMask: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_RELATIONSHIP {
-    pub Flags: u8,
-    pub EfficiencyClass: u8,
-    pub Reserved: [u8; 20],
-    pub GroupCount: u16,
-    pub GroupMask: [GROUP_AFFINITY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION {
-    pub Size: u32,
-    pub Type: CPU_SET_INFORMATION_TYPE,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0 {
-    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
-    pub Id: u32,
-    pub Group: u16,
-    pub LogicalProcessorIndex: u8,
-    pub CoreIndex: u8,
-    pub LastLevelCacheIndex: u8,
-    pub NumaNodeIndex: u8,
-    pub EfficiencyClass: u8,
-    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
-    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
-    pub AllocationTag: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    pub AllFlags: u8,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    pub Reserved: u32,
-    pub SchedulingClass: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_INFO {
-    pub Anonymous: SYSTEM_INFO_0,
-    pub dwPageSize: u32,
-    pub lpMinimumApplicationAddress: *mut core::ffi::c_void,
-    pub lpMaximumApplicationAddress: *mut core::ffi::c_void,
-    pub dwActiveProcessorMask: usize,
-    pub dwNumberOfProcessors: u32,
-    pub dwProcessorType: u32,
-    pub dwAllocationGranularity: u32,
-    pub wProcessorLevel: u16,
-    pub wProcessorRevision: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_INFO_0 {
-    pub dwOemId: u32,
-    pub Anonymous: SYSTEM_INFO_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_INFO_0_0 {
-    pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
-    pub wReserved: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    pub ProcessorMask: usize,
-    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
-    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
-    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
-    pub Cache: CACHE_DESCRIPTOR,
-    pub Reserved: [u64; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    pub NodeNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    pub Flags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
-    pub Size: u32,
-    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    pub Processor: PROCESSOR_RELATIONSHIP,
-    pub NumaNode: NUMA_NODE_RELATIONSHIP,
-    pub Cache: CACHE_RELATIONSHIP,
-    pub Group: GROUP_RELATIONSHIP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    pub CycleTime: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    pub _bitfield: u32,
-}
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PSTR, usize: u32) -> u32>;
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PWSTR, usize: u32) -> u32>;

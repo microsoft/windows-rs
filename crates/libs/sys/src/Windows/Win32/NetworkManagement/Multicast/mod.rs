@@ -5,10 +5,6 @@ windows_targets::link!("dhcpcsvc.dll" "system" fn McastGenUID(prequestid : *mut 
 windows_targets::link!("dhcpcsvc.dll" "system" fn McastReleaseAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, preleaserequest : *mut MCAST_LEASE_REQUEST) -> u32);
 windows_targets::link!("dhcpcsvc.dll" "system" fn McastRenewAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, prenewrequest : *mut MCAST_LEASE_REQUEST, prenewresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
 windows_targets::link!("dhcpcsvc.dll" "system" fn McastRequestAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, pscopectx : *mut MCAST_SCOPE_CTX, paddrrequest : *mut MCAST_LEASE_REQUEST, paddrresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
-pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
-pub const MCAST_API_VERSION_0: i32 = 0i32;
-pub const MCAST_API_VERSION_1: i32 = 1i32;
-pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPNG_ADDRESS {
@@ -57,3 +53,7 @@ pub struct MCAST_SCOPE_ENTRY {
     pub TTL: u32,
     pub ScopeDesc: super::super::Foundation::UNICODE_STRING,
 }
+pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+pub const MCAST_API_VERSION_0: i32 = 0i32;
+pub const MCAST_API_VERSION_1: i32 = 1i32;
+pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;

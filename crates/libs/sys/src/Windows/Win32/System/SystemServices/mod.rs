@@ -1,3 +1,1935 @@
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const core::ffi::c_void) -> i32>;
+pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
+#[cfg(target_arch = "aarch64")]
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
+pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
+pub type ACCESS_REASON_TYPE = i32;
+pub type ACTIVATION_CONTEXT_INFO_CLASS = i32;
+pub type ALERT_SYSTEM_SEV = u32;
+pub type APPCOMMAND_ID = u32;
+pub type ARM64_FNPDATA_CR = i32;
+pub type ARM64_FNPDATA_FLAGS = i32;
+pub type ATF_FLAGS = u32;
+pub type CFE_UNDERLINE = u32;
+pub type ENLISTMENT_INFORMATION_CLASS = i32;
+pub type GESTURECONFIG_FLAGS = u32;
+pub type HIBERFILE_BUCKET_SIZE = i32;
+pub type IGP_ID = u32;
+pub type IMAGE_AUX_SYMBOL_TYPE = i32;
+pub type IMAGE_POLICY_ENTRY_TYPE = i32;
+pub type IMAGE_POLICY_ID = i32;
+pub type IMPORT_OBJECT_NAME_TYPE = i32;
+pub type IMPORT_OBJECT_TYPE = i32;
+pub type KTMOBJECT_TYPE = i32;
+pub type MODIFIERKEYS_FLAGS = u32;
+pub type MONITOR_DISPLAY_STATE = i32;
+pub type RECO_FLAGS = u32;
+pub type RESOURCEMANAGER_INFORMATION_CLASS = i32;
+pub type RTL_UMS_SCHEDULER_REASON = i32;
+pub type ReplacesCorHdrNumericDefines = i32;
+pub type SERVERSILO_STATE = i32;
+pub type SERVICE_ERROR_TYPE = i32;
+pub type SERVICE_LOAD_TYPE = i32;
+pub type SERVICE_NODE_TYPE = i32;
+pub type SE_IMAGE_SIGNATURE_TYPE = i32;
+pub type SFGAO_FLAGS = u32;
+pub type STATIC_STYLES = u32;
+pub type SharedVirtualDiskHandleState = i32;
+pub type SharedVirtualDiskSupportType = i32;
+pub type TAPE_DRIVE_PROBLEM_TYPE = i32;
+pub type TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = u32;
+pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
+pub type TRANSACTION_INFORMATION_CLASS = i32;
+pub type TRANSACTION_STATE = i32;
+pub type WORD_WHEEL_OPEN_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ANON_OBJECT_HEADER {
+    pub Sig1: u16,
+    pub Sig2: u16,
+    pub Version: u16,
+    pub Machine: u16,
+    pub TimeDateStamp: u32,
+    pub ClassID: windows_sys::core::GUID,
+    pub SizeOfData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ANON_OBJECT_HEADER_BIGOBJ {
+    pub Sig1: u16,
+    pub Sig2: u16,
+    pub Version: u16,
+    pub Machine: u16,
+    pub TimeDateStamp: u32,
+    pub ClassID: windows_sys::core::GUID,
+    pub SizeOfData: u32,
+    pub Flags: u32,
+    pub MetaDataSize: u32,
+    pub MetaDataOffset: u32,
+    pub NumberOfSections: u32,
+    pub PointerToSymbolTable: u32,
+    pub NumberOfSymbols: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ANON_OBJECT_HEADER_V2 {
+    pub Sig1: u16,
+    pub Sig2: u16,
+    pub Version: u16,
+    pub Machine: u16,
+    pub TimeDateStamp: u32,
+    pub ClassID: windows_sys::core::GUID,
+    pub SizeOfData: u32,
+    pub Flags: u32,
+    pub MetaDataSize: u32,
+    pub MetaDataOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPLICATIONLAUNCH_SETTING_VALUE {
+    pub ActivationTime: i64,
+    pub Flags: u32,
+    pub ButtonInstanceID: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMPONENT_FILTER {
+    pub ComponentFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
+    pub Buffer: [u8; 152],
+    pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
+    pub GpNvRegs: [u64; 11],
+    pub FpNvRegs: [f64; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ENLISTMENT_BASIC_INFORMATION {
+    pub EnlistmentId: windows_sys::core::GUID,
+    pub TransactionId: windows_sys::core::GUID,
+    pub ResourceManagerId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ENLISTMENT_CRM_INFORMATION {
+    pub CrmTransactionManagerId: windows_sys::core::GUID,
+    pub CrmResourceManagerId: windows_sys::core::GUID,
+    pub CrmEnlistmentId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_NOTIFY_FULL_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: u32,
+    pub CreationTime: i64,
+    pub LastModificationTime: i64,
+    pub LastChangeTime: i64,
+    pub LastAccessTime: i64,
+    pub AllocatedLength: i64,
+    pub FileSize: i64,
+    pub FileAttributes: u32,
+    pub Anonymous: FILE_NOTIFY_FULL_INFORMATION_0,
+    pub FileId: i64,
+    pub ParentFileId: i64,
+    pub FileNameLength: u16,
+    pub FileNameFlags: u8,
+    pub Reserved: u8,
+    pub FileName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_NOTIFY_FULL_INFORMATION_0 {
+    pub ReparsePointTag: u32,
+    pub EaSize: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct GDI_NONREMOTE {
+    pub fContext: i32,
+    pub u: GDI_NONREMOTE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union GDI_NONREMOTE_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::Com::DWORD_BLOB,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
+    pub Version: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIBERFILE_BUCKET {
+    pub MaxPhysicalMemory: u64,
+    pub PhysicalMemoryPercent: [u32; 3],
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
+    pub BeginAddress: u64,
+    pub EndAddress: u64,
+    pub ExceptionHandler: u64,
+    pub HandlerData: u64,
+    pub PrologEndAddress: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
+    pub BeginAddress: u32,
+    pub EndAddress: u32,
+    pub ExceptionHandler: u32,
+    pub HandlerData: u32,
+    pub PrologEndAddress: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARCHITECTURE_ENTRY {
+    pub FixupInstRVA: u32,
+    pub NewInst: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARCHITECTURE_HEADER {
+    pub _bitfield: u32,
+    pub FirstEntryRVA: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
+    pub Name: [u8; 16],
+    pub Date: [u8; 12],
+    pub UserID: [u8; 6],
+    pub GroupID: [u8; 6],
+    pub Mode: [u8; 8],
+    pub Size: [u8; 10],
+    pub EndHeader: [u8; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
+    pub HeaderData: u32,
+    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
+    pub BeginAddress: u32,
+    pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
+    pub UnwindData: u32,
+    pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL {
+    pub Sym: IMAGE_AUX_SYMBOL_0,
+    pub File: IMAGE_AUX_SYMBOL_1,
+    pub Section: IMAGE_AUX_SYMBOL_2,
+    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
+    pub CRC: IMAGE_AUX_SYMBOL_3,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_3 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 14],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_1 {
+    pub Name: [u8; 18],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_2 {
+    pub Length: u32,
+    pub NumberOfRelocations: u16,
+    pub NumberOfLinenumbers: u16,
+    pub CheckSum: u32,
+    pub Number: i16,
+    pub Selection: u8,
+    pub bReserved: u8,
+    pub HighNumber: i16,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_0 {
+    pub TagIndex: u32,
+    pub Misc: IMAGE_AUX_SYMBOL_0_0,
+    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
+    pub TvIndex: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_0_1 {
+    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
+    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_0_1_1 {
+    pub Dimension: [u16; 4],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_0_1_0 {
+    pub PointerToLinenumber: u32,
+    pub PointerToNextFunction: u32,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_0_0 {
+    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
+    pub TotalSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_0_0_0 {
+    pub Linenumber: u16,
+    pub Size: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_EX {
+    pub Sym: IMAGE_AUX_SYMBOL_EX_0,
+    pub File: IMAGE_AUX_SYMBOL_EX_1,
+    pub Section: IMAGE_AUX_SYMBOL_EX_2,
+    pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
+    pub CRC: IMAGE_AUX_SYMBOL_EX_4,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_3 {
+    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
+    pub rgbReserved: [u8; 2],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_4 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_1 {
+    pub Name: [u8; 20],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_2 {
+    pub Length: u32,
+    pub NumberOfRelocations: u16,
+    pub NumberOfLinenumbers: u16,
+    pub CheckSum: u32,
+    pub Number: i16,
+    pub Selection: u8,
+    pub bReserved: u8,
+    pub HighNumber: i16,
+    pub rgbReserved: [u8; 2],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_0 {
+    pub WeakDefaultSymIndex: u32,
+    pub WeakSearchType: u32,
+    pub rgbReserved: [u8; 12],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
+    pub bAuxType: u8,
+    pub bReserved: u8,
+    pub SymbolTableIndex: u32,
+    pub rgbReserved: [u8; 12],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_BASE_RELOCATION {
+    pub VirtualAddress: u32,
+    pub SizeOfBlock: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
+    pub Left: u16,
+    pub Right: u16,
+    pub Value: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_BDD_INFO {
+    pub Version: u32,
+    pub BDDSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_BOUND_FORWARDER_REF {
+    pub TimeDateStamp: u32,
+    pub OffsetModuleName: u16,
+    pub Reserved: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
+    pub TimeDateStamp: u32,
+    pub OffsetModuleName: u16,
+    pub NumberOfModuleForwarderRefs: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
+    pub FuncStart: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DEBUG_MISC {
+    pub DataType: u32,
+    pub Length: u32,
+    pub Unicode: super::super::Foundation::BOOLEAN,
+    pub Reserved: [u8; 3],
+    pub Data: [u8; 1],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DOS_HEADER {
+    pub e_magic: u16,
+    pub e_cblp: u16,
+    pub e_cp: u16,
+    pub e_crlc: u16,
+    pub e_cparhdr: u16,
+    pub e_minalloc: u16,
+    pub e_maxalloc: u16,
+    pub e_ss: u16,
+    pub e_sp: u16,
+    pub e_csum: u16,
+    pub e_ip: u16,
+    pub e_cs: u16,
+    pub e_lfarlc: u16,
+    pub e_ovno: u16,
+    pub e_res: [u16; 4],
+    pub e_oemid: u16,
+    pub e_oeminfo: u16,
+    pub e_res2: [u16; 10],
+    pub e_lfanew: i32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DYNAMIC_RELOCATION32 {
+    pub Symbol: u32,
+    pub BaseRelocSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
+    pub HeaderSize: u32,
+    pub FixupInfoSize: u32,
+    pub Symbol: u32,
+    pub SymbolGroup: u32,
+    pub Flags: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DYNAMIC_RELOCATION64 {
+    pub Symbol: u64,
+    pub BaseRelocSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
+    pub HeaderSize: u32,
+    pub FixupInfoSize: u32,
+    pub Symbol: u64,
+    pub SymbolGroup: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
+    pub Version: u32,
+    pub Size: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
+    pub EpilogueCount: u32,
+    pub EpilogueByteCount: u8,
+    pub BranchDescriptorElementSize: u8,
+    pub BranchDescriptorCount: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_EXPORT_DIRECTORY {
+    pub Characteristics: u32,
+    pub TimeDateStamp: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub Name: u32,
+    pub Base: u32,
+    pub NumberOfFunctions: u32,
+    pub NumberOfNames: u32,
+    pub AddressOfFunctions: u32,
+    pub AddressOfNames: u32,
+    pub AddressOfNameOrdinals: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
+    pub OriginalRva: u32,
+    pub BDDOffset: u32,
+    pub RvaSize: u32,
+    pub BaseRelocSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
+    pub FuncOverrideSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_HOT_PATCH_BASE {
+    pub SequenceNumber: u32,
+    pub Flags: u32,
+    pub OriginalTimeDateStamp: u32,
+    pub OriginalCheckSum: u32,
+    pub CodeIntegrityInfo: u32,
+    pub CodeIntegritySize: u32,
+    pub PatchTable: u32,
+    pub BufferOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_HOT_PATCH_HASHES {
+    pub SHA256: [u8; 32],
+    pub SHA1: [u8; 20],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_HOT_PATCH_INFO {
+    pub Version: u32,
+    pub Size: u32,
+    pub SequenceNumber: u32,
+    pub BaseImageList: u32,
+    pub BaseImageCount: u32,
+    pub BufferOffset: u32,
+    pub ExtraPatchSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_IMPORT_BY_NAME {
+    pub Hint: u16,
+    pub Name: [i8; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_IMPORT_DESCRIPTOR {
+    pub Anonymous: IMAGE_IMPORT_DESCRIPTOR_0,
+    pub TimeDateStamp: u32,
+    pub ForwarderChain: u32,
+    pub Name: u32,
+    pub FirstThunk: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_IMPORT_DESCRIPTOR_0 {
+    pub Characteristics: u32,
+    pub OriginalFirstThunk: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_LINENUMBER {
+    pub Type: IMAGE_LINENUMBER_0,
+    pub Linenumber: u16,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_LINENUMBER_0 {
+    pub SymbolTableIndex: u32,
+    pub VirtualAddress: u32,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_OS2_HEADER {
+    pub ne_magic: u16,
+    pub ne_ver: i8,
+    pub ne_rev: i8,
+    pub ne_enttab: u16,
+    pub ne_cbenttab: u16,
+    pub ne_crc: i32,
+    pub ne_flags: u16,
+    pub ne_autodata: u16,
+    pub ne_heap: u16,
+    pub ne_stack: u16,
+    pub ne_csip: i32,
+    pub ne_sssp: i32,
+    pub ne_cseg: u16,
+    pub ne_cmod: u16,
+    pub ne_cbnrestab: u16,
+    pub ne_segtab: u16,
+    pub ne_rsrctab: u16,
+    pub ne_restab: u16,
+    pub ne_modtab: u16,
+    pub ne_imptab: u16,
+    pub ne_nrestab: i32,
+    pub ne_cmovent: u16,
+    pub ne_align: u16,
+    pub ne_cres: u16,
+    pub ne_exetyp: u8,
+    pub ne_flagsothers: u8,
+    pub ne_pretthunks: u16,
+    pub ne_psegrefbytes: u16,
+    pub ne_swaparea: u16,
+    pub ne_expver: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_POLICY_ENTRY {
+    pub Type: IMAGE_POLICY_ENTRY_TYPE,
+    pub PolicyId: IMAGE_POLICY_ID,
+    pub u: IMAGE_POLICY_ENTRY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_POLICY_ENTRY_0 {
+    pub None: *const core::ffi::c_void,
+    pub BoolValue: super::super::Foundation::BOOLEAN,
+    pub Int8Value: i8,
+    pub UInt8Value: u8,
+    pub Int16Value: i16,
+    pub UInt16Value: u16,
+    pub Int32Value: i32,
+    pub UInt32Value: u32,
+    pub Int64Value: i64,
+    pub UInt64Value: u64,
+    pub AnsiStringValue: windows_sys::core::PCSTR,
+    pub UnicodeStringValue: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_POLICY_METADATA {
+    pub Version: u8,
+    pub Reserved0: [u8; 7],
+    pub ApplicationId: u64,
+    pub Policies: [IMAGE_POLICY_ENTRY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
+    pub PrologueByteCount: u8,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RELOCATION {
+    pub Anonymous: IMAGE_RELOCATION_0,
+    pub SymbolTableIndex: u32,
+    pub Type: u16,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_RELOCATION_0 {
+    pub VirtualAddress: u32,
+    pub RelocCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DATA_ENTRY {
+    pub OffsetToData: u32,
+    pub Size: u32,
+    pub CodePage: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIRECTORY {
+    pub Characteristics: u32,
+    pub TimeDateStamp: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub NumberOfNamedEntries: u16,
+    pub NumberOfIdEntries: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
+    pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
+    pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
+    pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0,
+    pub Name: u32,
+    pub Id: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
+    pub OffsetToData: u32,
+    pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
+    pub Length: u16,
+    pub NameString: [i8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_RESOURCE_DIR_STRING_U {
+    pub Length: u16,
+    pub NameString: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SEPARATE_DEBUG_HEADER {
+    pub Signature: u16,
+    pub Flags: u16,
+    pub Machine: u16,
+    pub Characteristics: u16,
+    pub TimeDateStamp: u32,
+    pub CheckSum: u32,
+    pub ImageBase: u32,
+    pub SizeOfImage: u32,
+    pub NumberOfSections: u32,
+    pub ExportedNamesSize: u32,
+    pub DebugDirectorySize: u32,
+    pub SectionAlignment: u32,
+    pub Reserved: [u32; 2],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
+    pub _bitfield: u16,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SYMBOL {
+    pub N: IMAGE_SYMBOL_0,
+    pub Value: u32,
+    pub SectionNumber: i16,
+    pub Type: u16,
+    pub StorageClass: u8,
+    pub NumberOfAuxSymbols: u8,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_SYMBOL_0 {
+    pub ShortName: [u8; 8],
+    pub Name: IMAGE_SYMBOL_0_0,
+    pub LongName: [u32; 2],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SYMBOL_0_0 {
+    pub Short: u32,
+    pub Long: u32,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SYMBOL_EX {
+    pub N: IMAGE_SYMBOL_EX_0,
+    pub Value: u32,
+    pub SectionNumber: i32,
+    pub Type: u16,
+    pub StorageClass: u8,
+    pub NumberOfAuxSymbols: u8,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_SYMBOL_EX_0 {
+    pub ShortName: [u8; 8],
+    pub Name: IMAGE_SYMBOL_EX_0_0,
+    pub LongName: [u32; 2],
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_SYMBOL_EX_0_0 {
+    pub Short: u32,
+    pub Long: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_TLS_DIRECTORY32 {
+    pub StartAddressOfRawData: u32,
+    pub EndAddressOfRawData: u32,
+    pub AddressOfIndex: u32,
+    pub AddressOfCallBacks: u32,
+    pub SizeOfZeroFill: u32,
+    pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_TLS_DIRECTORY32_0 {
+    pub Characteristics: u32,
+    pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_TLS_DIRECTORY32_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_TLS_DIRECTORY64 {
+    pub StartAddressOfRawData: u64,
+    pub EndAddressOfRawData: u64,
+    pub AddressOfIndex: u64,
+    pub AddressOfCallBacks: u64,
+    pub SizeOfZeroFill: u32,
+    pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_TLS_DIRECTORY64_0 {
+    pub Characteristics: u32,
+    pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_TLS_DIRECTORY64_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_VXD_HEADER {
+    pub e32_magic: u16,
+    pub e32_border: u8,
+    pub e32_worder: u8,
+    pub e32_level: u32,
+    pub e32_cpu: u16,
+    pub e32_os: u16,
+    pub e32_ver: u32,
+    pub e32_mflags: u32,
+    pub e32_mpages: u32,
+    pub e32_startobj: u32,
+    pub e32_eip: u32,
+    pub e32_stackobj: u32,
+    pub e32_esp: u32,
+    pub e32_pagesize: u32,
+    pub e32_lastpagesize: u32,
+    pub e32_fixupsize: u32,
+    pub e32_fixupsum: u32,
+    pub e32_ldrsize: u32,
+    pub e32_ldrsum: u32,
+    pub e32_objtab: u32,
+    pub e32_objcnt: u32,
+    pub e32_objmap: u32,
+    pub e32_itermap: u32,
+    pub e32_rsrctab: u32,
+    pub e32_rsrccnt: u32,
+    pub e32_restab: u32,
+    pub e32_enttab: u32,
+    pub e32_dirtab: u32,
+    pub e32_dircnt: u32,
+    pub e32_fpagetab: u32,
+    pub e32_frectab: u32,
+    pub e32_impmod: u32,
+    pub e32_impmodcnt: u32,
+    pub e32_impproc: u32,
+    pub e32_pagesum: u32,
+    pub e32_datapage: u32,
+    pub e32_preload: u32,
+    pub e32_nrestab: u32,
+    pub e32_cbnrestab: u32,
+    pub e32_nressum: u32,
+    pub e32_autodata: u32,
+    pub e32_debuginfo: u32,
+    pub e32_debuglen: u32,
+    pub e32_instpreload: u32,
+    pub e32_instdemand: u32,
+    pub e32_heapsize: u32,
+    pub e32_res3: [u8; 12],
+    pub e32_winresoff: u32,
+    pub e32_winreslen: u32,
+    pub e32_devid: u16,
+    pub e32_ddkver: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMPORT_OBJECT_HEADER {
+    pub Sig1: u16,
+    pub Sig2: u16,
+    pub Version: u16,
+    pub Machine: u16,
+    pub TimeDateStamp: u32,
+    pub SizeOfData: u32,
+    pub Anonymous: IMPORT_OBJECT_HEADER_0,
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMPORT_OBJECT_HEADER_0 {
+    pub Ordinal: u16,
+    pub Hint: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KERNEL_CET_CONTEXT {
+    pub Ssp: u64,
+    pub Rip: u64,
+    pub SegCs: u16,
+    pub Anonymous: KERNEL_CET_CONTEXT_0,
+    pub Fill: [u16; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union KERNEL_CET_CONTEXT_0 {
+    pub AllFlags: u16,
+    pub Anonymous: KERNEL_CET_CONTEXT_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KERNEL_CET_CONTEXT_0_0 {
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KTMOBJECT_CURSOR {
+    pub LastQuery: windows_sys::core::GUID,
+    pub ObjectIdCount: u32,
+    pub ObjectIds: [windows_sys::core::GUID; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MAXVERSIONTESTED_INFO {
+    pub MaxVersionTested: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_APP_INSTANCE_EA {
+    pub AppInstanceID: windows_sys::core::GUID,
+    pub CsvFlags: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct NON_PAGED_DEBUG_INFO {
+    pub Signature: u16,
+    pub Flags: u16,
+    pub Size: u32,
+    pub Machine: u16,
+    pub Characteristics: u16,
+    pub TimeDateStamp: u32,
+    pub CheckSum: u32,
+    pub SizeOfImage: u32,
+    pub ImageBase: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NOTIFY_USER_POWER_SETTING {
+    pub Guid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NT_TIB32 {
+    pub ExceptionList: u32,
+    pub StackBase: u32,
+    pub StackLimit: u32,
+    pub SubSystemTib: u32,
+    pub Anonymous: NT_TIB32_0,
+    pub ArbitraryUserPointer: u32,
+    pub Self_: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NT_TIB32_0 {
+    pub FiberData: u32,
+    pub Version: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NT_TIB64 {
+    pub ExceptionList: u64,
+    pub StackBase: u64,
+    pub StackLimit: u64,
+    pub SubSystemTib: u64,
+    pub Anonymous: NT_TIB64_0,
+    pub ArbitraryUserPointer: u64,
+    pub Self_: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NT_TIB64_0 {
+    pub FiberData: u64,
+    pub Version: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKEDEVENTINFO {
+    pub ulSize: u32,
+    pub ulNumEventsForLogFile: u32,
+    pub ulOffsets: [u32; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_IDLESTATE_INFO {
+    pub TimeCheck: u32,
+    pub DemotePercent: u8,
+    pub PromotePercent: u8,
+    pub Spare: [u8; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_IDLESTATE_POLICY {
+    pub Revision: u16,
+    pub Flags: PROCESSOR_IDLESTATE_POLICY_0,
+    pub PolicyCount: u32,
+    pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESSOR_IDLESTATE_POLICY_0 {
+    pub AsWORD: u16,
+    pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_PERFSTATE_POLICY {
+    pub Revision: u32,
+    pub MaxThrottle: u8,
+    pub MinThrottle: u8,
+    pub BusyAdjThreshold: u8,
+    pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0,
+    pub TimeCheck: u32,
+    pub IncreaseTime: u32,
+    pub DecreaseTime: u32,
+    pub IncreasePercent: u32,
+    pub DecreasePercent: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESSOR_PERFSTATE_POLICY_0 {
+    pub Spare: u8,
+    pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
+    pub AsBYTE: u8,
+    pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_ASLR_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_DEP_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
+    pub Permanent: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_DEP_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SEHOP_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUOTA_LIMITS_EX {
+    pub PagedPoolLimit: usize,
+    pub NonPagedPoolLimit: usize,
+    pub MinimumWorkingSetSize: usize,
+    pub MaximumWorkingSetSize: usize,
+    pub PagefileLimit: usize,
+    pub TimeLimit: i64,
+    pub WorkingSetLimit: usize,
+    pub Reserved2: usize,
+    pub Reserved3: usize,
+    pub Reserved4: usize,
+    pub Flags: u32,
+    pub CpuRateLimit: RATE_QUOTA_LIMIT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RATE_QUOTA_LIMIT {
+    pub RateData: u32,
+    pub Anonymous: RATE_QUOTA_LIMIT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RATE_QUOTA_LIMIT_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REARRANGE_FILE_DATA {
+    pub SourceStartingOffset: u64,
+    pub TargetOffset: u64,
+    pub SourceFileHandle: super::super::Foundation::HANDLE,
+    pub Length: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct REARRANGE_FILE_DATA32 {
+    pub SourceStartingOffset: u64,
+    pub TargetOffset: u64,
+    pub SourceFileHandle: u32,
+    pub Length: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
+    pub Version: u32,
+    pub Accurate: u32,
+    pub Supported: u32,
+    pub AccurateMask0: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCEMANAGER_BASIC_INFORMATION {
+    pub ResourceManagerId: windows_sys::core::GUID,
+    pub DescriptionLength: u32,
+    pub Description: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
+    pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
+    pub CompletionKey: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHBITMAP {
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHBRUSH {
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHENHMETAFILE {
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHGLOBAL {
+    pub fNullHGlobal: i32,
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHMETAFILEPICT {
+    pub mm: i32,
+    pub xExt: i32,
+    pub yExt: i32,
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemHPALETTE {
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemotableHandle {
+    pub fContext: i32,
+    pub u: RemotableHandle_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RemotableHandle_0 {
+    pub hInproc: i32,
+    pub hRemote: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_AMD64 {
+    pub Count: u32,
+    pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_AMD64_0 {
+    pub BeginAddress: u32,
+    pub EndAddress: u32,
+    pub HandlerAddress: u32,
+    pub JumpTarget: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_ARM {
+    pub Count: u32,
+    pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_ARM_0 {
+    pub BeginAddress: u32,
+    pub EndAddress: u32,
+    pub HandlerAddress: u32,
+    pub JumpTarget: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_ARM64 {
+    pub Count: u32,
+    pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCOPE_TABLE_ARM64_0 {
+    pub BeginAddress: u32,
+    pub EndAddress: u32,
+    pub HandlerAddress: u32,
+    pub JumpTarget: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCRUB_DATA_INPUT {
+    pub Size: u32,
+    pub Flags: u32,
+    pub MaximumIos: u32,
+    pub ObjectId: [u32; 4],
+    pub Reserved: [u32; 41],
+    pub ResumeContext: [u8; 1040],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCRUB_DATA_OUTPUT {
+    pub Size: u32,
+    pub Flags: u32,
+    pub Status: u32,
+    pub ErrorFileOffset: u64,
+    pub ErrorLength: u64,
+    pub NumberOfBytesRepaired: u64,
+    pub NumberOfBytesFailed: u64,
+    pub InternalFileReference: u64,
+    pub ResumeContextLength: u16,
+    pub ParityExtentDataOffset: u16,
+    pub Reserved: [u32; 9],
+    pub NumberOfMetadataBytesProcessed: u64,
+    pub NumberOfDataBytesProcessed: u64,
+    pub TotalNumberOfMetadataBytesInUse: u64,
+    pub TotalNumberOfDataBytesInUse: u64,
+    pub DataBytesSkippedDueToNoAllocation: u64,
+    pub DataBytesSkippedDueToInvalidRun: u64,
+    pub DataBytesSkippedDueToIntegrityStream: u64,
+    pub DataBytesSkippedDueToRegionBeingClean: u64,
+    pub DataBytesSkippedDueToLockConflict: u64,
+    pub DataBytesSkippedDueToNoScrubDataFlag: u64,
+    pub DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: u64,
+    pub DataBytesScrubbed: u64,
+    pub ResumeContext: [u8; 1040],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCRUB_PARITY_EXTENT {
+    pub Offset: i64,
+    pub Length: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCRUB_PARITY_EXTENT_DATA {
+    pub Size: u16,
+    pub Flags: u16,
+    pub NumberOfParityExtents: u16,
+    pub MaximumNumberOfParityExtents: u16,
+    pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SECURITY_OBJECT_AI_PARAMS {
+    pub Size: u32,
+    pub ConstraintMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SERVERSILO_BASIC_INFORMATION {
+    pub ServiceSessionId: u32,
+    pub State: SERVERSILO_STATE,
+    pub ExitStatus: u32,
+    pub IsDownlevelContainer: super::super::Foundation::BOOLEAN,
+    pub ApiSetSchema: *mut core::ffi::c_void,
+    pub HostApiSetSchema: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct SE_TOKEN_USER {
+    pub Anonymous1: SE_TOKEN_USER_0,
+    pub Anonymous2: SE_TOKEN_USER_1,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub union SE_TOKEN_USER_0 {
+    pub TokenUser: super::super::Security::TOKEN_USER,
+    pub User: super::super::Security::SID_AND_ATTRIBUTES,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub union SE_TOKEN_USER_1 {
+    pub Sid: super::super::Security::SID,
+    pub Buffer: [u8; 68],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHARED_VIRTUAL_DISK_SUPPORT {
+    pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
+    pub HandleState: SharedVirtualDiskHandleState,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHUFFLE_FILE_DATA {
+    pub StartingOffset: i64,
+    pub Length: i64,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SILOOBJECT_BASIC_INFORMATION {
+    pub SiloId: u32,
+    pub SiloParentId: u32,
+    pub NumberOfProcesses: u32,
+    pub IsInServerSilo: super::super::Foundation::BOOLEAN,
+    pub Reserved: [u8; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SUPPORTED_OS_INFO {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_CREATE_PARTITION {
+    pub Method: u32,
+    pub Count: u32,
+    pub Size: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_GET_DRIVE_PARAMETERS {
+    pub ECC: super::super::Foundation::BOOLEAN,
+    pub Compression: super::super::Foundation::BOOLEAN,
+    pub DataPadding: super::super::Foundation::BOOLEAN,
+    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
+    pub DefaultBlockSize: u32,
+    pub MaximumBlockSize: u32,
+    pub MinimumBlockSize: u32,
+    pub MaximumPartitionCount: u32,
+    pub FeaturesLow: u32,
+    pub FeaturesHigh: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH,
+    pub EOTWarningZoneSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_GET_MEDIA_PARAMETERS {
+    pub Capacity: i64,
+    pub Remaining: i64,
+    pub BlockSize: u32,
+    pub PartitionCount: u32,
+    pub WriteProtected: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_SET_DRIVE_PARAMETERS {
+    pub ECC: super::super::Foundation::BOOLEAN,
+    pub Compression: super::super::Foundation::BOOLEAN,
+    pub DataPadding: super::super::Foundation::BOOLEAN,
+    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
+    pub EOTWarningZoneSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_SET_MEDIA_PARAMETERS {
+    pub BlockSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPE_WMI_OPERATIONS {
+    pub Method: u32,
+    pub DataBufferSize: u32,
+    pub DataBuffer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TOKEN_BNO_ISOLATION_INFORMATION {
+    pub IsolationPrefix: windows_sys::core::PWSTR,
+    pub IsolationEnabled: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct TOKEN_SID_INFORMATION {
+    pub Sid: super::super::Security::PSID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
+    pub TmIdentity: windows_sys::core::GUID,
+    pub VirtualClock: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
+    pub LogPathLength: u32,
+    pub LogPath: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
+    pub LogIdentity: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
+    pub OldestTransactionGuid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
+    pub LastRecoveredLsn: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_BASIC_INFORMATION {
+    pub TransactionId: windows_sys::core::GUID,
+    pub State: u32,
+    pub Outcome: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_BIND_INFORMATION {
+    pub TmHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
+    pub NumberOfEnlistments: u32,
+    pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_ENLISTMENT_PAIR {
+    pub EnlistmentId: windows_sys::core::GUID,
+    pub ResourceManagerId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_LIST_ENTRY {
+    pub UOW: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_LIST_INFORMATION {
+    pub NumberOfTransactions: u32,
+    pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_PROPERTIES_INFORMATION {
+    pub IsolationLevel: u32,
+    pub IsolationFlags: u32,
+    pub Timeout: i64,
+    pub Outcome: u32,
+    pub DescriptionLength: u32,
+    pub Description: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
+    pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UMS_CREATE_THREAD_ATTRIBUTES {
+    pub UmsVersion: u32,
+    pub UmsContext: *mut core::ffi::c_void,
+    pub UmsCompletionList: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XSAVE_CET_U_FORMAT {
+    pub Ia32CetUMsr: u64,
+    pub Ia32Pl3SspMsr: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct remoteMETAFILEPICT {
+    pub mm: i32,
+    pub xExt: i32,
+    pub yExt: i32,
+    pub hMF: *mut userHMETAFILE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct userBITMAP {
+    pub bmType: i32,
+    pub bmWidth: i32,
+    pub bmHeight: i32,
+    pub bmWidthBytes: i32,
+    pub bmPlanes: u16,
+    pub bmBitsPixel: u16,
+    pub cbSize: u32,
+    pub pBuffer: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct userCLIPFORMAT {
+    pub fContext: i32,
+    pub u: userCLIPFORMAT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union userCLIPFORMAT_0 {
+    pub dwValue: u32,
+    pub pwszName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct userHBITMAP {
+    pub fContext: i32,
+    pub u: userHBITMAP_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union userHBITMAP_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut userBITMAP,
+    pub hInproc64: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct userHENHMETAFILE {
+    pub fContext: i32,
+    pub u: userHENHMETAFILE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union userHENHMETAFILE_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::Com::BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct userHGLOBAL {
+    pub fContext: i32,
+    pub u: userHGLOBAL_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union userHGLOBAL_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct userHMETAFILE {
+    pub fContext: i32,
+    pub u: userHMETAFILE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union userHMETAFILE_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::Com::BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct userHMETAFILEPICT {
+    pub fContext: i32,
+    pub u: userHMETAFILEPICT_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union userHMETAFILEPICT_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut remoteMETAFILEPICT,
+    pub hInproc64: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct userHPALETTE {
+    pub fContext: i32,
+    pub u: userHPALETTE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union userHPALETTE_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,
+    pub hInproc64: i64,
+}
 pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0u32;
 pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: u32 = 9u32;
 pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: u32 = 11u32;
@@ -2607,1935 +4539,3 @@ pub const _MM_HINT_NTA: u32 = 0u32;
 pub const _MM_HINT_T0: u32 = 1u32;
 pub const _MM_HINT_T1: u32 = 2u32;
 pub const _MM_HINT_T2: u32 = 3u32;
-pub type ACCESS_REASON_TYPE = i32;
-pub type ACTIVATION_CONTEXT_INFO_CLASS = i32;
-pub type ALERT_SYSTEM_SEV = u32;
-pub type APPCOMMAND_ID = u32;
-pub type ARM64_FNPDATA_CR = i32;
-pub type ARM64_FNPDATA_FLAGS = i32;
-pub type ATF_FLAGS = u32;
-pub type CFE_UNDERLINE = u32;
-pub type ENLISTMENT_INFORMATION_CLASS = i32;
-pub type GESTURECONFIG_FLAGS = u32;
-pub type HIBERFILE_BUCKET_SIZE = i32;
-pub type IGP_ID = u32;
-pub type IMAGE_AUX_SYMBOL_TYPE = i32;
-pub type IMAGE_POLICY_ENTRY_TYPE = i32;
-pub type IMAGE_POLICY_ID = i32;
-pub type IMPORT_OBJECT_NAME_TYPE = i32;
-pub type IMPORT_OBJECT_TYPE = i32;
-pub type KTMOBJECT_TYPE = i32;
-pub type MODIFIERKEYS_FLAGS = u32;
-pub type MONITOR_DISPLAY_STATE = i32;
-pub type RECO_FLAGS = u32;
-pub type RESOURCEMANAGER_INFORMATION_CLASS = i32;
-pub type RTL_UMS_SCHEDULER_REASON = i32;
-pub type ReplacesCorHdrNumericDefines = i32;
-pub type SERVERSILO_STATE = i32;
-pub type SERVICE_ERROR_TYPE = i32;
-pub type SERVICE_LOAD_TYPE = i32;
-pub type SERVICE_NODE_TYPE = i32;
-pub type SE_IMAGE_SIGNATURE_TYPE = i32;
-pub type SFGAO_FLAGS = u32;
-pub type STATIC_STYLES = u32;
-pub type SharedVirtualDiskHandleState = i32;
-pub type SharedVirtualDiskSupportType = i32;
-pub type TAPE_DRIVE_PROBLEM_TYPE = i32;
-pub type TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = u32;
-pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
-pub type TRANSACTION_INFORMATION_CLASS = i32;
-pub type TRANSACTION_STATE = i32;
-pub type WORD_WHEEL_OPEN_FLAGS = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ANON_OBJECT_HEADER {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_sys::core::GUID,
-    pub SizeOfData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ANON_OBJECT_HEADER_BIGOBJ {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_sys::core::GUID,
-    pub SizeOfData: u32,
-    pub Flags: u32,
-    pub MetaDataSize: u32,
-    pub MetaDataOffset: u32,
-    pub NumberOfSections: u32,
-    pub PointerToSymbolTable: u32,
-    pub NumberOfSymbols: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ANON_OBJECT_HEADER_V2 {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_sys::core::GUID,
-    pub SizeOfData: u32,
-    pub Flags: u32,
-    pub MetaDataSize: u32,
-    pub MetaDataOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPLICATIONLAUNCH_SETTING_VALUE {
-    pub ActivationTime: i64,
-    pub Flags: u32,
-    pub ButtonInstanceID: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMPONENT_FILTER {
-    pub ComponentFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
-    pub Buffer: [u8; 152],
-    pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
-    pub GpNvRegs: [u64; 11],
-    pub FpNvRegs: [f64; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ENLISTMENT_BASIC_INFORMATION {
-    pub EnlistmentId: windows_sys::core::GUID,
-    pub TransactionId: windows_sys::core::GUID,
-    pub ResourceManagerId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ENLISTMENT_CRM_INFORMATION {
-    pub CrmTransactionManagerId: windows_sys::core::GUID,
-    pub CrmResourceManagerId: windows_sys::core::GUID,
-    pub CrmEnlistmentId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_NOTIFY_FULL_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: u32,
-    pub CreationTime: i64,
-    pub LastModificationTime: i64,
-    pub LastChangeTime: i64,
-    pub LastAccessTime: i64,
-    pub AllocatedLength: i64,
-    pub FileSize: i64,
-    pub FileAttributes: u32,
-    pub Anonymous: FILE_NOTIFY_FULL_INFORMATION_0,
-    pub FileId: i64,
-    pub ParentFileId: i64,
-    pub FileNameLength: u16,
-    pub FileNameFlags: u8,
-    pub Reserved: u8,
-    pub FileName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_NOTIFY_FULL_INFORMATION_0 {
-    pub ReparsePointTag: u32,
-    pub EaSize: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct GDI_NONREMOTE {
-    pub fContext: i32,
-    pub u: GDI_NONREMOTE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union GDI_NONREMOTE_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::Com::DWORD_BLOB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
-    pub Version: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIBERFILE_BUCKET {
-    pub MaxPhysicalMemory: u64,
-    pub PhysicalMemoryPercent: [u32; 3],
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u64,
-    pub EndAddress: u64,
-    pub ExceptionHandler: u64,
-    pub HandlerData: u64,
-    pub PrologEndAddress: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub ExceptionHandler: u32,
-    pub HandlerData: u32,
-    pub PrologEndAddress: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARCHITECTURE_ENTRY {
-    pub FixupInstRVA: u32,
-    pub NewInst: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARCHITECTURE_HEADER {
-    pub _bitfield: u32,
-    pub FirstEntryRVA: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
-    pub Name: [u8; 16],
-    pub Date: [u8; 12],
-    pub UserID: [u8; 6],
-    pub GroupID: [u8; 6],
-    pub Mode: [u8; 8],
-    pub Size: [u8; 10],
-    pub EndHeader: [u8; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
-    pub HeaderData: u32,
-    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
-    pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
-    pub UnwindData: u32,
-    pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL {
-    pub Sym: IMAGE_AUX_SYMBOL_0,
-    pub File: IMAGE_AUX_SYMBOL_1,
-    pub Section: IMAGE_AUX_SYMBOL_2,
-    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub CRC: IMAGE_AUX_SYMBOL_3,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 14],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_1 {
-    pub Name: [u8; 18],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_2 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0 {
-    pub TagIndex: u32,
-    pub Misc: IMAGE_AUX_SYMBOL_0_0,
-    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
-    pub TvIndex: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_0_1 {
-    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
-    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0_1_1 {
-    pub Dimension: [u16; 4],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0_1_0 {
-    pub PointerToLinenumber: u32,
-    pub PointerToNextFunction: u32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_0_0 {
-    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
-    pub TotalSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0_0_0 {
-    pub Linenumber: u16,
-    pub Size: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_EX {
-    pub Sym: IMAGE_AUX_SYMBOL_EX_0,
-    pub File: IMAGE_AUX_SYMBOL_EX_1,
-    pub Section: IMAGE_AUX_SYMBOL_EX_2,
-    pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
-    pub CRC: IMAGE_AUX_SYMBOL_EX_4,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_3 {
-    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub rgbReserved: [u8; 2],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_4 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_1 {
-    pub Name: [u8; 20],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_2 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
-    pub rgbReserved: [u8; 2],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_0 {
-    pub WeakDefaultSymIndex: u32,
-    pub WeakSearchType: u32,
-    pub rgbReserved: [u8; 12],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
-    pub bAuxType: u8,
-    pub bReserved: u8,
-    pub SymbolTableIndex: u32,
-    pub rgbReserved: [u8; 12],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_BASE_RELOCATION {
-    pub VirtualAddress: u32,
-    pub SizeOfBlock: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
-    pub Left: u16,
-    pub Right: u16,
-    pub Value: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_BDD_INFO {
-    pub Version: u32,
-    pub BDDSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_BOUND_FORWARDER_REF {
-    pub TimeDateStamp: u32,
-    pub OffsetModuleName: u16,
-    pub Reserved: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
-    pub TimeDateStamp: u32,
-    pub OffsetModuleName: u16,
-    pub NumberOfModuleForwarderRefs: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    pub FuncStart: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DEBUG_MISC {
-    pub DataType: u32,
-    pub Length: u32,
-    pub Unicode: super::super::Foundation::BOOLEAN,
-    pub Reserved: [u8; 3],
-    pub Data: [u8; 1],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DOS_HEADER {
-    pub e_magic: u16,
-    pub e_cblp: u16,
-    pub e_cp: u16,
-    pub e_crlc: u16,
-    pub e_cparhdr: u16,
-    pub e_minalloc: u16,
-    pub e_maxalloc: u16,
-    pub e_ss: u16,
-    pub e_sp: u16,
-    pub e_csum: u16,
-    pub e_ip: u16,
-    pub e_cs: u16,
-    pub e_lfarlc: u16,
-    pub e_ovno: u16,
-    pub e_res: [u16; 4],
-    pub e_oemid: u16,
-    pub e_oeminfo: u16,
-    pub e_res2: [u16; 10],
-    pub e_lfanew: i32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DYNAMIC_RELOCATION32 {
-    pub Symbol: u32,
-    pub BaseRelocSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
-    pub HeaderSize: u32,
-    pub FixupInfoSize: u32,
-    pub Symbol: u32,
-    pub SymbolGroup: u32,
-    pub Flags: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DYNAMIC_RELOCATION64 {
-    pub Symbol: u64,
-    pub BaseRelocSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
-    pub HeaderSize: u32,
-    pub FixupInfoSize: u32,
-    pub Symbol: u64,
-    pub SymbolGroup: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
-    pub Version: u32,
-    pub Size: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
-    pub EpilogueCount: u32,
-    pub EpilogueByteCount: u8,
-    pub BranchDescriptorElementSize: u8,
-    pub BranchDescriptorCount: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_EXPORT_DIRECTORY {
-    pub Characteristics: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub Name: u32,
-    pub Base: u32,
-    pub NumberOfFunctions: u32,
-    pub NumberOfNames: u32,
-    pub AddressOfFunctions: u32,
-    pub AddressOfNames: u32,
-    pub AddressOfNameOrdinals: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
-    pub OriginalRva: u32,
-    pub BDDOffset: u32,
-    pub RvaSize: u32,
-    pub BaseRelocSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
-    pub FuncOverrideSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_HOT_PATCH_BASE {
-    pub SequenceNumber: u32,
-    pub Flags: u32,
-    pub OriginalTimeDateStamp: u32,
-    pub OriginalCheckSum: u32,
-    pub CodeIntegrityInfo: u32,
-    pub CodeIntegritySize: u32,
-    pub PatchTable: u32,
-    pub BufferOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_HOT_PATCH_HASHES {
-    pub SHA256: [u8; 32],
-    pub SHA1: [u8; 20],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_HOT_PATCH_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub SequenceNumber: u32,
-    pub BaseImageList: u32,
-    pub BaseImageCount: u32,
-    pub BufferOffset: u32,
-    pub ExtraPatchSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_IMPORT_BY_NAME {
-    pub Hint: u16,
-    pub Name: [i8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_IMPORT_DESCRIPTOR {
-    pub Anonymous: IMAGE_IMPORT_DESCRIPTOR_0,
-    pub TimeDateStamp: u32,
-    pub ForwarderChain: u32,
-    pub Name: u32,
-    pub FirstThunk: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_IMPORT_DESCRIPTOR_0 {
-    pub Characteristics: u32,
-    pub OriginalFirstThunk: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_LINENUMBER {
-    pub Type: IMAGE_LINENUMBER_0,
-    pub Linenumber: u16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_LINENUMBER_0 {
-    pub SymbolTableIndex: u32,
-    pub VirtualAddress: u32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_OS2_HEADER {
-    pub ne_magic: u16,
-    pub ne_ver: i8,
-    pub ne_rev: i8,
-    pub ne_enttab: u16,
-    pub ne_cbenttab: u16,
-    pub ne_crc: i32,
-    pub ne_flags: u16,
-    pub ne_autodata: u16,
-    pub ne_heap: u16,
-    pub ne_stack: u16,
-    pub ne_csip: i32,
-    pub ne_sssp: i32,
-    pub ne_cseg: u16,
-    pub ne_cmod: u16,
-    pub ne_cbnrestab: u16,
-    pub ne_segtab: u16,
-    pub ne_rsrctab: u16,
-    pub ne_restab: u16,
-    pub ne_modtab: u16,
-    pub ne_imptab: u16,
-    pub ne_nrestab: i32,
-    pub ne_cmovent: u16,
-    pub ne_align: u16,
-    pub ne_cres: u16,
-    pub ne_exetyp: u8,
-    pub ne_flagsothers: u8,
-    pub ne_pretthunks: u16,
-    pub ne_psegrefbytes: u16,
-    pub ne_swaparea: u16,
-    pub ne_expver: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_POLICY_ENTRY {
-    pub Type: IMAGE_POLICY_ENTRY_TYPE,
-    pub PolicyId: IMAGE_POLICY_ID,
-    pub u: IMAGE_POLICY_ENTRY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_POLICY_ENTRY_0 {
-    pub None: *const core::ffi::c_void,
-    pub BoolValue: super::super::Foundation::BOOLEAN,
-    pub Int8Value: i8,
-    pub UInt8Value: u8,
-    pub Int16Value: i16,
-    pub UInt16Value: u16,
-    pub Int32Value: i32,
-    pub UInt32Value: u32,
-    pub Int64Value: i64,
-    pub UInt64Value: u64,
-    pub AnsiStringValue: windows_sys::core::PCSTR,
-    pub UnicodeStringValue: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_POLICY_METADATA {
-    pub Version: u8,
-    pub Reserved0: [u8; 7],
-    pub ApplicationId: u64,
-    pub Policies: [IMAGE_POLICY_ENTRY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
-    pub PrologueByteCount: u8,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RELOCATION {
-    pub Anonymous: IMAGE_RELOCATION_0,
-    pub SymbolTableIndex: u32,
-    pub Type: u16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_RELOCATION_0 {
-    pub VirtualAddress: u32,
-    pub RelocCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DATA_ENTRY {
-    pub OffsetToData: u32,
-    pub Size: u32,
-    pub CodePage: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIRECTORY {
-    pub Characteristics: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub NumberOfNamedEntries: u16,
-    pub NumberOfIdEntries: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
-    pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
-    pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
-    pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0,
-    pub Name: u32,
-    pub Id: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
-    pub OffsetToData: u32,
-    pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
-    pub Length: u16,
-    pub NameString: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_RESOURCE_DIR_STRING_U {
-    pub Length: u16,
-    pub NameString: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SEPARATE_DEBUG_HEADER {
-    pub Signature: u16,
-    pub Flags: u16,
-    pub Machine: u16,
-    pub Characteristics: u16,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub ImageBase: u32,
-    pub SizeOfImage: u32,
-    pub NumberOfSections: u32,
-    pub ExportedNamesSize: u32,
-    pub DebugDirectorySize: u32,
-    pub SectionAlignment: u32,
-    pub Reserved: [u32; 2],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
-    pub _bitfield: u16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SYMBOL {
-    pub N: IMAGE_SYMBOL_0,
-    pub Value: u32,
-    pub SectionNumber: i16,
-    pub Type: u16,
-    pub StorageClass: u8,
-    pub NumberOfAuxSymbols: u8,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_SYMBOL_0 {
-    pub ShortName: [u8; 8],
-    pub Name: IMAGE_SYMBOL_0_0,
-    pub LongName: [u32; 2],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SYMBOL_0_0 {
-    pub Short: u32,
-    pub Long: u32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SYMBOL_EX {
-    pub N: IMAGE_SYMBOL_EX_0,
-    pub Value: u32,
-    pub SectionNumber: i32,
-    pub Type: u16,
-    pub StorageClass: u8,
-    pub NumberOfAuxSymbols: u8,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_SYMBOL_EX_0 {
-    pub ShortName: [u8; 8],
-    pub Name: IMAGE_SYMBOL_EX_0_0,
-    pub LongName: [u32; 2],
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_SYMBOL_EX_0_0 {
-    pub Short: u32,
-    pub Long: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_TLS_DIRECTORY32 {
-    pub StartAddressOfRawData: u32,
-    pub EndAddressOfRawData: u32,
-    pub AddressOfIndex: u32,
-    pub AddressOfCallBacks: u32,
-    pub SizeOfZeroFill: u32,
-    pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_TLS_DIRECTORY32_0 {
-    pub Characteristics: u32,
-    pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_TLS_DIRECTORY32_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_TLS_DIRECTORY64 {
-    pub StartAddressOfRawData: u64,
-    pub EndAddressOfRawData: u64,
-    pub AddressOfIndex: u64,
-    pub AddressOfCallBacks: u64,
-    pub SizeOfZeroFill: u32,
-    pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_TLS_DIRECTORY64_0 {
-    pub Characteristics: u32,
-    pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_TLS_DIRECTORY64_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_VXD_HEADER {
-    pub e32_magic: u16,
-    pub e32_border: u8,
-    pub e32_worder: u8,
-    pub e32_level: u32,
-    pub e32_cpu: u16,
-    pub e32_os: u16,
-    pub e32_ver: u32,
-    pub e32_mflags: u32,
-    pub e32_mpages: u32,
-    pub e32_startobj: u32,
-    pub e32_eip: u32,
-    pub e32_stackobj: u32,
-    pub e32_esp: u32,
-    pub e32_pagesize: u32,
-    pub e32_lastpagesize: u32,
-    pub e32_fixupsize: u32,
-    pub e32_fixupsum: u32,
-    pub e32_ldrsize: u32,
-    pub e32_ldrsum: u32,
-    pub e32_objtab: u32,
-    pub e32_objcnt: u32,
-    pub e32_objmap: u32,
-    pub e32_itermap: u32,
-    pub e32_rsrctab: u32,
-    pub e32_rsrccnt: u32,
-    pub e32_restab: u32,
-    pub e32_enttab: u32,
-    pub e32_dirtab: u32,
-    pub e32_dircnt: u32,
-    pub e32_fpagetab: u32,
-    pub e32_frectab: u32,
-    pub e32_impmod: u32,
-    pub e32_impmodcnt: u32,
-    pub e32_impproc: u32,
-    pub e32_pagesum: u32,
-    pub e32_datapage: u32,
-    pub e32_preload: u32,
-    pub e32_nrestab: u32,
-    pub e32_cbnrestab: u32,
-    pub e32_nressum: u32,
-    pub e32_autodata: u32,
-    pub e32_debuginfo: u32,
-    pub e32_debuglen: u32,
-    pub e32_instpreload: u32,
-    pub e32_instdemand: u32,
-    pub e32_heapsize: u32,
-    pub e32_res3: [u8; 12],
-    pub e32_winresoff: u32,
-    pub e32_winreslen: u32,
-    pub e32_devid: u16,
-    pub e32_ddkver: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMPORT_OBJECT_HEADER {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub SizeOfData: u32,
-    pub Anonymous: IMPORT_OBJECT_HEADER_0,
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMPORT_OBJECT_HEADER_0 {
-    pub Ordinal: u16,
-    pub Hint: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KERNEL_CET_CONTEXT {
-    pub Ssp: u64,
-    pub Rip: u64,
-    pub SegCs: u16,
-    pub Anonymous: KERNEL_CET_CONTEXT_0,
-    pub Fill: [u16; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union KERNEL_CET_CONTEXT_0 {
-    pub AllFlags: u16,
-    pub Anonymous: KERNEL_CET_CONTEXT_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KERNEL_CET_CONTEXT_0_0 {
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KTMOBJECT_CURSOR {
-    pub LastQuery: windows_sys::core::GUID,
-    pub ObjectIdCount: u32,
-    pub ObjectIds: [windows_sys::core::GUID; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MAXVERSIONTESTED_INFO {
-    pub MaxVersionTested: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_APP_INSTANCE_EA {
-    pub AppInstanceID: windows_sys::core::GUID,
-    pub CsvFlags: u32,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct NON_PAGED_DEBUG_INFO {
-    pub Signature: u16,
-    pub Flags: u16,
-    pub Size: u32,
-    pub Machine: u16,
-    pub Characteristics: u16,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub SizeOfImage: u32,
-    pub ImageBase: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NOTIFY_USER_POWER_SETTING {
-    pub Guid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NT_TIB32 {
-    pub ExceptionList: u32,
-    pub StackBase: u32,
-    pub StackLimit: u32,
-    pub SubSystemTib: u32,
-    pub Anonymous: NT_TIB32_0,
-    pub ArbitraryUserPointer: u32,
-    pub Self_: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NT_TIB32_0 {
-    pub FiberData: u32,
-    pub Version: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NT_TIB64 {
-    pub ExceptionList: u64,
-    pub StackBase: u64,
-    pub StackLimit: u64,
-    pub SubSystemTib: u64,
-    pub Anonymous: NT_TIB64_0,
-    pub ArbitraryUserPointer: u64,
-    pub Self_: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NT_TIB64_0 {
-    pub FiberData: u64,
-    pub Version: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PACKEDEVENTINFO {
-    pub ulSize: u32,
-    pub ulNumEventsForLogFile: u32,
-    pub ulOffsets: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_IDLESTATE_INFO {
-    pub TimeCheck: u32,
-    pub DemotePercent: u8,
-    pub PromotePercent: u8,
-    pub Spare: [u8; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_IDLESTATE_POLICY {
-    pub Revision: u16,
-    pub Flags: PROCESSOR_IDLESTATE_POLICY_0,
-    pub PolicyCount: u32,
-    pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESSOR_IDLESTATE_POLICY_0 {
-    pub AsWORD: u16,
-    pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_PERFSTATE_POLICY {
-    pub Revision: u32,
-    pub MaxThrottle: u8,
-    pub MinThrottle: u8,
-    pub BusyAdjThreshold: u8,
-    pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0,
-    pub TimeCheck: u32,
-    pub IncreaseTime: u32,
-    pub DecreaseTime: u32,
-    pub IncreasePercent: u32,
-    pub DecreasePercent: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESSOR_PERFSTATE_POLICY_0 {
-    pub Spare: u8,
-    pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
-    pub AsBYTE: u8,
-    pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_ASLR_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_DEP_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
-    pub Permanent: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_DEP_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SEHOP_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUOTA_LIMITS_EX {
-    pub PagedPoolLimit: usize,
-    pub NonPagedPoolLimit: usize,
-    pub MinimumWorkingSetSize: usize,
-    pub MaximumWorkingSetSize: usize,
-    pub PagefileLimit: usize,
-    pub TimeLimit: i64,
-    pub WorkingSetLimit: usize,
-    pub Reserved2: usize,
-    pub Reserved3: usize,
-    pub Reserved4: usize,
-    pub Flags: u32,
-    pub CpuRateLimit: RATE_QUOTA_LIMIT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RATE_QUOTA_LIMIT {
-    pub RateData: u32,
-    pub Anonymous: RATE_QUOTA_LIMIT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RATE_QUOTA_LIMIT_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REARRANGE_FILE_DATA {
-    pub SourceStartingOffset: u64,
-    pub TargetOffset: u64,
-    pub SourceFileHandle: super::super::Foundation::HANDLE,
-    pub Length: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct REARRANGE_FILE_DATA32 {
-    pub SourceStartingOffset: u64,
-    pub TargetOffset: u64,
-    pub SourceFileHandle: u32,
-    pub Length: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
-    pub Version: u32,
-    pub Accurate: u32,
-    pub Supported: u32,
-    pub AccurateMask0: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCEMANAGER_BASIC_INFORMATION {
-    pub ResourceManagerId: windows_sys::core::GUID,
-    pub DescriptionLength: u32,
-    pub Description: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
-    pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
-    pub CompletionKey: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHBITMAP {
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHBRUSH {
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHENHMETAFILE {
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHGLOBAL {
-    pub fNullHGlobal: i32,
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHMETAFILEPICT {
-    pub mm: i32,
-    pub xExt: i32,
-    pub yExt: i32,
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemHPALETTE {
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemotableHandle {
-    pub fContext: i32,
-    pub u: RemotableHandle_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RemotableHandle_0 {
-    pub hInproc: i32,
-    pub hRemote: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_AMD64 {
-    pub Count: u32,
-    pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_AMD64_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_ARM {
-    pub Count: u32,
-    pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_ARM_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_ARM64 {
-    pub Count: u32,
-    pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCOPE_TABLE_ARM64_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCRUB_DATA_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaximumIos: u32,
-    pub ObjectId: [u32; 4],
-    pub Reserved: [u32; 41],
-    pub ResumeContext: [u8; 1040],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCRUB_DATA_OUTPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub Status: u32,
-    pub ErrorFileOffset: u64,
-    pub ErrorLength: u64,
-    pub NumberOfBytesRepaired: u64,
-    pub NumberOfBytesFailed: u64,
-    pub InternalFileReference: u64,
-    pub ResumeContextLength: u16,
-    pub ParityExtentDataOffset: u16,
-    pub Reserved: [u32; 9],
-    pub NumberOfMetadataBytesProcessed: u64,
-    pub NumberOfDataBytesProcessed: u64,
-    pub TotalNumberOfMetadataBytesInUse: u64,
-    pub TotalNumberOfDataBytesInUse: u64,
-    pub DataBytesSkippedDueToNoAllocation: u64,
-    pub DataBytesSkippedDueToInvalidRun: u64,
-    pub DataBytesSkippedDueToIntegrityStream: u64,
-    pub DataBytesSkippedDueToRegionBeingClean: u64,
-    pub DataBytesSkippedDueToLockConflict: u64,
-    pub DataBytesSkippedDueToNoScrubDataFlag: u64,
-    pub DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: u64,
-    pub DataBytesScrubbed: u64,
-    pub ResumeContext: [u8; 1040],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCRUB_PARITY_EXTENT {
-    pub Offset: i64,
-    pub Length: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCRUB_PARITY_EXTENT_DATA {
-    pub Size: u16,
-    pub Flags: u16,
-    pub NumberOfParityExtents: u16,
-    pub MaximumNumberOfParityExtents: u16,
-    pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SECURITY_OBJECT_AI_PARAMS {
-    pub Size: u32,
-    pub ConstraintMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SERVERSILO_BASIC_INFORMATION {
-    pub ServiceSessionId: u32,
-    pub State: SERVERSILO_STATE,
-    pub ExitStatus: u32,
-    pub IsDownlevelContainer: super::super::Foundation::BOOLEAN,
-    pub ApiSetSchema: *mut core::ffi::c_void,
-    pub HostApiSetSchema: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct SE_TOKEN_USER {
-    pub Anonymous1: SE_TOKEN_USER_0,
-    pub Anonymous2: SE_TOKEN_USER_1,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub union SE_TOKEN_USER_0 {
-    pub TokenUser: super::super::Security::TOKEN_USER,
-    pub User: super::super::Security::SID_AND_ATTRIBUTES,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub union SE_TOKEN_USER_1 {
-    pub Sid: super::super::Security::SID,
-    pub Buffer: [u8; 68],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHARED_VIRTUAL_DISK_SUPPORT {
-    pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
-    pub HandleState: SharedVirtualDiskHandleState,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHUFFLE_FILE_DATA {
-    pub StartingOffset: i64,
-    pub Length: i64,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SILOOBJECT_BASIC_INFORMATION {
-    pub SiloId: u32,
-    pub SiloParentId: u32,
-    pub NumberOfProcesses: u32,
-    pub IsInServerSilo: super::super::Foundation::BOOLEAN,
-    pub Reserved: [u8; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SUPPORTED_OS_INFO {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_CREATE_PARTITION {
-    pub Method: u32,
-    pub Count: u32,
-    pub Size: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_GET_DRIVE_PARAMETERS {
-    pub ECC: super::super::Foundation::BOOLEAN,
-    pub Compression: super::super::Foundation::BOOLEAN,
-    pub DataPadding: super::super::Foundation::BOOLEAN,
-    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
-    pub DefaultBlockSize: u32,
-    pub MaximumBlockSize: u32,
-    pub MinimumBlockSize: u32,
-    pub MaximumPartitionCount: u32,
-    pub FeaturesLow: u32,
-    pub FeaturesHigh: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH,
-    pub EOTWarningZoneSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_GET_MEDIA_PARAMETERS {
-    pub Capacity: i64,
-    pub Remaining: i64,
-    pub BlockSize: u32,
-    pub PartitionCount: u32,
-    pub WriteProtected: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_SET_DRIVE_PARAMETERS {
-    pub ECC: super::super::Foundation::BOOLEAN,
-    pub Compression: super::super::Foundation::BOOLEAN,
-    pub DataPadding: super::super::Foundation::BOOLEAN,
-    pub ReportSetmarks: super::super::Foundation::BOOLEAN,
-    pub EOTWarningZoneSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_SET_MEDIA_PARAMETERS {
-    pub BlockSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPE_WMI_OPERATIONS {
-    pub Method: u32,
-    pub DataBufferSize: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TOKEN_BNO_ISOLATION_INFORMATION {
-    pub IsolationPrefix: windows_sys::core::PWSTR,
-    pub IsolationEnabled: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct TOKEN_SID_INFORMATION {
-    pub Sid: super::super::Security::PSID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
-    pub TmIdentity: windows_sys::core::GUID,
-    pub VirtualClock: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
-    pub LogPathLength: u32,
-    pub LogPath: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
-    pub LogIdentity: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    pub OldestTransactionGuid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
-    pub LastRecoveredLsn: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_BASIC_INFORMATION {
-    pub TransactionId: windows_sys::core::GUID,
-    pub State: u32,
-    pub Outcome: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_BIND_INFORMATION {
-    pub TmHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
-    pub NumberOfEnlistments: u32,
-    pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_ENLISTMENT_PAIR {
-    pub EnlistmentId: windows_sys::core::GUID,
-    pub ResourceManagerId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_LIST_ENTRY {
-    pub UOW: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_LIST_INFORMATION {
-    pub NumberOfTransactions: u32,
-    pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_PROPERTIES_INFORMATION {
-    pub IsolationLevel: u32,
-    pub IsolationFlags: u32,
-    pub Timeout: i64,
-    pub Outcome: u32,
-    pub DescriptionLength: u32,
-    pub Description: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
-    pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UMS_CREATE_THREAD_ATTRIBUTES {
-    pub UmsVersion: u32,
-    pub UmsContext: *mut core::ffi::c_void,
-    pub UmsCompletionList: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XSAVE_CET_U_FORMAT {
-    pub Ia32CetUMsr: u64,
-    pub Ia32Pl3SspMsr: u64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct remoteMETAFILEPICT {
-    pub mm: i32,
-    pub xExt: i32,
-    pub yExt: i32,
-    pub hMF: *mut userHMETAFILE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct userBITMAP {
-    pub bmType: i32,
-    pub bmWidth: i32,
-    pub bmHeight: i32,
-    pub bmWidthBytes: i32,
-    pub bmPlanes: u16,
-    pub bmBitsPixel: u16,
-    pub cbSize: u32,
-    pub pBuffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct userCLIPFORMAT {
-    pub fContext: i32,
-    pub u: userCLIPFORMAT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union userCLIPFORMAT_0 {
-    pub dwValue: u32,
-    pub pwszName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct userHBITMAP {
-    pub fContext: i32,
-    pub u: userHBITMAP_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union userHBITMAP_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut userBITMAP,
-    pub hInproc64: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct userHENHMETAFILE {
-    pub fContext: i32,
-    pub u: userHENHMETAFILE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union userHENHMETAFILE_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::Com::BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct userHGLOBAL {
-    pub fContext: i32,
-    pub u: userHGLOBAL_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union userHGLOBAL_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct userHMETAFILE {
-    pub fContext: i32,
-    pub u: userHMETAFILE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union userHMETAFILE_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::Com::BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct userHMETAFILEPICT {
-    pub fContext: i32,
-    pub u: userHMETAFILEPICT_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union userHMETAFILEPICT_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut remoteMETAFILEPICT,
-    pub hInproc64: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct userHPALETTE {
-    pub fContext: i32,
-    pub u: userHPALETTE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union userHPALETTE_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,
-    pub hInproc64: i64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const core::ffi::c_void) -> i32>;
-pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
-#[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
-pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;

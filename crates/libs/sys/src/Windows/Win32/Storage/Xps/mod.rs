@@ -22,6 +22,169 @@ windows_targets::link!("gdi32.dll" "system" fn StartDocA(hdc : super::super::Gra
 windows_targets::link!("gdi32.dll" "system" fn StartDocW(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOW) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdi32.dll" "system" fn StartPage(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+pub type PRINTER_DEVICE_CAPABILITIES = u16;
+pub type PRINT_WINDOW_FLAGS = u32;
+pub type PSINJECT_POINT = u16;
+pub type XPS_COLOR_INTERPOLATION = i32;
+pub type XPS_COLOR_TYPE = i32;
+pub type XPS_DASH_CAP = i32;
+pub type XPS_DOCUMENT_TYPE = i32;
+pub type XPS_FILL_RULE = i32;
+pub type XPS_FONT_EMBEDDING = i32;
+pub type XPS_IMAGE_TYPE = i32;
+pub type XPS_INTERLEAVING = i32;
+pub type XPS_LINE_CAP = i32;
+pub type XPS_LINE_JOIN = i32;
+pub type XPS_OBJECT_TYPE = i32;
+pub type XPS_SEGMENT_STROKE_PATTERN = i32;
+pub type XPS_SEGMENT_TYPE = i32;
+pub type XPS_SIGNATURE_STATUS = i32;
+pub type XPS_SIGN_FLAGS = i32;
+pub type XPS_SIGN_POLICY = i32;
+pub type XPS_SPREAD_METHOD = i32;
+pub type XPS_STYLE_SIMULATION = i32;
+pub type XPS_THUMBNAIL_SIZE = i32;
+pub type XPS_TILE_MODE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOCINFOA {
+    pub cbSize: i32,
+    pub lpszDocName: windows_sys::core::PCSTR,
+    pub lpszOutput: windows_sys::core::PCSTR,
+    pub lpszDatatype: windows_sys::core::PCSTR,
+    pub fwType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DOCINFOW {
+    pub cbSize: i32,
+    pub lpszDocName: windows_sys::core::PCWSTR,
+    pub lpszOutput: windows_sys::core::PCWSTR,
+    pub lpszDatatype: windows_sys::core::PCWSTR,
+    pub fwType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRAWPATRECT {
+    pub ptPosition: super::super::Foundation::POINT,
+    pub ptSize: super::super::Foundation::POINT,
+    pub wStyle: u16,
+    pub wPattern: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PSFEATURE_CUSTPAPER {
+    pub lOrientation: i32,
+    pub lWidth: i32,
+    pub lHeight: i32,
+    pub lWidthOffset: i32,
+    pub lHeightOffset: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PSFEATURE_OUTPUT {
+    pub bPageIndependent: super::super::Foundation::BOOL,
+    pub bSetPageDevice: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PSINJECTDATA {
+    pub DataBytes: u32,
+    pub InjectionPoint: PSINJECT_POINT,
+    pub PageNumber: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR {
+    pub colorType: XPS_COLOR_TYPE,
+    pub value: XPS_COLOR_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union XPS_COLOR_0 {
+    pub sRGB: XPS_COLOR_0_0,
+    pub scRGB: XPS_COLOR_0_1,
+    pub context: XPS_COLOR_0_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR_0_2 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR_0_0 {
+    pub alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR_0_1 {
+    pub alpha: f32,
+    pub red: f32,
+    pub green: f32,
+    pub blue: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_DASH {
+    pub length: f32,
+    pub gap: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_GLYPH_INDEX {
+    pub index: i32,
+    pub advanceWidth: f32,
+    pub horizontalOffset: f32,
+    pub verticalOffset: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_GLYPH_MAPPING {
+    pub unicodeStringStart: u32,
+    pub unicodeStringLength: u16,
+    pub glyphIndicesStart: u32,
+    pub glyphIndicesLength: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_MATRIX {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub m31: f32,
+    pub m32: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_POINT {
+    pub x: f32,
+    pub y: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_RECT {
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_SIZE {
+    pub width: f32,
+    pub height: f32,
+}
+pub const XpsOMObjectFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
+pub const XpsOMThumbnailGenerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+pub const XpsSignatureManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 pub const DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = 12u16;
 pub const DC_BINS: PRINTER_DEVICE_CAPABILITIES = 6u16;
 pub const DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = 22u16;
@@ -250,166 +413,3 @@ pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5i32;
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = 4i32;
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1i32;
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2i32;
-pub type PRINTER_DEVICE_CAPABILITIES = u16;
-pub type PRINT_WINDOW_FLAGS = u32;
-pub type PSINJECT_POINT = u16;
-pub type XPS_COLOR_INTERPOLATION = i32;
-pub type XPS_COLOR_TYPE = i32;
-pub type XPS_DASH_CAP = i32;
-pub type XPS_DOCUMENT_TYPE = i32;
-pub type XPS_FILL_RULE = i32;
-pub type XPS_FONT_EMBEDDING = i32;
-pub type XPS_IMAGE_TYPE = i32;
-pub type XPS_INTERLEAVING = i32;
-pub type XPS_LINE_CAP = i32;
-pub type XPS_LINE_JOIN = i32;
-pub type XPS_OBJECT_TYPE = i32;
-pub type XPS_SEGMENT_STROKE_PATTERN = i32;
-pub type XPS_SEGMENT_TYPE = i32;
-pub type XPS_SIGNATURE_STATUS = i32;
-pub type XPS_SIGN_FLAGS = i32;
-pub type XPS_SIGN_POLICY = i32;
-pub type XPS_SPREAD_METHOD = i32;
-pub type XPS_STYLE_SIMULATION = i32;
-pub type XPS_THUMBNAIL_SIZE = i32;
-pub type XPS_TILE_MODE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOCINFOA {
-    pub cbSize: i32,
-    pub lpszDocName: windows_sys::core::PCSTR,
-    pub lpszOutput: windows_sys::core::PCSTR,
-    pub lpszDatatype: windows_sys::core::PCSTR,
-    pub fwType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DOCINFOW {
-    pub cbSize: i32,
-    pub lpszDocName: windows_sys::core::PCWSTR,
-    pub lpszOutput: windows_sys::core::PCWSTR,
-    pub lpszDatatype: windows_sys::core::PCWSTR,
-    pub fwType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRAWPATRECT {
-    pub ptPosition: super::super::Foundation::POINT,
-    pub ptSize: super::super::Foundation::POINT,
-    pub wStyle: u16,
-    pub wPattern: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PSFEATURE_CUSTPAPER {
-    pub lOrientation: i32,
-    pub lWidth: i32,
-    pub lHeight: i32,
-    pub lWidthOffset: i32,
-    pub lHeightOffset: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PSFEATURE_OUTPUT {
-    pub bPageIndependent: super::super::Foundation::BOOL,
-    pub bSetPageDevice: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PSINJECTDATA {
-    pub DataBytes: u32,
-    pub InjectionPoint: PSINJECT_POINT,
-    pub PageNumber: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR {
-    pub colorType: XPS_COLOR_TYPE,
-    pub value: XPS_COLOR_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union XPS_COLOR_0 {
-    pub sRGB: XPS_COLOR_0_0,
-    pub scRGB: XPS_COLOR_0_1,
-    pub context: XPS_COLOR_0_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_0 {
-    pub alpha: u8,
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_1 {
-    pub alpha: f32,
-    pub red: f32,
-    pub green: f32,
-    pub blue: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_DASH {
-    pub length: f32,
-    pub gap: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_GLYPH_INDEX {
-    pub index: i32,
-    pub advanceWidth: f32,
-    pub horizontalOffset: f32,
-    pub verticalOffset: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_GLYPH_MAPPING {
-    pub unicodeStringStart: u32,
-    pub unicodeStringLength: u16,
-    pub glyphIndicesStart: u32,
-    pub glyphIndicesLength: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub m31: f32,
-    pub m32: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_POINT {
-    pub x: f32,
-    pub y: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_RECT {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_SIZE {
-    pub width: f32,
-    pub height: f32,
-}
-pub const XpsOMObjectFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
-pub const XpsOMThumbnailGenerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
-pub const XpsSignatureManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;

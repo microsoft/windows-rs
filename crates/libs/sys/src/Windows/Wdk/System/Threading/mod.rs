@@ -32,6 +32,9 @@ windows_targets::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::s
 windows_targets::link!("ntdll.dll" "system" fn ZwSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub type PROCESSINFOCLASS = i32;
+pub type THREADINFOCLASS = i32;
+pub type TIMER_SET_INFORMATION_CLASS = i32;
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = 83i32;
 pub const MaxThreadInfoClass: THREADINFOCLASS = 56i32;
 pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = 1i32;
@@ -150,6 +153,3 @@ pub const ThreadUmsInformation: THREADINFOCLASS = 31i32;
 pub const ThreadWow64Context: THREADINFOCLASS = 29i32;
 pub const ThreadZeroTlsCell: THREADINFOCLASS = 10i32;
 pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = 0i32;
-pub type PROCESSINFOCLASS = i32;
-pub type THREADINFOCLASS = i32;
-pub type TIMER_SET_INFORMATION_CLASS = i32;

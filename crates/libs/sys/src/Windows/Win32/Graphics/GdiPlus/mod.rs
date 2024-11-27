@@ -68,9 +68,9 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRegion(region 
 windows_targets::link!("gdiplus.dll" "system" fn GdipComment(graphics : *mut GpGraphics, sizedata : u32, data : *const u8) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : windows_sys::core::PCWSTR, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut core::ffi::c_void, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
-windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -82,7 +82,9 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCachedBitmap(bitmap : *mut GpBitmap, graphics : *mut GpGraphics, cachedbitmap : *mut *mut GpCachedBitmap) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCustomLineCap(fillpath : *mut GpPath, strokepath : *mut GpPath, basecap : LineCap, baseinset : f32, customcap : *mut *mut GpCustomLineCap) -> Status);
@@ -122,6 +124,7 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3I(rect : *cons
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
@@ -143,6 +146,7 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRect(rect : *co
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRectI(rect : *const Rect, region : *mut *mut GpRegion) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRgnData(regiondata : *const u8, size : i32, region : *mut *mut GpRegion) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateSolidFill(color : u32, brush : *mut *mut GpSolidFill) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_sys::core::PCWSTR, access : u32, stream : *mut * mut core::ffi::c_void) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStringFormat(formatattributes : i32, language : u16, format : *mut *mut GpStringFormat) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture(image : *mut GpImage, wrapmode : WrapMode, texture : *mut *mut GpTexture) -> Status);
@@ -340,7 +344,7 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(he
 windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(filename : windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
@@ -462,7 +466,9 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRect(region 
 windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, positions : *const PointF, flags : i32, matrix : *const Matrix, boundingbox : *mut RectF) -> Status);
@@ -498,9 +504,9 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(file
 windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
@@ -526,6 +532,7 @@ windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAdd(image : *mut GpImag
 windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAddImage(image : *mut GpImage, newimage : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipSaveGraphics(graphics : *mut GpGraphics, state : *mut u32) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : windows_sys::core::PCWSTR, clsidencoder : *const windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut core::ffi::c_void, clsidencoder : *const windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipScaleLineTransform(brush : *mut GpLineGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
 windows_targets::link!("gdiplus.dll" "system" fn GdipScaleMatrix(matrix : *mut Matrix, scalex : f32, scaley : f32, order : MatrixOrder) -> Status);
@@ -660,6 +667,655 @@ windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token :
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
+pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
+pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
+pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;
+pub type BrushType = i32;
+pub type ColorAdjustType = i32;
+pub type ColorChannelFlags = i32;
+pub type ColorMatrixFlags = i32;
+pub type ColorMode = i32;
+pub type CombineMode = i32;
+pub type CompositingMode = i32;
+pub type CompositingQuality = i32;
+pub type ConvertToEmfPlusFlags = i32;
+pub type CoordinateSpace = i32;
+pub type CurveAdjustments = i32;
+pub type CurveChannel = i32;
+pub type CustomLineCapType = i32;
+pub type DashCap = i32;
+pub type DashStyle = i32;
+pub type DebugEventLevel = i32;
+pub type DitherType = i32;
+pub type DriverStringOptions = i32;
+pub type EmfPlusRecordType = i32;
+pub type EmfToWmfBitsFlags = i32;
+pub type EmfType = i32;
+pub type EncoderParameterValueType = i32;
+pub type EncoderValue = i32;
+pub type FillMode = i32;
+pub type FlushIntention = i32;
+pub type FontStyle = i32;
+pub type GdiplusStartupParams = i32;
+pub type GenericFontFamily = i32;
+pub type GpTestControlEnum = i32;
+pub type HatchStyle = i32;
+pub type HistogramFormat = i32;
+pub type HotkeyPrefix = i32;
+pub type ImageCodecFlags = i32;
+pub type ImageFlags = i32;
+pub type ImageLockMode = i32;
+pub type ImageType = i32;
+pub type InterpolationMode = i32;
+pub type ItemDataPosition = i32;
+pub type LineCap = i32;
+pub type LineJoin = i32;
+pub type LinearGradientMode = i32;
+pub type MatrixOrder = i32;
+pub type MetafileFrameUnit = i32;
+pub type MetafileType = i32;
+pub type ObjectType = i32;
+pub type PaletteFlags = i32;
+pub type PaletteType = i32;
+pub type PathPointType = i32;
+pub type PenAlignment = i32;
+pub type PenType = i32;
+pub type PixelOffsetMode = i32;
+pub type QualityMode = i32;
+pub type RotateFlipType = i32;
+pub type SmoothingMode = i32;
+pub type Status = i32;
+pub type StringAlignment = i32;
+pub type StringDigitSubstitute = i32;
+pub type StringFormatFlags = i32;
+pub type StringTrimming = i32;
+pub type TextRenderingHint = i32;
+pub type Unit = i32;
+pub type WarpMode = i32;
+pub type WrapMode = i32;
+pub type Bitmap = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BitmapData {
+    pub Width: u32,
+    pub Height: u32,
+    pub Stride: i32,
+    pub PixelFormat: i32,
+    pub Scan0: *mut core::ffi::c_void,
+    pub Reserved: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Blur {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BlurParams {
+    pub radius: f32,
+    pub expandEdge: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BrightnessContrast {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BrightnessContrastParams {
+    pub brightnessLevel: i32,
+    pub contrastLevel: i32,
+}
+pub type CGpEffect = isize;
+pub type CachedBitmap = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CharacterRange {
+    pub First: i32,
+    pub Length: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Color {
+    pub Argb: u32,
+}
+impl Color {
+    pub const AliceBlue: i32 = -984833i32;
+    pub const AntiqueWhite: i32 = -332841i32;
+    pub const Aqua: i32 = -16711681i32;
+    pub const Aquamarine: i32 = -8388652i32;
+    pub const Azure: i32 = -983041i32;
+    pub const Beige: i32 = -657956i32;
+    pub const Bisque: i32 = -6972i32;
+    pub const Black: i32 = -16777216i32;
+    pub const BlanchedAlmond: i32 = -5171i32;
+    pub const Blue: i32 = -16776961i32;
+    pub const BlueViolet: i32 = -7722014i32;
+    pub const Brown: i32 = -5952982i32;
+    pub const BurlyWood: i32 = -2180985i32;
+    pub const CadetBlue: i32 = -10510688i32;
+    pub const Chartreuse: i32 = -8388864i32;
+    pub const Chocolate: i32 = -2987746i32;
+    pub const Coral: i32 = -32944i32;
+    pub const CornflowerBlue: i32 = -10185235i32;
+    pub const Cornsilk: i32 = -1828i32;
+    pub const Crimson: i32 = -2354116i32;
+    pub const Cyan: i32 = -16711681i32;
+    pub const DarkBlue: i32 = -16777077i32;
+    pub const DarkCyan: i32 = -16741493i32;
+    pub const DarkGoldenrod: i32 = -4684277i32;
+    pub const DarkGray: i32 = -5658199i32;
+    pub const DarkGreen: i32 = -16751616i32;
+    pub const DarkKhaki: i32 = -4343957i32;
+    pub const DarkMagenta: i32 = -7667573i32;
+    pub const DarkOliveGreen: i32 = -11179217i32;
+    pub const DarkOrange: i32 = -29696i32;
+    pub const DarkOrchid: i32 = -6737204i32;
+    pub const DarkRed: i32 = -7667712i32;
+    pub const DarkSalmon: i32 = -1468806i32;
+    pub const DarkSeaGreen: i32 = -7357301i32;
+    pub const DarkSlateBlue: i32 = -12042869i32;
+    pub const DarkSlateGray: i32 = -13676721i32;
+    pub const DarkTurquoise: i32 = -16724271i32;
+    pub const DarkViolet: i32 = -7077677i32;
+    pub const DeepPink: i32 = -60269i32;
+    pub const DeepSkyBlue: i32 = -16728065i32;
+    pub const DimGray: i32 = -9868951i32;
+    pub const DodgerBlue: i32 = -14774017i32;
+    pub const Firebrick: i32 = -5103070i32;
+    pub const FloralWhite: i32 = -1296i32;
+    pub const ForestGreen: i32 = -14513374i32;
+    pub const Fuchsia: i32 = -65281i32;
+    pub const Gainsboro: i32 = -2302756i32;
+    pub const GhostWhite: i32 = -460545i32;
+    pub const Gold: i32 = -10496i32;
+    pub const Goldenrod: i32 = -2448096i32;
+    pub const Gray: i32 = -8355712i32;
+    pub const Green: i32 = -16744448i32;
+    pub const GreenYellow: i32 = -5374161i32;
+    pub const Honeydew: i32 = -983056i32;
+    pub const HotPink: i32 = -38476i32;
+    pub const IndianRed: i32 = -3318692i32;
+    pub const Indigo: i32 = -11861886i32;
+    pub const Ivory: i32 = -16i32;
+    pub const Khaki: i32 = -989556i32;
+    pub const Lavender: i32 = -1644806i32;
+    pub const LavenderBlush: i32 = -3851i32;
+    pub const LawnGreen: i32 = -8586240i32;
+    pub const LemonChiffon: i32 = -1331i32;
+    pub const LightBlue: i32 = -5383962i32;
+    pub const LightCoral: i32 = -1015680i32;
+    pub const LightCyan: i32 = -2031617i32;
+    pub const LightGoldenrodYellow: i32 = -329006i32;
+    pub const LightGray: i32 = -2894893i32;
+    pub const LightGreen: i32 = -7278960i32;
+    pub const LightPink: i32 = -18751i32;
+    pub const LightSalmon: i32 = -24454i32;
+    pub const LightSeaGreen: i32 = -14634326i32;
+    pub const LightSkyBlue: i32 = -7876870i32;
+    pub const LightSlateGray: i32 = -8943463i32;
+    pub const LightSteelBlue: i32 = -5192482i32;
+    pub const LightYellow: i32 = -32i32;
+    pub const Lime: i32 = -16711936i32;
+    pub const LimeGreen: i32 = -13447886i32;
+    pub const Linen: i32 = -331546i32;
+    pub const Magenta: i32 = -65281i32;
+    pub const Maroon: i32 = -8388608i32;
+    pub const MediumAquamarine: i32 = -10039894i32;
+    pub const MediumBlue: i32 = -16777011i32;
+    pub const MediumOrchid: i32 = -4565549i32;
+    pub const MediumPurple: i32 = -7114533i32;
+    pub const MediumSeaGreen: i32 = -12799119i32;
+    pub const MediumSlateBlue: i32 = -8689426i32;
+    pub const MediumSpringGreen: i32 = -16713062i32;
+    pub const MediumTurquoise: i32 = -12004916i32;
+    pub const MediumVioletRed: i32 = -3730043i32;
+    pub const MidnightBlue: i32 = -15132304i32;
+    pub const MintCream: i32 = -655366i32;
+    pub const MistyRose: i32 = -6943i32;
+    pub const Moccasin: i32 = -6987i32;
+    pub const NavajoWhite: i32 = -8531i32;
+    pub const Navy: i32 = -16777088i32;
+    pub const OldLace: i32 = -133658i32;
+    pub const Olive: i32 = -8355840i32;
+    pub const OliveDrab: i32 = -9728477i32;
+    pub const Orange: i32 = -23296i32;
+    pub const OrangeRed: i32 = -47872i32;
+    pub const Orchid: i32 = -2461482i32;
+    pub const PaleGoldenrod: i32 = -1120086i32;
+    pub const PaleGreen: i32 = -6751336i32;
+    pub const PaleTurquoise: i32 = -5247250i32;
+    pub const PaleVioletRed: i32 = -2396013i32;
+    pub const PapayaWhip: i32 = -4139i32;
+    pub const PeachPuff: i32 = -9543i32;
+    pub const Peru: i32 = -3308225i32;
+    pub const Pink: i32 = -16181i32;
+    pub const Plum: i32 = -2252579i32;
+    pub const PowderBlue: i32 = -5185306i32;
+    pub const Purple: i32 = -8388480i32;
+    pub const Red: i32 = -65536i32;
+    pub const RosyBrown: i32 = -4419697i32;
+    pub const RoyalBlue: i32 = -12490271i32;
+    pub const SaddleBrown: i32 = -7650029i32;
+    pub const Salmon: i32 = -360334i32;
+    pub const SandyBrown: i32 = -744352i32;
+    pub const SeaGreen: i32 = -13726889i32;
+    pub const SeaShell: i32 = -2578i32;
+    pub const Sienna: i32 = -6270419i32;
+    pub const Silver: i32 = -4144960i32;
+    pub const SkyBlue: i32 = -7876885i32;
+    pub const SlateBlue: i32 = -9807155i32;
+    pub const SlateGray: i32 = -9404272i32;
+    pub const Snow: i32 = -1286i32;
+    pub const SpringGreen: i32 = -16711809i32;
+    pub const SteelBlue: i32 = -12156236i32;
+    pub const Tan: i32 = -2968436i32;
+    pub const Teal: i32 = -16744320i32;
+    pub const Thistle: i32 = -2572328i32;
+    pub const Tomato: i32 = -40121i32;
+    pub const Transparent: i32 = 16777215i32;
+    pub const Turquoise: i32 = -12525360i32;
+    pub const Violet: i32 = -1146130i32;
+    pub const Wheat: i32 = -663885i32;
+    pub const White: i32 = -1i32;
+    pub const WhiteSmoke: i32 = -657931i32;
+    pub const Yellow: i32 = -256i32;
+    pub const YellowGreen: i32 = -6632142i32;
+    pub const AlphaShift: i32 = 24i32;
+    pub const RedShift: i32 = 16i32;
+    pub const GreenShift: i32 = 8i32;
+    pub const BlueShift: i32 = 0i32;
+    pub const AlphaMask: i32 = -16777216i32;
+    pub const RedMask: i32 = 16711680i32;
+    pub const GreenMask: i32 = 65280i32;
+    pub const BlueMask: i32 = 255i32;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorBalance {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorBalanceParams {
+    pub cyanRed: i32,
+    pub magentaGreen: i32,
+    pub yellowBlue: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorCurve {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorCurveParams {
+    pub adjustment: CurveAdjustments,
+    pub channel: CurveChannel,
+    pub adjustValue: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorLUT {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorLUTParams {
+    pub lutB: [u8; 256],
+    pub lutG: [u8; 256],
+    pub lutR: [u8; 256],
+    pub lutA: [u8; 256],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorMap {
+    pub oldColor: Color,
+    pub newColor: Color,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorMatrix {
+    pub m: [f32; 25],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorMatrixEffect {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ColorPalette {
+    pub Flags: u32,
+    pub Count: u32,
+    pub Entries: [u32; 1],
+}
+pub type CustomLineCap = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ENHMETAHEADER3 {
+    pub iType: u32,
+    pub nSize: u32,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub rclFrame: super::super::Foundation::RECTL,
+    pub dSignature: u32,
+    pub nVersion: u32,
+    pub nBytes: u32,
+    pub nRecords: u32,
+    pub nHandles: u16,
+    pub sReserved: u16,
+    pub nDescription: u32,
+    pub offDescription: u32,
+    pub nPalEntries: u32,
+    pub szlDevice: super::super::Foundation::SIZE,
+    pub szlMillimeters: super::super::Foundation::SIZE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Effect {
+    pub lpVtbl: *mut *mut core::ffi::c_void,
+    pub nativeEffect: *mut CGpEffect,
+    pub auxDataSize: i32,
+    pub auxData: *mut core::ffi::c_void,
+    pub useAuxData: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EncoderParameter {
+    pub Guid: windows_sys::core::GUID,
+    pub NumberOfValues: u32,
+    pub Type: u32,
+    pub Value: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EncoderParameters {
+    pub Count: u32,
+    pub Parameter: [EncoderParameter; 1],
+}
+pub type Font = isize;
+pub type FontCollection = isize;
+pub type FontFamily = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupInput {
+    pub GdiplusVersion: u32,
+    pub DebugEventCallback: isize,
+    pub SuppressBackgroundThread: super::super::Foundation::BOOL,
+    pub SuppressExternalCodecs: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupInputEx {
+    pub Base: GdiplusStartupInput,
+    pub StartupParameters: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupOutput {
+    pub NotificationHook: isize,
+    pub NotificationUnhook: isize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpAdjustableArrowCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBrush(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCachedBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCustomLineCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFont(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontFamily(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpGraphics(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpHatch(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImage(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImageAttributes(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpInstalledFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpLineGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpMetafile(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPath(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathIterator(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPen(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPrivateFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpRegion(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpSolidFill(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpStringFormat(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpTexture(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HueSaturationLightness {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HueSaturationLightnessParams {
+    pub hueLevel: i32,
+    pub saturationLevel: i32,
+    pub lightnessLevel: i32,
+}
+pub type Image = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ImageCodecInfo {
+    pub Clsid: windows_sys::core::GUID,
+    pub FormatID: windows_sys::core::GUID,
+    pub CodecName: windows_sys::core::PCWSTR,
+    pub DllName: windows_sys::core::PCWSTR,
+    pub FormatDescription: windows_sys::core::PCWSTR,
+    pub FilenameExtension: windows_sys::core::PCWSTR,
+    pub MimeType: windows_sys::core::PCWSTR,
+    pub Flags: u32,
+    pub Version: u32,
+    pub SigCount: u32,
+    pub SigSize: u32,
+    pub SigPattern: *const u8,
+    pub SigMask: *const u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ImageItemData {
+    pub Size: u32,
+    pub Position: u32,
+    pub Desc: *mut core::ffi::c_void,
+    pub DescSize: u32,
+    pub Data: *mut core::ffi::c_void,
+    pub DataSize: u32,
+    pub Cookie: u32,
+}
+pub type InstalledFontCollection = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Levels {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LevelsParams {
+    pub highlight: i32,
+    pub midtone: i32,
+    pub shadow: i32,
+}
+pub type Matrix = isize;
+pub type Metafile = isize;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MetafileHeader {
+    pub Type: MetafileType,
+    pub Size: u32,
+    pub Version: u32,
+    pub EmfPlusFlags: u32,
+    pub DpiX: f32,
+    pub DpiY: f32,
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+    pub Anonymous: MetafileHeader_0,
+    pub EmfPlusHeaderSize: i32,
+    pub LogicalDpiX: i32,
+    pub LogicalDpiY: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union MetafileHeader_0 {
+    pub WmfHeader: super::Gdi::METAHEADER,
+    pub EmfHeader: ENHMETAHEADER3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PWMFRect16 {
+    pub Left: i16,
+    pub Top: i16,
+    pub Right: i16,
+    pub Bottom: i16,
+}
+pub type PathData = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Point {
+    pub X: i32,
+    pub Y: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PointF {
+    pub X: f32,
+    pub Y: f32,
+}
+pub type PrivateFontCollection = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PropertyItem {
+    pub id: u32,
+    pub length: u32,
+    pub r#type: u16,
+    pub value: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Rect {
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RectF {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RedEyeCorrection {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RedEyeCorrectionParams {
+    pub numberOfAreas: u32,
+    pub areas: *mut super::super::Foundation::RECT,
+}
+pub type Region = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Sharpen {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SharpenParams {
+    pub radius: f32,
+    pub amount: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Size {
+    pub Width: i32,
+    pub Height: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SizeF {
+    pub Width: f32,
+    pub Height: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Tint {
+    pub Base: Effect,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TintParams {
+    pub hue: i32,
+    pub amount: i32,
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct WmfPlaceableFileHeader {
+    pub Key: u32,
+    pub Hmf: i16,
+    pub BoundingBox: PWMFRect16,
+    pub Inch: i16,
+    pub Reserved: u32,
+    pub Checksum: i16,
+}
 pub const ALPHA_SHIFT: u32 = 24u32;
 pub const Aborted: Status = 9i32;
 pub const AccessDenied: Status = 12i32;
@@ -1656,652 +2312,3 @@ pub const WrapModeTileFlipX: WrapMode = 1i32;
 pub const WrapModeTileFlipXY: WrapMode = 3i32;
 pub const WrapModeTileFlipY: WrapMode = 2i32;
 pub const WrongState: Status = 8i32;
-pub type BrushType = i32;
-pub type ColorAdjustType = i32;
-pub type ColorChannelFlags = i32;
-pub type ColorMatrixFlags = i32;
-pub type ColorMode = i32;
-pub type CombineMode = i32;
-pub type CompositingMode = i32;
-pub type CompositingQuality = i32;
-pub type ConvertToEmfPlusFlags = i32;
-pub type CoordinateSpace = i32;
-pub type CurveAdjustments = i32;
-pub type CurveChannel = i32;
-pub type CustomLineCapType = i32;
-pub type DashCap = i32;
-pub type DashStyle = i32;
-pub type DebugEventLevel = i32;
-pub type DitherType = i32;
-pub type DriverStringOptions = i32;
-pub type EmfPlusRecordType = i32;
-pub type EmfToWmfBitsFlags = i32;
-pub type EmfType = i32;
-pub type EncoderParameterValueType = i32;
-pub type EncoderValue = i32;
-pub type FillMode = i32;
-pub type FlushIntention = i32;
-pub type FontStyle = i32;
-pub type GdiplusStartupParams = i32;
-pub type GenericFontFamily = i32;
-pub type GpTestControlEnum = i32;
-pub type HatchStyle = i32;
-pub type HistogramFormat = i32;
-pub type HotkeyPrefix = i32;
-pub type ImageCodecFlags = i32;
-pub type ImageFlags = i32;
-pub type ImageLockMode = i32;
-pub type ImageType = i32;
-pub type InterpolationMode = i32;
-pub type ItemDataPosition = i32;
-pub type LineCap = i32;
-pub type LineJoin = i32;
-pub type LinearGradientMode = i32;
-pub type MatrixOrder = i32;
-pub type MetafileFrameUnit = i32;
-pub type MetafileType = i32;
-pub type ObjectType = i32;
-pub type PaletteFlags = i32;
-pub type PaletteType = i32;
-pub type PathPointType = i32;
-pub type PenAlignment = i32;
-pub type PenType = i32;
-pub type PixelOffsetMode = i32;
-pub type QualityMode = i32;
-pub type RotateFlipType = i32;
-pub type SmoothingMode = i32;
-pub type Status = i32;
-pub type StringAlignment = i32;
-pub type StringDigitSubstitute = i32;
-pub type StringFormatFlags = i32;
-pub type StringTrimming = i32;
-pub type TextRenderingHint = i32;
-pub type Unit = i32;
-pub type WarpMode = i32;
-pub type WrapMode = i32;
-pub type Bitmap = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BitmapData {
-    pub Width: u32,
-    pub Height: u32,
-    pub Stride: i32,
-    pub PixelFormat: i32,
-    pub Scan0: *mut core::ffi::c_void,
-    pub Reserved: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Blur {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BlurParams {
-    pub radius: f32,
-    pub expandEdge: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BrightnessContrast {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BrightnessContrastParams {
-    pub brightnessLevel: i32,
-    pub contrastLevel: i32,
-}
-pub type CGpEffect = isize;
-pub type CachedBitmap = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CharacterRange {
-    pub First: i32,
-    pub Length: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Color {
-    pub Argb: u32,
-}
-impl Color {
-    pub const AliceBlue: i32 = -984833i32;
-    pub const AntiqueWhite: i32 = -332841i32;
-    pub const Aqua: i32 = -16711681i32;
-    pub const Aquamarine: i32 = -8388652i32;
-    pub const Azure: i32 = -983041i32;
-    pub const Beige: i32 = -657956i32;
-    pub const Bisque: i32 = -6972i32;
-    pub const Black: i32 = -16777216i32;
-    pub const BlanchedAlmond: i32 = -5171i32;
-    pub const Blue: i32 = -16776961i32;
-    pub const BlueViolet: i32 = -7722014i32;
-    pub const Brown: i32 = -5952982i32;
-    pub const BurlyWood: i32 = -2180985i32;
-    pub const CadetBlue: i32 = -10510688i32;
-    pub const Chartreuse: i32 = -8388864i32;
-    pub const Chocolate: i32 = -2987746i32;
-    pub const Coral: i32 = -32944i32;
-    pub const CornflowerBlue: i32 = -10185235i32;
-    pub const Cornsilk: i32 = -1828i32;
-    pub const Crimson: i32 = -2354116i32;
-    pub const Cyan: i32 = -16711681i32;
-    pub const DarkBlue: i32 = -16777077i32;
-    pub const DarkCyan: i32 = -16741493i32;
-    pub const DarkGoldenrod: i32 = -4684277i32;
-    pub const DarkGray: i32 = -5658199i32;
-    pub const DarkGreen: i32 = -16751616i32;
-    pub const DarkKhaki: i32 = -4343957i32;
-    pub const DarkMagenta: i32 = -7667573i32;
-    pub const DarkOliveGreen: i32 = -11179217i32;
-    pub const DarkOrange: i32 = -29696i32;
-    pub const DarkOrchid: i32 = -6737204i32;
-    pub const DarkRed: i32 = -7667712i32;
-    pub const DarkSalmon: i32 = -1468806i32;
-    pub const DarkSeaGreen: i32 = -7357301i32;
-    pub const DarkSlateBlue: i32 = -12042869i32;
-    pub const DarkSlateGray: i32 = -13676721i32;
-    pub const DarkTurquoise: i32 = -16724271i32;
-    pub const DarkViolet: i32 = -7077677i32;
-    pub const DeepPink: i32 = -60269i32;
-    pub const DeepSkyBlue: i32 = -16728065i32;
-    pub const DimGray: i32 = -9868951i32;
-    pub const DodgerBlue: i32 = -14774017i32;
-    pub const Firebrick: i32 = -5103070i32;
-    pub const FloralWhite: i32 = -1296i32;
-    pub const ForestGreen: i32 = -14513374i32;
-    pub const Fuchsia: i32 = -65281i32;
-    pub const Gainsboro: i32 = -2302756i32;
-    pub const GhostWhite: i32 = -460545i32;
-    pub const Gold: i32 = -10496i32;
-    pub const Goldenrod: i32 = -2448096i32;
-    pub const Gray: i32 = -8355712i32;
-    pub const Green: i32 = -16744448i32;
-    pub const GreenYellow: i32 = -5374161i32;
-    pub const Honeydew: i32 = -983056i32;
-    pub const HotPink: i32 = -38476i32;
-    pub const IndianRed: i32 = -3318692i32;
-    pub const Indigo: i32 = -11861886i32;
-    pub const Ivory: i32 = -16i32;
-    pub const Khaki: i32 = -989556i32;
-    pub const Lavender: i32 = -1644806i32;
-    pub const LavenderBlush: i32 = -3851i32;
-    pub const LawnGreen: i32 = -8586240i32;
-    pub const LemonChiffon: i32 = -1331i32;
-    pub const LightBlue: i32 = -5383962i32;
-    pub const LightCoral: i32 = -1015680i32;
-    pub const LightCyan: i32 = -2031617i32;
-    pub const LightGoldenrodYellow: i32 = -329006i32;
-    pub const LightGray: i32 = -2894893i32;
-    pub const LightGreen: i32 = -7278960i32;
-    pub const LightPink: i32 = -18751i32;
-    pub const LightSalmon: i32 = -24454i32;
-    pub const LightSeaGreen: i32 = -14634326i32;
-    pub const LightSkyBlue: i32 = -7876870i32;
-    pub const LightSlateGray: i32 = -8943463i32;
-    pub const LightSteelBlue: i32 = -5192482i32;
-    pub const LightYellow: i32 = -32i32;
-    pub const Lime: i32 = -16711936i32;
-    pub const LimeGreen: i32 = -13447886i32;
-    pub const Linen: i32 = -331546i32;
-    pub const Magenta: i32 = -65281i32;
-    pub const Maroon: i32 = -8388608i32;
-    pub const MediumAquamarine: i32 = -10039894i32;
-    pub const MediumBlue: i32 = -16777011i32;
-    pub const MediumOrchid: i32 = -4565549i32;
-    pub const MediumPurple: i32 = -7114533i32;
-    pub const MediumSeaGreen: i32 = -12799119i32;
-    pub const MediumSlateBlue: i32 = -8689426i32;
-    pub const MediumSpringGreen: i32 = -16713062i32;
-    pub const MediumTurquoise: i32 = -12004916i32;
-    pub const MediumVioletRed: i32 = -3730043i32;
-    pub const MidnightBlue: i32 = -15132304i32;
-    pub const MintCream: i32 = -655366i32;
-    pub const MistyRose: i32 = -6943i32;
-    pub const Moccasin: i32 = -6987i32;
-    pub const NavajoWhite: i32 = -8531i32;
-    pub const Navy: i32 = -16777088i32;
-    pub const OldLace: i32 = -133658i32;
-    pub const Olive: i32 = -8355840i32;
-    pub const OliveDrab: i32 = -9728477i32;
-    pub const Orange: i32 = -23296i32;
-    pub const OrangeRed: i32 = -47872i32;
-    pub const Orchid: i32 = -2461482i32;
-    pub const PaleGoldenrod: i32 = -1120086i32;
-    pub const PaleGreen: i32 = -6751336i32;
-    pub const PaleTurquoise: i32 = -5247250i32;
-    pub const PaleVioletRed: i32 = -2396013i32;
-    pub const PapayaWhip: i32 = -4139i32;
-    pub const PeachPuff: i32 = -9543i32;
-    pub const Peru: i32 = -3308225i32;
-    pub const Pink: i32 = -16181i32;
-    pub const Plum: i32 = -2252579i32;
-    pub const PowderBlue: i32 = -5185306i32;
-    pub const Purple: i32 = -8388480i32;
-    pub const Red: i32 = -65536i32;
-    pub const RosyBrown: i32 = -4419697i32;
-    pub const RoyalBlue: i32 = -12490271i32;
-    pub const SaddleBrown: i32 = -7650029i32;
-    pub const Salmon: i32 = -360334i32;
-    pub const SandyBrown: i32 = -744352i32;
-    pub const SeaGreen: i32 = -13726889i32;
-    pub const SeaShell: i32 = -2578i32;
-    pub const Sienna: i32 = -6270419i32;
-    pub const Silver: i32 = -4144960i32;
-    pub const SkyBlue: i32 = -7876885i32;
-    pub const SlateBlue: i32 = -9807155i32;
-    pub const SlateGray: i32 = -9404272i32;
-    pub const Snow: i32 = -1286i32;
-    pub const SpringGreen: i32 = -16711809i32;
-    pub const SteelBlue: i32 = -12156236i32;
-    pub const Tan: i32 = -2968436i32;
-    pub const Teal: i32 = -16744320i32;
-    pub const Thistle: i32 = -2572328i32;
-    pub const Tomato: i32 = -40121i32;
-    pub const Transparent: i32 = 16777215i32;
-    pub const Turquoise: i32 = -12525360i32;
-    pub const Violet: i32 = -1146130i32;
-    pub const Wheat: i32 = -663885i32;
-    pub const White: i32 = -1i32;
-    pub const WhiteSmoke: i32 = -657931i32;
-    pub const Yellow: i32 = -256i32;
-    pub const YellowGreen: i32 = -6632142i32;
-    pub const AlphaShift: i32 = 24i32;
-    pub const RedShift: i32 = 16i32;
-    pub const GreenShift: i32 = 8i32;
-    pub const BlueShift: i32 = 0i32;
-    pub const AlphaMask: i32 = -16777216i32;
-    pub const RedMask: i32 = 16711680i32;
-    pub const GreenMask: i32 = 65280i32;
-    pub const BlueMask: i32 = 255i32;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorBalance {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorBalanceParams {
-    pub cyanRed: i32,
-    pub magentaGreen: i32,
-    pub yellowBlue: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorCurve {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorCurveParams {
-    pub adjustment: CurveAdjustments,
-    pub channel: CurveChannel,
-    pub adjustValue: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorLUT {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorLUTParams {
-    pub lutB: [u8; 256],
-    pub lutG: [u8; 256],
-    pub lutR: [u8; 256],
-    pub lutA: [u8; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorMap {
-    pub oldColor: Color,
-    pub newColor: Color,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorMatrix {
-    pub m: [f32; 25],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorMatrixEffect {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ColorPalette {
-    pub Flags: u32,
-    pub Count: u32,
-    pub Entries: [u32; 1],
-}
-pub type CustomLineCap = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ENHMETAHEADER3 {
-    pub iType: u32,
-    pub nSize: u32,
-    pub rclBounds: super::super::Foundation::RECTL,
-    pub rclFrame: super::super::Foundation::RECTL,
-    pub dSignature: u32,
-    pub nVersion: u32,
-    pub nBytes: u32,
-    pub nRecords: u32,
-    pub nHandles: u16,
-    pub sReserved: u16,
-    pub nDescription: u32,
-    pub offDescription: u32,
-    pub nPalEntries: u32,
-    pub szlDevice: super::super::Foundation::SIZE,
-    pub szlMillimeters: super::super::Foundation::SIZE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Effect {
-    pub lpVtbl: *mut *mut core::ffi::c_void,
-    pub nativeEffect: *mut CGpEffect,
-    pub auxDataSize: i32,
-    pub auxData: *mut core::ffi::c_void,
-    pub useAuxData: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EncoderParameter {
-    pub Guid: windows_sys::core::GUID,
-    pub NumberOfValues: u32,
-    pub Type: u32,
-    pub Value: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EncoderParameters {
-    pub Count: u32,
-    pub Parameter: [EncoderParameter; 1],
-}
-pub type Font = isize;
-pub type FontCollection = isize;
-pub type FontFamily = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupInput {
-    pub GdiplusVersion: u32,
-    pub DebugEventCallback: isize,
-    pub SuppressBackgroundThread: super::super::Foundation::BOOL,
-    pub SuppressExternalCodecs: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupInputEx {
-    pub Base: GdiplusStartupInput,
-    pub StartupParameters: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupOutput {
-    pub NotificationHook: isize,
-    pub NotificationUnhook: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpAdjustableArrowCap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpBitmap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpBrush(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpCachedBitmap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpCustomLineCap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFont(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFontFamily(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpGraphics(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpHatch(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpImage(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpImageAttributes(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpInstalledFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpLineGradient(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpMetafile(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPath(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPathGradient(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPathIterator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPen(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPrivateFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpRegion(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpSolidFill(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpStringFormat(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpTexture(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HueSaturationLightness {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HueSaturationLightnessParams {
-    pub hueLevel: i32,
-    pub saturationLevel: i32,
-    pub lightnessLevel: i32,
-}
-pub type Image = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ImageCodecInfo {
-    pub Clsid: windows_sys::core::GUID,
-    pub FormatID: windows_sys::core::GUID,
-    pub CodecName: windows_sys::core::PCWSTR,
-    pub DllName: windows_sys::core::PCWSTR,
-    pub FormatDescription: windows_sys::core::PCWSTR,
-    pub FilenameExtension: windows_sys::core::PCWSTR,
-    pub MimeType: windows_sys::core::PCWSTR,
-    pub Flags: u32,
-    pub Version: u32,
-    pub SigCount: u32,
-    pub SigSize: u32,
-    pub SigPattern: *const u8,
-    pub SigMask: *const u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ImageItemData {
-    pub Size: u32,
-    pub Position: u32,
-    pub Desc: *mut core::ffi::c_void,
-    pub DescSize: u32,
-    pub Data: *mut core::ffi::c_void,
-    pub DataSize: u32,
-    pub Cookie: u32,
-}
-pub type InstalledFontCollection = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Levels {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LevelsParams {
-    pub highlight: i32,
-    pub midtone: i32,
-    pub shadow: i32,
-}
-pub type Matrix = isize;
-pub type Metafile = isize;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MetafileHeader {
-    pub Type: MetafileType,
-    pub Size: u32,
-    pub Version: u32,
-    pub EmfPlusFlags: u32,
-    pub DpiX: f32,
-    pub DpiY: f32,
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-    pub Anonymous: MetafileHeader_0,
-    pub EmfPlusHeaderSize: i32,
-    pub LogicalDpiX: i32,
-    pub LogicalDpiY: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union MetafileHeader_0 {
-    pub WmfHeader: super::Gdi::METAHEADER,
-    pub EmfHeader: ENHMETAHEADER3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PWMFRect16 {
-    pub Left: i16,
-    pub Top: i16,
-    pub Right: i16,
-    pub Bottom: i16,
-}
-pub type PathData = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Point {
-    pub X: i32,
-    pub Y: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PointF {
-    pub X: f32,
-    pub Y: f32,
-}
-pub type PrivateFontCollection = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PropertyItem {
-    pub id: u32,
-    pub length: u32,
-    pub r#type: u16,
-    pub value: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Rect {
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RectF {
-    pub X: f32,
-    pub Y: f32,
-    pub Width: f32,
-    pub Height: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RedEyeCorrection {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RedEyeCorrectionParams {
-    pub numberOfAreas: u32,
-    pub areas: *mut super::super::Foundation::RECT,
-}
-pub type Region = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Sharpen {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SharpenParams {
-    pub radius: f32,
-    pub amount: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Size {
-    pub Width: i32,
-    pub Height: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SizeF {
-    pub Width: f32,
-    pub Height: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Tint {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TintParams {
-    pub hue: i32,
-    pub amount: i32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct WmfPlaceableFileHeader {
-    pub Key: u32,
-    pub Hmf: i16,
-    pub BoundingBox: PWMFRect16,
-    pub Inch: i16,
-    pub Reserved: u32,
-    pub Checksum: i16,
-}
-pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
-pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;

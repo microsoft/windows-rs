@@ -461,6 +461,1677 @@ windows_targets::link!("clusapi.dll" "system" fn SetClusterResourceNameEx(hresou
 windows_targets::link!("clusapi.dll" "system" fn SetClusterServiceAccountPassword(lpszclustername : windows_sys::core::PCWSTR, lpsznewpassword : windows_sys::core::PCWSTR, dwflags : u32, lpreturnstatusbuffer : *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize : *mut u32) -> u32);
 windows_targets::link!("clusapi.dll" "system" fn SetGroupDependencyExpression(hgroup : HGROUP, lpszdependencyexpression : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("clusapi.dll" "system" fn SetGroupDependencyExpressionEx(hgroup : HGROUP, lpszdependencyexpression : windows_sys::core::PCWSTR, lpszreason : windows_sys::core::PCWSTR) -> u32);
+pub type LPGROUP_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HGROUP, param2: HGROUP, param3: *mut core::ffi::c_void) -> u32>;
+pub type LPNODE_CALLBACK = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HNODE, param2: CLUSTER_NODE_STATE, param3: *mut core::ffi::c_void) -> u32>;
+pub type LPRESOURCE_CALLBACK = Option<unsafe extern "system" fn(param0: HRESOURCE, param1: HRESOURCE, param2: *mut core::ffi::c_void) -> u32>;
+pub type LPRESOURCE_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HRESOURCE, param2: HRESOURCE, param3: *mut core::ffi::c_void) -> u32>;
+pub type PARBITRATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32>;
+pub type PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, timeoutinms: u64) -> u32>;
+pub type PBEGIN_RESCALL_AS_USER_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PBEGIN_RESCALL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PBEGIN_RESTYPECALL_AS_USER_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PBEGIN_RESTYPECALL_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PCANCEL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, cancelflags_reserved: u32) -> u32>;
+pub type PCHANGE_RESOURCE_PROCESS_FOR_DUMPS = Option<unsafe extern "system" fn(resource: isize, processname: windows_sys::core::PCWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32>;
+pub type PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, processname: windows_sys::core::PCWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32>;
+pub type PCLOSE_CLUSTER_CRYPT_PROVIDER = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER) -> u32>;
+pub type PCLOSE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void)>;
+pub type PCLUSAPIClusWorkerCheckTerminate = Option<unsafe extern "system" fn(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
+pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_sys::core::PCWSTR, lpremotegroupsetname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszpathname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = Option<unsafe extern "system" fn(hresource: HRESOURCE, hresourcedependent: HRESOURCE) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64) -> u32>;
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2 = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLOSE_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_NETWORK = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: u32, updatedomain: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, affinityrulename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32>;
+pub type PCLUSAPI_CLUSTER_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = Option<unsafe extern "system" fn(hgroup: HGROUP, dwtype: u32) -> HGROUPENUM>;
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_sys::core::PCWSTR, cbproperties: u32, lpszroproperties: windows_sys::core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX>;
+pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = Option<unsafe extern "system" fn(hnetwork: HNETWORK, dwtype: u32) -> HNETWORKENUM>;
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL_EX = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32) -> HNODEENUM>;
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32, poptions: *const core::ffi::c_void) -> HNODEENUMEX>;
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM>;
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32, poptions: *const core::ffi::c_void) -> HCLUSENUMEX>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregbatch: *mut HREGBATCH) -> i32>;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32>;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpsubkey: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: windows_sys::core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32>;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32>;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> i32>;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, flags: u32) -> i32>;
+pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwtype: u32) -> HRESENUM>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_sys::core::PCWSTR, cbproperties: u32, lpszroproperties: windows_sys::core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HRESENUMEX>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, dwtype: u32) -> HRESTYPEENUM>;
+pub type PCLUSAPI_CLUSTER_UPGRADE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, perform: super::super::Foundation::BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
+pub type PCLUSAPI_CLUS_WORKER_CREATE = Option<unsafe extern "system" fn(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut core::ffi::c_void) -> u32>;
+pub type PCLUSAPI_CLUS_WORKER_TERMINATE = Option<unsafe extern "system" fn(lpworker: *const CLUS_WORKER)>;
+pub type PCLUSAPI_CREATE_CLUSTER = Option<unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
+pub type PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpavailabilitysetname: windows_sys::core::PCWSTR, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET>;
+pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = Option<unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
+pub type PCLUSAPI_CREATE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR) -> HGROUP>;
+pub type PCLUSAPI_CREATE_CLUSTER_GROUPEX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> HGROUP>;
+pub type PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_sys::core::PCWSTR) -> HGROUPSET>;
+pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE>;
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> HCHANGE>;
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwflags: u32) -> HRESOURCE>;
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwflags: u32, lpszreason: windows_sys::core::PCWSTR) -> HRESOURCE>;
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, lpszdisplayname: windows_sys::core::PCWSTR, lpszresourcetypedll: windows_sys::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32>;
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, lpszdisplayname: windows_sys::core::PCWSTR, lpszresourcetypedll: windows_sys::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_DESTROY_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32>;
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_EVICT_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_sys::core::HRESULT) -> u32>;
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_sys::core::HRESULT, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> HCLUSTER>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> HCLUSTER>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> HCLUSTER>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> HCLUSTER>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> HCLUSTER>;
+pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> HCLUSTER>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = Option<unsafe extern "system" fn(hgroup: HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE>;
+pub type PCLUSAPI_GET_CLUSTER_INFORMATION = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszclustername: windows_sys::core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpsznetworkid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = Option<unsafe extern "system" fn(hnetwork: HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STATE>;
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, lpsznetworkname: windows_sys::core::PCWSTR, lpszinterfacename: windows_sys::core::PWSTR, lpcchinterfacename: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE>;
+pub type PCLUSAPI_GET_CLUSTER_NODE_ID = Option<unsafe extern "system" fn(hnode: HNODE, lpsznodeid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = Option<unsafe extern "system" fn(hnode: HNODE, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = Option<unsafe extern "system" fn(hnode: HNODE) -> CLUSTER_NODE_STATE>;
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32>;
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: windows_sys::core::PWSTR, lpcchobjectid: *mut u32, lpszparentid: windows_sys::core::PWSTR, lpcchparentid: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpsztype: windows_sys::core::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
+pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: windows_sys::core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32>;
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_sys::core::PWSTR, lpcchdependencyexpression: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = Option<unsafe extern "system" fn(hresource: HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpbuffer: windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32, lpszgroupname: windows_sys::core::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_sys::core::PCWSTR, samdesired: u32) -> super::super::System::Registry::HKEY>;
+pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = Option<unsafe extern "system" fn(lpsznodename: windows_sys::core::PCWSTR, pdwclusterstate: *mut u32) -> u32>;
+pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32>;
+pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PCLUSAPI_MOVE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
+pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
+pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
+pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_OPEN_CLUSTER = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR) -> HCLUSTER>;
+pub type PCLUSAPI_OPEN_CLUSTER_EX = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HCLUSTER>;
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR) -> HGROUP>;
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HGROUP>;
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_sys::core::PCWSTR) -> HGROUPSET>;
+pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetinterfacename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNETINTERFACE>;
+pub type PCLUSAPI_OPEN_CLUSTER_NETWORK = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_sys::core::PCWSTR) -> HNETWORK>;
+pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNETWORK>;
+pub type PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszinterfacename: windows_sys::core::PCWSTR) -> HNETINTERFACE>;
+pub type PCLUSAPI_OPEN_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR) -> HNODE>;
+pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNODE>;
+pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PCWSTR) -> HRESOURCE>;
+pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HRESOURCE>;
+pub type PCLUSAPI_OPEN_NODE_BY_ID = Option<unsafe extern "system" fn(hcluster: HCLUSTER, nodeid: u32) -> HNODE>;
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE) -> u32>;
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_PFN_REASON_HANDLER = Option<unsafe extern "system" fn(lpparameter: *const core::ffi::c_void, hcluster: HCLUSTER, szreason: windows_sys::core::PWSTR, lpsize: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32>;
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_sys::core::PCWSTR, lpremotegroupsetname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
+pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_RESUME_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32>;
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, networkcount: u32, networklist: *const HNETWORK) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_sys::core::PCWSTR, dwmaxquologsize: u32) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_sys::core::PCWSTR, dwmaxquorumlogsize: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR, lpsznewpassword: windows_sys::core::PCWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32>;
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUP, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszdependencyexpression: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSAPI_SET_REASON_HANDLER = Option<unsafe extern "system" fn(lphandler: *const CLUSAPI_REASON_HANDLER) -> *mut CLUSAPI_REASON_HANDLER>;
+pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = Option<unsafe extern "system" fn(guidsnapshotset: windows_sys::core::GUID, lpszvolumename: windows_sys::core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32>;
+pub type PCLUSAPI_SetClusterName = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszvolumepathname: windows_sys::core::PCWSTR) -> u32>;
+pub type PCLUSTER_DECRYPT = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32>;
+pub type PCLUSTER_ENCRYPT = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32>;
+pub type PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT = Option<unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCWSTR, lpszvolumename: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL>;
+pub type PCLUSTER_GET_VOLUME_PATH_NAME = Option<unsafe extern "system" fn(lpszfilename: windows_sys::core::PCWSTR, lpszvolumepathname: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL>;
+pub type PCLUSTER_IS_PATH_ON_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP = Option<unsafe extern "system" fn(lpszfilename: windows_sys::core::PCWSTR, lpszvolumepathname: windows_sys::core::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: windows_sys::core::PWSTR, lpcchvolumename: *mut u32) -> u32>;
+pub type PCLUSTER_REG_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: windows_sys::core::PCWSTR, dwoptions: u32, lpdata: *const core::ffi::c_void, cbdata: u32) -> i32>;
+pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION) -> i32>;
+pub type PCLUSTER_REG_BATCH_READ_COMMAND = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32>;
+pub type PCLUSTER_REG_CLOSE_BATCH = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, bcommit: super::super::Foundation::BOOL, failedcommandnumber: *mut i32) -> i32>;
+pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hbatchnotifyport: HREGBATCHPORT) -> i32>;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSTER_REG_CREATE_READ_BATCH = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32>;
+pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32>;
+pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, wzsubkeyname: windows_sys::core::PCWSTR, wzvaluename: windows_sys::core::PCWSTR) -> i32>;
+pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32>;
+pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: u32, lpszobjectname: windows_sys::core::PCWSTR, dwstatus: u32) -> super::super::Foundation::BOOL>;
+pub type PCLUSTER_SET_ACCOUNT_ACCESS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, szaccountsid: windows_sys::core::PCWSTR, dwaccess: u32, dwcontroltype: u32) -> u32>;
+pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, eupgradephase: CLUSTER_UPGRADE_PHASE) -> super::super::Foundation::BOOL>;
+pub type PEND_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, status: u32) -> u32>;
+pub type PEND_TYPE_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, status: u32) -> u32>;
+pub type PEXTEND_RES_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32>;
+pub type PEXTEND_RES_TYPE_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32>;
+pub type PFREE_CLUSTER_CRYPT = Option<unsafe extern "system" fn(pcryptinfo: *const core::ffi::c_void) -> u32>;
+pub type PIS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PLOG_EVENT_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: windows_sys::core::PCWSTR)>;
+pub type PLOOKS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type POFFLINE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> u32>;
+pub type POFFLINE_V2_ROUTINE = Option<unsafe extern "system" fn(resource: *const core::ffi::c_void, destinationnodename: windows_sys::core::PCWSTR, offlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32>;
+pub type PONLINE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> u32>;
+pub type PONLINE_V2_ROUTINE = Option<unsafe extern "system" fn(resource: *const core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE, onlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32>;
+pub type POPEN_CLUSTER_CRYPT_PROVIDER = Option<unsafe extern "system" fn(lpszresource: windows_sys::core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
+pub type POPEN_CLUSTER_CRYPT_PROVIDEREX = Option<unsafe extern "system" fn(lpszresource: windows_sys::core::PCWSTR, lpszkeyname: windows_sys::core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type POPEN_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_sys::core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize) -> *mut core::ffi::c_void>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type POPEN_V2_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_sys::core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut core::ffi::c_void>;
+pub type PQUERY_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32>;
+pub type PQUORUM_RESOURCE_LOST = Option<unsafe extern "system" fn(resource: isize)>;
+pub type PRAISE_RES_TYPE_NOTIFICATION = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, ppayload: *const u8, payloadsize: u32) -> u32>;
+pub type PREGISTER_APPINSTANCE = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_sys::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32>;
+pub type PREGISTER_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_sys::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32>;
+pub type PRELEASE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> u32>;
+pub type PREQUEST_DUMP_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, dumpduetocallinprogress: super::super::Foundation::BOOL, dumpdelayinms: u32) -> u32>;
+pub type PRESET_ALL_APPINSTANCE_VERSIONS = Option<unsafe extern "system" fn() -> u32>;
+pub type PRESOURCE_CONTROL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
+pub type PRESOURCE_TYPE_CONTROL_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_ADD_UNKNOWN_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+pub type PRESUTIL_CREATE_DIRECTORY_TREE = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> u32>;
+pub type PRESUTIL_DUP_PARAMETER_BLOCK = Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32>;
+pub type PRESUTIL_DUP_STRING = Option<unsafe extern "system" fn(pszinstring: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_ENUM_PRIVATE_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: windows_sys::core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+pub type PRESUTIL_ENUM_PROPERTIES = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: windows_sys::core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+pub type PRESUTIL_ENUM_RESOURCES = Option<unsafe extern "system" fn(hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut core::ffi::c_void) -> u32>;
+pub type PRESUTIL_ENUM_RESOURCES_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32>;
+pub type PRESUTIL_ENUM_RESOURCES_EX2 = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void, dwdesiredaccess: u32) -> u32>;
+pub type PRESUTIL_EXPAND_ENVIRONMENT_STRINGS = Option<unsafe extern "system" fn(pszsrc: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
+pub type PRESUTIL_FIND_BINARY_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32>;
+pub type PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: windows_sys::core::PWSTR, pcchdriveletter: *mut u32) -> u32>;
+pub type PRESUTIL_FIND_DWORD_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pdwpropertyvalue: *mut u32) -> u32>;
+pub type PRESUTIL_FIND_EXPANDED_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
+pub type PRESUTIL_FIND_EXPAND_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
+pub type PRESUTIL_FIND_FILETIME_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32>;
+pub type PRESUTIL_FIND_LONG_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, plpropertyvalue: *mut i32) -> u32>;
+pub type PRESUTIL_FIND_MULTI_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32>;
+pub type PRESUTIL_FIND_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
+pub type PRESUTIL_FIND_ULARGEINTEGER_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, plpropertyvalue: *mut u64) -> u32>;
+pub type PRESUTIL_FREE_ENVIRONMENT = Option<unsafe extern "system" fn(lpenvironment: *mut core::ffi::c_void) -> u32>;
+pub type PRESUTIL_FREE_PARAMETER_BLOCK = Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM)>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_ALL_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+pub type PRESUTIL_GET_BINARY_PROPERTY = Option<unsafe extern "system" fn(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_BINARY_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
+pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES = Option<unsafe extern "system" fn(hcluster: HCLUSTER, phclusternameresource: *mut HRESOURCE, phclusteripaddressresource: *mut HRESOURCE, phclusterquorumresource: *mut HRESOURCE) -> u32>;
+pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX = Option<unsafe extern "system" fn(hclusterin: HCLUSTER, phclusternameresourceout: *mut HRESOURCE, phclusteripaddressresourceout: *mut HRESOURCE, phclusterquorumresourceout: *mut HRESOURCE, dwdesiredaccess: u32) -> u32>;
+pub type PRESUTIL_GET_DWORD_PROPERTY = Option<unsafe extern "system" fn(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_DWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32>;
+pub type PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> *mut core::ffi::c_void>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_EXPAND_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, bexpand: super::super::Foundation::BOOL) -> windows_sys::core::PWSTR>;
+pub type PRESUTIL_GET_FILETIME_PROPERTY = Option<unsafe extern "system" fn(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+pub type PRESUTIL_GET_LONG_PROPERTY = Option<unsafe extern "system" fn(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+pub type PRESUTIL_GET_MULTI_SZ_PROPERTY = Option<unsafe extern "system" fn(ppszoutvalue: *mut windows_sys::core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: windows_sys::core::PCWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PRIVATE_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut windows_sys::core::PWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PROPERTY = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32>;
+pub type PRESUTIL_GET_PROPERTY_FORMATS = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PROPERTY_SIZE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_QWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, brecurse: super::super::Foundation::BOOL) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, dwdesiredaccess: u32) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS = Option<unsafe extern "system" fn(hresource: HRESOURCE, pszaddress: windows_sys::core::PWSTR, pcchaddress: *mut u32, pszsubnetmask: windows_sys::core::PWSTR, pcchsubnetmask: *mut u32, psznetwork: windows_sys::core::PWSTR, pcchnetwork: *mut u32) -> u32>;
+pub type PRESUTIL_GET_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, pszresourcename: windows_sys::core::PWSTR, pcchresourcenameinout: *mut u32) -> u32>;
+pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY = Option<unsafe extern "system" fn(lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR) -> HRESOURCE>;
+pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX = Option<unsafe extern "system" fn(lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwdesiredaccess: u32) -> HRESOURCE>;
+pub type PRESUTIL_GET_SZ_PROPERTY = Option<unsafe extern "system" fn(ppszoutvalue: *mut windows_sys::core::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: windows_sys::core::PCWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
+pub type PRESUTIL_IS_PATH_VALID = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PRESUTIL_IS_RESOURCE_CLASS_EQUAL = Option<unsafe extern "system" fn(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
+pub type PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
+pub type PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
+pub type PRESUTIL_RESOURCES_EQUAL = Option<unsafe extern "system" fn(hself: HRESOURCE, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
+pub type PRESUTIL_RESOURCE_TYPES_EQUAL = Option<unsafe extern "system" fn(lpszresourcetypename: windows_sys::core::PCWSTR, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_BINARY_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_DWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_EXPAND_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, ppszoutstring: *mut windows_sys::core::PWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_MULTI_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut windows_sys::core::PWSTR, pcboutvaluesize: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PRIVATE_PROPERTY_LIST = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PROPERTY_TABLE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PROPERTY_TABLE_EX = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_QWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32>;
+pub type PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
+#[cfg(feature = "Win32_System_Services")]
+pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, schscmhandle: super::super::System::Services::SC_HANDLE, phservice: *mut super::super::System::Services::SC_HANDLE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
+#[cfg(feature = "Win32_System_Services")]
+pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, schscmhandle: super::super::System::Services::SC_HANDLE, phservice: *mut super::super::System::Services::SC_HANDLE, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, ppszoutstring: *mut windows_sys::core::PWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_UNKNOWN_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
+#[cfg(feature = "Win32_System_Services")]
+pub type PRESUTIL_START_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, phservicehandle: *mut super::super::System::Services::SC_HANDLE) -> u32>;
+pub type PRESUTIL_STOP_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Services")]
+pub type PRESUTIL_STOP_SERVICE = Option<unsafe extern "system" fn(hservicehandle: super::super::System::Services::SC_HANDLE) -> u32>;
+pub type PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL = Option<unsafe extern "system" fn(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
+pub type PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST = Option<unsafe extern "system" fn(pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
+pub type PRESUTIL_VERIFY_PROPERTY_TABLE = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
+pub type PRESUTIL_VERIFY_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR) -> u32>;
+#[cfg(feature = "Win32_System_Services")]
+pub type PRESUTIL_VERIFY_SERVICE = Option<unsafe extern "system" fn(hservicehandle: super::super::System::Services::SC_HANDLE) -> u32>;
+pub type PRES_UTIL_VERIFY_SHUTDOWN_SAFE = Option<unsafe extern "system" fn(flags: u32, reason: u32, presult: *mut u32) -> u32>;
+pub type PSET_INTERNAL_STATE = Option<unsafe extern "system" fn(param0: isize, statetype: CLUSTER_RESOURCE_APPLICATION_STATE, active: super::super::Foundation::BOOL) -> u32>;
+pub type PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, propertylistbuffer: *const u8, propertylistbuffersize: u32) -> u32>;
+pub type PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32, lockedmodeflags: u32) -> u32>;
+pub type PSET_RESOURCE_LOCKED_MODE_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32) -> u32>;
+pub type PSET_RESOURCE_STATUS_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS) -> u32>;
+pub type PSET_RESOURCE_STATUS_ROUTINE_EX = Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32>;
+pub type PSET_RESOURCE_WPR_POLICY_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, wprpolicyflags: u32) -> u32>;
+pub type PSIGNAL_FAILURE_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PSTARTUP_EX_ROUTINE = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut CLRES_CALLBACK_FUNCTION_TABLE, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PSTARTUP_ROUTINE = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: PSET_RESOURCE_STATUS_ROUTINE, logevent: PLOG_EVENT_ROUTINE, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
+pub type PTERMINATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void)>;
+pub type PWORKER_START_ROUTINE = Option<unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut core::ffi::c_void) -> u32>;
+pub type SET_APP_INSTANCE_CSV_FLAGS = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32>;
+pub type CLCTL_CODES = i32;
+pub type CLUADMEX_OBJECT_TYPE = i32;
+pub type CLUSCTL_AFFINITYRULE_CODES = i32;
+pub type CLUSCTL_CLUSTER_CODES = i32;
+pub type CLUSCTL_GROUPSET_CODES = i32;
+pub type CLUSCTL_GROUP_CODES = i32;
+pub type CLUSCTL_NETINTERFACE_CODES = i32;
+pub type CLUSCTL_NETWORK_CODES = i32;
+pub type CLUSCTL_NODE_CODES = i32;
+pub type CLUSCTL_RESOURCE_CODES = i32;
+pub type CLUSCTL_RESOURCE_TYPE_CODES = i32;
+pub type CLUSGROUP_TYPE = i32;
+pub type CLUSPROP_IPADDR_ENABLENETBIOS = i32;
+pub type CLUSPROP_PIFLAGS = i32;
+pub type CLUSTERSET_OBJECT_TYPE = i32;
+pub type CLUSTER_CHANGE = i32;
+pub type CLUSTER_CHANGE_CLUSTER_V2 = i32;
+pub type CLUSTER_CHANGE_GROUPSET_V2 = i32;
+pub type CLUSTER_CHANGE_GROUP_V2 = i32;
+pub type CLUSTER_CHANGE_NETINTERFACE_V2 = i32;
+pub type CLUSTER_CHANGE_NETWORK_V2 = i32;
+pub type CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = i32;
+pub type CLUSTER_CHANGE_NODE_V2 = i32;
+pub type CLUSTER_CHANGE_QUORUM_V2 = i32;
+pub type CLUSTER_CHANGE_REGISTRY_V2 = i32;
+pub type CLUSTER_CHANGE_RESOURCE_TYPE_V2 = i32;
+pub type CLUSTER_CHANGE_RESOURCE_V2 = i32;
+pub type CLUSTER_CHANGE_SHARED_VOLUME_V2 = i32;
+pub type CLUSTER_CHANGE_SPACEPORT_V2 = i32;
+pub type CLUSTER_CLOUD_TYPE = i32;
+pub type CLUSTER_CONTROL_OBJECT = i32;
+pub type CLUSTER_CSV_VOLUME_FAULT_STATE = i32;
+pub type CLUSTER_ENUM = i32;
+pub type CLUSTER_GROUP_AUTOFAILBACK_TYPE = i32;
+pub type CLUSTER_GROUP_ENUM = i32;
+pub type CLUSTER_GROUP_PRIORITY = i32;
+pub type CLUSTER_GROUP_STATE = i32;
+pub type CLUSTER_MGMT_POINT_RESTYPE = i32;
+pub type CLUSTER_MGMT_POINT_TYPE = i32;
+pub type CLUSTER_NETINTERFACE_STATE = i32;
+pub type CLUSTER_NETWORK_ENUM = i32;
+pub type CLUSTER_NETWORK_ROLE = i32;
+pub type CLUSTER_NETWORK_STATE = i32;
+pub type CLUSTER_NODE_DRAIN_STATUS = i32;
+pub type CLUSTER_NODE_ENUM = i32;
+pub type CLUSTER_NODE_RESUME_FAILBACK_TYPE = i32;
+pub type CLUSTER_NODE_STATE = i32;
+pub type CLUSTER_NODE_STATUS = i32;
+pub type CLUSTER_NOTIFICATIONS_VERSION = i32;
+pub type CLUSTER_OBJECT_TYPE = i32;
+pub type CLUSTER_PROPERTY_FORMAT = i32;
+pub type CLUSTER_PROPERTY_SYNTAX = u32;
+pub type CLUSTER_PROPERTY_TYPE = i32;
+pub type CLUSTER_QUORUM_TYPE = i32;
+pub type CLUSTER_QUORUM_VALUE = i32;
+pub type CLUSTER_REG_COMMAND = i32;
+pub type CLUSTER_RESOURCE_APPLICATION_STATE = i32;
+pub type CLUSTER_RESOURCE_CLASS = i32;
+pub type CLUSTER_RESOURCE_CREATE_FLAGS = i32;
+pub type CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = i32;
+pub type CLUSTER_RESOURCE_ENUM = i32;
+pub type CLUSTER_RESOURCE_RESTART_ACTION = i32;
+pub type CLUSTER_RESOURCE_STATE = i32;
+pub type CLUSTER_RESOURCE_STATE_CHANGE_REASON = i32;
+pub type CLUSTER_RESOURCE_TYPE_ENUM = i32;
+pub type CLUSTER_ROLE = i32;
+pub type CLUSTER_ROLE_STATE = i32;
+pub type CLUSTER_SETUP_PHASE = i32;
+pub type CLUSTER_SETUP_PHASE_SEVERITY = i32;
+pub type CLUSTER_SETUP_PHASE_TYPE = i32;
+pub type CLUSTER_SHARED_VOLUME_BACKUP_STATE = i32;
+pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
+pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
+pub type CLUSTER_SHARED_VOLUME_STATE = i32;
+pub type CLUSTER_STORAGENODE_STATE = i32;
+pub type CLUSTER_UPGRADE_PHASE = i32;
+pub type CLUS_AFFINITY_RULE_TYPE = i32;
+pub type CLUS_CHARACTERISTICS = i32;
+pub type CLUS_FLAGS = i32;
+pub type CLUS_GROUP_START_SETTING = i32;
+pub type CLUS_RESSUBCLASS = i32;
+pub type CLUS_RESSUBCLASS_NETWORK = i32;
+pub type CLUS_RESSUBCLASS_STORAGE = i32;
+pub type FAILURE_TYPE = i32;
+pub type FILESHARE_CHANGE_ENUM = i32;
+pub type GRP_PLACEMENT_OPTIONS = i32;
+pub type LOG_LEVEL = i32;
+pub type MAINTENANCE_MODE_TYPE_ENUM = i32;
+pub type NODE_CLUSTER_STATE = i32;
+pub type PLACEMENT_OPTIONS = i32;
+pub type RESDLL_CONTEXT_OPERATION_TYPE = i32;
+pub type RESOURCE_EXIT_STATE = i32;
+pub type RESOURCE_MONITOR_STATE = i32;
+pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
+pub type SR_REPLICATED_DISK_TYPE = i32;
+pub type VM_RESDLL_CONTEXT = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLRES_CALLBACK_FUNCTION_TABLE {
+    pub LogEvent: PLOG_EVENT_ROUTINE,
+    pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
+    pub SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE,
+    pub SignalFailure: PSIGNAL_FAILURE_ROUTINE,
+    pub SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE,
+    pub EndControlCall: PEND_CONTROL_CALL,
+    pub EndTypeControlCall: PEND_TYPE_CONTROL_CALL,
+    pub ExtendControlCall: PEXTEND_RES_CONTROL_CALL,
+    pub ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL,
+    pub RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION,
+    pub ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS,
+    pub ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS,
+    pub SetInternalState: PSET_INTERNAL_STATE,
+    pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
+    pub RequestDump: PREQUEST_DUMP_ROUTINE,
+    pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
+    pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct CLRES_FUNCTION_TABLE {
+    pub TableSize: u32,
+    pub Version: u32,
+    pub Anonymous: CLRES_FUNCTION_TABLE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union CLRES_FUNCTION_TABLE_0 {
+    pub V1Functions: CLRES_V1_FUNCTIONS,
+    pub V2Functions: CLRES_V2_FUNCTIONS,
+    pub V3Functions: CLRES_V3_FUNCTIONS,
+    pub V4Functions: CLRES_V4_FUNCTIONS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct CLRES_V1_FUNCTIONS {
+    pub Open: POPEN_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_ROUTINE,
+    pub Offline: POFFLINE_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct CLRES_V2_FUNCTIONS {
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct CLRES_V3_FUNCTIONS {
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct CLRES_V4_FUNCTIONS {
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+    pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
+    pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSAPI_REASON_HANDLER {
+    pub lpParameter: *mut core::ffi::c_void,
+    pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
+    pub GetTickCount64: u64,
+    pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
+    pub NodeId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
+    pub dwFlags: u32,
+    pub guidPoolFilter: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_BINARY {
+    pub Base: CLUSPROP_VALUE,
+    pub rgb: [u8; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub union CLUSPROP_BUFFER_HELPER {
+    pub pb: *mut u8,
+    pub pw: *mut u16,
+    pub pdw: *mut u32,
+    pub pl: *mut i32,
+    pub psz: windows_sys::core::PWSTR,
+    pub pList: *mut CLUSPROP_LIST,
+    pub pSyntax: *mut CLUSPROP_SYNTAX,
+    pub pName: *mut CLUSPROP_SZ,
+    pub pValue: *mut CLUSPROP_VALUE,
+    pub pBinaryValue: *mut CLUSPROP_BINARY,
+    pub pWordValue: *mut CLUSPROP_WORD,
+    pub pDwordValue: *mut CLUSPROP_DWORD,
+    pub pLongValue: *mut CLUSPROP_LONG,
+    pub pULargeIntegerValue: *mut CLUSPROP_ULARGE_INTEGER,
+    pub pLargeIntegerValue: *mut CLUSPROP_LARGE_INTEGER,
+    pub pStringValue: *mut CLUSPROP_SZ,
+    pub pMultiSzValue: *mut CLUSPROP_SZ,
+    pub pSecurityDescriptor: *mut CLUSPROP_SECURITY_DESCRIPTOR,
+    pub pResourceClassValue: *mut CLUSPROP_RESOURCE_CLASS,
+    pub pResourceClassInfoValue: *mut CLUSPROP_RESOURCE_CLASS_INFO,
+    pub pDiskSignatureValue: *mut CLUSPROP_DWORD,
+    pub pScsiAddressValue: *mut CLUSPROP_SCSI_ADDRESS,
+    pub pDiskNumberValue: *mut CLUSPROP_DWORD,
+    pub pPartitionInfoValue: *mut CLUSPROP_PARTITION_INFO,
+    pub pRequiredDependencyValue: *mut CLUSPROP_REQUIRED_DEPENDENCY,
+    pub pPartitionInfoValueEx: *mut CLUSPROP_PARTITION_INFO_EX,
+    pub pPartitionInfoValueEx2: *mut CLUSPROP_PARTITION_INFO_EX2,
+    pub pFileTimeValue: *mut CLUSPROP_FILETIME,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_DWORD {
+    pub Base: CLUSPROP_VALUE,
+    pub dw: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_FILETIME {
+    pub Base: CLUSPROP_VALUE,
+    pub ft: super::super::Foundation::FILETIME,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_FTSET_INFO {
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_FTSET_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_LARGE_INTEGER {
+    pub Base: CLUSPROP_VALUE,
+    pub li: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_LIST {
+    pub nPropertyCount: u32,
+    pub PropertyName: CLUSPROP_SZ,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_LONG {
+    pub Base: CLUSPROP_VALUE,
+    pub l: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_PARTITION_INFO {
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_PARTITION_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_PARTITION_INFO_EX {
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_PARTITION_INFO_EX,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_PARTITION_INFO_EX2 {
+    pub Base: CLUSPROP_PARTITION_INFO_EX,
+    pub Base2: CLUS_PARTITION_INFO_EX2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUSPROP_REQUIRED_DEPENDENCY {
+    pub Value: CLUSPROP_VALUE,
+    pub ResClass: CLUSPROP_RESOURCE_CLASS,
+    pub ResTypeName: CLUSPROP_SZ,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_RESOURCE_CLASS {
+    pub Base: CLUSPROP_VALUE,
+    pub rc: CLUSTER_RESOURCE_CLASS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_RESOURCE_CLASS_INFO {
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_RESOURCE_CLASS_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_SCSI_ADDRESS {
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_SCSI_ADDRESS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_SECURITY_DESCRIPTOR {
+    pub Base: CLUSPROP_VALUE,
+    pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
+    pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
+    pub rgbSecurityDescriptor: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUSPROP_SYNTAX {
+    pub dw: u32,
+    pub Anonymous: CLUSPROP_SYNTAX_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_SYNTAX_0 {
+    pub wFormat: u16,
+    pub wType: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_SZ {
+    pub Base: CLUSPROP_VALUE,
+    pub sz: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_ULARGE_INTEGER {
+    pub Base: CLUSPROP_VALUE,
+    pub li: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_VALUE {
+    pub Syntax: CLUSPROP_SYNTAX,
+    pub cbLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSPROP_WORD {
+    pub Base: CLUSPROP_VALUE,
+    pub w: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTERVERSIONINFO {
+    pub dwVersionInfoSize: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub BuildNumber: u16,
+    pub szVendorId: [u16; 64],
+    pub szCSDVersion: [u16; 64],
+    pub dwClusterHighestVersion: u32,
+    pub dwClusterLowestVersion: u32,
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTERVERSIONINFO_NT4 {
+    pub dwVersionInfoSize: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub BuildNumber: u16,
+    pub szVendorId: [u16; 64],
+    pub szCSDVersion: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
+    pub dwVersion: u32,
+    pub dwUpdateDomains: u32,
+    pub dwFaultDomains: u32,
+    pub bReserveSpareNode: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_BATCH_COMMAND {
+    pub Command: CLUSTER_REG_COMMAND,
+    pub dwOptions: u32,
+    pub wzName: windows_sys::core::PCWSTR,
+    pub lpData: *const u8,
+    pub cbData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_CREATE_GROUP_INFO {
+    pub dwVersion: u32,
+    pub groupType: CLUSGROUP_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub dwType: u32,
+    pub cbId: u32,
+    pub lpszId: windows_sys::core::PWSTR,
+    pub cbName: u32,
+    pub lpszName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_GROUP_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub lpszId: windows_sys::core::PWSTR,
+    pub cbName: u32,
+    pub lpszName: windows_sys::core::PWSTR,
+    pub state: CLUSTER_GROUP_STATE,
+    pub cbOwnerNode: u32,
+    pub lpszOwnerNode: windows_sys::core::PWSTR,
+    pub dwFlags: u32,
+    pub cbProperties: u32,
+    pub pProperties: *mut core::ffi::c_void,
+    pub cbRoProperties: u32,
+    pub pRoProperties: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_HEALTH_FAULT {
+    pub Id: windows_sys::core::PWSTR,
+    pub ErrorType: u32,
+    pub ErrorCode: u32,
+    pub Description: windows_sys::core::PWSTR,
+    pub Provider: windows_sys::core::PWSTR,
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_HEALTH_FAULT_ARRAY {
+    pub numFaults: u32,
+    pub faults: *mut CLUSTER_HEALTH_FAULT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_IP_ENTRY {
+    pub lpszIpAddress: windows_sys::core::PCWSTR,
+    pub dwPrefixLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_MEMBERSHIP_INFO {
+    pub HasQuorum: super::super::Foundation::BOOL,
+    pub UpnodesSize: u32,
+    pub Upnodes: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_READ_BATCH_COMMAND {
+    pub Command: CLUSTER_REG_COMMAND,
+    pub dwOptions: u32,
+    pub wzSubkeyName: windows_sys::core::PCWSTR,
+    pub wzValueName: windows_sys::core::PCWSTR,
+    pub lpData: *const u8,
+    pub cbData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_RESOURCE_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub lpszId: windows_sys::core::PWSTR,
+    pub cbName: u32,
+    pub lpszName: windows_sys::core::PWSTR,
+    pub cbOwnerGroupName: u32,
+    pub lpszOwnerGroupName: windows_sys::core::PWSTR,
+    pub cbOwnerGroupId: u32,
+    pub lpszOwnerGroupId: windows_sys::core::PWSTR,
+    pub cbProperties: u32,
+    pub pProperties: *mut core::ffi::c_void,
+    pub cbRoProperties: u32,
+    pub pRoProperties: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SET_PASSWORD_STATUS {
+    pub NodeId: u32,
+    pub SetAttempted: super::super::Foundation::BOOLEAN,
+    pub ReturnStatus: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
+    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
+    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    pub NewVolumeName: [u16; 260],
+    pub NewVolumeGuid: [u16; 50],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    pub NewVolumeName: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
+    pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
+    pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
+    pub VolumeOffset: u64,
+    pub VolumeId: [u16; 260],
+    pub VolumeName: [u16; 260],
+    pub VolumeGuid: [u16; 50],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
+    pub szVolumeName: [u16; 260],
+    pub szNodeName: [u16; 260],
+    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    pub szVolumeName: [u16; 260],
+    pub szNodeName: [u16; 260],
+    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
+    pub szVolumeFriendlyName: [u16; 260],
+    pub RedirectedIOReason: u64,
+    pub VolumeRedirectedIOReason: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_VALIDATE_CSV_FILENAME {
+    pub szFileName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_VALIDATE_DIRECTORY {
+    pub szPath: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_VALIDATE_NETNAME {
+    pub szNetworkName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUSTER_VALIDATE_PATH {
+    pub szPath: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CHKDSK_INFO {
+    pub PartitionNumber: u32,
+    pub ChkdskState: u32,
+    pub FileIdCount: u32,
+    pub FileIdList: [u64; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    pub FileServerName: [u16; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    pub FileServerName: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub VolumeName: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CSV_VOLUME_INFO {
+    pub VolumeOffset: u64,
+    pub PartitionNumber: u32,
+    pub FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
+    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
+    pub szVolumeFriendlyName: [u16; 260],
+    pub szVolumeName: [u16; 50],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_CSV_VOLUME_NAME {
+    pub VolumeOffset: i64,
+    pub szVolumeName: [u16; 260],
+    pub szRootPath: [u16; 263],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_DISK_NUMBER_INFO {
+    pub DiskNumber: u32,
+    pub BytesPerSector: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_DNN_LEADER_STATUS {
+    pub IsOnline: super::super::Foundation::BOOL,
+    pub IsFileServerPresent: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
+    pub NodeId: u32,
+    pub Status: CLUSTER_RESOURCE_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_FORCE_QUORUM_INFO {
+    pub dwSize: u32,
+    pub dwNodeBitMask: u32,
+    pub dwMaxNumberofNodes: u32,
+    pub multiszNodeList: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_FTSET_INFO {
+    pub dwRootSignature: u32,
+    pub dwFtType: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_MAINTENANCE_MODE_INFO {
+    pub InMaintenance: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_MAINTENANCE_MODE_INFOEX {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
+    pub InternalState: CLUSTER_RESOURCE_STATE,
+    pub Signature: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_NETNAME_IP_INFO_ENTRY {
+    pub NodeId: u32,
+    pub AddressSize: u32,
+    pub Address: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    pub szName: [u16; 64],
+    pub NumEntries: u32,
+    pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_NETNAME_PWD_INFO {
+    pub Flags: u32,
+    pub Password: [u16; 16],
+    pub CreatingDC: [u16; 258],
+    pub ObjectGuid: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_NETNAME_PWD_INFOEX {
+    pub Flags: u32,
+    pub Password: [u16; 128],
+    pub CreatingDC: [u16; 258],
+    pub ObjectGuid: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_NETNAME_VS_TOKEN_INFO {
+    pub ProcessID: u32,
+    pub DesiredAccess: u32,
+    pub InheritHandle: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_PARTITION_INFO {
+    pub dwFlags: u32,
+    pub szDeviceName: [u16; 260],
+    pub szVolumeLabel: [u16; 260],
+    pub dwSerialNumber: u32,
+    pub rgdwMaximumComponentLength: u32,
+    pub dwFileSystemFlags: u32,
+    pub szFileSystem: [u16; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_PARTITION_INFO_EX {
+    pub dwFlags: u32,
+    pub szDeviceName: [u16; 260],
+    pub szVolumeLabel: [u16; 260],
+    pub dwSerialNumber: u32,
+    pub rgdwMaximumComponentLength: u32,
+    pub dwFileSystemFlags: u32,
+    pub szFileSystem: [u16; 32],
+    pub TotalSizeInBytes: u64,
+    pub FreeSizeInBytes: u64,
+    pub DeviceNumber: u32,
+    pub PartitionNumber: u32,
+    pub VolumeGuid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_PARTITION_INFO_EX2 {
+    pub GptPartitionId: windows_sys::core::GUID,
+    pub szPartitionName: [u16; 260],
+    pub EncryptionFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
+    pub dwSize: u32,
+    pub resourceState: CLUSTER_RESOURCE_STATE,
+    pub szProviderId: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_RESOURCE_CLASS_INFO {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUS_RESOURCE_CLASS_INFO_0 {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
+    pub li: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
+    pub SubClass: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
+    pub dw: u32,
+    pub rc: CLUSTER_RESOURCE_CLASS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_SCSI_ADDRESS {
+    pub Anonymous: CLUS_SCSI_ADDRESS_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLUS_SCSI_ADDRESS_0 {
+    pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
+    pub dw: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_SCSI_ADDRESS_0_0 {
+    pub PortNumber: u8,
+    pub PathId: u8,
+    pub TargetId: u8,
+    pub Lun: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub ExtraParameterSize: u32,
+    pub ExtraParameter: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
+    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
+    pub DelayTimerInSecs: u32,
+    pub VolumeName: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_STARTING_PARAMS {
+    pub dwSize: u32,
+    pub bForm: super::super::Foundation::BOOL,
+    pub bFirst: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+    pub AvailDrivelettersMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
+    pub CurrentDriveLetterMask: u32,
+    pub TargetDriveLetterMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_STORAGE_SET_DRIVELETTER {
+    pub PartitionNumber: u32,
+    pub DriveLetterMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLUS_WORKER {
+    pub hThread: super::super::Foundation::HANDLE,
+    pub Terminate: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREATE_CLUSTER_CONFIG {
+    pub dwVersion: u32,
+    pub lpszClusterName: windows_sys::core::PCWSTR,
+    pub cNodes: u32,
+    pub ppszNodeNames: *const windows_sys::core::PCWSTR,
+    pub cIpEntries: u32,
+    pub pIpEntries: *mut CLUSTER_IP_ENTRY,
+    pub fEmptyCluster: super::super::Foundation::BOOLEAN,
+    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
+    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREATE_CLUSTER_NAME_ACCOUNT {
+    pub dwVersion: u32,
+    pub lpszClusterName: windows_sys::core::PCWSTR,
+    pub dwFlags: u32,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszPassword: windows_sys::core::PCWSTR,
+    pub pszDomain: windows_sys::core::PCWSTR,
+    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
+    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
+    pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
+}
+pub const ClusApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
+pub const ClusCryptoKeys: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusDisk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60723_2631_11d1_89f1_00a0c90d061e);
+pub const ClusDisks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60725_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetInterface: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ed_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ef_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetwork: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f1_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetworkNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f5_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetworks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f3_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f7_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNodeNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606fb_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f9_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPartition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071f_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPartitionEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53d51d26_b51b_4a79_b2c3_5048d93a98fc);
+pub const ClusPartitions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60721_2631_11d1_89f1_00a0c90d061e);
+pub const ClusProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ff_2631_11d1_89f1_00a0c90d061e);
+pub const ClusProperty: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606fd_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60719_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValueData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusRefObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60701_2631_11d1_89f1_00a0c90d061e);
+pub const ClusRegistryKeys: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60729_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResDependencies: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60703_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResDependents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6072d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60705_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroupPreferredOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e7_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroupResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e9_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroups: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60707_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResPossibleOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070f_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypePossibleOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60717_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypeResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60713_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60711_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60709_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusScsiAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60727_2631_11d1_89f1_00a0c90d061e);
+pub const ClusVersion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60715_2631_11d1_89f1_00a0c90d061e);
+pub const Cluster: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e3_2631_11d1_89f1_00a0c90d061e);
+pub const ClusterNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
+pub const DomainNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILESHARE_CHANGE {
+    pub Change: FILESHARE_CHANGE_ENUM,
+    pub ShareName: [u16; 84],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILESHARE_CHANGE_LIST {
+    pub NumEntries: u32,
+    pub ChangeEntry: [FILESHARE_CHANGE; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_OPERATION_CONTEXT_PARAMS {
+    pub Size: u32,
+    pub Version: u32,
+    pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
+    pub Priority: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_FAILURE_INFO {
+    pub dwFailoverAttemptsRemaining: u32,
+    pub dwFailoverPeriodRemaining: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GROUP_FAILURE_INFO_BUFFER {
+    pub dwVersion: u32,
+    pub Info: GROUP_FAILURE_INFO,
+}
+pub type HCHANGE = isize;
+pub type HCLUSCRYPTPROVIDER = isize;
+pub type HCLUSENUM = isize;
+pub type HCLUSENUMEX = isize;
+pub type HCLUSTER = isize;
+pub type HGROUP = isize;
+pub type HGROUPENUM = isize;
+pub type HGROUPENUMEX = isize;
+pub type HGROUPSET = isize;
+pub type HGROUPSETENUM = isize;
+pub type HNETINTERFACE = isize;
+pub type HNETINTERFACEENUM = isize;
+pub type HNETWORK = isize;
+pub type HNETWORKENUM = isize;
+pub type HNODE = isize;
+pub type HNODEENUM = isize;
+pub type HNODEENUMEX = isize;
+pub type HREGBATCH = isize;
+pub type HREGBATCHNOTIFICATION = isize;
+pub type HREGBATCHPORT = isize;
+pub type HREGREADBATCH = isize;
+pub type HREGREADBATCHREPLY = isize;
+pub type HRESENUM = isize;
+pub type HRESENUMEX = isize;
+pub type HRESOURCE = isize;
+pub type HRESTYPEENUM = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MONITOR_STATE {
+    pub LastUpdate: i64,
+    pub State: RESOURCE_MONITOR_STATE,
+    pub ActiveResource: super::super::Foundation::HANDLE,
+    pub ResmonStop: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NOTIFY_FILTER_AND_TYPE {
+    pub dwObjectType: u32,
+    pub FilterFlags: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NodeUtilizationInfoElement {
+    pub Id: u64,
+    pub AvailableMemory: u64,
+    pub AvailableMemoryAfterReclamation: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POST_UPGRADE_VERSION_INFO {
+    pub newMajorVersion: u32,
+    pub newUpgradeVersion: u32,
+    pub oldMajorVersion: u32,
+    pub oldUpgradeVersion: u32,
+    pub reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PaxosTagCStruct {
+    pub __padding__PaxosTagVtable: u64,
+    pub __padding__NextEpochVtable: u64,
+    pub __padding__NextEpoch_DateTimeVtable: u64,
+    pub NextEpoch_DateTime_ticks: u64,
+    pub NextEpoch_Value: i32,
+    pub __padding__BoundryNextEpoch: u32,
+    pub __padding__EpochVtable: u64,
+    pub __padding__Epoch_DateTimeVtable: u64,
+    pub Epoch_DateTime_ticks: u64,
+    pub Epoch_Value: i32,
+    pub __padding__BoundryEpoch: u32,
+    pub Sequence: i32,
+    pub __padding__BoundrySequence: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCE_FAILURE_INFO {
+    pub dwRestartAttemptsRemaining: u32,
+    pub dwRestartPeriodRemaining: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCE_FAILURE_INFO_BUFFER {
+    pub dwVersion: u32,
+    pub Info: RESOURCE_FAILURE_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCE_STATUS {
+    pub ResourceState: CLUSTER_RESOURCE_STATE,
+    pub CheckPoint: u32,
+    pub WaitHint: u32,
+    pub EventHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCE_STATUS_EX {
+    pub ResourceState: CLUSTER_RESOURCE_STATE,
+    pub CheckPoint: u32,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub ApplicationSpecificErrorCode: u32,
+    pub Flags: u32,
+    pub WaitHint: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
+    pub isTerminalFailure: super::super::Foundation::BOOL,
+    pub restartPeriodRemaining: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESUTIL_FILETIME_DATA {
+    pub Default: super::super::Foundation::FILETIME,
+    pub Minimum: super::super::Foundation::FILETIME,
+    pub Maximum: super::super::Foundation::FILETIME,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESUTIL_LARGEINT_DATA {
+    pub Default: i64,
+    pub Minimum: i64,
+    pub Maximum: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESUTIL_PROPERTY_ITEM {
+    pub Name: windows_sys::core::PWSTR,
+    pub KeyName: windows_sys::core::PWSTR,
+    pub Format: u32,
+    pub Anonymous: RESUTIL_PROPERTY_ITEM_0,
+    pub Minimum: u32,
+    pub Maximum: u32,
+    pub Flags: u32,
+    pub Offset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RESUTIL_PROPERTY_ITEM_0 {
+    pub DefaultPtr: usize,
+    pub Default: u32,
+    pub lpDefault: *mut core::ffi::c_void,
+    pub LargeIntData: *mut RESUTIL_LARGEINT_DATA,
+    pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
+    pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RESUTIL_ULARGEINT_DATA {
+    pub Default: u64,
+    pub Minimum: u64,
+    pub Maximum: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ResourceUtilizationInfoElement {
+    pub PhysicalNumaId: u64,
+    pub CurrentMemory: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    pub ReplicationGroupName: [u16; 260],
+    pub Description: [u16; 260],
+    pub LogPath: [u16; 260],
+    pub MaxLogSizeInBytes: u64,
+    pub LogType: u16,
+    pub ReplicationMode: u32,
+    pub MinimumPartnersInSync: u32,
+    pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
+    pub EnableEncryption: super::super::Foundation::BOOLEAN,
+    pub EnableCompression: super::super::Foundation::BOOLEAN,
+    pub CertificateThumbprint: [u16; 260],
+    pub VolumeNameCount: u32,
+    pub VolumeNames: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    pub Result: u32,
+    pub ErrorString: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_DISK_INFO {
+    pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
+    pub DiskGuid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    pub Count: u16,
+    pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
+    pub DataDiskGuid: windows_sys::core::GUID,
+    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
+    pub DataDiskGuid: windows_sys::core::GUID,
+    pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
+    pub SourceDataDiskGuid: windows_sys::core::GUID,
+    pub TargetReplicationGroupGuid: windows_sys::core::GUID,
+    pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
+    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
+    pub Type: SR_REPLICATED_DISK_TYPE,
+    pub ClusterDiskResourceGuid: windows_sys::core::GUID,
+    pub ReplicationGroupId: windows_sys::core::GUID,
+    pub ReplicationGroupName: [u16; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    pub Count: u16,
+    pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    pub Count: u32,
+    pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
+    pub PartitionOffset: u64,
+    pub Capabilities: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WitnessTagHelper {
+    pub Version: i32,
+    pub paxosToValidate: PaxosTagCStruct,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WitnessTagUpdateHelper {
+    pub Version: i32,
+    pub paxosToSet: PaxosTagCStruct,
+    pub paxosToValidate: PaxosTagCStruct,
+}
 pub const BitLockerDecrypted: i32 = 4i32;
 pub const BitLockerDecrypting: i32 = 16i32;
 pub const BitLockerEnabled: i32 = 1i32;
@@ -2227,1674 +3898,3 @@ pub const eResourceStateChangeReasonMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON =
 pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 5i32;
 pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 4i32;
 pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 0i32;
-pub type CLCTL_CODES = i32;
-pub type CLUADMEX_OBJECT_TYPE = i32;
-pub type CLUSCTL_AFFINITYRULE_CODES = i32;
-pub type CLUSCTL_CLUSTER_CODES = i32;
-pub type CLUSCTL_GROUPSET_CODES = i32;
-pub type CLUSCTL_GROUP_CODES = i32;
-pub type CLUSCTL_NETINTERFACE_CODES = i32;
-pub type CLUSCTL_NETWORK_CODES = i32;
-pub type CLUSCTL_NODE_CODES = i32;
-pub type CLUSCTL_RESOURCE_CODES = i32;
-pub type CLUSCTL_RESOURCE_TYPE_CODES = i32;
-pub type CLUSGROUP_TYPE = i32;
-pub type CLUSPROP_IPADDR_ENABLENETBIOS = i32;
-pub type CLUSPROP_PIFLAGS = i32;
-pub type CLUSTERSET_OBJECT_TYPE = i32;
-pub type CLUSTER_CHANGE = i32;
-pub type CLUSTER_CHANGE_CLUSTER_V2 = i32;
-pub type CLUSTER_CHANGE_GROUPSET_V2 = i32;
-pub type CLUSTER_CHANGE_GROUP_V2 = i32;
-pub type CLUSTER_CHANGE_NETINTERFACE_V2 = i32;
-pub type CLUSTER_CHANGE_NETWORK_V2 = i32;
-pub type CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = i32;
-pub type CLUSTER_CHANGE_NODE_V2 = i32;
-pub type CLUSTER_CHANGE_QUORUM_V2 = i32;
-pub type CLUSTER_CHANGE_REGISTRY_V2 = i32;
-pub type CLUSTER_CHANGE_RESOURCE_TYPE_V2 = i32;
-pub type CLUSTER_CHANGE_RESOURCE_V2 = i32;
-pub type CLUSTER_CHANGE_SHARED_VOLUME_V2 = i32;
-pub type CLUSTER_CHANGE_SPACEPORT_V2 = i32;
-pub type CLUSTER_CLOUD_TYPE = i32;
-pub type CLUSTER_CONTROL_OBJECT = i32;
-pub type CLUSTER_CSV_VOLUME_FAULT_STATE = i32;
-pub type CLUSTER_ENUM = i32;
-pub type CLUSTER_GROUP_AUTOFAILBACK_TYPE = i32;
-pub type CLUSTER_GROUP_ENUM = i32;
-pub type CLUSTER_GROUP_PRIORITY = i32;
-pub type CLUSTER_GROUP_STATE = i32;
-pub type CLUSTER_MGMT_POINT_RESTYPE = i32;
-pub type CLUSTER_MGMT_POINT_TYPE = i32;
-pub type CLUSTER_NETINTERFACE_STATE = i32;
-pub type CLUSTER_NETWORK_ENUM = i32;
-pub type CLUSTER_NETWORK_ROLE = i32;
-pub type CLUSTER_NETWORK_STATE = i32;
-pub type CLUSTER_NODE_DRAIN_STATUS = i32;
-pub type CLUSTER_NODE_ENUM = i32;
-pub type CLUSTER_NODE_RESUME_FAILBACK_TYPE = i32;
-pub type CLUSTER_NODE_STATE = i32;
-pub type CLUSTER_NODE_STATUS = i32;
-pub type CLUSTER_NOTIFICATIONS_VERSION = i32;
-pub type CLUSTER_OBJECT_TYPE = i32;
-pub type CLUSTER_PROPERTY_FORMAT = i32;
-pub type CLUSTER_PROPERTY_SYNTAX = u32;
-pub type CLUSTER_PROPERTY_TYPE = i32;
-pub type CLUSTER_QUORUM_TYPE = i32;
-pub type CLUSTER_QUORUM_VALUE = i32;
-pub type CLUSTER_REG_COMMAND = i32;
-pub type CLUSTER_RESOURCE_APPLICATION_STATE = i32;
-pub type CLUSTER_RESOURCE_CLASS = i32;
-pub type CLUSTER_RESOURCE_CREATE_FLAGS = i32;
-pub type CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = i32;
-pub type CLUSTER_RESOURCE_ENUM = i32;
-pub type CLUSTER_RESOURCE_RESTART_ACTION = i32;
-pub type CLUSTER_RESOURCE_STATE = i32;
-pub type CLUSTER_RESOURCE_STATE_CHANGE_REASON = i32;
-pub type CLUSTER_RESOURCE_TYPE_ENUM = i32;
-pub type CLUSTER_ROLE = i32;
-pub type CLUSTER_ROLE_STATE = i32;
-pub type CLUSTER_SETUP_PHASE = i32;
-pub type CLUSTER_SETUP_PHASE_SEVERITY = i32;
-pub type CLUSTER_SETUP_PHASE_TYPE = i32;
-pub type CLUSTER_SHARED_VOLUME_BACKUP_STATE = i32;
-pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
-pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
-pub type CLUSTER_SHARED_VOLUME_STATE = i32;
-pub type CLUSTER_STORAGENODE_STATE = i32;
-pub type CLUSTER_UPGRADE_PHASE = i32;
-pub type CLUS_AFFINITY_RULE_TYPE = i32;
-pub type CLUS_CHARACTERISTICS = i32;
-pub type CLUS_FLAGS = i32;
-pub type CLUS_GROUP_START_SETTING = i32;
-pub type CLUS_RESSUBCLASS = i32;
-pub type CLUS_RESSUBCLASS_NETWORK = i32;
-pub type CLUS_RESSUBCLASS_STORAGE = i32;
-pub type FAILURE_TYPE = i32;
-pub type FILESHARE_CHANGE_ENUM = i32;
-pub type GRP_PLACEMENT_OPTIONS = i32;
-pub type LOG_LEVEL = i32;
-pub type MAINTENANCE_MODE_TYPE_ENUM = i32;
-pub type NODE_CLUSTER_STATE = i32;
-pub type PLACEMENT_OPTIONS = i32;
-pub type RESDLL_CONTEXT_OPERATION_TYPE = i32;
-pub type RESOURCE_EXIT_STATE = i32;
-pub type RESOURCE_MONITOR_STATE = i32;
-pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
-pub type SR_REPLICATED_DISK_TYPE = i32;
-pub type VM_RESDLL_CONTEXT = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLRES_CALLBACK_FUNCTION_TABLE {
-    pub LogEvent: PLOG_EVENT_ROUTINE,
-    pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
-    pub SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE,
-    pub SignalFailure: PSIGNAL_FAILURE_ROUTINE,
-    pub SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE,
-    pub EndControlCall: PEND_CONTROL_CALL,
-    pub EndTypeControlCall: PEND_TYPE_CONTROL_CALL,
-    pub ExtendControlCall: PEXTEND_RES_CONTROL_CALL,
-    pub ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL,
-    pub RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION,
-    pub ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS,
-    pub ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS,
-    pub SetInternalState: PSET_INTERNAL_STATE,
-    pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
-    pub RequestDump: PREQUEST_DUMP_ROUTINE,
-    pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
-    pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct CLRES_FUNCTION_TABLE {
-    pub TableSize: u32,
-    pub Version: u32,
-    pub Anonymous: CLRES_FUNCTION_TABLE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub union CLRES_FUNCTION_TABLE_0 {
-    pub V1Functions: CLRES_V1_FUNCTIONS,
-    pub V2Functions: CLRES_V2_FUNCTIONS,
-    pub V3Functions: CLRES_V3_FUNCTIONS,
-    pub V4Functions: CLRES_V4_FUNCTIONS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct CLRES_V1_FUNCTIONS {
-    pub Open: POPEN_ROUTINE,
-    pub Close: PCLOSE_ROUTINE,
-    pub Online: PONLINE_ROUTINE,
-    pub Offline: POFFLINE_ROUTINE,
-    pub Terminate: PTERMINATE_ROUTINE,
-    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
-    pub IsAlive: PIS_ALIVE_ROUTINE,
-    pub Arbitrate: PARBITRATE_ROUTINE,
-    pub Release: PRELEASE_ROUTINE,
-    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
-    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct CLRES_V2_FUNCTIONS {
-    pub Open: POPEN_V2_ROUTINE,
-    pub Close: PCLOSE_ROUTINE,
-    pub Online: PONLINE_V2_ROUTINE,
-    pub Offline: POFFLINE_V2_ROUTINE,
-    pub Terminate: PTERMINATE_ROUTINE,
-    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
-    pub IsAlive: PIS_ALIVE_ROUTINE,
-    pub Arbitrate: PARBITRATE_ROUTINE,
-    pub Release: PRELEASE_ROUTINE,
-    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
-    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
-    pub Cancel: PCANCEL_ROUTINE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct CLRES_V3_FUNCTIONS {
-    pub Open: POPEN_V2_ROUTINE,
-    pub Close: PCLOSE_ROUTINE,
-    pub Online: PONLINE_V2_ROUTINE,
-    pub Offline: POFFLINE_V2_ROUTINE,
-    pub Terminate: PTERMINATE_ROUTINE,
-    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
-    pub IsAlive: PIS_ALIVE_ROUTINE,
-    pub Arbitrate: PARBITRATE_ROUTINE,
-    pub Release: PRELEASE_ROUTINE,
-    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
-    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
-    pub Cancel: PCANCEL_ROUTINE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
-pub struct CLRES_V4_FUNCTIONS {
-    pub Open: POPEN_V2_ROUTINE,
-    pub Close: PCLOSE_ROUTINE,
-    pub Online: PONLINE_V2_ROUTINE,
-    pub Offline: POFFLINE_V2_ROUTINE,
-    pub Terminate: PTERMINATE_ROUTINE,
-    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
-    pub IsAlive: PIS_ALIVE_ROUTINE,
-    pub Arbitrate: PARBITRATE_ROUTINE,
-    pub Release: PRELEASE_ROUTINE,
-    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
-    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
-    pub Cancel: PCANCEL_ROUTINE,
-    pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
-    pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSAPI_REASON_HANDLER {
-    pub lpParameter: *mut core::ffi::c_void,
-    pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    pub GetTickCount64: u64,
-    pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
-    pub NodeId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    pub dwSize: u32,
-    pub dwVersion: u32,
-    pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    pub dwFlags: u32,
-    pub guidPoolFilter: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_BINARY {
-    pub Base: CLUSPROP_VALUE,
-    pub rgb: [u8; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_BUFFER_HELPER {
-    pub pb: *mut u8,
-    pub pw: *mut u16,
-    pub pdw: *mut u32,
-    pub pl: *mut i32,
-    pub psz: windows_sys::core::PWSTR,
-    pub pList: *mut CLUSPROP_LIST,
-    pub pSyntax: *mut CLUSPROP_SYNTAX,
-    pub pName: *mut CLUSPROP_SZ,
-    pub pValue: *mut CLUSPROP_VALUE,
-    pub pBinaryValue: *mut CLUSPROP_BINARY,
-    pub pWordValue: *mut CLUSPROP_WORD,
-    pub pDwordValue: *mut CLUSPROP_DWORD,
-    pub pLongValue: *mut CLUSPROP_LONG,
-    pub pULargeIntegerValue: *mut CLUSPROP_ULARGE_INTEGER,
-    pub pLargeIntegerValue: *mut CLUSPROP_LARGE_INTEGER,
-    pub pStringValue: *mut CLUSPROP_SZ,
-    pub pMultiSzValue: *mut CLUSPROP_SZ,
-    pub pSecurityDescriptor: *mut CLUSPROP_SECURITY_DESCRIPTOR,
-    pub pResourceClassValue: *mut CLUSPROP_RESOURCE_CLASS,
-    pub pResourceClassInfoValue: *mut CLUSPROP_RESOURCE_CLASS_INFO,
-    pub pDiskSignatureValue: *mut CLUSPROP_DWORD,
-    pub pScsiAddressValue: *mut CLUSPROP_SCSI_ADDRESS,
-    pub pDiskNumberValue: *mut CLUSPROP_DWORD,
-    pub pPartitionInfoValue: *mut CLUSPROP_PARTITION_INFO,
-    pub pRequiredDependencyValue: *mut CLUSPROP_REQUIRED_DEPENDENCY,
-    pub pPartitionInfoValueEx: *mut CLUSPROP_PARTITION_INFO_EX,
-    pub pPartitionInfoValueEx2: *mut CLUSPROP_PARTITION_INFO_EX2,
-    pub pFileTimeValue: *mut CLUSPROP_FILETIME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_DWORD {
-    pub Base: CLUSPROP_VALUE,
-    pub dw: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_FILETIME {
-    pub Base: CLUSPROP_VALUE,
-    pub ft: super::super::Foundation::FILETIME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_FTSET_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_FTSET_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_LARGE_INTEGER {
-    pub Base: CLUSPROP_VALUE,
-    pub li: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_LIST {
-    pub nPropertyCount: u32,
-    pub PropertyName: CLUSPROP_SZ,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_LONG {
-    pub Base: CLUSPROP_VALUE,
-    pub l: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_PARTITION_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO_EX {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_PARTITION_INFO_EX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO_EX2 {
-    pub Base: CLUSPROP_PARTITION_INFO_EX,
-    pub Base2: CLUS_PARTITION_INFO_EX2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_REQUIRED_DEPENDENCY {
-    pub Value: CLUSPROP_VALUE,
-    pub ResClass: CLUSPROP_RESOURCE_CLASS,
-    pub ResTypeName: CLUSPROP_SZ,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_RESOURCE_CLASS {
-    pub Base: CLUSPROP_VALUE,
-    pub rc: CLUSTER_RESOURCE_CLASS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_RESOURCE_CLASS_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_RESOURCE_CLASS_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SCSI_ADDRESS {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_SCSI_ADDRESS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SECURITY_DESCRIPTOR {
-    pub Base: CLUSPROP_VALUE,
-    pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
-    pub rgbSecurityDescriptor: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_SYNTAX {
-    pub dw: u32,
-    pub Anonymous: CLUSPROP_SYNTAX_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SYNTAX_0 {
-    pub wFormat: u16,
-    pub wType: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SZ {
-    pub Base: CLUSPROP_VALUE,
-    pub sz: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_ULARGE_INTEGER {
-    pub Base: CLUSPROP_VALUE,
-    pub li: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_VALUE {
-    pub Syntax: CLUSPROP_SYNTAX,
-    pub cbLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_WORD {
-    pub Base: CLUSPROP_VALUE,
-    pub w: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTERVERSIONINFO {
-    pub dwVersionInfoSize: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BuildNumber: u16,
-    pub szVendorId: [u16; 64],
-    pub szCSDVersion: [u16; 64],
-    pub dwClusterHighestVersion: u32,
-    pub dwClusterLowestVersion: u32,
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTERVERSIONINFO_NT4 {
-    pub dwVersionInfoSize: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BuildNumber: u16,
-    pub szVendorId: [u16; 64],
-    pub szCSDVersion: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
-    pub dwVersion: u32,
-    pub dwUpdateDomains: u32,
-    pub dwFaultDomains: u32,
-    pub bReserveSpareNode: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_BATCH_COMMAND {
-    pub Command: CLUSTER_REG_COMMAND,
-    pub dwOptions: u32,
-    pub wzName: windows_sys::core::PCWSTR,
-    pub lpData: *const u8,
-    pub cbData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_CREATE_GROUP_INFO {
-    pub dwVersion: u32,
-    pub groupType: CLUSGROUP_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub dwType: u32,
-    pub cbId: u32,
-    pub lpszId: windows_sys::core::PWSTR,
-    pub cbName: u32,
-    pub lpszName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_GROUP_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub cbId: u32,
-    pub lpszId: windows_sys::core::PWSTR,
-    pub cbName: u32,
-    pub lpszName: windows_sys::core::PWSTR,
-    pub state: CLUSTER_GROUP_STATE,
-    pub cbOwnerNode: u32,
-    pub lpszOwnerNode: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
-    pub cbProperties: u32,
-    pub pProperties: *mut core::ffi::c_void,
-    pub cbRoProperties: u32,
-    pub pRoProperties: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_HEALTH_FAULT {
-    pub Id: windows_sys::core::PWSTR,
-    pub ErrorType: u32,
-    pub ErrorCode: u32,
-    pub Description: windows_sys::core::PWSTR,
-    pub Provider: windows_sys::core::PWSTR,
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_HEALTH_FAULT_ARRAY {
-    pub numFaults: u32,
-    pub faults: *mut CLUSTER_HEALTH_FAULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_IP_ENTRY {
-    pub lpszIpAddress: windows_sys::core::PCWSTR,
-    pub dwPrefixLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_MEMBERSHIP_INFO {
-    pub HasQuorum: super::super::Foundation::BOOL,
-    pub UpnodesSize: u32,
-    pub Upnodes: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_READ_BATCH_COMMAND {
-    pub Command: CLUSTER_REG_COMMAND,
-    pub dwOptions: u32,
-    pub wzSubkeyName: windows_sys::core::PCWSTR,
-    pub wzValueName: windows_sys::core::PCWSTR,
-    pub lpData: *const u8,
-    pub cbData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_RESOURCE_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub cbId: u32,
-    pub lpszId: windows_sys::core::PWSTR,
-    pub cbName: u32,
-    pub lpszName: windows_sys::core::PWSTR,
-    pub cbOwnerGroupName: u32,
-    pub lpszOwnerGroupName: windows_sys::core::PWSTR,
-    pub cbOwnerGroupId: u32,
-    pub lpszOwnerGroupId: windows_sys::core::PWSTR,
-    pub cbProperties: u32,
-    pub pProperties: *mut core::ffi::c_void,
-    pub cbRoProperties: u32,
-    pub pRoProperties: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SET_PASSWORD_STATUS {
-    pub NodeId: u32,
-    pub SetAttempted: super::super::Foundation::BOOLEAN,
-    pub ReturnStatus: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    pub NewVolumeName: [u16; 260],
-    pub NewVolumeGuid: [u16; 50],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    pub NewVolumeName: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
-    pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    pub VolumeOffset: u64,
-    pub VolumeId: [u16; 260],
-    pub VolumeName: [u16; 260],
-    pub VolumeGuid: [u16; 50],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
-    pub szVolumeName: [u16; 260],
-    pub szNodeName: [u16; 260],
-    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    pub szVolumeName: [u16; 260],
-    pub szNodeName: [u16; 260],
-    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
-    pub szVolumeFriendlyName: [u16; 260],
-    pub RedirectedIOReason: u64,
-    pub VolumeRedirectedIOReason: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_VALIDATE_CSV_FILENAME {
-    pub szFileName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_VALIDATE_DIRECTORY {
-    pub szPath: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_VALIDATE_NETNAME {
-    pub szNetworkName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_VALIDATE_PATH {
-    pub szPath: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CHKDSK_INFO {
-    pub PartitionNumber: u32,
-    pub ChkdskState: u32,
-    pub FileIdCount: u32,
-    pub FileIdList: [u64; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    pub FileServerName: [u16; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    pub FileServerName: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
-    pub InMaintenance: super::super::Foundation::BOOL,
-    pub VolumeName: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CSV_VOLUME_INFO {
-    pub VolumeOffset: u64,
-    pub PartitionNumber: u32,
-    pub FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
-    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
-    pub szVolumeFriendlyName: [u16; 260],
-    pub szVolumeName: [u16; 50],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_CSV_VOLUME_NAME {
-    pub VolumeOffset: i64,
-    pub szVolumeName: [u16; 260],
-    pub szRootPath: [u16; 263],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_DISK_NUMBER_INFO {
-    pub DiskNumber: u32,
-    pub BytesPerSector: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_DNN_LEADER_STATUS {
-    pub IsOnline: super::super::Foundation::BOOL,
-    pub IsFileServerPresent: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
-    pub NodeId: u32,
-    pub Status: CLUSTER_RESOURCE_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_FORCE_QUORUM_INFO {
-    pub dwSize: u32,
-    pub dwNodeBitMask: u32,
-    pub dwMaxNumberofNodes: u32,
-    pub multiszNodeList: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_FTSET_INFO {
-    pub dwRootSignature: u32,
-    pub dwFtType: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_MAINTENANCE_MODE_INFO {
-    pub InMaintenance: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_MAINTENANCE_MODE_INFOEX {
-    pub InMaintenance: super::super::Foundation::BOOL,
-    pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
-    pub InternalState: CLUSTER_RESOURCE_STATE,
-    pub Signature: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_NETNAME_IP_INFO_ENTRY {
-    pub NodeId: u32,
-    pub AddressSize: u32,
-    pub Address: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    pub szName: [u16; 64],
-    pub NumEntries: u32,
-    pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_NETNAME_PWD_INFO {
-    pub Flags: u32,
-    pub Password: [u16; 16],
-    pub CreatingDC: [u16; 258],
-    pub ObjectGuid: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_NETNAME_PWD_INFOEX {
-    pub Flags: u32,
-    pub Password: [u16; 128],
-    pub CreatingDC: [u16; 258],
-    pub ObjectGuid: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_NETNAME_VS_TOKEN_INFO {
-    pub ProcessID: u32,
-    pub DesiredAccess: u32,
-    pub InheritHandle: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_PARTITION_INFO {
-    pub dwFlags: u32,
-    pub szDeviceName: [u16; 260],
-    pub szVolumeLabel: [u16; 260],
-    pub dwSerialNumber: u32,
-    pub rgdwMaximumComponentLength: u32,
-    pub dwFileSystemFlags: u32,
-    pub szFileSystem: [u16; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_PARTITION_INFO_EX {
-    pub dwFlags: u32,
-    pub szDeviceName: [u16; 260],
-    pub szVolumeLabel: [u16; 260],
-    pub dwSerialNumber: u32,
-    pub rgdwMaximumComponentLength: u32,
-    pub dwFileSystemFlags: u32,
-    pub szFileSystem: [u16; 32],
-    pub TotalSizeInBytes: u64,
-    pub FreeSizeInBytes: u64,
-    pub DeviceNumber: u32,
-    pub PartitionNumber: u32,
-    pub VolumeGuid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_PARTITION_INFO_EX2 {
-    pub GptPartitionId: windows_sys::core::GUID,
-    pub szPartitionName: [u16; 260],
-    pub EncryptionFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
-    pub dwSize: u32,
-    pub resourceState: CLUSTER_RESOURCE_STATE,
-    pub szProviderId: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_RESOURCE_CLASS_INFO {
-    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUS_RESOURCE_CLASS_INFO_0 {
-    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
-    pub li: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
-    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
-    pub SubClass: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    pub dw: u32,
-    pub rc: CLUSTER_RESOURCE_CLASS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_SCSI_ADDRESS {
-    pub Anonymous: CLUS_SCSI_ADDRESS_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUS_SCSI_ADDRESS_0 {
-    pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
-    pub dw: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_SCSI_ADDRESS_0_0 {
-    pub PortNumber: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
-    pub InMaintenance: super::super::Foundation::BOOL,
-    pub ExtraParameterSize: u32,
-    pub ExtraParameter: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
-    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
-    pub DelayTimerInSecs: u32,
-    pub VolumeName: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_STARTING_PARAMS {
-    pub dwSize: u32,
-    pub bForm: super::super::Foundation::BOOL,
-    pub bFirst: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    pub AvailDrivelettersMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
-    pub CurrentDriveLetterMask: u32,
-    pub TargetDriveLetterMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_STORAGE_SET_DRIVELETTER {
-    pub PartitionNumber: u32,
-    pub DriveLetterMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUS_WORKER {
-    pub hThread: super::super::Foundation::HANDLE,
-    pub Terminate: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREATE_CLUSTER_CONFIG {
-    pub dwVersion: u32,
-    pub lpszClusterName: windows_sys::core::PCWSTR,
-    pub cNodes: u32,
-    pub ppszNodeNames: *const windows_sys::core::PCWSTR,
-    pub cIpEntries: u32,
-    pub pIpEntries: *mut CLUSTER_IP_ENTRY,
-    pub fEmptyCluster: super::super::Foundation::BOOLEAN,
-    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
-    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREATE_CLUSTER_NAME_ACCOUNT {
-    pub dwVersion: u32,
-    pub lpszClusterName: windows_sys::core::PCWSTR,
-    pub dwFlags: u32,
-    pub pszUserName: windows_sys::core::PCWSTR,
-    pub pszPassword: windows_sys::core::PCWSTR,
-    pub pszDomain: windows_sys::core::PCWSTR,
-    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
-    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-    pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
-}
-pub const ClusApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
-pub const ClusCryptoKeys: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
-pub const ClusDisk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60723_2631_11d1_89f1_00a0c90d061e);
-pub const ClusDisks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60725_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNetInterface: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ed_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ef_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNetwork: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f1_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNetworkNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f5_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNetworks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f3_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f7_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNodeNetInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606fb_2631_11d1_89f1_00a0c90d061e);
-pub const ClusNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606f9_2631_11d1_89f1_00a0c90d061e);
-pub const ClusPartition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071f_2631_11d1_89f1_00a0c90d061e);
-pub const ClusPartitionEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53d51d26_b51b_4a79_b2c3_5048d93a98fc);
-pub const ClusPartitions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60721_2631_11d1_89f1_00a0c90d061e);
-pub const ClusProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606ff_2631_11d1_89f1_00a0c90d061e);
-pub const ClusProperty: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606fd_2631_11d1_89f1_00a0c90d061e);
-pub const ClusPropertyValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60719_2631_11d1_89f1_00a0c90d061e);
-pub const ClusPropertyValueData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071d_2631_11d1_89f1_00a0c90d061e);
-pub const ClusPropertyValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6071b_2631_11d1_89f1_00a0c90d061e);
-pub const ClusRefObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60701_2631_11d1_89f1_00a0c90d061e);
-pub const ClusRegistryKeys: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60729_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResDependencies: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60703_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResDependents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6072d_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60705_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResGroupPreferredOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e7_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResGroupResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e9_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResGroups: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60707_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResPossibleOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070d_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070f_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResTypePossibleOwnerNodes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60717_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResTypeResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60713_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResTypes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60711_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60709_2631_11d1_89f1_00a0c90d061e);
-pub const ClusResources: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6070b_2631_11d1_89f1_00a0c90d061e);
-pub const ClusScsiAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60727_2631_11d1_89f1_00a0c90d061e);
-pub const ClusVersion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e60715_2631_11d1_89f1_00a0c90d061e);
-pub const Cluster: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e3_2631_11d1_89f1_00a0c90d061e);
-pub const ClusterNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
-pub const DomainNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILESHARE_CHANGE {
-    pub Change: FILESHARE_CHANGE_ENUM,
-    pub ShareName: [u16; 84],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILESHARE_CHANGE_LIST {
-    pub NumEntries: u32,
-    pub ChangeEntry: [FILESHARE_CHANGE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_OPERATION_CONTEXT_PARAMS {
-    pub Size: u32,
-    pub Version: u32,
-    pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
-    pub Priority: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_FAILURE_INFO {
-    pub dwFailoverAttemptsRemaining: u32,
-    pub dwFailoverPeriodRemaining: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GROUP_FAILURE_INFO_BUFFER {
-    pub dwVersion: u32,
-    pub Info: GROUP_FAILURE_INFO,
-}
-pub type HCHANGE = isize;
-pub type HCLUSCRYPTPROVIDER = isize;
-pub type HCLUSENUM = isize;
-pub type HCLUSENUMEX = isize;
-pub type HCLUSTER = isize;
-pub type HGROUP = isize;
-pub type HGROUPENUM = isize;
-pub type HGROUPENUMEX = isize;
-pub type HGROUPSET = isize;
-pub type HGROUPSETENUM = isize;
-pub type HNETINTERFACE = isize;
-pub type HNETINTERFACEENUM = isize;
-pub type HNETWORK = isize;
-pub type HNETWORKENUM = isize;
-pub type HNODE = isize;
-pub type HNODEENUM = isize;
-pub type HNODEENUMEX = isize;
-pub type HREGBATCH = isize;
-pub type HREGBATCHNOTIFICATION = isize;
-pub type HREGBATCHPORT = isize;
-pub type HREGREADBATCH = isize;
-pub type HREGREADBATCHREPLY = isize;
-pub type HRESENUM = isize;
-pub type HRESENUMEX = isize;
-pub type HRESOURCE = isize;
-pub type HRESTYPEENUM = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MONITOR_STATE {
-    pub LastUpdate: i64,
-    pub State: RESOURCE_MONITOR_STATE,
-    pub ActiveResource: super::super::Foundation::HANDLE,
-    pub ResmonStop: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NOTIFY_FILTER_AND_TYPE {
-    pub dwObjectType: u32,
-    pub FilterFlags: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NodeUtilizationInfoElement {
-    pub Id: u64,
-    pub AvailableMemory: u64,
-    pub AvailableMemoryAfterReclamation: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POST_UPGRADE_VERSION_INFO {
-    pub newMajorVersion: u32,
-    pub newUpgradeVersion: u32,
-    pub oldMajorVersion: u32,
-    pub oldUpgradeVersion: u32,
-    pub reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PaxosTagCStruct {
-    pub __padding__PaxosTagVtable: u64,
-    pub __padding__NextEpochVtable: u64,
-    pub __padding__NextEpoch_DateTimeVtable: u64,
-    pub NextEpoch_DateTime_ticks: u64,
-    pub NextEpoch_Value: i32,
-    pub __padding__BoundryNextEpoch: u32,
-    pub __padding__EpochVtable: u64,
-    pub __padding__Epoch_DateTimeVtable: u64,
-    pub Epoch_DateTime_ticks: u64,
-    pub Epoch_Value: i32,
-    pub __padding__BoundryEpoch: u32,
-    pub Sequence: i32,
-    pub __padding__BoundrySequence: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCE_FAILURE_INFO {
-    pub dwRestartAttemptsRemaining: u32,
-    pub dwRestartPeriodRemaining: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCE_FAILURE_INFO_BUFFER {
-    pub dwVersion: u32,
-    pub Info: RESOURCE_FAILURE_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCE_STATUS {
-    pub ResourceState: CLUSTER_RESOURCE_STATE,
-    pub CheckPoint: u32,
-    pub WaitHint: u32,
-    pub EventHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCE_STATUS_EX {
-    pub ResourceState: CLUSTER_RESOURCE_STATE,
-    pub CheckPoint: u32,
-    pub EventHandle: super::super::Foundation::HANDLE,
-    pub ApplicationSpecificErrorCode: u32,
-    pub Flags: u32,
-    pub WaitHint: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    pub isTerminalFailure: super::super::Foundation::BOOL,
-    pub restartPeriodRemaining: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESUTIL_FILETIME_DATA {
-    pub Default: super::super::Foundation::FILETIME,
-    pub Minimum: super::super::Foundation::FILETIME,
-    pub Maximum: super::super::Foundation::FILETIME,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESUTIL_LARGEINT_DATA {
-    pub Default: i64,
-    pub Minimum: i64,
-    pub Maximum: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESUTIL_PROPERTY_ITEM {
-    pub Name: windows_sys::core::PWSTR,
-    pub KeyName: windows_sys::core::PWSTR,
-    pub Format: u32,
-    pub Anonymous: RESUTIL_PROPERTY_ITEM_0,
-    pub Minimum: u32,
-    pub Maximum: u32,
-    pub Flags: u32,
-    pub Offset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RESUTIL_PROPERTY_ITEM_0 {
-    pub DefaultPtr: usize,
-    pub Default: u32,
-    pub lpDefault: *mut core::ffi::c_void,
-    pub LargeIntData: *mut RESUTIL_LARGEINT_DATA,
-    pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
-    pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RESUTIL_ULARGEINT_DATA {
-    pub Default: u64,
-    pub Minimum: u64,
-    pub Maximum: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ResourceUtilizationInfoElement {
-    pub PhysicalNumaId: u64,
-    pub CurrentMemory: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    pub ReplicationGroupName: [u16; 260],
-    pub Description: [u16; 260],
-    pub LogPath: [u16; 260],
-    pub MaxLogSizeInBytes: u64,
-    pub LogType: u16,
-    pub ReplicationMode: u32,
-    pub MinimumPartnersInSync: u32,
-    pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
-    pub EnableEncryption: super::super::Foundation::BOOLEAN,
-    pub EnableCompression: super::super::Foundation::BOOLEAN,
-    pub CertificateThumbprint: [u16; 260],
-    pub VolumeNameCount: u32,
-    pub VolumeNames: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    pub Result: u32,
-    pub ErrorString: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_DISK_INFO {
-    pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
-    pub DiskGuid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    pub Count: u16,
-    pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    pub SourceDataDiskGuid: windows_sys::core::GUID,
-    pub TargetReplicationGroupGuid: windows_sys::core::GUID,
-    pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
-    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
-    pub Type: SR_REPLICATED_DISK_TYPE,
-    pub ClusterDiskResourceGuid: windows_sys::core::GUID,
-    pub ReplicationGroupId: windows_sys::core::GUID,
-    pub ReplicationGroupName: [u16; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    pub Count: u16,
-    pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    pub Count: u32,
-    pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    pub PartitionOffset: u64,
-    pub Capabilities: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WitnessTagHelper {
-    pub Version: i32,
-    pub paxosToValidate: PaxosTagCStruct,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WitnessTagUpdateHelper {
-    pub Version: i32,
-    pub paxosToSet: PaxosTagCStruct,
-    pub paxosToValidate: PaxosTagCStruct,
-}
-pub type LPGROUP_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HGROUP, param2: HGROUP, param3: *mut core::ffi::c_void) -> u32>;
-pub type LPNODE_CALLBACK = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HNODE, param2: CLUSTER_NODE_STATE, param3: *mut core::ffi::c_void) -> u32>;
-pub type LPRESOURCE_CALLBACK = Option<unsafe extern "system" fn(param0: HRESOURCE, param1: HRESOURCE, param2: *mut core::ffi::c_void) -> u32>;
-pub type LPRESOURCE_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HRESOURCE, param2: HRESOURCE, param3: *mut core::ffi::c_void) -> u32>;
-pub type PARBITRATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32>;
-pub type PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, timeoutinms: u64) -> u32>;
-pub type PBEGIN_RESCALL_AS_USER_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PBEGIN_RESCALL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PBEGIN_RESTYPECALL_AS_USER_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PBEGIN_RESTYPECALL_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PCANCEL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, cancelflags_reserved: u32) -> u32>;
-pub type PCHANGE_RESOURCE_PROCESS_FOR_DUMPS = Option<unsafe extern "system" fn(resource: isize, processname: windows_sys::core::PCWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32>;
-pub type PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, processname: windows_sys::core::PCWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32>;
-pub type PCLOSE_CLUSTER_CRYPT_PROVIDER = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER) -> u32>;
-pub type PCLOSE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void)>;
-pub type PCLUSAPIClusWorkerCheckTerminate = Option<unsafe extern "system" fn(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
-pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_sys::core::PCWSTR, lpremotegroupsetname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszpathname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = Option<unsafe extern "system" fn(hresource: HRESOURCE, hresourcedependent: HRESOURCE) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64) -> u32>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2 = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLOSE_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_NETWORK = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: u32, updatedomain: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, affinityrulename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32>;
-pub type PCLUSAPI_CLUSTER_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CONTROL_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = Option<unsafe extern "system" fn(hgroup: HGROUP, dwtype: u32) -> HGROUPENUM>;
-pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_sys::core::PCWSTR, cbproperties: u32, lpszroproperties: windows_sys::core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX>;
-pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = Option<unsafe extern "system" fn(hnetwork: HNETWORK, dwtype: u32) -> HNETWORKENUM>;
-pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CONTROL = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CONTROL_EX = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32) -> HNODEENUM>;
-pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32, poptions: *const core::ffi::c_void) -> HNODEENUMEX>;
-pub type PCLUSAPI_CLUSTER_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM>;
-pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32, poptions: *const core::ffi::c_void) -> HCLUSENUMEX>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregbatch: *mut HREGBATCH) -> i32>;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32>;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpsubkey: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: windows_sys::core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: windows_sys::core::PCWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32>;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> i32>;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, flags: u32) -> i32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_sys::core::PCWSTR, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwtype: u32) -> HRESENUM>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_sys::core::PCWSTR, cbproperties: u32, lpszroproperties: windows_sys::core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HRESENUMEX>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, dwtype: u32) -> HRESTYPEENUM>;
-pub type PCLUSAPI_CLUSTER_UPGRADE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, perform: super::super::Foundation::BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
-pub type PCLUSAPI_CLUS_WORKER_CREATE = Option<unsafe extern "system" fn(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut core::ffi::c_void) -> u32>;
-pub type PCLUSAPI_CLUS_WORKER_TERMINATE = Option<unsafe extern "system" fn(lpworker: *const CLUS_WORKER)>;
-pub type PCLUSAPI_CREATE_CLUSTER = Option<unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
-pub type PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpavailabilitysetname: windows_sys::core::PCWSTR, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET>;
-pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = Option<unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
-pub type PCLUSAPI_CREATE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR) -> HGROUP>;
-pub type PCLUSAPI_CREATE_CLUSTER_GROUPEX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> HGROUP>;
-pub type PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_sys::core::PCWSTR) -> HGROUPSET>;
-pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
-pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE>;
-pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> HCHANGE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwflags: u32) -> HRESOURCE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwflags: u32, lpszreason: windows_sys::core::PCWSTR) -> HRESOURCE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, lpszdisplayname: windows_sys::core::PCWSTR, lpszresourcetypedll: windows_sys::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR, lpszdisplayname: windows_sys::core::PCWSTR, lpszresourcetypedll: windows_sys::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_sys::core::HRESULT) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_sys::core::HRESULT, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> HCLUSTER>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> HCLUSTER>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> HCLUSTER>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> HCLUSTER>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> HCLUSTER>;
-pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> HCLUSTER>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = Option<unsafe extern "system" fn(hgroup: HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE>;
-pub type PCLUSAPI_GET_CLUSTER_INFORMATION = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszclustername: windows_sys::core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpsznetworkid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = Option<unsafe extern "system" fn(hnetwork: HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STATE>;
-pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, lpsznetworkname: windows_sys::core::PCWSTR, lpszinterfacename: windows_sys::core::PWSTR, lpcchinterfacename: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE>;
-pub type PCLUSAPI_GET_CLUSTER_NODE_ID = Option<unsafe extern "system" fn(hnode: HNODE, lpsznodeid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = Option<unsafe extern "system" fn(hnode: HNODE, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = Option<unsafe extern "system" fn(hnode: HNODE) -> CLUSTER_NODE_STATE>;
-pub type PCLUSAPI_GET_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32>;
-pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: windows_sys::core::PWSTR, lpcchobjectid: *mut u32, lpszparentid: windows_sys::core::PWSTR, lpcchparentid: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpsztype: windows_sys::core::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
-pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: windows_sys::core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32>;
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_sys::core::PWSTR, lpcchdependencyexpression: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = Option<unsafe extern "system" fn(hresource: HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpbuffer: windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32, lpszgroupname: windows_sys::core::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_sys::core::PCWSTR, samdesired: u32) -> super::super::System::Registry::HKEY>;
-pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = Option<unsafe extern "system" fn(lpsznodename: windows_sys::core::PCWSTR, pdwclusterstate: *mut u32) -> u32>;
-pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32>;
-pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32>;
-pub type PCLUSAPI_MOVE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
-pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
-pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_OPEN_CLUSTER = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR) -> HCLUSTER>;
-pub type PCLUSAPI_OPEN_CLUSTER_EX = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HCLUSTER>;
-pub type PCLUSAPI_OPEN_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR) -> HGROUP>;
-pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HGROUP>;
-pub type PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_sys::core::PCWSTR) -> HGROUPSET>;
-pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetinterfacename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNETINTERFACE>;
-pub type PCLUSAPI_OPEN_CLUSTER_NETWORK = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_sys::core::PCWSTR) -> HNETWORK>;
-pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNETWORK>;
-pub type PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszinterfacename: windows_sys::core::PCWSTR) -> HNETINTERFACE>;
-pub type PCLUSAPI_OPEN_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR) -> HNODE>;
-pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HNODE>;
-pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PCWSTR) -> HRESOURCE>;
-pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> HRESOURCE>;
-pub type PCLUSAPI_OPEN_NODE_BY_ID = Option<unsafe extern "system" fn(hcluster: HCLUSTER, nodeid: u32) -> HNODE>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE) -> u32>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_PFN_REASON_HANDLER = Option<unsafe extern "system" fn(lpparameter: *const core::ffi::c_void, hcluster: HCLUSTER, szreason: windows_sys::core::PWSTR, lpsize: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32>;
-pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_sys::core::PCWSTR, lpremotegroupsetname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
-pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
-pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, networkcount: u32, networklist: *const HNETWORK) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_sys::core::PCWSTR, dwmaxquologsize: u32) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_sys::core::PCWSTR, dwmaxquorumlogsize: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(lpszclustername: windows_sys::core::PCWSTR, lpsznewpassword: windows_sys::core::PCWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32>;
-pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUP, lpszdependencyexpression: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszdependencyexpression: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_REASON_HANDLER = Option<unsafe extern "system" fn(lphandler: *const CLUSAPI_REASON_HANDLER) -> *mut CLUSAPI_REASON_HANDLER>;
-pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = Option<unsafe extern "system" fn(guidsnapshotset: windows_sys::core::GUID, lpszvolumename: windows_sys::core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32>;
-pub type PCLUSAPI_SetClusterName = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszvolumepathname: windows_sys::core::PCWSTR) -> u32>;
-pub type PCLUSTER_DECRYPT = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32>;
-pub type PCLUSTER_ENCRYPT = Option<unsafe extern "system" fn(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32>;
-pub type PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT = Option<unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCWSTR, lpszvolumename: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL>;
-pub type PCLUSTER_GET_VOLUME_PATH_NAME = Option<unsafe extern "system" fn(lpszfilename: windows_sys::core::PCWSTR, lpszvolumepathname: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL>;
-pub type PCLUSTER_IS_PATH_ON_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP = Option<unsafe extern "system" fn(lpszfilename: windows_sys::core::PCWSTR, lpszvolumepathname: windows_sys::core::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: windows_sys::core::PWSTR, lpcchvolumename: *mut u32) -> u32>;
-pub type PCLUSTER_REG_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: windows_sys::core::PCWSTR, dwoptions: u32, lpdata: *const core::ffi::c_void, cbdata: u32) -> i32>;
-pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION) -> i32>;
-pub type PCLUSTER_REG_BATCH_READ_COMMAND = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32>;
-pub type PCLUSTER_REG_CLOSE_BATCH = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, bcommit: super::super::Foundation::BOOL, failedcommandnumber: *mut i32) -> i32>;
-pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hbatchnotifyport: HREGBATCHPORT) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PCLUSTER_REG_CREATE_READ_BATCH = Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32>;
-pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32>;
-pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, wzsubkeyname: windows_sys::core::PCWSTR, wzvaluename: windows_sys::core::PCWSTR) -> i32>;
-pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32>;
-pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: u32, lpszobjectname: windows_sys::core::PCWSTR, dwstatus: u32) -> super::super::Foundation::BOOL>;
-pub type PCLUSTER_SET_ACCOUNT_ACCESS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, szaccountsid: windows_sys::core::PCWSTR, dwaccess: u32, dwcontroltype: u32) -> u32>;
-pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, eupgradephase: CLUSTER_UPGRADE_PHASE) -> super::super::Foundation::BOOL>;
-pub type PEND_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, status: u32) -> u32>;
-pub type PEND_TYPE_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, status: u32) -> u32>;
-pub type PEXTEND_RES_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32>;
-pub type PEXTEND_RES_TYPE_CONTROL_CALL = Option<unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32>;
-pub type PFREE_CLUSTER_CRYPT = Option<unsafe extern "system" fn(pcryptinfo: *const core::ffi::c_void) -> u32>;
-pub type PIS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PLOG_EVENT_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: windows_sys::core::PCWSTR)>;
-pub type PLOOKS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type POFFLINE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> u32>;
-pub type POFFLINE_V2_ROUTINE = Option<unsafe extern "system" fn(resource: *const core::ffi::c_void, destinationnodename: windows_sys::core::PCWSTR, offlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32>;
-pub type PONLINE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> u32>;
-pub type PONLINE_V2_ROUTINE = Option<unsafe extern "system" fn(resource: *const core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE, onlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32>;
-pub type POPEN_CLUSTER_CRYPT_PROVIDER = Option<unsafe extern "system" fn(lpszresource: windows_sys::core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
-pub type POPEN_CLUSTER_CRYPT_PROVIDEREX = Option<unsafe extern "system" fn(lpszresource: windows_sys::core::PCWSTR, lpszkeyname: windows_sys::core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type POPEN_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_sys::core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize) -> *mut core::ffi::c_void>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type POPEN_V2_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_sys::core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut core::ffi::c_void>;
-pub type PQUERY_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32>;
-pub type PQUORUM_RESOURCE_LOST = Option<unsafe extern "system" fn(resource: isize)>;
-pub type PRAISE_RES_TYPE_NOTIFICATION = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, ppayload: *const u8, payloadsize: u32) -> u32>;
-pub type PREGISTER_APPINSTANCE = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_sys::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32>;
-pub type PREGISTER_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_sys::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32>;
-pub type PRELEASE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> u32>;
-pub type PREQUEST_DUMP_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, dumpduetocallinprogress: super::super::Foundation::BOOL, dumpdelayinms: u32) -> u32>;
-pub type PRESET_ALL_APPINSTANCE_VERSIONS = Option<unsafe extern "system" fn() -> u32>;
-pub type PRESOURCE_CONTROL_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
-pub type PRESOURCE_TYPE_CONTROL_ROUTINE = Option<unsafe extern "system" fn(resourcetypename: windows_sys::core::PCWSTR, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_ADD_UNKNOWN_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-pub type PRESUTIL_CREATE_DIRECTORY_TREE = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> u32>;
-pub type PRESUTIL_DUP_PARAMETER_BLOCK = Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32>;
-pub type PRESUTIL_DUP_STRING = Option<unsafe extern "system" fn(pszinstring: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_ENUM_PRIVATE_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: windows_sys::core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-pub type PRESUTIL_ENUM_PROPERTIES = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: windows_sys::core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-pub type PRESUTIL_ENUM_RESOURCES = Option<unsafe extern "system" fn(hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut core::ffi::c_void) -> u32>;
-pub type PRESUTIL_ENUM_RESOURCES_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32>;
-pub type PRESUTIL_ENUM_RESOURCES_EX2 = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: windows_sys::core::PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void, dwdesiredaccess: u32) -> u32>;
-pub type PRESUTIL_EXPAND_ENVIRONMENT_STRINGS = Option<unsafe extern "system" fn(pszsrc: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
-pub type PRESUTIL_FIND_BINARY_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32>;
-pub type PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: windows_sys::core::PWSTR, pcchdriveletter: *mut u32) -> u32>;
-pub type PRESUTIL_FIND_DWORD_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pdwpropertyvalue: *mut u32) -> u32>;
-pub type PRESUTIL_FIND_EXPANDED_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
-pub type PRESUTIL_FIND_EXPAND_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
-pub type PRESUTIL_FIND_FILETIME_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32>;
-pub type PRESUTIL_FIND_LONG_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, plpropertyvalue: *mut i32) -> u32>;
-pub type PRESUTIL_FIND_MULTI_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32>;
-pub type PRESUTIL_FIND_SZ_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, pszpropertyvalue: *mut windows_sys::core::PWSTR) -> u32>;
-pub type PRESUTIL_FIND_ULARGEINTEGER_PROPERTY = Option<unsafe extern "system" fn(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: windows_sys::core::PCWSTR, plpropertyvalue: *mut u64) -> u32>;
-pub type PRESUTIL_FREE_ENVIRONMENT = Option<unsafe extern "system" fn(lpenvironment: *mut core::ffi::c_void) -> u32>;
-pub type PRESUTIL_FREE_PARAMETER_BLOCK = Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM)>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_ALL_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-pub type PRESUTIL_GET_BINARY_PROPERTY = Option<unsafe extern "system" fn(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_BINARY_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
-pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES = Option<unsafe extern "system" fn(hcluster: HCLUSTER, phclusternameresource: *mut HRESOURCE, phclusteripaddressresource: *mut HRESOURCE, phclusterquorumresource: *mut HRESOURCE) -> u32>;
-pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX = Option<unsafe extern "system" fn(hclusterin: HCLUSTER, phclusternameresourceout: *mut HRESOURCE, phclusteripaddressresourceout: *mut HRESOURCE, phclusterquorumresourceout: *mut HRESOURCE, dwdesiredaccess: u32) -> u32>;
-pub type PRESUTIL_GET_DWORD_PROPERTY = Option<unsafe extern "system" fn(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_DWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32>;
-pub type PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> *mut core::ffi::c_void>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_EXPAND_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, bexpand: super::super::Foundation::BOOL) -> windows_sys::core::PWSTR>;
-pub type PRESUTIL_GET_FILETIME_PROPERTY = Option<unsafe extern "system" fn(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-pub type PRESUTIL_GET_LONG_PROPERTY = Option<unsafe extern "system" fn(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-pub type PRESUTIL_GET_MULTI_SZ_PROPERTY = Option<unsafe extern "system" fn(ppszoutvalue: *mut windows_sys::core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: windows_sys::core::PCWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_PRIVATE_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut windows_sys::core::PWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_PROPERTY = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32>;
-pub type PRESUTIL_GET_PROPERTY_FORMATS = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_PROPERTY_SIZE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_QWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, brecurse: super::super::Foundation::BOOL) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: windows_sys::core::PCWSTR, dwdesiredaccess: u32) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS = Option<unsafe extern "system" fn(hresource: HRESOURCE, pszaddress: windows_sys::core::PWSTR, pcchaddress: *mut u32, pszsubnetmask: windows_sys::core::PWSTR, pcchsubnetmask: *mut u32, psznetwork: windows_sys::core::PWSTR, pcchnetwork: *mut u32) -> u32>;
-pub type PRESUTIL_GET_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, pszresourcename: windows_sys::core::PWSTR, pcchresourcenameinout: *mut u32) -> u32>;
-pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY = Option<unsafe extern "system" fn(lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR) -> HRESOURCE>;
-pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX = Option<unsafe extern "system" fn(lpszresourcename: windows_sys::core::PCWSTR, lpszresourcetype: windows_sys::core::PCWSTR, dwdesiredaccess: u32) -> HRESOURCE>;
-pub type PRESUTIL_GET_SZ_PROPERTY = Option<unsafe extern "system" fn(ppszoutvalue: *mut windows_sys::core::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: windows_sys::core::PCWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_GET_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR>;
-pub type PRESUTIL_IS_PATH_VALID = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type PRESUTIL_IS_RESOURCE_CLASS_EQUAL = Option<unsafe extern "system" fn(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
-pub type PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-pub type PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-pub type PRESUTIL_RESOURCES_EQUAL = Option<unsafe extern "system" fn(hself: HRESOURCE, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
-pub type PRESUTIL_RESOURCE_TYPES_EQUAL = Option<unsafe extern "system" fn(lpszresourcetypename: windows_sys::core::PCWSTR, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_BINARY_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_DWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_EXPAND_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, ppszoutstring: *mut windows_sys::core::PWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_MULTI_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut windows_sys::core::PWSTR, pcboutvaluesize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_PRIVATE_PROPERTY_LIST = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_PROPERTY_TABLE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_PROPERTY_TABLE_EX = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_QWORD_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32>;
-pub type PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[cfg(feature = "Win32_System_Services")]
-pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, schscmhandle: super::super::System::Services::SC_HANDLE, phservice: *mut super::super::System::Services::SC_HANDLE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[cfg(feature = "Win32_System_Services")]
-pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, schscmhandle: super::super::System::Services::SC_HANDLE, phservice: *mut super::super::System::Services::SC_HANDLE, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_SZ_VALUE = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: windows_sys::core::PCWSTR, psznewvalue: windows_sys::core::PCWSTR, ppszoutstring: *mut windows_sys::core::PWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PRESUTIL_SET_UNKNOWN_PROPERTIES = Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
-#[cfg(feature = "Win32_System_Services")]
-pub type PRESUTIL_START_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR, phservicehandle: *mut super::super::System::Services::SC_HANDLE) -> u32>;
-pub type PRESUTIL_STOP_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Services")]
-pub type PRESUTIL_STOP_SERVICE = Option<unsafe extern "system" fn(hservicehandle: super::super::System::Services::SC_HANDLE) -> u32>;
-pub type PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL = Option<unsafe extern "system" fn(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-pub type PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST = Option<unsafe extern "system" fn(pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
-pub type PRESUTIL_VERIFY_PROPERTY_TABLE = Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
-pub type PRESUTIL_VERIFY_RESOURCE_SERVICE = Option<unsafe extern "system" fn(pszservicename: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_System_Services")]
-pub type PRESUTIL_VERIFY_SERVICE = Option<unsafe extern "system" fn(hservicehandle: super::super::System::Services::SC_HANDLE) -> u32>;
-pub type PRES_UTIL_VERIFY_SHUTDOWN_SAFE = Option<unsafe extern "system" fn(flags: u32, reason: u32, presult: *mut u32) -> u32>;
-pub type PSET_INTERNAL_STATE = Option<unsafe extern "system" fn(param0: isize, statetype: CLUSTER_RESOURCE_APPLICATION_STATE, active: super::super::Foundation::BOOL) -> u32>;
-pub type PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, propertylistbuffer: *const u8, propertylistbuffersize: u32) -> u32>;
-pub type PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32, lockedmodeflags: u32) -> u32>;
-pub type PSET_RESOURCE_LOCKED_MODE_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32) -> u32>;
-pub type PSET_RESOURCE_STATUS_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS) -> u32>;
-pub type PSET_RESOURCE_STATUS_ROUTINE_EX = Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32>;
-pub type PSET_RESOURCE_WPR_POLICY_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, wprpolicyflags: u32) -> u32>;
-pub type PSIGNAL_FAILURE_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PSTARTUP_EX_ROUTINE = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut CLRES_CALLBACK_FUNCTION_TABLE, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
-#[cfg(feature = "Win32_System_Registry")]
-pub type PSTARTUP_ROUTINE = Option<unsafe extern "system" fn(resourcetype: windows_sys::core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: PSET_RESOURCE_STATUS_ROUTINE, logevent: PLOG_EVENT_ROUTINE, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
-pub type PTERMINATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void)>;
-pub type PWORKER_START_ROUTINE = Option<unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut core::ffi::c_void) -> u32>;
-pub type SET_APP_INSTANCE_CSV_FLAGS = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32>;

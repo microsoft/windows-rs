@@ -2,6 +2,439 @@ windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mu
 windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
 windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
 windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
+pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
+pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_sys::core::PCWSTR, pszrootwebconfigfile: windows_sys::core::PCWSTR, pszinstancename: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_sys::core::PCWSTR, pszvalue: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_sys::core::HRESULT>;
+pub type FTP_ACCESS = i32;
+pub type FTP_PROCESS_STATUS = i32;
+pub type HTTP_TRACE_TYPE = i32;
+pub type METADATATYPES = i32;
+pub type SF_PROPERTY_IIS = i32;
+pub type SF_REQ_TYPE = i32;
+pub type SF_STATUS_TYPE = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
+pub struct CERT_CONTEXT_EX {
+    pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
+    pub cbAllocated: u32,
+    pub dwCertificateFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIGURATION_ENTRY {
+    pub bstrKey: windows_sys::core::BSTR,
+    pub bstrValue: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTENSION_CONTROL_BLOCK {
+    pub cbSize: u32,
+    pub dwVersion: u32,
+    pub ConnID: HCONN,
+    pub dwHttpStatusCode: u32,
+    pub lpszLogData: [i8; 80],
+    pub lpszMethod: windows_sys::core::PSTR,
+    pub lpszQueryString: windows_sys::core::PSTR,
+    pub lpszPathInfo: windows_sys::core::PSTR,
+    pub lpszPathTranslated: windows_sys::core::PSTR,
+    pub cbTotalBytes: u32,
+    pub cbAvailable: u32,
+    pub lpbData: *mut u8,
+    pub lpszContentType: windows_sys::core::PSTR,
+    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
+    pub WriteClient: PFN_IIS_WRITECLIENT,
+    pub ReadClient: PFN_IIS_READCLIENT,
+    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
+}
+pub const FtpProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
+pub type HCONN = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_CUSTOM_ERROR_INFO {
+    pub pszStatus: windows_sys::core::PSTR,
+    pub uHttpSubError: u16,
+    pub fAsync: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_UNICODE_URL_INFO {
+    pub pszUrl: windows_sys::core::PWSTR,
+    pub pszMethod: windows_sys::core::PSTR,
+    pub pszChildHeaders: windows_sys::core::PSTR,
+    pub pUserInfo: *mut HSE_EXEC_UNICODE_URL_USER_INFO,
+    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
+    pub dwExecUrlFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
+    pub hImpersonationToken: super::super::Foundation::HANDLE,
+    pub pszCustomUserName: windows_sys::core::PWSTR,
+    pub pszCustomAuthType: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_URL_ENTITY_INFO {
+    pub cbAvailable: u32,
+    pub lpbData: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_URL_INFO {
+    pub pszUrl: windows_sys::core::PSTR,
+    pub pszMethod: windows_sys::core::PSTR,
+    pub pszChildHeaders: windows_sys::core::PSTR,
+    pub pUserInfo: *mut HSE_EXEC_URL_USER_INFO,
+    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
+    pub dwExecUrlFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_URL_STATUS {
+    pub uHttpStatusCode: u16,
+    pub uHttpSubStatus: u16,
+    pub dwWin32Error: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_EXEC_URL_USER_INFO {
+    pub hImpersonationToken: super::super::Foundation::HANDLE,
+    pub pszCustomUserName: windows_sys::core::PSTR,
+    pub pszCustomAuthType: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_RESPONSE_VECTOR {
+    pub dwFlags: u32,
+    pub pszStatus: windows_sys::core::PSTR,
+    pub pszHeaders: windows_sys::core::PSTR,
+    pub nElementCount: u32,
+    pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_SEND_HEADER_EX_INFO {
+    pub pszStatus: windows_sys::core::PCSTR,
+    pub pszHeader: windows_sys::core::PCSTR,
+    pub cchStatus: u32,
+    pub cchHeader: u32,
+    pub fKeepConn: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_TF_INFO {
+    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
+    pub pContext: *mut core::ffi::c_void,
+    pub hFile: super::super::Foundation::HANDLE,
+    pub pszStatusCode: windows_sys::core::PCSTR,
+    pub BytesToWrite: u32,
+    pub Offset: u32,
+    pub pHead: *mut core::ffi::c_void,
+    pub HeadLength: u32,
+    pub pTail: *mut core::ffi::c_void,
+    pub TailLength: u32,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_TRACE_INFO {
+    pub fTraceRequest: super::super::Foundation::BOOL,
+    pub TraceContextId: [u8; 16],
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_UNICODE_URL_MAPEX_INFO {
+    pub lpszPath: [u16; 260],
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_URL_MAPEX_INFO {
+    pub lpszPath: [i8; 260],
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_VECTOR_ELEMENT {
+    pub ElementType: u32,
+    pub pvContext: *mut core::ffi::c_void,
+    pub cbOffset: u64,
+    pub cbSize: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HSE_VERSION_INFO {
+    pub dwExtensionVersion: u32,
+    pub lpszExtensionDesc: [i8; 256],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_ACCESS_DENIED {
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PCSTR,
+    pub dwReason: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_AUTHENT {
+    pub pszUser: windows_sys::core::PSTR,
+    pub cbUserBuff: u32,
+    pub pszPassword: windows_sys::core::PSTR,
+    pub cbPasswordBuff: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
+    pub GetHeader: isize,
+    pub SetHeader: isize,
+    pub AddHeader: isize,
+    pub GetUserToken: isize,
+    pub HttpStatus: u32,
+    pub fResetAuth: super::super::Foundation::BOOL,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_CONTEXT {
+    pub cbSize: u32,
+    pub Revision: u32,
+    pub ServerContext: *mut core::ffi::c_void,
+    pub ulReserved: u32,
+    pub fIsSecurePort: super::super::Foundation::BOOL,
+    pub pFilterContext: *mut core::ffi::c_void,
+    pub GetServerVariable: isize,
+    pub AddResponseHeaders: isize,
+    pub WriteClient: isize,
+    pub AllocMem: isize,
+    pub ServerSupportFunction: isize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_LOG {
+    pub pszClientHostName: windows_sys::core::PCSTR,
+    pub pszClientUserName: windows_sys::core::PCSTR,
+    pub pszServerName: windows_sys::core::PCSTR,
+    pub pszOperation: windows_sys::core::PCSTR,
+    pub pszTarget: windows_sys::core::PCSTR,
+    pub pszParameters: windows_sys::core::PCSTR,
+    pub dwHttpStatus: u32,
+    pub dwWin32Status: u32,
+    pub dwBytesSent: u32,
+    pub dwBytesRecvd: u32,
+    pub msTimeForProcessing: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_PREPROC_HEADERS {
+    pub GetHeader: isize,
+    pub SetHeader: isize,
+    pub AddHeader: isize,
+    pub HttpStatus: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_RAW_DATA {
+    pub pvInData: *mut core::ffi::c_void,
+    pub cbInData: u32,
+    pub cbInBuffer: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_URL_MAP {
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PSTR,
+    pub cbPathBuff: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_URL_MAP_EX {
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PSTR,
+    pub cbPathBuff: u32,
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+    pub pszScriptMapEntry: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_FILTER_VERSION {
+    pub dwServerFilterVersion: u32,
+    pub dwFilterVersion: u32,
+    pub lpszFilterDesc: [i8; 257],
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TRACE_CONFIGURATION {
+    pub pProviderGuid: *const windows_sys::core::GUID,
+    pub dwAreas: u32,
+    pub dwVerbosity: u32,
+    pub fProviderEnabled: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TRACE_EVENT {
+    pub pProviderGuid: *const windows_sys::core::GUID,
+    pub dwArea: u32,
+    pub pAreaGuid: *const windows_sys::core::GUID,
+    pub dwEvent: u32,
+    pub pszEventName: windows_sys::core::PCWSTR,
+    pub dwEventVersion: u32,
+    pub dwVerbosity: u32,
+    pub pActivityGuid: *const windows_sys::core::GUID,
+    pub pRelatedActivityGuid: *const windows_sys::core::GUID,
+    pub dwTimeStamp: u32,
+    pub dwFlags: u32,
+    pub cEventItems: u32,
+    pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HTTP_TRACE_EVENT_ITEM {
+    pub pszName: windows_sys::core::PCWSTR,
+    pub dwDataType: HTTP_TRACE_TYPE,
+    pub pbData: *mut u8,
+    pub cbData: u32,
+    pub pszDataDescription: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LOGGING_PARAMETERS {
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
+    pub dwLocalIpPort: u32,
+    pub BytesSent: u64,
+    pub BytesReceived: u64,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
+    pub pszFullPath: windows_sys::core::PCWSTR,
+    pub dwElapsedMilliseconds: u32,
+    pub FtpStatus: u32,
+    pub FtpSubStatus: u32,
+    pub hrStatus: windows_sys::core::HRESULT,
+    pub pszInformation: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MD_CHANGE_OBJECT_W {
+    pub pszMDPath: windows_sys::core::PWSTR,
+    pub dwMDChangeType: u32,
+    pub dwMDNumDataIDs: u32,
+    pub pdwMDDataIDs: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct METADATA_GETALL_INTERNAL_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
+    pub dwMDDataTag: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union METADATA_GETALL_INTERNAL_RECORD_0 {
+    pub dwMDDataOffset: usize,
+    pub pbMDData: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct METADATA_GETALL_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub dwMDDataOffset: u32,
+    pub dwMDDataTag: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct METADATA_HANDLE_INFO {
+    pub dwMDPermissions: u32,
+    pub dwMDSystemChangeNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct METADATA_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub pbMDData: *mut u8,
+    pub dwMDDataTag: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POST_PROCESS_PARAMETERS {
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
+    pub dwLocalIpPort: u32,
+    pub BytesSent: u64,
+    pub BytesReceived: u64,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
+    pub pszFullPath: windows_sys::core::PCWSTR,
+    pub pszPhysicalPath: windows_sys::core::PCWSTR,
+    pub FtpStatus: u32,
+    pub FtpSubStatus: u32,
+    pub hrStatus: windows_sys::core::HRESULT,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PRE_PROCESS_PARAMETERS {
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
+    pub dwLocalIpPort: u32,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = 0i32;
 pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
@@ -976,436 +1409,3 @@ pub const WEB_CORE_ACTIVATE_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::c
 pub const WEB_CORE_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("hwebcore.dll");
 pub const WEB_CORE_SET_METADATA_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::core::s!("WebCoreSetMetadata");
 pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::core::s!("WebCoreShutdown");
-pub type FTP_ACCESS = i32;
-pub type FTP_PROCESS_STATUS = i32;
-pub type HTTP_TRACE_TYPE = i32;
-pub type METADATATYPES = i32;
-pub type SF_PROPERTY_IIS = i32;
-pub type SF_REQ_TYPE = i32;
-pub type SF_STATUS_TYPE = i32;
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
-pub struct CERT_CONTEXT_EX {
-    pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
-    pub cbAllocated: u32,
-    pub dwCertificateFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: windows_sys::core::BSTR,
-    pub bstrValue: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTENSION_CONTROL_BLOCK {
-    pub cbSize: u32,
-    pub dwVersion: u32,
-    pub ConnID: HCONN,
-    pub dwHttpStatusCode: u32,
-    pub lpszLogData: [i8; 80],
-    pub lpszMethod: windows_sys::core::PSTR,
-    pub lpszQueryString: windows_sys::core::PSTR,
-    pub lpszPathInfo: windows_sys::core::PSTR,
-    pub lpszPathTranslated: windows_sys::core::PSTR,
-    pub cbTotalBytes: u32,
-    pub cbAvailable: u32,
-    pub lpbData: *mut u8,
-    pub lpszContentType: windows_sys::core::PSTR,
-    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
-    pub WriteClient: PFN_IIS_WRITECLIENT,
-    pub ReadClient: PFN_IIS_READCLIENT,
-    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
-}
-pub const FtpProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
-pub type HCONN = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_CUSTOM_ERROR_INFO {
-    pub pszStatus: windows_sys::core::PSTR,
-    pub uHttpSubError: u16,
-    pub fAsync: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_UNICODE_URL_INFO {
-    pub pszUrl: windows_sys::core::PWSTR,
-    pub pszMethod: windows_sys::core::PSTR,
-    pub pszChildHeaders: windows_sys::core::PSTR,
-    pub pUserInfo: *mut HSE_EXEC_UNICODE_URL_USER_INFO,
-    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
-    pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: windows_sys::core::PWSTR,
-    pub pszCustomAuthType: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_URL_ENTITY_INFO {
-    pub cbAvailable: u32,
-    pub lpbData: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_URL_INFO {
-    pub pszUrl: windows_sys::core::PSTR,
-    pub pszMethod: windows_sys::core::PSTR,
-    pub pszChildHeaders: windows_sys::core::PSTR,
-    pub pUserInfo: *mut HSE_EXEC_URL_USER_INFO,
-    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_URL_STATUS {
-    pub uHttpStatusCode: u16,
-    pub uHttpSubStatus: u16,
-    pub dwWin32Error: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_EXEC_URL_USER_INFO {
-    pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: windows_sys::core::PSTR,
-    pub pszCustomAuthType: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_RESPONSE_VECTOR {
-    pub dwFlags: u32,
-    pub pszStatus: windows_sys::core::PSTR,
-    pub pszHeaders: windows_sys::core::PSTR,
-    pub nElementCount: u32,
-    pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_SEND_HEADER_EX_INFO {
-    pub pszStatus: windows_sys::core::PCSTR,
-    pub pszHeader: windows_sys::core::PCSTR,
-    pub cchStatus: u32,
-    pub cchHeader: u32,
-    pub fKeepConn: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_TF_INFO {
-    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
-    pub pContext: *mut core::ffi::c_void,
-    pub hFile: super::super::Foundation::HANDLE,
-    pub pszStatusCode: windows_sys::core::PCSTR,
-    pub BytesToWrite: u32,
-    pub Offset: u32,
-    pub pHead: *mut core::ffi::c_void,
-    pub HeadLength: u32,
-    pub pTail: *mut core::ffi::c_void,
-    pub TailLength: u32,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_TRACE_INFO {
-    pub fTraceRequest: super::super::Foundation::BOOL,
-    pub TraceContextId: [u8; 16],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_UNICODE_URL_MAPEX_INFO {
-    pub lpszPath: [u16; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [i8; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_VECTOR_ELEMENT {
-    pub ElementType: u32,
-    pub pvContext: *mut core::ffi::c_void,
-    pub cbOffset: u64,
-    pub cbSize: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HSE_VERSION_INFO {
-    pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [i8; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_ACCESS_DENIED {
-    pub pszURL: windows_sys::core::PCSTR,
-    pub pszPhysicalPath: windows_sys::core::PCSTR,
-    pub dwReason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_AUTHENT {
-    pub pszUser: windows_sys::core::PSTR,
-    pub cbUserBuff: u32,
-    pub pszPassword: windows_sys::core::PSTR,
-    pub cbPasswordBuff: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
-    pub GetHeader: isize,
-    pub SetHeader: isize,
-    pub AddHeader: isize,
-    pub GetUserToken: isize,
-    pub HttpStatus: u32,
-    pub fResetAuth: super::super::Foundation::BOOL,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_CONTEXT {
-    pub cbSize: u32,
-    pub Revision: u32,
-    pub ServerContext: *mut core::ffi::c_void,
-    pub ulReserved: u32,
-    pub fIsSecurePort: super::super::Foundation::BOOL,
-    pub pFilterContext: *mut core::ffi::c_void,
-    pub GetServerVariable: isize,
-    pub AddResponseHeaders: isize,
-    pub WriteClient: isize,
-    pub AllocMem: isize,
-    pub ServerSupportFunction: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_LOG {
-    pub pszClientHostName: windows_sys::core::PCSTR,
-    pub pszClientUserName: windows_sys::core::PCSTR,
-    pub pszServerName: windows_sys::core::PCSTR,
-    pub pszOperation: windows_sys::core::PCSTR,
-    pub pszTarget: windows_sys::core::PCSTR,
-    pub pszParameters: windows_sys::core::PCSTR,
-    pub dwHttpStatus: u32,
-    pub dwWin32Status: u32,
-    pub dwBytesSent: u32,
-    pub dwBytesRecvd: u32,
-    pub msTimeForProcessing: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_PREPROC_HEADERS {
-    pub GetHeader: isize,
-    pub SetHeader: isize,
-    pub AddHeader: isize,
-    pub HttpStatus: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_RAW_DATA {
-    pub pvInData: *mut core::ffi::c_void,
-    pub cbInData: u32,
-    pub cbInBuffer: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_URL_MAP {
-    pub pszURL: windows_sys::core::PCSTR,
-    pub pszPhysicalPath: windows_sys::core::PSTR,
-    pub cbPathBuff: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_URL_MAP_EX {
-    pub pszURL: windows_sys::core::PCSTR,
-    pub pszPhysicalPath: windows_sys::core::PSTR,
-    pub cbPathBuff: u32,
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub pszScriptMapEntry: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_FILTER_VERSION {
-    pub dwServerFilterVersion: u32,
-    pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [i8; 257],
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TRACE_CONFIGURATION {
-    pub pProviderGuid: *const windows_sys::core::GUID,
-    pub dwAreas: u32,
-    pub dwVerbosity: u32,
-    pub fProviderEnabled: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TRACE_EVENT {
-    pub pProviderGuid: *const windows_sys::core::GUID,
-    pub dwArea: u32,
-    pub pAreaGuid: *const windows_sys::core::GUID,
-    pub dwEvent: u32,
-    pub pszEventName: windows_sys::core::PCWSTR,
-    pub dwEventVersion: u32,
-    pub dwVerbosity: u32,
-    pub pActivityGuid: *const windows_sys::core::GUID,
-    pub pRelatedActivityGuid: *const windows_sys::core::GUID,
-    pub dwTimeStamp: u32,
-    pub dwFlags: u32,
-    pub cEventItems: u32,
-    pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HTTP_TRACE_EVENT_ITEM {
-    pub pszName: windows_sys::core::PCWSTR,
-    pub dwDataType: HTTP_TRACE_TYPE,
-    pub pbData: *mut u8,
-    pub cbData: u32,
-    pub pszDataDescription: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LOGGING_PARAMETERS {
-    pub pszSessionId: windows_sys::core::PCWSTR,
-    pub pszSiteName: windows_sys::core::PCWSTR,
-    pub pszUserName: windows_sys::core::PCWSTR,
-    pub pszHostName: windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
-    pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
-    pub dwLocalIpPort: u32,
-    pub BytesSent: u64,
-    pub BytesReceived: u64,
-    pub pszCommand: windows_sys::core::PCWSTR,
-    pub pszCommandParameters: windows_sys::core::PCWSTR,
-    pub pszFullPath: windows_sys::core::PCWSTR,
-    pub dwElapsedMilliseconds: u32,
-    pub FtpStatus: u32,
-    pub FtpSubStatus: u32,
-    pub hrStatus: windows_sys::core::HRESULT,
-    pub pszInformation: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MD_CHANGE_OBJECT_W {
-    pub pszMDPath: windows_sys::core::PWSTR,
-    pub dwMDChangeType: u32,
-    pub dwMDNumDataIDs: u32,
-    pub pdwMDDataIDs: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct METADATA_GETALL_INTERNAL_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
-    pub dwMDDataTag: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union METADATA_GETALL_INTERNAL_RECORD_0 {
-    pub dwMDDataOffset: usize,
-    pub pbMDData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct METADATA_GETALL_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub dwMDDataOffset: u32,
-    pub dwMDDataTag: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct METADATA_HANDLE_INFO {
-    pub dwMDPermissions: u32,
-    pub dwMDSystemChangeNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct METADATA_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub pbMDData: *mut u8,
-    pub dwMDDataTag: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POST_PROCESS_PARAMETERS {
-    pub pszSessionId: windows_sys::core::PCWSTR,
-    pub pszSiteName: windows_sys::core::PCWSTR,
-    pub pszUserName: windows_sys::core::PCWSTR,
-    pub pszHostName: windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
-    pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
-    pub dwLocalIpPort: u32,
-    pub BytesSent: u64,
-    pub BytesReceived: u64,
-    pub pszCommand: windows_sys::core::PCWSTR,
-    pub pszCommandParameters: windows_sys::core::PCWSTR,
-    pub pszFullPath: windows_sys::core::PCWSTR,
-    pub pszPhysicalPath: windows_sys::core::PCWSTR,
-    pub FtpStatus: u32,
-    pub FtpSubStatus: u32,
-    pub hrStatus: windows_sys::core::HRESULT,
-    pub SessionStartTime: super::super::Foundation::FILETIME,
-    pub BytesSentPerSession: u64,
-    pub BytesReceivedPerSession: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PRE_PROCESS_PARAMETERS {
-    pub pszSessionId: windows_sys::core::PCWSTR,
-    pub pszSiteName: windows_sys::core::PCWSTR,
-    pub pszUserName: windows_sys::core::PCWSTR,
-    pub pszHostName: windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
-    pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
-    pub dwLocalIpPort: u32,
-    pub pszCommand: windows_sys::core::PCWSTR,
-    pub pszCommandParameters: windows_sys::core::PCWSTR,
-    pub SessionStartTime: super::super::Foundation::FILETIME,
-    pub BytesSentPerSession: u64,
-    pub BytesReceivedPerSession: u64,
-}
-pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
-pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_sys::core::PCWSTR, pszrootwebconfigfile: windows_sys::core::PCWSTR, pszinstancename: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_sys::core::PCWSTR, pszvalue: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_sys::core::HRESULT>;

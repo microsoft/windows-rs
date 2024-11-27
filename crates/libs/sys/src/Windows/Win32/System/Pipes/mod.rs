@@ -25,6 +25,7 @@ windows_targets::link!("kernel32.dll" "system" fn SetNamedPipeHandleState(hnamed
 windows_targets::link!("kernel32.dll" "system" fn TransactNamedPipe(hnamedpipe : super::super::Foundation:: HANDLE, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesread : *mut u32, lpoverlapped : *mut super::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WaitNamedPipeA(lpnamedpipename : windows_sys::core::PCSTR, ntimeout : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WaitNamedPipeW(lpnamedpipename : windows_sys::core::PCWSTR, ntimeout : u32) -> super::super::Foundation:: BOOL);
+pub type NAMED_PIPE_MODE = u32;
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
 pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
 pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;
@@ -39,4 +40,3 @@ pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = 0u32;
 pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = 4u32;
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 pub const PIPE_WAIT: NAMED_PIPE_MODE = 0u32;
-pub type NAMED_PIPE_MODE = u32;

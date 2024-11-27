@@ -64,6 +64,129 @@ windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncserv
 windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;
+pub type EVT_CHANNEL_CLOCK_TYPE = i32;
+pub type EVT_CHANNEL_CONFIG_PROPERTY_ID = i32;
+pub type EVT_CHANNEL_ISOLATION_TYPE = i32;
+pub type EVT_CHANNEL_REFERENCE_FLAGS = u32;
+pub type EVT_CHANNEL_SID_TYPE = i32;
+pub type EVT_CHANNEL_TYPE = i32;
+pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
+pub type EVT_EVENT_PROPERTY_ID = i32;
+pub type EVT_EXPORTLOG_FLAGS = u32;
+pub type EVT_FORMAT_MESSAGE_FLAGS = u32;
+pub type EVT_LOGIN_CLASS = i32;
+pub type EVT_LOG_PROPERTY_ID = i32;
+pub type EVT_OPEN_LOG_FLAGS = u32;
+pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
+pub type EVT_QUERY_FLAGS = u32;
+pub type EVT_QUERY_PROPERTY_ID = i32;
+pub type EVT_RENDER_CONTEXT_FLAGS = u32;
+pub type EVT_RENDER_FLAGS = u32;
+pub type EVT_RPC_LOGIN_FLAGS = u32;
+pub type EVT_SEEK_FLAGS = u32;
+pub type EVT_SUBSCRIBE_FLAGS = u32;
+pub type EVT_SUBSCRIBE_NOTIFY_ACTION = i32;
+pub type EVT_SYSTEM_PROPERTY_ID = i32;
+pub type EVT_VARIANT_TYPE = i32;
+pub type READ_EVENT_LOG_READ_FLAGS = u32;
+pub type REPORT_EVENT_TYPE = u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENTLOGRECORD {
+    pub Length: u32,
+    pub Reserved: u32,
+    pub RecordNumber: u32,
+    pub TimeGenerated: u32,
+    pub TimeWritten: u32,
+    pub EventID: u32,
+    pub EventType: REPORT_EVENT_TYPE,
+    pub NumStrings: u16,
+    pub EventCategory: u16,
+    pub ReservedFlags: u16,
+    pub ClosingRecordNumber: u32,
+    pub StringOffset: u32,
+    pub UserSidLength: u32,
+    pub UserSidOffset: u32,
+    pub DataLength: u32,
+    pub DataOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENTLOG_FULL_INFORMATION {
+    pub dwFull: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENTSFORLOGFILE {
+    pub ulSize: u32,
+    pub szLogicalLogFile: [u16; 256],
+    pub ulNumRecords: u32,
+    pub pEventLogRecords: [EVENTLOGRECORD; 1],
+}
+pub type EVT_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVT_RPC_LOGIN {
+    pub Server: windows_sys::core::PWSTR,
+    pub User: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
+    pub Password: windows_sys::core::PWSTR,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct EVT_VARIANT {
+    pub Anonymous: EVT_VARIANT_0,
+    pub Count: u32,
+    pub Type: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub union EVT_VARIANT_0 {
+    pub BooleanVal: super::super::Foundation::BOOL,
+    pub SByteVal: i8,
+    pub Int16Val: i16,
+    pub Int32Val: i32,
+    pub Int64Val: i64,
+    pub ByteVal: u8,
+    pub UInt16Val: u16,
+    pub UInt32Val: u32,
+    pub UInt64Val: u64,
+    pub SingleVal: f32,
+    pub DoubleVal: f64,
+    pub FileTimeVal: u64,
+    pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidVal: *mut windows_sys::core::GUID,
+    pub StringVal: windows_sys::core::PCWSTR,
+    pub AnsiStringVal: windows_sys::core::PCSTR,
+    pub BinaryVal: *mut u8,
+    pub SidVal: super::super::Security::PSID,
+    pub SizeTVal: usize,
+    pub BooleanArr: *mut super::super::Foundation::BOOL,
+    pub SByteArr: *mut i8,
+    pub Int16Arr: *mut i16,
+    pub Int32Arr: *mut i32,
+    pub Int64Arr: *mut i64,
+    pub ByteArr: *mut u8,
+    pub UInt16Arr: *mut u16,
+    pub UInt32Arr: *mut u32,
+    pub UInt64Arr: *mut u64,
+    pub SingleArr: *mut f32,
+    pub DoubleArr: *mut f64,
+    pub FileTimeArr: *mut super::super::Foundation::FILETIME,
+    pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidArr: *mut windows_sys::core::GUID,
+    pub StringArr: *mut windows_sys::core::PWSTR,
+    pub AnsiStringArr: *mut windows_sys::core::PSTR,
+    pub SidArr: *mut super::super::Security::PSID,
+    pub SizeTArr: *mut usize,
+    pub EvtHandleVal: EVT_HANDLE,
+    pub XmlVal: windows_sys::core::PCWSTR,
+    pub XmlValArr: *const windows_sys::core::PCWSTR,
+}
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = 16u16;
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = 8u16;
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1u16;
@@ -254,126 +377,3 @@ pub const EvtVarTypeSysTime: EVT_VARIANT_TYPE = 18i32;
 pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = 6i32;
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = 8i32;
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = 10i32;
-pub type EVT_CHANNEL_CLOCK_TYPE = i32;
-pub type EVT_CHANNEL_CONFIG_PROPERTY_ID = i32;
-pub type EVT_CHANNEL_ISOLATION_TYPE = i32;
-pub type EVT_CHANNEL_REFERENCE_FLAGS = u32;
-pub type EVT_CHANNEL_SID_TYPE = i32;
-pub type EVT_CHANNEL_TYPE = i32;
-pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
-pub type EVT_EVENT_PROPERTY_ID = i32;
-pub type EVT_EXPORTLOG_FLAGS = u32;
-pub type EVT_FORMAT_MESSAGE_FLAGS = u32;
-pub type EVT_LOGIN_CLASS = i32;
-pub type EVT_LOG_PROPERTY_ID = i32;
-pub type EVT_OPEN_LOG_FLAGS = u32;
-pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
-pub type EVT_QUERY_FLAGS = u32;
-pub type EVT_QUERY_PROPERTY_ID = i32;
-pub type EVT_RENDER_CONTEXT_FLAGS = u32;
-pub type EVT_RENDER_FLAGS = u32;
-pub type EVT_RPC_LOGIN_FLAGS = u32;
-pub type EVT_SEEK_FLAGS = u32;
-pub type EVT_SUBSCRIBE_FLAGS = u32;
-pub type EVT_SUBSCRIBE_NOTIFY_ACTION = i32;
-pub type EVT_SYSTEM_PROPERTY_ID = i32;
-pub type EVT_VARIANT_TYPE = i32;
-pub type READ_EVENT_LOG_READ_FLAGS = u32;
-pub type REPORT_EVENT_TYPE = u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENTLOGRECORD {
-    pub Length: u32,
-    pub Reserved: u32,
-    pub RecordNumber: u32,
-    pub TimeGenerated: u32,
-    pub TimeWritten: u32,
-    pub EventID: u32,
-    pub EventType: REPORT_EVENT_TYPE,
-    pub NumStrings: u16,
-    pub EventCategory: u16,
-    pub ReservedFlags: u16,
-    pub ClosingRecordNumber: u32,
-    pub StringOffset: u32,
-    pub UserSidLength: u32,
-    pub UserSidOffset: u32,
-    pub DataLength: u32,
-    pub DataOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENTLOG_FULL_INFORMATION {
-    pub dwFull: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENTSFORLOGFILE {
-    pub ulSize: u32,
-    pub szLogicalLogFile: [u16; 256],
-    pub ulNumRecords: u32,
-    pub pEventLogRecords: [EVENTLOGRECORD; 1],
-}
-pub type EVT_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVT_RPC_LOGIN {
-    pub Server: windows_sys::core::PWSTR,
-    pub User: windows_sys::core::PWSTR,
-    pub Domain: windows_sys::core::PWSTR,
-    pub Password: windows_sys::core::PWSTR,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct EVT_VARIANT {
-    pub Anonymous: EVT_VARIANT_0,
-    pub Count: u32,
-    pub Type: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub union EVT_VARIANT_0 {
-    pub BooleanVal: super::super::Foundation::BOOL,
-    pub SByteVal: i8,
-    pub Int16Val: i16,
-    pub Int32Val: i32,
-    pub Int64Val: i64,
-    pub ByteVal: u8,
-    pub UInt16Val: u16,
-    pub UInt32Val: u32,
-    pub UInt64Val: u64,
-    pub SingleVal: f32,
-    pub DoubleVal: f64,
-    pub FileTimeVal: u64,
-    pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidVal: *mut windows_sys::core::GUID,
-    pub StringVal: windows_sys::core::PCWSTR,
-    pub AnsiStringVal: windows_sys::core::PCSTR,
-    pub BinaryVal: *mut u8,
-    pub SidVal: super::super::Security::PSID,
-    pub SizeTVal: usize,
-    pub BooleanArr: *mut super::super::Foundation::BOOL,
-    pub SByteArr: *mut i8,
-    pub Int16Arr: *mut i16,
-    pub Int32Arr: *mut i32,
-    pub Int64Arr: *mut i64,
-    pub ByteArr: *mut u8,
-    pub UInt16Arr: *mut u16,
-    pub UInt32Arr: *mut u32,
-    pub UInt64Arr: *mut u64,
-    pub SingleArr: *mut f32,
-    pub DoubleArr: *mut f64,
-    pub FileTimeArr: *mut super::super::Foundation::FILETIME,
-    pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidArr: *mut windows_sys::core::GUID,
-    pub StringArr: *mut windows_sys::core::PWSTR,
-    pub AnsiStringArr: *mut windows_sys::core::PSTR,
-    pub SidArr: *mut super::super::Security::PSID,
-    pub SizeTArr: *mut usize,
-    pub EvtHandleVal: EVT_HANDLE,
-    pub XmlVal: windows_sys::core::PCWSTR,
-    pub XmlValArr: *const windows_sys::core::PCWSTR,
-}
-pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;

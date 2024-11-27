@@ -89,6 +89,414 @@ windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(po
 windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_sys::core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : windows_sys::core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_sys::core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_sys::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type ACCESS_MODE = i32;
+pub type ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = u32;
+pub type AUDIT_PARAM_TYPE = i32;
+pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
+pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
+pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
+pub type AUTHZ_GENERATE_RESULTS = u32;
+pub type AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = u32;
+pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
+pub type AUTHZ_SECURITY_ATTRIBUTE_FLAGS = u32;
+pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
+pub type AUTHZ_SID_OPERATION = i32;
+pub type AZ_PROP_CONSTANTS = i32;
+pub type MULTIPLE_TRUSTEE_OPERATION = i32;
+pub type PROG_INVOKE_SETTING = i32;
+pub type SE_OBJECT_TYPE = i32;
+pub type TREE_SEC_INFO = u32;
+pub type TRUSTEE_FORM = i32;
+pub type TRUSTEE_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESSA {
+    pub cEntries: u32,
+    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESSW {
+    pub cEntries: u32,
+    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_ENTRYA {
+    pub Trustee: TRUSTEE_A,
+    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
+    pub Access: u32,
+    pub ProvSpecificAccess: u32,
+    pub Inheritance: super::ACE_FLAGS,
+    pub lpInheritProperty: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_ENTRYW {
+    pub Trustee: TRUSTEE_W,
+    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
+    pub Access: u32,
+    pub ProvSpecificAccess: u32,
+    pub Inheritance: super::ACE_FLAGS,
+    pub lpInheritProperty: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_ENTRY_LISTA {
+    pub cEntries: u32,
+    pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_ENTRY_LISTW {
+    pub cEntries: u32,
+    pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_INFOA {
+    pub fAccessPermission: u32,
+    pub lpAccessPermissionName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_ACCESS_INFOW {
+    pub fAccessPermission: u32,
+    pub lpAccessPermissionName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_CONTROL_INFOA {
+    pub lpControlId: windows_sys::core::PSTR,
+    pub lpControlName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_CONTROL_INFOW {
+    pub lpControlId: windows_sys::core::PWSTR,
+    pub lpControlName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_OVERLAPPED {
+    pub Anonymous: ACTRL_OVERLAPPED_0,
+    pub Reserved2: u32,
+    pub hEvent: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ACTRL_OVERLAPPED_0 {
+    pub Provider: *mut core::ffi::c_void,
+    pub Reserved1: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_PROPERTY_ENTRYA {
+    pub lpProperty: windows_sys::core::PSTR,
+    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
+    pub fListFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTRL_PROPERTY_ENTRYW {
+    pub lpProperty: windows_sys::core::PWSTR,
+    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
+    pub fListFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_IP_ADDRESS {
+    pub pIpAddress: [u8; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_OBJECT_TYPE {
+    pub ObjectType: windows_sys::core::GUID,
+    pub Flags: u16,
+    pub Level: u16,
+    pub AccessMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_OBJECT_TYPES {
+    pub Count: u16,
+    pub Flags: u16,
+    pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_PARAM {
+    pub Type: AUDIT_PARAM_TYPE,
+    pub Length: u32,
+    pub Flags: u32,
+    pub Anonymous1: AUDIT_PARAM_0,
+    pub Anonymous2: AUDIT_PARAM_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUDIT_PARAM_0 {
+    pub Data0: usize,
+    pub String: windows_sys::core::PWSTR,
+    pub u: usize,
+    pub psid: *mut super::SID,
+    pub pguid: *mut windows_sys::core::GUID,
+    pub LogonId_LowPart: u32,
+    pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
+    pub pIpAddress: *mut AUDIT_IP_ADDRESS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUDIT_PARAM_1 {
+    pub Data1: usize,
+    pub LogonId_HighPart: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIT_PARAMS {
+    pub Length: u32,
+    pub Flags: u32,
+    pub Count: u16,
+    pub Parameters: *mut AUDIT_PARAM,
+}
+pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_ACCESS_REPLY {
+    pub ResultListLength: u32,
+    pub GrantedAccessMask: *mut u32,
+    pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
+    pub Error: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_ACCESS_REQUEST {
+    pub DesiredAccess: u32,
+    pub PrincipalSelfSid: super::PSID,
+    pub ObjectTypeList: *mut super::OBJECT_TYPE_LIST,
+    pub ObjectTypeListLength: u32,
+    pub OptionalArguments: *mut core::ffi::c_void,
+}
+pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut core::ffi::c_void;
+pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    pub CategoryId: u16,
+    pub AuditId: u16,
+    pub ParameterCount: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    pub Version: u32,
+    pub dwFlags: u32,
+    pub RefCount: i32,
+    pub hAudit: usize,
+    pub LinkId: super::super::Foundation::LUID,
+    pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
+}
+pub type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut core::ffi::c_void;
+pub type AUTHZ_CLIENT_CONTEXT_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_INIT_INFO {
+    pub version: u16,
+    pub szResourceManagerName: windows_sys::core::PCWSTR,
+    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
+    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
+    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
+    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
+    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    pub szObjectTypeName: windows_sys::core::PWSTR,
+    pub dwOffset: u32,
+}
+pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
+    pub version: u16,
+    pub ObjectUuid: windows_sys::core::PWSTR,
+    pub ProtSeq: windows_sys::core::PWSTR,
+    pub NetworkAddr: windows_sys::core::PWSTR,
+    pub Endpoint: windows_sys::core::PWSTR,
+    pub Options: windows_sys::core::PWSTR,
+    pub ServerSpn: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    pub Version: u16,
+    pub Reserved: u16,
+    pub AttributeCount: u32,
+    pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    pub Version: u64,
+    pub pName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    pub pValue: *mut core::ffi::c_void,
+    pub ValueLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    pub pName: windows_sys::core::PWSTR,
+    pub ValueType: u16,
+    pub Reserved: u16,
+    pub Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS,
+    pub ValueCount: u32,
+    pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    pub pInt64: *mut i64,
+    pub pUint64: *mut u64,
+    pub ppString: *mut windows_sys::core::PWSTR,
+    pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
+    pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+}
+pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    pub dwFlags: u32,
+    pub szEventSourceName: windows_sys::core::PWSTR,
+    pub szEventMessageFile: windows_sys::core::PWSTR,
+    pub szEventSourceXmlSchemaFile: windows_sys::core::PWSTR,
+    pub szEventAccessStringsFile: windows_sys::core::PWSTR,
+    pub szExecutableImagePath: windows_sys::core::PWSTR,
+    pub Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0,
+    pub dwObjectTypeNameCount: u32,
+    pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    pub pReserved: *mut core::ffi::c_void,
+    pub pProviderGuid: *mut windows_sys::core::GUID,
+}
+pub const AzAuthorizationStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
+pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
+pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXPLICIT_ACCESS_A {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_A,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXPLICIT_ACCESS_W {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_W,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FN_OBJECT_MGR_FUNCTS {
+    pub Placeholder: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INHERITED_FROMA {
+    pub GenerationGap: i32,
+    pub AncestorName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INHERITED_FROMW {
+    pub GenerationGap: i32,
+    pub AncestorName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_NAME_A {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: windows_sys::core::PSTR,
+    pub InheritedObjectTypeName: windows_sys::core::PSTR,
+    pub ptstrName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_NAME_W {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: windows_sys::core::PWSTR,
+    pub InheritedObjectTypeName: windows_sys::core::PWSTR,
+    pub ptstrName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_SID {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectTypeGuid: windows_sys::core::GUID,
+    pub InheritedObjectTypeGuid: windows_sys::core::GUID,
+    pub pSid: *mut super::SID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_A {
+    pub pMultipleTrustee: *mut TRUSTEE_A,
+    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+    pub TrusteeForm: TRUSTEE_FORM,
+    pub TrusteeType: TRUSTEE_TYPE,
+    pub ptstrName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_ACCESSA {
+    pub lpProperty: windows_sys::core::PSTR,
+    pub Access: u32,
+    pub fAccessFlags: u32,
+    pub fReturnedAccess: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_ACCESSW {
+    pub lpProperty: windows_sys::core::PWSTR,
+    pub Access: u32,
+    pub fAccessFlags: u32,
+    pub fReturnedAccess: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_W {
+    pub pMultipleTrustee: *mut TRUSTEE_W,
+    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+    pub TrusteeForm: TRUSTEE_FORM,
+    pub TrusteeType: TRUSTEE_TYPE,
+    pub ptstrName: windows_sys::core::PWSTR,
+}
 pub const ACCCTRL_DEFAULT_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERA: windows_sys::core::PCSTR = windows_sys::core::s!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
@@ -574,411 +982,3 @@ pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = 0i32;
 pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = 1i32;
 pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = 5i32;
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
-pub type ACCESS_MODE = i32;
-pub type ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = u32;
-pub type AUDIT_PARAM_TYPE = i32;
-pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
-pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
-pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
-pub type AUTHZ_GENERATE_RESULTS = u32;
-pub type AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = u32;
-pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
-pub type AUTHZ_SECURITY_ATTRIBUTE_FLAGS = u32;
-pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
-pub type AUTHZ_SID_OPERATION = i32;
-pub type AZ_PROP_CONSTANTS = i32;
-pub type MULTIPLE_TRUSTEE_OPERATION = i32;
-pub type PROG_INVOKE_SETTING = i32;
-pub type SE_OBJECT_TYPE = i32;
-pub type TREE_SEC_INFO = u32;
-pub type TRUSTEE_FORM = i32;
-pub type TRUSTEE_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESSA {
-    pub cEntries: u32,
-    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESSW {
-    pub cEntries: u32,
-    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_ENTRYA {
-    pub Trustee: TRUSTEE_A,
-    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
-    pub Access: u32,
-    pub ProvSpecificAccess: u32,
-    pub Inheritance: super::ACE_FLAGS,
-    pub lpInheritProperty: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_ENTRYW {
-    pub Trustee: TRUSTEE_W,
-    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
-    pub Access: u32,
-    pub ProvSpecificAccess: u32,
-    pub Inheritance: super::ACE_FLAGS,
-    pub lpInheritProperty: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_ENTRY_LISTA {
-    pub cEntries: u32,
-    pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_ENTRY_LISTW {
-    pub cEntries: u32,
-    pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_INFOA {
-    pub fAccessPermission: u32,
-    pub lpAccessPermissionName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_ACCESS_INFOW {
-    pub fAccessPermission: u32,
-    pub lpAccessPermissionName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_CONTROL_INFOA {
-    pub lpControlId: windows_sys::core::PSTR,
-    pub lpControlName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_CONTROL_INFOW {
-    pub lpControlId: windows_sys::core::PWSTR,
-    pub lpControlName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_OVERLAPPED {
-    pub Anonymous: ACTRL_OVERLAPPED_0,
-    pub Reserved2: u32,
-    pub hEvent: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ACTRL_OVERLAPPED_0 {
-    pub Provider: *mut core::ffi::c_void,
-    pub Reserved1: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_PROPERTY_ENTRYA {
-    pub lpProperty: windows_sys::core::PSTR,
-    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
-    pub fListFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTRL_PROPERTY_ENTRYW {
-    pub lpProperty: windows_sys::core::PWSTR,
-    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
-    pub fListFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_IP_ADDRESS {
-    pub pIpAddress: [u8; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_OBJECT_TYPE {
-    pub ObjectType: windows_sys::core::GUID,
-    pub Flags: u16,
-    pub Level: u16,
-    pub AccessMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_OBJECT_TYPES {
-    pub Count: u16,
-    pub Flags: u16,
-    pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_PARAM {
-    pub Type: AUDIT_PARAM_TYPE,
-    pub Length: u32,
-    pub Flags: u32,
-    pub Anonymous1: AUDIT_PARAM_0,
-    pub Anonymous2: AUDIT_PARAM_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUDIT_PARAM_0 {
-    pub Data0: usize,
-    pub String: windows_sys::core::PWSTR,
-    pub u: usize,
-    pub psid: *mut super::SID,
-    pub pguid: *mut windows_sys::core::GUID,
-    pub LogonId_LowPart: u32,
-    pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
-    pub pIpAddress: *mut AUDIT_IP_ADDRESS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUDIT_PARAM_1 {
-    pub Data1: usize,
-    pub LogonId_HighPart: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIT_PARAMS {
-    pub Length: u32,
-    pub Flags: u32,
-    pub Count: u16,
-    pub Parameters: *mut AUDIT_PARAM,
-}
-pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_ACCESS_REPLY {
-    pub ResultListLength: u32,
-    pub GrantedAccessMask: *mut u32,
-    pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
-    pub Error: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_ACCESS_REQUEST {
-    pub DesiredAccess: u32,
-    pub PrincipalSelfSid: super::PSID,
-    pub ObjectTypeList: *mut super::OBJECT_TYPE_LIST,
-    pub ObjectTypeListLength: u32,
-    pub OptionalArguments: *mut core::ffi::c_void,
-}
-pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut core::ffi::c_void;
-pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    pub CategoryId: u16,
-    pub AuditId: u16,
-    pub ParameterCount: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    pub Version: u32,
-    pub dwFlags: u32,
-    pub RefCount: i32,
-    pub hAudit: usize,
-    pub LinkId: super::super::Foundation::LUID,
-    pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
-}
-pub type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut core::ffi::c_void;
-pub type AUTHZ_CLIENT_CONTEXT_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_INIT_INFO {
-    pub version: u16,
-    pub szResourceManagerName: windows_sys::core::PCWSTR,
-    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
-    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
-    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
-    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
-    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    pub szObjectTypeName: windows_sys::core::PWSTR,
-    pub dwOffset: u32,
-}
-pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
-    pub version: u16,
-    pub ObjectUuid: windows_sys::core::PWSTR,
-    pub ProtSeq: windows_sys::core::PWSTR,
-    pub NetworkAddr: windows_sys::core::PWSTR,
-    pub Endpoint: windows_sys::core::PWSTR,
-    pub Options: windows_sys::core::PWSTR,
-    pub ServerSpn: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub AttributeCount: u32,
-    pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub Version: u64,
-    pub pName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut core::ffi::c_void,
-    pub ValueLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    pub pName: windows_sys::core::PWSTR,
-    pub ValueType: u16,
-    pub Reserved: u16,
-    pub Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS,
-    pub ValueCount: u32,
-    pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    pub pInt64: *mut i64,
-    pub pUint64: *mut u64,
-    pub ppString: *mut windows_sys::core::PWSTR,
-    pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
-    pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
-}
-pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    pub dwFlags: u32,
-    pub szEventSourceName: windows_sys::core::PWSTR,
-    pub szEventMessageFile: windows_sys::core::PWSTR,
-    pub szEventSourceXmlSchemaFile: windows_sys::core::PWSTR,
-    pub szEventAccessStringsFile: windows_sys::core::PWSTR,
-    pub szExecutableImagePath: windows_sys::core::PWSTR,
-    pub Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0,
-    pub dwObjectTypeNameCount: u32,
-    pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    pub pReserved: *mut core::ffi::c_void,
-    pub pProviderGuid: *mut windows_sys::core::GUID,
-}
-pub const AzAuthorizationStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
-pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
-pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXPLICIT_ACCESS_A {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_A,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXPLICIT_ACCESS_W {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_W,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FN_OBJECT_MGR_FUNCTS {
-    pub Placeholder: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INHERITED_FROMA {
-    pub GenerationGap: i32,
-    pub AncestorName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INHERITED_FROMW {
-    pub GenerationGap: i32,
-    pub AncestorName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_NAME_A {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: windows_sys::core::PSTR,
-    pub InheritedObjectTypeName: windows_sys::core::PSTR,
-    pub ptstrName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_NAME_W {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: windows_sys::core::PWSTR,
-    pub InheritedObjectTypeName: windows_sys::core::PWSTR,
-    pub ptstrName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_SID {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectTypeGuid: windows_sys::core::GUID,
-    pub InheritedObjectTypeGuid: windows_sys::core::GUID,
-    pub pSid: *mut super::SID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_A {
-    pub pMultipleTrustee: *mut TRUSTEE_A,
-    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-    pub TrusteeForm: TRUSTEE_FORM,
-    pub TrusteeType: TRUSTEE_TYPE,
-    pub ptstrName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_ACCESSA {
-    pub lpProperty: windows_sys::core::PSTR,
-    pub Access: u32,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_ACCESSW {
-    pub lpProperty: windows_sys::core::PWSTR,
-    pub Access: u32,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_W {
-    pub pMultipleTrustee: *mut TRUSTEE_W,
-    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-    pub TrusteeForm: TRUSTEE_FORM,
-    pub TrusteeType: TRUSTEE_TYPE,
-    pub ptstrName: windows_sys::core::PWSTR,
-}
-pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_sys::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
-pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
-pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;

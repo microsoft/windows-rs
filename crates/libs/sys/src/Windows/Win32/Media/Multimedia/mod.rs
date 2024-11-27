@@ -193,6 +193,1605 @@ windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_
 windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_sys::core::PCWSTR, uflags : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : windows_sys::core::PCSTR, cch : i32) -> i32);
 windows_targets::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_sys::core::PCWSTR, appname : windows_sys::core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation:: HANDLE) -> i32);
+pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
+pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
+pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
+pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
+pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
+pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
+pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
+#[cfg(feature = "Win32_Media_Audio")]
+pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
+pub type CAPYIELDCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
+pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
+pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[cfg(feature = "Win32_System_IO")]
+pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
+pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type LPTASKCALLBACK = Option<unsafe extern "system" fn(dwinst: usize)>;
+#[cfg(feature = "Win32_UI_Controls")]
+pub type VFWWDMExtensionProc = Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct ADPCMCOEFSET {
+    pub iCoef1: i16,
+    pub iCoef2: i16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct ADPCMEWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+    pub wNumCoef: u16,
+    pub aCoef: [ADPCMCOEFSET; 1],
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct APTXWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct AUDIOFILE_AF10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct AUDIOFILE_AF36WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AVICOMPRESSOPTIONS {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwKeyFrameEvery: u32,
+    pub dwQuality: u32,
+    pub dwBytesPerSecond: u32,
+    pub dwFlags: u32,
+    pub lpFormat: *mut core::ffi::c_void,
+    pub cbFormat: u32,
+    pub lpParms: *mut core::ffi::c_void,
+    pub cbParms: u32,
+    pub dwInterleaveEvery: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AVIFILEINFOA {
+    pub dwMaxBytesPerSec: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub dwStreams: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwLength: u32,
+    pub dwEditCount: u32,
+    pub szFileType: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AVIFILEINFOW {
+    pub dwMaxBytesPerSec: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub dwStreams: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwLength: u32,
+    pub dwEditCount: u32,
+    pub szFileType: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AVISTREAMINFOA {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub wPriority: u16,
+    pub wLanguage: u16,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwStart: u32,
+    pub dwLength: u32,
+    pub dwInitialFrames: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwQuality: u32,
+    pub dwSampleSize: u32,
+    pub rcFrame: super::super::Foundation::RECT,
+    pub dwEditCount: u32,
+    pub dwFormatChangeCount: u32,
+    pub szName: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AVISTREAMINFOW {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub wPriority: u16,
+    pub wLanguage: u16,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwStart: u32,
+    pub dwLength: u32,
+    pub dwInitialFrames: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwQuality: u32,
+    pub dwSampleSize: u32,
+    pub rcFrame: super::super::Foundation::RECT,
+    pub dwEditCount: u32,
+    pub dwFormatChangeCount: u32,
+    pub szName: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CAPDRIVERCAPS {
+    pub wDeviceIndex: u32,
+    pub fHasOverlay: super::super::Foundation::BOOL,
+    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
+    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
+    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
+    pub fCaptureInitialized: super::super::Foundation::BOOL,
+    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
+    pub hVideoIn: super::super::Foundation::HANDLE,
+    pub hVideoOut: super::super::Foundation::HANDLE,
+    pub hVideoExtIn: super::super::Foundation::HANDLE,
+    pub hVideoExtOut: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CAPINFOCHUNK {
+    pub fccInfoID: u32,
+    pub lpData: *mut core::ffi::c_void,
+    pub cbData: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CAPSTATUS {
+    pub uiImageWidth: u32,
+    pub uiImageHeight: u32,
+    pub fLiveWindow: super::super::Foundation::BOOL,
+    pub fOverlayWindow: super::super::Foundation::BOOL,
+    pub fScale: super::super::Foundation::BOOL,
+    pub ptScroll: super::super::Foundation::POINT,
+    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
+    pub fAudioHardware: super::super::Foundation::BOOL,
+    pub fCapFileExists: super::super::Foundation::BOOL,
+    pub dwCurrentVideoFrame: u32,
+    pub dwCurrentVideoFramesDropped: u32,
+    pub dwCurrentWaveSamples: u32,
+    pub dwCurrentTimeElapsedMS: u32,
+    pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
+    pub fCapturingNow: super::super::Foundation::BOOL,
+    pub dwReturn: u32,
+    pub wNumVideoAllocated: u32,
+    pub wNumAudioAllocated: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CAPTUREPARMS {
+    pub dwRequestMicroSecPerFrame: u32,
+    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
+    pub wPercentDropForError: u32,
+    pub fYield: super::super::Foundation::BOOL,
+    pub dwIndexSize: u32,
+    pub wChunkGranularity: u32,
+    pub fUsingDOSMemory: super::super::Foundation::BOOL,
+    pub wNumVideoRequested: u32,
+    pub fCaptureAudio: super::super::Foundation::BOOL,
+    pub wNumAudioRequested: u32,
+    pub vKeyAbort: u32,
+    pub fAbortLeftMouse: super::super::Foundation::BOOL,
+    pub fAbortRightMouse: super::super::Foundation::BOOL,
+    pub fLimitEnabled: super::super::Foundation::BOOL,
+    pub wTimeLimit: u32,
+    pub fMCIControl: super::super::Foundation::BOOL,
+    pub fStepMCIDevice: super::super::Foundation::BOOL,
+    pub dwMCIStartTime: u32,
+    pub dwMCIStopTime: u32,
+    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
+    pub wStepCaptureAverageFrames: u32,
+    pub dwAudioBufferSize: u32,
+    pub fDisableWriteCache: super::super::Foundation::BOOL,
+    pub AVStreamMaster: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CHANNEL_CAPS {
+    pub dwFlags: u32,
+    pub dwSrcRectXMod: u32,
+    pub dwSrcRectYMod: u32,
+    pub dwSrcRectWidthMod: u32,
+    pub dwSrcRectHeightMod: u32,
+    pub dwDstRectXMod: u32,
+    pub dwDstRectYMod: u32,
+    pub dwDstRectWidthMod: u32,
+    pub dwDstRectHeightMod: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct COMPVARS {
+    pub cbSize: i32,
+    pub dwFlags: u32,
+    pub hic: HIC,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFO,
+    pub lpbiOut: *mut super::super::Graphics::Gdi::BITMAPINFO,
+    pub lpBitsOut: *mut core::ffi::c_void,
+    pub lpBitsPrev: *mut core::ffi::c_void,
+    pub lFrame: i32,
+    pub lKey: i32,
+    pub lDataRate: i32,
+    pub lQ: i32,
+    pub lKeyCount: i32,
+    pub lpState: *mut core::ffi::c_void,
+    pub cbState: i32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CONTRESCR10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CONTRESVQLPCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CREATIVEADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct CSIMAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DIALOGICOKIADPCMWAVEFORMAT {
+    pub ewf: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DIGIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DIGIFIXWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DIGIREALWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DIGISTDWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DOLBYAC2WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub nAuxBitsCode: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRAWDIBTIME {
+    pub timeCount: i32,
+    pub timeDraw: i32,
+    pub timeDecompress: i32,
+    pub timeDither: i32,
+    pub timeStretch: i32,
+    pub timeBlt: i32,
+    pub timeSetDIBits: i32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DRMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wReserved: u16,
+    pub ulContentId: u32,
+    pub wfxSecure: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DRVCONFIGINFO {
+    pub dwDCISize: u32,
+    pub lpszDCISectionName: windows_sys::core::PCWSTR,
+    pub lpszDCIAliasName: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DRVCONFIGINFOEX {
+    pub dwDCISize: u32,
+    pub lpszDCISectionName: windows_sys::core::PCWSTR,
+    pub lpszDCIAliasName: windows_sys::core::PCWSTR,
+    pub dnDevNode: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DRVM_IOCTL_DATA {
+    pub dwSize: u32,
+    pub dwCmd: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct DVIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct ECHOSC1WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct EXBMINFOHEADER {
+    pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub biExtDataOffset: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct FMTOWNS_SND_WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct G721_ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub nAuxBlockSize: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct G723_ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub cbExtraSize: u16,
+    pub nAuxBlockSize: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct GSM610WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+pub type HDRVR = *mut core::ffi::c_void;
+pub type HIC = *mut core::ffi::c_void;
+pub type HMMIO = *mut core::ffi::c_void;
+pub type HVIDEO = *mut core::ffi::c_void;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICCOMPRESS {
+    pub dwFlags: u32,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpOutput: *mut core::ffi::c_void,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpInput: *mut core::ffi::c_void,
+    pub lpckid: *mut u32,
+    pub lpdwFlags: *mut u32,
+    pub lFrameNum: i32,
+    pub dwFrameSize: u32,
+    pub dwQuality: u32,
+    pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpPrev: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICCOMPRESSFRAMES {
+    pub dwFlags: u32,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lOutput: super::super::Foundation::LPARAM,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lInput: super::super::Foundation::LPARAM,
+    pub lStartFrame: i32,
+    pub lFrameCount: i32,
+    pub lQuality: i32,
+    pub lDataRate: i32,
+    pub lKeyRate: i32,
+    pub dwRate: u32,
+    pub dwScale: u32,
+    pub dwOverheadPerFrame: u32,
+    pub dwReserved2: u32,
+    pub GetData: isize,
+    pub PutData: isize,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICDECOMPRESS {
+    pub dwFlags: u32,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpInput: *mut core::ffi::c_void,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpOutput: *mut core::ffi::c_void,
+    pub ckid: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICDECOMPRESSEX {
+    pub dwFlags: u32,
+    pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpSrc: *mut core::ffi::c_void,
+    pub lpbiDst: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpDst: *mut core::ffi::c_void,
+    pub xDst: i32,
+    pub yDst: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICDRAW {
+    pub dwFlags: u32,
+    pub lpFormat: *mut core::ffi::c_void,
+    pub lpData: *mut core::ffi::c_void,
+    pub cbData: u32,
+    pub lTime: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICDRAWBEGIN {
+    pub dwFlags: u32,
+    pub hpal: super::super::Graphics::Gdi::HPALETTE,
+    pub hwnd: super::super::Foundation::HWND,
+    pub hdc: super::super::Graphics::Gdi::HDC,
+    pub xDst: i32,
+    pub yDst: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+    pub dwRate: u32,
+    pub dwScale: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICDRAWSUGGEST {
+    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub hicDecompressor: HIC,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICINFO {
+    pub dwSize: u32,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwVersion: u32,
+    pub dwVersionICM: u32,
+    pub szName: [u16; 16],
+    pub szDescription: [u16; 128],
+    pub szDriver: [u16; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICOPEN {
+    pub dwSize: u32,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: super::super::Foundation::LRESULT,
+    pub pV1Reserved: *mut core::ffi::c_void,
+    pub pV2Reserved: *mut core::ffi::c_void,
+    pub dnDevNode: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICPALETTE {
+    pub dwFlags: u32,
+    pub iStart: i32,
+    pub iLen: i32,
+    pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ICSETSTATUSPROC {
+    pub dwFlags: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub Status: isize,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct IMAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [i8; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [i8; 32],
+    pub szOEMVxD: [i8; 260],
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [u16; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [u16; 32],
+    pub szOEMVxD: [u16; 260],
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [i8; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [i8; 32],
+    pub szOEMVxD: [i8; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [u16; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [u16; 32],
+    pub szOEMVxD: [u16; 260],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYINFO {
+    pub wXpos: u32,
+    pub wYpos: u32,
+    pub wZpos: u32,
+    pub wButtons: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JOYINFOEX {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwXpos: u32,
+    pub dwYpos: u32,
+    pub dwZpos: u32,
+    pub dwRpos: u32,
+    pub dwUpos: u32,
+    pub dwVpos: u32,
+    pub dwButtons: u32,
+    pub dwButtonNumber: u32,
+    pub dwPOV: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct JPEGINFOHEADER {
+    pub JPEGSize: u32,
+    pub JPEGProcess: u32,
+    pub JPEGColorSpaceID: u32,
+    pub JPEGBitsPerSample: u32,
+    pub JPEGHSubSampling: u32,
+    pub JPEGVSubSampling: u32,
+}
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCSTR,
+    pub lpstrElementName: windows_sys::core::PCSTR,
+    pub lpstrAlias: windows_sys::core::PCSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCWSTR,
+    pub lpstrElementName: windows_sys::core::PCWSTR,
+    pub lpstrAlias: windows_sys::core::PCWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_UPDATE_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_ANIM_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_BREAK_PARMS {
+    pub dwCallback: usize,
+    pub nVirtKey: i32,
+    pub hwndBreak: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_CAPTURE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_CAPTURE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_COPY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_CUE_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_CUT_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_DELETE_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_INFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PSTR,
+    pub dwRetSize: u32,
+    pub dwItem: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_INFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PWSTR,
+    pub dwRetSize: u32,
+    pub dwItem: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_LIST_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PSTR,
+    pub dwLength: u32,
+    pub dwNumber: u32,
+    pub dwItem: u32,
+    pub lpstrAlgorithm: windows_sys::core::PSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_LIST_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PWSTR,
+    pub dwLength: u32,
+    pub dwNumber: u32,
+    pub dwItem: u32,
+    pub lpstrAlgorithm: windows_sys::core::PWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_MONITOR_PARMS {
+    pub dwCallback: usize,
+    pub dwSource: u32,
+    pub dwMethod: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PSTR,
+    pub lpstrElementName: windows_sys::core::PSTR,
+    pub lpstrAlias: windows_sys::core::PSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PWSTR,
+    pub lpstrElementName: windows_sys::core::PWSTR,
+    pub lpstrAlias: windows_sys::core::PWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_PASTE_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_QUALITY_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub lpstrName: windows_sys::core::PSTR,
+    pub lpstrAlgorithm: u32,
+    pub dwHandle: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_QUALITY_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub lpstrName: windows_sys::core::PWSTR,
+    pub lpstrAlgorithm: u32,
+    pub dwHandle: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RECORD_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RESERVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrPath: windows_sys::core::PSTR,
+    pub dwSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RESERVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrPath: windows_sys::core::PWSTR,
+    pub dwSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RESTORE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_RESTORE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: windows_sys::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SETAUDIO_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: windows_sys::core::PSTR,
+    pub lpstrQuality: windows_sys::core::PSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SETAUDIO_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: windows_sys::core::PWSTR,
+    pub lpstrQuality: windows_sys::core::PWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SETVIDEO_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: windows_sys::core::PSTR,
+    pub lpstrQuality: windows_sys::core::PSTR,
+    pub dwSourceNumber: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SETVIDEO_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: windows_sys::core::PWSTR,
+    pub lpstrQuality: windows_sys::core::PWSTR,
+    pub dwSourceNumber: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub dwFileFormat: u32,
+    pub dwSpeed: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_SIGNAL_PARMS {
+    pub dwCallback: usize,
+    pub dwPosition: u32,
+    pub dwPeriod: u32,
+    pub dwUserParm: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_STATUS_PARMSA {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+    pub lpstrDrive: windows_sys::core::PSTR,
+    pub dwReference: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_STATUS_PARMSW {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+    pub lpstrDrive: windows_sys::core::PWSTR,
+    pub dwReference: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_UPDATE_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_DGV_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_GENERIC_PARMS {
+    pub dwCallback: usize,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_GETDEVCAPS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: u32,
+    pub dwItem: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_INFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PSTR,
+    pub dwRetSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_INFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PWSTR,
+    pub dwRetSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OPEN_DRIVER_PARMS {
+    pub wDeviceID: u32,
+    pub lpstrParams: windows_sys::core::PCWSTR,
+    pub wCustomCommandTable: u32,
+    pub wType: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCSTR,
+    pub lpstrElementName: windows_sys::core::PCSTR,
+    pub lpstrAlias: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCWSTR,
+    pub lpstrElementName: windows_sys::core::PCWSTR,
+    pub lpstrAlias: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCSTR,
+    pub lpstrElementName: windows_sys::core::PCSTR,
+    pub lpstrAlias: windows_sys::core::PCSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCWSTR,
+    pub lpstrElementName: windows_sys::core::PCWSTR,
+    pub lpstrAlias: windows_sys::core::PCWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_OVLY_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_RECORD_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SEEK_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SEQ_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub dwTempo: u32,
+    pub dwPort: u32,
+    pub dwSlave: u32,
+    pub dwMaster: u32,
+    pub dwOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_STATUS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SYSINFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_SYSINFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: windows_sys::core::PWSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_VD_ESCAPE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrCommand: windows_sys::core::PCSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_VD_ESCAPE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrCommand: windows_sys::core::PCWSTR,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_VD_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_VD_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_WAVE_DELETE_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_WAVE_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCSTR,
+    pub lpstrElementName: windows_sys::core::PCSTR,
+    pub lpstrAlias: windows_sys::core::PCSTR,
+    pub dwBufferSeconds: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_WAVE_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: windows_sys::core::PCWSTR,
+    pub lpstrElementName: windows_sys::core::PCWSTR,
+    pub lpstrAlias: windows_sys::core::PCWSTR,
+    pub dwBufferSeconds: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MCI_WAVE_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub wInput: u32,
+    pub wOutput: u32,
+    pub wFormatTag: u16,
+    pub wReserved2: u16,
+    pub nChannels: u16,
+    pub wReserved3: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+    pub wReserved4: u16,
+    pub wBitsPerSample: u16,
+    pub wReserved5: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct MEDIASPACEADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MIDIOPENSTRMID {
+    pub dwStreamID: u32,
+    pub uDeviceID: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct MIXEROPENDESC {
+    pub hmx: super::Audio::HMIXER,
+    pub pReserved0: *mut core::ffi::c_void,
+    pub dwCallback: usize,
+    pub dwInstance: usize,
+    pub dnDevNode: usize,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MMCKINFO {
+    pub ckid: u32,
+    pub cksize: u32,
+    pub fccType: u32,
+    pub dwDataOffset: u32,
+    pub dwFlags: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MMIOINFO {
+    pub dwFlags: u32,
+    pub fccIOProc: u32,
+    pub pIOProc: LPMMIOPROC,
+    pub wErrorRet: u32,
+    pub htask: super::HTASK,
+    pub cchBuffer: i32,
+    pub pchBuffer: *mut i8,
+    pub pchNext: *mut i8,
+    pub pchEndRead: *mut i8,
+    pub pchEndWrite: *mut i8,
+    pub lBufOffset: i32,
+    pub lDiskOffset: i32,
+    pub adwInfo: [u32; 3],
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub hmmio: HMMIO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct MSAUDIO1WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+    pub wEncodeOptions: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct NMS_VBXADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct OLIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct OLICELPWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct OLIGSMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct OLIOPRWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct OLISBCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct SIERRAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct SONARCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wCompType: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TIMEREVENT {
+    pub wDelay: u16,
+    pub wResolution: u16,
+    pub lpFunction: super::LPTIMECALLBACK,
+    pub dwUser: u32,
+    pub wFlags: u16,
+    pub wReserved1: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct TRUESPEECHWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+    pub nSamplesPerBlock: u16,
+    pub abReserved: [u8; 28],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VIDEOHDR {
+    pub lpData: *mut u8,
+    pub dwBufferLength: u32,
+    pub dwBytesUsed: u32,
+    pub dwTimeCaptured: u32,
+    pub dwUser: usize,
+    pub dwFlags: u32,
+    pub dwReserved: [usize; 4],
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct WAVEOPENDESC {
+    pub hWave: super::Audio::HWAVE,
+    pub lpFormat: *mut super::Audio::WAVEFORMAT,
+    pub dwCallback: usize,
+    pub dwInstance: usize,
+    pub uMappedDeviceID: u32,
+    pub dnDevNode: usize,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct WMAUDIO2WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub dwSamplesPerBlock: u32,
+    pub wEncodeOptions: u16,
+    pub dwSuperBlockAlign: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct WMAUDIO3WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wValidBitsPerSample: u16,
+    pub dwChannelMask: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub wEncodeOptions: u16,
+    pub wReserved3: u16,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
+pub struct YAMAHA_ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct s_RIFFWAVE_inst {
+    pub bUnshiftedNote: u8,
+    pub chFineTune: i8,
+    pub chGain: i8,
+    pub bLowNote: u8,
+    pub bHighNote: u8,
+    pub bLowVelocity: u8,
+    pub bHighVelocity: u8,
+}
 pub const ACMDM_BASE: u32 = 24576u32;
 pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
 pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
@@ -4841,1602 +6440,3 @@ pub const WODM_SETPLAYBACKRATE: u32 = 19u32;
 pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 pub const WODM_WRITE: u32 = 9u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct ADPCMCOEFSET {
-    pub iCoef1: i16,
-    pub iCoef2: i16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct ADPCMEWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wNumCoef: u16,
-    pub aCoef: [ADPCMCOEFSET; 1],
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct APTXWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct AUDIOFILE_AF10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct AUDIOFILE_AF36WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AVICOMPRESSOPTIONS {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwKeyFrameEvery: u32,
-    pub dwQuality: u32,
-    pub dwBytesPerSecond: u32,
-    pub dwFlags: u32,
-    pub lpFormat: *mut core::ffi::c_void,
-    pub cbFormat: u32,
-    pub lpParms: *mut core::ffi::c_void,
-    pub cbParms: u32,
-    pub dwInterleaveEvery: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AVIFILEINFOA {
-    pub dwMaxBytesPerSec: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub dwStreams: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwLength: u32,
-    pub dwEditCount: u32,
-    pub szFileType: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AVIFILEINFOW {
-    pub dwMaxBytesPerSec: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub dwStreams: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwLength: u32,
-    pub dwEditCount: u32,
-    pub szFileType: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AVISTREAMINFOA {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub wPriority: u16,
-    pub wLanguage: u16,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwStart: u32,
-    pub dwLength: u32,
-    pub dwInitialFrames: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwQuality: u32,
-    pub dwSampleSize: u32,
-    pub rcFrame: super::super::Foundation::RECT,
-    pub dwEditCount: u32,
-    pub dwFormatChangeCount: u32,
-    pub szName: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AVISTREAMINFOW {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub wPriority: u16,
-    pub wLanguage: u16,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwStart: u32,
-    pub dwLength: u32,
-    pub dwInitialFrames: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwQuality: u32,
-    pub dwSampleSize: u32,
-    pub rcFrame: super::super::Foundation::RECT,
-    pub dwEditCount: u32,
-    pub dwFormatChangeCount: u32,
-    pub szName: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CAPDRIVERCAPS {
-    pub wDeviceIndex: u32,
-    pub fHasOverlay: super::super::Foundation::BOOL,
-    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
-    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
-    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
-    pub fCaptureInitialized: super::super::Foundation::BOOL,
-    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
-    pub hVideoIn: super::super::Foundation::HANDLE,
-    pub hVideoOut: super::super::Foundation::HANDLE,
-    pub hVideoExtIn: super::super::Foundation::HANDLE,
-    pub hVideoExtOut: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CAPINFOCHUNK {
-    pub fccInfoID: u32,
-    pub lpData: *mut core::ffi::c_void,
-    pub cbData: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct CAPSTATUS {
-    pub uiImageWidth: u32,
-    pub uiImageHeight: u32,
-    pub fLiveWindow: super::super::Foundation::BOOL,
-    pub fOverlayWindow: super::super::Foundation::BOOL,
-    pub fScale: super::super::Foundation::BOOL,
-    pub ptScroll: super::super::Foundation::POINT,
-    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
-    pub fAudioHardware: super::super::Foundation::BOOL,
-    pub fCapFileExists: super::super::Foundation::BOOL,
-    pub dwCurrentVideoFrame: u32,
-    pub dwCurrentVideoFramesDropped: u32,
-    pub dwCurrentWaveSamples: u32,
-    pub dwCurrentTimeElapsedMS: u32,
-    pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
-    pub fCapturingNow: super::super::Foundation::BOOL,
-    pub dwReturn: u32,
-    pub wNumVideoAllocated: u32,
-    pub wNumAudioAllocated: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CAPTUREPARMS {
-    pub dwRequestMicroSecPerFrame: u32,
-    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
-    pub wPercentDropForError: u32,
-    pub fYield: super::super::Foundation::BOOL,
-    pub dwIndexSize: u32,
-    pub wChunkGranularity: u32,
-    pub fUsingDOSMemory: super::super::Foundation::BOOL,
-    pub wNumVideoRequested: u32,
-    pub fCaptureAudio: super::super::Foundation::BOOL,
-    pub wNumAudioRequested: u32,
-    pub vKeyAbort: u32,
-    pub fAbortLeftMouse: super::super::Foundation::BOOL,
-    pub fAbortRightMouse: super::super::Foundation::BOOL,
-    pub fLimitEnabled: super::super::Foundation::BOOL,
-    pub wTimeLimit: u32,
-    pub fMCIControl: super::super::Foundation::BOOL,
-    pub fStepMCIDevice: super::super::Foundation::BOOL,
-    pub dwMCIStartTime: u32,
-    pub dwMCIStopTime: u32,
-    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
-    pub wStepCaptureAverageFrames: u32,
-    pub dwAudioBufferSize: u32,
-    pub fDisableWriteCache: super::super::Foundation::BOOL,
-    pub AVStreamMaster: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CHANNEL_CAPS {
-    pub dwFlags: u32,
-    pub dwSrcRectXMod: u32,
-    pub dwSrcRectYMod: u32,
-    pub dwSrcRectWidthMod: u32,
-    pub dwSrcRectHeightMod: u32,
-    pub dwDstRectXMod: u32,
-    pub dwDstRectYMod: u32,
-    pub dwDstRectWidthMod: u32,
-    pub dwDstRectHeightMod: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct COMPVARS {
-    pub cbSize: i32,
-    pub dwFlags: u32,
-    pub hic: HIC,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFO,
-    pub lpbiOut: *mut super::super::Graphics::Gdi::BITMAPINFO,
-    pub lpBitsOut: *mut core::ffi::c_void,
-    pub lpBitsPrev: *mut core::ffi::c_void,
-    pub lFrame: i32,
-    pub lKey: i32,
-    pub lDataRate: i32,
-    pub lQ: i32,
-    pub lKeyCount: i32,
-    pub lpState: *mut core::ffi::c_void,
-    pub cbState: i32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CONTRESCR10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CONTRESVQLPCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CREATIVEADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct CSIMAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DIALOGICOKIADPCMWAVEFORMAT {
-    pub ewf: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DIGIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DIGIFIXWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DIGIREALWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DIGISTDWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DOLBYAC2WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub nAuxBitsCode: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRAWDIBTIME {
-    pub timeCount: i32,
-    pub timeDraw: i32,
-    pub timeDecompress: i32,
-    pub timeDither: i32,
-    pub timeStretch: i32,
-    pub timeBlt: i32,
-    pub timeSetDIBits: i32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DRMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wReserved: u16,
-    pub ulContentId: u32,
-    pub wfxSecure: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DRVCONFIGINFO {
-    pub dwDCISize: u32,
-    pub lpszDCISectionName: windows_sys::core::PCWSTR,
-    pub lpszDCIAliasName: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DRVCONFIGINFOEX {
-    pub dwDCISize: u32,
-    pub lpszDCISectionName: windows_sys::core::PCWSTR,
-    pub lpszDCIAliasName: windows_sys::core::PCWSTR,
-    pub dnDevNode: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DRVM_IOCTL_DATA {
-    pub dwSize: u32,
-    pub dwCmd: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct DVIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct ECHOSC1WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct EXBMINFOHEADER {
-    pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub biExtDataOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct FMTOWNS_SND_WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct G721_ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub nAuxBlockSize: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct G723_ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub cbExtraSize: u16,
-    pub nAuxBlockSize: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct GSM610WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-pub type HDRVR = *mut core::ffi::c_void;
-pub type HIC = *mut core::ffi::c_void;
-pub type HMMIO = *mut core::ffi::c_void;
-pub type HVIDEO = *mut core::ffi::c_void;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICCOMPRESS {
-    pub dwFlags: u32,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut core::ffi::c_void,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut core::ffi::c_void,
-    pub lpckid: *mut u32,
-    pub lpdwFlags: *mut u32,
-    pub lFrameNum: i32,
-    pub dwFrameSize: u32,
-    pub dwQuality: u32,
-    pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpPrev: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICCOMPRESSFRAMES {
-    pub dwFlags: u32,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lOutput: super::super::Foundation::LPARAM,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lInput: super::super::Foundation::LPARAM,
-    pub lStartFrame: i32,
-    pub lFrameCount: i32,
-    pub lQuality: i32,
-    pub lDataRate: i32,
-    pub lKeyRate: i32,
-    pub dwRate: u32,
-    pub dwScale: u32,
-    pub dwOverheadPerFrame: u32,
-    pub dwReserved2: u32,
-    pub GetData: isize,
-    pub PutData: isize,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICDECOMPRESS {
-    pub dwFlags: u32,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut core::ffi::c_void,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut core::ffi::c_void,
-    pub ckid: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICDECOMPRESSEX {
-    pub dwFlags: u32,
-    pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpSrc: *mut core::ffi::c_void,
-    pub lpbiDst: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpDst: *mut core::ffi::c_void,
-    pub xDst: i32,
-    pub yDst: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub xSrc: i32,
-    pub ySrc: i32,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICDRAW {
-    pub dwFlags: u32,
-    pub lpFormat: *mut core::ffi::c_void,
-    pub lpData: *mut core::ffi::c_void,
-    pub cbData: u32,
-    pub lTime: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICDRAWBEGIN {
-    pub dwFlags: u32,
-    pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub hwnd: super::super::Foundation::HWND,
-    pub hdc: super::super::Graphics::Gdi::HDC,
-    pub xDst: i32,
-    pub yDst: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub xSrc: i32,
-    pub ySrc: i32,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-    pub dwRate: u32,
-    pub dwScale: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICDRAWSUGGEST {
-    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub hicDecompressor: HIC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICINFO {
-    pub dwSize: u32,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwVersion: u32,
-    pub dwVersionICM: u32,
-    pub szName: [u16; 16],
-    pub szDescription: [u16; 128],
-    pub szDriver: [u16; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICOPEN {
-    pub dwSize: u32,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: super::super::Foundation::LRESULT,
-    pub pV1Reserved: *mut core::ffi::c_void,
-    pub pV2Reserved: *mut core::ffi::c_void,
-    pub dnDevNode: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICPALETTE {
-    pub dwFlags: u32,
-    pub iStart: i32,
-    pub iLen: i32,
-    pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ICSETSTATUSPROC {
-    pub dwFlags: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub Status: isize,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct IMAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [i8; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [i8; 32],
-    pub szOEMVxD: [i8; 260],
-    pub ManufacturerGuid: windows_sys::core::GUID,
-    pub ProductGuid: windows_sys::core::GUID,
-    pub NameGuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
-    pub ManufacturerGuid: windows_sys::core::GUID,
-    pub ProductGuid: windows_sys::core::GUID,
-    pub NameGuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [i8; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [i8; 32],
-    pub szOEMVxD: [i8; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYINFO {
-    pub wXpos: u32,
-    pub wYpos: u32,
-    pub wZpos: u32,
-    pub wButtons: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JOYINFOEX {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwXpos: u32,
-    pub dwYpos: u32,
-    pub dwZpos: u32,
-    pub dwRpos: u32,
-    pub dwUpos: u32,
-    pub dwVpos: u32,
-    pub dwButtons: u32,
-    pub dwButtonNumber: u32,
-    pub dwPOV: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct JPEGINFOHEADER {
-    pub JPEGSize: u32,
-    pub JPEGProcess: u32,
-    pub JPEGColorSpaceID: u32,
-    pub JPEGBitsPerSample: u32,
-    pub JPEGHSubSampling: u32,
-    pub JPEGVSubSampling: u32,
-}
-pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCSTR,
-    pub lpstrElementName: windows_sys::core::PCSTR,
-    pub lpstrAlias: windows_sys::core::PCSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCWSTR,
-    pub lpstrElementName: windows_sys::core::PCWSTR,
-    pub lpstrAlias: windows_sys::core::PCWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_UPDATE_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_ANIM_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_BREAK_PARMS {
-    pub dwCallback: usize,
-    pub nVirtKey: i32,
-    pub hwndBreak: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_CAPTURE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_CAPTURE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_COPY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_CUE_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_CUT_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_DELETE_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_INFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PSTR,
-    pub dwRetSize: u32,
-    pub dwItem: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_INFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PWSTR,
-    pub dwRetSize: u32,
-    pub dwItem: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_LIST_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PSTR,
-    pub dwLength: u32,
-    pub dwNumber: u32,
-    pub dwItem: u32,
-    pub lpstrAlgorithm: windows_sys::core::PSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_LIST_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PWSTR,
-    pub dwLength: u32,
-    pub dwNumber: u32,
-    pub dwItem: u32,
-    pub lpstrAlgorithm: windows_sys::core::PWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_MONITOR_PARMS {
-    pub dwCallback: usize,
-    pub dwSource: u32,
-    pub dwMethod: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PSTR,
-    pub lpstrElementName: windows_sys::core::PSTR,
-    pub lpstrAlias: windows_sys::core::PSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PWSTR,
-    pub lpstrElementName: windows_sys::core::PWSTR,
-    pub lpstrAlias: windows_sys::core::PWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_PASTE_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_QUALITY_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub lpstrName: windows_sys::core::PSTR,
-    pub lpstrAlgorithm: u32,
-    pub dwHandle: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_QUALITY_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub lpstrName: windows_sys::core::PWSTR,
-    pub lpstrAlgorithm: u32,
-    pub dwHandle: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RECORD_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RESERVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrPath: windows_sys::core::PSTR,
-    pub dwSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RESERVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrPath: windows_sys::core::PWSTR,
-    pub dwSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RESTORE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_RESTORE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: windows_sys::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SETAUDIO_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: windows_sys::core::PSTR,
-    pub lpstrQuality: windows_sys::core::PSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SETAUDIO_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: windows_sys::core::PWSTR,
-    pub lpstrQuality: windows_sys::core::PWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SETVIDEO_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: windows_sys::core::PSTR,
-    pub lpstrQuality: windows_sys::core::PSTR,
-    pub dwSourceNumber: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SETVIDEO_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: windows_sys::core::PWSTR,
-    pub lpstrQuality: windows_sys::core::PWSTR,
-    pub dwSourceNumber: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub dwFileFormat: u32,
-    pub dwSpeed: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_SIGNAL_PARMS {
-    pub dwCallback: usize,
-    pub dwPosition: u32,
-    pub dwPeriod: u32,
-    pub dwUserParm: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_STATUS_PARMSA {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-    pub lpstrDrive: windows_sys::core::PSTR,
-    pub dwReference: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_STATUS_PARMSW {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-    pub lpstrDrive: windows_sys::core::PWSTR,
-    pub dwReference: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_UPDATE_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_DGV_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_GENERIC_PARMS {
-    pub dwCallback: usize,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_GETDEVCAPS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: u32,
-    pub dwItem: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_INFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PSTR,
-    pub dwRetSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_INFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PWSTR,
-    pub dwRetSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_LOAD_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_LOAD_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OPEN_DRIVER_PARMS {
-    pub wDeviceID: u32,
-    pub lpstrParams: windows_sys::core::PCWSTR,
-    pub wCustomCommandTable: u32,
-    pub wType: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCSTR,
-    pub lpstrElementName: windows_sys::core::PCSTR,
-    pub lpstrAlias: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCWSTR,
-    pub lpstrElementName: windows_sys::core::PCWSTR,
-    pub lpstrAlias: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_LOAD_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_LOAD_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCSTR,
-    pub lpstrElementName: windows_sys::core::PCSTR,
-    pub lpstrAlias: windows_sys::core::PCSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCWSTR,
-    pub lpstrElementName: windows_sys::core::PCWSTR,
-    pub lpstrAlias: windows_sys::core::PCWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_OVLY_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_RECORD_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SEEK_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SEQ_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub dwTempo: u32,
-    pub dwPort: u32,
-    pub dwSlave: u32,
-    pub dwMaster: u32,
-    pub dwOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_STATUS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SYSINFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_SYSINFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: windows_sys::core::PWSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_VD_ESCAPE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrCommand: windows_sys::core::PCSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_VD_ESCAPE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrCommand: windows_sys::core::PCWSTR,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_VD_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_VD_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_WAVE_DELETE_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_WAVE_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCSTR,
-    pub lpstrElementName: windows_sys::core::PCSTR,
-    pub lpstrAlias: windows_sys::core::PCSTR,
-    pub dwBufferSeconds: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_WAVE_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: windows_sys::core::PCWSTR,
-    pub lpstrElementName: windows_sys::core::PCWSTR,
-    pub lpstrAlias: windows_sys::core::PCWSTR,
-    pub dwBufferSeconds: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MCI_WAVE_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub wInput: u32,
-    pub wOutput: u32,
-    pub wFormatTag: u16,
-    pub wReserved2: u16,
-    pub nChannels: u16,
-    pub wReserved3: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wReserved4: u16,
-    pub wBitsPerSample: u16,
-    pub wReserved5: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct MEDIASPACEADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MIDIOPENSTRMID {
-    pub dwStreamID: u32,
-    pub uDeviceID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct MIXEROPENDESC {
-    pub hmx: super::Audio::HMIXER,
-    pub pReserved0: *mut core::ffi::c_void,
-    pub dwCallback: usize,
-    pub dwInstance: usize,
-    pub dnDevNode: usize,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MMCKINFO {
-    pub ckid: u32,
-    pub cksize: u32,
-    pub fccType: u32,
-    pub dwDataOffset: u32,
-    pub dwFlags: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MMIOINFO {
-    pub dwFlags: u32,
-    pub fccIOProc: u32,
-    pub pIOProc: LPMMIOPROC,
-    pub wErrorRet: u32,
-    pub htask: super::HTASK,
-    pub cchBuffer: i32,
-    pub pchBuffer: *mut i8,
-    pub pchNext: *mut i8,
-    pub pchEndRead: *mut i8,
-    pub pchEndWrite: *mut i8,
-    pub lBufOffset: i32,
-    pub lDiskOffset: i32,
-    pub adwInfo: [u32; 3],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub hmmio: HMMIO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct MSAUDIO1WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wEncodeOptions: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct NMS_VBXADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct OLIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct OLICELPWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct OLIGSMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct OLIOPRWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct OLISBCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct SIERRAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct SONARCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wCompType: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TIMEREVENT {
-    pub wDelay: u16,
-    pub wResolution: u16,
-    pub lpFunction: super::LPTIMECALLBACK,
-    pub dwUser: u32,
-    pub wFlags: u16,
-    pub wReserved1: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct TRUESPEECHWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-    pub nSamplesPerBlock: u16,
-    pub abReserved: [u8; 28],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VIDEOHDR {
-    pub lpData: *mut u8,
-    pub dwBufferLength: u32,
-    pub dwBytesUsed: u32,
-    pub dwTimeCaptured: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
-    pub dwReserved: [usize; 4],
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct WAVEOPENDESC {
-    pub hWave: super::Audio::HWAVE,
-    pub lpFormat: *mut super::Audio::WAVEFORMAT,
-    pub dwCallback: usize,
-    pub dwInstance: usize,
-    pub uMappedDeviceID: u32,
-    pub dnDevNode: usize,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct WMAUDIO2WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub dwSamplesPerBlock: u32,
-    pub wEncodeOptions: u16,
-    pub dwSuperBlockAlign: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct WMAUDIO3WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wValidBitsPerSample: u16,
-    pub dwChannelMask: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub wEncodeOptions: u16,
-    pub wReserved3: u16,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy)]
-pub struct YAMAHA_ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct s_RIFFWAVE_inst {
-    pub bUnshiftedNote: u8,
-    pub chFineTune: i8,
-    pub chGain: i8,
-    pub bLowNote: u8,
-    pub bHighNote: u8,
-    pub bLowVelocity: u8,
-    pub bHighVelocity: u8,
-}
-pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
-pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
-pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
-pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
-pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
-#[cfg(feature = "Win32_Media_Audio")]
-pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
-pub type CAPYIELDCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
-pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
-pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[cfg(feature = "Win32_System_IO")]
-pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-pub type LPTASKCALLBACK = Option<unsafe extern "system" fn(dwinst: usize)>;
-#[cfg(feature = "Win32_UI_Controls")]
-pub type VFWWDMExtensionProc = Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
-pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;

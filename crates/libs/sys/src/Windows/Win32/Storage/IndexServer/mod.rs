@@ -1,7 +1,105 @@
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_sys::core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_sys::core::PCWSTR, dwflags : u32, riid : *const windows_sys::core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type CHUNKSTATE = i32;
+pub type CHUNK_BREAKTYPE = i32;
+pub type DBKINDENUM = i32;
+pub type IFILTER_FLAGS = i32;
+pub type IFILTER_INIT = i32;
+pub type WORDREP_BREAK_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CI_STATE {
+    pub cbStruct: u32,
+    pub cWordList: u32,
+    pub cPersistentIndex: u32,
+    pub cQueries: u32,
+    pub cDocuments: u32,
+    pub cFreshTest: u32,
+    pub dwMergeProgress: u32,
+    pub eState: u32,
+    pub cFilteredDocuments: u32,
+    pub cTotalDocuments: u32,
+    pub cPendingScans: u32,
+    pub dwIndexSize: u32,
+    pub cUniqueKeys: u32,
+    pub cSecQDocuments: u32,
+    pub dwPropCacheSize: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union DBID_0 {
+    pub guid: windows_sys::core::GUID,
+    pub pguid: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union DBID_1 {
+    pub pwszName: windows_sys::core::PWSTR,
+    pub ulPropid: u32,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union DBID_0 {
+    pub guid: windows_sys::core::GUID,
+    pub pguid: *mut windows_sys::core::GUID,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union DBID_1 {
+    pub pwszName: windows_sys::core::PWSTR,
+    pub ulPropid: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILTERREGION {
+    pub idChunk: u32,
+    pub cwcStart: u32,
+    pub cwcExtent: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct FULLPROPSPEC {
+    pub guidPropSet: windows_sys::core::GUID,
+    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct STAT_CHUNK {
+    pub idChunk: u32,
+    pub breakType: CHUNK_BREAKTYPE,
+    pub flags: CHUNKSTATE,
+    pub locale: u32,
+    pub attribute: FULLPROPSPEC,
+    pub idChunkSource: u32,
+    pub cwcStartSource: u32,
+    pub cwcLenSource: u32,
+}
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = 2i32;
@@ -181,99 +279,3 @@ pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3i32;
 pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2i32;
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1i32;
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0i32;
-pub type CHUNKSTATE = i32;
-pub type CHUNK_BREAKTYPE = i32;
-pub type DBKINDENUM = i32;
-pub type IFILTER_FLAGS = i32;
-pub type IFILTER_INIT = i32;
-pub type WORDREP_BREAK_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CI_STATE {
-    pub cbStruct: u32,
-    pub cWordList: u32,
-    pub cPersistentIndex: u32,
-    pub cQueries: u32,
-    pub cDocuments: u32,
-    pub cFreshTest: u32,
-    pub dwMergeProgress: u32,
-    pub eState: u32,
-    pub cFilteredDocuments: u32,
-    pub cTotalDocuments: u32,
-    pub cPendingScans: u32,
-    pub dwIndexSize: u32,
-    pub cUniqueKeys: u32,
-    pub cSecQDocuments: u32,
-    pub dwPropCacheSize: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DBID {
-    pub uGuid: DBID_0,
-    pub eKind: u32,
-    pub uName: DBID_1,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union DBID_0 {
-    pub guid: windows_sys::core::GUID,
-    pub pguid: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union DBID_1 {
-    pub pwszName: windows_sys::core::PWSTR,
-    pub ulPropid: u32,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBID {
-    pub uGuid: DBID_0,
-    pub eKind: u32,
-    pub uName: DBID_1,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_0 {
-    pub guid: windows_sys::core::GUID,
-    pub pguid: *mut windows_sys::core::GUID,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_1 {
-    pub pwszName: windows_sys::core::PWSTR,
-    pub ulPropid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILTERREGION {
-    pub idChunk: u32,
-    pub cwcStart: u32,
-    pub cwcExtent: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub struct FULLPROPSPEC {
-    pub guidPropSet: windows_sys::core::GUID,
-    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub struct STAT_CHUNK {
-    pub idChunk: u32,
-    pub breakType: CHUNK_BREAKTYPE,
-    pub flags: CHUNKSTATE,
-    pub locale: u32,
-    pub attribute: FULLPROPSPEC,
-    pub idChunkSource: u32,
-    pub cwcStartSource: u32,
-    pub cwcLenSource: u32,
-}

@@ -65,6 +65,159 @@ windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn Veri
 windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : windows_sys::core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageId(packageid : *const PACKAGE_ID) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : windows_sys::core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
+pub type APPX_BUNDLE_FOOTPRINT_FILE_TYPE = i32;
+pub type APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = i32;
+pub type APPX_CAPABILITIES = i32;
+pub type APPX_CAPABILITY_CLASS_TYPE = i32;
+pub type APPX_COMPRESSION_OPTION = i32;
+pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
+pub type APPX_FOOTPRINT_FILE_TYPE = i32;
+pub type APPX_PACKAGE_ARCHITECTURE = i32;
+pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = i32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
+pub type APPX_PACKAGING_CONTEXT_CHANGE_TYPE = i32;
+pub type AddPackageDependencyOptions = i32;
+pub type AppPolicyClrCompat = i32;
+pub type AppPolicyCreateFileAccess = i32;
+pub type AppPolicyLifecycleManagement = i32;
+pub type AppPolicyMediaFoundationCodecLoading = i32;
+pub type AppPolicyProcessTerminationMethod = i32;
+pub type AppPolicyShowDeveloperDiagnostic = i32;
+pub type AppPolicyThreadInitializationType = i32;
+pub type AppPolicyWindowingModel = i32;
+pub type CreatePackageDependencyOptions = i32;
+pub type DX_FEATURE_LEVEL = i32;
+pub type PackageDependencyLifetimeKind = i32;
+pub type PackageDependencyProcessorArchitectures = i32;
+pub type PackageInfo3Type = i32;
+pub type PackageOrigin = i32;
+pub type PackagePathType = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPX_ENCRYPTED_EXEMPTIONS {
+    pub count: u32,
+    pub plainTextFiles: *const windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    pub keyLength: u32,
+    pub encryptionAlgorithm: windows_sys::core::PCWSTR,
+    pub useDiffusion: super::super::super::Foundation::BOOL,
+    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    pub keyLength: u32,
+    pub encryptionAlgorithm: windows_sys::core::PCWSTR,
+    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
+    pub options: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct APPX_KEY_INFO {
+    pub keyLength: u32,
+    pub keyIdLength: u32,
+    pub key: *mut u8,
+    pub keyId: *mut u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct APPX_PACKAGE_SETTINGS {
+    pub forceZip32: super::super::super::Foundation::BOOL,
+    pub hashMethod: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    pub inputStream: *mut core::ffi::c_void,
+    pub fileName: windows_sys::core::PCWSTR,
+    pub contentType: windows_sys::core::PCWSTR,
+    pub compressionOption: APPX_COMPRESSION_OPTION,
+}
+pub const AppxBundleFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
+pub const AppxEncryptionFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
+pub const AppxFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
+pub const AppxPackageEditor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
+pub const AppxPackagingDiagnosticEventSinkManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
+pub type PACKAGEDEPENDENCY_CONTEXT = *mut core::ffi::c_void;
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_ID {
+    pub reserved: u32,
+    pub processorArchitecture: u32,
+    pub version: PACKAGE_VERSION,
+    pub name: windows_sys::core::PWSTR,
+    pub publisher: windows_sys::core::PWSTR,
+    pub resourceId: windows_sys::core::PWSTR,
+    pub publisherId: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_ID {
+    pub reserved: u32,
+    pub processorArchitecture: u32,
+    pub version: PACKAGE_VERSION,
+    pub name: windows_sys::core::PWSTR,
+    pub publisher: windows_sys::core::PWSTR,
+    pub resourceId: windows_sys::core::PWSTR,
+    pub publisherId: windows_sys::core::PWSTR,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_INFO {
+    pub reserved: u32,
+    pub flags: u32,
+    pub path: windows_sys::core::PWSTR,
+    pub packageFullName: windows_sys::core::PWSTR,
+    pub packageFamilyName: windows_sys::core::PWSTR,
+    pub packageId: PACKAGE_ID,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_INFO {
+    pub reserved: u32,
+    pub flags: u32,
+    pub path: windows_sys::core::PWSTR,
+    pub packageFullName: windows_sys::core::PWSTR,
+    pub packageFamilyName: windows_sys::core::PWSTR,
+    pub packageId: PACKAGE_ID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_VERSION {
+    pub Anonymous: PACKAGE_VERSION_0,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub union PACKAGE_VERSION_0 {
+    pub Version: u64,
+    pub Anonymous: PACKAGE_VERSION_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_VERSION_0_0 {
+    pub Revision: u16,
+    pub Build: u16,
+    pub Minor: u16,
+    pub Major: u16,
+}
+pub type PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _PACKAGE_INFO_REFERENCE {
+    pub reserved: *mut core::ffi::c_void,
+}
 pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130u32;
 pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20u32;
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 1i32;
@@ -226,152 +379,3 @@ pub const PackagePathType_Install: PackagePathType = 0i32;
 pub const PackagePathType_MachineExternal: PackagePathType = 3i32;
 pub const PackagePathType_Mutable: PackagePathType = 1i32;
 pub const PackagePathType_UserExternal: PackagePathType = 4i32;
-pub type APPX_BUNDLE_FOOTPRINT_FILE_TYPE = i32;
-pub type APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = i32;
-pub type APPX_CAPABILITIES = i32;
-pub type APPX_CAPABILITY_CLASS_TYPE = i32;
-pub type APPX_COMPRESSION_OPTION = i32;
-pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
-pub type APPX_FOOTPRINT_FILE_TYPE = i32;
-pub type APPX_PACKAGE_ARCHITECTURE = i32;
-pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
-pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = i32;
-pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
-pub type APPX_PACKAGING_CONTEXT_CHANGE_TYPE = i32;
-pub type AddPackageDependencyOptions = i32;
-pub type AppPolicyClrCompat = i32;
-pub type AppPolicyCreateFileAccess = i32;
-pub type AppPolicyLifecycleManagement = i32;
-pub type AppPolicyMediaFoundationCodecLoading = i32;
-pub type AppPolicyProcessTerminationMethod = i32;
-pub type AppPolicyShowDeveloperDiagnostic = i32;
-pub type AppPolicyThreadInitializationType = i32;
-pub type AppPolicyWindowingModel = i32;
-pub type CreatePackageDependencyOptions = i32;
-pub type DX_FEATURE_LEVEL = i32;
-pub type PackageDependencyLifetimeKind = i32;
-pub type PackageDependencyProcessorArchitectures = i32;
-pub type PackageInfo3Type = i32;
-pub type PackageOrigin = i32;
-pub type PackagePathType = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_ENCRYPTED_EXEMPTIONS {
-    pub count: u32,
-    pub plainTextFiles: *const windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    pub keyLength: u32,
-    pub encryptionAlgorithm: windows_sys::core::PCWSTR,
-    pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    pub keyLength: u32,
-    pub encryptionAlgorithm: windows_sys::core::PCWSTR,
-    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
-    pub options: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_KEY_INFO {
-    pub keyLength: u32,
-    pub keyIdLength: u32,
-    pub key: *mut u8,
-    pub keyId: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_PACKAGE_SETTINGS {
-    pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: *mut core::ffi::c_void,
-    pub fileName: windows_sys::core::PCWSTR,
-    pub contentType: windows_sys::core::PCWSTR,
-    pub compressionOption: APPX_COMPRESSION_OPTION,
-}
-pub const AppxBundleFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
-pub const AppxEncryptionFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
-pub const AppxFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
-pub const AppxPackageEditor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
-pub const AppxPackagingDiagnosticEventSinkManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
-pub type PACKAGEDEPENDENCY_CONTEXT = *mut core::ffi::c_void;
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_ID {
-    pub reserved: u32,
-    pub processorArchitecture: u32,
-    pub version: PACKAGE_VERSION,
-    pub name: windows_sys::core::PWSTR,
-    pub publisher: windows_sys::core::PWSTR,
-    pub resourceId: windows_sys::core::PWSTR,
-    pub publisherId: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_ID {
-    pub reserved: u32,
-    pub processorArchitecture: u32,
-    pub version: PACKAGE_VERSION,
-    pub name: windows_sys::core::PWSTR,
-    pub publisher: windows_sys::core::PWSTR,
-    pub resourceId: windows_sys::core::PWSTR,
-    pub publisherId: windows_sys::core::PWSTR,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_INFO {
-    pub reserved: u32,
-    pub flags: u32,
-    pub path: windows_sys::core::PWSTR,
-    pub packageFullName: windows_sys::core::PWSTR,
-    pub packageFamilyName: windows_sys::core::PWSTR,
-    pub packageId: PACKAGE_ID,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_INFO {
-    pub reserved: u32,
-    pub flags: u32,
-    pub path: windows_sys::core::PWSTR,
-    pub packageFullName: windows_sys::core::PWSTR,
-    pub packageFamilyName: windows_sys::core::PWSTR,
-    pub packageId: PACKAGE_ID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_VERSION {
-    pub Anonymous: PACKAGE_VERSION_0,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub union PACKAGE_VERSION_0 {
-    pub Version: u64,
-    pub Anonymous: PACKAGE_VERSION_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PACKAGE_VERSION_0_0 {
-    pub Revision: u16,
-    pub Build: u16,
-    pub Minor: u16,
-    pub Major: u16,
-}
-pub type PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _PACKAGE_INFO_REFERENCE {
-    pub reserved: *mut core::ffi::c_void,
-}

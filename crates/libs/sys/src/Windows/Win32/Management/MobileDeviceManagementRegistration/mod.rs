@@ -16,6 +16,21 @@ windows_targets::link!("mdmregistration.dll" "system" fn SetDeviceManagementConf
 windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmlocalmanagement.dll" "system" fn UnregisterDeviceWithLocalManagement() -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn UnregisterDeviceWithManagement(enrollmentid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+pub type REGISTRATION_INFORMATION_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MANAGEMENT_REGISTRATION_INFO {
+    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
+    pub dwDeviceRegistionKind: u32,
+    pub pszUPN: windows_sys::core::PWSTR,
+    pub pszMDMServiceUri: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MANAGEMENT_SERVICE_INFO {
+    pub pszMDMServiceUri: windows_sys::core::PWSTR,
+    pub pszAuthenticationUri: windows_sys::core::PWSTR,
+}
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
@@ -84,18 +99,3 @@ pub const MREGISTER_E_DISCOVERY_FAILED: windows_sys::core::HRESULT = 0x8019000E_
 pub const MREGISTER_E_DISCOVERY_REDIRECTED: windows_sys::core::HRESULT = 0x8019000C_u32 as _;
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_sys::core::HRESULT = 0x80190009_u32 as _;
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = 2i32;
-pub type REGISTRATION_INFORMATION_CLASS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MANAGEMENT_REGISTRATION_INFO {
-    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
-    pub dwDeviceRegistionKind: u32,
-    pub pszUPN: windows_sys::core::PWSTR,
-    pub pszMDMServiceUri: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MANAGEMENT_SERVICE_INFO {
-    pub pszMDMServiceUri: windows_sys::core::PWSTR,
-    pub pszAuthenticationUri: windows_sys::core::PWSTR,
-}

@@ -207,6 +207,7 @@ windows_targets::link!("dciman32.dll" "system" fn WinWatchNotify(hww : HWINWATCH
 windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const windows_sys::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> windows_sys::core::HRESULT);
@@ -248,6 +249,708 @@ windows_targets::link!("kernel32.dll" "system" fn uaw_wcsicmp(string1 : *const u
 windows_targets::link!("kernel32.dll" "system" fn uaw_wcslen(string : *const u16) -> usize);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("kernel32.dll" "system" fn uaw_wcsrchr(string : *const u16, character : u16) -> *mut u16);
+pub type APPLICATION_RECOVERY_CALLBACK = Option<unsafe extern "system" fn(pvparameter: *mut core::ffi::c_void) -> u32>;
+pub type ENUM_CALLBACK = Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut core::ffi::c_void)>;
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
+pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
+pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
+pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_System_Com")]
+pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = Option<unsafe extern "system" fn(setting: windows_sys::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
+pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PWLDP_SETDYNAMICCODETRUST_API = Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT>;
+pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
+pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> windows_sys::core::HRESULT>;
+pub type WINWATCHNOTIFYPROC = Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlCaptureMode(pub i32);
+impl CameraUIControlCaptureMode {
+    pub const PhotoOrVideo: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlLinearSelectionMode(pub i32);
+impl CameraUIControlLinearSelectionMode {
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlMode(pub i32);
+impl CameraUIControlMode {
+    pub const Browse: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlPhotoFormat(pub i32);
+impl CameraUIControlPhotoFormat {
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const JpegXR: Self = Self(2i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlVideoFormat(pub i32);
+impl CameraUIControlVideoFormat {
+    pub const Mp4: Self = Self(0i32);
+    pub const Wmv: Self = Self(1i32);
+}
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct CameraUIControlViewType(pub i32);
+impl CameraUIControlViewType {
+    pub const SingleItem: Self = Self(0i32);
+    pub const ItemList: Self = Self(1i32);
+}
+pub type DECISION_LOCATION = i32;
+pub type FEATURE_CHANGE_TIME = i32;
+pub type FEATURE_ENABLED_STATE = i32;
+pub type TDIENTITY_ENTITY_TYPE = u32;
+pub type TDI_TL_IO_CONTROL_TYPE = i32;
+pub type VALUENAME = i32;
+pub type WINSTATIONINFOCLASS = i32;
+pub type WLDP_EXECUTION_EVALUATION_OPTIONS = i32;
+pub type WLDP_EXECUTION_POLICY = i32;
+pub type WLDP_HOST = i32;
+pub type WLDP_HOST_ID = i32;
+pub type WLDP_KEY = i32;
+pub type WLDP_POLICY_SETTING = i32;
+pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
+pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
+    pub cbSize: u32,
+    pub ulDataFormatVersion: u32,
+    pub lpData: *mut core::ffi::c_void,
+    pub ulLength: u32,
+    pub lpSectionGlobalData: *mut core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+    pub lpSectionBase: *mut core::ffi::c_void,
+    pub ulSectionTotalLength: u32,
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub ulAssemblyRosterIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    pub lpInformation: *mut core::ffi::c_void,
+    pub lpSectionBase: *mut core::ffi::c_void,
+    pub ulSectionLength: u32,
+    pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CABINFOA {
+    pub pszCab: windows_sys::core::PSTR,
+    pub pszInf: windows_sys::core::PSTR,
+    pub pszSection: windows_sys::core::PSTR,
+    pub szSrcPath: [i8; 260],
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CABINFOW {
+    pub pszCab: windows_sys::core::PWSTR,
+    pub pszInf: windows_sys::core::PWSTR,
+    pub pszSection: windows_sys::core::PWSTR,
+    pub szSrcPath: [u16; 260],
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLIENT_ID {
+    pub UniqueProcess: super::super::Foundation::HANDLE,
+    pub UniqueThread: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    pub Size: u32,
+    pub TriggerId: windows_sys::core::PCWSTR,
+}
+pub const CameraUIControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATETIME {
+    pub year: u16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub min: u16,
+    pub sec: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCICMD {
+    pub dwCommand: u32,
+    pub dwParam1: u32,
+    pub dwParam2: u32,
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCICREATEINPUT {
+    pub cmd: DCICMD,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwDCICaps: u32,
+    pub dwBitCount: u32,
+    pub lpSurface: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIENUMINPUT {
+    pub cmd: DCICMD,
+    pub rSrc: super::super::Foundation::RECT,
+    pub rDst: super::super::Foundation::RECT,
+    pub EnumCallback: isize,
+    pub lpContext: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIOFFSCREEN {
+    pub dciInfo: DCISURFACEINFO,
+    pub Draw: isize,
+    pub SetClipList: isize,
+    pub SetDestination: isize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCIOVERLAY {
+    pub dciInfo: DCISURFACEINFO,
+    pub dwChromakeyValue: u32,
+    pub dwChromakeyMask: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCISURFACEINFO {
+    pub dwSize: u32,
+    pub dwDCICaps: u32,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub lStride: i32,
+    pub dwBitCount: u32,
+    pub dwOffSurface: usize,
+    pub wSelSurface: u16,
+    pub wReserved: u16,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub BeginAccess: isize,
+    pub EndAccess: isize,
+    pub DestroySurface: isize,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
+    pub TargetDllName: windows_sys::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
+    pub TargetDllName: windows_sys::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_PROC_DESCRIPTOR {
+    pub ImportDescribedByName: u32,
+    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
+    pub Name: windows_sys::core::PCSTR,
+    pub Ordinal: u32,
+}
+pub const DefaultBrowserSyncSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
+pub const EditionUpgradeBroker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FEATURE_ERROR {
+    pub hr: windows_sys::core::HRESULT,
+    pub lineNumber: u16,
+    pub file: windows_sys::core::PCSTR,
+    pub process: windows_sys::core::PCSTR,
+    pub module: windows_sys::core::PCSTR,
+    pub callerReturnAddressOffset: u32,
+    pub callerModule: windows_sys::core::PCSTR,
+    pub message: windows_sys::core::PCSTR,
+    pub originLineNumber: u16,
+    pub originFile: windows_sys::core::PCSTR,
+    pub originModule: windows_sys::core::PCSTR,
+    pub originCallerReturnAddressOffset: u32,
+    pub originCallerModule: windows_sys::core::PCSTR,
+    pub originName: windows_sys::core::PCSTR,
+}
+pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
+pub type HWINWATCH = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HW_PROFILE_INFOA {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [i8; 39],
+    pub szHwProfileName: [i8; 80],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HW_PROFILE_INFOW {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [u16; 39],
+    pub szHwProfileName: [u16; 80],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
+    pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
+    pub DllNameRVA: u32,
+    pub ModuleHandleRVA: u32,
+    pub ImportAddressTableRVA: u32,
+    pub ImportNameTableRVA: u32,
+    pub BoundImportAddressTableRVA: u32,
+    pub UnloadInformationTableRVA: u32,
+    pub TimeDateStamp: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    pub AllAttributes: u32,
+    pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA32 {
+    pub u1: IMAGE_THUNK_DATA32_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA32_0 {
+    pub ForwarderString: u32,
+    pub Function: u32,
+    pub Ordinal: u32,
+    pub AddressOfData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA64 {
+    pub u1: IMAGE_THUNK_DATA64_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA64_0 {
+    pub ForwarderString: u64,
+    pub Function: u64,
+    pub Ordinal: u64,
+    pub AddressOfData: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMEPROA {
+    pub hWnd: super::super::Foundation::HWND,
+    pub InstDate: DATETIME,
+    pub wVersion: u32,
+    pub szDescription: [u8; 50],
+    pub szName: [u8; 80],
+    pub szOptions: [u8; 30],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMEPROW {
+    pub hWnd: super::super::Foundation::HWND,
+    pub InstDate: DATETIME,
+    pub wVersion: u32,
+    pub szDescription: [u16; 50],
+    pub szName: [u16; 80],
+    pub szOptions: [u16; 30],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMESTRUCT {
+    pub fnc: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub wCount: u32,
+    pub dchSource: u32,
+    pub dchDest: u32,
+    pub lParam1: super::super::Foundation::LPARAM,
+    pub lParam2: super::super::Foundation::LPARAM,
+    pub lParam3: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct JAVA_TRUST {
+    pub cbSize: u32,
+    pub flag: u32,
+    pub fAllActiveXPermissions: super::super::Foundation::BOOL,
+    pub fAllPermissions: super::super::Foundation::BOOL,
+    pub dwEncodingType: u32,
+    pub pbJavaPermissions: *mut u8,
+    pub cbJavaPermissions: u32,
+    pub pbSigner: *mut u8,
+    pub cbSigner: u32,
+    pub pwszZone: windows_sys::core::PCWSTR,
+    pub guidZone: windows_sys::core::GUID,
+    pub hVerify: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct JIT_DEBUG_INFO {
+    pub dwSize: u32,
+    pub dwProcessorArchitecture: u32,
+    pub dwThreadID: u32,
+    pub dwReserved0: u32,
+    pub lpExceptionAddress: u64,
+    pub lpExceptionRecord: u64,
+    pub lpContextRecord: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct LDR_DATA_TABLE_ENTRY {
+    pub Reserved1: [*mut core::ffi::c_void; 2],
+    pub InMemoryOrderLinks: super::Kernel::LIST_ENTRY,
+    pub Reserved2: [*mut core::ffi::c_void; 2],
+    pub DllBase: *mut core::ffi::c_void,
+    pub Reserved3: [*mut core::ffi::c_void; 2],
+    pub FullDllName: super::super::Foundation::UNICODE_STRING,
+    pub Reserved4: [u8; 8],
+    pub Reserved5: [*mut core::ffi::c_void; 3],
+    pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
+    pub TimeDateStamp: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub union LDR_DATA_TABLE_ENTRY_0 {
+    pub CheckSum: u32,
+    pub Reserved6: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PERUSERSECTIONA {
+    pub szGUID: [i8; 59],
+    pub szDispName: [i8; 128],
+    pub szLocale: [i8; 10],
+    pub szStub: [i8; 1040],
+    pub szVersion: [i8; 32],
+    pub szCompID: [i8; 128],
+    pub dwIsInstalled: u32,
+    pub bRollback: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PERUSERSECTIONW {
+    pub szGUID: [u16; 59],
+    pub szDispName: [u16; 128],
+    pub szLocale: [u16; 10],
+    pub szStub: [u16; 1040],
+    pub szVersion: [u16; 32],
+    pub szCompID: [u16; 128],
+    pub dwIsInstalled: u32,
+    pub bRollback: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
+    pub Attributes: u32,
+    pub GrantedAccess: u32,
+    pub HandleCount: u32,
+    pub PointerCount: u32,
+    pub Reserved: [u32; 10],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
+    pub TypeName: super::super::Foundation::UNICODE_STRING,
+    pub Reserved: [u32; 22],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRENTRYA {
+    pub pszName: windows_sys::core::PSTR,
+    pub pszValue: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRENTRYW {
+    pub pszName: windows_sys::core::PWSTR,
+    pub pszValue: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRINGEXSTRUCT {
+    pub dwSize: u32,
+    pub uDeterminePos: u32,
+    pub uDetermineDelimPos: u32,
+    pub uYomiPos: u32,
+    pub uYomiDelimPos: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRTABLEA {
+    pub cEntries: u32,
+    pub pse: *mut STRENTRYA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRTABLEW {
+    pub cEntries: u32,
+    pub pse: *mut STRENTRYW,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_BASIC_INFORMATION {
+    pub Reserved1: [u8; 24],
+    pub Reserved2: [*mut core::ffi::c_void; 4],
+    pub NumberOfProcessors: i8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_CODEINTEGRITY_INFORMATION {
+    pub Length: u32,
+    pub CodeIntegrityOptions: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_EXCEPTION_INFORMATION {
+    pub Reserved1: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_INTERRUPT_INFORMATION {
+    pub Reserved1: [u8; 24],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_LOOKASIDE_INFORMATION {
+    pub Reserved1: [u8; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_PERFORMANCE_INFORMATION {
+    pub Reserved1: [u8; 312],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_POLICY_INFORMATION {
+    pub Reserved1: [*mut core::ffi::c_void; 2],
+    pub Reserved2: [u32; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
+    pub IdleTime: i64,
+    pub KernelTime: i64,
+    pub UserTime: i64,
+    pub Reserved1: [i64; 2],
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_PROCESS_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub NumberOfThreads: u32,
+    pub Reserved1: [u8; 48],
+    pub ImageName: super::super::Foundation::UNICODE_STRING,
+    pub BasePriority: i32,
+    pub UniqueProcessId: super::super::Foundation::HANDLE,
+    pub Reserved2: *mut core::ffi::c_void,
+    pub HandleCount: u32,
+    pub SessionId: u32,
+    pub Reserved3: *mut core::ffi::c_void,
+    pub PeakVirtualSize: usize,
+    pub VirtualSize: usize,
+    pub Reserved4: u32,
+    pub PeakWorkingSetSize: usize,
+    pub WorkingSetSize: usize,
+    pub Reserved5: *mut core::ffi::c_void,
+    pub QuotaPagedPoolUsage: usize,
+    pub Reserved6: *mut core::ffi::c_void,
+    pub QuotaNonPagedPoolUsage: usize,
+    pub PagefileUsage: usize,
+    pub PeakPagefileUsage: usize,
+    pub PrivatePageCount: usize,
+    pub Reserved7: [i64; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
+    pub RegistryQuotaAllowed: u32,
+    pub RegistryQuotaUsed: u32,
+    pub Reserved1: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_THREAD_INFORMATION {
+    pub Reserved1: [i64; 3],
+    pub Reserved2: u32,
+    pub StartAddress: *mut core::ffi::c_void,
+    pub ClientId: CLIENT_ID,
+    pub Priority: i32,
+    pub BasePriority: i32,
+    pub Reserved3: u32,
+    pub ThreadState: u32,
+    pub WaitReason: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_TIMEOFDAY_INFORMATION {
+    pub Reserved1: [u8; 48],
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    pub ID: TDIObjectID,
+    pub Context: [u32; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    pub ID: TDIObjectID,
+    pub Context: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    pub ID: TDIObjectID,
+    pub Context: [usize; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TCP_REQUEST_SET_INFORMATION_EX {
+    pub ID: TDIObjectID,
+    pub BufferSize: u32,
+    pub Buffer: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TDIEntityID {
+    pub tei_entity: TDIENTITY_ENTITY_TYPE,
+    pub tei_instance: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TDIObjectID {
+    pub toi_entity: TDIEntityID,
+    pub toi_class: u32,
+    pub toi_type: u32,
+    pub toi_id: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TDI_TL_IO_CONTROL_ENDPOINT {
+    pub Type: TDI_TL_IO_CONTROL_TYPE,
+    pub Level: u32,
+    pub Anonymous: TDI_TL_IO_CONTROL_ENDPOINT_0,
+    pub InputBuffer: *mut core::ffi::c_void,
+    pub InputBufferLength: u32,
+    pub OutputBuffer: *mut core::ffi::c_void,
+    pub OutputBufferLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TDI_TL_IO_CONTROL_ENDPOINT_0 {
+    pub IoControlCode: u32,
+    pub OptionName: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct THREAD_NAME_INFORMATION {
+    pub ThreadName: super::super::Foundation::UNICODE_STRING,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UNDETERMINESTRUCT {
+    pub dwSize: u32,
+    pub uDefIMESize: u32,
+    pub uDefIMEPos: u32,
+    pub uUndetTextLen: u32,
+    pub uUndetTextPos: u32,
+    pub uUndetAttrPos: u32,
+    pub uCursorPos: u32,
+    pub uDeltaStart: u32,
+    pub uDetermineTextLen: u32,
+    pub uDetermineTextPos: u32,
+    pub uDetermineDelimPos: u32,
+    pub uYomiTextLen: u32,
+    pub uYomiTextPos: u32,
+    pub uYomiDelimPos: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINSTATIONINFORMATIONW {
+    pub Reserved2: [u8; 70],
+    pub LogonId: u32,
+    pub Reserved3: [u8; 1140],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WLDP_DEVICE_SECURITY_INFORMATION {
+    pub UnlockIdSize: u32,
+    pub UnlockId: *mut u8,
+    pub ManufacturerIDLength: u32,
+    pub ManufacturerID: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WLDP_HOST_INFORMATION {
+    pub dwRevision: u32,
+    pub dwHostId: WLDP_HOST_ID,
+    pub szSource: windows_sys::core::PCWSTR,
+    pub hSource: super::super::Foundation::HANDLE,
+}
 pub const AADBE_ADD_ENTRY: u32 = 1u32;
 pub const AADBE_DEL_ENTRY: u32 = 2u32;
 pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: u32 = 32u32;
@@ -896,704 +1599,3 @@ pub const WM_IME_REPORT: u32 = 640u32;
 pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlCaptureMode(pub i32);
-impl CameraUIControlCaptureMode {
-    pub const PhotoOrVideo: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlLinearSelectionMode(pub i32);
-impl CameraUIControlLinearSelectionMode {
-    pub const Single: Self = Self(0i32);
-    pub const Multiple: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlMode(pub i32);
-impl CameraUIControlMode {
-    pub const Browse: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlPhotoFormat(pub i32);
-impl CameraUIControlPhotoFormat {
-    pub const Jpeg: Self = Self(0i32);
-    pub const Png: Self = Self(1i32);
-    pub const JpegXR: Self = Self(2i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlVideoFormat(pub i32);
-impl CameraUIControlVideoFormat {
-    pub const Mp4: Self = Self(0i32);
-    pub const Wmv: Self = Self(1i32);
-}
-#[repr(transparent)]
-#[derive(Copy, Clone)]
-pub struct CameraUIControlViewType(pub i32);
-impl CameraUIControlViewType {
-    pub const SingleItem: Self = Self(0i32);
-    pub const ItemList: Self = Self(1i32);
-}
-pub type DECISION_LOCATION = i32;
-pub type FEATURE_CHANGE_TIME = i32;
-pub type FEATURE_ENABLED_STATE = i32;
-pub type TDIENTITY_ENTITY_TYPE = u32;
-pub type TDI_TL_IO_CONTROL_TYPE = i32;
-pub type VALUENAME = i32;
-pub type WINSTATIONINFOCLASS = i32;
-pub type WLDP_EXECUTION_EVALUATION_OPTIONS = i32;
-pub type WLDP_EXECUTION_POLICY = i32;
-pub type WLDP_HOST = i32;
-pub type WLDP_HOST_ID = i32;
-pub type WLDP_KEY = i32;
-pub type WLDP_POLICY_SETTING = i32;
-pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
-pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
-    pub cbSize: u32,
-    pub ulDataFormatVersion: u32,
-    pub lpData: *mut core::ffi::c_void,
-    pub ulLength: u32,
-    pub lpSectionGlobalData: *mut core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-    pub lpSectionBase: *mut core::ffi::c_void,
-    pub ulSectionTotalLength: u32,
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub ulAssemblyRosterIndex: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    pub lpInformation: *mut core::ffi::c_void,
-    pub lpSectionBase: *mut core::ffi::c_void,
-    pub ulSectionLength: u32,
-    pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CABINFOA {
-    pub pszCab: windows_sys::core::PSTR,
-    pub pszInf: windows_sys::core::PSTR,
-    pub pszSection: windows_sys::core::PSTR,
-    pub szSrcPath: [i8; 260],
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CABINFOW {
-    pub pszCab: windows_sys::core::PWSTR,
-    pub pszInf: windows_sys::core::PWSTR,
-    pub pszSection: windows_sys::core::PWSTR,
-    pub szSrcPath: [u16; 260],
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLIENT_ID {
-    pub UniqueProcess: super::super::Foundation::HANDLE,
-    pub UniqueThread: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    pub Size: u32,
-    pub TriggerId: windows_sys::core::PCWSTR,
-}
-pub const CameraUIControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATETIME {
-    pub year: u16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub min: u16,
-    pub sec: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCICMD {
-    pub dwCommand: u32,
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub dwVersion: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCICREATEINPUT {
-    pub cmd: DCICMD,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwDCICaps: u32,
-    pub dwBitCount: u32,
-    pub lpSurface: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIENUMINPUT {
-    pub cmd: DCICMD,
-    pub rSrc: super::super::Foundation::RECT,
-    pub rDst: super::super::Foundation::RECT,
-    pub EnumCallback: isize,
-    pub lpContext: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIOFFSCREEN {
-    pub dciInfo: DCISURFACEINFO,
-    pub Draw: isize,
-    pub SetClipList: isize,
-    pub SetDestination: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCIOVERLAY {
-    pub dciInfo: DCISURFACEINFO,
-    pub dwChromakeyValue: u32,
-    pub dwChromakeyMask: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCISURFACEINFO {
-    pub dwSize: u32,
-    pub dwDCICaps: u32,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub lStride: i32,
-    pub dwBitCount: u32,
-    pub dwOffSurface: usize,
-    pub wSelSurface: u16,
-    pub wReserved: u16,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub BeginAccess: isize,
-    pub EndAccess: isize,
-    pub DestroySurface: isize,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
-    pub TargetDllName: windows_sys::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut core::ffi::c_void,
-    pub Unused: *mut core::ffi::c_void,
-    pub LastError: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
-    pub TargetDllName: windows_sys::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut core::ffi::c_void,
-    pub Unused: *mut core::ffi::c_void,
-    pub LastError: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_PROC_DESCRIPTOR {
-    pub ImportDescribedByName: u32,
-    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
-    pub Name: windows_sys::core::PCSTR,
-    pub Ordinal: u32,
-}
-pub const DefaultBrowserSyncSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
-pub const EditionUpgradeBroker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
-pub const EditionUpgradeHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FEATURE_ERROR {
-    pub hr: windows_sys::core::HRESULT,
-    pub lineNumber: u16,
-    pub file: windows_sys::core::PCSTR,
-    pub process: windows_sys::core::PCSTR,
-    pub module: windows_sys::core::PCSTR,
-    pub callerReturnAddressOffset: u32,
-    pub callerModule: windows_sys::core::PCSTR,
-    pub message: windows_sys::core::PCSTR,
-    pub originLineNumber: u16,
-    pub originFile: windows_sys::core::PCSTR,
-    pub originModule: windows_sys::core::PCSTR,
-    pub originCallerReturnAddressOffset: u32,
-    pub originCallerModule: windows_sys::core::PCSTR,
-    pub originName: windows_sys::core::PCSTR,
-}
-pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
-pub type HWINWATCH = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HW_PROFILE_INFOA {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [i8; 39],
-    pub szHwProfileName: [i8; 80],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HW_PROFILE_INFOW {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [u16; 39],
-    pub szHwProfileName: [u16; 80],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
-    pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
-    pub DllNameRVA: u32,
-    pub ModuleHandleRVA: u32,
-    pub ImportAddressTableRVA: u32,
-    pub ImportNameTableRVA: u32,
-    pub BoundImportAddressTableRVA: u32,
-    pub UnloadInformationTableRVA: u32,
-    pub TimeDateStamp: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    pub AllAttributes: u32,
-    pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_THUNK_DATA32 {
-    pub u1: IMAGE_THUNK_DATA32_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_THUNK_DATA32_0 {
-    pub ForwarderString: u32,
-    pub Function: u32,
-    pub Ordinal: u32,
-    pub AddressOfData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_THUNK_DATA64 {
-    pub u1: IMAGE_THUNK_DATA64_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_THUNK_DATA64_0 {
-    pub ForwarderString: u64,
-    pub Function: u64,
-    pub Ordinal: u64,
-    pub AddressOfData: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMEPROA {
-    pub hWnd: super::super::Foundation::HWND,
-    pub InstDate: DATETIME,
-    pub wVersion: u32,
-    pub szDescription: [u8; 50],
-    pub szName: [u8; 80],
-    pub szOptions: [u8; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMEPROW {
-    pub hWnd: super::super::Foundation::HWND,
-    pub InstDate: DATETIME,
-    pub wVersion: u32,
-    pub szDescription: [u16; 50],
-    pub szName: [u16; 80],
-    pub szOptions: [u16; 30],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMESTRUCT {
-    pub fnc: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub wCount: u32,
-    pub dchSource: u32,
-    pub dchDest: u32,
-    pub lParam1: super::super::Foundation::LPARAM,
-    pub lParam2: super::super::Foundation::LPARAM,
-    pub lParam3: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct JAVA_TRUST {
-    pub cbSize: u32,
-    pub flag: u32,
-    pub fAllActiveXPermissions: super::super::Foundation::BOOL,
-    pub fAllPermissions: super::super::Foundation::BOOL,
-    pub dwEncodingType: u32,
-    pub pbJavaPermissions: *mut u8,
-    pub cbJavaPermissions: u32,
-    pub pbSigner: *mut u8,
-    pub cbSigner: u32,
-    pub pwszZone: windows_sys::core::PCWSTR,
-    pub guidZone: windows_sys::core::GUID,
-    pub hVerify: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct JIT_DEBUG_INFO {
-    pub dwSize: u32,
-    pub dwProcessorArchitecture: u32,
-    pub dwThreadID: u32,
-    pub dwReserved0: u32,
-    pub lpExceptionAddress: u64,
-    pub lpExceptionRecord: u64,
-    pub lpContextRecord: u64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct LDR_DATA_TABLE_ENTRY {
-    pub Reserved1: [*mut core::ffi::c_void; 2],
-    pub InMemoryOrderLinks: super::Kernel::LIST_ENTRY,
-    pub Reserved2: [*mut core::ffi::c_void; 2],
-    pub DllBase: *mut core::ffi::c_void,
-    pub Reserved3: [*mut core::ffi::c_void; 2],
-    pub FullDllName: super::super::Foundation::UNICODE_STRING,
-    pub Reserved4: [u8; 8],
-    pub Reserved5: [*mut core::ffi::c_void; 3],
-    pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
-    pub TimeDateStamp: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub union LDR_DATA_TABLE_ENTRY_0 {
-    pub CheckSum: u32,
-    pub Reserved6: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PERUSERSECTIONA {
-    pub szGUID: [i8; 59],
-    pub szDispName: [i8; 128],
-    pub szLocale: [i8; 10],
-    pub szStub: [i8; 1040],
-    pub szVersion: [i8; 32],
-    pub szCompID: [i8; 128],
-    pub dwIsInstalled: u32,
-    pub bRollback: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PERUSERSECTIONW {
-    pub szGUID: [u16; 59],
-    pub szDispName: [u16; 128],
-    pub szLocale: [u16; 10],
-    pub szStub: [u16; 1040],
-    pub szVersion: [u16; 32],
-    pub szCompID: [u16; 128],
-    pub dwIsInstalled: u32,
-    pub bRollback: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
-    pub Reserved: [u32; 10],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
-    pub TypeName: super::super::Foundation::UNICODE_STRING,
-    pub Reserved: [u32; 22],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRENTRYA {
-    pub pszName: windows_sys::core::PSTR,
-    pub pszValue: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRENTRYW {
-    pub pszName: windows_sys::core::PWSTR,
-    pub pszValue: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRINGEXSTRUCT {
-    pub dwSize: u32,
-    pub uDeterminePos: u32,
-    pub uDetermineDelimPos: u32,
-    pub uYomiPos: u32,
-    pub uYomiDelimPos: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRTABLEA {
-    pub cEntries: u32,
-    pub pse: *mut STRENTRYA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRTABLEW {
-    pub cEntries: u32,
-    pub pse: *mut STRENTRYW,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_BASIC_INFORMATION {
-    pub Reserved1: [u8; 24],
-    pub Reserved2: [*mut core::ffi::c_void; 4],
-    pub NumberOfProcessors: i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CODEINTEGRITY_INFORMATION {
-    pub Length: u32,
-    pub CodeIntegrityOptions: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_EXCEPTION_INFORMATION {
-    pub Reserved1: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_INTERRUPT_INFORMATION {
-    pub Reserved1: [u8; 24],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOOKASIDE_INFORMATION {
-    pub Reserved1: [u8; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_PERFORMANCE_INFORMATION {
-    pub Reserved1: [u8; 312],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_POLICY_INFORMATION {
-    pub Reserved1: [*mut core::ffi::c_void; 2],
-    pub Reserved2: [u32; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    pub IdleTime: i64,
-    pub KernelTime: i64,
-    pub UserTime: i64,
-    pub Reserved1: [i64; 2],
-    pub Reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_PROCESS_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub NumberOfThreads: u32,
-    pub Reserved1: [u8; 48],
-    pub ImageName: super::super::Foundation::UNICODE_STRING,
-    pub BasePriority: i32,
-    pub UniqueProcessId: super::super::Foundation::HANDLE,
-    pub Reserved2: *mut core::ffi::c_void,
-    pub HandleCount: u32,
-    pub SessionId: u32,
-    pub Reserved3: *mut core::ffi::c_void,
-    pub PeakVirtualSize: usize,
-    pub VirtualSize: usize,
-    pub Reserved4: u32,
-    pub PeakWorkingSetSize: usize,
-    pub WorkingSetSize: usize,
-    pub Reserved5: *mut core::ffi::c_void,
-    pub QuotaPagedPoolUsage: usize,
-    pub Reserved6: *mut core::ffi::c_void,
-    pub QuotaNonPagedPoolUsage: usize,
-    pub PagefileUsage: usize,
-    pub PeakPagefileUsage: usize,
-    pub PrivatePageCount: usize,
-    pub Reserved7: [i64; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
-    pub RegistryQuotaAllowed: u32,
-    pub RegistryQuotaUsed: u32,
-    pub Reserved1: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_THREAD_INFORMATION {
-    pub Reserved1: [i64; 3],
-    pub Reserved2: u32,
-    pub StartAddress: *mut core::ffi::c_void,
-    pub ClientId: CLIENT_ID,
-    pub Priority: i32,
-    pub BasePriority: i32,
-    pub Reserved3: u32,
-    pub ThreadState: u32,
-    pub WaitReason: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_TIMEOFDAY_INFORMATION {
-    pub Reserved1: [u8; 48],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
-    pub ID: TDIObjectID,
-    pub Context: [u32; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
-    pub ID: TDIObjectID,
-    pub Context: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TCP_REQUEST_QUERY_INFORMATION_EX_XP {
-    pub ID: TDIObjectID,
-    pub Context: [usize; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TCP_REQUEST_SET_INFORMATION_EX {
-    pub ID: TDIObjectID,
-    pub BufferSize: u32,
-    pub Buffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TDIEntityID {
-    pub tei_entity: TDIENTITY_ENTITY_TYPE,
-    pub tei_instance: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TDIObjectID {
-    pub toi_entity: TDIEntityID,
-    pub toi_class: u32,
-    pub toi_type: u32,
-    pub toi_id: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TDI_TL_IO_CONTROL_ENDPOINT {
-    pub Type: TDI_TL_IO_CONTROL_TYPE,
-    pub Level: u32,
-    pub Anonymous: TDI_TL_IO_CONTROL_ENDPOINT_0,
-    pub InputBuffer: *mut core::ffi::c_void,
-    pub InputBufferLength: u32,
-    pub OutputBuffer: *mut core::ffi::c_void,
-    pub OutputBufferLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TDI_TL_IO_CONTROL_ENDPOINT_0 {
-    pub IoControlCode: u32,
-    pub OptionName: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct THREAD_NAME_INFORMATION {
-    pub ThreadName: super::super::Foundation::UNICODE_STRING,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UNDETERMINESTRUCT {
-    pub dwSize: u32,
-    pub uDefIMESize: u32,
-    pub uDefIMEPos: u32,
-    pub uUndetTextLen: u32,
-    pub uUndetTextPos: u32,
-    pub uUndetAttrPos: u32,
-    pub uCursorPos: u32,
-    pub uDeltaStart: u32,
-    pub uDetermineTextLen: u32,
-    pub uDetermineTextPos: u32,
-    pub uDetermineDelimPos: u32,
-    pub uYomiTextLen: u32,
-    pub uYomiTextPos: u32,
-    pub uYomiDelimPos: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINSTATIONINFORMATIONW {
-    pub Reserved2: [u8; 70],
-    pub LogonId: u32,
-    pub Reserved3: [u8; 1140],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WLDP_DEVICE_SECURITY_INFORMATION {
-    pub UnlockIdSize: u32,
-    pub UnlockId: *mut u8,
-    pub ManufacturerIDLength: u32,
-    pub ManufacturerID: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WLDP_HOST_INFORMATION {
-    pub dwRevision: u32,
-    pub dwHostId: WLDP_HOST_ID,
-    pub szSource: windows_sys::core::PCWSTR,
-    pub hSource: super::super::Foundation::HANDLE,
-}
-pub type APPLICATION_RECOVERY_CALLBACK = Option<unsafe extern "system" fn(pvparameter: *mut core::ffi::c_void) -> u32>;
-pub type ENUM_CALLBACK = Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut core::ffi::c_void)>;
-pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
-pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
-pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
-pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = Option<unsafe extern "system" fn(setting: windows_sys::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
-pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PWLDP_SETDYNAMICCODETRUST_API = Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT>;
-pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> windows_sys::core::HRESULT>;
-pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> windows_sys::core::HRESULT>;
-pub type WINWATCHNOTIFYPROC = Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;

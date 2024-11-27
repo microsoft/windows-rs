@@ -45,6 +45,486 @@ windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetLocalServiceI
 windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetServiceState(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pguidservice : *const windows_sys::core::GUID, dwserviceflags : u32) -> u32);
 windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUnregisterAuthentication(hreghandle : isize) -> super::super::Foundation:: BOOL);
 windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUpdateDeviceRecord(pbtdi : *const BLUETOOTH_DEVICE_INFO) -> u32);
+pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
+pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type AUTHENTICATION_REQUIREMENTS = i32;
+pub type BLUETOOTH_AUTHENTICATION_METHOD = i32;
+pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
+pub type BLUETOOTH_IO_CAPABILITY = i32;
+pub type BTH_LE_GATT_DESCRIPTOR_TYPE = i32;
+pub type BTH_LE_GATT_EVENT_TYPE = i32;
+pub type IO_CAPABILITY = i32;
+pub type NodeContainerType = i32;
+pub type SDP_SPECIFICTYPE = i32;
+pub type SDP_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_ADDRESS {
+    pub Anonymous: BLUETOOTH_ADDRESS_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BLUETOOTH_ADDRESS_0 {
+    pub ullLong: u64,
+    pub rgBytes: [u8; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
+    pub bthAddressRemote: BLUETOOTH_ADDRESS,
+    pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
+    pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
+    pub negativeResponse: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    pub pinInfo: BLUETOOTH_PIN_INFO,
+    pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
+    pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
+    pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    pub deviceInfo: BLUETOOTH_DEVICE_INFO,
+    pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
+    pub ioCapability: BLUETOOTH_IO_CAPABILITY,
+    pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
+    pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    pub Numeric_Value: u32,
+    pub Passkey: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_COD_PAIRS {
+    pub ulCODMask: u32,
+    pub pcszDescription: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_DEVICE_INFO {
+    pub dwSize: u32,
+    pub Address: BLUETOOTH_ADDRESS,
+    pub ulClassofDevice: u32,
+    pub fConnected: super::super::Foundation::BOOL,
+    pub fRemembered: super::super::Foundation::BOOL,
+    pub fAuthenticated: super::super::Foundation::BOOL,
+    pub stLastSeen: super::super::Foundation::SYSTEMTIME,
+    pub stLastUsed: super::super::Foundation::SYSTEMTIME,
+    pub szName: [u16; 248],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    pub dwSize: u32,
+    pub fReturnAuthenticated: super::super::Foundation::BOOL,
+    pub fReturnRemembered: super::super::Foundation::BOOL,
+    pub fReturnUnknown: super::super::Foundation::BOOL,
+    pub fReturnConnected: super::super::Foundation::BOOL,
+    pub fIssueInquiry: super::super::Foundation::BOOL,
+    pub cTimeoutMultiplier: u8,
+    pub hRadio: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_FIND_RADIO_PARAMS {
+    pub dwSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+    pub ChangedAttributeHandle: u16,
+    pub CharacteristicValueDataSize: usize,
+    pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+    pub NumCharacteristics: u16,
+    pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
+    pub Enabled: super::super::Foundation::BOOL,
+    pub btAddr: BLUETOOTH_ADDRESS,
+    pub szName: [u16; 256],
+    pub szDeviceString: [u16; 256],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    pub NumericValue: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_OOB_DATA_INFO {
+    pub C: [u8; 16],
+    pub R: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_PASSKEY_INFO {
+    pub passkey: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_PIN_INFO {
+    pub pin: [u8; 16],
+    pub pinLength: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_RADIO_INFO {
+    pub dwSize: u32,
+    pub address: BLUETOOTH_ADDRESS,
+    pub szName: [u16; 248],
+    pub ulClassofDevice: u32,
+    pub lmpSubversion: u16,
+    pub manufacturer: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
+    pub dwSize: u32,
+    pub cNumOfClasses: u32,
+    pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
+    pub pszInfo: windows_sys::core::PWSTR,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub fForceAuthentication: super::super::Foundation::BOOL,
+    pub fShowAuthenticated: super::super::Foundation::BOOL,
+    pub fShowRemembered: super::super::Foundation::BOOL,
+    pub fShowUnknown: super::super::Foundation::BOOL,
+    pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
+    pub fSkipServicesPage: super::super::Foundation::BOOL,
+    pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
+    pub pvParam: *mut core::ffi::c_void,
+    pub cNumDevices: u32,
+    pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_DEVICE_INFO {
+    pub flags: u32,
+    pub address: u64,
+    pub classOfDevice: u32,
+    pub name: [i8; 248],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_HCI_EVENT_INFO {
+    pub bthAddress: u64,
+    pub connectionType: u8,
+    pub connected: u8,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_INFO_REQ {
+    pub btAddr: u64,
+    pub infoType: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_INFO_RSP {
+    pub result: u16,
+    pub dataLen: u8,
+    pub Anonymous: BTH_INFO_RSP_0,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union BTH_INFO_RSP_0 {
+    pub connectionlessMTU: u16,
+    pub data: [u8; 44],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_L2CAP_EVENT_INFO {
+    pub bthAddress: u64,
+    pub psm: u16,
+    pub connected: u8,
+    pub initiated: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_CHARACTERISTIC {
+    pub ServiceHandle: u16,
+    pub CharacteristicUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+    pub CharacteristicValueHandle: u16,
+    pub IsBroadcastable: super::super::Foundation::BOOLEAN,
+    pub IsReadable: super::super::Foundation::BOOLEAN,
+    pub IsWritable: super::super::Foundation::BOOLEAN,
+    pub IsWritableWithoutResponse: super::super::Foundation::BOOLEAN,
+    pub IsSignedWritable: super::super::Foundation::BOOLEAN,
+    pub IsNotifiable: super::super::Foundation::BOOLEAN,
+    pub IsIndicatable: super::super::Foundation::BOOLEAN,
+    pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
+    pub DataSize: u32,
+    pub Data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR {
+    pub ServiceHandle: u16,
+    pub CharacteristicHandle: u16,
+    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
+    pub DescriptorUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
+    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
+    pub DescriptorUuid: BTH_LE_UUID,
+    pub Anonymous: BTH_LE_GATT_DESCRIPTOR_VALUE_0,
+    pub DataSize: u32,
+    pub Data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+    pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
+    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
+    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
+    pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
+    pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    pub Format: u8,
+    pub Exponent: u8,
+    pub Unit: BTH_LE_UUID,
+    pub NameSpace: u8,
+    pub Description: BTH_LE_UUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
+    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+    pub IsBroadcast: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_GATT_SERVICE {
+    pub ServiceUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_LE_UUID {
+    pub IsShortUuid: super::super::Foundation::BOOLEAN,
+    pub Value: BTH_LE_UUID_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union BTH_LE_UUID_0 {
+    pub ShortUuid: u16,
+    pub LongUuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_PING_REQ {
+    pub btAddr: u64,
+    pub dataLen: u8,
+    pub data: [u8; 44],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_PING_RSP {
+    pub dataLen: u8,
+    pub data: [u8; 44],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_QUERY_DEVICE {
+    pub LAP: u32,
+    pub length: u8,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_QUERY_SERVICE {
+    pub r#type: u32,
+    pub serviceHandle: u32,
+    pub uuids: [SdpQueryUuid; 12],
+    pub numRange: u32,
+    pub pRange: [SdpAttributeRange; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BTH_RADIO_IN_RANGE {
+    pub deviceInfo: BTH_DEVICE_INFO,
+    pub previousDeviceFlags: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BTH_SET_SERVICE {
+    pub pSdpVersion: *mut u32,
+    pub pRecordHandle: *mut super::super::Foundation::HANDLE,
+    pub fCodService: u32,
+    pub Reserved: [u32; 5],
+    pub ulRecordLength: u32,
+    pub pRecord: [u8; 1],
+}
+pub type HANDLE_SDP_TYPE = u64;
+pub type HBLUETOOTH_DEVICE_FIND = *mut core::ffi::c_void;
+pub type HBLUETOOTH_RADIO_FIND = *mut core::ffi::c_void;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RFCOMM_COMMAND {
+    pub CmdType: u32,
+    pub Data: RFCOMM_COMMAND_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RFCOMM_COMMAND_0 {
+    pub MSC: RFCOMM_MSC_DATA,
+    pub RLS: RFCOMM_RLS_DATA,
+    pub RPN: RFCOMM_RPN_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RFCOMM_MSC_DATA {
+    pub Signals: u8,
+    pub Break: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RFCOMM_RLS_DATA {
+    pub LineStatus: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RFCOMM_RPN_DATA {
+    pub Baud: u8,
+    pub Data: u8,
+    pub FlowControl: u8,
+    pub XonChar: u8,
+    pub XoffChar: u8,
+    pub ParameterMask1: u8,
+    pub ParameterMask2: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA {
+    pub r#type: SDP_TYPE,
+    pub specificType: SDP_SPECIFICTYPE,
+    pub data: SDP_ELEMENT_DATA_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SDP_ELEMENT_DATA_0 {
+    pub int128: SDP_LARGE_INTEGER_16,
+    pub int64: i64,
+    pub int32: i32,
+    pub int16: i16,
+    pub int8: i8,
+    pub uint128: SDP_ULARGE_INTEGER_16,
+    pub uint64: u64,
+    pub uint32: u32,
+    pub uint16: u16,
+    pub uint8: u8,
+    pub booleanVal: u8,
+    pub uuid128: windows_sys::core::GUID,
+    pub uuid32: u32,
+    pub uuid16: u16,
+    pub string: SDP_ELEMENT_DATA_0_0,
+    pub url: SDP_ELEMENT_DATA_0_1,
+    pub sequence: SDP_ELEMENT_DATA_0_2,
+    pub alternative: SDP_ELEMENT_DATA_0_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_3 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_2 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_0 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_1 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_LARGE_INTEGER_16 {
+    pub LowPart: u64,
+    pub HighPart: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_STRING_TYPE_DATA {
+    pub encoding: u16,
+    pub mibeNum: u16,
+    pub attributeId: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ULARGE_INTEGER_16 {
+    pub LowPart: u64,
+    pub HighPart: u64,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SOCKADDR_BTH {
+    pub addressFamily: u16,
+    pub btAddr: u64,
+    pub serviceClassId: windows_sys::core::GUID,
+    pub port: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SdpAttributeRange {
+    pub minAttribute: u16,
+    pub maxAttribute: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SdpQueryUuid {
+    pub u: SdpQueryUuidUnion,
+    pub uuidType: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SdpQueryUuidUnion {
+    pub uuid128: windows_sys::core::GUID,
+    pub uuid32: u32,
+    pub uuid16: u16,
+}
 pub const A2DP_SINK_SUPPORTED_FEATURES_AMPLIFIER: u32 = 8u32;
 pub const A2DP_SINK_SUPPORTED_FEATURES_HEADPHONE: u32 = 1u32;
 pub const A2DP_SINK_SUPPORTED_FEATURES_RECORDER: u32 = 4u32;
@@ -937,483 +1417,3 @@ pub const VideoSourceServiceClassID_UUID16: u32 = 4867u32;
 pub const WAPClientServiceClassID_UUID16: u32 = 4372u32;
 pub const WAPServiceClassID_UUID16: u32 = 4371u32;
 pub const WSP_PROTOCOL_UUID16: u32 = 14u32;
-pub type AUTHENTICATION_REQUIREMENTS = i32;
-pub type BLUETOOTH_AUTHENTICATION_METHOD = i32;
-pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
-pub type BLUETOOTH_IO_CAPABILITY = i32;
-pub type BTH_LE_GATT_DESCRIPTOR_TYPE = i32;
-pub type BTH_LE_GATT_EVENT_TYPE = i32;
-pub type IO_CAPABILITY = i32;
-pub type NodeContainerType = i32;
-pub type SDP_SPECIFICTYPE = i32;
-pub type SDP_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_ADDRESS {
-    pub Anonymous: BLUETOOTH_ADDRESS_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BLUETOOTH_ADDRESS_0 {
-    pub ullLong: u64,
-    pub rgBytes: [u8; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
-    pub bthAddressRemote: BLUETOOTH_ADDRESS,
-    pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
-    pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
-    pub negativeResponse: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    pub pinInfo: BLUETOOTH_PIN_INFO,
-    pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
-    pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
-    pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    pub deviceInfo: BLUETOOTH_DEVICE_INFO,
-    pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
-    pub ioCapability: BLUETOOTH_IO_CAPABILITY,
-    pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
-    pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    pub Numeric_Value: u32,
-    pub Passkey: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_COD_PAIRS {
-    pub ulCODMask: u32,
-    pub pcszDescription: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_DEVICE_INFO {
-    pub dwSize: u32,
-    pub Address: BLUETOOTH_ADDRESS,
-    pub ulClassofDevice: u32,
-    pub fConnected: super::super::Foundation::BOOL,
-    pub fRemembered: super::super::Foundation::BOOL,
-    pub fAuthenticated: super::super::Foundation::BOOL,
-    pub stLastSeen: super::super::Foundation::SYSTEMTIME,
-    pub stLastUsed: super::super::Foundation::SYSTEMTIME,
-    pub szName: [u16; 248],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    pub dwSize: u32,
-    pub fReturnAuthenticated: super::super::Foundation::BOOL,
-    pub fReturnRemembered: super::super::Foundation::BOOL,
-    pub fReturnUnknown: super::super::Foundation::BOOL,
-    pub fReturnConnected: super::super::Foundation::BOOL,
-    pub fIssueInquiry: super::super::Foundation::BOOL,
-    pub cTimeoutMultiplier: u8,
-    pub hRadio: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_FIND_RADIO_PARAMS {
-    pub dwSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    pub ChangedAttributeHandle: u16,
-    pub CharacteristicValueDataSize: usize,
-    pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    pub NumCharacteristics: u16,
-    pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
-    pub Enabled: super::super::Foundation::BOOL,
-    pub btAddr: BLUETOOTH_ADDRESS,
-    pub szName: [u16; 256],
-    pub szDeviceString: [u16; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    pub NumericValue: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_OOB_DATA_INFO {
-    pub C: [u8; 16],
-    pub R: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_PASSKEY_INFO {
-    pub passkey: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_PIN_INFO {
-    pub pin: [u8; 16],
-    pub pinLength: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_RADIO_INFO {
-    pub dwSize: u32,
-    pub address: BLUETOOTH_ADDRESS,
-    pub szName: [u16; 248],
-    pub ulClassofDevice: u32,
-    pub lmpSubversion: u16,
-    pub manufacturer: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
-    pub dwSize: u32,
-    pub cNumOfClasses: u32,
-    pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
-    pub pszInfo: windows_sys::core::PWSTR,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub fForceAuthentication: super::super::Foundation::BOOL,
-    pub fShowAuthenticated: super::super::Foundation::BOOL,
-    pub fShowRemembered: super::super::Foundation::BOOL,
-    pub fShowUnknown: super::super::Foundation::BOOL,
-    pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
-    pub fSkipServicesPage: super::super::Foundation::BOOL,
-    pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
-    pub pvParam: *mut core::ffi::c_void,
-    pub cNumDevices: u32,
-    pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_DEVICE_INFO {
-    pub flags: u32,
-    pub address: u64,
-    pub classOfDevice: u32,
-    pub name: [i8; 248],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_HCI_EVENT_INFO {
-    pub bthAddress: u64,
-    pub connectionType: u8,
-    pub connected: u8,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_INFO_REQ {
-    pub btAddr: u64,
-    pub infoType: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_INFO_RSP {
-    pub result: u16,
-    pub dataLen: u8,
-    pub Anonymous: BTH_INFO_RSP_0,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union BTH_INFO_RSP_0 {
-    pub connectionlessMTU: u16,
-    pub data: [u8; 44],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_L2CAP_EVENT_INFO {
-    pub bthAddress: u64,
-    pub psm: u16,
-    pub connected: u8,
-    pub initiated: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_CHARACTERISTIC {
-    pub ServiceHandle: u16,
-    pub CharacteristicUuid: BTH_LE_UUID,
-    pub AttributeHandle: u16,
-    pub CharacteristicValueHandle: u16,
-    pub IsBroadcastable: super::super::Foundation::BOOLEAN,
-    pub IsReadable: super::super::Foundation::BOOLEAN,
-    pub IsWritable: super::super::Foundation::BOOLEAN,
-    pub IsWritableWithoutResponse: super::super::Foundation::BOOLEAN,
-    pub IsSignedWritable: super::super::Foundation::BOOLEAN,
-    pub IsNotifiable: super::super::Foundation::BOOLEAN,
-    pub IsIndicatable: super::super::Foundation::BOOLEAN,
-    pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    pub DataSize: u32,
-    pub Data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR {
-    pub ServiceHandle: u16,
-    pub CharacteristicHandle: u16,
-    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
-    pub DescriptorUuid: BTH_LE_UUID,
-    pub AttributeHandle: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
-    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
-    pub DescriptorUuid: BTH_LE_UUID,
-    pub Anonymous: BTH_LE_GATT_DESCRIPTOR_VALUE_0,
-    pub DataSize: u32,
-    pub Data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
-    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
-    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
-    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
-    pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    pub Format: u8,
-    pub Exponent: u8,
-    pub Unit: BTH_LE_UUID,
-    pub NameSpace: u8,
-    pub Description: BTH_LE_UUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
-    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_SERVICE {
-    pub ServiceUuid: BTH_LE_UUID,
-    pub AttributeHandle: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_LE_UUID {
-    pub IsShortUuid: super::super::Foundation::BOOLEAN,
-    pub Value: BTH_LE_UUID_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BTH_LE_UUID_0 {
-    pub ShortUuid: u16,
-    pub LongUuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_PING_REQ {
-    pub btAddr: u64,
-    pub dataLen: u8,
-    pub data: [u8; 44],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_PING_RSP {
-    pub dataLen: u8,
-    pub data: [u8; 44],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_QUERY_DEVICE {
-    pub LAP: u32,
-    pub length: u8,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_QUERY_SERVICE {
-    pub r#type: u32,
-    pub serviceHandle: u32,
-    pub uuids: [SdpQueryUuid; 12],
-    pub numRange: u32,
-    pub pRange: [SdpAttributeRange; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BTH_RADIO_IN_RANGE {
-    pub deviceInfo: BTH_DEVICE_INFO,
-    pub previousDeviceFlags: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BTH_SET_SERVICE {
-    pub pSdpVersion: *mut u32,
-    pub pRecordHandle: *mut super::super::Foundation::HANDLE,
-    pub fCodService: u32,
-    pub Reserved: [u32; 5],
-    pub ulRecordLength: u32,
-    pub pRecord: [u8; 1],
-}
-pub type HANDLE_SDP_TYPE = u64;
-pub type HBLUETOOTH_DEVICE_FIND = *mut core::ffi::c_void;
-pub type HBLUETOOTH_RADIO_FIND = *mut core::ffi::c_void;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RFCOMM_COMMAND {
-    pub CmdType: u32,
-    pub Data: RFCOMM_COMMAND_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RFCOMM_COMMAND_0 {
-    pub MSC: RFCOMM_MSC_DATA,
-    pub RLS: RFCOMM_RLS_DATA,
-    pub RPN: RFCOMM_RPN_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RFCOMM_MSC_DATA {
-    pub Signals: u8,
-    pub Break: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RFCOMM_RLS_DATA {
-    pub LineStatus: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RFCOMM_RPN_DATA {
-    pub Baud: u8,
-    pub Data: u8,
-    pub FlowControl: u8,
-    pub XonChar: u8,
-    pub XoffChar: u8,
-    pub ParameterMask1: u8,
-    pub ParameterMask2: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA {
-    pub r#type: SDP_TYPE,
-    pub specificType: SDP_SPECIFICTYPE,
-    pub data: SDP_ELEMENT_DATA_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SDP_ELEMENT_DATA_0 {
-    pub int128: SDP_LARGE_INTEGER_16,
-    pub int64: i64,
-    pub int32: i32,
-    pub int16: i16,
-    pub int8: i8,
-    pub uint128: SDP_ULARGE_INTEGER_16,
-    pub uint64: u64,
-    pub uint32: u32,
-    pub uint16: u16,
-    pub uint8: u8,
-    pub booleanVal: u8,
-    pub uuid128: windows_sys::core::GUID,
-    pub uuid32: u32,
-    pub uuid16: u16,
-    pub string: SDP_ELEMENT_DATA_0_0,
-    pub url: SDP_ELEMENT_DATA_0_1,
-    pub sequence: SDP_ELEMENT_DATA_0_2,
-    pub alternative: SDP_ELEMENT_DATA_0_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_3 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_2 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_0 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_1 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_LARGE_INTEGER_16 {
-    pub LowPart: u64,
-    pub HighPart: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_STRING_TYPE_DATA {
-    pub encoding: u16,
-    pub mibeNum: u16,
-    pub attributeId: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ULARGE_INTEGER_16 {
-    pub LowPart: u64,
-    pub HighPart: u64,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SOCKADDR_BTH {
-    pub addressFamily: u16,
-    pub btAddr: u64,
-    pub serviceClassId: windows_sys::core::GUID,
-    pub port: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SdpAttributeRange {
-    pub minAttribute: u16,
-    pub maxAttribute: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SdpQueryUuid {
-    pub u: SdpQueryUuidUnion,
-    pub uuidType: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SdpQueryUuidUnion {
-    pub uuid128: windows_sys::core::GUID,
-    pub uuid32: u32,
-    pub uuid16: u16,
-}
-pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
-pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;

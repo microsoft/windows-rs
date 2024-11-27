@@ -5,6 +5,63 @@ windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuseri
 windows_targets::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
 windows_targets::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
 windows_targets::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
+pub type BATTERY_DEVTYPE = u8;
+pub type BATTERY_LEVEL = u8;
+pub type BATTERY_TYPE = u8;
+pub type XINPUT_CAPABILITIES_FLAGS = u16;
+pub type XINPUT_DEVSUBTYPE = u8;
+pub type XINPUT_DEVTYPE = u8;
+pub type XINPUT_FLAG = u32;
+pub type XINPUT_GAMEPAD_BUTTON_FLAGS = u16;
+pub type XINPUT_KEYSTROKE_FLAGS = u16;
+pub type XINPUT_VIRTUAL_KEY = u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_BATTERY_INFORMATION {
+    pub BatteryType: BATTERY_TYPE,
+    pub BatteryLevel: BATTERY_LEVEL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_CAPABILITIES {
+    pub Type: XINPUT_DEVTYPE,
+    pub SubType: XINPUT_DEVSUBTYPE,
+    pub Flags: XINPUT_CAPABILITIES_FLAGS,
+    pub Gamepad: XINPUT_GAMEPAD,
+    pub Vibration: XINPUT_VIBRATION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_GAMEPAD {
+    pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
+    pub bLeftTrigger: u8,
+    pub bRightTrigger: u8,
+    pub sThumbLX: i16,
+    pub sThumbLY: i16,
+    pub sThumbRX: i16,
+    pub sThumbRY: i16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_KEYSTROKE {
+    pub VirtualKey: XINPUT_VIRTUAL_KEY,
+    pub Unicode: u16,
+    pub Flags: XINPUT_KEYSTROKE_FLAGS,
+    pub UserIndex: u8,
+    pub HidCode: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_STATE {
+    pub dwPacketNumber: u32,
+    pub Gamepad: XINPUT_GAMEPAD,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XINPUT_VIBRATION {
+    pub wLeftMotorSpeed: u16,
+    pub wRightMotorSpeed: u16,
+}
 pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = 0u8;
 pub const BATTERY_DEVTYPE_HEADSET: BATTERY_DEVTYPE = 1u8;
 pub const BATTERY_LEVEL_EMPTY: BATTERY_LEVEL = 0u8;
@@ -92,60 +149,3 @@ pub const XINPUT_KEYSTROKE_KEYUP: XINPUT_KEYSTROKE_FLAGS = 2u16;
 pub const XINPUT_KEYSTROKE_REPEAT: XINPUT_KEYSTROKE_FLAGS = 4u16;
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;
-pub type BATTERY_DEVTYPE = u8;
-pub type BATTERY_LEVEL = u8;
-pub type BATTERY_TYPE = u8;
-pub type XINPUT_CAPABILITIES_FLAGS = u16;
-pub type XINPUT_DEVSUBTYPE = u8;
-pub type XINPUT_DEVTYPE = u8;
-pub type XINPUT_FLAG = u32;
-pub type XINPUT_GAMEPAD_BUTTON_FLAGS = u16;
-pub type XINPUT_KEYSTROKE_FLAGS = u16;
-pub type XINPUT_VIRTUAL_KEY = u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_BATTERY_INFORMATION {
-    pub BatteryType: BATTERY_TYPE,
-    pub BatteryLevel: BATTERY_LEVEL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_CAPABILITIES {
-    pub Type: XINPUT_DEVTYPE,
-    pub SubType: XINPUT_DEVSUBTYPE,
-    pub Flags: XINPUT_CAPABILITIES_FLAGS,
-    pub Gamepad: XINPUT_GAMEPAD,
-    pub Vibration: XINPUT_VIBRATION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_GAMEPAD {
-    pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
-    pub bLeftTrigger: u8,
-    pub bRightTrigger: u8,
-    pub sThumbLX: i16,
-    pub sThumbLY: i16,
-    pub sThumbRX: i16,
-    pub sThumbRY: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_KEYSTROKE {
-    pub VirtualKey: XINPUT_VIRTUAL_KEY,
-    pub Unicode: u16,
-    pub Flags: XINPUT_KEYSTROKE_FLAGS,
-    pub UserIndex: u8,
-    pub HidCode: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_STATE {
-    pub dwPacketNumber: u32,
-    pub Gamepad: XINPUT_GAMEPAD,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XINPUT_VIBRATION {
-    pub wLeftMotorSpeed: u16,
-    pub wRightMotorSpeed: u16,
-}

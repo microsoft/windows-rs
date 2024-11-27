@@ -1,5 +1,162 @@
 windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
 windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+pub type PFNCOLHEAPFREE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> i32>;
+pub type HH_GPROPID = i32;
+pub type HTML_HELP_COMMAND = i32;
+pub type PRIORITY = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COLUMNSTATUS {
+    pub cPropCount: i32,
+    pub cPropsLoaded: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CProperty {
+    pub dwPropID: u32,
+    pub cbData: u32,
+    pub dwType: u32,
+    pub Anonymous: CProperty_0,
+    pub fPersist: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CProperty_0 {
+    pub lpszwData: windows_sys::core::PWSTR,
+    pub lpvData: *mut core::ffi::c_void,
+    pub dwValue: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct HHNTRACK {
+    pub hdr: super::super::UI::Controls::NMHDR,
+    pub pszCurUrl: windows_sys::core::PCSTR,
+    pub idAction: i32,
+    pub phhWinType: *mut HH_WINTYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct HHN_NOTIFY {
+    pub hdr: super::super::UI::Controls::NMHDR,
+    pub pszUrl: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_AKLINK {
+    pub cbStruct: i32,
+    pub fReserved: super::super::Foundation::BOOL,
+    pub pszKeywords: *mut i8,
+    pub pszUrl: *mut i8,
+    pub pszMsgText: *mut i8,
+    pub pszMsgTitle: *mut i8,
+    pub pszWindow: *mut i8,
+    pub fIndexOnFail: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_ENUM_CAT {
+    pub cbStruct: i32,
+    pub pszCatName: windows_sys::core::PCSTR,
+    pub pszCatDescription: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_ENUM_IT {
+    pub cbStruct: i32,
+    pub iType: i32,
+    pub pszCatName: windows_sys::core::PCSTR,
+    pub pszITName: windows_sys::core::PCSTR,
+    pub pszITDescription: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_FTS_QUERY {
+    pub cbStruct: i32,
+    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub pszSearchQuery: *mut i8,
+    pub iProximity: i32,
+    pub fStemmedSearch: super::super::Foundation::BOOL,
+    pub fTitleOnly: super::super::Foundation::BOOL,
+    pub fExecute: super::super::Foundation::BOOL,
+    pub pszWindow: *mut i8,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct HH_GLOBAL_PROPERTY {
+    pub id: HH_GPROPID,
+    pub var: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_POPUP {
+    pub cbStruct: i32,
+    pub hinst: super::super::Foundation::HINSTANCE,
+    pub idString: u32,
+    pub pszText: *mut i8,
+    pub pt: super::super::Foundation::POINT,
+    pub clrForeground: super::super::Foundation::COLORREF,
+    pub clrBackground: super::super::Foundation::COLORREF,
+    pub rcMargins: super::super::Foundation::RECT,
+    pub pszFont: *mut i8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_SET_INFOTYPE {
+    pub cbStruct: i32,
+    pub pszCatName: windows_sys::core::PCSTR,
+    pub pszInfoTypeName: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HH_WINTYPE {
+    pub cbStruct: i32,
+    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub pszType: *mut i8,
+    pub fsValidMembers: u32,
+    pub fsWinProperties: u32,
+    pub pszCaption: *mut i8,
+    pub dwStyles: u32,
+    pub dwExStyles: u32,
+    pub rcWindowPos: super::super::Foundation::RECT,
+    pub nShowState: i32,
+    pub hwndHelp: super::super::Foundation::HWND,
+    pub hwndCaller: super::super::Foundation::HWND,
+    pub paInfoTypes: *mut u32,
+    pub hwndToolBar: super::super::Foundation::HWND,
+    pub hwndNavigation: super::super::Foundation::HWND,
+    pub hwndHTML: super::super::Foundation::HWND,
+    pub iNavWidth: i32,
+    pub rcHTML: super::super::Foundation::RECT,
+    pub pszToc: *mut i8,
+    pub pszIndex: *mut i8,
+    pub pszFile: *mut i8,
+    pub pszHome: *mut i8,
+    pub fsToolBarFlags: u32,
+    pub fNotExpanded: super::super::Foundation::BOOL,
+    pub curNavType: i32,
+    pub tabpos: i32,
+    pub idNotify: i32,
+    pub tabOrder: [u8; 20],
+    pub cHistory: i32,
+    pub pszJump1: *mut i8,
+    pub pszJump2: *mut i8,
+    pub pszUrlJump1: *mut i8,
+    pub pszUrlJump2: *mut i8,
+    pub rcMinSize: super::super::Foundation::RECT,
+    pub cbInfoTypes: i32,
+    pub pszCustomTabs: *mut i8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ROWSTATUS {
+    pub lRowFirst: i32,
+    pub cRows: i32,
+    pub cProperties: i32,
+    pub cRowsTotal: i32,
+}
 pub const CLSID_IITCmdInt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
 pub const CLSID_IITDatabaseLocal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daa9_d393_11d0_9a56_00c04fb68bf7);
@@ -288,160 +445,3 @@ pub const SZ_WWDEST_OCC: windows_sys::core::PCWSTR = windows_sys::core::w!("OCC"
 pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
-pub type HH_GPROPID = i32;
-pub type HTML_HELP_COMMAND = i32;
-pub type PRIORITY = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COLUMNSTATUS {
-    pub cPropCount: i32,
-    pub cPropsLoaded: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CProperty {
-    pub dwPropID: u32,
-    pub cbData: u32,
-    pub dwType: u32,
-    pub Anonymous: CProperty_0,
-    pub fPersist: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CProperty_0 {
-    pub lpszwData: windows_sys::core::PWSTR,
-    pub lpvData: *mut core::ffi::c_void,
-    pub dwValue: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct HHNTRACK {
-    pub hdr: super::super::UI::Controls::NMHDR,
-    pub pszCurUrl: windows_sys::core::PCSTR,
-    pub idAction: i32,
-    pub phhWinType: *mut HH_WINTYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct HHN_NOTIFY {
-    pub hdr: super::super::UI::Controls::NMHDR,
-    pub pszUrl: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_AKLINK {
-    pub cbStruct: i32,
-    pub fReserved: super::super::Foundation::BOOL,
-    pub pszKeywords: *mut i8,
-    pub pszUrl: *mut i8,
-    pub pszMsgText: *mut i8,
-    pub pszMsgTitle: *mut i8,
-    pub pszWindow: *mut i8,
-    pub fIndexOnFail: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_ENUM_CAT {
-    pub cbStruct: i32,
-    pub pszCatName: windows_sys::core::PCSTR,
-    pub pszCatDescription: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_ENUM_IT {
-    pub cbStruct: i32,
-    pub iType: i32,
-    pub pszCatName: windows_sys::core::PCSTR,
-    pub pszITName: windows_sys::core::PCSTR,
-    pub pszITDescription: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_FTS_QUERY {
-    pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
-    pub pszSearchQuery: *mut i8,
-    pub iProximity: i32,
-    pub fStemmedSearch: super::super::Foundation::BOOL,
-    pub fTitleOnly: super::super::Foundation::BOOL,
-    pub fExecute: super::super::Foundation::BOOL,
-    pub pszWindow: *mut i8,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct HH_GLOBAL_PROPERTY {
-    pub id: HH_GPROPID,
-    pub var: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_POPUP {
-    pub cbStruct: i32,
-    pub hinst: super::super::Foundation::HINSTANCE,
-    pub idString: u32,
-    pub pszText: *mut i8,
-    pub pt: super::super::Foundation::POINT,
-    pub clrForeground: super::super::Foundation::COLORREF,
-    pub clrBackground: super::super::Foundation::COLORREF,
-    pub rcMargins: super::super::Foundation::RECT,
-    pub pszFont: *mut i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_SET_INFOTYPE {
-    pub cbStruct: i32,
-    pub pszCatName: windows_sys::core::PCSTR,
-    pub pszInfoTypeName: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HH_WINTYPE {
-    pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
-    pub pszType: *mut i8,
-    pub fsValidMembers: u32,
-    pub fsWinProperties: u32,
-    pub pszCaption: *mut i8,
-    pub dwStyles: u32,
-    pub dwExStyles: u32,
-    pub rcWindowPos: super::super::Foundation::RECT,
-    pub nShowState: i32,
-    pub hwndHelp: super::super::Foundation::HWND,
-    pub hwndCaller: super::super::Foundation::HWND,
-    pub paInfoTypes: *mut u32,
-    pub hwndToolBar: super::super::Foundation::HWND,
-    pub hwndNavigation: super::super::Foundation::HWND,
-    pub hwndHTML: super::super::Foundation::HWND,
-    pub iNavWidth: i32,
-    pub rcHTML: super::super::Foundation::RECT,
-    pub pszToc: *mut i8,
-    pub pszIndex: *mut i8,
-    pub pszFile: *mut i8,
-    pub pszHome: *mut i8,
-    pub fsToolBarFlags: u32,
-    pub fNotExpanded: super::super::Foundation::BOOL,
-    pub curNavType: i32,
-    pub tabpos: i32,
-    pub idNotify: i32,
-    pub tabOrder: [u8; 20],
-    pub cHistory: i32,
-    pub pszJump1: *mut i8,
-    pub pszJump2: *mut i8,
-    pub pszUrlJump1: *mut i8,
-    pub pszUrlJump2: *mut i8,
-    pub rcMinSize: super::super::Foundation::RECT,
-    pub cbInfoTypes: i32,
-    pub pszCustomTabs: *mut i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ROWSTATUS {
-    pub lRowFirst: i32,
-    pub cRows: i32,
-    pub cProperties: i32,
-    pub cRowsTotal: i32,
-}
-pub type PFNCOLHEAPFREE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> i32>;
