@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromDate(datein : f64, pcout : PSTR) -> HRESULT);
-pub type HRESULT = i32;
 pub type PSTR = *mut u8;
+pub type HRESULT = i32;

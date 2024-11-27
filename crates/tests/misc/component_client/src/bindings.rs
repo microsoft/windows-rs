@@ -5,44 +5,7 @@
     dead_code,
     clippy::all
 )]
-pub mod Nested {
-    windows_core::imp::define_interface!(
-        IThing,
-        IThing_Vtbl,
-        0x5448be22_9873_5ae6_9106_f6e8455d2fdd
-    );
-    impl core::ops::Deref for IThing {
-        type Target = windows_core::IInspectable;
-        fn deref(&self) -> &Self::Target {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    windows_core::imp::interface_hierarchy!(
-        IThing,
-        windows_core::IUnknown,
-        windows_core::IInspectable
-    );
-    impl IThing {
-        pub fn Method(&self) -> windows_core::Result<()> {
-            let this = self;
-            unsafe {
-                (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(
-                    this,
-                ))
-                .ok()
-            }
-        }
-    }
-    impl windows_core::RuntimeType for IThing {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_interface::<Self>();
-    }
-    #[repr(C)]
-    pub struct IThing_Vtbl {
-        pub base__: windows_core::IInspectable_Vtbl,
-        pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    }
-}
+
 windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -71,13 +34,13 @@ pub struct IClass_Vtbl {
     pub StringArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *const core::mem::MaybeUninit<windows_core::HSTRING>,
+        *const windows_core::HSTRING,
         u32,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut windows_core::HSTRING,
         *mut u32,
-        *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut windows_core::HSTRING,
         *mut u32,
-        *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub Input: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -87,8 +50,51 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IThing, IThing_Vtbl, 0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
+impl windows_core::RuntimeType for IThing {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IThing, windows_core::IUnknown, windows_core::IInspectable);
+impl IThing {
+    pub fn Method(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+}
+impl windows_core::RuntimeName for IThing {
+    const NAME: &'static str = "test_component.Nested.IThing";
+}
+pub trait IThing_Impl: windows_core::IUnknownImpl {
+    fn Method(&self) -> windows_core::Result<()>;
+}
+impl IThing_Vtbl {
+    pub const fn new<Identity: IThing_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Method<Identity: IThing_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IThing_Impl::Method(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IThing, OFFSET>(),
+            Method: Method::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IThing as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IThing_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
@@ -210,7 +216,7 @@ impl windows_core::RuntimeType for Class {
         windows_core::imp::ConstBuffer::for_class::<Self, IClass>();
 }
 unsafe impl windows_core::Interface for Class {
-    type Vtable = IClass_Vtbl;
+    type Vtable = <IClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClass as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Class {
@@ -218,65 +224,18 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct Flags(pub u32);
-impl Flags {
-    pub const Ok: Self = Self(0u32);
-}
-impl windows_core::TypeKind for Flags {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for Flags {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Flags").field(&self.0).finish()
-    }
-}
-impl Flags {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for Flags {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for Flags {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for Flags {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for Flags {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for Flags {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-impl windows_core::RuntimeType for Flags {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
-}
 windows_core::imp::define_interface!(
     Callback,
     Callback_Vtbl,
     0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8
 );
+impl windows_core::RuntimeType for Callback {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl Callback {
     pub fn new<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
-        let com = CallbackBox::<F> {
+        let com = CallbackBox {
             vtable: &CallbackBox::<F>::VTABLE,
             count: windows_core::imp::RefCount::new(1),
             invoke,
@@ -295,6 +254,15 @@ impl Callback {
             .map(|| result__)
         }
     }
+}
+#[repr(C)]
+pub struct Callback_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        a: i32,
+        result__: *mut i32,
+    ) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct CallbackBox<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> {
@@ -362,13 +330,49 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         }
     }
 }
-impl windows_core::RuntimeType for Callback {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Flags(pub u32);
+impl Flags {
+    pub const Ok: Self = Self(0u32);
 }
-#[repr(C)]
-pub struct Callback_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+impl windows_core::TypeKind for Flags {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Flags {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
+}
+impl Flags {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for Flags {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for Flags {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for Flags {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for Flags {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for Flags {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }

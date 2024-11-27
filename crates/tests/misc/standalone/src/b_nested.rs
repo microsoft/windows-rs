@@ -5,6 +5,78 @@
     dead_code,
     clippy::all
 )]
+
+pub const IID_ISequentialStream: GUID = GUID::from_u128(0x0c733a30_2a1c_11ce_ade5_00aa0044773d);
+#[repr(C)]
+pub struct ISequentialStream_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub Read: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        u32,
+        *mut u32,
+    ) -> HRESULT,
+    pub Write: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        u32,
+        *mut u32,
+    ) -> HRESULT,
+}
+pub const IID_IStorage: GUID = GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IStorage_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    CreateStream: usize,
+    OpenStream: usize,
+    CreateStorage: usize,
+    OpenStorage: usize,
+    pub CopyTo: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *const GUID,
+        *const *const u16,
+        *mut core::ffi::c_void,
+    ) -> HRESULT,
+    MoveElementTo: usize,
+    pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> HRESULT,
+    pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    EnumElements: usize,
+    pub DestroyElement: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR) -> HRESULT,
+    pub RenameElement: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR, PCWSTR) -> HRESULT,
+    SetElementTimes: usize,
+    pub SetClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const GUID) -> HRESULT,
+    pub SetStateBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> HRESULT,
+    Stat: usize,
+}
+pub const IID_IStream: GUID = GUID::from_u128(0x0000000c_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IStream_Vtbl {
+    pub base__: ISequentialStream_Vtbl,
+    Seek: usize,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> HRESULT,
+    pub CopyTo: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        u64,
+        *mut u64,
+        *mut u64,
+    ) -> HRESULT,
+    Commit: usize,
+    pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    LockRegion: usize,
+    pub UnlockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32) -> HRESULT,
+    Stat: usize,
+    pub Clone:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+}
+pub type DEVMODE_COLLATE = i16;
+pub type DEVMODE_COLOR = i16;
+pub type DEVMODE_DISPLAY_FIXED_OUTPUT = u32;
+pub type DEVMODE_DISPLAY_ORIENTATION = u32;
+pub type DEVMODE_DUPLEX = i16;
+pub type DEVMODE_FIELD_FLAGS = u32;
+pub type DEVMODE_TRUETYPE_OPTION = i16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVMODEW {
@@ -67,65 +139,15 @@ pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-pub type DEVMODE_COLLATE = i16;
-pub type DEVMODE_COLOR = i16;
-pub type DEVMODE_DISPLAY_FIXED_OUTPUT = u32;
-pub type DEVMODE_DISPLAY_ORIENTATION = u32;
-pub type DEVMODE_DUPLEX = i16;
-pub type DEVMODE_FIELD_FLAGS = u32;
-pub type DEVMODE_TRUETYPE_OPTION = i16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILETIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID {
-    pub data1: u32,
-    pub data2: u16,
-    pub data3: u16,
-    pub data4: [u8; 8],
-}
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
 pub type HBITMAP = *mut core::ffi::c_void;
 pub type HENHMETAFILE = *mut core::ffi::c_void;
 pub type HGLOBAL = *mut core::ffi::c_void;
-pub type HRESULT = i32;
-pub type PCWSTR = *const u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-pub type PWSTR = *mut u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STATSTG {
-    pub pwcsName: PWSTR,
-    pub r#type: u32,
-    pub cbSize: u64,
-    pub mtime: FILETIME,
-    pub ctime: FILETIME,
-    pub atime: FILETIME,
-    pub grfMode: STGM,
-    pub grfLocksSupported: u32,
-    pub clsid: GUID,
-    pub grfStateBits: u32,
-    pub reserved: u32,
-}
-pub type STGM = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STGMEDIUM {
@@ -144,4 +166,35 @@ pub union STGMEDIUM_0 {
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
 }
-pub type STREAM_SEEK = u32;
+pub type PWSTR = *mut u16;
+pub type PCWSTR = *const u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUID {
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
+}
+impl GUID {
+    pub const fn from_u128(uuid: u128) -> Self {
+        Self {
+            data1: (uuid >> 96) as u32,
+            data2: (uuid >> 80 & 0xffff) as u16,
+            data3: (uuid >> 64 & 0xffff) as u16,
+            data4: (uuid as u64).to_be_bytes(),
+        }
+    }
+}
+pub type HRESULT = i32;
+pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        iid: *const GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+}

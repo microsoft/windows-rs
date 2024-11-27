@@ -5,24 +5,81 @@
     dead_code,
     clippy::all
 )]
+
+pub const IID_IDispatch: GUID = GUID::from_u128(0x00020400_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IDispatch_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub GetTypeInfoCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
+    GetTypeInfo: usize,
+    pub GetIDsOfNames: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const GUID,
+        *const PCWSTR,
+        u32,
+        u32,
+        *mut i32,
+    ) -> HRESULT,
+    Invoke: usize,
+}
+pub const IID_IRecordInfo: GUID = GUID::from_u128(0x0000002f_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IRecordInfo_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub RecordInit:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    pub RecordClear:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> HRESULT,
+    pub RecordCopy: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GUID) -> HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
+    GetTypeInfo: usize,
+    pub GetField: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        PCWSTR,
+        *mut VARIANT,
+    ) -> HRESULT,
+    pub GetFieldNoCopy: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        PCWSTR,
+        *mut VARIANT,
+        *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub PutField: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut core::ffi::c_void,
+        PCWSTR,
+        *const VARIANT,
+    ) -> HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut core::ffi::c_void,
+        PCWSTR,
+        *const VARIANT,
+    ) -> HRESULT,
+    pub GetFieldNames:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BSTR) -> HRESULT,
+    IsMatchingType: usize,
+    pub RecordCreate: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
+    pub RecordCreateCopy: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub RecordDestroy:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> HRESULT,
+}
 pub type ADVANCED_FEATURE_FLAGS = u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ARRAYDESC {
-    pub tdescElem: TYPEDESC,
-    pub cDims: u16,
-    pub rgbounds: [SAFEARRAYBOUND; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BINDPTR {
-    pub lpfuncdesc: *mut FUNCDESC,
-    pub lpvardesc: *mut VARDESC,
-    pub lptcomp: *mut core::ffi::c_void,
-}
-pub type BOOL = i32;
-pub type BSTR = *const u16;
-pub type CALLCONV = i32;
+pub type VARENUM = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CY {
@@ -67,105 +124,6 @@ pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-pub type DESCKIND = i32;
-pub type DISPATCH_FLAGS = u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISPPARAMS {
-    pub rgvarg: *mut VARIANT,
-    pub rgdispidNamedArgs: *mut i32,
-    pub cArgs: u32,
-    pub cNamedArgs: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ELEMDESC {
-    pub tdesc: TYPEDESC,
-    pub Anonymous: ELEMDESC_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ELEMDESC_0 {
-    pub idldesc: IDLDESC,
-    pub paramdesc: PARAMDESC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXCEPINFO {
-    pub wCode: u16,
-    pub wReserved: u16,
-    pub bstrSource: BSTR,
-    pub bstrDescription: BSTR,
-    pub bstrHelpFile: BSTR,
-    pub dwHelpContext: u32,
-    pub pvReserved: *mut core::ffi::c_void,
-    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
-    pub scode: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FUNCDESC {
-    pub memid: i32,
-    pub lprgscode: *mut i32,
-    pub lprgelemdescParam: *mut ELEMDESC,
-    pub funckind: FUNCKIND,
-    pub invkind: INVOKEKIND,
-    pub callconv: CALLCONV,
-    pub cParams: i16,
-    pub cParamsOpt: i16,
-    pub oVft: i16,
-    pub cScodes: i16,
-    pub elemdescFunc: ELEMDESC,
-    pub wFuncFlags: FUNCFLAGS,
-}
-pub type FUNCFLAGS = u16;
-pub type FUNCKIND = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID {
-    pub data1: u32,
-    pub data2: u16,
-    pub data3: u16,
-    pub data4: [u8; 8],
-}
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
-pub type HRESULT = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IDLDESC {
-    pub dwReserved: usize,
-    pub wIDLFlags: IDLFLAGS,
-}
-pub type IDLFLAGS = u16;
-pub type IMPLTYPEFLAGS = i32;
-pub type INVOKEKIND = i32;
-pub type LPEXCEPFINO_DEFERRED_FILLIN =
-    Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARAMDESC {
-    pub pparamdescex: *mut PARAMDESCEX,
-    pub wParamFlags: PARAMFLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PARAMDESCEX {
-    pub cBytes: u32,
-    pub varDefaultValue: VARIANT,
-}
-pub type PARAMFLAGS = u16;
-pub type PCWSTR = *const u16;
-pub type PSTR = *mut u8;
-pub type PWSTR = *mut u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SAFEARRAY {
@@ -182,71 +140,6 @@ pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
-pub type SYSKIND = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TLIBATTR {
-    pub guid: GUID,
-    pub lcid: u32,
-    pub syskind: SYSKIND,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub wLibFlags: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TYPEATTR {
-    pub guid: GUID,
-    pub lcid: u32,
-    pub dwReserved: u32,
-    pub memidConstructor: i32,
-    pub memidDestructor: i32,
-    pub lpstrSchema: PWSTR,
-    pub cbSizeInstance: u32,
-    pub typekind: TYPEKIND,
-    pub cFuncs: u16,
-    pub cVars: u16,
-    pub cImplTypes: u16,
-    pub cbSizeVft: u16,
-    pub cbAlignment: u16,
-    pub wTypeFlags: u16,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub tdescAlias: TYPEDESC,
-    pub idldescType: IDLDESC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TYPEDESC {
-    pub Anonymous: TYPEDESC_0,
-    pub vt: VARENUM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TYPEDESC_0 {
-    pub lptdesc: *mut TYPEDESC,
-    pub lpadesc: *mut ARRAYDESC,
-    pub hreftype: u32,
-}
-pub type TYPEKIND = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VARDESC {
-    pub memid: i32,
-    pub lpstrSchema: PWSTR,
-    pub Anonymous: VARDESC_0,
-    pub elemdescVar: ELEMDESC,
-    pub wVarFlags: VARFLAGS,
-    pub varkind: VARKIND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VARDESC_0 {
-    pub oInst: u32,
-    pub lpvarValue: *mut VARIANT,
-}
-pub type VARENUM = u16;
-pub type VARFLAGS = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VARIANT {
@@ -324,4 +217,36 @@ pub struct VARIANT_0_0_0_0 {
     pub pRecInfo: *mut core::ffi::c_void,
 }
 pub type VARIANT_BOOL = i16;
-pub type VARKIND = i32;
+pub type PSTR = *mut u8;
+pub type PCWSTR = *const u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUID {
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
+}
+impl GUID {
+    pub const fn from_u128(uuid: u128) -> Self {
+        Self {
+            data1: (uuid >> 96) as u32,
+            data2: (uuid >> 80 & 0xffff) as u16,
+            data3: (uuid >> 64 & 0xffff) as u16,
+            data4: (uuid as u64).to_be_bytes(),
+        }
+    }
+}
+pub type HRESULT = i32;
+pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        iid: *const GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+}
+pub type BSTR = *const u16;

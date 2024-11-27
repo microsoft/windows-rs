@@ -5,8 +5,7 @@
     dead_code,
     clippy::all
 )]
-pub type ADDRESS_FAMILY = u16;
-pub type HANDLE = *mut core::ffi::c_void;
+
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<
     unsafe extern "system" fn(
         dwerror: u32,
@@ -15,6 +14,8 @@ pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<
         dwflags: u32,
     ),
 >;
+pub type ADDRESS_FAMILY = u16;
+pub type HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OVERLAPPED {
@@ -35,7 +36,6 @@ pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
-pub type PSTR = *mut u8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR {
@@ -67,3 +67,4 @@ pub struct WSASENDMSG {
     pub lpOverlapped: *mut OVERLAPPED,
     pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
+pub type PSTR = *mut u8;

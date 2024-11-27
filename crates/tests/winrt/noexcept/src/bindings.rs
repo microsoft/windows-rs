@@ -7,12 +7,11 @@
     dead_code,
     clippy::all
 )]
+
 windows_core::imp::define_interface!(ITest, ITest_Vtbl, 0x37b05fc1_6ee1_5798_b48d_602875fb73a2);
-impl core::ops::Deref for ITest {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ITest {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
@@ -57,7 +56,7 @@ impl ITest {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetString(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -218,72 +217,10 @@ impl ITest {
         }
     }
 }
-impl windows_core::RuntimeType for ITest {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl windows_core::RuntimeName for ITest {
+    const NAME: &'static str = "Test.ITest";
 }
-#[repr(C)]
-pub struct ITest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MethodString: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub MethodInt32:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MethodTest: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub String: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub SetString: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub Int32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Test: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub SetTest: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub MethodStringN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub MethodInt32N:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MethodTestN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub StringN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub SetStringN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        core::mem::MaybeUninit<windows_core::HSTRING>,
-    ) -> windows_core::HRESULT,
-    pub Int32N:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetInt32N: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub TestN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub SetTestN: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-pub trait ITest_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn MethodString(&self, test: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn MethodInt32(&self, test: i32) -> windows_core::Result<()>;
     fn MethodTest(&self, test: Option<&ITest>) -> windows_core::Result<()>;
@@ -303,14 +240,11 @@ pub trait ITest_Impl: Sized + windows_core::IUnknownImpl {
     fn TestN(&self) -> Option<ITest>;
     fn SetTestN(&self, value: Option<&ITest>);
 }
-impl windows_core::RuntimeName for ITest {
-    const NAME: &'static str = "Test.ITest";
-}
 impl ITest_Vtbl {
-    pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> ITest_Vtbl {
+    pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MethodString<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            test: core::mem::MaybeUninit<windows_core::HSTRING>,
+            test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITest_Impl::MethodString(this, core::mem::transmute(&test)).into()
@@ -331,7 +265,7 @@ impl ITest_Vtbl {
         }
         unsafe extern "system" fn String<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITest_Impl::String(this) {
@@ -345,7 +279,7 @@ impl ITest_Vtbl {
         }
         unsafe extern "system" fn SetString<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            value: core::mem::MaybeUninit<windows_core::HSTRING>,
+            value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITest_Impl::SetString(this, core::mem::transmute(&value)).into()
@@ -393,7 +327,7 @@ impl ITest_Vtbl {
         }
         unsafe extern "system" fn MethodStringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            test: core::mem::MaybeUninit<windows_core::HSTRING>,
+            test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITest_Impl::MethodStringN(this, core::mem::transmute(&test));
@@ -417,7 +351,7 @@ impl ITest_Vtbl {
         }
         unsafe extern "system" fn StringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             let ok__ = ITest_Impl::StringN(this);
@@ -427,7 +361,7 @@ impl ITest_Vtbl {
         }
         unsafe extern "system" fn SetStringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            value: core::mem::MaybeUninit<windows_core::HSTRING>,
+            value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITest_Impl::SetStringN(this, core::mem::transmute(&value));
@@ -493,4 +427,65 @@ impl ITest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITest as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct ITest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MethodString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MethodInt32:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub MethodTest: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub String: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Int32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub Test: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetTest: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MethodStringN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MethodInt32N:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub MethodTestN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub StringN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetStringN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Int32N:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetInt32N: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub TestN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetTestN: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }

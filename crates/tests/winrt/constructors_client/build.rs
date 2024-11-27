@@ -9,14 +9,14 @@ fn main() {
     windows_bindgen::bindgen([
         "--in",
         "../constructors/metadata.winmd",
+        "../../../libs/bindgen/default",
         "--out",
         "src/bindings.rs",
         "--filter",
         "test_constructors",
-        "--config",
-        "no-bindgen-comment",
-    ])
-    .unwrap();
+        "--no-comment",
+        "--flat",
+    ]);
 
     let include = std::env::var("OUT_DIR").unwrap();
 

@@ -5,7 +5,25 @@
     dead_code,
     clippy::all
 )]
-pub type BOOL = i32;
+
+pub const IID_IPersist: GUID = GUID::from_u128(0x0000010c_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IPersist_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub GetClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GUID) -> HRESULT,
+}
+pub const IID_IPersistFile: GUID = GUID::from_u128(0x0000010b_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IPersistFile_Vtbl {
+    pub base__: IPersist_Vtbl,
+    pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    Load: usize,
+    Save: usize,
+    pub SaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR) -> HRESULT,
+    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PWSTR) -> HRESULT,
+}
+pub type PWSTR = *mut u16;
+pub type PCWSTR = *const u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -25,22 +43,6 @@ impl GUID {
     }
 }
 pub type HRESULT = i32;
-pub const IID_IPersist: GUID = GUID::from_u128(0x0000010c_0000_0000_c000_000000000046);
-#[repr(C)]
-pub struct IPersist_Vtbl {
-    pub base__: IUnknown_Vtbl,
-    pub GetClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GUID) -> HRESULT,
-}
-pub const IID_IPersistFile: GUID = GUID::from_u128(0x0000010b_0000_0000_c000_000000000046);
-#[repr(C)]
-pub struct IPersistFile_Vtbl {
-    pub base__: IPersist_Vtbl,
-    pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR, STGM) -> HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR, BOOL) -> HRESULT,
-    pub SaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, PCWSTR) -> HRESULT,
-    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PWSTR) -> HRESULT,
-}
 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 #[repr(C)]
 pub struct IUnknown_Vtbl {
@@ -52,6 +54,3 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
-pub type PCWSTR = *const u16;
-pub type PWSTR = *mut u16;
-pub type STGM = u32;
