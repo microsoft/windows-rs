@@ -4,6 +4,8 @@ pub mod class;
 pub mod class_dep;
 pub mod class_static;
 pub mod class_with_handler;
+pub mod comment;
+pub mod comment_no_allow;
 pub mod core_sys;
 pub mod core_sys_flat;
 pub mod core_sys_flat_no_core;

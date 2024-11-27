@@ -143,8 +143,6 @@ jobs:
         run:  cargo clippy -p test_bcrypt
       - name: Clippy test_bindgen
         run:  cargo clippy -p test_bindgen
-      - name: Clippy test_bindgen2
-        run:  cargo clippy -p test_bindgen2
       - name: Clippy test_calling_convention
         run:  cargo clippy -p test_calling_convention
       - name: Clippy test_cfg_generic

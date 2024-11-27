@@ -24,15 +24,15 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
-    test_raw("--no-comment --in default --out core_win.rs --filter CoCreateGuid");
-    test_raw("--no-comment --in default --out core_win_flat.rs --filter CoCreateGuid --flat");
-    test_raw("--no-comment --in default --out core_sys.rs --filter CoCreateGuid --sys");
-    test_raw("--no-comment --in default --out core_sys_flat.rs --filter CoCreateGuid --sys --flat");
-    test_raw(
-        "--no-comment --in default --out core_sys_no_core.rs --filter CoCreateGuid --sys --no-core",
-    );
-    test_raw("--no-comment --in default --out core_sys_flat_no_core.rs --filter CoCreateGuid --sys --flat --no-core");
+    // Test interactions with core types
+    test_raw("--out core_win.rs --no-comment --in default --filter CoCreateGuid");
+    test_raw("--out core_win_flat.rs --no-comment --in default --filter CoCreateGuid --flat");
+    test_raw("--out core_sys.rs --no-comment --in default --filter CoCreateGuid --sys");
+    test_raw("--out core_sys_flat.rs --no-comment --in default --filter CoCreateGuid --sys --flat");
+    test_raw("--out core_sys_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --no-core",    );
+    test_raw("--out core_sys_flat_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --flat --no-core");
 
+    // Tests adding custom derived traits for specific types
     test("--out derive_struct.rs --filter DateTime TimeSpan --derive DateTime=PartialOrd");
     test("--out derive_cpp_struct.rs --filter POINT SIZE --derive POINT=PartialOrd");
     test("--out derive_cpp_struct_sys.rs --filter POINT SIZE --sys --derive POINT=Debug");
@@ -40,6 +40,7 @@ fn main() {
     test("--out derive_cpp_enum.rs --filter WAIT_EVENT WIN32_ERROR --derive WAIT_EVENT=PartialOrd");
     test("--out derive_edges.rs --filter POINT SIZE --sys --derive POINT=Debug,Eq,PartialEq,PartialOrd,Ord, SIZE=");
 
+    // Tests for enumerations
     test("--out enum_win.rs --filter AsyncStatus");
     test("--out enum_sys.rs --filter AsyncStatus --sys");
     test("--out enum_flags_win.rs --filter ErrorOptions");
@@ -51,6 +52,7 @@ fn main() {
     test("--out enum_cpp_scoped_win.rs --filter SECURITY_LOGON_TYPE");
     test("--out enum_cpp_scoped_sys.rs --filter SECURITY_LOGON_TYPE --sys");
 
+    // Tests for structs
     test("--out struct_win.rs --filter RectInt32");
     test("--out struct_sys.rs --filter RectInt32 --sys");
     test("--out struct_cpp_win.rs --filter RECT");
@@ -60,6 +62,7 @@ fn main() {
     test("--out struct_with_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER");
     test("--out struct_with_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --sys");
 
+    // Tests for interfaces
     test("--out interface.rs --filter IStringable");
     test("--out interface_sys.rs --filter IStringable --sys");
     test("--out interface_sys_no_core.rs --filter IStringable --sys --no-core");
@@ -76,6 +79,7 @@ fn main() {
     test("--out interface_required_with_method_sys.rs --filter IAsyncAction AsyncStatus --sys");
     test("--out interface_iterable.rs --filter IVector");
 
+    // Tests for functions
     test("--out fn_win.rs --filter GetTickCount");
     test("--out fn_sys.rs --filter GetTickCount --sys");
     test("--out fn_associated_enum_win.rs --filter CoInitializeEx");
@@ -88,20 +92,29 @@ fn main() {
     // TODO: this requires BOOL extensions which are currently only in the `windows` crate
     // test("--out fn_result_void_win.rs --filter SetComputerNameA");
 
+    // Tests for delegates
     test("--out delegate.rs --filter DeferralCompletedHandler");
     test("--out delegate_generic.rs --filter EventHandler");
 
+    // Tests for classes
     test("--out class.rs --filter Deferral");
     test("--out class_with_handler.rs --filter Deferral DeferralCompletedHandler");
     test("--out class_static.rs --filter GuidHelper");
     test("--out class_dep.rs --filter WwwFormUrlDecoder");
 
+    // Test for duplicate types
     test("--out multi.rs --filter HTTP_VERSION");
     test("--out multi_sys.rs --filter HTTP_VERSION --sys");
 
+    // Tests for external references e.g. references to other crates
     test("--out reference.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
 
+    // Tests for dependency tracking
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
+
+    // Tests for header elements
+    test_raw("--out comment.rs --in default --filter GetTickCount --sys --flat");
+    test_raw("--out comment_no_allow.rs --in default --filter GetTickCount --sys --flat --no-allow");
 
     write_lib();
 }
