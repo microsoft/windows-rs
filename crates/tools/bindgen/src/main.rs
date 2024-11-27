@@ -29,7 +29,9 @@ fn main() {
     test_raw("--out core_win_flat.rs --no-comment --in default --filter CoCreateGuid --flat");
     test_raw("--out core_sys.rs --no-comment --in default --filter CoCreateGuid --sys");
     test_raw("--out core_sys_flat.rs --no-comment --in default --filter CoCreateGuid --sys --flat");
-    test_raw("--out core_sys_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --no-core",    );
+    test_raw(
+        "--out core_sys_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --no-core",
+    );
     test_raw("--out core_sys_flat_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --flat --no-core");
 
     // Tests adding custom derived traits for specific types
@@ -116,7 +118,9 @@ fn main() {
 
     // Tests for header elements
     test_raw("--out comment.rs --in default --filter GetTickCount --sys --flat");
-    test_raw("--out comment_no_allow.rs --in default --filter GetTickCount --sys --flat --no-allow");
+    test_raw(
+        "--out comment_no_allow.rs --in default --filter GetTickCount --sys --flat --no-allow",
+    );
 
     write_lib();
 }
