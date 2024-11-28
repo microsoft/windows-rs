@@ -6,80 +6,6 @@
     clippy::all
 )]
 
-windows_core::imp::define_interface!(
-    IActivatable,
-    IActivatable_Vtbl,
-    0xe566522b_9c26_582b_950d_177b05d36efd
-);
-impl windows_core::RuntimeType for IActivatable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IActivatable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Property:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IActivatableFactory,
-    IActivatableFactory_Vtbl,
-    0xafc5aee9_aa78_5da6_85a2_69e67b45c620
-);
-impl windows_core::RuntimeType for IActivatableFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IActivatableFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub WithValue: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IComposable,
-    IComposable_Vtbl,
-    0xff2595d6_461d_5118_9296_f2a2b1e64544
-);
-impl windows_core::RuntimeType for IComposable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IComposable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Property:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IComposableFactory,
-    IComposableFactory_Vtbl,
-    0x6a461099_83c0_5810_9e20_2e8b9521d143
-);
-impl windows_core::RuntimeType for IComposableFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IComposableFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub WithValue: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Activatable(windows_core::IUnknown);
@@ -213,3 +139,77 @@ impl windows_core::RuntimeName for Composable {
 }
 unsafe impl Send for Composable {}
 unsafe impl Sync for Composable {}
+windows_core::imp::define_interface!(
+    IActivatable,
+    IActivatable_Vtbl,
+    0xe566522b_9c26_582b_950d_177b05d36efd
+);
+impl windows_core::RuntimeType for IActivatable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IActivatable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Property:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IActivatableFactory,
+    IActivatableFactory_Vtbl,
+    0xafc5aee9_aa78_5da6_85a2_69e67b45c620
+);
+impl windows_core::RuntimeType for IActivatableFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IActivatableFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub WithValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IComposable,
+    IComposable_Vtbl,
+    0xff2595d6_461d_5118_9296_f2a2b1e64544
+);
+impl windows_core::RuntimeType for IComposable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IComposable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Property:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IComposableFactory,
+    IComposableFactory_Vtbl,
+    0x6a461099_83c0_5810_9e20_2e8b9521d143
+);
+impl windows_core::RuntimeType for IComposableFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IComposableFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub WithValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}

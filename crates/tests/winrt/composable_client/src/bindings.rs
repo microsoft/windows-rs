@@ -6,101 +6,6 @@
     clippy::all
 )]
 
-windows_core::imp::define_interface!(
-    ICompositor,
-    ICompositor_Vtbl,
-    0xac7b49b8_e092_52ad_8456_48696a5a258e
-);
-impl windows_core::RuntimeType for ICompositor {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ICompositor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateSpriteVisual: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub CreateContainerVisual: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IContainerVisual,
-    IContainerVisual_Vtbl,
-    0xb8accc46_3ff7_5a24_8247_f5a52e1f5a8d
-);
-impl windows_core::RuntimeType for IContainerVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IContainerVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Children:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IContainerVisualFactory,
-    IContainerVisualFactory_Vtbl,
-    0x558b6180_1a65_5f01_8be2_2cc0b2034c0e
-);
-impl windows_core::RuntimeType for IContainerVisualFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IContainerVisualFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
-    ISpriteVisual,
-    ISpriteVisual_Vtbl,
-    0x25f23ebe_4cd3_5349_b16d_d88c4d852ea1
-);
-impl windows_core::RuntimeType for ISpriteVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISpriteVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IVisual,
-    IVisual_Vtbl,
-    0xce89606a_5b03_5861_af26_9dced3aab7e6
-);
-impl windows_core::RuntimeType for IVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Compositor: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IVisualFactory,
-    IVisualFactory_Vtbl,
-    0x1974545d_259f_553c_8ea0_e505f897df81
-);
-impl windows_core::RuntimeType for IVisualFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisualFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpriteVisual(windows_core::IUnknown);
@@ -299,3 +204,98 @@ impl windows_core::RuntimeName for Visual {
 }
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
+windows_core::imp::define_interface!(
+    ICompositor,
+    ICompositor_Vtbl,
+    0xac7b49b8_e092_52ad_8456_48696a5a258e
+);
+impl windows_core::RuntimeType for ICompositor {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICompositor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateSpriteVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CreateContainerVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IContainerVisual,
+    IContainerVisual_Vtbl,
+    0xb8accc46_3ff7_5a24_8247_f5a52e1f5a8d
+);
+impl windows_core::RuntimeType for IContainerVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContainerVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Children:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IContainerVisualFactory,
+    IContainerVisualFactory_Vtbl,
+    0x558b6180_1a65_5f01_8be2_2cc0b2034c0e
+);
+impl windows_core::RuntimeType for IContainerVisualFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContainerVisualFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ISpriteVisual,
+    ISpriteVisual_Vtbl,
+    0x25f23ebe_4cd3_5349_b16d_d88c4d852ea1
+);
+impl windows_core::RuntimeType for ISpriteVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISpriteVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IVisual,
+    IVisual_Vtbl,
+    0xce89606a_5b03_5861_af26_9dced3aab7e6
+);
+impl windows_core::RuntimeType for IVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compositor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IVisualFactory,
+    IVisualFactory_Vtbl,
+    0x1974545d_259f_553c_8ea0_e505f897df81
+);
+impl windows_core::RuntimeType for IVisualFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVisualFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
