@@ -141,6 +141,7 @@ pub union DEVMODEW_1 {
 }
 pub type HBITMAP = *mut core::ffi::c_void;
 pub type HENHMETAFILE = *mut core::ffi::c_void;
+pub type HGDIOBJ = *mut core::ffi::c_void;
 pub type HGLOBAL = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]

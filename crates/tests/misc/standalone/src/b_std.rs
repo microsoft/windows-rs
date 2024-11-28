@@ -14,9 +14,11 @@ windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 :
 pub type WIN32_ERROR = u32;
 pub type WINSOCK_SOCKET_TYPE = i32;
 pub type BCRYPT_ALG_HANDLE = *mut core::ffi::c_void;
+pub type BCRYPT_HANDLE = *mut core::ffi::c_void;
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
 pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type SOCKET = usize;
 pub type PSTR = *mut u8;
