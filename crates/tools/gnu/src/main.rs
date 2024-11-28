@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, HashMap, HashSet};
+use std::collections::{BTreeMap, HashSet};
 use std::io::prelude::*;
 use std::process::{Command, Stdio};
 use windows_bindgen::*;
@@ -169,7 +169,7 @@ EXPORTS
 fn build_mri(
     output: &std::path::Path,
     ar: &str,
-    libraries: &HashMap<String, BTreeMap<String, CallingConvention>>,
+    libraries: &BTreeMap<String, BTreeMap<String, CallingConvention>>,
 ) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
