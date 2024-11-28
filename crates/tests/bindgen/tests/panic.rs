@@ -143,17 +143,22 @@ fn subset_namespace() {
 #[test]
 #[should_panic(expected = "failed to create directory")]
 fn failed_to_create_directory() {
-    bindgen(&format!(
-        "--out {}\\invalid\\out.txt --in default --filter POINT",
-        env!("windir")
-    ));
+    let test_path = format!(
+        "{}\\failed_to_create_directory",
+        env!("CARGO_TARGET_TMPDIR")
+    );
+
+    std::fs::write(&test_path, "test").unwrap();
+    let test_path = format!("{}\\out.txt", test_path);
+
+    bindgen(&format!("--out {test_path} --in default --filter POINT",));
 }
 
 #[test]
 #[should_panic(expected = "failed to write file")]
 fn failed_to_write_file() {
-    bindgen(&format!(
-        "--out {}\\out.txt --in default --filter POINT",
-        env!("windir")
-    ));
+    let test_path = format!("{}\\failed_to_write_file", env!("CARGO_TARGET_TMPDIR"));
+    std::fs::create_dir_all(&test_path).unwrap();
+
+    bindgen(&format!("--out {test_path} --in default --filter POINT",));
 }
