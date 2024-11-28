@@ -45,6 +45,7 @@ pub type LOAD_LIBRARY_FLAGS = u32;
 pub type WIN32_ERROR = u32;
 pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;

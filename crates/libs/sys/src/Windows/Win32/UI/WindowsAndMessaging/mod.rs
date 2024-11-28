@@ -208,8 +208,12 @@ windows_targets::link!("user32.dll" "system" fn GetWindowInfo(hwnd : super::supe
 windows_targets::link!("user32.dll" "system" fn GetWindowLongA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
+#[cfg(target_pointer_width = "32")]
+pub use GetWindowLongA as GetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
+#[cfg(target_pointer_width = "32")]
+pub use GetWindowLongW as GetWindowLongPtrW;
 windows_targets::link!("user32.dll" "system" fn GetWindowLongW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);
 windows_targets::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::super::Foundation:: HWND, pszfilename : windows_sys::core::PSTR, cchfilenamemax : u32) -> u32);
 windows_targets::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::super::Foundation:: HWND, pszfilename : windows_sys::core::PWSTR, cchfilenamemax : u32) -> u32);
@@ -408,8 +412,12 @@ windows_targets::link!("user32.dll" "system" fn SetWindowDisplayAffinity(hwnd : 
 windows_targets::link!("user32.dll" "system" fn SetWindowLongA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
+#[cfg(target_pointer_width = "32")]
+pub use SetWindowLongA as SetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
+#[cfg(target_pointer_width = "32")]
+pub use SetWindowLongW as SetWindowLongPtrW;
 windows_targets::link!("user32.dll" "system" fn SetWindowLongW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
 windows_targets::link!("user32.dll" "system" fn SetWindowPlacement(hwnd : super::super::Foundation:: HWND, lpwndpl : *const WINDOWPLACEMENT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn SetWindowPos(hwnd : super::super::Foundation:: HWND, hwndinsertafter : super::super::Foundation:: HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : SET_WINDOW_POS_FLAGS) -> super::super::Foundation:: BOOL);

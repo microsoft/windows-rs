@@ -85,11 +85,12 @@ impl CppFn {
 
         let link = self.write_link(writer, false);
         let cfg = writer.write_cfg(self.method, self.namespace, &dependencies, false);
-
+        let window_long = self.write_window_long();
         if writer.config.sys {
             return quote! {
                 #cfg
                 #link
+                #window_long
             };
         }
 
@@ -99,7 +100,7 @@ impl CppFn {
         let generics = method.write_generics();
         let abi_return_type = method.write_return(writer);
 
-        match method.return_hint {
+        let wrapper = match method.return_hint {
             ReturnHint::Query(..) => {
                 let where_clause = method.write_where(writer, true);
 
@@ -239,6 +240,33 @@ impl CppFn {
                     }
                 }
             }
+        };
+
+        quote! {
+            #wrapper
+            #window_long
+        }
+    }
+
+    fn write_window_long(&self) -> TokenStream {
+        match self.method.name() {
+            "GetWindowLongPtrA" => quote! {
+                #[cfg(target_pointer_width = "32")]
+                pub use GetWindowLongA as GetWindowLongPtrA;
+            },
+            "GetWindowLongPtrW" => quote! {
+                #[cfg(target_pointer_width = "32")]
+                pub use GetWindowLongW as GetWindowLongPtrW;
+            },
+            "SetWindowLongPtrA" => quote! {
+                #[cfg(target_pointer_width = "32")]
+                pub use SetWindowLongA as SetWindowLongPtrA;
+            },
+            "SetWindowLongPtrW" => quote! {
+                #[cfg(target_pointer_width = "32")]
+                pub use SetWindowLongW as SetWindowLongPtrW;
+            },
+            _ => quote! {},
         }
     }
 
@@ -246,6 +274,30 @@ impl CppFn {
         self.method
             .signature(self.namespace, &[])
             .dependencies(dependencies);
+
+        match self.method.name() {
+            "GetWindowLongPtrA" => self
+                .method
+                .reader()
+                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "GetWindowLongA")
+                .dependencies(dependencies),
+            "GetWindowLongPtrW" => self
+                .method
+                .reader()
+                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "GetWindowLongW")
+                .dependencies(dependencies),
+            "SetWindowLongPtrA" => self
+                .method
+                .reader()
+                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongA")
+                .dependencies(dependencies),
+            "SetWindowLongPtrW" => self
+                .method
+                .reader()
+                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongW")
+                .dependencies(dependencies),
+            _ => {}
+        }
     }
 }
 

@@ -74,10 +74,7 @@ impl Attribute {
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let tn = TypeName::parse(name);
-                    let def = reader
-                        .with_full_name(tn.namespace(), tn.name())
-                        .next()
-                        .expect("Type not found");
+                    let def = reader.unwrap_full_name(tn.namespace(), tn.name());
                     name = values.read_str();
                     let underlying_type = def.underlying_type();
                     values.read_integer(underlying_type)

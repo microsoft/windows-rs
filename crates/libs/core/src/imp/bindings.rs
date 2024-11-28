@@ -24,6 +24,7 @@ pub type WAIT_EVENT = u32;
 pub type BOOL = i32;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]

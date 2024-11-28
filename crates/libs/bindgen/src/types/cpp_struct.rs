@@ -244,6 +244,19 @@ impl CppStruct {
         for field in self.def.fields() {
             field.ty(Some(self)).dependencies(dependencies);
         }
+
+        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
+            if let Some((_, Value::Str(type_name))) = attribute.args().first() {
+                if let Some(ty) = self
+                    .def
+                    .reader()
+                    .with_full_name(self.def.namespace(), type_name)
+                    .next()
+                {
+                    ty.dependencies(dependencies);
+                }
+            }
+        }
     }
 
     pub fn is_convertible(&self) -> bool {

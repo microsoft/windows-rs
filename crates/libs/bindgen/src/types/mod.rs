@@ -154,15 +154,8 @@ impl Type {
             }
         }
 
-        if let Some(ty) = code
-            .reader()
-            .with_full_name(code_name.namespace(), code_name.name())
-            .next()
-        {
-            ty
-        } else {
-            panic!("type not found: {code_name}")
-        }
+        code.reader()
+            .unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
     pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
@@ -235,9 +228,7 @@ impl Type {
 
                 let mut ty = blob
                     .reader()
-                    .with_full_name(code_name.namespace(), code_name.name())
-                    .next()
-                    .unwrap_or_else(|| panic!("type not found: {code_name}"));
+                    .unwrap_full_name(code_name.namespace(), code_name.name());
 
                 let mut item_generics = vec![];
 
@@ -513,18 +504,14 @@ impl Type {
                 let base = ty
                     .def
                     .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name())
-                    .next()
-                    .unwrap();
+                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             Self::Delegate(ty) if !ty.generics.is_empty() => {
                 let base = ty
                     .def
                     .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name())
-                    .next()
-                    .unwrap();
+                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -595,7 +582,7 @@ impl Type {
             Self::CppFn(ty) => ty.dependencies(dependencies),
             Self::CppInterface(ty) => ty.dependencies(dependencies),
             Self::CppStruct(ty) => ty.dependencies(dependencies),
-            Self::CppEnum(..) => {}
+            Self::CppEnum(ty) => ty.dependencies(dependencies),
 
             Self::IUnknown => {
                 Self::GUID.dependencies(dependencies);

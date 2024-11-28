@@ -124,6 +124,21 @@ impl CppEnum {
         }
     }
 
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
+            if let Some((_, Value::Str(type_name))) = attribute.args().first() {
+                if let Some(ty) = self
+                    .def
+                    .reader()
+                    .with_full_name(self.def.namespace(), type_name)
+                    .next()
+                {
+                    ty.dependencies(dependencies);
+                }
+            }
+        }
+    }
+
     pub fn size(&self) -> usize {
         self.def.underlying_type().size()
     }

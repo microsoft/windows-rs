@@ -1546,6 +1546,8 @@ where
     windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
     GetWindowLongPtrA(hwnd.param().abi(), core::mem::transmute(nindex))
 }
+#[cfg(target_pointer_width = "32")]
+pub use GetWindowLongA as GetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetWindowLongPtrW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> isize
@@ -1555,6 +1557,8 @@ where
     windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
     GetWindowLongPtrW(hwnd.param().abi(), core::mem::transmute(nindex))
 }
+#[cfg(target_pointer_width = "32")]
+pub use GetWindowLongW as GetWindowLongPtrW;
 #[inline]
 pub unsafe fn GetWindowLongW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX) -> i32
 where
@@ -3021,6 +3025,8 @@ where
     windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
     SetWindowLongPtrA(hwnd.param().abi(), core::mem::transmute(nindex), core::mem::transmute(dwnewlong))
 }
+#[cfg(target_pointer_width = "32")]
+pub use SetWindowLongA as SetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SetWindowLongPtrW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize
@@ -3030,6 +3036,8 @@ where
     windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : super::super::Foundation:: HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
     SetWindowLongPtrW(hwnd.param().abi(), core::mem::transmute(nindex), core::mem::transmute(dwnewlong))
 }
+#[cfg(target_pointer_width = "32")]
+pub use SetWindowLongW as SetWindowLongPtrW;
 #[inline]
 pub unsafe fn SetWindowLongW<P0>(hwnd: P0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32
 where

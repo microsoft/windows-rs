@@ -170,6 +170,14 @@ impl Reader {
         reader
     }
 
+    pub fn unwrap_full_name(&self, namespace: &str, name: &str) -> Type {
+        if let Some(ty) = self.with_full_name(namespace, name).next() {
+            ty
+        } else {
+            panic!("type not found: {namespace}.{name}")
+        }
+    }
+
     /// Gets all types matching the given namespace and name.
     pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
         self.get(namespace)

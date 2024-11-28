@@ -104,9 +104,20 @@ fn main() {
     test("--out class_static.rs --filter GuidHelper");
     test("--out class_dep.rs --filter WwwFormUrlDecoder");
 
-    // Test for duplicate types
+    // Tests for duplicate types
     test("--out multi.rs --filter HTTP_VERSION");
     test("--out multi_sys.rs --filter HTTP_VERSION --sys");
+
+    // Tests for "window long" overloads
+    test("--out window_long_get_a.rs --filter GetWindowLongPtrA");
+    test("--out window_long_get_w.rs --filter GetWindowLongPtrW");
+    test("--out window_long_set_a.rs --filter SetWindowLongPtrA");
+    test("--out window_long_set_w.rs --filter SetWindowLongPtrW");
+
+    test("--out window_long_get_a_sys.rs --filter GetWindowLongPtrA --sys");
+    test("--out window_long_get_w_sys.rs --filter GetWindowLongPtrW --sys");
+    test("--out window_long_set_a_sys.rs --filter SetWindowLongPtrA --sys");
+    test("--out window_long_set_w_sys.rs --filter SetWindowLongPtrW --sys");
 
     // Tests for external references e.g. references to other crates
     test("--out reference_windows.rs --filter IMemoryBuffer --reference windows,skip-root,IMemoryBufferReference");
