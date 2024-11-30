@@ -21,7 +21,7 @@ fn main() {
         panic!("Failed to run midlrt");
     }
 
-    if let Err(error) = windows_bindgen::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "sample.winmd",
         &metadata_dir,
@@ -29,9 +29,7 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "Sample",
-        "--config",
-        "implement",
-    ]) {
-        panic!("{error}");
-    }
+        "--flat",
+        "--implement",
+    ]);
 }
