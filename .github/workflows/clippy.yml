@@ -273,6 +273,8 @@ jobs:
         run:  cargo clippy -p test_window_long
       - name: Clippy test_winrt
         run:  cargo clippy -p test_winrt
+      - name: Clippy tool_bindgen
+        run:  cargo clippy -p tool_bindgen
       - name: Clippy tool_bindings
         run:  cargo clippy -p tool_bindings
       - name: Clippy tool_gnu
@@ -295,8 +297,6 @@ jobs:
         run:  cargo clippy -p windows-implement
       - name: Clippy windows-interface
         run:  cargo clippy -p windows-interface
-      - name: Clippy windows-metadata
-        run:  cargo clippy -p windows-metadata
       - name: Clippy windows-registry
         run:  cargo clippy -p windows-registry
       - name: Clippy windows-result
