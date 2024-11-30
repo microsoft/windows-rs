@@ -5,7 +5,9 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+pub type CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
@@ -192,7 +194,6 @@ pub struct CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-pub type CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",

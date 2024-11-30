@@ -1,0 +1,27 @@
+[package]
+name = "test_bindgen"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-bindgen]
+workspace = true
+
+[dependencies.windows-targets]
+workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Foundation",
+]
+
+[dependencies.windows-sys]
+workspace = true
+
+[dependencies.windows-core]
+workspace = true
