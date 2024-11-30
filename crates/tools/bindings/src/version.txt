@@ -1,5 +1,6 @@
+--in default
 --out crates/libs/version/src/bindings.rs
---config flatten sys no-bindgen-comment
+--flat --sys --no-comment
 
 --filter
     Windows.Wdk.System.SystemServices.RtlGetVersion

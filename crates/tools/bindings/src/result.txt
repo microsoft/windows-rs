@@ -1,5 +1,6 @@
+--in default
 --out crates/libs/result/src/bindings.rs
---config flatten sys minimal vtbl no-bindgen-comment
+--flat --sys --no-core --no-comment
 
 --filter
     Windows.Win32.Foundation.E_UNEXPECTED

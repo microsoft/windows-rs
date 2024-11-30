@@ -4,5 +4,5 @@ version = "0.52.0"
 edition = "2021"
 publish = false
 
-[dependencies.helpers]
+[dependencies.windows-bindgen]
 workspace = true
