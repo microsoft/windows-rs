@@ -1,17 +1,86 @@
 #[inline]
 pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
     windows_targets::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
-    SRRemoveRestorePoint(dwrpnum)
+    SRRemoveRestorePoint(core::mem::transmute(dwrpnum))
 }
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-    SRSetRestorePointA(prestoreptspec, psmgrstatus)
+    SRSetRestorePointA(core::mem::transmute(prestoreptspec), core::mem::transmute(psmgrstatus))
 }
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-    SRSetRestorePointW(prestoreptspec, psmgrstatus)
+    SRSetRestorePointW(core::mem::transmute(prestoreptspec), core::mem::transmute(psmgrstatus))
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RESTOREPOINTINFO_TYPE(pub u32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOA {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [i8; 64],
+}
+impl Default for RESTOREPOINTINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RESTOREPOINTINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOEX {
+    pub ftCreation: super::super::Foundation::FILETIME,
+    pub dwEventType: u32,
+    pub dwRestorePtType: u32,
+    pub dwRPNum: u32,
+    pub szDescription: [u16; 256],
+}
+impl Default for RESTOREPOINTINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RESTOREPOINTINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOW {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [u16; 256],
+}
+impl Default for RESTOREPOINTINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RESTOREPOINTINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct STATEMGRSTATUS {
+    pub nStatus: super::super::Foundation::WIN32_ERROR,
+    pub llSequenceNumber: i64,
+}
+impl Default for STATEMGRSTATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STATEMGRSTATUS {
+    type TypeKind = windows_core::CopyType;
 }
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);
@@ -43,88 +112,3 @@ pub const RESTORE: u32 = 6u32;
 pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
-impl windows_core::TypeKind for RESTOREPOINTINFO_EVENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESTOREPOINTINFO_EVENT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct RESTOREPOINTINFO_TYPE(pub u32);
-impl windows_core::TypeKind for RESTOREPOINTINFO_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RESTOREPOINTINFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESTOREPOINTINFO_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOA {
-    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
-    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
-    pub llSequenceNumber: i64,
-    pub szDescription: [i8; 64],
-}
-impl windows_core::TypeKind for RESTOREPOINTINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RESTOREPOINTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOEX {
-    pub ftCreation: super::super::Foundation::FILETIME,
-    pub dwEventType: u32,
-    pub dwRestorePtType: u32,
-    pub dwRPNum: u32,
-    pub szDescription: [u16; 256],
-}
-impl windows_core::TypeKind for RESTOREPOINTINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RESTOREPOINTINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOW {
-    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
-    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
-    pub llSequenceNumber: i64,
-    pub szDescription: [u16; 256],
-}
-impl windows_core::TypeKind for RESTOREPOINTINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RESTOREPOINTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct STATEMGRSTATUS {
-    pub nStatus: super::super::Foundation::WIN32_ERROR,
-    pub llSequenceNumber: i64,
-}
-impl windows_core::TypeKind for STATEMGRSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for STATEMGRSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

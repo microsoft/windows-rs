@@ -60,7 +60,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceLanguagesA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceLanguagesA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam).ok()
+    EnumResourceLanguagesA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceLanguagesExA<P0, P1, P2>(hmodule: P0, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -70,7 +70,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceLanguagesExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceLanguagesExA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceLanguagesExA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceLanguagesExW<P0, P1, P2>(hmodule: P0, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -80,7 +80,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceLanguagesExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpenumfunc : ENUMRESLANGPROCW, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceLanguagesExW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceLanguagesExW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceLanguagesW<P0, P1, P2>(hmodule: P0, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize) -> windows_core::Result<()>
@@ -90,7 +90,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceLanguagesW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpenumfunc : ENUMRESLANGPROCW, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceLanguagesW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam).ok()
+    EnumResourceLanguagesW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceNamesA<P0, P1>(hmodule: P0, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> windows_core::Result<()>
@@ -99,7 +99,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceNamesA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceNamesA(hmodule.param().abi(), lptype.param().abi(), lpenumfunc, lparam).ok()
+    EnumResourceNamesA(hmodule.param().abi(), lptype.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceNamesExA<P0, P1>(hmodule: P0, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -108,7 +108,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceNamesExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceNamesExA(hmodule.param().abi(), lptype.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceNamesExA(hmodule.param().abi(), lptype.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceNamesExW<P0, P1>(hmodule: P0, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -117,7 +117,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceNamesExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceNamesExW(hmodule.param().abi(), lptype.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceNamesExW(hmodule.param().abi(), lptype.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceNamesW<P0, P1>(hmodule: P0, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize) -> super::super::Foundation::BOOL
@@ -126,7 +126,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceNamesW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceNamesW(hmodule.param().abi(), lptype.param().abi(), lpenumfunc, lparam)
+    EnumResourceNamesW(hmodule.param().abi(), lptype.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam))
 }
 #[inline]
 pub unsafe fn EnumResourceTypesA<P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize) -> windows_core::Result<()>
@@ -134,7 +134,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceTypesA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceTypesA(hmodule.param().abi(), lpenumfunc, lparam).ok()
+    EnumResourceTypesA(hmodule.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceTypesExA<P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -142,7 +142,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceTypesExA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceTypesExA(hmodule.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceTypesExA(hmodule.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceTypesExW<P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
@@ -150,7 +150,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceTypesExW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize, dwflags : u32, langid : u16) -> super::super::Foundation:: BOOL);
-    EnumResourceTypesExW(hmodule.param().abi(), lpenumfunc, lparam, dwflags, langid).ok()
+    EnumResourceTypesExW(hmodule.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam), core::mem::transmute(dwflags), core::mem::transmute(langid)).ok()
 }
 #[inline]
 pub unsafe fn EnumResourceTypesW<P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize) -> windows_core::Result<()>
@@ -158,7 +158,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumResourceTypesW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize) -> super::super::Foundation:: BOOL);
-    EnumResourceTypesW(hmodule.param().abi(), lpenumfunc, lparam).ok()
+    EnumResourceTypesW(hmodule.param().abi(), core::mem::transmute(lpenumfunc), core::mem::transmute(lparam)).ok()
 }
 #[inline]
 pub unsafe fn FindResourceA<P0, P1, P2>(hmodule: P0, lpname: P1, lptype: P2) -> windows_core::Result<super::super::Foundation::HRSRC>
@@ -179,7 +179,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindResourceExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
-    let result__ = FindResourceExA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), wlanguage);
+    let result__ = FindResourceExA(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(wlanguage));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -190,7 +190,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindResourceExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
-    FindResourceExW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), wlanguage)
+    FindResourceExW(hmodule.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(wlanguage))
 }
 #[inline]
 pub unsafe fn FindResourceW<P0, P1, P2>(hmodule: P0, lpname: P1, lptype: P2) -> super::super::Foundation::HRSRC
@@ -208,7 +208,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FreeLibraryAndExitThread(hlibmodule : super::super::Foundation:: HMODULE, dwexitcode : u32) -> !);
-    FreeLibraryAndExitThread(hlibmodule.param().abi(), dwexitcode)
+    FreeLibraryAndExitThread(hlibmodule.param().abi(), core::mem::transmute(dwexitcode))
 }
 #[inline]
 pub unsafe fn FreeResource<P0>(hresdata: P0) -> super::super::Foundation::BOOL
@@ -254,20 +254,20 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetModuleHandleExA<P0>(dwflags: u32, lpmodulename: P0, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExA<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleExA(dwflags : u32, lpmodulename : windows_core::PCSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
-    GetModuleHandleExA(dwflags, lpmodulename.param().abi(), phmodule).ok()
+    GetModuleHandleExA(core::mem::transmute(dwflags), lpmodulename.param().abi(), core::mem::transmute(phmodule)).ok()
 }
 #[inline]
-pub unsafe fn GetModuleHandleExW<P0>(dwflags: u32, lpmodulename: P0, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExW<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleExW(dwflags : u32, lpmodulename : windows_core::PCWSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
-    GetModuleHandleExW(dwflags, lpmodulename.param().abi(), phmodule).ok()
+    GetModuleHandleExW(core::mem::transmute(dwflags), lpmodulename.param().abi(), core::mem::transmute(phmodule)).ok()
 }
 #[inline]
 pub unsafe fn GetModuleHandleW<P0>(lpmodulename: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
@@ -303,7 +303,7 @@ where
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
-    let result__ = LoadLibraryExA(lplibfilename.param().abi(), hfile.param().abi(), dwflags);
+    let result__ = LoadLibraryExA(lplibfilename.param().abi(), hfile.param().abi(), core::mem::transmute(dwflags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -313,7 +313,7 @@ where
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExW(lplibfilename : windows_core::PCWSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
-    let result__ = LoadLibraryExW(lplibfilename.param().abi(), hfile.param().abi(), dwflags);
+    let result__ = LoadLibraryExW(lplibfilename.param().abi(), hfile.param().abi(), core::mem::transmute(dwflags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -331,7 +331,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LoadModule(lpmodulename : windows_core::PCSTR, lpparameterblock : *const core::ffi::c_void) -> u32);
-    LoadModule(lpmodulename.param().abi(), lpparameterblock)
+    LoadModule(lpmodulename.param().abi(), core::mem::transmute(lpparameterblock))
 }
 #[inline]
 pub unsafe fn LoadPackagedLibrary<P0>(lpwlibfilename: P0, reserved: u32) -> windows_core::Result<super::super::Foundation::HMODULE>
@@ -339,7 +339,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LoadPackagedLibrary(lpwlibfilename : windows_core::PCWSTR, reserved : u32) -> super::super::Foundation:: HMODULE);
-    let result__ = LoadPackagedLibrary(lpwlibfilename.param().abi(), reserved);
+    let result__ = LoadPackagedLibrary(lpwlibfilename.param().abi(), core::mem::transmute(reserved));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -368,17 +368,17 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("api-ms-win-core-libraryloader-l2-1-0.dll" "system" fn QueryOptionalDelayLoadedAPI(hparentmodule : super::super::Foundation:: HMODULE, lpdllname : windows_core::PCSTR, lpprocname : windows_core::PCSTR, reserved : u32) -> super::super::Foundation:: BOOL);
-    QueryOptionalDelayLoadedAPI(hparentmodule.param().abi(), lpdllname.param().abi(), lpprocname.param().abi(), reserved).ok()
+    QueryOptionalDelayLoadedAPI(hparentmodule.param().abi(), lpdllname.param().abi(), lpprocname.param().abi(), core::mem::transmute(reserved)).ok()
 }
 #[inline]
 pub unsafe fn RemoveDllDirectory(cookie: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RemoveDllDirectory(cookie).ok()
+    RemoveDllDirectory(core::mem::transmute(cookie)).ok()
 }
 #[inline]
 pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetDefaultDllDirectories(directoryflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: BOOL);
-    SetDefaultDllDirectories(directoryflags).ok()
+    SetDefaultDllDirectories(core::mem::transmute(directoryflags)).ok()
 }
 #[inline]
 pub unsafe fn SetDllDirectoryA<P0>(lppathname: P0) -> windows_core::Result<()>
@@ -413,7 +413,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    UpdateResourceA(hupdate.param().abi(), lptype.param().abi(), lpname.param().abi(), wlanguage, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cb).ok()
+    UpdateResourceA(hupdate.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(wlanguage), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(cb)).ok()
 }
 #[inline]
 pub unsafe fn UpdateResourceW<P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: Option<*const core::ffi::c_void>, cb: u32) -> windows_core::Result<()>
@@ -423,47 +423,19 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
-    UpdateResourceW(hupdate.param().abi(), lptype.param().abi(), lpname.param().abi(), wlanguage, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cb).ok()
+    UpdateResourceW(hupdate.param().abi(), lptype.param().abi(), lpname.param().abi(), core::mem::transmute(wlanguage), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(cb)).ok()
 }
-pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
-pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);
-pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
-pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
-pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
-pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16u32);
-pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2u32);
-pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(64u32);
-pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(32u32);
-pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
-pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(128u32);
-pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
-pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(512u32);
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
-pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(256u32);
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2048u32);
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
-pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1024u32);
-pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8u32);
-pub const RESOURCE_ENUM_LN: u32 = 1u32;
-pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
-pub const RESOURCE_ENUM_MUI: u32 = 2u32;
-pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
-pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
-pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
+pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type ENUMRESNAMEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type ENUMRESNAMEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lparam: isize) -> super::super::Foundation::BOOL>;
+pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCSTR, phmodule: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::BOOL>;
+pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCWSTR, phmodule: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::BOOL>;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOAD_LIBRARY_FLAGS(pub u32);
-impl windows_core::TypeKind for LOAD_LIBRARY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LOAD_LIBRARY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOAD_LIBRARY_FLAGS").field(&self.0).finish()
-    }
-}
 impl LOAD_LIBRARY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
         self.0 & other.0 == other.0
@@ -498,55 +470,75 @@ impl core::ops::Not for LOAD_LIBRARY_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut u16,
-}
-impl windows_core::TypeKind for ENUMUILANG {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUMUILANG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENUMUILANG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
-}
-impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for REDIRECTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_core::PCSTR,
     pub FunctionName: windows_core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type ENUMRESNAMEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type ENUMRESNAMEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lparam: isize) -> super::super::Foundation::BOOL>;
-pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCSTR, phmodule: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::BOOL>;
-pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCWSTR, phmodule: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::BOOL>;
+impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
+pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);
+pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
+pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
+pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
+pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16u32);
+pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2u32);
+pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(64u32);
+pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(32u32);
+pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
+pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(128u32);
+pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(512u32);
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
+pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(256u32);
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2048u32);
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1024u32);
+pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8u32);
+pub const RESOURCE_ENUM_LN: u32 = 1u32;
+pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
+pub const RESOURCE_ENUM_MUI: u32 = 2u32;
+pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
+pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
+pub const SUPPORT_LANG_NUMBER: u32 = 32u32;

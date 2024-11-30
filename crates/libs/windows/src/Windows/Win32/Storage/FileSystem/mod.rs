@@ -1,8 +1,8 @@
 #[inline]
-pub unsafe fn AddLogContainer<P0, P1>(hlog: P0, pcbcontainer: Option<*const u64>, pwszcontainerpath: P1, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn AddLogContainer<P0, P2>(hlog: P0, pcbcontainer: Option<*const u64>, pwszcontainerpath: P2, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn AddLogContainer(hlog : super::super::Foundation:: HANDLE, pcbcontainer : *const u64, pwszcontainerpath : windows_core::PCWSTR, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     AddLogContainer(hlog.param().abi(), core::mem::transmute(pcbcontainer.unwrap_or(core::ptr::null())), pwszcontainerpath.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null_mut()))).ok()
@@ -22,23 +22,23 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
-    AddUsersToEncryptedFile(lpfilename.param().abi(), pencryptioncertificates)
+    AddUsersToEncryptedFile(lpfilename.param().abi(), core::mem::transmute(pencryptioncertificates))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn AdvanceLogBase(pvmarshal: *mut core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn AdvanceLogBase(pvmarshal : *mut core::ffi::c_void, plsnbase : *mut CLS_LSN, fflags : u32, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    AdvanceLogBase(pvmarshal, plsnbase, fflags, poverlapped).ok()
+    AdvanceLogBase(core::mem::transmute(pvmarshal), core::mem::transmute(plsnbase), core::mem::transmute(fflags), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
 pub unsafe fn AlignReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn AlignReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, rgcbreservation : *mut i64, pcbalignreservation : *mut i64) -> super::super::Foundation:: BOOL);
-    AlignReservedLog(pvmarshal, creservedrecords, rgcbreservation, pcbalignreservation).ok()
+    AlignReservedLog(core::mem::transmute(pvmarshal), core::mem::transmute(creservedrecords), core::mem::transmute(rgcbreservation), core::mem::transmute(pcbalignreservation)).ok()
 }
 #[inline]
 pub unsafe fn AllocReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn AllocReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, pcbadjustment : *mut i64) -> super::super::Foundation:: BOOL);
-    AllocReservedLog(pvmarshal, creservedrecords, pcbadjustment).ok()
+    AllocReservedLog(core::mem::transmute(pvmarshal), core::mem::transmute(creservedrecords), core::mem::transmute(pcbadjustment)).ok()
 }
 #[inline]
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
@@ -51,17 +51,17 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn AreShortNamesEnabled(handle : super::super::Foundation:: HANDLE, enabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    AreShortNamesEnabled(handle.param().abi(), enabled)
+    AreShortNamesEnabled(handle.param().abi(), core::mem::transmute(enabled))
 }
 #[inline]
-pub unsafe fn BackupRead<P0, P1, P2>(hfile: P0, lpbuffer: &mut [u8], lpnumberofbytesread: *mut u32, babort: P1, bprocesssecurity: P2, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BackupRead<P0, P4, P5>(hfile: P0, lpbuffer: &mut [u8], lpnumberofbytesread: *mut u32, babort: P4, bprocesssecurity: P5, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BackupRead(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, babort : super::super::Foundation:: BOOL, bprocesssecurity : super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BackupRead(hfile.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofbytesread, babort.param().abi(), bprocesssecurity.param().abi(), lpcontext).ok()
+    BackupRead(hfile.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbytesread), babort.param().abi(), bprocesssecurity.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn BackupSeek<P0>(hfile: P0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -69,17 +69,17 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BackupSeek(hfile : super::super::Foundation:: HANDLE, dwlowbytestoseek : u32, dwhighbytestoseek : u32, lpdwlowbyteseeked : *mut u32, lpdwhighbyteseeked : *mut u32, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BackupSeek(hfile.param().abi(), dwlowbytestoseek, dwhighbytestoseek, lpdwlowbyteseeked, lpdwhighbyteseeked, lpcontext).ok()
+    BackupSeek(hfile.param().abi(), core::mem::transmute(dwlowbytestoseek), core::mem::transmute(dwhighbytestoseek), core::mem::transmute(lpdwlowbyteseeked), core::mem::transmute(lpdwhighbyteseeked), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
-pub unsafe fn BackupWrite<P0, P1, P2>(hfile: P0, lpbuffer: &[u8], lpnumberofbyteswritten: *mut u32, babort: P1, bprocesssecurity: P2, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BackupWrite<P0, P4, P5>(hfile: P0, lpbuffer: &[u8], lpnumberofbyteswritten: *mut u32, babort: P4, bprocesssecurity: P5, lpcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BackupWrite(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, babort : super::super::Foundation:: BOOL, bprocesssecurity : super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BackupWrite(hfile.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofbyteswritten, babort.param().abi(), bprocesssecurity.param().abi(), lpcontext).ok()
+    BackupWrite(hfile.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofbyteswritten), babort.param().abi(), bprocesssecurity.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingCancelRequest<P0>(ioring: P0, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> windows_core::Result<()>
@@ -87,7 +87,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingCancelRequest(ioring : HIORING, file : IORING_HANDLE_REF, optocancel : usize, userdata : usize) -> windows_core::HRESULT);
-    BuildIoRingCancelRequest(ioring.param().abi(), core::mem::transmute(file), optocancel, userdata).ok()
+    BuildIoRingCancelRequest(ioring.param().abi(), core::mem::transmute(file), core::mem::transmute(optocancel), core::mem::transmute(userdata)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingFlushFile<P0>(ioring: P0, fileref: IORING_HANDLE_REF, flushmode: FILE_FLUSH_MODE, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()>
@@ -95,7 +95,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BuildIoRingFlushFile(ioring : HIORING, fileref : IORING_HANDLE_REF, flushmode : FILE_FLUSH_MODE, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    BuildIoRingFlushFile(ioring.param().abi(), core::mem::transmute(fileref), flushmode, userdata, sqeflags).ok()
+    BuildIoRingFlushFile(ioring.param().abi(), core::mem::transmute(fileref), core::mem::transmute(flushmode), core::mem::transmute(userdata), core::mem::transmute(sqeflags)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingReadFile<P0>(ioring: P0, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()>
@@ -103,7 +103,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingReadFile(ioring : HIORING, fileref : IORING_HANDLE_REF, dataref : IORING_BUFFER_REF, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    BuildIoRingReadFile(ioring.param().abi(), core::mem::transmute(fileref), core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, sqeflags).ok()
+    BuildIoRingReadFile(ioring.param().abi(), core::mem::transmute(fileref), core::mem::transmute(dataref), core::mem::transmute(numberofbytestoread), core::mem::transmute(fileoffset), core::mem::transmute(userdata), core::mem::transmute(sqeflags)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingRegisterBuffers<P0>(ioring: P0, buffers: &[IORING_BUFFER_INFO], userdata: usize) -> windows_core::Result<()>
@@ -111,7 +111,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterBuffers(ioring : HIORING, count : u32, buffers : *const IORING_BUFFER_INFO, userdata : usize) -> windows_core::HRESULT);
-    BuildIoRingRegisterBuffers(ioring.param().abi(), buffers.len().try_into().unwrap(), core::mem::transmute(buffers.as_ptr()), userdata).ok()
+    BuildIoRingRegisterBuffers(ioring.param().abi(), buffers.len().try_into().unwrap(), core::mem::transmute(buffers.as_ptr()), core::mem::transmute(userdata)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles<P0>(ioring: P0, handles: &[super::super::Foundation::HANDLE], userdata: usize) -> windows_core::Result<()>
@@ -119,7 +119,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterFileHandles(ioring : HIORING, count : u32, handles : *const super::super::Foundation:: HANDLE, userdata : usize) -> windows_core::HRESULT);
-    BuildIoRingRegisterFileHandles(ioring.param().abi(), handles.len().try_into().unwrap(), core::mem::transmute(handles.as_ptr()), userdata).ok()
+    BuildIoRingRegisterFileHandles(ioring.param().abi(), handles.len().try_into().unwrap(), core::mem::transmute(handles.as_ptr()), core::mem::transmute(userdata)).ok()
 }
 #[inline]
 pub unsafe fn BuildIoRingWriteFile<P0>(ioring: P0, fileref: IORING_HANDLE_REF, bufferref: IORING_BUFFER_REF, numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()>
@@ -127,7 +127,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("kernel32.dll" "system" fn BuildIoRingWriteFile(ioring : HIORING, fileref : IORING_HANDLE_REF, bufferref : IORING_BUFFER_REF, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    BuildIoRingWriteFile(ioring.param().abi(), core::mem::transmute(fileref), core::mem::transmute(bufferref), numberofbytestowrite, fileoffset, writeflags, userdata, sqeflags).ok()
+    BuildIoRingWriteFile(ioring.param().abi(), core::mem::transmute(fileref), core::mem::transmute(bufferref), core::mem::transmute(numberofbytestowrite), core::mem::transmute(fileoffset), core::mem::transmute(writeflags), core::mem::transmute(userdata), core::mem::transmute(sqeflags)).ok()
 }
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<P0>(lpname: P0, lpoemname: Option<&mut [u8]>, pbnamecontainsspaces: Option<*mut super::super::Foundation::BOOL>, pbnamelegal: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -135,7 +135,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3A(lpname : windows_core::PCSTR, lpoemname : windows_core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut super::super::Foundation:: BOOL, pbnamelegal : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CheckNameLegalDOS8Dot3A(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbnamecontainsspaces.unwrap_or(core::ptr::null_mut())), pbnamelegal).ok()
+    CheckNameLegalDOS8Dot3A(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbnamecontainsspaces.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbnamelegal)).ok()
 }
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3W<P0>(lpname: P0, lpoemname: Option<&mut [u8]>, pbnamecontainsspaces: Option<*mut super::super::Foundation::BOOL>, pbnamelegal: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -143,7 +143,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3W(lpname : windows_core::PCWSTR, lpoemname : windows_core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut super::super::Foundation:: BOOL, pbnamelegal : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    CheckNameLegalDOS8Dot3W(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbnamecontainsspaces.unwrap_or(core::ptr::null_mut())), pbnamelegal).ok()
+    CheckNameLegalDOS8Dot3W(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbnamecontainsspaces.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbnamelegal)).ok()
 }
 #[inline]
 pub unsafe fn CloseAndResetLogFile<P0>(hlog: P0) -> windows_core::Result<()>
@@ -156,7 +156,7 @@ where
 #[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const core::ffi::c_void) {
     windows_targets::link!("advapi32.dll" "system" fn CloseEncryptedFileRaw(pvcontext : *const core::ffi::c_void));
-    CloseEncryptedFileRaw(pvcontext)
+    CloseEncryptedFileRaw(core::mem::transmute(pvcontext))
 }
 #[inline]
 pub unsafe fn CloseIoRing<P0>(ioring: P0) -> windows_core::Result<()>
@@ -172,7 +172,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CommitComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    CommitComplete(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    CommitComplete(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn CommitEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -180,7 +180,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CommitEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    CommitEnlistment(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    CommitEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn CommitTransaction<P0>(transactionhandle: P0) -> windows_core::Result<()>
@@ -201,7 +201,7 @@ where
 #[inline]
 pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn CompareFileTime(lpfiletime1 : *const super::super::Foundation:: FILETIME, lpfiletime2 : *const super::super::Foundation:: FILETIME) -> i32);
-    CompareFileTime(lpfiletime1, lpfiletime2)
+    CompareFileTime(core::mem::transmute(lpfiletime1), core::mem::transmute(lpfiletime2))
 }
 #[inline]
 pub unsafe fn CopyFile2<P0, P1>(pwszexistingfilename: P0, pwsznewfilename: P1, pextendedparameters: Option<*const COPYFILE2_EXTENDED_PARAMETERS>) -> windows_core::Result<()>
@@ -229,7 +229,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
-    CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), dwcopyflags).ok()
+    CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwcopyflags)).ok()
 }
 #[inline]
 pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
@@ -238,7 +238,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
-    CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), dwcopyflags).ok()
+    CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwcopyflags)).ok()
 }
 #[inline]
 pub unsafe fn CopyFileFromAppW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> super::super::Foundation::BOOL
@@ -251,24 +251,24 @@ where
     CopyFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.param().abi())
 }
 #[inline]
-pub unsafe fn CopyFileTransactedA<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CopyFileTransactedA<P0, P1, P6>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P6) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    CopyFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null())), dwcopyflags, htransaction.param().abi()).ok()
+    CopyFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null())), core::mem::transmute(dwcopyflags), htransaction.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CopyFileTransactedW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CopyFileTransactedW<P0, P1, P6>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const super::super::Foundation::BOOL>, dwcopyflags: u32, htransaction: P6) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null())), dwcopyflags, htransaction.param().abi()).ok()
+    CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null())), core::mem::transmute(dwcopyflags), htransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn CopyFileW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> windows_core::Result<()>
@@ -283,7 +283,7 @@ where
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn CopyLZFile(hfsource : i32, hfdest : i32) -> i32);
-    CopyLZFile(hfsource, hfdest)
+    CopyLZFile(core::mem::transmute(hfsource), core::mem::transmute(hfdest))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -325,22 +325,22 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateDirectoryTransactedA<P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CreateDirectoryTransactedA<P0, P1, P3>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryTransactedA(lptemplatedirectory : windows_core::PCSTR, lpnewdirectory : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateDirectoryTransactedA(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), htransaction.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateDirectoryTransactedW<P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CreateDirectoryTransactedW<P0, P1, P3>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryTransactedW(lptemplatedirectory : windows_core::PCWSTR, lpnewdirectory : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateDirectoryTransactedW(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), htransaction.param().abi()).ok()
@@ -356,13 +356,13 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateEnlistment<P0, P1>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: P0, transactionhandle: P1, notificationmask: u32, createoptions: u32, enlistmentkey: *mut core::ffi::c_void) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateEnlistment<P1, P2>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: P1, transactionhandle: P2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut core::ffi::c_void) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CreateEnlistment(lpenlistmentattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, resourcemanagerhandle : super::super::Foundation:: HANDLE, transactionhandle : super::super::Foundation:: HANDLE, notificationmask : u32, createoptions : u32, enlistmentkey : *mut core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateEnlistment(lpenlistmentattributes, resourcemanagerhandle.param().abi(), transactionhandle.param().abi(), notificationmask, createoptions, enlistmentkey);
+    let result__ = CreateEnlistment(core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.param().abi(), transactionhandle.param().abi(), core::mem::transmute(notificationmask), core::mem::transmute(createoptions), core::mem::transmute(enlistmentkey));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -372,7 +372,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateFile2(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, dwcreationdisposition : FILE_CREATION_DISPOSITION, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateFile2(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, core::mem::transmute(pcreateexparams.unwrap_or(core::ptr::null())));
+    let result__ = CreateFile2(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(dwcreationdisposition), core::mem::transmute(pcreateexparams.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -382,62 +382,62 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
-    CreateFile2FromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, core::mem::transmute(pcreateexparams.unwrap_or(core::ptr::null())))
+    CreateFile2FromAppW(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(dwcreationdisposition), core::mem::transmute(pcreateexparams.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileA<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileA<P0, P6>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P6) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateFileA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateFileA(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.param().abi());
+    let result__ = CreateFileA(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileFromAppW<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: P1) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateFileFromAppW<P0, P6>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: P6) -> super::super::Foundation::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    CreateFileFromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.param().abi())
+    CreateFileFromAppW(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileTransactedA<P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: Option<*const TXFS_MINIVERSION>, lpextendedparameter: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileTransactedA<P0, P6, P7>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P6, htransaction: P7, pusminiversion: Option<*const TXFS_MINIVERSION>, lpextendedparameter: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
+    P7: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateFileTransactedA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE, htransaction : super::super::Foundation:: HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateFileTransactedA(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.param().abi(), htransaction.param().abi(), core::mem::transmute(pusminiversion.unwrap_or(core::ptr::null())), core::mem::transmute(lpextendedparameter.unwrap_or(core::ptr::null())));
+    let result__ = CreateFileTransactedA(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi(), htransaction.param().abi(), core::mem::transmute(pusminiversion.unwrap_or(core::ptr::null())), core::mem::transmute(lpextendedparameter.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileTransactedW<P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: Option<*const TXFS_MINIVERSION>, lpextendedparameter: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileTransactedW<P0, P6, P7>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P6, htransaction: P7, pusminiversion: Option<*const TXFS_MINIVERSION>, lpextendedparameter: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
+    P7: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateFileTransactedW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE, htransaction : super::super::Foundation:: HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateFileTransactedW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.param().abi(), htransaction.param().abi(), core::mem::transmute(pusminiversion.unwrap_or(core::ptr::null())), core::mem::transmute(lpextendedparameter.unwrap_or(core::ptr::null())));
+    let result__ = CreateFileTransactedW(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi(), htransaction.param().abi(), core::mem::transmute(pusminiversion.unwrap_or(core::ptr::null())), core::mem::transmute(lpextendedparameter.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileW<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileW<P0, P6>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P6) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateFileW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateFileW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.param().abi());
+    let result__ = CreateFileW(lpfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwcreationdisposition), core::mem::transmute(dwflagsandattributes), htemplatefile.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -452,22 +452,22 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateHardLinkTransactedA<P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CreateHardLinkTransactedA<P0, P1, P3>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateHardLinkTransactedA(lpfilename : windows_core::PCSTR, lpexistingfilename : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateHardLinkTransactedA(lpfilename.param().abi(), lpexistingfilename.param().abi(), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), htransaction.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateHardLinkTransactedW<P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn CreateHardLinkTransactedW<P0, P1, P3>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateHardLinkTransactedW(lpfilename : windows_core::PCWSTR, lpexistingfilename : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateHardLinkTransactedW(lpfilename.param().abi(), lpexistingfilename.param().abi(), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), htransaction.param().abi()).ok()
@@ -486,7 +486,7 @@ where
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> windows_core::Result<HIORING> {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut HIORING) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CreateIoRing(ioringversion, core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).map(|| result__)
+    CreateIoRing(core::mem::transmute(ioringversion), core::mem::transmute(flags), core::mem::transmute(submissionqueuesize), core::mem::transmute(completionqueuesize), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -495,7 +495,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn CreateLogContainerScanContext(hlog : super::super::Foundation:: HANDLE, cfromcontainer : u32, ccontainers : u32, escanmode : u8, pcxscan : *mut CLS_SCAN_CONTEXT, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    CreateLogContainerScanContext(hlog.param().abi(), cfromcontainer, ccontainers, escanmode, pcxscan, poverlapped).ok()
+    CreateLogContainerScanContext(hlog.param().abi(), core::mem::transmute(cfromcontainer), core::mem::transmute(ccontainers), core::mem::transmute(escanmode), core::mem::transmute(pcxscan), core::mem::transmute(poverlapped)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -504,7 +504,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : windows_core::PCWSTR, fdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES, fcreatedisposition : FILE_CREATION_DISPOSITION, fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateLogFile(pszlogfilename.param().abi(), fdesiredaccess, dwsharemode, psalogfile, fcreatedisposition, fflagsandattributes);
+    let result__ = CreateLogFile(pszlogfilename.param().abi(), core::mem::transmute(fdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(psalogfile), core::mem::transmute(fcreatedisposition), core::mem::transmute(fflagsandattributes));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -513,17 +513,17 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::super::Foundation:: HANDLE, pfnallocbuffer : CLFS_BLOCK_ALLOCATION, pfnfreebuffer : CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *mut core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CreateLogMarshallingArea(hlog.param().abi(), pfnallocbuffer, pfnfreebuffer, pvblockalloccontext, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal).ok()
+    CreateLogMarshallingArea(hlog.param().abi(), core::mem::transmute(pfnallocbuffer), core::mem::transmute(pfnfreebuffer), core::mem::transmute(pvblockalloccontext), core::mem::transmute(cbmarshallingbuffer), core::mem::transmute(cmaxwritebuffers), core::mem::transmute(cmaxreadbuffers), core::mem::transmute(ppvmarshal)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateResourceManager<P0, P1>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut windows_core::GUID, createoptions: u32, tmhandle: P0, description: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateResourceManager<P3, P4>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut windows_core::GUID, createoptions: u32, tmhandle: P3, description: P4) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CreateResourceManager(lpresourcemanagerattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, resourcemanagerid : *mut windows_core::GUID, createoptions : u32, tmhandle : super::super::Foundation:: HANDLE, description : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateResourceManager(lpresourcemanagerattributes, resourcemanagerid, createoptions, tmhandle.param().abi(), description.param().abi());
+    let result__ = CreateResourceManager(core::mem::transmute(lpresourcemanagerattributes), core::mem::transmute(resourcemanagerid), core::mem::transmute(createoptions), tmhandle.param().abi(), description.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -533,27 +533,27 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> super::super::Foundation:: BOOLEAN);
-    CreateSymbolicLinkA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags)
+    CreateSymbolicLinkA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedA<P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedA<P0, P1, P3>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P3) -> super::super::Foundation::BOOLEAN
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
-    CreateSymbolicLinkTransactedA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags, htransaction.param().abi())
+    CreateSymbolicLinkTransactedA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags), htransaction.param().abi())
 }
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedW<P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedW<P0, P1, P3>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P3) -> super::super::Foundation::BOOLEAN
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
-    CreateSymbolicLinkTransactedW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags, htransaction.param().abi())
+    CreateSymbolicLinkTransactedW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags), htransaction.param().abi())
 }
 #[inline]
 pub unsafe fn CreateSymbolicLinkW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
@@ -562,7 +562,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> super::super::Foundation:: BOOLEAN);
-    CreateSymbolicLinkW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags)
+    CreateSymbolicLinkW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn CreateTapePartition<P0>(hdevice: P0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32
@@ -570,26 +570,26 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateTapePartition(hdevice : super::super::Foundation:: HANDLE, dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD, dwcount : u32, dwsize : u32) -> u32);
-    CreateTapePartition(hdevice.param().abi(), dwpartitionmethod, dwcount, dwsize)
+    CreateTapePartition(hdevice.param().abi(), core::mem::transmute(dwpartitionmethod), core::mem::transmute(dwcount), core::mem::transmute(dwsize))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateTransaction<P0>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut windows_core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateTransaction<P6>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut windows_core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P6) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, uow : *mut windows_core::GUID, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateTransaction(lptransactionattributes, uow, createoptions, isolationlevel, isolationflags, timeout, description.param().abi());
+    let result__ = CreateTransaction(core::mem::transmute(lptransactionattributes), core::mem::transmute(uow), core::mem::transmute(createoptions), core::mem::transmute(isolationlevel), core::mem::transmute(isolationflags), core::mem::transmute(timeout), description.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateTransactionManager<P0>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: P0, createoptions: u32, commitstrength: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateTransactionManager<P1>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: P1, createoptions: u32, commitstrength: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn CreateTransactionManager(lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, logfilename : windows_core::PCWSTR, createoptions : u32, commitstrength : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateTransactionManager(lptransactionattributes, logfilename.param().abi(), createoptions, commitstrength);
+    let result__ = CreateTransactionManager(core::mem::transmute(lptransactionattributes), logfilename.param().abi(), core::mem::transmute(createoptions), core::mem::transmute(commitstrength));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -598,7 +598,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn DecryptFileA(lpfilename : windows_core::PCSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
-    DecryptFileA(lpfilename.param().abi(), dwreserved).ok()
+    DecryptFileA(lpfilename.param().abi(), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
 pub unsafe fn DecryptFileW<P0>(lpfilename: P0, dwreserved: u32) -> windows_core::Result<()>
@@ -606,25 +606,25 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn DecryptFileW(lpfilename : windows_core::PCWSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
-    DecryptFileW(lpfilename.param().abi(), dwreserved).ok()
+    DecryptFileW(lpfilename.param().abi(), core::mem::transmute(dwreserved)).ok()
 }
 #[inline]
-pub unsafe fn DefineDosDeviceA<P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> windows_core::Result<()>
+pub unsafe fn DefineDosDeviceA<P1, P2>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P1, lptargetpath: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DefineDosDeviceA(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_core::PCSTR, lptargetpath : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    DefineDosDeviceA(dwflags, lpdevicename.param().abi(), lptargetpath.param().abi()).ok()
+    DefineDosDeviceA(core::mem::transmute(dwflags), lpdevicename.param().abi(), lptargetpath.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DefineDosDeviceW<P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> windows_core::Result<()>
+pub unsafe fn DefineDosDeviceW<P1, P2>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P1, lptargetpath: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DefineDosDeviceW(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    DefineDosDeviceW(dwflags, lpdevicename.param().abi(), lptargetpath.param().abi()).ok()
+    DefineDosDeviceW(core::mem::transmute(dwflags), lpdevicename.param().abi(), lptargetpath.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DeleteFileA<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -682,12 +682,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn DeleteLogFile(pszlogfilename : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DeleteLogFile(pszlogfilename.param().abi(), pvreserved).ok()
+    DeleteLogFile(pszlogfilename.param().abi(), core::mem::transmute(pvreserved)).ok()
 }
 #[inline]
 pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn DeleteLogMarshallingArea(pvmarshal : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DeleteLogMarshallingArea(pvmarshal).ok()
+    DeleteLogMarshallingArea(core::mem::transmute(pvmarshal)).ok()
 }
 #[inline]
 pub unsafe fn DeleteVolumeMountPointA<P0>(lpszvolumemountpoint: P0) -> windows_core::Result<()>
@@ -721,7 +721,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_core::PCWSTR, dstfilename : windows_core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> u32);
-    DuplicateEncryptionInfoFile(srcfilename.param().abi(), dstfilename.param().abi(), dwcreationdistribution, dwattributes, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())))
+    DuplicateEncryptionInfoFile(srcfilename.param().abi(), dstfilename.param().abi(), core::mem::transmute(dwcreationdistribution), core::mem::transmute(dwattributes), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn EncryptFileA<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -749,13 +749,13 @@ where
     EncryptionDisable(dirpath.param().abi(), disable.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EraseTape<P0, P1>(hdevice: P0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: P1) -> u32
+pub unsafe fn EraseTape<P0, P2>(hdevice: P0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: P2) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EraseTape(hdevice : super::super::Foundation:: HANDLE, dwerasetype : ERASE_TAPE_TYPE, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    EraseTape(hdevice.param().abi(), dwerasetype, bimmediate.param().abi())
+    EraseTape(hdevice.param().abi(), core::mem::transmute(dwerasetype), bimmediate.param().abi())
 }
 #[inline]
 pub unsafe fn FileEncryptionStatusA<P0>(lpfilename: P0, lpstatus: *mut u32) -> windows_core::Result<()>
@@ -763,7 +763,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FileEncryptionStatusA(lpfilename : windows_core::PCSTR, lpstatus : *mut u32) -> super::super::Foundation:: BOOL);
-    FileEncryptionStatusA(lpfilename.param().abi(), lpstatus).ok()
+    FileEncryptionStatusA(lpfilename.param().abi(), core::mem::transmute(lpstatus)).ok()
 }
 #[inline]
 pub unsafe fn FileEncryptionStatusW<P0>(lpfilename: P0, lpstatus: *mut u32) -> windows_core::Result<()>
@@ -771,17 +771,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FileEncryptionStatusW(lpfilename : windows_core::PCWSTR, lpstatus : *mut u32) -> super::super::Foundation:: BOOL);
-    FileEncryptionStatusW(lpfilename.param().abi(), lpstatus).ok()
+    FileEncryptionStatusW(lpfilename.param().abi(), core::mem::transmute(lpstatus)).ok()
 }
 #[inline]
 pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const super::super::Foundation:: FILETIME, lplocalfiletime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
-    FileTimeToLocalFileTime(lpfiletime, lplocalfiletime).ok()
+    FileTimeToLocalFileTime(core::mem::transmute(lpfiletime), core::mem::transmute(lplocalfiletime)).ok()
 }
 #[inline]
 pub unsafe fn FindClose(hfindfile: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindClose(hfindfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FindClose(hfindfile).ok()
+    FindClose(core::mem::transmute(hfindfile)).ok()
 }
 #[inline]
 pub unsafe fn FindCloseChangeNotification<P0>(hchangehandle: P0) -> windows_core::Result<()>
@@ -798,7 +798,7 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationA(lppathname : windows_core::PCSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstChangeNotificationA(lppathname.param().abi(), bwatchsubtree.param().abi(), dwnotifyfilter);
+    let result__ = FindFirstChangeNotificationA(lppathname.param().abi(), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -808,7 +808,7 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationW(lppathname : windows_core::PCWSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstChangeNotificationW(lppathname.param().abi(), bwatchsubtree.param().abi(), dwnotifyfilter);
+    let result__ = FindFirstChangeNotificationW(lppathname.param().abi(), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -817,7 +817,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : windows_core::PCSTR, lpfindfiledata : *mut WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileA(lpfilename.param().abi(), lpfindfiledata);
+    let result__ = FindFirstFileA(lpfilename.param().abi(), core::mem::transmute(lpfindfiledata));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -826,7 +826,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileExA(lpfilename.param().abi(), finfolevelid, lpfindfiledata, fsearchop, core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), dwadditionalflags);
+    let result__ = FindFirstFileExA(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfindfiledata), core::mem::transmute(fsearchop), core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), core::mem::transmute(dwadditionalflags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -835,7 +835,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn FindFirstFileExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::super::Foundation:: HANDLE);
-    FindFirstFileExFromAppW(lpfilename.param().abi(), finfolevelid, lpfindfiledata, fsearchop, core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), dwadditionalflags)
+    FindFirstFileExFromAppW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfindfiledata), core::mem::transmute(fsearchop), core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), core::mem::transmute(dwadditionalflags))
 }
 #[inline]
 pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -843,17 +843,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileExW(lpfilename.param().abi(), finfolevelid, lpfindfiledata, fsearchop, core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), dwadditionalflags);
+    let result__ = FindFirstFileExW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfindfiledata), core::mem::transmute(fsearchop), core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), core::mem::transmute(dwadditionalflags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindFirstFileNameTransactedW<P0, P1>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: windows_core::PWSTR, htransaction: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstFileNameTransactedW<P0, P4>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: windows_core::PWSTR, htransaction: P4) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileNameTransactedW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileNameTransactedW(lpfilename.param().abi(), dwflags, stringlength, core::mem::transmute(linkname), htransaction.param().abi());
+    let result__ = FindFirstFileNameTransactedW(lpfilename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(stringlength), core::mem::transmute(linkname), htransaction.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -862,27 +862,27 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileNameW(lpfilename.param().abi(), dwflags, stringlength, core::mem::transmute(linkname));
+    let result__ = FindFirstFileNameW(lpfilename.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(stringlength), core::mem::transmute(linkname));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindFirstFileTransactedA<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstFileTransactedA<P0, P6>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32, htransaction: P6) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileTransactedA(lpfilename : windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileTransactedA(lpfilename.param().abi(), finfolevelid, lpfindfiledata, fsearchop, core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), dwadditionalflags, htransaction.param().abi());
+    let result__ = FindFirstFileTransactedA(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfindfiledata), core::mem::transmute(fsearchop), core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), core::mem::transmute(dwadditionalflags), htransaction.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindFirstFileTransactedW<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstFileTransactedW<P0, P6>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32, htransaction: P6) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileTransactedW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileTransactedW(lpfilename.param().abi(), finfolevelid, lpfindfiledata, fsearchop, core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), dwadditionalflags, htransaction.param().abi());
+    let result__ = FindFirstFileTransactedW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfindfiledata), core::mem::transmute(fsearchop), core::mem::transmute(lpsearchfilter.unwrap_or(core::ptr::null())), core::mem::transmute(dwadditionalflags), htransaction.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -891,17 +891,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : windows_core::PCWSTR, lpfindfiledata : *mut WIN32_FIND_DATAW) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstFileW(lpfilename.param().abi(), lpfindfiledata);
+    let result__ = FindFirstFileW(lpfilename.param().abi(), core::mem::transmute(lpfindfiledata));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindFirstStreamTransactedW<P0, P1>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut core::ffi::c_void, dwflags: u32, htransaction: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn FindFirstStreamTransactedW<P0, P4>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut core::ffi::c_void, dwflags: u32, htransaction: P4) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstStreamTransactedW(lpfilename : windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstStreamTransactedW(lpfilename.param().abi(), infolevel, lpfindstreamdata, dwflags, htransaction.param().abi());
+    let result__ = FindFirstStreamTransactedW(lpfilename.param().abi(), core::mem::transmute(infolevel), core::mem::transmute(lpfindstreamdata), core::mem::transmute(dwflags), htransaction.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -910,7 +910,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindFirstStreamW(lpfilename : windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = FindFirstStreamW(lpfilename.param().abi(), infolevel, lpfindstreamdata, dwflags);
+    let result__ = FindFirstStreamW(lpfilename.param().abi(), core::mem::transmute(infolevel), core::mem::transmute(lpfindstreamdata), core::mem::transmute(dwflags));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -957,7 +957,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNextFileA(hfindfile : super::super::Foundation:: HANDLE, lpfindfiledata : *mut WIN32_FIND_DATAA) -> super::super::Foundation:: BOOL);
-    FindNextFileA(hfindfile.param().abi(), lpfindfiledata).ok()
+    FindNextFileA(hfindfile.param().abi(), core::mem::transmute(lpfindfiledata)).ok()
 }
 #[inline]
 pub unsafe fn FindNextFileNameW<P0>(hfindstream: P0, stringlength: *mut u32, linkname: windows_core::PWSTR) -> windows_core::Result<()>
@@ -965,7 +965,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : super::super::Foundation:: HANDLE, stringlength : *mut u32, linkname : windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    FindNextFileNameW(hfindstream.param().abi(), stringlength, core::mem::transmute(linkname)).ok()
+    FindNextFileNameW(hfindstream.param().abi(), core::mem::transmute(stringlength), core::mem::transmute(linkname)).ok()
 }
 #[inline]
 pub unsafe fn FindNextFileW<P0>(hfindfile: P0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> windows_core::Result<()>
@@ -973,7 +973,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNextFileW(hfindfile : super::super::Foundation:: HANDLE, lpfindfiledata : *mut WIN32_FIND_DATAW) -> super::super::Foundation:: BOOL);
-    FindNextFileW(hfindfile.param().abi(), lpfindfiledata).ok()
+    FindNextFileW(hfindfile.param().abi(), core::mem::transmute(lpfindfiledata)).ok()
 }
 #[inline]
 pub unsafe fn FindNextStreamW<P0>(hfindstream: P0, lpfindstreamdata: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -981,12 +981,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNextStreamW(hfindstream : super::super::Foundation:: HANDLE, lpfindstreamdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FindNextStreamW(hfindstream.param().abi(), lpfindstreamdata).ok()
+    FindNextStreamW(hfindstream.param().abi(), core::mem::transmute(lpfindstreamdata)).ok()
 }
 #[inline]
 pub unsafe fn FindNextVolumeA(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeA(hfindvolume : super::super::Foundation:: HANDLE, lpszvolumename : windows_core::PSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeA(hfindvolume, core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
+    FindNextVolumeA(core::mem::transmute(hfindvolume), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn FindNextVolumeMountPointA<P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u8]) -> windows_core::Result<()>
@@ -1007,7 +1007,7 @@ where
 #[inline]
 pub unsafe fn FindNextVolumeW(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeW(hfindvolume : super::super::Foundation:: HANDLE, lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeW(hfindvolume, core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
+    FindNextVolumeW(core::mem::transmute(hfindvolume), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn FindVolumeClose<P0>(hfindvolume: P0) -> windows_core::Result<()>
@@ -1037,29 +1037,29 @@ where
 #[inline]
 pub unsafe fn FlushLogBuffers(pvmarshal: *const core::ffi::c_void, poverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn FlushLogBuffers(pvmarshal : *const core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    FlushLogBuffers(pvmarshal, core::mem::transmute(poverlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    FlushLogBuffers(core::mem::transmute(pvmarshal), core::mem::transmute(poverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn FlushLogToLsn(pvmarshalcontext : *mut core::ffi::c_void, plsnflush : *mut CLS_LSN, plsnlastflushed : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    FlushLogToLsn(pvmarshalcontext, plsnflush, plsnlastflushed, poverlapped).ok()
+    FlushLogToLsn(core::mem::transmute(pvmarshalcontext), core::mem::transmute(plsnflush), core::mem::transmute(plsnlastflushed), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     windows_targets::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
-    FreeEncryptedFileMetadata(pbmetadata)
+    FreeEncryptedFileMetadata(core::mem::transmute(pbmetadata))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
     windows_targets::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST));
-    FreeEncryptionCertificateHashList(pusers)
+    FreeEncryptionCertificateHashList(core::mem::transmute(pusers))
 }
 #[inline]
 pub unsafe fn FreeReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn FreeReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, pcbadjustment : *mut i64) -> super::super::Foundation:: BOOL);
-    FreeReservedLog(pvmarshal, creservedrecords, pcbadjustment).ok()
+    FreeReservedLog(core::mem::transmute(pvmarshal), core::mem::transmute(creservedrecords), core::mem::transmute(pcbadjustment)).ok()
 }
 #[inline]
 pub unsafe fn GetBinaryTypeA<P0>(lpapplicationname: P0, lpbinarytype: *mut u32) -> windows_core::Result<()>
@@ -1067,7 +1067,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetBinaryTypeA(lpapplicationname : windows_core::PCSTR, lpbinarytype : *mut u32) -> super::super::Foundation:: BOOL);
-    GetBinaryTypeA(lpapplicationname.param().abi(), lpbinarytype).ok()
+    GetBinaryTypeA(lpapplicationname.param().abi(), core::mem::transmute(lpbinarytype)).ok()
 }
 #[inline]
 pub unsafe fn GetBinaryTypeW<P0>(lpapplicationname: P0, lpbinarytype: *mut u32) -> windows_core::Result<()>
@@ -1075,7 +1075,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetBinaryTypeW(lpapplicationname : windows_core::PCWSTR, lpbinarytype : *mut u32) -> super::super::Foundation:: BOOL);
-    GetBinaryTypeW(lpapplicationname.param().abi(), lpbinarytype).ok()
+    GetBinaryTypeW(lpapplicationname.param().abi(), core::mem::transmute(lpbinarytype)).ok()
 }
 #[inline]
 pub unsafe fn GetCompressedFileSizeA<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>) -> u32
@@ -1086,19 +1086,19 @@ where
     GetCompressedFileSizeA(lpfilename.param().abi(), core::mem::transmute(lpfilesizehigh.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetCompressedFileSizeTransactedA<P0, P1>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: P1) -> u32
+pub unsafe fn GetCompressedFileSizeTransactedA<P0, P2>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: P2) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedA(lpfilename : windows_core::PCSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetCompressedFileSizeTransactedA(lpfilename.param().abi(), core::mem::transmute(lpfilesizehigh.unwrap_or(core::ptr::null_mut())), htransaction.param().abi())
 }
 #[inline]
-pub unsafe fn GetCompressedFileSizeTransactedW<P0, P1>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: P1) -> u32
+pub unsafe fn GetCompressedFileSizeTransactedW<P0, P2>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: P2) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedW(lpfilename : windows_core::PCWSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetCompressedFileSizeTransactedW(lpfilename.param().abi(), core::mem::transmute(lpfilesizehigh.unwrap_or(core::ptr::null_mut())), htransaction.param().abi())
@@ -1117,7 +1117,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    GetCurrentClockTransactionManager(transactionmanagerhandle.param().abi(), tmvirtualclock).ok()
+    GetCurrentClockTransactionManager(transactionmanagerhandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn GetDiskFreeSpaceA<P0>(lprootpathname: P0, lpsectorspercluster: Option<*mut u32>, lpbytespersector: Option<*mut u32>, lpnumberoffreeclusters: Option<*mut u32>, lptotalnumberofclusters: Option<*mut u32>) -> windows_core::Result<()>
@@ -1157,7 +1157,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDiskSpaceInformationA(rootpath : windows_core::PCSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    GetDiskSpaceInformationA(rootpath.param().abi(), diskspaceinfo).ok()
+    GetDiskSpaceInformationA(rootpath.param().abi(), core::mem::transmute(diskspaceinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetDiskSpaceInformationW<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::Result<()>
@@ -1165,7 +1165,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDiskSpaceInformationW(rootpath : windows_core::PCWSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    GetDiskSpaceInformationW(rootpath.param().abi(), diskspaceinfo).ok()
+    GetDiskSpaceInformationW(rootpath.param().abi(), core::mem::transmute(diskspaceinfo)).ok()
 }
 #[inline]
 pub unsafe fn GetDriveTypeA<P0>(lprootpathname: P0) -> u32
@@ -1189,7 +1189,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pcbmetadata : *mut u32, ppbmetadata : *mut *mut u8) -> u32);
-    GetEncryptedFileMetadata(lpfilename.param().abi(), pcbmetadata, ppbmetadata)
+    GetEncryptedFileMetadata(lpfilename.param().abi(), core::mem::transmute(pcbmetadata), core::mem::transmute(ppbmetadata))
 }
 #[inline]
 pub unsafe fn GetEnlistmentId<P0>(enlistmenthandle: P0, enlistmentid: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -1197,7 +1197,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetEnlistmentId(enlistmenthandle : super::super::Foundation:: HANDLE, enlistmentid : *mut windows_core::GUID) -> super::super::Foundation:: BOOL);
-    GetEnlistmentId(enlistmenthandle.param().abi(), enlistmentid).ok()
+    GetEnlistmentId(enlistmenthandle.param().abi(), core::mem::transmute(enlistmentid)).ok()
 }
 #[inline]
 pub unsafe fn GetEnlistmentRecoveryInformation<P0>(enlistmenthandle: P0, buffersize: u32, buffer: *mut core::ffi::c_void, bufferused: *mut u32) -> windows_core::Result<()>
@@ -1205,7 +1205,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetEnlistmentRecoveryInformation(enlistmenthandle : super::super::Foundation:: HANDLE, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    GetEnlistmentRecoveryInformation(enlistmenthandle.param().abi(), buffersize, buffer, bufferused).ok()
+    GetEnlistmentRecoveryInformation(enlistmenthandle.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer), core::mem::transmute(bufferused)).ok()
 }
 #[inline]
 pub unsafe fn GetExpandedNameA<P0>(lpszsource: P0, lpszbuffer: &mut [u8; 260]) -> i32
@@ -1237,7 +1237,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileAttributesExA(lpfilename : windows_core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileAttributesExA(lpfilename.param().abi(), finfolevelid, lpfileinformation).ok()
+    GetFileAttributesExA(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfileinformation)).ok()
 }
 #[inline]
 pub unsafe fn GetFileAttributesExFromAppW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -1245,7 +1245,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn GetFileAttributesExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileAttributesExFromAppW(lpfilename.param().abi(), finfolevelid, lpfileinformation)
+    GetFileAttributesExFromAppW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfileinformation))
 }
 #[inline]
 pub unsafe fn GetFileAttributesExW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1253,25 +1253,25 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileAttributesExW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileAttributesExW(lpfilename.param().abi(), finfolevelid, lpfileinformation).ok()
+    GetFileAttributesExW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfileinformation)).ok()
 }
 #[inline]
-pub unsafe fn GetFileAttributesTransactedA<P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: P1) -> windows_core::Result<()>
+pub unsafe fn GetFileAttributesTransactedA<P0, P3>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileAttributesTransactedA(lpfilename : windows_core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    GetFileAttributesTransactedA(lpfilename.param().abi(), finfolevelid, lpfileinformation, htransaction.param().abi()).ok()
+    GetFileAttributesTransactedA(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfileinformation), htransaction.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn GetFileAttributesTransactedW<P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: P1) -> windows_core::Result<()>
+pub unsafe fn GetFileAttributesTransactedW<P0, P3>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileAttributesTransactedW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    GetFileAttributesTransactedW(lpfilename.param().abi(), finfolevelid, lpfileinformation, htransaction.param().abi()).ok()
+    GetFileAttributesTransactedW(lpfilename.param().abi(), core::mem::transmute(finfolevelid), core::mem::transmute(lpfileinformation), htransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn GetFileAttributesW<P0>(lpfilename: P0) -> u32
@@ -1287,7 +1287,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut super::super::Foundation:: BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
-    GetFileBandwidthReservation(hfile.param().abi(), lpperiodmilliseconds, lpbytesperperiod, pdiscardable, lptransfersize, lpnumoutstandingrequests).ok()
+    GetFileBandwidthReservation(hfile.param().abi(), core::mem::transmute(lpperiodmilliseconds), core::mem::transmute(lpbytesperperiod), core::mem::transmute(pdiscardable), core::mem::transmute(lptransfersize), core::mem::transmute(lpnumoutstandingrequests)).ok()
 }
 #[inline]
 pub unsafe fn GetFileInformationByHandle<P0>(hfile: P0, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> windows_core::Result<()>
@@ -1295,7 +1295,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileInformationByHandle(hfile : super::super::Foundation:: HANDLE, lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation:: BOOL);
-    GetFileInformationByHandle(hfile.param().abi(), lpfileinformation).ok()
+    GetFileInformationByHandle(hfile.param().abi(), core::mem::transmute(lpfileinformation)).ok()
 }
 #[inline]
 pub unsafe fn GetFileInformationByHandleEx<P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut core::ffi::c_void, dwbuffersize: u32) -> windows_core::Result<()>
@@ -1303,7 +1303,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileInformationByHandleEx(hfile : super::super::Foundation:: HANDLE, fileinformationclass : FILE_INFO_BY_HANDLE_CLASS, lpfileinformation : *mut core::ffi::c_void, dwbuffersize : u32) -> super::super::Foundation:: BOOL);
-    GetFileInformationByHandleEx(hfile.param().abi(), fileinformationclass, lpfileinformation, dwbuffersize).ok()
+    GetFileInformationByHandleEx(hfile.param().abi(), core::mem::transmute(fileinformationclass), core::mem::transmute(lpfileinformation), core::mem::transmute(dwbuffersize)).ok()
 }
 #[inline]
 pub unsafe fn GetFileSize<P0>(hfile: P0, lpfilesizehigh: Option<*mut u32>) -> u32
@@ -1319,7 +1319,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileSizeEx(hfile : super::super::Foundation:: HANDLE, lpfilesize : *mut i64) -> super::super::Foundation:: BOOL);
-    GetFileSizeEx(hfile.param().abi(), lpfilesize).ok()
+    GetFileSizeEx(hfile.param().abi(), core::mem::transmute(lpfilesize)).ok()
 }
 #[inline]
 pub unsafe fn GetFileTime<P0>(hfile: P0, lpcreationtime: Option<*mut super::super::Foundation::FILETIME>, lplastaccesstime: Option<*mut super::super::Foundation::FILETIME>, lplastwritetime: Option<*mut super::super::Foundation::FILETIME>) -> windows_core::Result<()>
@@ -1343,23 +1343,23 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoA(lptstrfilename : windows_core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileVersionInfoA(lptstrfilename.param().abi(), dwhandle, dwlen, lpdata).ok()
+    GetFileVersionInfoA(lptstrfilename.param().abi(), core::mem::transmute(dwhandle), core::mem::transmute(dwlen), core::mem::transmute(lpdata)).ok()
 }
 #[inline]
-pub unsafe fn GetFileVersionInfoExA<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn GetFileVersionInfoExA<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileVersionInfoExA(dwflags, lpwstrfilename.param().abi(), dwhandle, dwlen, lpdata).ok()
+    GetFileVersionInfoExA(core::mem::transmute(dwflags), lpwstrfilename.param().abi(), core::mem::transmute(dwhandle), core::mem::transmute(dwlen), core::mem::transmute(lpdata)).ok()
 }
 #[inline]
-pub unsafe fn GetFileVersionInfoExW<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn GetFileVersionInfoExW<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileVersionInfoExW(dwflags, lpwstrfilename.param().abi(), dwhandle, dwlen, lpdata).ok()
+    GetFileVersionInfoExW(core::mem::transmute(dwflags), lpwstrfilename.param().abi(), core::mem::transmute(dwhandle), core::mem::transmute(dwlen), core::mem::transmute(lpdata)).ok()
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeA<P0>(lptstrfilename: P0, lpdwhandle: Option<*mut u32>) -> u32
@@ -1370,20 +1370,20 @@ where
     GetFileVersionInfoSizeA(lptstrfilename.param().abi(), core::mem::transmute(lpdwhandle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExA<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: *mut u32) -> u32
+pub unsafe fn GetFileVersionInfoSizeExA<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoSizeExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCSTR, lpdwhandle : *mut u32) -> u32);
-    GetFileVersionInfoSizeExA(dwflags, lpwstrfilename.param().abi(), lpdwhandle)
+    GetFileVersionInfoSizeExA(core::mem::transmute(dwflags), lpwstrfilename.param().abi(), core::mem::transmute(lpdwhandle))
 }
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExW<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: *mut u32) -> u32
+pub unsafe fn GetFileVersionInfoSizeExW<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoSizeExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCWSTR, lpdwhandle : *mut u32) -> u32);
-    GetFileVersionInfoSizeExW(dwflags, lpwstrfilename.param().abi(), lpdwhandle)
+    GetFileVersionInfoSizeExW(core::mem::transmute(dwflags), lpwstrfilename.param().abi(), core::mem::transmute(lpdwhandle))
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeW<P0>(lptstrfilename: P0, lpdwhandle: Option<*mut u32>) -> u32
@@ -1399,7 +1399,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn GetFileVersionInfoW(lptstrfilename : windows_core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetFileVersionInfoW(lptstrfilename.param().abi(), dwhandle, dwlen, lpdata).ok()
+    GetFileVersionInfoW(lptstrfilename.param().abi(), core::mem::transmute(dwhandle), core::mem::transmute(dwlen), core::mem::transmute(lpdata)).ok()
 }
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleA<P0>(hfile: P0, lpszfilepath: &mut [u8], dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32
@@ -1407,7 +1407,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleA(hfile : super::super::Foundation:: HANDLE, lpszfilepath : windows_core::PSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
-    GetFinalPathNameByHandleA(hfile.param().abi(), core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len().try_into().unwrap(), dwflags)
+    GetFinalPathNameByHandleA(hfile.param().abi(), core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleW<P0>(hfile: P0, lpszfilepath: &mut [u16], dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32
@@ -1415,7 +1415,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleW(hfile : super::super::Foundation:: HANDLE, lpszfilepath : windows_core::PWSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
-    GetFinalPathNameByHandleW(hfile.param().abi(), core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len().try_into().unwrap(), dwflags)
+    GetFinalPathNameByHandleW(hfile.param().abi(), core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len().try_into().unwrap(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn GetFullPathNameA<P0>(lpfilename: P0, lpbuffer: Option<&mut [u8]>, lpfilepart: Option<*mut windows_core::PSTR>) -> u32
@@ -1426,19 +1426,19 @@ where
     GetFullPathNameA(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lpfilepart.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetFullPathNameTransactedA<P0, P1>(lpfilename: P0, lpbuffer: Option<&mut [u8]>, lpfilepart: Option<*mut windows_core::PSTR>, htransaction: P1) -> u32
+pub unsafe fn GetFullPathNameTransactedA<P0, P4>(lpfilename: P0, lpbuffer: Option<&mut [u8]>, lpfilepart: Option<*mut windows_core::PSTR>, htransaction: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFullPathNameTransactedA(lpfilename : windows_core::PCSTR, nbufferlength : u32, lpbuffer : windows_core::PSTR, lpfilepart : *mut windows_core::PSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetFullPathNameTransactedA(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lpfilepart.unwrap_or(core::ptr::null_mut())), htransaction.param().abi())
 }
 #[inline]
-pub unsafe fn GetFullPathNameTransactedW<P0, P1>(lpfilename: P0, lpbuffer: Option<&mut [u16]>, lpfilepart: Option<*mut windows_core::PWSTR>, htransaction: P1) -> u32
+pub unsafe fn GetFullPathNameTransactedW<P0, P4>(lpfilename: P0, lpbuffer: Option<&mut [u16]>, lpfilepart: Option<*mut windows_core::PWSTR>, htransaction: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFullPathNameTransactedW(lpfilename : windows_core::PCWSTR, nbufferlength : u32, lpbuffer : windows_core::PWSTR, lpfilepart : *mut windows_core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetFullPathNameTransactedW(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lpfilepart.unwrap_or(core::ptr::null_mut())), htransaction.param().abi())
@@ -1457,16 +1457,16 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn GetIoRingInfo(ioring : HIORING, info : *mut IORING_INFO) -> windows_core::HRESULT);
-    GetIoRingInfo(ioring.param().abi(), info).ok()
+    GetIoRingInfo(ioring.param().abi(), core::mem::transmute(info)).ok()
 }
 #[inline]
-pub unsafe fn GetLogContainerName<P0, P1>(hlog: P0, cidlogicalcontainer: u32, pwstrcontainername: P1, clencontainername: u32, pcactuallencontainername: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetLogContainerName<P0, P2>(hlog: P0, cidlogicalcontainer: u32, pwstrcontainername: P2, clencontainername: u32, pcactuallencontainername: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn GetLogContainerName(hlog : super::super::Foundation:: HANDLE, cidlogicalcontainer : u32, pwstrcontainername : windows_core::PCWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogContainerName(hlog.param().abi(), cidlogicalcontainer, pwstrcontainername.param().abi(), clencontainername, pcactuallencontainername).ok()
+    GetLogContainerName(hlog.param().abi(), core::mem::transmute(cidlogicalcontainer), pwstrcontainername.param().abi(), core::mem::transmute(clencontainername), core::mem::transmute(pcactuallencontainername)).ok()
 }
 #[inline]
 pub unsafe fn GetLogFileInformation<P0>(hlog: P0, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> windows_core::Result<()>
@@ -1474,7 +1474,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn GetLogFileInformation(hlog : super::super::Foundation:: HANDLE, pinfobuffer : *mut CLS_INFORMATION, cbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogFileInformation(hlog.param().abi(), pinfobuffer, cbbuffer).ok()
+    GetLogFileInformation(hlog.param().abi(), core::mem::transmute(pinfobuffer), core::mem::transmute(cbbuffer)).ok()
 }
 #[inline]
 pub unsafe fn GetLogIoStatistics<P0>(hlog: P0, pvstatsbuffer: *mut core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> windows_core::Result<()>
@@ -1482,12 +1482,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn GetLogIoStatistics(hlog : super::super::Foundation:: HANDLE, pvstatsbuffer : *mut core::ffi::c_void, cbstatsbuffer : u32, estatsclass : CLFS_IOSTATS_CLASS, pcbstatswritten : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogIoStatistics(hlog.param().abi(), pvstatsbuffer, cbstatsbuffer, estatsclass, pcbstatswritten).ok()
+    GetLogIoStatistics(hlog.param().abi(), core::mem::transmute(pvstatsbuffer), core::mem::transmute(cbstatsbuffer), core::mem::transmute(estatsclass), core::mem::transmute(pcbstatswritten)).ok()
 }
 #[inline]
 pub unsafe fn GetLogReservationInfo(pvmarshal: *const core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL {
     windows_targets::link!("clfsw32.dll" "system" fn GetLogReservationInfo(pvmarshal : *const core::ffi::c_void, pcbrecordnumber : *mut u32, pcbuserreservation : *mut i64, pcbcommitreservation : *mut i64) -> super::super::Foundation:: BOOL);
-    GetLogReservationInfo(pvmarshal, pcbrecordnumber, pcbuserreservation, pcbcommitreservation)
+    GetLogReservationInfo(core::mem::transmute(pvmarshal), core::mem::transmute(pcbrecordnumber), core::mem::transmute(pcbuserreservation), core::mem::transmute(pcbcommitreservation))
 }
 #[inline]
 pub unsafe fn GetLogicalDriveStringsA(lpbuffer: Option<&mut [u8]>) -> u32 {
@@ -1513,19 +1513,19 @@ where
     GetLongPathNameA(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn GetLongPathNameTransactedA<P0, P1>(lpszshortpath: P0, lpszlongpath: Option<&mut [u8]>, htransaction: P1) -> u32
+pub unsafe fn GetLongPathNameTransactedA<P0, P3>(lpszshortpath: P0, lpszlongpath: Option<&mut [u8]>, htransaction: P3) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetLongPathNameTransactedA(lpszshortpath : windows_core::PCSTR, lpszlongpath : windows_core::PSTR, cchbuffer : u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetLongPathNameTransactedA(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction.param().abi())
 }
 #[inline]
-pub unsafe fn GetLongPathNameTransactedW<P0, P1>(lpszshortpath: P0, lpszlongpath: Option<&mut [u16]>, htransaction: P1) -> u32
+pub unsafe fn GetLongPathNameTransactedW<P0, P3>(lpszshortpath: P0, lpszlongpath: Option<&mut [u16]>, htransaction: P3) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetLongPathNameTransactedW(lpszshortpath : windows_core::PCWSTR, lpszlongpath : windows_core::PWSTR, cchbuffer : u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
     GetLongPathNameTransactedW(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction.param().abi())
@@ -1541,7 +1541,7 @@ where
 #[inline]
 pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn GetNextLogArchiveExtent(pvarchivecontext : *mut core::ffi::c_void, rgadextent : *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors : u32, pcdescriptorsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    GetNextLogArchiveExtent(pvarchivecontext, rgadextent, cdescriptors, pcdescriptorsreturned).ok()
+    GetNextLogArchiveExtent(core::mem::transmute(pvarchivecontext), core::mem::transmute(rgadextent), core::mem::transmute(cdescriptors), core::mem::transmute(pcdescriptorsreturned)).ok()
 }
 #[inline]
 pub unsafe fn GetNotificationResourceManager<P0>(resourcemanagerhandle: P0, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> windows_core::Result<()>
@@ -1549,7 +1549,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetNotificationResourceManager(resourcemanagerhandle : super::super::Foundation:: HANDLE, transactionnotification : *mut TRANSACTION_NOTIFICATION, notificationlength : u32, dwmilliseconds : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetNotificationResourceManager(resourcemanagerhandle.param().abi(), transactionnotification, notificationlength, dwmilliseconds, returnlength).ok()
+    GetNotificationResourceManager(resourcemanagerhandle.param().abi(), core::mem::transmute(transactionnotification), core::mem::transmute(notificationlength), core::mem::transmute(dwmilliseconds), core::mem::transmute(returnlength)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -1558,7 +1558,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetNotificationResourceManagerAsync(resourcemanagerhandle : super::super::Foundation:: HANDLE, transactionnotification : *mut TRANSACTION_NOTIFICATION, transactionnotificationlength : u32, returnlength : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    GetNotificationResourceManagerAsync(resourcemanagerhandle.param().abi(), transactionnotification, transactionnotificationlength, returnlength, lpoverlapped).ok()
+    GetNotificationResourceManagerAsync(resourcemanagerhandle.param().abi(), core::mem::transmute(transactionnotification), core::mem::transmute(transactionnotificationlength), core::mem::transmute(returnlength), core::mem::transmute(lpoverlapped)).ok()
 }
 #[inline]
 pub unsafe fn GetShortPathNameA<P0>(lpszlongpath: P0, lpszshortpath: Option<&mut [u8]>) -> u32
@@ -1582,7 +1582,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTapeParameters(hdevice : super::super::Foundation:: HANDLE, dwoperation : GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize : *mut u32, lptapeinformation : *mut core::ffi::c_void) -> u32);
-    GetTapeParameters(hdevice.param().abi(), dwoperation, lpdwsize, lptapeinformation)
+    GetTapeParameters(hdevice.param().abi(), core::mem::transmute(dwoperation), core::mem::transmute(lpdwsize), core::mem::transmute(lptapeinformation))
 }
 #[inline]
 pub unsafe fn GetTapePosition<P0>(hdevice: P0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32
@@ -1590,7 +1590,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTapePosition(hdevice : super::super::Foundation:: HANDLE, dwpositiontype : TAPE_POSITION_TYPE, lpdwpartition : *mut u32, lpdwoffsetlow : *mut u32, lpdwoffsethigh : *mut u32) -> u32);
-    GetTapePosition(hdevice.param().abi(), dwpositiontype, lpdwpartition, lpdwoffsetlow, lpdwoffsethigh)
+    GetTapePosition(hdevice.param().abi(), core::mem::transmute(dwpositiontype), core::mem::transmute(lpdwpartition), core::mem::transmute(lpdwoffsetlow), core::mem::transmute(lpdwoffsethigh))
 }
 #[inline]
 pub unsafe fn GetTapeStatus<P0>(hdevice: P0) -> u32
@@ -1607,7 +1607,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTempFileNameA(lppathname : windows_core::PCSTR, lpprefixstring : windows_core::PCSTR, uunique : u32, lptempfilename : windows_core::PSTR) -> u32);
-    GetTempFileNameA(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename.as_ptr()))
+    GetTempFileNameA(lppathname.param().abi(), lpprefixstring.param().abi(), core::mem::transmute(uunique), core::mem::transmute(lptempfilename.as_ptr()))
 }
 #[inline]
 pub unsafe fn GetTempFileNameW<P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: &mut [u16; 260]) -> u32
@@ -1616,7 +1616,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTempFileNameW(lppathname : windows_core::PCWSTR, lpprefixstring : windows_core::PCWSTR, uunique : u32, lptempfilename : windows_core::PWSTR) -> u32);
-    GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename.as_ptr()))
+    GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), core::mem::transmute(uunique), core::mem::transmute(lptempfilename.as_ptr()))
 }
 #[inline]
 pub unsafe fn GetTempPath2A(buffer: Option<&mut [u8]>) -> u32 {
@@ -1644,7 +1644,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetTransactionId(transactionhandle : super::super::Foundation:: HANDLE, transactionid : *mut windows_core::GUID) -> super::super::Foundation:: BOOL);
-    GetTransactionId(transactionhandle.param().abi(), transactionid).ok()
+    GetTransactionId(transactionhandle.param().abi(), core::mem::transmute(transactionid)).ok()
 }
 #[inline]
 pub unsafe fn GetTransactionInformation<P0>(transactionhandle: P0, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, description: Option<&mut [u16]>) -> windows_core::Result<()>
@@ -1652,7 +1652,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::super::Foundation:: HANDLE, outcome : *mut u32, isolationlevel : *mut u32, isolationflags : *mut u32, timeout : *mut u32, bufferlength : u32, description : windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    GetTransactionInformation(transactionhandle.param().abi(), outcome, isolationlevel, isolationflags, timeout, description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    GetTransactionInformation(transactionhandle.param().abi(), core::mem::transmute(outcome), core::mem::transmute(isolationlevel), core::mem::transmute(isolationflags), core::mem::transmute(timeout), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[inline]
 pub unsafe fn GetTransactionManagerId<P0>(transactionmanagerhandle: P0, transactionmanagerid: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -1660,7 +1660,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn GetTransactionManagerId(transactionmanagerhandle : super::super::Foundation:: HANDLE, transactionmanagerid : *mut windows_core::GUID) -> super::super::Foundation:: BOOL);
-    GetTransactionManagerId(transactionmanagerhandle.param().abi(), transactionmanagerid).ok()
+    GetTransactionManagerId(transactionmanagerhandle.param().abi(), core::mem::transmute(transactionmanagerid)).ok()
 }
 #[inline]
 pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<&mut [u8]>, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<&mut [u8]>) -> windows_core::Result<()>
@@ -1754,7 +1754,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameA(lpszvolumename : windows_core::PCSTR, lpszvolumepathnames : windows_core::PSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetVolumePathNamesForVolumeNameA(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength).ok()
+    GetVolumePathNamesForVolumeNameA(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpcchreturnlength)).ok()
 }
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<&mut [u16]>, lpcchreturnlength: *mut u32) -> windows_core::Result<()>
@@ -1762,7 +1762,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_core::PCWSTR, lpszvolumepathnames : windows_core::PWSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength).ok()
+    GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpcchreturnlength)).ok()
 }
 #[inline]
 pub unsafe fn HandleLogFull<P0>(hlog: P0) -> windows_core::Result<()>
@@ -1778,7 +1778,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn InstallLogPolicy(hlog : super::super::Foundation:: HANDLE, ppolicy : *mut CLFS_MGMT_POLICY) -> super::super::Foundation:: BOOL);
-    InstallLogPolicy(hlog.param().abi(), ppolicy).ok()
+    InstallLogPolicy(hlog.param().abi(), core::mem::transmute(ppolicy)).ok()
 }
 #[inline]
 pub unsafe fn IsIoRingOpSupported<P0>(ioring: P0, op: IORING_OP_CODE) -> super::super::Foundation::BOOL
@@ -1786,17 +1786,17 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn IsIoRingOpSupported(ioring : HIORING, op : IORING_OP_CODE) -> super::super::Foundation:: BOOL);
-    IsIoRingOpSupported(ioring.param().abi(), op)
+    IsIoRingOpSupported(ioring.param().abi(), core::mem::transmute(op))
 }
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
     windows_targets::link!("kernel32.dll" "system" fn LZClose(hfile : i32));
-    LZClose(hfile)
+    LZClose(core::mem::transmute(hfile))
 }
 #[inline]
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LZCopy(hfsource : i32, hfdest : i32) -> i32);
-    LZCopy(hfsource, hfdest)
+    LZCopy(core::mem::transmute(hfsource), core::mem::transmute(hfdest))
 }
 #[inline]
 pub unsafe fn LZDone() {
@@ -1806,7 +1806,7 @@ pub unsafe fn LZDone() {
 #[inline]
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LZInit(hfsource : i32) -> i32);
-    LZInit(hfsource)
+    LZInit(core::mem::transmute(hfsource))
 }
 #[inline]
 pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
@@ -1814,7 +1814,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LZOpenFileA(lpfilename : windows_core::PCSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
-    LZOpenFileA(lpfilename.param().abi(), lpreopenbuf, wstyle)
+    LZOpenFileA(lpfilename.param().abi(), core::mem::transmute(lpreopenbuf), core::mem::transmute(wstyle))
 }
 #[inline]
 pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
@@ -1822,17 +1822,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LZOpenFileW(lpfilename : windows_core::PCWSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
-    LZOpenFileW(lpfilename.param().abi(), lpreopenbuf, wstyle)
+    LZOpenFileW(lpfilename.param().abi(), core::mem::transmute(lpreopenbuf), core::mem::transmute(wstyle))
 }
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LZRead(hfile : i32, lpbuffer : windows_core::PSTR, cbread : i32) -> i32);
-    LZRead(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
+    LZRead(core::mem::transmute(hfile), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn LZSeek(hfile : i32, loffset : i32, iorigin : i32) -> i32);
-    LZSeek(hfile, loffset, iorigin)
+    LZSeek(core::mem::transmute(hfile), core::mem::transmute(loffset), core::mem::transmute(iorigin))
 }
 #[inline]
 pub unsafe fn LZStart() -> i32 {
@@ -1842,7 +1842,7 @@ pub unsafe fn LZStart() -> i32 {
 #[inline]
 pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn LocalFileTimeToFileTime(lplocalfiletime : *const super::super::Foundation:: FILETIME, lpfiletime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
-    LocalFileTimeToFileTime(lplocalfiletime, lpfiletime).ok()
+    LocalFileTimeToFileTime(core::mem::transmute(lplocalfiletime), core::mem::transmute(lpfiletime)).ok()
 }
 #[inline]
 pub unsafe fn LockFile<P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> windows_core::Result<()>
@@ -1850,7 +1850,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LockFile(hfile : super::super::Foundation:: HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32) -> super::super::Foundation:: BOOL);
-    LockFile(hfile.param().abi(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh).ok()
+    LockFile(hfile.param().abi(), core::mem::transmute(dwfileoffsetlow), core::mem::transmute(dwfileoffsethigh), core::mem::transmute(nnumberofbytestolocklow), core::mem::transmute(nnumberofbytestolockhigh)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -1859,7 +1859,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LockFileEx(hfile : super::super::Foundation:: HANDLE, dwflags : LOCK_FILE_FLAGS, dwreserved : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    LockFileEx(hfile.param().abi(), dwflags, dwreserved, nnumberofbytestolocklow, nnumberofbytestolockhigh, lpoverlapped).ok()
+    LockFileEx(hfile.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwreserved), core::mem::transmute(nnumberofbytestolocklow), core::mem::transmute(nnumberofbytestolockhigh), core::mem::transmute(lpoverlapped)).ok()
 }
 #[inline]
 pub unsafe fn LogTailAdvanceFailure<P0>(hlog: P0, dwreason: u32) -> windows_core::Result<()>
@@ -1867,57 +1867,57 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn LogTailAdvanceFailure(hlog : super::super::Foundation:: HANDLE, dwreason : u32) -> super::super::Foundation:: BOOL);
-    LogTailAdvanceFailure(hlog.param().abi(), dwreason).ok()
+    LogTailAdvanceFailure(hlog.param().abi(), core::mem::transmute(dwreason)).ok()
 }
 #[inline]
 pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     windows_targets::link!("clfsw32.dll" "system" fn LsnBlockOffset(plsn : *const CLS_LSN) -> u32);
-    LsnBlockOffset(plsn)
+    LsnBlockOffset(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     windows_targets::link!("clfsw32.dll" "system" fn LsnContainer(plsn : *const CLS_LSN) -> u32);
-    LsnContainer(plsn)
+    LsnContainer(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnCreate(cidcontainer : u32, offblock : u32, crecord : u32) -> CLS_LSN);
-    LsnCreate(cidcontainer, offblock, crecord)
+    LsnCreate(core::mem::transmute(cidcontainer), core::mem::transmute(offblock), core::mem::transmute(crecord))
 }
 #[inline]
 pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
-    LsnEqual(plsn1, plsn2)
+    LsnEqual(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
 pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
-    LsnGreater(plsn1, plsn2)
+    LsnGreater(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
 pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnIncrement(plsn : *const CLS_LSN) -> CLS_LSN);
-    LsnIncrement(plsn)
+    LsnIncrement(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
-    LsnInvalid(plsn)
+    LsnInvalid(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
-    LsnLess(plsn1, plsn2)
+    LsnLess(core::mem::transmute(plsn1), core::mem::transmute(plsn2))
 }
 #[inline]
 pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     windows_targets::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> super::super::Foundation:: BOOLEAN);
-    LsnNull(plsn)
+    LsnNull(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     windows_targets::link!("clfsw32.dll" "system" fn LsnRecordSequence(plsn : *const CLS_LSN) -> u32);
-    LsnRecordSequence(plsn)
+    LsnRecordSequence(core::mem::transmute(plsn))
 }
 #[inline]
 pub unsafe fn MoveFileA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> windows_core::Result<()>
@@ -1935,7 +1935,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, dwflags : MOVE_FILE_FLAGS) -> super::super::Foundation:: BOOL);
-    MoveFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags).ok()
+    MoveFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn MoveFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -1944,7 +1944,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, dwflags : MOVE_FILE_FLAGS) -> super::super::Foundation:: BOOL);
-    MoveFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags).ok()
+    MoveFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn MoveFileFromAppW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> super::super::Foundation::BOOL
@@ -1956,24 +1956,24 @@ where
     MoveFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi())
 }
 #[inline]
-pub unsafe fn MoveFileTransactedA<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn MoveFileTransactedA<P0, P1, P5>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: P5) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P5: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    MoveFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), dwflags, htransaction.param().abi()).ok()
+    MoveFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), htransaction.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn MoveFileTransactedW<P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> windows_core::Result<()>
+pub unsafe fn MoveFileTransactedW<P0, P1, P5>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: P5) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P5: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    MoveFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), dwflags, htransaction.param().abi()).ok()
+    MoveFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags), htransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MoveFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> windows_core::Result<()>
@@ -1991,7 +1991,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileWithProgressA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> super::super::Foundation:: BOOL);
-    MoveFileWithProgressA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), dwflags).ok()
+    MoveFileWithProgressA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn MoveFileWithProgressW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -2000,7 +2000,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn MoveFileWithProgressW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> super::super::Foundation:: BOOL);
-    MoveFileWithProgressW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), dwflags).ok()
+    MoveFileWithProgressW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), core::mem::transmute(lpprogressroutine), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn NetConnectionEnum<P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -2009,7 +2009,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_core::PCWSTR, qualifier : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    NetConnectionEnum(servername.param().abi(), qualifier.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
+    NetConnectionEnum(servername.param().abi(), qualifier.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetFileClose<P0>(servername: P0, fileid: u32) -> u32
@@ -2017,7 +2017,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_core::PCWSTR, fileid : u32) -> u32);
-    NetFileClose(servername.param().abi(), fileid)
+    NetFileClose(servername.param().abi(), core::mem::transmute(fileid))
 }
 #[inline]
 pub unsafe fn NetFileEnum<P0, P1, P2>(servername: P0, basepath: P1, username: P2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut usize>) -> u32
@@ -2027,7 +2027,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_core::PCWSTR, basepath : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
-    NetFileEnum(servername.param().abi(), basepath.param().abi(), username.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
+    NetFileEnum(servername.param().abi(), basepath.param().abi(), username.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetFileGetInfo<P0>(servername: P0, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32
@@ -2035,7 +2035,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_core::PCWSTR, fileid : u32, level : u32, bufptr : *mut *mut u8) -> u32);
-    NetFileGetInfo(servername.param().abi(), fileid, level, bufptr)
+    NetFileGetInfo(servername.param().abi(), core::mem::transmute(fileid), core::mem::transmute(level), core::mem::transmute(bufptr))
 }
 #[inline]
 pub unsafe fn NetServerAliasAdd<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -2043,7 +2043,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    NetServerAliasAdd(servername.param().abi(), level, buf)
+    NetServerAliasAdd(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(buf))
 }
 #[inline]
 pub unsafe fn NetServerAliasDel<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -2051,7 +2051,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    NetServerAliasDel(servername.param().abi(), level, buf)
+    NetServerAliasDel(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(buf))
 }
 #[inline]
 pub unsafe fn NetServerAliasEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
@@ -2059,7 +2059,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
-    NetServerAliasEnum(servername.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resumehandle.unwrap_or(core::ptr::null_mut())))
+    NetServerAliasEnum(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resumehandle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetSessionDel<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2) -> u32
@@ -2079,7 +2079,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    NetSessionEnum(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
+    NetSessionEnum(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetSessionGetInfo<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: *mut *mut u8) -> u32
@@ -2089,7 +2089,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
-    NetSessionGetInfo(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr)
+    NetSessionGetInfo(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr))
 }
 #[inline]
 pub unsafe fn NetShareAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: Option<*mut u32>) -> u32
@@ -2097,7 +2097,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-    NetShareAdd(servername.param().abi(), level, buf, core::mem::transmute(parm_err.unwrap_or(core::ptr::null_mut())))
+    NetShareAdd(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(buf), core::mem::transmute(parm_err.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetShareCheck<P0, P1>(servername: P0, device: P1, r#type: *mut u32) -> u32
@@ -2106,7 +2106,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_core::PCWSTR, device : windows_core::PCWSTR, r#type : *mut u32) -> u32);
-    NetShareCheck(servername.param().abi(), device.param().abi(), r#type)
+    NetShareCheck(servername.param().abi(), device.param().abi(), core::mem::transmute(r#type))
 }
 #[inline]
 pub unsafe fn NetShareDel<P0, P1>(servername: P0, netname: P1, reserved: u32) -> u32
@@ -2115,7 +2115,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, reserved : u32) -> u32);
-    NetShareDel(servername.param().abi(), netname.param().abi(), reserved)
+    NetShareDel(servername.param().abi(), netname.param().abi(), core::mem::transmute(reserved))
 }
 #[inline]
 pub unsafe fn NetShareDelEx<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -2123,7 +2123,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    NetShareDelEx(servername.param().abi(), level, buf)
+    NetShareDelEx(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(buf))
 }
 #[inline]
 pub unsafe fn NetShareDelSticky<P0, P1>(servername: P0, netname: P1, reserved: u32) -> u32
@@ -2132,7 +2132,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, reserved : u32) -> u32);
-    NetShareDelSticky(servername.param().abi(), netname.param().abi(), reserved)
+    NetShareDelSticky(servername.param().abi(), netname.param().abi(), core::mem::transmute(reserved))
 }
 #[inline]
 pub unsafe fn NetShareEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -2140,7 +2140,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    NetShareEnum(servername.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
+    NetShareEnum(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetShareEnumSticky<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -2148,7 +2148,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    NetShareEnumSticky(servername.param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
+    NetShareEnumSticky(servername.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr), core::mem::transmute(prefmaxlen), core::mem::transmute(entriesread), core::mem::transmute(totalentries), core::mem::transmute(resume_handle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetShareGetInfo<P0, P1>(servername: P0, netname: P1, level: u32, bufptr: *mut *mut u8) -> u32
@@ -2157,7 +2157,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
-    NetShareGetInfo(servername.param().abi(), netname.param().abi(), level, bufptr)
+    NetShareGetInfo(servername.param().abi(), netname.param().abi(), core::mem::transmute(level), core::mem::transmute(bufptr))
 }
 #[inline]
 pub unsafe fn NetShareSetInfo<P0, P1>(servername: P0, netname: P1, level: u32, buf: *const u8, parm_err: Option<*mut u32>) -> u32
@@ -2166,12 +2166,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-    NetShareSetInfo(servername.param().abi(), netname.param().abi(), level, buf, core::mem::transmute(parm_err.unwrap_or(core::ptr::null_mut())))
+    NetShareSetInfo(servername.param().abi(), netname.param().abi(), core::mem::transmute(level), core::mem::transmute(buf), core::mem::transmute(parm_err.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32 {
     windows_targets::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : *const i8, service : *const i8, level : u32, options : u32, buffer : *mut *mut u8) -> u32);
-    NetStatisticsGet(servername, service, level, options, buffer)
+    NetStatisticsGet(core::mem::transmute(servername), core::mem::transmute(service), core::mem::transmute(level), core::mem::transmute(options), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn OpenEncryptedFileRawA<P0>(lpfilename: P0, ulflags: u32, pvcontext: *mut *mut core::ffi::c_void) -> u32
@@ -2179,7 +2179,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenEncryptedFileRawA(lpfilename : windows_core::PCSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
-    OpenEncryptedFileRawA(lpfilename.param().abi(), ulflags, pvcontext)
+    OpenEncryptedFileRawA(lpfilename.param().abi(), core::mem::transmute(ulflags), core::mem::transmute(pvcontext))
 }
 #[inline]
 pub unsafe fn OpenEncryptedFileRawW<P0>(lpfilename: P0, ulflags: u32, pvcontext: *mut *mut core::ffi::c_void) -> u32
@@ -2187,15 +2187,15 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenEncryptedFileRawW(lpfilename : windows_core::PCWSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
-    OpenEncryptedFileRawW(lpfilename.param().abi(), ulflags, pvcontext)
+    OpenEncryptedFileRawW(lpfilename.param().abi(), core::mem::transmute(ulflags), core::mem::transmute(pvcontext))
 }
 #[inline]
-pub unsafe fn OpenEnlistment<P0>(dwdesiredaccess: u32, resourcemanagerhandle: P0, enlistmentid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenEnlistment<P1>(dwdesiredaccess: u32, resourcemanagerhandle: P1, enlistmentid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn OpenEnlistment(dwdesiredaccess : u32, resourcemanagerhandle : super::super::Foundation:: HANDLE, enlistmentid : *mut windows_core::GUID) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenEnlistment(dwdesiredaccess, resourcemanagerhandle.param().abi(), enlistmentid);
+    let result__ = OpenEnlistment(core::mem::transmute(dwdesiredaccess), resourcemanagerhandle.param().abi(), core::mem::transmute(enlistmentid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -2204,7 +2204,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenFile(lpfilename : windows_core::PCSTR, lpreopenbuff : *mut OFSTRUCT, ustyle : u32) -> i32);
-    OpenFile(lpfilename.param().abi(), lpreopenbuff, ustyle)
+    OpenFile(lpfilename.param().abi(), core::mem::transmute(lpreopenbuff), core::mem::transmute(ustyle))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2213,22 +2213,22 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OpenFileById(hvolumehint : super::super::Foundation:: HANDLE, lpfileid : *const FILE_ID_DESCRIPTOR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenFileById(hvolumehint.param().abi(), lpfileid, dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwflagsandattributes);
+    let result__ = OpenFileById(hvolumehint.param().abi(), core::mem::transmute(lpfileid), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), core::mem::transmute(dwflagsandattributes));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenResourceManager<P0>(dwdesiredaccess: u32, tmhandle: P0, resourcemanagerid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenResourceManager<P1>(dwdesiredaccess: u32, tmhandle: P1, resourcemanagerid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn OpenResourceManager(dwdesiredaccess : u32, tmhandle : super::super::Foundation:: HANDLE, resourcemanagerid : *mut windows_core::GUID) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenResourceManager(dwdesiredaccess, tmhandle.param().abi(), resourcemanagerid);
+    let result__ = OpenResourceManager(core::mem::transmute(dwdesiredaccess), tmhandle.param().abi(), core::mem::transmute(resourcemanagerid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("ktmw32.dll" "system" fn OpenTransaction(dwdesiredaccess : u32, transactionid : *mut windows_core::GUID) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenTransaction(dwdesiredaccess, transactionid);
+    let result__ = OpenTransaction(core::mem::transmute(dwdesiredaccess), core::mem::transmute(transactionid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -2237,13 +2237,13 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn OpenTransactionManager(logfilename : windows_core::PCWSTR, desiredaccess : u32, openoptions : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenTransactionManager(logfilename.param().abi(), desiredaccess, openoptions);
+    let result__ = OpenTransactionManager(logfilename.param().abi(), core::mem::transmute(desiredaccess), core::mem::transmute(openoptions));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const windows_core::GUID, desiredaccess: u32, openoptions: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("ktmw32.dll" "system" fn OpenTransactionManagerById(transactionmanagerid : *const windows_core::GUID, desiredaccess : u32, openoptions : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = OpenTransactionManagerById(transactionmanagerid, desiredaccess, openoptions);
+    let result__ = OpenTransactionManagerById(core::mem::transmute(transactionmanagerid), core::mem::transmute(desiredaccess), core::mem::transmute(openoptions));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -2252,7 +2252,7 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn PopIoRingCompletion(ioring : HIORING, cqe : *mut IORING_CQE) -> windows_core::HRESULT);
-    PopIoRingCompletion(ioring.param().abi(), cqe)
+    PopIoRingCompletion(ioring.param().abi(), core::mem::transmute(cqe))
 }
 #[inline]
 pub unsafe fn PrePrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2260,7 +2260,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn PrePrepareComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    PrePrepareComplete(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    PrePrepareComplete(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn PrePrepareEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2268,7 +2268,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn PrePrepareEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    PrePrepareEnlistment(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    PrePrepareEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn PrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2276,7 +2276,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn PrepareComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    PrepareComplete(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    PrepareComplete(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn PrepareEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2284,7 +2284,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn PrepareEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    PrepareEnlistment(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    PrepareEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn PrepareLogArchive<P0>(hlog: P0, pszbaselogfilename: &mut [u16], plsnlow: Option<*const CLS_LSN>, plsnhigh: Option<*const CLS_LSN>, pcactuallength: Option<*mut u32>, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -2292,16 +2292,30 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn PrepareLogArchive(hlog : super::super::Foundation:: HANDLE, pszbaselogfilename : windows_core::PWSTR, clen : u32, plsnlow : *const CLS_LSN, plsnhigh : *const CLS_LSN, pcactuallength : *mut u32, poffbaselogfiledata : *mut u64, pcbbaselogfilelength : *mut u64, plsnbase : *mut CLS_LSN, plsnlast : *mut CLS_LSN, plsncurrentarchivetail : *mut CLS_LSN, ppvarchivecontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    PrepareLogArchive(hlog.param().abi(), core::mem::transmute(pszbaselogfilename.as_ptr()), pszbaselogfilename.len().try_into().unwrap(), core::mem::transmute(plsnlow.unwrap_or(core::ptr::null())), core::mem::transmute(plsnhigh.unwrap_or(core::ptr::null())), core::mem::transmute(pcactuallength.unwrap_or(core::ptr::null_mut())), poffbaselogfiledata, pcbbaselogfilelength, plsnbase, plsnlast, plsncurrentarchivetail, ppvarchivecontext).ok()
+    PrepareLogArchive(
+        hlog.param().abi(),
+        core::mem::transmute(pszbaselogfilename.as_ptr()),
+        pszbaselogfilename.len().try_into().unwrap(),
+        core::mem::transmute(plsnlow.unwrap_or(core::ptr::null())),
+        core::mem::transmute(plsnhigh.unwrap_or(core::ptr::null())),
+        core::mem::transmute(pcactuallength.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(poffbaselogfiledata),
+        core::mem::transmute(pcbbaselogfilelength),
+        core::mem::transmute(plsnbase),
+        core::mem::transmute(plsnlast),
+        core::mem::transmute(plsncurrentarchivetail),
+        core::mem::transmute(ppvarchivecontext),
+    )
+    .ok()
 }
 #[inline]
-pub unsafe fn PrepareTape<P0, P1>(hdevice: P0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: P1) -> u32
+pub unsafe fn PrepareTape<P0, P2>(hdevice: P0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: P2) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn PrepareTape(hdevice : super::super::Foundation:: HANDLE, dwoperation : PREPARE_TAPE_OPERATION, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    PrepareTape(hdevice.param().abi(), dwoperation, bimmediate.param().abi())
+    PrepareTape(hdevice.param().abi(), core::mem::transmute(dwoperation), bimmediate.param().abi())
 }
 #[inline]
 pub unsafe fn QueryDosDeviceA<P0>(lpdevicename: P0, lptargetpath: Option<&mut [u8]>) -> u32
@@ -2323,7 +2337,7 @@ where
 pub unsafe fn QueryIoRingCapabilities() -> windows_core::Result<IORING_CAPABILITIES> {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn QueryIoRingCapabilities(capabilities : *mut IORING_CAPABILITIES) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    QueryIoRingCapabilities(&mut result__).map(|| result__)
+    QueryIoRingCapabilities(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn QueryLogPolicy<P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> windows_core::Result<()>
@@ -2331,7 +2345,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn QueryLogPolicy(hlog : super::super::Foundation:: HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE, ppolicybuffer : *mut CLFS_MGMT_POLICY, pcbpolicybuffer : *mut u32) -> super::super::Foundation:: BOOL);
-    QueryLogPolicy(hlog.param().abi(), epolicytype, ppolicybuffer, pcbpolicybuffer).ok()
+    QueryLogPolicy(hlog.param().abi(), core::mem::transmute(epolicytype), core::mem::transmute(ppolicybuffer), core::mem::transmute(pcbpolicybuffer)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2340,7 +2354,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryRecoveryAgentsOnEncryptedFile(lpfilename : windows_core::PCWSTR, precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    QueryRecoveryAgentsOnEncryptedFile(lpfilename.param().abi(), precoveryagents)
+    QueryRecoveryAgentsOnEncryptedFile(lpfilename.param().abi(), core::mem::transmute(precoveryagents))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2349,7 +2363,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryUsersOnEncryptedFile(lpfilename : windows_core::PCWSTR, pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    QueryUsersOnEncryptedFile(lpfilename.param().abi(), pusers)
+    QueryUsersOnEncryptedFile(lpfilename.param().abi(), core::mem::transmute(pusers))
 }
 #[inline]
 pub unsafe fn ReOpenFile<P0>(horiginalfile: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -2357,33 +2371,33 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReOpenFile(horiginalfile : super::super::Foundation:: HANDLE, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = ReOpenFile(horiginalfile.param().abi(), dwdesiredaccess, dwsharemode, dwflagsandattributes);
+    let result__ = ReOpenFile(horiginalfile.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode), core::mem::transmute(dwflagsandattributes));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW<P0, P1>(hdirectory: P0, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()>
+pub unsafe fn ReadDirectoryChangesExW<P0, P3>(hdirectory: P0, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadDirectoryChangesExW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation:: BOOL);
-    ReadDirectoryChangesExW(hdirectory.param().abi(), lpbuffer, nbufferlength, bwatchsubtree.param().abi(), dwnotifyfilter, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut())), lpcompletionroutine, readdirectorynotifyinformationclass).ok()
+    ReadDirectoryChangesExW(hdirectory.param().abi(), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcompletionroutine), core::mem::transmute(readdirectorynotifyinformationclass)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW<P0, P1>(hdirectory: P0, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()>
+pub unsafe fn ReadDirectoryChangesW<P0, P3>(hdirectory: P0, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadDirectoryChangesW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
-    ReadDirectoryChangesW(hdirectory.param().abi(), lpbuffer, nbufferlength, bwatchsubtree.param().abi(), dwnotifyfilter, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut())), lpcompletionroutine).ok()
+    ReadDirectoryChangesW(hdirectory.param().abi(), core::mem::transmute(lpbuffer), core::mem::transmute(nbufferlength), bwatchsubtree.param().abi(), core::mem::transmute(dwnotifyfilter), core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcompletionroutine)).ok()
 }
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: Option<*const core::ffi::c_void>, pvcontext: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn ReadEncryptedFileRaw(pfexportcallback : PFE_EXPORT_FUNC, pvcallbackcontext : *const core::ffi::c_void, pvcontext : *const core::ffi::c_void) -> u32);
-    ReadEncryptedFileRaw(pfexportcallback, core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), pvcontext)
+    ReadEncryptedFileRaw(core::mem::transmute(pfexportcallback), core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), core::mem::transmute(pvcontext))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -2401,7 +2415,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
-    ReadFileEx(hfile.param().abi(), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped, lpcompletionroutine).ok()
+    ReadFileEx(hfile.param().abi(), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoverlapped), core::mem::transmute(lpcompletionroutine)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -2410,12 +2424,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadFileScatter(hfile : super::super::Foundation:: HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadFileScatter(hfile.param().abi(), asegmentarray, nnumberofbytestoread, core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), lpoverlapped).ok()
+    ReadFileScatter(hfile.param().abi(), core::mem::transmute(asegmentarray), core::mem::transmute(nnumberofbytestoread), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), core::mem::transmute(lpoverlapped)).ok()
 }
 #[inline]
 pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReadLogArchiveMetadata(pvarchivecontext : *mut core::ffi::c_void, cboffset : u32, cbbytestoread : u32, pbreadbuffer : *mut u8, pcbbytesread : *mut u32) -> super::super::Foundation:: BOOL);
-    ReadLogArchiveMetadata(pvarchivecontext, cboffset, cbbytestoread, pbreadbuffer, pcbbytesread).ok()
+    ReadLogArchiveMetadata(core::mem::transmute(pvarchivecontext), core::mem::transmute(cboffset), core::mem::transmute(cbbytestoread), core::mem::transmute(pbreadbuffer), core::mem::transmute(pcbbytesread)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -2424,25 +2438,25 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn ReadLogNotification(hlog : super::super::Foundation:: HANDLE, pnotification : *mut CLFS_MGMT_NOTIFICATION, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadLogNotification(hlog.param().abi(), pnotification, lpoverlapped).ok()
+    ReadLogNotification(hlog.param().abi(), core::mem::transmute(pnotification), core::mem::transmute(lpoverlapped)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadLogRecord(pvmarshal: *mut core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReadLogRecord(pvmarshal : *mut core::ffi::c_void, plsnfirst : *mut CLS_LSN, econtextmode : CLFS_CONTEXT_MODE, ppvreadbuffer : *mut *mut core::ffi::c_void, pcbreadbuffer : *mut u32, perecordtype : *mut u8, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, ppvreadcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadLogRecord(pvmarshal, plsnfirst, econtextmode, ppvreadbuffer, pcbreadbuffer, perecordtype, plsnundonext, plsnprevious, ppvreadcontext, poverlapped).ok()
+    ReadLogRecord(core::mem::transmute(pvmarshal), core::mem::transmute(plsnfirst), core::mem::transmute(econtextmode), core::mem::transmute(ppvreadbuffer), core::mem::transmute(pcbreadbuffer), core::mem::transmute(perecordtype), core::mem::transmute(plsnundonext), core::mem::transmute(plsnprevious), core::mem::transmute(ppvreadcontext), core::mem::transmute(poverlapped)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadLogRestartArea(pvmarshal: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReadLogRestartArea(pvmarshal : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsn : *mut CLS_LSN, ppvcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadLogRestartArea(pvmarshal, ppvrestartbuffer, pcbrestartbuffer, plsn, ppvcontext, poverlapped).ok()
+    ReadLogRestartArea(core::mem::transmute(pvmarshal), core::mem::transmute(ppvrestartbuffer), core::mem::transmute(pcbrestartbuffer), core::mem::transmute(plsn), core::mem::transmute(ppvcontext), core::mem::transmute(poverlapped)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut core::ffi::c_void, ppvbuffer: *mut *mut core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReadNextLogRecord(pvreadcontext : *mut core::ffi::c_void, ppvbuffer : *mut *mut core::ffi::c_void, pcbbuffer : *mut u32, perecordtype : *mut u8, plsnuser : *mut CLS_LSN, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, plsnrecord : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadNextLogRecord(pvreadcontext, ppvbuffer, pcbbuffer, perecordtype, plsnuser, plsnundonext, plsnprevious, plsnrecord, poverlapped).ok()
+    ReadNextLogRecord(core::mem::transmute(pvreadcontext), core::mem::transmute(ppvbuffer), core::mem::transmute(pcbbuffer), core::mem::transmute(perecordtype), core::mem::transmute(plsnuser), core::mem::transmute(plsnundonext), core::mem::transmute(plsnprevious), core::mem::transmute(plsnrecord), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
 pub unsafe fn ReadOnlyEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2450,13 +2464,13 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn ReadOnlyEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    ReadOnlyEnlistment(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    ReadOnlyEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReadPreviousLogRestartArea(pvreadcontext : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsnrestart : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReadPreviousLogRestartArea(pvreadcontext, ppvrestartbuffer, pcbrestartbuffer, plsnrestart, poverlapped).ok()
+    ReadPreviousLogRestartArea(core::mem::transmute(pvreadcontext), core::mem::transmute(ppvrestartbuffer), core::mem::transmute(pcbrestartbuffer), core::mem::transmute(plsnrestart), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
 pub unsafe fn RecoverEnlistment<P0>(enlistmenthandle: P0, enlistmentkey: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -2464,7 +2478,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn RecoverEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, enlistmentkey : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RecoverEnlistment(enlistmenthandle.param().abi(), enlistmentkey).ok()
+    RecoverEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(enlistmentkey)).ok()
 }
 #[inline]
 pub unsafe fn RecoverResourceManager<P0>(resourcemanagerhandle: P0) -> windows_core::Result<()>
@@ -2483,13 +2497,13 @@ where
     RecoverTransactionManager(transactionmanagerhandle.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn RegisterForLogWriteNotification<P0, P1>(hlog: P0, cbthreshold: u32, fenable: P1) -> windows_core::Result<()>
+pub unsafe fn RegisterForLogWriteNotification<P0, P2>(hlog: P0, cbthreshold: u32, fenable: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn RegisterForLogWriteNotification(hlog : super::super::Foundation:: HANDLE, cbthreshold : u32, fenable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterForLogWriteNotification(hlog.param().abi(), cbthreshold, fenable.param().abi()).ok()
+    RegisterForLogWriteNotification(hlog.param().abi(), core::mem::transmute(cbthreshold), fenable.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RegisterManageableLogClient<P0>(hlog: P0, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> windows_core::Result<()>
@@ -2497,7 +2511,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn RegisterManageableLogClient(hlog : super::super::Foundation:: HANDLE, pcallbacks : *mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation:: BOOL);
-    RegisterManageableLogClient(hlog.param().abi(), pcallbacks).ok()
+    RegisterManageableLogClient(hlog.param().abi(), core::mem::transmute(pcallbacks)).ok()
 }
 #[inline]
 pub unsafe fn RemoveDirectoryA<P0>(lppathname: P0) -> windows_core::Result<()>
@@ -2552,10 +2566,10 @@ where
     RemoveLogContainer(hlog.param().abi(), pwszcontainerpath.param().abi(), fforce.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn RemoveLogContainerSet<P0, P1>(hlog: P0, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: P1, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn RemoveLogContainerSet<P0, P3>(hlog: P0, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: P3, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn RemoveLogContainerSet(hlog : super::super::Foundation:: HANDLE, ccontainer : u16, rgwszcontainerpath : *const windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     RemoveLogContainerSet(hlog.param().abi(), rgwszcontainerpath.len().try_into().unwrap(), core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null_mut()))).ok()
@@ -2566,7 +2580,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn RemoveLogPolicy(hlog : super::super::Foundation:: HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation:: BOOL);
-    RemoveLogPolicy(hlog.param().abi(), epolicytype).ok()
+    RemoveLogPolicy(hlog.param().abi(), core::mem::transmute(epolicytype)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2575,7 +2589,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_core::PCWSTR, phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    RemoveUsersFromEncryptedFile(lpfilename.param().abi(), phashes)
+    RemoveUsersFromEncryptedFile(lpfilename.param().abi(), core::mem::transmute(phashes))
 }
 #[inline]
 pub unsafe fn RenameTransactionManager<P0>(logfilename: P0, existingtransactionmanagerguid: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -2583,7 +2597,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn RenameTransactionManager(logfilename : windows_core::PCWSTR, existingtransactionmanagerguid : *mut windows_core::GUID) -> super::super::Foundation:: BOOL);
-    RenameTransactionManager(logfilename.param().abi(), existingtransactionmanagerguid).ok()
+    RenameTransactionManager(logfilename.param().abi(), core::mem::transmute(existingtransactionmanagerguid)).ok()
 }
 #[inline]
 pub unsafe fn ReplaceFileA<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2593,7 +2607,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReplaceFileA(lpreplacedfilename : windows_core::PCSTR, lpreplacementfilename : windows_core::PCSTR, lpbackupfilename : windows_core::PCSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReplaceFileA(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
+    ReplaceFileA(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), core::mem::transmute(dwreplaceflags), core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ReplaceFileFromAppW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: u32, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -2603,7 +2617,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn ReplaceFileFromAppW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : u32, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReplaceFileFromAppW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())))
+    ReplaceFileFromAppW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), core::mem::transmute(dwreplaceflags), core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn ReplaceFileW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2613,19 +2627,19 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReplaceFileW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReplaceFileW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
+    ReplaceFileW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), core::mem::transmute(dwreplaceflags), core::mem::transmute(lpexclude.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReserveAndAppendLog(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut CLS_WRITE_ENTRY, cwriteentries : u32, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : CLFS_FLAG, plsn : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReserveAndAppendLog(pvmarshal, rgwriteentries, cwriteentries, plsnundonext, plsnprevious, creserverecords, rgcbreservation, fflags, plsn, poverlapped).ok()
+    ReserveAndAppendLog(core::mem::transmute(pvmarshal), core::mem::transmute(rgwriteentries), core::mem::transmute(cwriteentries), core::mem::transmute(plsnundonext), core::mem::transmute(plsnprevious), core::mem::transmute(creserverecords), core::mem::transmute(rgcbreservation), core::mem::transmute(fflags), core::mem::transmute(plsn), core::mem::transmute(poverlapped)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ReserveAndAppendLogAligned(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut CLS_WRITE_ENTRY, cwriteentries : u32, cbentryalignment : u32, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : CLFS_FLAG, plsn : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    ReserveAndAppendLogAligned(pvmarshal, rgwriteentries, cwriteentries, cbentryalignment, plsnundonext, plsnprevious, creserverecords, rgcbreservation, fflags, plsn, poverlapped).ok()
+    ReserveAndAppendLogAligned(core::mem::transmute(pvmarshal), core::mem::transmute(rgwriteentries), core::mem::transmute(cwriteentries), core::mem::transmute(cbentryalignment), core::mem::transmute(plsnundonext), core::mem::transmute(plsnprevious), core::mem::transmute(creserverecords), core::mem::transmute(rgcbreservation), core::mem::transmute(fflags), core::mem::transmute(plsn), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
 pub unsafe fn RollbackComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2633,7 +2647,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn RollbackComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    RollbackComplete(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    RollbackComplete(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn RollbackEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -2641,7 +2655,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn RollbackEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    RollbackEnlistment(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    RollbackEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn RollbackTransaction<P0>(transactionhandle: P0) -> windows_core::Result<()>
@@ -2665,12 +2679,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn RollforwardTransactionManager(transactionmanagerhandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    RollforwardTransactionManager(transactionmanagerhandle.param().abi(), tmvirtualclock).ok()
+    RollforwardTransactionManager(transactionmanagerhandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn ScanLogContainers(pcxscan : *mut CLS_SCAN_CONTEXT, escanmode : u8, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ScanLogContainers(pcxscan, escanmode, preserved).ok()
+    ScanLogContainers(core::mem::transmute(pcxscan), core::mem::transmute(escanmode), core::mem::transmute(preserved)).ok()
 }
 #[inline]
 pub unsafe fn SearchPathA<P0, P1, P2>(lppath: P0, lpfilename: P1, lpextension: P2, lpbuffer: Option<&mut [u8]>, lpfilepart: Option<*mut windows_core::PSTR>) -> u32
@@ -2699,7 +2713,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pboldmetadata : *const u8, pbnewmetadata : *const u8, pownerhash : *const ENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    SetEncryptedFileMetadata(lpfilename.param().abi(), core::mem::transmute(pboldmetadata.unwrap_or(core::ptr::null())), pbnewmetadata, pownerhash, dwoperation, core::mem::transmute(pcertificatesadded.unwrap_or(core::ptr::null())))
+    SetEncryptedFileMetadata(lpfilename.param().abi(), core::mem::transmute(pboldmetadata.unwrap_or(core::ptr::null())), core::mem::transmute(pbnewmetadata), core::mem::transmute(pownerhash), core::mem::transmute(dwoperation), core::mem::transmute(pcertificatesadded.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SetEndOfFile<P0>(hfile: P0) -> windows_core::Result<()>
@@ -2716,7 +2730,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn SetEndOfLog(hlog : super::super::Foundation:: HANDLE, plsnend : *mut CLS_LSN, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    SetEndOfLog(hlog.param().abi(), plsnend, lpoverlapped).ok()
+    SetEndOfLog(hlog.param().abi(), core::mem::transmute(plsnend), core::mem::transmute(lpoverlapped)).ok()
 }
 #[inline]
 pub unsafe fn SetEnlistmentRecoveryInformation<P0>(enlistmenthandle: P0, buffersize: u32, buffer: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -2724,7 +2738,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn SetEnlistmentRecoveryInformation(enlistmenthandle : super::super::Foundation:: HANDLE, buffersize : u32, buffer : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SetEnlistmentRecoveryInformation(enlistmenthandle.param().abi(), buffersize, buffer).ok()
+    SetEnlistmentRecoveryInformation(enlistmenthandle.param().abi(), core::mem::transmute(buffersize), core::mem::transmute(buffer)).ok()
 }
 #[inline]
 pub unsafe fn SetFileApisToANSI() {
@@ -2742,7 +2756,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileAttributesA(lpfilename : windows_core::PCSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-    SetFileAttributesA(lpfilename.param().abi(), dwfileattributes).ok()
+    SetFileAttributesA(lpfilename.param().abi(), core::mem::transmute(dwfileattributes)).ok()
 }
 #[inline]
 pub unsafe fn SetFileAttributesFromAppW<P0>(lpfilename: P0, dwfileattributes: u32) -> super::super::Foundation::BOOL
@@ -2750,25 +2764,25 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn SetFileAttributesFromAppW(lpfilename : windows_core::PCWSTR, dwfileattributes : u32) -> super::super::Foundation:: BOOL);
-    SetFileAttributesFromAppW(lpfilename.param().abi(), dwfileattributes)
+    SetFileAttributesFromAppW(lpfilename.param().abi(), core::mem::transmute(dwfileattributes))
 }
 #[inline]
-pub unsafe fn SetFileAttributesTransactedA<P0, P1>(lpfilename: P0, dwfileattributes: u32, htransaction: P1) -> windows_core::Result<()>
+pub unsafe fn SetFileAttributesTransactedA<P0, P2>(lpfilename: P0, dwfileattributes: u32, htransaction: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileAttributesTransactedA(lpfilename : windows_core::PCSTR, dwfileattributes : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SetFileAttributesTransactedA(lpfilename.param().abi(), dwfileattributes, htransaction.param().abi()).ok()
+    SetFileAttributesTransactedA(lpfilename.param().abi(), core::mem::transmute(dwfileattributes), htransaction.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetFileAttributesTransactedW<P0, P1>(lpfilename: P0, dwfileattributes: u32, htransaction: P1) -> windows_core::Result<()>
+pub unsafe fn SetFileAttributesTransactedW<P0, P2>(lpfilename: P0, dwfileattributes: u32, htransaction: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileAttributesTransactedW(lpfilename : windows_core::PCWSTR, dwfileattributes : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SetFileAttributesTransactedW(lpfilename.param().abi(), dwfileattributes, htransaction.param().abi()).ok()
+    SetFileAttributesTransactedW(lpfilename.param().abi(), core::mem::transmute(dwfileattributes), htransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetFileAttributesW<P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::Result<()>
@@ -2776,16 +2790,16 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileAttributesW(lpfilename : windows_core::PCWSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-    SetFileAttributesW(lpfilename.param().abi(), dwfileattributes).ok()
+    SetFileAttributesW(lpfilename.param().abi(), core::mem::transmute(dwfileattributes)).ok()
 }
 #[inline]
-pub unsafe fn SetFileBandwidthReservation<P0, P1>(hfile: P0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: P1, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SetFileBandwidthReservation<P0, P3>(hfile: P0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: P3, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileBandwidthReservation(hfile : super::super::Foundation:: HANDLE, nperiodmilliseconds : u32, nbytesperperiod : u32, bdiscardable : super::super::Foundation:: BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> super::super::Foundation:: BOOL);
-    SetFileBandwidthReservation(hfile.param().abi(), nperiodmilliseconds, nbytesperperiod, bdiscardable.param().abi(), lptransfersize, lpnumoutstandingrequests).ok()
+    SetFileBandwidthReservation(hfile.param().abi(), core::mem::transmute(nperiodmilliseconds), core::mem::transmute(nbytesperperiod), bdiscardable.param().abi(), core::mem::transmute(lptransfersize), core::mem::transmute(lpnumoutstandingrequests)).ok()
 }
 #[inline]
 pub unsafe fn SetFileCompletionNotificationModes<P0>(filehandle: P0, flags: u8) -> windows_core::Result<()>
@@ -2793,7 +2807,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileCompletionNotificationModes(filehandle : super::super::Foundation:: HANDLE, flags : u8) -> super::super::Foundation:: BOOL);
-    SetFileCompletionNotificationModes(filehandle.param().abi(), flags).ok()
+    SetFileCompletionNotificationModes(filehandle.param().abi(), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SetFileInformationByHandle<P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const core::ffi::c_void, dwbuffersize: u32) -> windows_core::Result<()>
@@ -2801,7 +2815,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileInformationByHandle(hfile : super::super::Foundation:: HANDLE, fileinformationclass : FILE_INFO_BY_HANDLE_CLASS, lpfileinformation : *const core::ffi::c_void, dwbuffersize : u32) -> super::super::Foundation:: BOOL);
-    SetFileInformationByHandle(hfile.param().abi(), fileinformationclass, lpfileinformation, dwbuffersize).ok()
+    SetFileInformationByHandle(hfile.param().abi(), core::mem::transmute(fileinformationclass), core::mem::transmute(lpfileinformation), core::mem::transmute(dwbuffersize)).ok()
 }
 #[inline]
 pub unsafe fn SetFileIoOverlappedRange<P0>(filehandle: P0, overlappedrangestart: *const u8, length: u32) -> windows_core::Result<()>
@@ -2809,7 +2823,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileIoOverlappedRange(filehandle : super::super::Foundation:: HANDLE, overlappedrangestart : *const u8, length : u32) -> super::super::Foundation:: BOOL);
-    SetFileIoOverlappedRange(filehandle.param().abi(), overlappedrangestart, length).ok()
+    SetFileIoOverlappedRange(filehandle.param().abi(), core::mem::transmute(overlappedrangestart), core::mem::transmute(length)).ok()
 }
 #[inline]
 pub unsafe fn SetFilePointer<P0>(hfile: P0, ldistancetomove: i32, lpdistancetomovehigh: Option<*mut i32>, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32
@@ -2817,7 +2831,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFilePointer(hfile : super::super::Foundation:: HANDLE, ldistancetomove : i32, lpdistancetomovehigh : *mut i32, dwmovemethod : SET_FILE_POINTER_MOVE_METHOD) -> u32);
-    SetFilePointer(hfile.param().abi(), ldistancetomove, core::mem::transmute(lpdistancetomovehigh.unwrap_or(core::ptr::null_mut())), dwmovemethod)
+    SetFilePointer(hfile.param().abi(), core::mem::transmute(ldistancetomove), core::mem::transmute(lpdistancetomovehigh.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwmovemethod))
 }
 #[inline]
 pub unsafe fn SetFilePointerEx<P0>(hfile: P0, lidistancetomove: i64, lpnewfilepointer: Option<*mut i64>, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> windows_core::Result<()>
@@ -2825,7 +2839,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFilePointerEx(hfile : super::super::Foundation:: HANDLE, lidistancetomove : i64, lpnewfilepointer : *mut i64, dwmovemethod : SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation:: BOOL);
-    SetFilePointerEx(hfile.param().abi(), lidistancetomove, core::mem::transmute(lpnewfilepointer.unwrap_or(core::ptr::null_mut())), dwmovemethod).ok()
+    SetFilePointerEx(hfile.param().abi(), core::mem::transmute(lidistancetomove), core::mem::transmute(lpnewfilepointer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwmovemethod)).ok()
 }
 #[inline]
 pub unsafe fn SetFileShortNameA<P0, P1>(hfile: P0, lpshortname: P1) -> windows_core::Result<()>
@@ -2859,7 +2873,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetFileValidData(hfile : super::super::Foundation:: HANDLE, validdatalength : i64) -> super::super::Foundation:: BOOL);
-    SetFileValidData(hfile.param().abi(), validdatalength).ok()
+    SetFileValidData(hfile.param().abi(), core::mem::transmute(validdatalength)).ok()
 }
 #[inline]
 pub unsafe fn SetIoRingCompletionEvent<P0, P1>(ioring: P0, hevent: P1) -> windows_core::Result<()>
@@ -2876,7 +2890,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn SetLogArchiveMode(hlog : super::super::Foundation:: HANDLE, emode : CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation:: BOOL);
-    SetLogArchiveMode(hlog.param().abi(), emode).ok()
+    SetLogArchiveMode(hlog.param().abi(), core::mem::transmute(emode)).ok()
 }
 #[inline]
 pub unsafe fn SetLogArchiveTail<P0>(hlog: P0, plsnarchivetail: *mut CLS_LSN, preserved: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -2884,7 +2898,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn SetLogArchiveTail(hlog : super::super::Foundation:: HANDLE, plsnarchivetail : *mut CLS_LSN, preserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SetLogArchiveTail(hlog.param().abi(), plsnarchivetail, preserved).ok()
+    SetLogArchiveTail(hlog.param().abi(), core::mem::transmute(plsnarchivetail), core::mem::transmute(preserved)).ok()
 }
 #[inline]
 pub unsafe fn SetLogFileSizeWithPolicy<P0>(hlog: P0, pdesiredsize: *const u64, presultingsize: *mut u64) -> windows_core::Result<()>
@@ -2892,7 +2906,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn SetLogFileSizeWithPolicy(hlog : super::super::Foundation:: HANDLE, pdesiredsize : *const u64, presultingsize : *mut u64) -> super::super::Foundation:: BOOL);
-    SetLogFileSizeWithPolicy(hlog.param().abi(), pdesiredsize, presultingsize).ok()
+    SetLogFileSizeWithPolicy(hlog.param().abi(), core::mem::transmute(pdesiredsize), core::mem::transmute(presultingsize)).ok()
 }
 #[inline]
 pub unsafe fn SetResourceManagerCompletionPort<P0, P1>(resourcemanagerhandle: P0, iocompletionporthandle: P1, completionkey: usize) -> windows_core::Result<()>
@@ -2901,12 +2915,12 @@ where
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn SetResourceManagerCompletionPort(resourcemanagerhandle : super::super::Foundation:: HANDLE, iocompletionporthandle : super::super::Foundation:: HANDLE, completionkey : usize) -> super::super::Foundation:: BOOL);
-    SetResourceManagerCompletionPort(resourcemanagerhandle.param().abi(), iocompletionporthandle.param().abi(), completionkey).ok()
+    SetResourceManagerCompletionPort(resourcemanagerhandle.param().abi(), iocompletionporthandle.param().abi(), core::mem::transmute(completionkey)).ok()
 }
 #[inline]
 pub unsafe fn SetSearchPathMode(flags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetSearchPathMode(flags : u32) -> super::super::Foundation:: BOOL);
-    SetSearchPathMode(flags).ok()
+    SetSearchPathMode(core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SetTapeParameters<P0>(hdevice: P0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const core::ffi::c_void) -> u32
@@ -2914,25 +2928,25 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetTapeParameters(hdevice : super::super::Foundation:: HANDLE, dwoperation : TAPE_INFORMATION_TYPE, lptapeinformation : *const core::ffi::c_void) -> u32);
-    SetTapeParameters(hdevice.param().abi(), dwoperation, lptapeinformation)
+    SetTapeParameters(hdevice.param().abi(), core::mem::transmute(dwoperation), core::mem::transmute(lptapeinformation))
 }
 #[inline]
-pub unsafe fn SetTapePosition<P0, P1>(hdevice: P0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P1) -> u32
+pub unsafe fn SetTapePosition<P0, P5>(hdevice: P0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P5) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetTapePosition(hdevice : super::super::Foundation:: HANDLE, dwpositionmethod : TAPE_POSITION_METHOD, dwpartition : u32, dwoffsetlow : u32, dwoffsethigh : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    SetTapePosition(hdevice.param().abi(), dwpositionmethod, dwpartition, dwoffsetlow, dwoffsethigh, bimmediate.param().abi())
+    SetTapePosition(hdevice.param().abi(), core::mem::transmute(dwpositionmethod), core::mem::transmute(dwpartition), core::mem::transmute(dwoffsetlow), core::mem::transmute(dwoffsethigh), bimmediate.param().abi())
 }
 #[inline]
-pub unsafe fn SetTransactionInformation<P0, P1>(transactionhandle: P0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P1) -> windows_core::Result<()>
+pub unsafe fn SetTransactionInformation<P0, P4>(transactionhandle: P0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P4) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn SetTransactionInformation(transactionhandle : super::super::Foundation:: HANDLE, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetTransactionInformation(transactionhandle.param().abi(), isolationlevel, isolationflags, timeout, description.param().abi()).ok()
+    SetTransactionInformation(transactionhandle.param().abi(), core::mem::transmute(isolationlevel), core::mem::transmute(isolationflags), core::mem::transmute(timeout), description.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2944,7 +2958,7 @@ pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: Option<*const ENC
 #[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: Option<*const ENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *const core::ffi::c_void) -> u32);
-    SetUserFileEncryptionKeyEx(core::mem::transmute(pencryptioncertificate.unwrap_or(core::ptr::null())), dwcapabilities, dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
+    SetUserFileEncryptionKeyEx(core::mem::transmute(pencryptioncertificate.unwrap_or(core::ptr::null())), core::mem::transmute(dwcapabilities), core::mem::transmute(dwflags), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SetVolumeLabelA<P0, P1>(lprootpathname: P0, lpvolumename: P1) -> windows_core::Result<()>
@@ -2988,7 +3002,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ktmw32.dll" "system" fn SinglePhaseReject(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    SinglePhaseReject(enlistmenthandle.param().abi(), tmvirtualclock).ok()
+    SinglePhaseReject(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock)).ok()
 }
 #[inline]
 pub unsafe fn SubmitIoRing<P0>(ioring: P0, waitoperations: u32, milliseconds: u32, submittedentries: Option<*mut u32>) -> windows_core::Result<()>
@@ -2996,23 +3010,23 @@ where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn SubmitIoRing(ioring : HIORING, waitoperations : u32, milliseconds : u32, submittedentries : *mut u32) -> windows_core::HRESULT);
-    SubmitIoRing(ioring.param().abi(), waitoperations, milliseconds, core::mem::transmute(submittedentries.unwrap_or(core::ptr::null_mut()))).ok()
+    SubmitIoRing(ioring.param().abi(), core::mem::transmute(waitoperations), core::mem::transmute(milliseconds), core::mem::transmute(submittedentries.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn TerminateLogArchive(pvarchivecontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    TerminateLogArchive(pvarchivecontext).ok()
+    TerminateLogArchive(core::mem::transmute(pvarchivecontext)).ok()
 }
 #[inline]
 pub unsafe fn TerminateReadLog(pvcursorcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn TerminateReadLog(pvcursorcontext : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    TerminateReadLog(pvcursorcontext).ok()
+    TerminateReadLog(core::mem::transmute(pvcursorcontext)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn TruncateLog(pvmarshal: *const core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn TruncateLog(pvmarshal : *const core::ffi::c_void, plsnend : *const CLS_LSN, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    TruncateLog(pvmarshal, plsnend, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
+    TruncateLog(core::mem::transmute(pvmarshal), core::mem::transmute(plsnend), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
@@ -3027,7 +3041,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    TxfLogCreateFileReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), txffileid, txflogcontext).ok()
+    TxfLogCreateFileReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), core::mem::transmute(txffileid), core::mem::transmute(txflogcontext)).ok()
 }
 #[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<P0>(logpath: P0, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -3035,27 +3049,27 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogCreateRangeReadContext(logpath : windows_core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, beginningvirtualclock : *const i64, endingvirtualclock : *const i64, recordtypemask : u32, txflogcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    TxfLogCreateRangeReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext)
+    TxfLogCreateRangeReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), core::mem::transmute(beginningvirtualclock), core::mem::transmute(endingvirtualclock), core::mem::transmute(recordtypemask), core::mem::transmute(txflogcontext))
 }
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogDestroyReadContext(txflogcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    TxfLogDestroyReadContext(txflogcontext).ok()
+    TxfLogDestroyReadContext(core::mem::transmute(txflogcontext)).ok()
 }
 #[inline]
 pub unsafe fn TxfLogReadRecords(txflogcontext: *const core::ffi::c_void, bufferlength: u32, buffer: *mut core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogReadRecords(txflogcontext : *const core::ffi::c_void, bufferlength : u32, buffer : *mut core::ffi::c_void, bytesused : *mut u32, recordcount : *mut u32) -> super::super::Foundation:: BOOL);
-    TxfLogReadRecords(txflogcontext, bufferlength, buffer, bytesused, recordcount).ok()
+    TxfLogReadRecords(core::mem::transmute(txflogcontext), core::mem::transmute(bufferlength), core::mem::transmute(buffer), core::mem::transmute(bytesused), core::mem::transmute(recordcount)).ok()
 }
 #[inline]
 pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: windows_core::PWSTR, namebufferlengthinbytes: *mut u32, txfid: Option<*mut TXF_ID>) -> super::super::Foundation::BOOL {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogRecordGetFileName(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, namebuffer : windows_core::PWSTR, namebufferlengthinbytes : *mut u32, txfid : *mut TXF_ID) -> super::super::Foundation:: BOOL);
-    TxfLogRecordGetFileName(recordbuffer, recordbufferlengthinbytes, core::mem::transmute(namebuffer), namebufferlengthinbytes, core::mem::transmute(txfid.unwrap_or(core::ptr::null_mut())))
+    TxfLogRecordGetFileName(core::mem::transmute(recordbuffer), core::mem::transmute(recordbufferlengthinbytes), core::mem::transmute(namebuffer), core::mem::transmute(namebufferlengthinbytes), core::mem::transmute(txfid.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: Option<*mut i64>) -> super::super::Foundation::BOOL {
     windows_targets::link!("txfw32.dll" "system" fn TxfLogRecordGetGenericType(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, generictype : *mut u32, virtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-    TxfLogRecordGetGenericType(recordbuffer, recordbufferlengthinbytes, generictype, core::mem::transmute(virtualclock.unwrap_or(core::ptr::null_mut())))
+    TxfLogRecordGetGenericType(core::mem::transmute(recordbuffer), core::mem::transmute(recordbufferlengthinbytes), core::mem::transmute(generictype), core::mem::transmute(virtualclock.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn TxfReadMetadataInfo<P0>(filehandle: P0, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut windows_core::GUID) -> super::super::Foundation::BOOL
@@ -3063,12 +3077,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("txfw32.dll" "system" fn TxfReadMetadataInfo(filehandle : super::super::Foundation:: HANDLE, txffileid : *mut TXF_ID, lastlsn : *mut CLS_LSN, transactionstate : *mut u32, lockingtransaction : *mut windows_core::GUID) -> super::super::Foundation:: BOOL);
-    TxfReadMetadataInfo(filehandle.param().abi(), txffileid, lastlsn, transactionstate, lockingtransaction)
+    TxfReadMetadataInfo(filehandle.param().abi(), core::mem::transmute(txffileid), core::mem::transmute(lastlsn), core::mem::transmute(transactionstate), core::mem::transmute(lockingtransaction))
 }
 #[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     windows_targets::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16));
-    TxfSetThreadMiniVersionForCreate(miniversion)
+    TxfSetThreadMiniVersionForCreate(core::mem::transmute(miniversion))
 }
 #[inline]
 pub unsafe fn UnlockFile<P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> windows_core::Result<()>
@@ -3076,7 +3090,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn UnlockFile(hfile : super::super::Foundation:: HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32) -> super::super::Foundation:: BOOL);
-    UnlockFile(hfile.param().abi(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh).ok()
+    UnlockFile(hfile.param().abi(), core::mem::transmute(dwfileoffsetlow), core::mem::transmute(dwfileoffsethigh), core::mem::transmute(nnumberofbytestounlocklow), core::mem::transmute(nnumberofbytestounlockhigh)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -3085,7 +3099,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn UnlockFileEx(hfile : super::super::Foundation:: HANDLE, dwreserved : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    UnlockFileEx(hfile.param().abi(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, lpoverlapped).ok()
+    UnlockFileEx(hfile.param().abi(), core::mem::transmute(dwreserved), core::mem::transmute(nnumberofbytestounlocklow), core::mem::transmute(nnumberofbytestounlockhigh), core::mem::transmute(lpoverlapped)).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -3094,77 +3108,77 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clfsw32.dll" "system" fn ValidateLog(pszlogfilename : windows_core::PCWSTR, psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES, pinfobuffer : *mut CLS_INFORMATION, pcbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
-    ValidateLog(pszlogfilename.param().abi(), psalogfile, pinfobuffer, pcbbuffer).ok()
+    ValidateLog(pszlogfilename.param().abi(), core::mem::transmute(psalogfile), core::mem::transmute(pinfobuffer), core::mem::transmute(pcbbuffer)).ok()
 }
 #[inline]
-pub unsafe fn VerFindFileA<P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: windows_core::PSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
+pub unsafe fn VerFindFileA<P1, P2, P3>(uflags: VER_FIND_FILE_FLAGS, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: windows_core::PSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerFindFileA(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_core::PCSTR, szwindir : windows_core::PCSTR, szappdir : windows_core::PCSTR, szcurdir : windows_core::PSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
-    VerFindFileA(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen, core::mem::transmute(szdestdir), pudestdirlen)
+    VerFindFileA(core::mem::transmute(uflags), szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), core::mem::transmute(pucurdirlen), core::mem::transmute(szdestdir), core::mem::transmute(pudestdirlen))
 }
 #[inline]
-pub unsafe fn VerFindFileW<P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: windows_core::PWSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
+pub unsafe fn VerFindFileW<P1, P2, P3>(uflags: VER_FIND_FILE_FLAGS, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: windows_core::PWSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerFindFileW(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_core::PCWSTR, szwindir : windows_core::PCWSTR, szappdir : windows_core::PCWSTR, szcurdir : windows_core::PWSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PWSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
-    VerFindFileW(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen, core::mem::transmute(szdestdir), pudestdirlen)
+    VerFindFileW(core::mem::transmute(uflags), szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), core::mem::transmute(pucurdirlen), core::mem::transmute(szdestdir), core::mem::transmute(pudestdirlen))
 }
 #[inline]
-pub unsafe fn VerInstallFileA<P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: windows_core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
+pub unsafe fn VerInstallFileA<P1, P2, P3, P4, P5>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerInstallFileA(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_core::PCSTR, szdestfilename : windows_core::PCSTR, szsrcdir : windows_core::PCSTR, szdestdir : windows_core::PCSTR, szcurdir : windows_core::PCSTR, sztmpfile : windows_core::PSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
-    VerInstallFileA(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen)
+    VerInstallFileA(core::mem::transmute(uflags), szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), core::mem::transmute(putmpfilelen))
 }
 #[inline]
-pub unsafe fn VerInstallFileW<P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: windows_core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
+pub unsafe fn VerInstallFileW<P1, P2, P3, P4, P5>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerInstallFileW(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_core::PCWSTR, szdestfilename : windows_core::PCWSTR, szsrcdir : windows_core::PCWSTR, szdestdir : windows_core::PCWSTR, szcurdir : windows_core::PCWSTR, sztmpfile : windows_core::PWSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
-    VerInstallFileW(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen)
+    VerInstallFileW(core::mem::transmute(uflags), szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), core::mem::transmute(putmpfilelen))
 }
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn VerLanguageNameA(wlang : u32, szlang : windows_core::PSTR, cchlang : u32) -> u32);
-    VerLanguageNameA(wlang, core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap())
+    VerLanguageNameA(core::mem::transmute(wlang), core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn VerLanguageNameW(wlang : u32, szlang : windows_core::PWSTR, cchlang : u32) -> u32);
-    VerLanguageNameW(wlang, core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap())
+    VerLanguageNameW(core::mem::transmute(wlang), core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn VerQueryValueA<P0>(pblock: *const core::ffi::c_void, lpsubblock: P0, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn VerQueryValueA<P1>(pblock: *const core::ffi::c_void, lpsubblock: P1, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerQueryValueA(pblock : *const core::ffi::c_void, lpsubblock : windows_core::PCSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> super::super::Foundation:: BOOL);
-    VerQueryValueA(pblock, lpsubblock.param().abi(), lplpbuffer, pulen)
+    VerQueryValueA(core::mem::transmute(pblock), lpsubblock.param().abi(), core::mem::transmute(lplpbuffer), core::mem::transmute(pulen))
 }
 #[inline]
-pub unsafe fn VerQueryValueW<P0>(pblock: *const core::ffi::c_void, lpsubblock: P0, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn VerQueryValueW<P1>(pblock: *const core::ffi::c_void, lpsubblock: P1, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("version.dll" "system" fn VerQueryValueW(pblock : *const core::ffi::c_void, lpsubblock : windows_core::PCWSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> super::super::Foundation:: BOOL);
-    VerQueryValueW(pblock, lpsubblock.param().abi(), lplpbuffer, pulen)
+    VerQueryValueW(core::mem::transmute(pblock), lpsubblock.param().abi(), core::mem::transmute(lplpbuffer), core::mem::transmute(pulen))
 }
 #[inline]
 pub unsafe fn WofEnumEntries<P0>(volumename: P0, provider: u32, enumproc: WofEnumEntryProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -3172,7 +3186,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofEnumEntries(volumename : windows_core::PCWSTR, provider : u32, enumproc : WofEnumEntryProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WofEnumEntries(volumename.param().abi(), provider, enumproc, core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
+    WofEnumEntries(volumename.param().abi(), core::mem::transmute(provider), core::mem::transmute(enumproc), core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WofFileEnumFiles<P0>(volumename: P0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -3180,7 +3194,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofFileEnumFiles(volumename : windows_core::PCWSTR, algorithm : u32, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WofFileEnumFiles(volumename.param().abi(), algorithm, enumproc, core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
+    WofFileEnumFiles(volumename.param().abi(), core::mem::transmute(algorithm), core::mem::transmute(enumproc), core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WofGetDriverVersion<P0>(fileorvolumehandle: P0, provider: u32) -> windows_core::Result<u32>
@@ -3189,7 +3203,7 @@ where
 {
     windows_targets::link!("wofutil.dll" "system" fn WofGetDriverVersion(fileorvolumehandle : super::super::Foundation:: HANDLE, provider : u32, wofversion : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WofGetDriverVersion(fileorvolumehandle.param().abi(), provider, &mut result__).map(|| result__)
+    WofGetDriverVersion(fileorvolumehandle.param().abi(), core::mem::transmute(provider), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WofIsExternalFile<P0>(filepath: P0, isexternalfile: Option<*mut super::super::Foundation::BOOL>, provider: Option<*mut u32>, externalfileinfo: Option<*mut core::ffi::c_void>, bufferlength: Option<*mut u32>) -> windows_core::Result<()>
@@ -3205,7 +3219,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofSetFileDataLocation(filehandle : super::super::Foundation:: HANDLE, provider : u32, externalfileinfo : *const core::ffi::c_void, length : u32) -> windows_core::HRESULT);
-    WofSetFileDataLocation(filehandle.param().abi(), provider, externalfileinfo, length).ok()
+    WofSetFileDataLocation(filehandle.param().abi(), core::mem::transmute(provider), core::mem::transmute(externalfileinfo), core::mem::transmute(length)).ok()
 }
 #[inline]
 pub unsafe fn WofShouldCompressBinaries<P0>(volume: P0, algorithm: *mut u32) -> super::super::Foundation::BOOL
@@ -3213,7 +3227,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofShouldCompressBinaries(volume : windows_core::PCWSTR, algorithm : *mut u32) -> super::super::Foundation:: BOOL);
-    WofShouldCompressBinaries(volume.param().abi(), algorithm)
+    WofShouldCompressBinaries(volume.param().abi(), core::mem::transmute(algorithm))
 }
 #[inline]
 pub unsafe fn WofWimAddEntry<P0, P1>(volumename: P0, wimpath: P1, wimtype: u32, wimindex: u32) -> windows_core::Result<i64>
@@ -3223,7 +3237,7 @@ where
 {
     windows_targets::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : windows_core::PCWSTR, wimpath : windows_core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WofWimAddEntry(volumename.param().abi(), wimpath.param().abi(), wimtype, wimindex, &mut result__).map(|| result__)
+    WofWimAddEntry(volumename.param().abi(), wimpath.param().abi(), core::mem::transmute(wimtype), core::mem::transmute(wimindex), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WofWimEnumFiles<P0>(volumename: P0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -3231,7 +3245,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofWimEnumFiles(volumename : windows_core::PCWSTR, datasourceid : i64, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WofWimEnumFiles(volumename.param().abi(), datasourceid, enumproc, core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
+    WofWimEnumFiles(volumename.param().abi(), core::mem::transmute(datasourceid), core::mem::transmute(enumproc), core::mem::transmute(userdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WofWimRemoveEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
@@ -3239,7 +3253,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofWimRemoveEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    WofWimRemoveEntry(volumename.param().abi(), datasourceid).ok()
+    WofWimRemoveEntry(volumename.param().abi(), core::mem::transmute(datasourceid)).ok()
 }
 #[inline]
 pub unsafe fn WofWimSuspendEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
@@ -3247,21 +3261,21 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofWimSuspendEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    WofWimSuspendEntry(volumename.param().abi(), datasourceid).ok()
+    WofWimSuspendEntry(volumename.param().abi(), core::mem::transmute(datasourceid)).ok()
 }
 #[inline]
-pub unsafe fn WofWimUpdateEntry<P0, P1>(volumename: P0, datasourceid: i64, newwimpath: P1) -> windows_core::Result<()>
+pub unsafe fn WofWimUpdateEntry<P0, P2>(volumename: P0, datasourceid: i64, newwimpath: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wofutil.dll" "system" fn WofWimUpdateEntry(volumename : windows_core::PCWSTR, datasourceid : i64, newwimpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    WofWimUpdateEntry(volumename.param().abi(), datasourceid, newwimpath.param().abi()).ok()
+    WofWimUpdateEntry(volumename.param().abi(), core::mem::transmute(datasourceid), newwimpath.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    Wow64DisableWow64FsRedirection(oldvalue).ok()
+    Wow64DisableWow64FsRedirection(core::mem::transmute(oldvalue)).ok()
 }
 #[inline]
 pub unsafe fn Wow64EnableWow64FsRedirection<P0>(wow64fsenableredirection: P0) -> super::super::Foundation::BOOLEAN
@@ -3274,12 +3288,12 @@ where
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    Wow64RevertWow64FsRedirection(olvalue).ok()
+    Wow64RevertWow64FsRedirection(core::mem::transmute(olvalue)).ok()
 }
 #[inline]
 pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: Option<*const core::ffi::c_void>, pvcontext: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn WriteEncryptedFileRaw(pfimportcallback : PFE_IMPORT_FUNC, pvcallbackcontext : *const core::ffi::c_void, pvcontext : *const core::ffi::c_void) -> u32);
-    WriteEncryptedFileRaw(pfimportcallback, core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), pvcontext)
+    WriteEncryptedFileRaw(core::mem::transmute(pfimportcallback), core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), core::mem::transmute(pvcontext))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -3297,7 +3311,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
-    WriteFileEx(hfile.param().abi(), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped, lpcompletionroutine).ok()
+    WriteFileEx(hfile.param().abi(), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoverlapped), core::mem::transmute(lpcompletionroutine)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -3306,22 +3320,22 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteFileGather(hfile : super::super::Foundation:: HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WriteFileGather(hfile.param().abi(), asegmentarray, nnumberofbytestowrite, core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), lpoverlapped).ok()
+    WriteFileGather(hfile.param().abi(), core::mem::transmute(asegmentarray), core::mem::transmute(nnumberofbytestowrite), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), core::mem::transmute(lpoverlapped)).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbuffer: *mut core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
     windows_targets::link!("clfsw32.dll" "system" fn WriteLogRestartArea(pvmarshal : *mut core::ffi::c_void, pvrestartbuffer : *mut core::ffi::c_void, cbrestartbuffer : u32, plsnbase : *mut CLS_LSN, fflags : CLFS_FLAG, pcbwritten : *mut u32, plsnnext : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WriteLogRestartArea(pvmarshal, pvrestartbuffer, cbrestartbuffer, plsnbase, fflags, pcbwritten, plsnnext, poverlapped).ok()
+    WriteLogRestartArea(core::mem::transmute(pvmarshal), core::mem::transmute(pvrestartbuffer), core::mem::transmute(cbrestartbuffer), core::mem::transmute(plsnbase), core::mem::transmute(fflags), core::mem::transmute(pcbwritten), core::mem::transmute(plsnnext), core::mem::transmute(poverlapped)).ok()
 }
 #[inline]
-pub unsafe fn WriteTapemark<P0, P1>(hdevice: P0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: P1) -> u32
+pub unsafe fn WriteTapemark<P0, P3>(hdevice: P0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: P3) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation:: HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
-    WriteTapemark(hdevice.param().abi(), dwtapemarktype, dwtapemarkcount, bimmediate.param().abi())
+    WriteTapemark(hdevice.param().abi(), core::mem::transmute(dwtapemarktype), core::mem::transmute(dwtapemarkcount), bimmediate.param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiskQuotaControl, IDiskQuotaControl_Vtbl, 0x7988b572_ec89_11cf_9c00_00aa00a14f56);
@@ -3344,40 +3358,40 @@ impl IDiskQuotaControl {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.param().abi()).ok()
     }
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), dwstate).ok()
+        (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstate)).ok()
     }
     pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaState)(windows_core::Interface::as_raw(self), pdwstate).ok()
+        (windows_core::Interface::vtable(self).GetQuotaState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstate)).ok()
     }
     pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetQuotaLogFlags)(windows_core::Interface::as_raw(self), dwflags).ok()
+        (windows_core::Interface::vtable(self).SetQuotaLogFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaLogFlags)(windows_core::Interface::as_raw(self), pdwflags).ok()
+        (windows_core::Interface::vtable(self).GetQuotaLogFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok()
     }
     pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold).ok()
+        (windows_core::Interface::vtable(self).SetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(llthreshold)).ok()
     }
     pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold).ok()
+        (windows_core::Interface::vtable(self).GetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(pllthreshold)).ok()
     }
     pub unsafe fn GetDefaultQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
+        (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), core::mem::transmute(cchtext)).ok()
     }
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), lllimit).ok()
+        (windows_core::Interface::vtable(self).SetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(lllimit)).ok()
     }
     pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), plllimit).ok()
+        (windows_core::Interface::vtable(self).GetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(plllimit)).ok()
     }
     pub unsafe fn GetDefaultQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
+        (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), core::mem::transmute(cchtext)).ok()
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn AddUserSid<P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>
@@ -3385,14 +3399,14 @@ impl IDiskQuotaControl {
         P0: windows_core::Param<super::super::Security::PSID>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), core::mem::transmute(fnameresolution), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddUserName<P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), core::mem::transmute(fnameresolution), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> windows_core::Result<()>
     where
@@ -3406,7 +3420,7 @@ impl IDiskQuotaControl {
         P0: windows_core::Param<super::super::Security::PSID>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), core::mem::transmute(fnameresolution), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindUserName<P0>(&self, pszlogonname: P0) -> windows_core::Result<IDiskQuotaUser>
     where
@@ -3417,7 +3431,7 @@ impl IDiskQuotaControl {
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateEnumUsers)(windows_core::Interface::as_raw(self), rgpusersids, cpsids, fnameresolution, core::mem::transmute(ppenum)).ok()
+        (windows_core::Interface::vtable(self).CreateEnumUsers)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpusersids), core::mem::transmute(cpsids), core::mem::transmute(fnameresolution), core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn CreateUserBatch(&self) -> windows_core::Result<IDiskQuotaUserBatch> {
         let mut result__ = core::mem::zeroed();
@@ -3472,7 +3486,7 @@ pub struct IDiskQuotaControl_Vtbl {
     pub ShutdownNameResolution: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
-pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnectionPointContainer_Impl {
+pub trait IDiskQuotaControl_Impl: super::super::System::Com::IConnectionPointContainer_Impl {
     fn Initialize(&self, pszpath: &windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SetQuotaState(&self, dwstate: u32) -> windows_core::Result<()>;
     fn GetQuotaState(&self, pdwstate: *mut u32) -> windows_core::Result<()>;
@@ -3496,10 +3510,8 @@ pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnection
     fn ShutdownNameResolution(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IDiskQuotaControl {}
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
 impl IDiskQuotaControl_Vtbl {
-    pub const fn new<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>() -> IDiskQuotaControl_Vtbl {
+    pub const fn new<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDiskQuotaControl_Impl::Initialize(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&breadwrite)).into()
@@ -3643,13 +3655,9 @@ impl IDiskQuotaControl_Vtbl {
         iid == &<IDiskQuotaControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IDiskQuotaControl {}
 windows_core::imp::define_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
-impl core::ops::Deref for IDiskQuotaEvents {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, windows_core::IUnknown);
 impl IDiskQuotaEvents {
     pub unsafe fn OnUserNameChanged<P0>(&self, puser: P0) -> windows_core::Result<()>
@@ -3664,12 +3672,11 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDiskQuotaEvents_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDiskQuotaEvents_Impl: windows_core::IUnknownImpl {
     fn OnUserNameChanged(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDiskQuotaEvents {}
 impl IDiskQuotaEvents_Vtbl {
-    pub const fn new<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
+    pub const fn new<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUserNameChanged<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDiskQuotaEvents_Impl::OnUserNameChanged(this, windows_core::from_raw_borrowed(&puser)).into()
@@ -3680,79 +3687,74 @@ impl IDiskQuotaEvents_Vtbl {
         iid == &<IDiskQuotaEvents as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDiskQuotaEvents {}
 windows_core::imp::define_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
-impl core::ops::Deref for IDiskQuotaUser {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDiskQuotaUser, windows_core::IUnknown);
 impl IDiskQuotaUser {
     pub unsafe fn GetID(&self, pulid: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pulid).ok()
+        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), core::mem::transmute(pulid)).ok()
     }
-    pub unsafe fn GetName<P0, P1, P2>(&self, pszaccountcontainer: P0, cchaccountcontainer: u32, pszlogonname: P1, cchlogonname: u32, pszdisplayname: P2, cchdisplayname: u32) -> windows_core::Result<()>
+    pub unsafe fn GetName<P0, P2, P4>(&self, pszaccountcontainer: P0, cchaccountcontainer: u32, pszlogonname: P2, cchlogonname: u32, pszdisplayname: P4, cchdisplayname: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszaccountcontainer.param().abi(), cchaccountcontainer, pszlogonname.param().abi(), cchlogonname, pszdisplayname.param().abi(), cchdisplayname).ok()
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszaccountcontainer.param().abi(), core::mem::transmute(cchaccountcontainer), pszlogonname.param().abi(), core::mem::transmute(cchlogonname), pszdisplayname.param().abi(), core::mem::transmute(cchdisplayname)).ok()
     }
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSidLength)(windows_core::Interface::as_raw(self), pdwlength).ok()
+        (windows_core::Interface::vtable(self).GetSidLength)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwlength)).ok()
     }
     pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSid)(windows_core::Interface::as_raw(self), pbsidbuffer, cbsidbuffer).ok()
+        (windows_core::Interface::vtable(self).GetSid)(windows_core::Interface::as_raw(self), core::mem::transmute(pbsidbuffer), core::mem::transmute(cbsidbuffer)).ok()
     }
     pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold).ok()
+        (windows_core::Interface::vtable(self).GetQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(pllthreshold)).ok()
     }
     pub unsafe fn GetQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
+        (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), core::mem::transmute(cchtext)).ok()
     }
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaLimit)(windows_core::Interface::as_raw(self), plllimit).ok()
+        (windows_core::Interface::vtable(self).GetQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(plllimit)).ok()
     }
     pub unsafe fn GetQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
+        (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), core::mem::transmute(cchtext)).ok()
     }
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaUsed)(windows_core::Interface::as_raw(self), pllused).ok()
+        (windows_core::Interface::vtable(self).GetQuotaUsed)(windows_core::Interface::as_raw(self), core::mem::transmute(pllused)).ok()
     }
     pub unsafe fn GetQuotaUsedText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
+        (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), psztext.param().abi(), core::mem::transmute(cchtext)).ok()
     }
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut core::ffi::c_void, cbquotainfo: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), pbquotainfo, cbquotainfo).ok()
+        (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pbquotainfo), core::mem::transmute(cbquotainfo)).ok()
     }
-    pub unsafe fn SetQuotaThreshold<P0>(&self, llthreshold: i64, fwritethrough: P0) -> windows_core::Result<()>
+    pub unsafe fn SetQuotaThreshold<P1>(&self, llthreshold: i64, fwritethrough: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold, fwritethrough.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(llthreshold), fwritethrough.param().abi()).ok()
     }
-    pub unsafe fn SetQuotaLimit<P0>(&self, lllimit: i64, fwritethrough: P0) -> windows_core::Result<()>
+    pub unsafe fn SetQuotaLimit<P1>(&self, lllimit: i64, fwritethrough: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), lllimit, fwritethrough.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(lllimit), fwritethrough.param().abi()).ok()
     }
     pub unsafe fn Invalidate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAccountStatus)(windows_core::Interface::as_raw(self), pdwstatus).ok()
+        (windows_core::Interface::vtable(self).GetAccountStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwstatus)).ok()
     }
 }
 #[repr(C)]
@@ -3774,7 +3776,7 @@ pub struct IDiskQuotaUser_Vtbl {
     pub Invalidate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAccountStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IDiskQuotaUser_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDiskQuotaUser_Impl: windows_core::IUnknownImpl {
     fn GetID(&self, pulid: *mut u32) -> windows_core::Result<()>;
     fn GetName(&self, pszaccountcontainer: &windows_core::PCWSTR, cchaccountcontainer: u32, pszlogonname: &windows_core::PCWSTR, cchlogonname: u32, pszdisplayname: &windows_core::PCWSTR, cchdisplayname: u32) -> windows_core::Result<()>;
     fn GetSidLength(&self, pdwlength: *mut u32) -> windows_core::Result<()>;
@@ -3791,9 +3793,8 @@ pub trait IDiskQuotaUser_Impl: Sized + windows_core::IUnknownImpl {
     fn Invalidate(&self) -> windows_core::Result<()>;
     fn GetAccountStatus(&self, pdwstatus: *mut u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDiskQuotaUser {}
 impl IDiskQuotaUser_Vtbl {
-    pub const fn new<Identity: IDiskQuotaUser_Impl, const OFFSET: isize>() -> IDiskQuotaUser_Vtbl {
+    pub const fn new<Identity: IDiskQuotaUser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetID<Identity: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulid: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDiskQuotaUser_Impl::GetID(this, core::mem::transmute_copy(&pulid)).into()
@@ -3877,13 +3878,8 @@ impl IDiskQuotaUser_Vtbl {
         iid == &<IDiskQuotaUser as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDiskQuotaUser {}
 windows_core::imp::define_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
-impl core::ops::Deref for IDiskQuotaUserBatch {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, windows_core::IUnknown);
 impl IDiskQuotaUserBatch {
     pub unsafe fn Add<P0>(&self, puser: P0) -> windows_core::Result<()>
@@ -3913,15 +3909,14 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FlushToDisk: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDiskQuotaUserBatch_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDiskQuotaUserBatch_Impl: windows_core::IUnknownImpl {
     fn Add(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
     fn Remove(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn FlushToDisk(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDiskQuotaUserBatch {}
 impl IDiskQuotaUserBatch_Vtbl {
-    pub const fn new<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> IDiskQuotaUserBatch_Vtbl {
+    pub const fn new<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Add<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDiskQuotaUserBatch_Impl::Add(this, windows_core::from_raw_borrowed(&puser)).into()
@@ -3950,20 +3945,15 @@ impl IDiskQuotaUserBatch_Vtbl {
         iid == &<IDiskQuotaUserBatch as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDiskQuotaUserBatch {}
 windows_core::imp::define_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
-impl core::ops::Deref for IEnumDiskQuotaUsers {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, windows_core::IUnknown);
 impl IEnumDiskQuotaUsers {
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cusers, core::mem::transmute(rgusers), pcusersfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(cusers), core::mem::transmute(rgusers), core::mem::transmute(pcusersfetched)).ok()
     }
     pub unsafe fn Skip(&self, cusers: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cusers).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cusers)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3981,15 +3971,14 @@ pub struct IEnumDiskQuotaUsers_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IEnumDiskQuotaUsers_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumDiskQuotaUsers_Impl: windows_core::IUnknownImpl {
     fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cusers: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDiskQuotaUsers>;
 }
-impl windows_core::RuntimeName for IEnumDiskQuotaUsers {}
 impl IEnumDiskQuotaUsers_Vtbl {
-    pub const fn new<Identity: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>() -> IEnumDiskQuotaUsers_Vtbl {
+    pub const fn new<Identity: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cusers: u32, rgusers: *mut *mut core::ffi::c_void, pcusersfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumDiskQuotaUsers_Impl::Next(this, core::mem::transmute_copy(&cusers), core::mem::transmute_copy(&rgusers), core::mem::transmute_copy(&pcusersfetched)).into()
@@ -4023,6 +4012,5205 @@ impl IEnumDiskQuotaUsers_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumDiskQuotaUsers as windows_core::Interface>::IID
     }
+}
+impl windows_core::RuntimeName for IEnumDiskQuotaUsers {}
+#[cfg(feature = "Win32_Security")]
+pub type CACHE_ACCESS_CHECK = Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type CACHE_DESTROY_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
+pub type CACHE_KEY_COMPARE = Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
+pub type CACHE_KEY_HASH = Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
+pub type CACHE_READ_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type CLAIMMEDIALABEL = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
+pub type CLAIMMEDIALABELEX = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut windows_core::GUID) -> u32>;
+pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
+pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
+pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
+pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
+pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
+pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
+pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
+pub type PFE_EXPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const core::ffi::c_void, ullength: u32) -> u32>;
+pub type PFE_IMPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const core::ffi::c_void, ullength: *mut u32) -> u32>;
+pub type PFN_IO_COMPLETION = Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
+pub type PLOG_FULL_HANDLER_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut core::ffi::c_void)>;
+pub type PLOG_TAIL_ADVANCE_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut core::ffi::c_void)>;
+pub type PLOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut core::ffi::c_void)>;
+pub type WofEnumEntryProc = Option<unsafe extern "system" fn(entryinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type WofEnumFilesProc = Option<unsafe extern "system" fn(filepath: windows_core::PCWSTR, externalfileinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_CONTEXT_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_FLAG(pub u32);
+impl CLFS_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CLFS_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CLFS_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CLFS_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CLFS_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CLFS_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_IOSTATS_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_CONTEXT_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_IOSTATS_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPRESSION_FORMAT(pub u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_COPY_PHASE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_V2_FLAGS(pub u32);
+impl COPYFILE2_V2_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE_FLAGS(pub u32);
+impl COPYFILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYPROGRESSROUTINE_PROGRESS(pub u32);
+impl COPYPROGRESSROUTINE_PROGRESS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
+impl DEFINE_DOS_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ERASE_TAPE_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ACCESS_RIGHTS(pub u32);
+impl FILE_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_ACCESS_RIGHTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_ACCESS_RIGHTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ACTION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_CREATION_DISPOSITION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_DEVICE_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
+impl FILE_FLAGS_AND_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_FLUSH_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ID_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
+impl FILE_INFO_FLAGS_PERMISSIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_NOTIFY_CHANGE(pub u32);
+impl FILE_NOTIFY_CHANGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_SHARE_MODE(pub u32);
+impl FILE_SHARE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_SHARE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_SHARE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_SHARE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_SHARE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_SHARE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_WRITE_FLAGS(pub i32);
+impl FILE_WRITE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_WRITE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_WRITE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINDEX_INFO_LEVELS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINDEX_SEARCH_OPS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FIND_FIRST_EX_FLAGS(pub u32);
+impl FIND_FIRST_EX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_FILEEX_INFO_LEVELS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
+impl GET_FILE_VERSION_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
+impl IORING_CREATE_ADVISORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_CREATE_ADVISORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_CREATE_ADVISORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
+impl IORING_CREATE_REQUIRED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_CREATE_REQUIRED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_CREATE_REQUIRED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_FEATURE_FLAGS(pub i32);
+impl IORING_FEATURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_FEATURE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_FEATURE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_OP_CODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_REF_KIND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_SQE_FLAGS(pub i32);
+impl IORING_SQE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_SQE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_SQE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LOCK_FILE_FLAGS(pub u32);
+impl LOCK_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for LOCK_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for LOCK_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LZOPENFILE_STYLE(pub u16);
+impl LZOPENFILE_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for LZOPENFILE_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for LZOPENFILE_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOVE_FILE_FLAGS(pub u32);
+impl MOVE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MOVE_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MOVE_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NTMS_OMID_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAccessMask(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAllocateOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAllocationPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAsyncOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAsyncStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsBarCodeState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsCreateNtmsMediaOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsCreateOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDeallocationPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDismountOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDoorState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDriveState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDriveType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsEjectOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsEnumerateOption(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsInjectOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsInventoryMethod(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibRequestFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibraryFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibraryType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLmOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLmState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMediaPoolPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMediaState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMountOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMountPriority(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsNotificationOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsObjectsTypes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpRequestFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOperationalState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpreqCommand(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpreqState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPartitionState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPoolType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPortContent(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPortPosition(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsReadWriteCharacteristics(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsSessionOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsSlotState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsUIOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsUITypes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PREPARE_TAPE_OPERATION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRIORITY_HINT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REPLACE_FILE_FLAGS(pub u32);
+impl REPLACE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SERVER_CERTIFICATE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SESSION_INFO_USER_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHARE_INFO_PERMISSIONS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHARE_TYPE(pub u32);
+impl SHARE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SHARE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SHARE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SHARE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SHARE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SHARE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_BUS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFO_LEVELS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYMBOLIC_LINK_FLAGS(pub u32);
+impl SYMBOLIC_LINK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPEMARK_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_INFORMATION_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_POSITION_METHOD(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_POSITION_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRANSACTION_OUTCOME(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXFS_MINIVERSION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXF_LOG_RECORD_TYPE(pub u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_FIND_FILE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_FIND_FILE_STATUS(pub u32);
+impl VER_FIND_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_INSTALL_FILE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_INSTALL_FILE_STATUS(pub u32);
+impl VER_INSTALL_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
+impl VS_FIXEDFILEINFO_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WIN_STREAM_ID(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BY_HANDLE_FILE_INFORMATION {
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub dwVolumeSerialNumber: u32,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub nNumberOfLinks: u32,
+    pub nFileIndexHigh: u32,
+    pub nFileIndexLow: u32,
+}
+impl Default for BY_HANDLE_FILE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BY_HANDLE_FILE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_LOG_NAME_INFORMATION {
+    pub NameLengthInBytes: u16,
+    pub Name: [u16; 1],
+}
+impl Default for CLFS_LOG_NAME_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_LOG_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_NOTIFICATION {
+    pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
+    pub Lsn: CLS_LSN,
+    pub LogIsPinned: u16,
+}
+impl Default for CLFS_MGMT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLFS_MGMT_POLICY {
+    pub Version: u32,
+    pub LengthInBytes: u32,
+    pub PolicyFlags: u32,
+    pub PolicyType: CLFS_MGMT_POLICY_TYPE,
+    pub PolicyParameters: CLFS_MGMT_POLICY_0,
+}
+impl Default for CLFS_MGMT_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLFS_MGMT_POLICY_0 {
+    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
+    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
+    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
+    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
+    pub LogTail: CLFS_MGMT_POLICY_0_4,
+    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
+    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
+    pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
+    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
+    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
+}
+impl Default for CLFS_MGMT_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_6 {
+    pub Enabled: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_5 {
+    pub Percentage: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_3 {
+    pub AbsoluteGrowthInContainers: u32,
+    pub RelativeGrowthPercentage: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_4 {
+    pub MinimumAvailablePercentage: u32,
+    pub MinimumAvailableContainers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_0 {
+    pub Containers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_1 {
+    pub Containers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_9 {
+    pub ExtensionLengthInBytes: u16,
+    pub ExtensionString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_7 {
+    pub PrefixLengthInBytes: u16,
+    pub PrefixString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_2 {
+    pub SizeInBytes: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_8 {
+    pub NextContainerSuffix: u64,
+}
+impl Default for CLFS_MGMT_POLICY_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_NODE_ID {
+    pub cType: u32,
+    pub cbNode: u32,
+}
+impl Default for CLFS_NODE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_NODE_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_PHYSICAL_LSN_INFORMATION {
+    pub StreamIdentifier: u8,
+    pub VirtualLsn: CLS_LSN,
+    pub PhysicalLsn: CLS_LSN,
+}
+impl Default for CLFS_PHYSICAL_LSN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_STREAM_ID_INFORMATION {
+    pub StreamIdentifier: u8,
+}
+impl Default for CLFS_STREAM_ID_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_STREAM_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_ARCHIVE_DESCRIPTOR {
+    pub coffLow: u64,
+    pub coffHigh: u64,
+    pub infoContainer: CLS_CONTAINER_INFORMATION,
+}
+impl Default for CLS_ARCHIVE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_CONTAINER_INFORMATION {
+    pub FileAttributes: u32,
+    pub CreationTime: u64,
+    pub LastAccessTime: u64,
+    pub LastWriteTime: u64,
+    pub ContainerSize: i64,
+    pub FileNameActualLength: u32,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 256],
+    pub State: u32,
+    pub PhysicalContainerId: u32,
+    pub LogicalContainerId: u32,
+}
+impl Default for CLS_CONTAINER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_CONTAINER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_INFORMATION {
+    pub TotalAvailable: i64,
+    pub CurrentAvailable: i64,
+    pub TotalReservation: i64,
+    pub BaseFileSize: u64,
+    pub ContainerSize: u64,
+    pub TotalContainers: u32,
+    pub FreeContainers: u32,
+    pub TotalClients: u32,
+    pub Attributes: u32,
+    pub FlushThreshold: u32,
+    pub SectorSize: u32,
+    pub MinArchiveTailLsn: CLS_LSN,
+    pub BaseLsn: CLS_LSN,
+    pub LastFlushedLsn: CLS_LSN,
+    pub LastLsn: CLS_LSN,
+    pub RestartLsn: CLS_LSN,
+    pub Identity: windows_core::GUID,
+}
+impl Default for CLS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_IO_STATISTICS {
+    pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
+    pub cFlush: u64,
+    pub cbFlush: u64,
+    pub cMetaFlush: u64,
+    pub cbMetaFlush: u64,
+}
+impl Default for CLS_IO_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_IO_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_IO_STATISTICS_HEADER {
+    pub ubMajorVersion: u8,
+    pub ubMinorVersion: u8,
+    pub eStatsClass: CLFS_IOSTATS_CLASS,
+    pub cbLength: u16,
+    pub coffData: u32,
+}
+impl Default for CLS_IO_STATISTICS_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_IO_STATISTICS_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_LSN {
+    pub Internal: u64,
+}
+impl Default for CLS_LSN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_LSN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_SCAN_CONTEXT {
+    pub cidNode: CLFS_NODE_ID,
+    pub hLog: super::super::Foundation::HANDLE,
+    pub cIndex: u32,
+    pub cContainers: u32,
+    pub cContainersReturned: u32,
+    pub eScanMode: u8,
+    pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
+}
+impl Default for CLS_SCAN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_SCAN_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_WRITE_ENTRY {
+    pub Buffer: *mut core::ffi::c_void,
+    pub ByteLength: u32,
+}
+impl Default for CLS_WRITE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_WRITE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONNECTION_INFO_0 {
+    pub coni0_id: u32,
+}
+impl Default for CONNECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONNECTION_INFO_1 {
+    pub coni1_id: u32,
+    pub coni1_type: SHARE_TYPE,
+    pub coni1_num_opens: u32,
+    pub coni1_num_users: u32,
+    pub coni1_time: u32,
+    pub coni1_username: windows_core::PWSTR,
+    pub coni1_netname: windows_core::PWSTR,
+}
+impl Default for CONNECTION_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_EXTENDED_PARAMETERS {
+    pub dwSize: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
+    pub pfCancel: *mut super::super::Foundation::BOOL,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+    pub pvCallbackContext: *mut core::ffi::c_void,
+}
+impl Default for COPYFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    pub dwSize: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
+    pub pfCancel: *mut super::super::Foundation::BOOL,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+    pub pvCallbackContext: *mut core::ffi::c_void,
+    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
+    pub ioDesiredSize: u32,
+    pub ioDesiredRate: u32,
+    pub reserved: [*mut core::ffi::c_void; 8],
+}
+impl Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COPYFILE2_MESSAGE {
+    pub Type: COPYFILE2_MESSAGE_TYPE,
+    pub dwPadding: u32,
+    pub Info: COPYFILE2_MESSAGE_0,
+}
+impl Default for COPYFILE2_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union COPYFILE2_MESSAGE_0 {
+    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
+    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
+    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
+    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
+    pub PollContinue: COPYFILE2_MESSAGE_0_4,
+    pub Error: COPYFILE2_MESSAGE_0_5,
+}
+impl Default for COPYFILE2_MESSAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_1 {
+    pub dwStreamNumber: u32,
+    pub dwFlags: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_0 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_5 {
+    pub CopyPhase: COPYFILE2_COPY_PHASE,
+    pub dwStreamNumber: u32,
+    pub hrFailure: windows_core::HRESULT,
+    pub dwReserved: u32,
+    pub uliChunkNumber: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_4 {
+    pub dwReserved: u32,
+}
+impl Default for COPYFILE2_MESSAGE_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_3 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_2 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATEFILE2_EXTENDED_PARAMETERS {
+    pub dwSize: u32,
+    pub dwFileAttributes: u32,
+    pub dwFileFlags: u32,
+    pub dwSecurityQosFlags: u32,
+    pub lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub hTemplateFile: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISKQUOTA_USER_INFORMATION {
+    pub QuotaUsed: i64,
+    pub QuotaThreshold: i64,
+    pub QuotaLimit: i64,
+}
+impl Default for DISKQUOTA_USER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DISKQUOTA_USER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISK_SPACE_INFORMATION {
+    pub ActualTotalAllocationUnits: u64,
+    pub ActualAvailableAllocationUnits: u64,
+    pub ActualPoolUnavailableAllocationUnits: u64,
+    pub CallerTotalAllocationUnits: u64,
+    pub CallerAvailableAllocationUnits: u64,
+    pub CallerPoolUnavailableAllocationUnits: u64,
+    pub UsedAllocationUnits: u64,
+    pub TotalReservedAllocationUnits: u64,
+    pub VolumeStorageReserveAllocationUnits: u64,
+    pub AvailableCommittedAllocationUnits: u64,
+    pub PoolAvailableAllocationUnits: u64,
+    pub SectorsPerAllocationUnit: u32,
+    pub BytesPerSector: u32,
+}
+impl Default for DISK_SPACE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DISK_SPACE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_CERTIFICATE_BLOB {
+    pub dwCertEncodingType: u32,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_CERTIFICATE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_CERTIFICATE_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_COMPATIBILITY_INFO {
+    pub EfsVersion: u32,
+}
+impl Default for EFS_COMPATIBILITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_COMPATIBILITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_DECRYPTION_STATUS_INFO {
+    pub dwDecryptionError: u32,
+    pub dwHashOffset: u32,
+    pub cbHash: u32,
+}
+impl Default for EFS_DECRYPTION_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_ENCRYPTION_STATUS_INFO {
+    pub bHasCurrentKey: super::super::Foundation::BOOL,
+    pub dwEncryptionError: u32,
+}
+impl Default for EFS_ENCRYPTION_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_HASH_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_HASH_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_HASH_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_KEY_INFO {
+    pub dwVersion: u32,
+    pub Entropy: u32,
+    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
+    pub KeyLength: u32,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for EFS_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for EFS_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_PIN_BLOB {
+    pub cbPadding: u32,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_PIN_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_PIN_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_RPC_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_RPC_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_RPC_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_VERSION_INFO {
+    pub EfsVersion: u32,
+    pub SubVersion: u32,
+}
+impl Default for EFS_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
+    pub dwEfsAccessType: u32,
+    pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
+    pub pEncryptionCertificate: *mut ENCRYPTION_CERTIFICATE,
+    pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_HASH {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub pHash: *mut EFS_HASH_BLOB,
+    pub lpDisplayInformation: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
+    pub nCert_Hash: u32,
+    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_LIST {
+    pub nUsers: u32,
+    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_PROTECTOR {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub lpProtectorDescriptor: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_PROTECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_PROTECTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_PROTECTOR_LIST {
+    pub nProtectors: u32,
+    pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_PROTECTOR_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FH_OVERLAPPED {
+    pub Internal: usize,
+    pub InternalHigh: usize,
+    pub Offset: u32,
+    pub OffsetHigh: u32,
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub pfnCompletion: PFN_IO_COMPLETION,
+    pub Reserved1: usize,
+    pub Reserved2: usize,
+    pub Reserved3: usize,
+    pub Reserved4: usize,
+}
+impl Default for FH_OVERLAPPED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FH_OVERLAPPED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ALIGNMENT_INFO {
+    pub AlignmentRequirement: u32,
+}
+impl Default for FILE_ALIGNMENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ALIGNMENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ALLOCATION_INFO {
+    pub AllocationSize: i64,
+}
+impl Default for FILE_ALLOCATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ALLOCATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ATTRIBUTE_TAG_INFO {
+    pub FileAttributes: u32,
+    pub ReparseTag: u32,
+}
+impl Default for FILE_ATTRIBUTE_TAG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_BASIC_INFO {
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub FileAttributes: u32,
+}
+impl Default for FILE_BASIC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_CASE_SENSITIVE_INFO {
+    pub Flags: u32,
+}
+impl Default for FILE_CASE_SENSITIVE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_COMPRESSION_INFO {
+    pub CompressedFileSize: i64,
+    pub CompressionFormat: COMPRESSION_FORMAT,
+    pub CompressionUnitShift: u8,
+    pub ChunkShift: u8,
+    pub ClusterShift: u8,
+    pub Reserved: [u8; 3],
+}
+impl Default for FILE_COMPRESSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_COMPRESSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_DISPOSITION_INFO {
+    pub DeleteFile: super::super::Foundation::BOOLEAN,
+}
+impl Default for FILE_DISPOSITION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_DISPOSITION_INFO_EX {
+    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
+}
+impl Default for FILE_DISPOSITION_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_END_OF_FILE_INFO {
+    pub EndOfFile: i64,
+}
+impl Default for FILE_END_OF_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_END_OF_FILE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_EXTENT {
+    pub VolumeOffset: u64,
+    pub ExtentLength: u64,
+}
+impl Default for FILE_EXTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_FULL_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_FULL_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_FULL_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_128 {
+    pub Identifier: [u8; 16],
+}
+impl Default for FILE_ID_128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_128 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_BOTH_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub ShortNameLength: i8,
+    pub ShortName: [u16; 12],
+    pub FileId: i64,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_ID_BOTH_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_ID_DESCRIPTOR {
+    pub dwSize: u32,
+    pub Type: FILE_ID_TYPE,
+    pub Anonymous: FILE_ID_DESCRIPTOR_0,
+}
+impl Default for FILE_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_ID_DESCRIPTOR_0 {
+    pub FileId: i64,
+    pub ObjectId: windows_core::GUID,
+    pub ExtendedFileId: FILE_ID_128,
+}
+impl Default for FILE_ID_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_EXTD_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub ReparsePointTag: u32,
+    pub FileId: FILE_ID_128,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_ID_EXTD_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_INFO {
+    pub VolumeSerialNumber: u64,
+    pub FileId: FILE_ID_128,
+}
+impl Default for FILE_ID_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_INFO_2 {
+    pub fi2_id: u32,
+}
+impl Default for FILE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_INFO_3 {
+    pub fi3_id: u32,
+    pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
+    pub fi3_num_locks: u32,
+    pub fi3_pathname: windows_core::PWSTR,
+    pub fi3_username: windows_core::PWSTR,
+}
+impl Default for FILE_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_INFO_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_IO_PRIORITY_HINT_INFO {
+    pub PriorityHint: PRIORITY_HINT,
+}
+impl Default for FILE_IO_PRIORITY_HINT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_NAME_INFO {
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NAME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: FILE_ACTION,
+    pub CreationTime: i64,
+    pub LastModificationTime: i64,
+    pub LastChangeTime: i64,
+    pub LastAccessTime: i64,
+    pub AllocatedLength: i64,
+    pub FileSize: i64,
+    pub FileAttributes: u32,
+    pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
+    pub FileId: i64,
+    pub ParentFileId: i64,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    pub ReparsePointTag: u32,
+    pub EaSize: u32,
+}
+impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_NOTIFY_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: FILE_ACTION,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NOTIFY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_REMOTE_PROTOCOL_INFO {
+    pub StructureVersion: u16,
+    pub StructureSize: u16,
+    pub Protocol: u32,
+    pub ProtocolMajorVersion: u16,
+    pub ProtocolMinorVersion: u16,
+    pub ProtocolRevision: u16,
+    pub Reserved: u16,
+    pub Flags: u32,
+    pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
+    pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
+    pub Reserved: [u32; 8],
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_REMOTE_PROTOCOL_INFO_1 {
+    pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
+    pub Reserved: [u32; 16],
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
+    pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    pub Capabilities: u32,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    pub Capabilities: u32,
+    pub ShareFlags: u32,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_RENAME_INFO {
+    pub Anonymous: FILE_RENAME_INFO_0,
+    pub RootDirectory: super::super::Foundation::HANDLE,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_RENAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_RENAME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_RENAME_INFO_0 {
+    pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
+    pub Flags: u32,
+}
+impl Default for FILE_RENAME_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_RENAME_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_SEGMENT_ELEMENT {
+    pub Buffer: *mut core::ffi::c_void,
+    pub Alignment: u64,
+}
+impl Default for FILE_SEGMENT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_SEGMENT_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STANDARD_INFO {
+    pub AllocationSize: i64,
+    pub EndOfFile: i64,
+    pub NumberOfLinks: u32,
+    pub DeletePending: super::super::Foundation::BOOLEAN,
+    pub Directory: super::super::Foundation::BOOLEAN,
+}
+impl Default for FILE_STANDARD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STANDARD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STORAGE_INFO {
+    pub LogicalBytesPerSector: u32,
+    pub PhysicalBytesPerSectorForAtomicity: u32,
+    pub PhysicalBytesPerSectorForPerformance: u32,
+    pub FileSystemEffectivePhysicalBytesPerSectorForAtomicity: u32,
+    pub Flags: u32,
+    pub ByteOffsetForSectorAlignment: u32,
+    pub ByteOffsetForPartitionAlignment: u32,
+}
+impl Default for FILE_STORAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STORAGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STREAM_INFO {
+    pub NextEntryOffset: u32,
+    pub StreamNameLength: u32,
+    pub StreamSize: i64,
+    pub StreamAllocationSize: i64,
+    pub StreamName: [u16; 1],
+}
+impl Default for FILE_STREAM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STREAM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FIO_CONTEXT {
+    pub m_dwTempHack: u32,
+    pub m_dwSignature: u32,
+    pub m_hFile: super::super::Foundation::HANDLE,
+    pub m_dwLinesOffset: u32,
+    pub m_dwHeaderLength: u32,
+}
+impl Default for FIO_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FIO_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIORING(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIORING {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIORING {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIORING {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CloseIoRing(ioring : *mut core::ffi::c_void) -> i32);
+            CloseIoRing(self.0);
+        }
+    }
+}
+impl Default for HIORING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_BUFFER_INFO {
+    pub Address: *mut core::ffi::c_void,
+    pub Length: u32,
+}
+impl Default for IORING_BUFFER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_BUFFER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IORING_BUFFER_REF {
+    pub Kind: IORING_REF_KIND,
+    pub Buffer: IORING_BUFFER_REF_0,
+}
+impl Default for IORING_BUFFER_REF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_BUFFER_REF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IORING_BUFFER_REF_0 {
+    pub Address: *mut core::ffi::c_void,
+    pub IndexAndOffset: IORING_REGISTERED_BUFFER,
+}
+impl Default for IORING_BUFFER_REF_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_BUFFER_REF_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_CAPABILITIES {
+    pub MaxVersion: IORING_VERSION,
+    pub MaxSubmissionQueueSize: u32,
+    pub MaxCompletionQueueSize: u32,
+    pub FeatureFlags: IORING_FEATURE_FLAGS,
+}
+impl Default for IORING_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_CQE {
+    pub UserData: usize,
+    pub ResultCode: windows_core::HRESULT,
+    pub Information: usize,
+}
+impl Default for IORING_CQE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_CQE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_CREATE_FLAGS {
+    pub Required: IORING_CREATE_REQUIRED_FLAGS,
+    pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
+}
+impl Default for IORING_CREATE_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_CREATE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IORING_HANDLE_REF {
+    pub Kind: IORING_REF_KIND,
+    pub Handle: IORING_HANDLE_REF_0,
+}
+impl Default for IORING_HANDLE_REF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_HANDLE_REF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IORING_HANDLE_REF_0 {
+    pub Handle: super::super::Foundation::HANDLE,
+    pub Index: u32,
+}
+impl Default for IORING_HANDLE_REF_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_HANDLE_REF_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_INFO {
+    pub IoRingVersion: IORING_VERSION,
+    pub Flags: IORING_CREATE_FLAGS,
+    pub SubmissionQueueSize: u32,
+    pub CompletionQueueSize: u32,
+}
+impl Default for IORING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IORING_REGISTERED_BUFFER {
+    pub BufferIndex: u32,
+    pub Offset: u32,
+}
+impl Default for IORING_REGISTERED_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IORING_REGISTERED_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KCRM_MARSHAL_HEADER {
+    pub VersionMajor: u32,
+    pub VersionMinor: u32,
+    pub NumProtocols: u32,
+    pub Unused: u32,
+}
+impl Default for KCRM_MARSHAL_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for KCRM_MARSHAL_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KCRM_PROTOCOL_BLOB {
+    pub ProtocolId: windows_core::GUID,
+    pub StaticInfoLength: u32,
+    pub TransactionIdInfoLength: u32,
+    pub Unused1: u32,
+    pub Unused2: u32,
+}
+impl Default for KCRM_PROTOCOL_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for KCRM_PROTOCOL_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KCRM_TRANSACTION_BLOB {
+    pub UOW: windows_core::GUID,
+    pub TmIdentity: windows_core::GUID,
+    pub IsolationLevel: u32,
+    pub IsolationFlags: u32,
+    pub Timeout: u32,
+    pub Description: [u16; 64],
+}
+impl Default for KCRM_TRANSACTION_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for KCRM_TRANSACTION_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOG_MANAGEMENT_CALLBACKS {
+    pub CallbackContext: *mut core::ffi::c_void,
+    pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
+    pub LogFullHandlerCallback: PLOG_FULL_HANDLER_CALLBACK,
+    pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
+}
+impl Default for LOG_MANAGEMENT_CALLBACKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOG_MANAGEMENT_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MediaLabelInfo {
+    pub LabelType: [u16; 64],
+    pub LabelIDSize: u32,
+    pub LabelID: [u8; 256],
+    pub LabelAppDescr: [u16; 256],
+}
+impl Default for MediaLabelInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MediaLabelInfo {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NAME_CACHE_CONTEXT {
+    pub m_dwSignature: u32,
+}
+impl Default for NAME_CACHE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NAME_CACHE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_ALLOCATION_INFORMATION {
+    pub dwSize: u32,
+    pub lpReserved: *mut core::ffi::c_void,
+    pub AllocatedFrom: windows_core::GUID,
+}
+impl Default for NTMS_ALLOCATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_ALLOCATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_ASYNC_IO {
+    pub OperationId: windows_core::GUID,
+    pub EventId: windows_core::GUID,
+    pub dwOperationType: u32,
+    pub dwResult: u32,
+    pub dwAsyncState: u32,
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub bOnStateChange: super::super::Foundation::BOOL,
+}
+impl Default for NTMS_ASYNC_IO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_ASYNC_IO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_CHANGERINFORMATIONA {
+    pub Number: u32,
+    pub ChangerType: windows_core::GUID,
+    pub szSerialNumber: [i8; 32],
+    pub szRevision: [i8; 32],
+    pub szDeviceName: [i8; 64],
+    pub ScsiPort: u16,
+    pub ScsiBus: u16,
+    pub ScsiTarget: u16,
+    pub ScsiLun: u16,
+    pub Library: windows_core::GUID,
+}
+impl Default for NTMS_CHANGERINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_CHANGERINFORMATIONW {
+    pub Number: u32,
+    pub ChangerType: windows_core::GUID,
+    pub szSerialNumber: [u16; 32],
+    pub szRevision: [u16; 32],
+    pub szDeviceName: [u16; 64],
+    pub ScsiPort: u16,
+    pub ScsiBus: u16,
+    pub ScsiTarget: u16,
+    pub ScsiLun: u16,
+    pub Library: windows_core::GUID,
+}
+impl Default for NTMS_CHANGERINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_CHANGERTYPEINFORMATIONA {
+    pub szVendor: [i8; 128],
+    pub szProduct: [i8; 128],
+    pub DeviceType: u32,
+}
+impl Default for NTMS_CHANGERTYPEINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_CHANGERTYPEINFORMATIONW {
+    pub szVendor: [u16; 128],
+    pub szProduct: [u16; 128],
+    pub DeviceType: u32,
+}
+impl Default for NTMS_CHANGERTYPEINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_COMPUTERINFORMATION {
+    pub dwLibRequestPurgeTime: u32,
+    pub dwOpRequestPurgeTime: u32,
+    pub dwLibRequestFlags: u32,
+    pub dwOpRequestFlags: u32,
+    pub dwMediaPoolPolicy: u32,
+}
+impl Default for NTMS_COMPUTERINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_COMPUTERINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_DRIVEINFORMATIONA {
+    pub Number: u32,
+    pub State: u32,
+    pub DriveType: windows_core::GUID,
+    pub szDeviceName: [i8; 64],
+    pub szSerialNumber: [i8; 32],
+    pub szRevision: [i8; 32],
+    pub ScsiPort: u16,
+    pub ScsiBus: u16,
+    pub ScsiTarget: u16,
+    pub ScsiLun: u16,
+    pub dwMountCount: u32,
+    pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
+    pub SavedPartitionId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub Reserved: windows_core::GUID,
+    pub dwDeferDismountDelay: u32,
+}
+impl Default for NTMS_DRIVEINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_DRIVEINFORMATIONW {
+    pub Number: u32,
+    pub State: u32,
+    pub DriveType: windows_core::GUID,
+    pub szDeviceName: [u16; 64],
+    pub szSerialNumber: [u16; 32],
+    pub szRevision: [u16; 32],
+    pub ScsiPort: u16,
+    pub ScsiBus: u16,
+    pub ScsiTarget: u16,
+    pub ScsiLun: u16,
+    pub dwMountCount: u32,
+    pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
+    pub SavedPartitionId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub Reserved: windows_core::GUID,
+    pub dwDeferDismountDelay: u32,
+}
+impl Default for NTMS_DRIVEINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_DRIVETYPEINFORMATIONA {
+    pub szVendor: [i8; 128],
+    pub szProduct: [i8; 128],
+    pub NumberOfHeads: u32,
+    pub DeviceType: FILE_DEVICE_TYPE,
+}
+impl Default for NTMS_DRIVETYPEINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_DRIVETYPEINFORMATIONW {
+    pub szVendor: [u16; 128],
+    pub szProduct: [u16; 128],
+    pub NumberOfHeads: u32,
+    pub DeviceType: FILE_DEVICE_TYPE,
+}
+impl Default for NTMS_DRIVETYPEINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_FILESYSTEM_INFO {
+    pub FileSystemType: [u16; 64],
+    pub VolumeName: [u16; 256],
+    pub SerialNumber: u32,
+}
+impl Default for NTMS_FILESYSTEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_FILESYSTEM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_LIBRARYINFORMATION {
+    pub LibraryType: u32,
+    pub CleanerSlot: windows_core::GUID,
+    pub CleanerSlotDefault: windows_core::GUID,
+    pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
+    pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
+    pub InventoryMethod: u32,
+    pub dwCleanerUsesRemaining: u32,
+    pub FirstDriveNumber: u32,
+    pub dwNumberOfDrives: u32,
+    pub FirstSlotNumber: u32,
+    pub dwNumberOfSlots: u32,
+    pub FirstDoorNumber: u32,
+    pub dwNumberOfDoors: u32,
+    pub FirstPortNumber: u32,
+    pub dwNumberOfPorts: u32,
+    pub FirstChangerNumber: u32,
+    pub dwNumberOfChangers: u32,
+    pub dwNumberOfMedia: u32,
+    pub dwNumberOfMediaTypes: u32,
+    pub dwNumberOfLibRequests: u32,
+    pub Reserved: windows_core::GUID,
+}
+impl Default for NTMS_I1_LIBRARYINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_LIBRARYINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
+    pub OperationCode: u32,
+    pub OperationOption: u32,
+    pub State: u32,
+    pub PartitionId: windows_core::GUID,
+    pub DriveId: windows_core::GUID,
+    pub PhysMediaId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub SlotId: windows_core::GUID,
+    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
+    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
+}
+impl Default for NTMS_I1_LIBREQUESTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
+    pub OperationCode: u32,
+    pub OperationOption: u32,
+    pub State: u32,
+    pub PartitionId: windows_core::GUID,
+    pub DriveId: windows_core::GUID,
+    pub PhysMediaId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub SlotId: windows_core::GUID,
+    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
+    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
+    pub szApplication: [u16; 64],
+    pub szUser: [u16; 64],
+    pub szComputer: [u16; 64],
+}
+impl Default for NTMS_I1_LIBREQUESTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NTMS_I1_OBJECTINFORMATIONA {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub Created: super::super::Foundation::SYSTEMTIME,
+    pub Modified: super::super::Foundation::SYSTEMTIME,
+    pub ObjectGuid: windows_core::GUID,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub dwOperationalState: u32,
+    pub szName: [i8; 64],
+    pub szDescription: [i8; 127],
+    pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
+}
+impl Default for NTMS_I1_OBJECTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NTMS_I1_OBJECTINFORMATIONA_0 {
+    pub Drive: NTMS_DRIVEINFORMATIONA,
+    pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
+    pub Library: NTMS_I1_LIBRARYINFORMATION,
+    pub Changer: NTMS_CHANGERINFORMATIONA,
+    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONA,
+    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
+    pub IEDoor: NTMS_IEDOORINFORMATION,
+    pub IEPort: NTMS_IEPORTINFORMATION,
+    pub PhysicalMedia: NTMS_I1_PMIDINFORMATIONA,
+    pub LogicalMedia: NTMS_LMIDINFORMATION,
+    pub Partition: NTMS_I1_PARTITIONINFORMATIONA,
+    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
+    pub MediaType: NTMS_MEDIATYPEINFORMATION,
+    pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONA,
+    pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONA,
+}
+impl Default for NTMS_I1_OBJECTINFORMATIONA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NTMS_I1_OBJECTINFORMATIONW {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub Created: super::super::Foundation::SYSTEMTIME,
+    pub Modified: super::super::Foundation::SYSTEMTIME,
+    pub ObjectGuid: windows_core::GUID,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub dwOperationalState: u32,
+    pub szName: [u16; 64],
+    pub szDescription: [u16; 127],
+    pub Info: NTMS_I1_OBJECTINFORMATIONW_0,
+}
+impl Default for NTMS_I1_OBJECTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NTMS_I1_OBJECTINFORMATIONW_0 {
+    pub Drive: NTMS_DRIVEINFORMATIONW,
+    pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
+    pub Library: NTMS_I1_LIBRARYINFORMATION,
+    pub Changer: NTMS_CHANGERINFORMATIONW,
+    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONW,
+    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
+    pub IEDoor: NTMS_IEDOORINFORMATION,
+    pub IEPort: NTMS_IEPORTINFORMATION,
+    pub PhysicalMedia: NTMS_I1_PMIDINFORMATIONW,
+    pub LogicalMedia: NTMS_LMIDINFORMATION,
+    pub Partition: NTMS_I1_PARTITIONINFORMATIONW,
+    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
+    pub MediaType: NTMS_MEDIATYPEINFORMATION,
+    pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONW,
+    pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONW,
+}
+impl Default for NTMS_I1_OBJECTINFORMATIONW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_OPREQUESTINFORMATIONA {
+    pub Request: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub State: u32,
+    pub szMessage: [i8; 127],
+    pub Arg1Type: u32,
+    pub Arg1: windows_core::GUID,
+    pub Arg2Type: u32,
+    pub Arg2: windows_core::GUID,
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
+}
+impl Default for NTMS_I1_OPREQUESTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_OPREQUESTINFORMATIONW {
+    pub Request: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub State: u32,
+    pub szMessage: [u16; 127],
+    pub Arg1Type: u32,
+    pub Arg1: windows_core::GUID,
+    pub Arg2Type: u32,
+    pub Arg2: windows_core::GUID,
+    pub szApplication: [u16; 64],
+    pub szUser: [u16; 64],
+    pub szComputer: [u16; 64],
+}
+impl Default for NTMS_I1_OPREQUESTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_PARTITIONINFORMATIONA {
+    pub PhysicalMedia: windows_core::GUID,
+    pub LogicalMedia: windows_core::GUID,
+    pub State: u32,
+    pub Side: u16,
+    pub dwOmidLabelIdLength: u32,
+    pub OmidLabelId: [u8; 255],
+    pub szOmidLabelType: [i8; 64],
+    pub szOmidLabelInfo: [i8; 256],
+    pub dwMountCount: u32,
+    pub dwAllocateCount: u32,
+}
+impl Default for NTMS_I1_PARTITIONINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_PARTITIONINFORMATIONW {
+    pub PhysicalMedia: windows_core::GUID,
+    pub LogicalMedia: windows_core::GUID,
+    pub State: u32,
+    pub Side: u16,
+    pub dwOmidLabelIdLength: u32,
+    pub OmidLabelId: [u8; 255],
+    pub szOmidLabelType: [u16; 64],
+    pub szOmidLabelInfo: [u16; 256],
+    pub dwMountCount: u32,
+    pub dwAllocateCount: u32,
+}
+impl Default for NTMS_I1_PARTITIONINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_PMIDINFORMATIONA {
+    pub CurrentLibrary: windows_core::GUID,
+    pub MediaPool: windows_core::GUID,
+    pub Location: windows_core::GUID,
+    pub LocationType: u32,
+    pub MediaType: windows_core::GUID,
+    pub HomeSlot: windows_core::GUID,
+    pub szBarCode: [i8; 64],
+    pub BarCodeState: u32,
+    pub szSequenceNumber: [i8; 32],
+    pub MediaState: u32,
+    pub dwNumberOfPartitions: u32,
+}
+impl Default for NTMS_I1_PMIDINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_I1_PMIDINFORMATIONW {
+    pub CurrentLibrary: windows_core::GUID,
+    pub MediaPool: windows_core::GUID,
+    pub Location: windows_core::GUID,
+    pub LocationType: u32,
+    pub MediaType: windows_core::GUID,
+    pub HomeSlot: windows_core::GUID,
+    pub szBarCode: [u16; 64],
+    pub BarCodeState: u32,
+    pub szSequenceNumber: [u16; 32],
+    pub MediaState: u32,
+    pub dwNumberOfPartitions: u32,
+}
+impl Default for NTMS_I1_PMIDINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_IEDOORINFORMATION {
+    pub Number: u32,
+    pub State: u32,
+    pub MaxOpenSecs: u16,
+    pub Library: windows_core::GUID,
+}
+impl Default for NTMS_IEDOORINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_IEDOORINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_IEPORTINFORMATION {
+    pub Number: u32,
+    pub Content: u32,
+    pub Position: u32,
+    pub MaxExtendSecs: u16,
+    pub Library: windows_core::GUID,
+}
+impl Default for NTMS_IEPORTINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_IEPORTINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_LIBRARYINFORMATION {
+    pub LibraryType: u32,
+    pub CleanerSlot: windows_core::GUID,
+    pub CleanerSlotDefault: windows_core::GUID,
+    pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
+    pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
+    pub InventoryMethod: u32,
+    pub dwCleanerUsesRemaining: u32,
+    pub FirstDriveNumber: u32,
+    pub dwNumberOfDrives: u32,
+    pub FirstSlotNumber: u32,
+    pub dwNumberOfSlots: u32,
+    pub FirstDoorNumber: u32,
+    pub dwNumberOfDoors: u32,
+    pub FirstPortNumber: u32,
+    pub dwNumberOfPorts: u32,
+    pub FirstChangerNumber: u32,
+    pub dwNumberOfChangers: u32,
+    pub dwNumberOfMedia: u32,
+    pub dwNumberOfMediaTypes: u32,
+    pub dwNumberOfLibRequests: u32,
+    pub Reserved: windows_core::GUID,
+    pub AutoRecovery: super::super::Foundation::BOOL,
+    pub dwFlags: u32,
+}
+impl Default for NTMS_LIBRARYINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_LIBRARYINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_LIBREQUESTINFORMATIONA {
+    pub OperationCode: u32,
+    pub OperationOption: u32,
+    pub State: u32,
+    pub PartitionId: windows_core::GUID,
+    pub DriveId: windows_core::GUID,
+    pub PhysMediaId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub SlotId: windows_core::GUID,
+    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
+    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
+    pub dwErrorCode: u32,
+    pub WorkItemId: windows_core::GUID,
+    pub dwPriority: u32,
+}
+impl Default for NTMS_LIBREQUESTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_LIBREQUESTINFORMATIONW {
+    pub OperationCode: u32,
+    pub OperationOption: u32,
+    pub State: u32,
+    pub PartitionId: windows_core::GUID,
+    pub DriveId: windows_core::GUID,
+    pub PhysMediaId: windows_core::GUID,
+    pub Library: windows_core::GUID,
+    pub SlotId: windows_core::GUID,
+    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
+    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
+    pub szApplication: [u16; 64],
+    pub szUser: [u16; 64],
+    pub szComputer: [u16; 64],
+    pub dwErrorCode: u32,
+    pub WorkItemId: windows_core::GUID,
+    pub dwPriority: u32,
+}
+impl Default for NTMS_LIBREQUESTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_LMIDINFORMATION {
+    pub MediaPool: windows_core::GUID,
+    pub dwNumberOfPartitions: u32,
+}
+impl Default for NTMS_LMIDINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_LMIDINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_MEDIAPOOLINFORMATION {
+    pub PoolType: u32,
+    pub MediaType: windows_core::GUID,
+    pub Parent: windows_core::GUID,
+    pub AllocationPolicy: u32,
+    pub DeallocationPolicy: u32,
+    pub dwMaxAllocates: u32,
+    pub dwNumberOfPhysicalMedia: u32,
+    pub dwNumberOfLogicalMedia: u32,
+    pub dwNumberOfMediaPools: u32,
+}
+impl Default for NTMS_MEDIAPOOLINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_MEDIAPOOLINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_MEDIATYPEINFORMATION {
+    pub MediaType: u32,
+    pub NumberOfSides: u32,
+    pub ReadWriteCharacteristics: u32,
+    pub DeviceType: FILE_DEVICE_TYPE,
+}
+impl Default for NTMS_MEDIATYPEINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_MEDIATYPEINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_MOUNT_INFORMATION {
+    pub dwSize: u32,
+    pub lpReserved: *mut core::ffi::c_void,
+}
+impl Default for NTMS_MOUNT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_MOUNT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_NOTIFICATIONINFORMATION {
+    pub dwOperation: u32,
+    pub ObjectId: windows_core::GUID,
+}
+impl Default for NTMS_NOTIFICATIONINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_NOTIFICATIONINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NTMS_OBJECTINFORMATIONA {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub Created: super::super::Foundation::SYSTEMTIME,
+    pub Modified: super::super::Foundation::SYSTEMTIME,
+    pub ObjectGuid: windows_core::GUID,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub dwOperationalState: u32,
+    pub szName: [i8; 64],
+    pub szDescription: [i8; 127],
+    pub Info: NTMS_OBJECTINFORMATIONA_0,
+}
+impl Default for NTMS_OBJECTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NTMS_OBJECTINFORMATIONA_0 {
+    pub Drive: NTMS_DRIVEINFORMATIONA,
+    pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
+    pub Library: NTMS_LIBRARYINFORMATION,
+    pub Changer: NTMS_CHANGERINFORMATIONA,
+    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONA,
+    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
+    pub IEDoor: NTMS_IEDOORINFORMATION,
+    pub IEPort: NTMS_IEPORTINFORMATION,
+    pub PhysicalMedia: NTMS_PMIDINFORMATIONA,
+    pub LogicalMedia: NTMS_LMIDINFORMATION,
+    pub Partition: NTMS_PARTITIONINFORMATIONA,
+    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
+    pub MediaType: NTMS_MEDIATYPEINFORMATION,
+    pub LibRequest: NTMS_LIBREQUESTINFORMATIONA,
+    pub OpRequest: NTMS_OPREQUESTINFORMATIONA,
+    pub Computer: NTMS_COMPUTERINFORMATION,
+}
+impl Default for NTMS_OBJECTINFORMATIONA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NTMS_OBJECTINFORMATIONW {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub Created: super::super::Foundation::SYSTEMTIME,
+    pub Modified: super::super::Foundation::SYSTEMTIME,
+    pub ObjectGuid: windows_core::GUID,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub dwOperationalState: u32,
+    pub szName: [u16; 64],
+    pub szDescription: [u16; 127],
+    pub Info: NTMS_OBJECTINFORMATIONW_0,
+}
+impl Default for NTMS_OBJECTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NTMS_OBJECTINFORMATIONW_0 {
+    pub Drive: NTMS_DRIVEINFORMATIONW,
+    pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
+    pub Library: NTMS_LIBRARYINFORMATION,
+    pub Changer: NTMS_CHANGERINFORMATIONW,
+    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONW,
+    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
+    pub IEDoor: NTMS_IEDOORINFORMATION,
+    pub IEPort: NTMS_IEPORTINFORMATION,
+    pub PhysicalMedia: NTMS_PMIDINFORMATIONW,
+    pub LogicalMedia: NTMS_LMIDINFORMATION,
+    pub Partition: NTMS_PARTITIONINFORMATIONW,
+    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
+    pub MediaType: NTMS_MEDIATYPEINFORMATION,
+    pub LibRequest: NTMS_LIBREQUESTINFORMATIONW,
+    pub OpRequest: NTMS_OPREQUESTINFORMATIONW,
+    pub Computer: NTMS_COMPUTERINFORMATION,
+}
+impl Default for NTMS_OBJECTINFORMATIONW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_OPREQUESTINFORMATIONA {
+    pub Request: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub State: u32,
+    pub szMessage: [i8; 256],
+    pub Arg1Type: u32,
+    pub Arg1: windows_core::GUID,
+    pub Arg2Type: u32,
+    pub Arg2: windows_core::GUID,
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
+}
+impl Default for NTMS_OPREQUESTINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_OPREQUESTINFORMATIONW {
+    pub Request: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub State: u32,
+    pub szMessage: [u16; 256],
+    pub Arg1Type: u32,
+    pub Arg1: windows_core::GUID,
+    pub Arg2Type: u32,
+    pub Arg2: windows_core::GUID,
+    pub szApplication: [u16; 64],
+    pub szUser: [u16; 64],
+    pub szComputer: [u16; 64],
+}
+impl Default for NTMS_OPREQUESTINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_PARTITIONINFORMATIONA {
+    pub PhysicalMedia: windows_core::GUID,
+    pub LogicalMedia: windows_core::GUID,
+    pub State: u32,
+    pub Side: u16,
+    pub dwOmidLabelIdLength: u32,
+    pub OmidLabelId: [u8; 255],
+    pub szOmidLabelType: [i8; 64],
+    pub szOmidLabelInfo: [i8; 256],
+    pub dwMountCount: u32,
+    pub dwAllocateCount: u32,
+    pub Capacity: i64,
+}
+impl Default for NTMS_PARTITIONINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_PARTITIONINFORMATIONW {
+    pub PhysicalMedia: windows_core::GUID,
+    pub LogicalMedia: windows_core::GUID,
+    pub State: u32,
+    pub Side: u16,
+    pub dwOmidLabelIdLength: u32,
+    pub OmidLabelId: [u8; 255],
+    pub szOmidLabelType: [u16; 64],
+    pub szOmidLabelInfo: [u16; 256],
+    pub dwMountCount: u32,
+    pub dwAllocateCount: u32,
+    pub Capacity: i64,
+}
+impl Default for NTMS_PARTITIONINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_PMIDINFORMATIONA {
+    pub CurrentLibrary: windows_core::GUID,
+    pub MediaPool: windows_core::GUID,
+    pub Location: windows_core::GUID,
+    pub LocationType: u32,
+    pub MediaType: windows_core::GUID,
+    pub HomeSlot: windows_core::GUID,
+    pub szBarCode: [i8; 64],
+    pub BarCodeState: u32,
+    pub szSequenceNumber: [i8; 32],
+    pub MediaState: u32,
+    pub dwNumberOfPartitions: u32,
+    pub dwMediaTypeCode: u32,
+    pub dwDensityCode: u32,
+    pub MountedPartition: windows_core::GUID,
+}
+impl Default for NTMS_PMIDINFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_PMIDINFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_PMIDINFORMATIONW {
+    pub CurrentLibrary: windows_core::GUID,
+    pub MediaPool: windows_core::GUID,
+    pub Location: windows_core::GUID,
+    pub LocationType: u32,
+    pub MediaType: windows_core::GUID,
+    pub HomeSlot: windows_core::GUID,
+    pub szBarCode: [u16; 64],
+    pub BarCodeState: u32,
+    pub szSequenceNumber: [u16; 32],
+    pub MediaState: u32,
+    pub dwNumberOfPartitions: u32,
+    pub dwMediaTypeCode: u32,
+    pub dwDensityCode: u32,
+    pub MountedPartition: windows_core::GUID,
+}
+impl Default for NTMS_PMIDINFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_PMIDINFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NTMS_STORAGESLOTINFORMATION {
+    pub Number: u32,
+    pub State: u32,
+    pub Library: windows_core::GUID,
+}
+impl Default for NTMS_STORAGESLOTINFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NTMS_STORAGESLOTINFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OFSTRUCT {
+    pub cBytes: u8,
+    pub fFixedDisk: u8,
+    pub nErrCode: u16,
+    pub Reserved1: u16,
+    pub Reserved2: u16,
+    pub szPathName: [i8; 128],
+}
+impl Default for OFSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OFSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REPARSE_GUID_DATA_BUFFER {
+    pub ReparseTag: u32,
+    pub ReparseDataLength: u16,
+    pub Reserved: u16,
+    pub ReparseGuid: windows_core::GUID,
+    pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
+}
+impl Default for REPARSE_GUID_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REPARSE_GUID_DATA_BUFFER_0 {
+    pub DataBuffer: [u8; 1],
+}
+impl Default for REPARSE_GUID_DATA_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SERVER_ALIAS_INFO_0 {
+    pub srvai0_alias: windows_core::PWSTR,
+    pub srvai0_target: windows_core::PWSTR,
+    pub srvai0_default: super::super::Foundation::BOOLEAN,
+    pub srvai0_reserved: u32,
+}
+impl Default for SERVER_ALIAS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SERVER_ALIAS_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SERVER_CERTIFICATE_INFO_0 {
+    pub srvci0_name: windows_core::PWSTR,
+    pub srvci0_subject: windows_core::PWSTR,
+    pub srvci0_issuer: windows_core::PWSTR,
+    pub srvci0_thumbprint: windows_core::PWSTR,
+    pub srvci0_friendlyname: windows_core::PWSTR,
+    pub srvci0_notbefore: windows_core::PWSTR,
+    pub srvci0_notafter: windows_core::PWSTR,
+    pub srvci0_storelocation: windows_core::PWSTR,
+    pub srvci0_storename: windows_core::PWSTR,
+    pub srvci0_renewalchain: windows_core::PWSTR,
+    pub srvci0_type: u32,
+    pub srvci0_flags: u32,
+    pub srvci0_mapping_status: u32,
+}
+impl Default for SERVER_CERTIFICATE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SERVER_CERTIFICATE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SESSION_INFO_0 {
+    pub sesi0_cname: windows_core::PWSTR,
+}
+impl Default for SESSION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SESSION_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SESSION_INFO_1 {
+    pub sesi1_cname: windows_core::PWSTR,
+    pub sesi1_username: windows_core::PWSTR,
+    pub sesi1_num_opens: u32,
+    pub sesi1_time: u32,
+    pub sesi1_idle_time: u32,
+    pub sesi1_user_flags: SESSION_INFO_USER_FLAGS,
+}
+impl Default for SESSION_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SESSION_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SESSION_INFO_10 {
+    pub sesi10_cname: windows_core::PWSTR,
+    pub sesi10_username: windows_core::PWSTR,
+    pub sesi10_time: u32,
+    pub sesi10_idle_time: u32,
+}
+impl Default for SESSION_INFO_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SESSION_INFO_10 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SESSION_INFO_2 {
+    pub sesi2_cname: windows_core::PWSTR,
+    pub sesi2_username: windows_core::PWSTR,
+    pub sesi2_num_opens: u32,
+    pub sesi2_time: u32,
+    pub sesi2_idle_time: u32,
+    pub sesi2_user_flags: SESSION_INFO_USER_FLAGS,
+    pub sesi2_cltype_name: windows_core::PWSTR,
+}
+impl Default for SESSION_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SESSION_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SESSION_INFO_502 {
+    pub sesi502_cname: windows_core::PWSTR,
+    pub sesi502_username: windows_core::PWSTR,
+    pub sesi502_num_opens: u32,
+    pub sesi502_time: u32,
+    pub sesi502_idle_time: u32,
+    pub sesi502_user_flags: SESSION_INFO_USER_FLAGS,
+    pub sesi502_cltype_name: windows_core::PWSTR,
+    pub sesi502_transport: windows_core::PWSTR,
+}
+impl Default for SESSION_INFO_502 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SESSION_INFO_502 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_0 {
+    pub shi0_netname: windows_core::PWSTR,
+}
+impl Default for SHARE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1 {
+    pub shi1_netname: windows_core::PWSTR,
+    pub shi1_type: SHARE_TYPE,
+    pub shi1_remark: windows_core::PWSTR,
+}
+impl Default for SHARE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1004 {
+    pub shi1004_remark: windows_core::PWSTR,
+}
+impl Default for SHARE_INFO_1004 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_1004 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1005 {
+    pub shi1005_flags: u32,
+}
+impl Default for SHARE_INFO_1005 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_1005 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1006 {
+    pub shi1006_max_uses: u32,
+}
+impl Default for SHARE_INFO_1006 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_1006 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1501 {
+    pub shi1501_reserved: u32,
+    pub shi1501_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for SHARE_INFO_1501 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SHARE_INFO_1501 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_1503 {
+    pub shi1503_sharefilter: windows_core::GUID,
+}
+impl Default for SHARE_INFO_1503 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_1503 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_2 {
+    pub shi2_netname: windows_core::PWSTR,
+    pub shi2_type: SHARE_TYPE,
+    pub shi2_remark: windows_core::PWSTR,
+    pub shi2_permissions: SHARE_INFO_PERMISSIONS,
+    pub shi2_max_uses: u32,
+    pub shi2_current_uses: u32,
+    pub shi2_path: windows_core::PWSTR,
+    pub shi2_passwd: windows_core::PWSTR,
+}
+impl Default for SHARE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_501 {
+    pub shi501_netname: windows_core::PWSTR,
+    pub shi501_type: SHARE_TYPE,
+    pub shi501_remark: windows_core::PWSTR,
+    pub shi501_flags: u32,
+}
+impl Default for SHARE_INFO_501 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHARE_INFO_501 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_502 {
+    pub shi502_netname: windows_core::PWSTR,
+    pub shi502_type: SHARE_TYPE,
+    pub shi502_remark: windows_core::PWSTR,
+    pub shi502_permissions: SHARE_INFO_PERMISSIONS,
+    pub shi502_max_uses: u32,
+    pub shi502_current_uses: u32,
+    pub shi502_path: windows_core::PWSTR,
+    pub shi502_passwd: windows_core::PWSTR,
+    pub shi502_reserved: u32,
+    pub shi502_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for SHARE_INFO_502 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SHARE_INFO_502 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHARE_INFO_503 {
+    pub shi503_netname: windows_core::PWSTR,
+    pub shi503_type: SHARE_TYPE,
+    pub shi503_remark: windows_core::PWSTR,
+    pub shi503_permissions: SHARE_INFO_PERMISSIONS,
+    pub shi503_max_uses: u32,
+    pub shi503_current_uses: u32,
+    pub shi503_path: windows_core::PWSTR,
+    pub shi503_passwd: windows_core::PWSTR,
+    pub shi503_servername: windows_core::PWSTR,
+    pub shi503_reserved: u32,
+    pub shi503_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for SHARE_INFO_503 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SHARE_INFO_503 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STAT_SERVER_0 {
+    pub sts0_start: u32,
+    pub sts0_fopens: u32,
+    pub sts0_devopens: u32,
+    pub sts0_jobsqueued: u32,
+    pub sts0_sopens: u32,
+    pub sts0_stimedout: u32,
+    pub sts0_serrorout: u32,
+    pub sts0_pwerrors: u32,
+    pub sts0_permerrors: u32,
+    pub sts0_syserrors: u32,
+    pub sts0_bytessent_low: u32,
+    pub sts0_bytessent_high: u32,
+    pub sts0_bytesrcvd_low: u32,
+    pub sts0_bytesrcvd_high: u32,
+    pub sts0_avresponse: u32,
+    pub sts0_reqbufneed: u32,
+    pub sts0_bigbufneed: u32,
+}
+impl Default for STAT_SERVER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STAT_SERVER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STAT_WORKSTATION_0 {
+    pub StatisticsStartTime: i64,
+    pub BytesReceived: i64,
+    pub SmbsReceived: i64,
+    pub PagingReadBytesRequested: i64,
+    pub NonPagingReadBytesRequested: i64,
+    pub CacheReadBytesRequested: i64,
+    pub NetworkReadBytesRequested: i64,
+    pub BytesTransmitted: i64,
+    pub SmbsTransmitted: i64,
+    pub PagingWriteBytesRequested: i64,
+    pub NonPagingWriteBytesRequested: i64,
+    pub CacheWriteBytesRequested: i64,
+    pub NetworkWriteBytesRequested: i64,
+    pub InitiallyFailedOperations: u32,
+    pub FailedCompletionOperations: u32,
+    pub ReadOperations: u32,
+    pub RandomReadOperations: u32,
+    pub ReadSmbs: u32,
+    pub LargeReadSmbs: u32,
+    pub SmallReadSmbs: u32,
+    pub WriteOperations: u32,
+    pub RandomWriteOperations: u32,
+    pub WriteSmbs: u32,
+    pub LargeWriteSmbs: u32,
+    pub SmallWriteSmbs: u32,
+    pub RawReadsDenied: u32,
+    pub RawWritesDenied: u32,
+    pub NetworkErrors: u32,
+    pub Sessions: u32,
+    pub FailedSessions: u32,
+    pub Reconnects: u32,
+    pub CoreConnects: u32,
+    pub Lanman20Connects: u32,
+    pub Lanman21Connects: u32,
+    pub LanmanNtConnects: u32,
+    pub ServerDisconnects: u32,
+    pub HungSessions: u32,
+    pub UseCount: u32,
+    pub FailedUseCount: u32,
+    pub CurrentCommands: u32,
+}
+impl Default for STAT_WORKSTATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STAT_WORKSTATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_ERASE {
+    pub Type: ERASE_TAPE_TYPE,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+impl Default for TAPE_ERASE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_ERASE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_GET_POSITION {
+    pub Type: TAPE_POSITION_TYPE,
+    pub Partition: u32,
+    pub Offset: i64,
+}
+impl Default for TAPE_GET_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_GET_POSITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_PREPARE {
+    pub Operation: PREPARE_TAPE_OPERATION,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+impl Default for TAPE_PREPARE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_PREPARE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_SET_POSITION {
+    pub Method: TAPE_POSITION_METHOD,
+    pub Partition: u32,
+    pub Offset: i64,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+impl Default for TAPE_SET_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_SET_POSITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_WRITE_MARKS {
+    pub Type: TAPEMARK_TYPE,
+    pub Count: u32,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+impl Default for TAPE_WRITE_MARKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_WRITE_MARKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION {
+    pub TransactionKey: *mut core::ffi::c_void,
+    pub TransactionNotification: u32,
+    pub TmVirtualClock: i64,
+    pub ArgumentLength: u32,
+}
+impl Default for TRANSACTION_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    pub MarshalCookie: u32,
+    pub UOW: windows_core::GUID,
+}
+impl Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    pub PropagationCookie: u32,
+    pub UOW: windows_core::GUID,
+    pub TmIdentity: windows_core::GUID,
+    pub BufferLength: u32,
+}
+impl Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    pub EnlistmentId: windows_core::GUID,
+    pub UOW: windows_core::GUID,
+}
+impl Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    pub SavepointId: u32,
+}
+impl Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    pub TmIdentity: windows_core::GUID,
+    pub Flags: u32,
+}
+impl Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_ID {
+    pub Anonymous: TXF_ID_0,
+}
+impl Default for TXF_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_ID_0 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl Default for TXF_ID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_ID_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_LOG_RECORD_AFFECTED_FILE {
+    pub Version: u16,
+    pub RecordLength: u32,
+    pub Flags: u32,
+    pub TxfFileId: TXF_ID,
+    pub KtmGuid: windows_core::GUID,
+    pub FileNameLength: u32,
+    pub FileNameByteOffsetInStructure: u32,
+}
+impl Default for TXF_LOG_RECORD_AFFECTED_FILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_LOG_RECORD_AFFECTED_FILE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_LOG_RECORD_BASE {
+    pub Version: u16,
+    pub RecordType: TXF_LOG_RECORD_TYPE,
+    pub RecordLength: u32,
+}
+impl Default for TXF_LOG_RECORD_BASE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_LOG_RECORD_BASE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_LOG_RECORD_TRUNCATE {
+    pub Version: u16,
+    pub RecordType: u16,
+    pub RecordLength: u32,
+    pub Flags: u32,
+    pub TxfFileId: TXF_ID,
+    pub KtmGuid: windows_core::GUID,
+    pub NewFileSize: i64,
+    pub FileNameLength: u32,
+    pub FileNameByteOffsetInStructure: u32,
+}
+impl Default for TXF_LOG_RECORD_TRUNCATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_LOG_RECORD_TRUNCATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct TXF_LOG_RECORD_WRITE {
+    pub Version: u16,
+    pub RecordType: u16,
+    pub RecordLength: u32,
+    pub Flags: u32,
+    pub TxfFileId: TXF_ID,
+    pub KtmGuid: windows_core::GUID,
+    pub ByteOffsetInFile: i64,
+    pub NumBytesWritten: u32,
+    pub ByteOffsetInStructure: u32,
+    pub FileNameLength: u32,
+    pub FileNameByteOffsetInStructure: u32,
+}
+impl Default for TXF_LOG_RECORD_WRITE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXF_LOG_RECORD_WRITE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    pub Version: u32,
+    pub RequestsPerPeriod: u32,
+    pub Period: u32,
+    pub RetryFailures: super::super::Foundation::BOOLEAN,
+    pub Discardable: super::super::Foundation::BOOLEAN,
+    pub Reserved1: [super::super::Foundation::BOOLEAN; 2],
+    pub LowestByteOffset: u64,
+    pub HighestByteOffset: u64,
+    pub AccessType: u32,
+    pub AccessMode: u32,
+}
+impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    pub RequestSize: u64,
+    pub NumOutStandingRequests: u32,
+}
+impl Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_ALLOCATION_HINT_INPUT {
+    pub ClusterSize: u32,
+    pub NumberOfClusters: u32,
+    pub StartingClusterNumber: i64,
+}
+impl Default for VOLUME_ALLOCATION_HINT_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
+    pub Bitmap: [u32; 1],
+}
+impl Default for VOLUME_ALLOCATION_HINT_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_CRITICAL_IO {
+    pub AccessType: u32,
+    pub ExtentsCount: u32,
+    pub Extents: [FILE_EXTENT; 1],
+}
+impl Default for VOLUME_CRITICAL_IO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_CRITICAL_IO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_FAILOVER_SET {
+    pub NumberOfDisks: u32,
+    pub DiskNumbers: [u32; 1],
+}
+impl Default for VOLUME_FAILOVER_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_FAILOVER_SET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
+    pub Version: u32,
+    pub Reserved1: u32,
+    pub LowestByteOffset: u64,
+    pub HighestByteOffset: u64,
+    pub AccessType: u32,
+    pub AccessMode: u32,
+}
+impl Default for VOLUME_GET_BC_PROPERTIES_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    pub MaximumRequestsPerPeriod: u32,
+    pub MinimumPeriod: u32,
+    pub MaximumRequestSize: u64,
+    pub EstimatedTimePerRequest: u32,
+    pub NumOutStandingRequests: u32,
+    pub RequestSize: u64,
+}
+impl Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_LOGICAL_OFFSET {
+    pub LogicalOffset: i64,
+}
+impl Default for VOLUME_LOGICAL_OFFSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_LOGICAL_OFFSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_NUMBER {
+    pub VolumeNumber: u32,
+    pub VolumeManagerName: [u16; 8],
+}
+impl Default for VOLUME_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_NUMBER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_PHYSICAL_OFFSET {
+    pub DiskNumber: u32,
+    pub Offset: i64,
+}
+impl Default for VOLUME_PHYSICAL_OFFSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_PHYSICAL_OFFSETS {
+    pub NumberOfPhysicalOffsets: u32,
+    pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
+}
+impl Default for VOLUME_PHYSICAL_OFFSETS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSETS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_READ_PLEX_INPUT {
+    pub ByteOffset: i64,
+    pub Length: u32,
+    pub PlexNumber: u32,
+}
+impl Default for VOLUME_READ_PLEX_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_READ_PLEX_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    pub GptAttributes: u64,
+    pub RevertOnClose: super::super::Foundation::BOOLEAN,
+    pub ApplyToAllConnectedVolumes: super::super::Foundation::BOOLEAN,
+    pub Reserved1: u16,
+    pub Reserved2: u32,
+}
+impl Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_SHRINK_INFO {
+    pub VolumeSize: u64,
+}
+impl Default for VOLUME_SHRINK_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_SHRINK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VS_FIXEDFILEINFO {
+    pub dwSignature: u32,
+    pub dwStrucVersion: u32,
+    pub dwFileVersionMS: u32,
+    pub dwFileVersionLS: u32,
+    pub dwProductVersionMS: u32,
+    pub dwProductVersionLS: u32,
+    pub dwFileFlagsMask: u32,
+    pub dwFileFlags: VS_FIXEDFILEINFO_FILE_FLAGS,
+    pub dwFileOS: VS_FIXEDFILEINFO_FILE_OS,
+    pub dwFileType: u32,
+    pub dwFileSubtype: u32,
+    pub dwFileDateMS: u32,
+    pub dwFileDateLS: u32,
+}
+impl Default for VS_FIXEDFILEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VS_FIXEDFILEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_ENTRY_INFO {
+    pub WimEntryInfoSize: u32,
+    pub WimType: u32,
+    pub DataSourceId: i64,
+    pub WimGuid: windows_core::GUID,
+    pub WimPath: windows_core::PCWSTR,
+    pub WimIndex: u32,
+    pub Flags: u32,
+}
+impl Default for WIM_ENTRY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_ENTRY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_EXTERNAL_FILE_INFO {
+    pub DataSourceId: i64,
+    pub ResourceHash: [u8; 20],
+    pub Flags: u32,
+}
+impl Default for WIM_EXTERNAL_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_EXTERNAL_FILE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_FILE_ATTRIBUTE_DATA {
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+}
+impl Default for WIN32_FILE_ATTRIBUTE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIN32_FILE_ATTRIBUTE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_FIND_DATAA {
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub dwReserved0: u32,
+    pub dwReserved1: u32,
+    pub cFileName: [i8; 260],
+    pub cAlternateFileName: [i8; 14],
+}
+impl Default for WIN32_FIND_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIN32_FIND_DATAA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_FIND_DATAW {
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub dwReserved0: u32,
+    pub dwReserved1: u32,
+    pub cFileName: [u16; 260],
+    pub cAlternateFileName: [u16; 14],
+}
+impl Default for WIN32_FIND_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIN32_FIND_DATAW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_FIND_STREAM_DATA {
+    pub StreamSize: i64,
+    pub cStreamName: [u16; 296],
+}
+impl Default for WIN32_FIND_STREAM_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIN32_FIND_STREAM_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_STREAM_ID {
+    pub dwStreamId: WIN_STREAM_ID,
+    pub dwStreamAttributes: u32,
+    pub Size: i64,
+    pub dwStreamNameSize: u32,
+    pub cStreamName: [u16; 1],
+}
+impl Default for WIN32_STREAM_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIN32_STREAM_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WOF_FILE_COMPRESSION_INFO_V0 {
+    pub Algorithm: u32,
+}
+impl Default for WOF_FILE_COMPRESSION_INFO_V0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WOF_FILE_COMPRESSION_INFO_V1 {
+    pub Algorithm: u32,
+    pub Flags: u32,
+}
+impl Default for WOF_FILE_COMPRESSION_INFO_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
@@ -5017,6176 +10205,3 @@ pub const WOF_PROVIDER_WIM: u32 = 1u32;
 pub const WRITE_DAC: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(262144u32);
 pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(524288u32);
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_CONTEXT_MODE(pub i32);
-impl windows_core::TypeKind for CLFS_CONTEXT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_CONTEXT_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_CONTEXT_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_FLAG(pub u32);
-impl windows_core::TypeKind for CLFS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_FLAG").field(&self.0).finish()
-    }
-}
-impl CLFS_FLAG {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CLFS_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CLFS_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CLFS_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CLFS_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CLFS_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_IOSTATS_CLASS(pub i32);
-impl windows_core::TypeKind for CLFS_IOSTATS_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_IOSTATS_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_IOSTATS_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
-impl windows_core::TypeKind for CLFS_LOG_ARCHIVE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_LOG_ARCHIVE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_LOG_ARCHIVE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
-impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_MGMT_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_MGMT_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLFS_MGMT_POLICY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLFS_MGMT_POLICY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLS_CONTEXT_MODE(pub i32);
-impl windows_core::TypeKind for CLS_CONTEXT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLS_CONTEXT_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLS_CONTEXT_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLS_IOSTATS_CLASS(pub i32);
-impl windows_core::TypeKind for CLS_IOSTATS_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLS_IOSTATS_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLS_IOSTATS_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for CLS_LOG_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CLS_LOG_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLS_LOG_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COMPRESSION_FORMAT(pub u16);
-impl windows_core::TypeKind for COMPRESSION_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COMPRESSION_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMPRESSION_FORMAT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYFILE2_COPY_PHASE(pub i32);
-impl windows_core::TypeKind for COPYFILE2_COPY_PHASE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYFILE2_COPY_PHASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYFILE2_COPY_PHASE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYFILE2_MESSAGE_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYFILE2_MESSAGE_ACTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYFILE2_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYFILE2_MESSAGE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYFILE2_V2_FLAGS(pub u32);
-impl windows_core::TypeKind for COPYFILE2_V2_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYFILE2_V2_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYFILE2_V2_FLAGS").field(&self.0).finish()
-    }
-}
-impl COPYFILE2_V2_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYFILE_FLAGS(pub u32);
-impl windows_core::TypeKind for COPYFILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYFILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYFILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl COPYFILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYFILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYFILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYFILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYFILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYFILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct COPYPROGRESSROUTINE_PROGRESS(pub u32);
-impl windows_core::TypeKind for COPYPROGRESSROUTINE_PROGRESS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COPYPROGRESSROUTINE_PROGRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYPROGRESSROUTINE_PROGRESS").field(&self.0).finish()
-    }
-}
-impl COPYPROGRESSROUTINE_PROGRESS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
-impl windows_core::TypeKind for CREATE_TAPE_PARTITION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CREATE_TAPE_PARTITION_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CREATE_TAPE_PARTITION_METHOD").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
-impl windows_core::TypeKind for DEFINE_DOS_DEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DEFINE_DOS_DEVICE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEFINE_DOS_DEVICE_FLAGS").field(&self.0).finish()
-    }
-}
-impl DEFINE_DOS_DEVICE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
-impl windows_core::TypeKind for DISKQUOTA_USERNAME_RESOLVE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DISKQUOTA_USERNAME_RESOLVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DISKQUOTA_USERNAME_RESOLVE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct ERASE_TAPE_TYPE(pub u32);
-impl windows_core::TypeKind for ERASE_TAPE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ERASE_TAPE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ERASE_TAPE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for FILE_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_ACCESS_RIGHTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_ACCESS_RIGHTS").field(&self.0).finish()
-    }
-}
-impl FILE_ACCESS_RIGHTS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_ACCESS_RIGHTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_ACCESS_RIGHTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_ACTION(pub u32);
-impl windows_core::TypeKind for FILE_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_ACTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_CREATION_DISPOSITION(pub u32);
-impl windows_core::TypeKind for FILE_CREATION_DISPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_CREATION_DISPOSITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_CREATION_DISPOSITION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_DEVICE_TYPE(pub u32);
-impl windows_core::TypeKind for FILE_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_DEVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_DEVICE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
-impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_DISPOSITION_INFO_EX_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_DISPOSITION_INFO_EX_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
-impl windows_core::TypeKind for FILE_FLAGS_AND_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_FLAGS_AND_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_FLAGS_AND_ATTRIBUTES").field(&self.0).finish()
-    }
-}
-impl FILE_FLAGS_AND_ATTRIBUTES {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_FLUSH_MODE(pub i32);
-impl windows_core::TypeKind for FILE_FLUSH_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_FLUSH_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_FLUSH_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_ID_TYPE(pub i32);
-impl windows_core::TypeKind for FILE_ID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_ID_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_ID_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
-impl windows_core::TypeKind for FILE_INFO_BY_HANDLE_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_INFO_BY_HANDLE_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_INFO_BY_HANDLE_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
-impl windows_core::TypeKind for FILE_INFO_FLAGS_PERMISSIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_INFO_FLAGS_PERMISSIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_INFO_FLAGS_PERMISSIONS").field(&self.0).finish()
-    }
-}
-impl FILE_INFO_FLAGS_PERMISSIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_NOTIFY_CHANGE(pub u32);
-impl windows_core::TypeKind for FILE_NOTIFY_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_NOTIFY_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_NOTIFY_CHANGE").field(&self.0).finish()
-    }
-}
-impl FILE_NOTIFY_CHANGE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_SHARE_MODE(pub u32);
-impl windows_core::TypeKind for FILE_SHARE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_SHARE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_SHARE_MODE").field(&self.0).finish()
-    }
-}
-impl FILE_SHARE_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_SHARE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_SHARE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_SHARE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_TYPE(pub u32);
-impl windows_core::TypeKind for FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FILE_WRITE_FLAGS(pub i32);
-impl windows_core::TypeKind for FILE_WRITE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FILE_WRITE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILE_WRITE_FLAGS").field(&self.0).finish()
-    }
-}
-impl FILE_WRITE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_WRITE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_WRITE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FINDEX_INFO_LEVELS(pub i32);
-impl windows_core::TypeKind for FINDEX_INFO_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FINDEX_INFO_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FINDEX_INFO_LEVELS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FINDEX_SEARCH_OPS(pub i32);
-impl windows_core::TypeKind for FINDEX_SEARCH_OPS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FINDEX_SEARCH_OPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FINDEX_SEARCH_OPS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FIND_FIRST_EX_FLAGS(pub u32);
-impl windows_core::TypeKind for FIND_FIRST_EX_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FIND_FIRST_EX_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FIND_FIRST_EX_FLAGS").field(&self.0).finish()
-    }
-}
-impl FIND_FIRST_EX_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
-impl windows_core::TypeKind for GETFINALPATHNAMEBYHANDLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GETFINALPATHNAMEBYHANDLE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GETFINALPATHNAMEBYHANDLE_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GET_FILEEX_INFO_LEVELS(pub i32);
-impl windows_core::TypeKind for GET_FILEEX_INFO_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GET_FILEEX_INFO_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_FILEEX_INFO_LEVELS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
-impl windows_core::TypeKind for GET_FILE_VERSION_INFO_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GET_FILE_VERSION_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_FILE_VERSION_INFO_FLAGS").field(&self.0).finish()
-    }
-}
-impl GET_FILE_VERSION_INFO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
-impl windows_core::TypeKind for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_TAPE_DRIVE_PARAMETERS_OPERATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
-impl windows_core::TypeKind for IORING_CREATE_ADVISORY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_CREATE_ADVISORY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_CREATE_ADVISORY_FLAGS").field(&self.0).finish()
-    }
-}
-impl IORING_CREATE_ADVISORY_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_CREATE_ADVISORY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_CREATE_ADVISORY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
-impl windows_core::TypeKind for IORING_CREATE_REQUIRED_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_CREATE_REQUIRED_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_CREATE_REQUIRED_FLAGS").field(&self.0).finish()
-    }
-}
-impl IORING_CREATE_REQUIRED_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_CREATE_REQUIRED_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_CREATE_REQUIRED_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_FEATURE_FLAGS(pub i32);
-impl windows_core::TypeKind for IORING_FEATURE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_FEATURE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_FEATURE_FLAGS").field(&self.0).finish()
-    }
-}
-impl IORING_FEATURE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_FEATURE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_FEATURE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_OP_CODE(pub i32);
-impl windows_core::TypeKind for IORING_OP_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_OP_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_OP_CODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_REF_KIND(pub i32);
-impl windows_core::TypeKind for IORING_REF_KIND {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_REF_KIND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_REF_KIND").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_SQE_FLAGS(pub i32);
-impl windows_core::TypeKind for IORING_SQE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_SQE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_SQE_FLAGS").field(&self.0).finish()
-    }
-}
-impl IORING_SQE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_SQE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_SQE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IORING_VERSION(pub i32);
-impl windows_core::TypeKind for IORING_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IORING_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IORING_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LOCK_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for LOCK_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LOCK_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOCK_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl LOCK_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for LOCK_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for LOCK_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
-impl windows_core::TypeKind for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPPROGRESS_ROUTINE_CALLBACK_REASON").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct LZOPENFILE_STYLE(pub u16);
-impl windows_core::TypeKind for LZOPENFILE_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LZOPENFILE_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LZOPENFILE_STYLE").field(&self.0).finish()
-    }
-}
-impl LZOPENFILE_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for LZOPENFILE_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for LZOPENFILE_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct MOVE_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for MOVE_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MOVE_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOVE_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl MOVE_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MOVE_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MOVE_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NTMS_OMID_TYPE(pub u32);
-impl windows_core::TypeKind for NTMS_OMID_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NTMS_OMID_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTMS_OMID_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsAccessMask(pub i32);
-impl windows_core::TypeKind for NtmsAccessMask {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsAccessMask {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsAccessMask").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsAllocateOptions(pub i32);
-impl windows_core::TypeKind for NtmsAllocateOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsAllocateOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsAllocateOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsAllocationPolicy(pub i32);
-impl windows_core::TypeKind for NtmsAllocationPolicy {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsAllocationPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsAllocationPolicy").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsAsyncOperations(pub i32);
-impl windows_core::TypeKind for NtmsAsyncOperations {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsAsyncOperations {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsAsyncOperations").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsAsyncStatus(pub i32);
-impl windows_core::TypeKind for NtmsAsyncStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsAsyncStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsAsyncStatus").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsBarCodeState(pub i32);
-impl windows_core::TypeKind for NtmsBarCodeState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsBarCodeState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsBarCodeState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsCreateNtmsMediaOptions(pub i32);
-impl windows_core::TypeKind for NtmsCreateNtmsMediaOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsCreateNtmsMediaOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsCreateNtmsMediaOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsCreateOptions(pub i32);
-impl windows_core::TypeKind for NtmsCreateOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsCreateOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsCreateOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsDeallocationPolicy(pub i32);
-impl windows_core::TypeKind for NtmsDeallocationPolicy {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsDeallocationPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsDeallocationPolicy").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsDismountOptions(pub i32);
-impl windows_core::TypeKind for NtmsDismountOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsDismountOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsDismountOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsDoorState(pub i32);
-impl windows_core::TypeKind for NtmsDoorState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsDoorState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsDoorState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsDriveState(pub i32);
-impl windows_core::TypeKind for NtmsDriveState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsDriveState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsDriveState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsDriveType(pub i32);
-impl windows_core::TypeKind for NtmsDriveType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsDriveType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsDriveType").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsEjectOperation(pub i32);
-impl windows_core::TypeKind for NtmsEjectOperation {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsEjectOperation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsEjectOperation").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsEnumerateOption(pub i32);
-impl windows_core::TypeKind for NtmsEnumerateOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsEnumerateOption {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsEnumerateOption").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsInjectOperation(pub i32);
-impl windows_core::TypeKind for NtmsInjectOperation {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsInjectOperation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsInjectOperation").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsInventoryMethod(pub i32);
-impl windows_core::TypeKind for NtmsInventoryMethod {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsInventoryMethod {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsInventoryMethod").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsLibRequestFlags(pub i32);
-impl windows_core::TypeKind for NtmsLibRequestFlags {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsLibRequestFlags {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsLibRequestFlags").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsLibraryFlags(pub i32);
-impl windows_core::TypeKind for NtmsLibraryFlags {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsLibraryFlags {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsLibraryFlags").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsLibraryType(pub i32);
-impl windows_core::TypeKind for NtmsLibraryType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsLibraryType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsLibraryType").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsLmOperation(pub i32);
-impl windows_core::TypeKind for NtmsLmOperation {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsLmOperation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsLmOperation").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsLmState(pub i32);
-impl windows_core::TypeKind for NtmsLmState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsLmState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsLmState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsMediaPoolPolicy(pub i32);
-impl windows_core::TypeKind for NtmsMediaPoolPolicy {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsMediaPoolPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsMediaPoolPolicy").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsMediaState(pub i32);
-impl windows_core::TypeKind for NtmsMediaState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsMediaState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsMediaState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsMountOptions(pub i32);
-impl windows_core::TypeKind for NtmsMountOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsMountOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsMountOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsMountPriority(pub i32);
-impl windows_core::TypeKind for NtmsMountPriority {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsMountPriority {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsMountPriority").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsNotificationOperations(pub i32);
-impl windows_core::TypeKind for NtmsNotificationOperations {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsNotificationOperations {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsNotificationOperations").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsObjectsTypes(pub i32);
-impl windows_core::TypeKind for NtmsObjectsTypes {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsObjectsTypes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsObjectsTypes").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsOpRequestFlags(pub i32);
-impl windows_core::TypeKind for NtmsOpRequestFlags {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsOpRequestFlags {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsOpRequestFlags").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsOperationalState(pub i32);
-impl windows_core::TypeKind for NtmsOperationalState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsOperationalState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsOperationalState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsOpreqCommand(pub i32);
-impl windows_core::TypeKind for NtmsOpreqCommand {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsOpreqCommand {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsOpreqCommand").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsOpreqState(pub i32);
-impl windows_core::TypeKind for NtmsOpreqState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsOpreqState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsOpreqState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsPartitionState(pub i32);
-impl windows_core::TypeKind for NtmsPartitionState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsPartitionState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsPartitionState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsPoolType(pub i32);
-impl windows_core::TypeKind for NtmsPoolType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsPoolType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsPoolType").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsPortContent(pub i32);
-impl windows_core::TypeKind for NtmsPortContent {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsPortContent {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsPortContent").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsPortPosition(pub i32);
-impl windows_core::TypeKind for NtmsPortPosition {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsPortPosition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsPortPosition").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsReadWriteCharacteristics(pub i32);
-impl windows_core::TypeKind for NtmsReadWriteCharacteristics {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsReadWriteCharacteristics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsReadWriteCharacteristics").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsSessionOptions(pub i32);
-impl windows_core::TypeKind for NtmsSessionOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsSessionOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsSessionOptions").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsSlotState(pub i32);
-impl windows_core::TypeKind for NtmsSlotState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsSlotState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsSlotState").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsUIOperations(pub i32);
-impl windows_core::TypeKind for NtmsUIOperations {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsUIOperations {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsUIOperations").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NtmsUITypes(pub i32);
-impl windows_core::TypeKind for NtmsUITypes {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NtmsUITypes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NtmsUITypes").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PREPARE_TAPE_OPERATION(pub u32);
-impl windows_core::TypeKind for PREPARE_TAPE_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PREPARE_TAPE_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PREPARE_TAPE_OPERATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PRIORITY_HINT(pub i32);
-impl windows_core::TypeKind for PRIORITY_HINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PRIORITY_HINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRIORITY_HINT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("READ_DIRECTORY_NOTIFY_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct REPLACE_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for REPLACE_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for REPLACE_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REPLACE_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl REPLACE_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SERVER_CERTIFICATE_TYPE(pub i32);
-impl windows_core::TypeKind for SERVER_CERTIFICATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SERVER_CERTIFICATE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SERVER_CERTIFICATE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SESSION_INFO_USER_FLAGS(pub u32);
-impl windows_core::TypeKind for SESSION_INFO_USER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SESSION_INFO_USER_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SESSION_INFO_USER_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
-impl windows_core::TypeKind for SET_FILE_POINTER_MOVE_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SET_FILE_POINTER_MOVE_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SET_FILE_POINTER_MOVE_METHOD").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SHARE_INFO_PERMISSIONS(pub u32);
-impl windows_core::TypeKind for SHARE_INFO_PERMISSIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SHARE_INFO_PERMISSIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHARE_INFO_PERMISSIONS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SHARE_TYPE(pub u32);
-impl windows_core::TypeKind for SHARE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SHARE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHARE_TYPE").field(&self.0).finish()
-    }
-}
-impl SHARE_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SHARE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SHARE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SHARE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SHARE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SHARE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct STORAGE_BUS_TYPE(pub i32);
-impl windows_core::TypeKind for STORAGE_BUS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for STORAGE_BUS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STORAGE_BUS_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct STREAM_INFO_LEVELS(pub i32);
-impl windows_core::TypeKind for STREAM_INFO_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for STREAM_INFO_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STREAM_INFO_LEVELS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SYMBOLIC_LINK_FLAGS(pub u32);
-impl windows_core::TypeKind for SYMBOLIC_LINK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SYMBOLIC_LINK_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYMBOLIC_LINK_FLAGS").field(&self.0).finish()
-    }
-}
-impl SYMBOLIC_LINK_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TAPEMARK_TYPE(pub u32);
-impl windows_core::TypeKind for TAPEMARK_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TAPEMARK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAPEMARK_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TAPE_INFORMATION_TYPE(pub u32);
-impl windows_core::TypeKind for TAPE_INFORMATION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TAPE_INFORMATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAPE_INFORMATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TAPE_POSITION_METHOD(pub u32);
-impl windows_core::TypeKind for TAPE_POSITION_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TAPE_POSITION_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAPE_POSITION_METHOD").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TAPE_POSITION_TYPE(pub u32);
-impl windows_core::TypeKind for TAPE_POSITION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TAPE_POSITION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAPE_POSITION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TRANSACTION_OUTCOME(pub i32);
-impl windows_core::TypeKind for TRANSACTION_OUTCOME {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TRANSACTION_OUTCOME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRANSACTION_OUTCOME").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXFS_MINIVERSION(pub u32);
-impl windows_core::TypeKind for TXFS_MINIVERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXFS_MINIVERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXFS_MINIVERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TXF_LOG_RECORD_TYPE(pub u16);
-impl windows_core::TypeKind for TXF_LOG_RECORD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TXF_LOG_RECORD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TXF_LOG_RECORD_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VER_FIND_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for VER_FIND_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VER_FIND_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_FIND_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VER_FIND_FILE_STATUS(pub u32);
-impl windows_core::TypeKind for VER_FIND_FILE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VER_FIND_FILE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_FIND_FILE_STATUS").field(&self.0).finish()
-    }
-}
-impl VER_FIND_FILE_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VER_INSTALL_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for VER_INSTALL_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_INSTALL_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VER_INSTALL_FILE_STATUS(pub u32);
-impl windows_core::TypeKind for VER_INSTALL_FILE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VER_INSTALL_FILE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_INSTALL_FILE_STATUS").field(&self.0).finish()
-    }
-}
-impl VER_INSTALL_FILE_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
-impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VS_FIXEDFILEINFO_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl VS_FIXEDFILEINFO_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
-impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_OS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VS_FIXEDFILEINFO_FILE_OS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VS_FIXEDFILEINFO_FILE_OS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
-impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_SUBTYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VS_FIXEDFILEINFO_FILE_SUBTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VS_FIXEDFILEINFO_FILE_SUBTYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
-impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VS_FIXEDFILEINFO_FILE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VS_FIXEDFILEINFO_FILE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WIN_STREAM_ID(pub u32);
-impl windows_core::TypeKind for WIN_STREAM_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WIN_STREAM_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WIN_STREAM_ID").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct BY_HANDLE_FILE_INFORMATION {
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub dwVolumeSerialNumber: u32,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub nNumberOfLinks: u32,
-    pub nFileIndexHigh: u32,
-    pub nFileIndexLow: u32,
-}
-impl windows_core::TypeKind for BY_HANDLE_FILE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for BY_HANDLE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_LOG_NAME_INFORMATION {
-    pub NameLengthInBytes: u16,
-    pub Name: [u16; 1],
-}
-impl windows_core::TypeKind for CLFS_LOG_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_LOG_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_NOTIFICATION {
-    pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
-    pub Lsn: CLS_LSN,
-    pub LogIsPinned: u16,
-}
-impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY {
-    pub Version: u32,
-    pub LengthInBytes: u32,
-    pub PolicyFlags: u32,
-    pub PolicyType: CLFS_MGMT_POLICY_TYPE,
-    pub PolicyParameters: CLFS_MGMT_POLICY_0,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLFS_MGMT_POLICY_0 {
-    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
-    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
-    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
-    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
-    pub LogTail: CLFS_MGMT_POLICY_0_4,
-    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
-    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
-    pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
-    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
-    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_6 {
-    pub Enabled: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_5 {
-    pub Percentage: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_3 {
-    pub AbsoluteGrowthInContainers: u32,
-    pub RelativeGrowthPercentage: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_4 {
-    pub MinimumAvailablePercentage: u32,
-    pub MinimumAvailableContainers: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_0 {
-    pub Containers: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_1 {
-    pub Containers: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_9 {
-    pub ExtensionLengthInBytes: u16,
-    pub ExtensionString: [u16; 1],
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_7 {
-    pub PrefixLengthInBytes: u16,
-    pub PrefixString: [u16; 1],
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_2 {
-    pub SizeInBytes: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_8 {
-    pub NextContainerSuffix: u64,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_NODE_ID {
-    pub cType: u32,
-    pub cbNode: u32,
-}
-impl windows_core::TypeKind for CLFS_NODE_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_NODE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_PHYSICAL_LSN_INFORMATION {
-    pub StreamIdentifier: u8,
-    pub VirtualLsn: CLS_LSN,
-    pub PhysicalLsn: CLS_LSN,
-}
-impl windows_core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_STREAM_ID_INFORMATION {
-    pub StreamIdentifier: u8,
-}
-impl windows_core::TypeKind for CLFS_STREAM_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_STREAM_ID_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_ARCHIVE_DESCRIPTOR {
-    pub coffLow: u64,
-    pub coffHigh: u64,
-    pub infoContainer: CLS_CONTAINER_INFORMATION,
-}
-impl windows_core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_ARCHIVE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_CONTAINER_INFORMATION {
-    pub FileAttributes: u32,
-    pub CreationTime: u64,
-    pub LastAccessTime: u64,
-    pub LastWriteTime: u64,
-    pub ContainerSize: i64,
-    pub FileNameActualLength: u32,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 256],
-    pub State: u32,
-    pub PhysicalContainerId: u32,
-    pub LogicalContainerId: u32,
-}
-impl windows_core::TypeKind for CLS_CONTAINER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_CONTAINER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_INFORMATION {
-    pub TotalAvailable: i64,
-    pub CurrentAvailable: i64,
-    pub TotalReservation: i64,
-    pub BaseFileSize: u64,
-    pub ContainerSize: u64,
-    pub TotalContainers: u32,
-    pub FreeContainers: u32,
-    pub TotalClients: u32,
-    pub Attributes: u32,
-    pub FlushThreshold: u32,
-    pub SectorSize: u32,
-    pub MinArchiveTailLsn: CLS_LSN,
-    pub BaseLsn: CLS_LSN,
-    pub LastFlushedLsn: CLS_LSN,
-    pub LastLsn: CLS_LSN,
-    pub RestartLsn: CLS_LSN,
-    pub Identity: windows_core::GUID,
-}
-impl windows_core::TypeKind for CLS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_IO_STATISTICS {
-    pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
-    pub cFlush: u64,
-    pub cbFlush: u64,
-    pub cMetaFlush: u64,
-    pub cbMetaFlush: u64,
-}
-impl windows_core::TypeKind for CLS_IO_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_IO_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_IO_STATISTICS_HEADER {
-    pub ubMajorVersion: u8,
-    pub ubMinorVersion: u8,
-    pub eStatsClass: CLFS_IOSTATS_CLASS,
-    pub cbLength: u16,
-    pub coffData: u32,
-}
-impl windows_core::TypeKind for CLS_IO_STATISTICS_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_IO_STATISTICS_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_LSN {
-    pub Internal: u64,
-}
-impl windows_core::TypeKind for CLS_LSN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_LSN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_SCAN_CONTEXT {
-    pub cidNode: CLFS_NODE_ID,
-    pub hLog: super::super::Foundation::HANDLE,
-    pub cIndex: u32,
-    pub cContainers: u32,
-    pub cContainersReturned: u32,
-    pub eScanMode: u8,
-    pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
-}
-impl windows_core::TypeKind for CLS_SCAN_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_SCAN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLS_WRITE_ENTRY {
-    pub Buffer: *mut core::ffi::c_void,
-    pub ByteLength: u32,
-}
-impl windows_core::TypeKind for CLS_WRITE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLS_WRITE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CONNECTION_INFO_0 {
-    pub coni0_id: u32,
-}
-impl windows_core::TypeKind for CONNECTION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CONNECTION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CONNECTION_INFO_1 {
-    pub coni1_id: u32,
-    pub coni1_type: SHARE_TYPE,
-    pub coni1_num_opens: u32,
-    pub coni1_num_users: u32,
-    pub coni1_time: u32,
-    pub coni1_username: windows_core::PWSTR,
-    pub coni1_netname: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for CONNECTION_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CONNECTION_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_EXTENDED_PARAMETERS {
-    pub dwSize: u32,
-    pub dwCopyFlags: COPYFILE_FLAGS,
-    pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
-    pub pvCallbackContext: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    pub dwSize: u32,
-    pub dwCopyFlags: COPYFILE_FLAGS,
-    pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
-    pub pvCallbackContext: *mut core::ffi::c_void,
-    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
-    pub ioDesiredSize: u32,
-    pub ioDesiredRate: u32,
-    pub reserved: [*mut core::ffi::c_void; 8],
-}
-impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE {
-    pub Type: COPYFILE2_MESSAGE_TYPE,
-    pub dwPadding: u32,
-    pub Info: COPYFILE2_MESSAGE_0,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union COPYFILE2_MESSAGE_0 {
-    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
-    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
-    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
-    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
-    pub PollContinue: COPYFILE2_MESSAGE_0_4,
-    pub Error: COPYFILE2_MESSAGE_0_5,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_1 {
-    pub dwStreamNumber: u32,
-    pub dwFlags: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_0 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_5 {
-    pub CopyPhase: COPYFILE2_COPY_PHASE,
-    pub dwStreamNumber: u32,
-    pub hrFailure: windows_core::HRESULT,
-    pub dwReserved: u32,
-    pub uliChunkNumber: u64,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_4 {
-    pub dwReserved: u32,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_3 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_2 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CREATEFILE2_EXTENDED_PARAMETERS {
-    pub dwSize: u32,
-    pub dwFileAttributes: u32,
-    pub dwFileFlags: u32,
-    pub dwSecurityQosFlags: u32,
-    pub lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub hTemplateFile: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DISKQUOTA_USER_INFORMATION {
-    pub QuotaUsed: i64,
-    pub QuotaThreshold: i64,
-    pub QuotaLimit: i64,
-}
-impl windows_core::TypeKind for DISKQUOTA_USER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DISKQUOTA_USER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DISK_SPACE_INFORMATION {
-    pub ActualTotalAllocationUnits: u64,
-    pub ActualAvailableAllocationUnits: u64,
-    pub ActualPoolUnavailableAllocationUnits: u64,
-    pub CallerTotalAllocationUnits: u64,
-    pub CallerAvailableAllocationUnits: u64,
-    pub CallerPoolUnavailableAllocationUnits: u64,
-    pub UsedAllocationUnits: u64,
-    pub TotalReservedAllocationUnits: u64,
-    pub VolumeStorageReserveAllocationUnits: u64,
-    pub AvailableCommittedAllocationUnits: u64,
-    pub PoolAvailableAllocationUnits: u64,
-    pub SectorsPerAllocationUnit: u32,
-    pub BytesPerSector: u32,
-}
-impl windows_core::TypeKind for DISK_SPACE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DISK_SPACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_CERTIFICATE_BLOB {
-    pub dwCertEncodingType: u32,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for EFS_CERTIFICATE_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_CERTIFICATE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_COMPATIBILITY_INFO {
-    pub EfsVersion: u32,
-}
-impl windows_core::TypeKind for EFS_COMPATIBILITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_COMPATIBILITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_DECRYPTION_STATUS_INFO {
-    pub dwDecryptionError: u32,
-    pub dwHashOffset: u32,
-    pub cbHash: u32,
-}
-impl windows_core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_DECRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_ENCRYPTION_STATUS_INFO {
-    pub bHasCurrentKey: super::super::Foundation::BOOL,
-    pub dwEncryptionError: u32,
-}
-impl windows_core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_ENCRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_HASH_BLOB {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for EFS_HASH_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_HASH_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_KEY_INFO {
-    pub dwVersion: u32,
-    pub Entropy: u32,
-    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
-    pub KeyLength: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for EFS_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for EFS_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_PIN_BLOB {
-    pub cbPadding: u32,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for EFS_PIN_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_PIN_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_RPC_BLOB {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for EFS_RPC_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_RPC_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EFS_VERSION_INFO {
-    pub EfsVersion: u32,
-    pub SubVersion: u32,
-}
-impl windows_core::TypeKind for EFS_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EFS_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
-    pub dwEfsAccessType: u32,
-    pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
-    pub pEncryptionCertificate: *mut ENCRYPTION_CERTIFICATE,
-    pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_HASH {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub pHash: *mut EFS_HASH_BLOB,
-    pub lpDisplayInformation: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_HASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
-    pub nCert_Hash: u32,
-    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_LIST {
-    pub nUsers: u32,
-    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_PROTECTOR {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub lpProtectorDescriptor: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_PROTECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_PROTECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENCRYPTION_PROTECTOR_LIST {
-    pub nProtectors: u32,
-    pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_PROTECTOR_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FH_OVERLAPPED {
-    pub Internal: usize,
-    pub InternalHigh: usize,
-    pub Offset: u32,
-    pub OffsetHigh: u32,
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub pfnCompletion: PFN_IO_COMPLETION,
-    pub Reserved1: usize,
-    pub Reserved2: usize,
-    pub Reserved3: usize,
-    pub Reserved4: usize,
-}
-impl windows_core::TypeKind for FH_OVERLAPPED {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FH_OVERLAPPED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ALIGNMENT_INFO {
-    pub AlignmentRequirement: u32,
-}
-impl windows_core::TypeKind for FILE_ALIGNMENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ALIGNMENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ALLOCATION_INFO {
-    pub AllocationSize: i64,
-}
-impl windows_core::TypeKind for FILE_ALLOCATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ALLOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ATTRIBUTE_TAG_INFO {
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-}
-impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ATTRIBUTE_TAG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_BASIC_INFO {
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub FileAttributes: u32,
-}
-impl windows_core::TypeKind for FILE_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_CASE_SENSITIVE_INFO {
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_CASE_SENSITIVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_COMPRESSION_INFO {
-    pub CompressedFileSize: i64,
-    pub CompressionFormat: COMPRESSION_FORMAT,
-    pub CompressionUnitShift: u8,
-    pub ChunkShift: u8,
-    pub ClusterShift: u8,
-    pub Reserved: [u8; 3],
-}
-impl windows_core::TypeKind for FILE_COMPRESSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_COMPRESSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFile: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for FILE_DISPOSITION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_DISPOSITION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_DISPOSITION_INFO_EX {
-    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
-}
-impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_DISPOSITION_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_END_OF_FILE_INFO {
-    pub EndOfFile: i64,
-}
-impl windows_core::TypeKind for FILE_END_OF_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_END_OF_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_EXTENT {
-    pub VolumeOffset: u64,
-    pub ExtentLength: u64,
-}
-impl windows_core::TypeKind for FILE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_FULL_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_FULL_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_FULL_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ID_128 {
-    pub Identifier: [u8; 16],
-}
-impl windows_core::TypeKind for FILE_ID_128 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_128 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ID_BOTH_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub ShortNameLength: i8,
-    pub ShortName: [u16; 12],
-    pub FileId: i64,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_BOTH_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_ID_DESCRIPTOR {
-    pub dwSize: u32,
-    pub Type: FILE_ID_TYPE,
-    pub Anonymous: FILE_ID_DESCRIPTOR_0,
-}
-impl windows_core::TypeKind for FILE_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_ID_DESCRIPTOR_0 {
-    pub FileId: i64,
-    pub ObjectId: windows_core::GUID,
-    pub ExtendedFileId: FILE_ID_128,
-}
-impl windows_core::TypeKind for FILE_ID_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ID_EXTD_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub ReparsePointTag: u32,
-    pub FileId: FILE_ID_128,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_EXTD_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_ID_INFO {
-    pub VolumeSerialNumber: u64,
-    pub FileId: FILE_ID_128,
-}
-impl windows_core::TypeKind for FILE_ID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_ID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_INFO_2 {
-    pub fi2_id: u32,
-}
-impl windows_core::TypeKind for FILE_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_INFO_3 {
-    pub fi3_id: u32,
-    pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
-    pub fi3_num_locks: u32,
-    pub fi3_pathname: windows_core::PWSTR,
-    pub fi3_username: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for FILE_INFO_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_IO_PRIORITY_HINT_INFO {
-    pub PriorityHint: PRIORITY_HINT,
-}
-impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_IO_PRIORITY_HINT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_NAME_INFO {
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: FILE_ACTION,
-    pub CreationTime: i64,
-    pub LastModificationTime: i64,
-    pub LastChangeTime: i64,
-    pub LastAccessTime: i64,
-    pub AllocatedLength: i64,
-    pub FileSize: i64,
-    pub FileAttributes: u32,
-    pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
-    pub FileId: i64,
-    pub ParentFileId: i64,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    pub ReparsePointTag: u32,
-    pub EaSize: u32,
-}
-impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_NOTIFY_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: FILE_ACTION,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_NOTIFY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_NOTIFY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_REMOTE_PROTOCOL_INFO {
-    pub StructureVersion: u16,
-    pub StructureSize: u16,
-    pub Protocol: u32,
-    pub ProtocolMajorVersion: u16,
-    pub ProtocolMinorVersion: u16,
-    pub ProtocolRevision: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
-    pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
-    pub Reserved: [u32; 8],
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_REMOTE_PROTOCOL_INFO_1 {
-    pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
-    pub Reserved: [u32; 16],
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
-    pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    pub Capabilities: u32,
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    pub Capabilities: u32,
-    pub ShareFlags: u32,
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_RENAME_INFO {
-    pub Anonymous: FILE_RENAME_INFO_0,
-    pub RootDirectory: super::super::Foundation::HANDLE,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_RENAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_RENAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_RENAME_INFO_0 {
-    pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for FILE_RENAME_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_RENAME_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_SEGMENT_ELEMENT {
-    pub Buffer: *mut core::ffi::c_void,
-    pub Alignment: u64,
-}
-impl windows_core::TypeKind for FILE_SEGMENT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_SEGMENT_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_STANDARD_INFO {
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
-    pub NumberOfLinks: u32,
-    pub DeletePending: super::super::Foundation::BOOLEAN,
-    pub Directory: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for FILE_STANDARD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_STORAGE_INFO {
-    pub LogicalBytesPerSector: u32,
-    pub PhysicalBytesPerSectorForAtomicity: u32,
-    pub PhysicalBytesPerSectorForPerformance: u32,
-    pub FileSystemEffectivePhysicalBytesPerSectorForAtomicity: u32,
-    pub Flags: u32,
-    pub ByteOffsetForSectorAlignment: u32,
-    pub ByteOffsetForPartitionAlignment: u32,
-}
-impl windows_core::TypeKind for FILE_STORAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_STORAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILE_STREAM_INFO {
-    pub NextEntryOffset: u32,
-    pub StreamNameLength: u32,
-    pub StreamSize: i64,
-    pub StreamAllocationSize: i64,
-    pub StreamName: [u16; 1],
-}
-impl windows_core::TypeKind for FILE_STREAM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILE_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FIO_CONTEXT {
-    pub m_dwTempHack: u32,
-    pub m_dwSignature: u32,
-    pub m_hFile: super::super::Foundation::HANDLE,
-    pub m_dwLinesOffset: u32,
-    pub m_dwHeaderLength: u32,
-}
-impl windows_core::TypeKind for FIO_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FIO_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIORING(pub *mut core::ffi::c_void);
-impl HIORING {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HIORING {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = CloseIoRing(*self);
-        }
-    }
-}
-impl Default for HIORING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIORING {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_BUFFER_INFO {
-    pub Address: *mut core::ffi::c_void,
-    pub Length: u32,
-}
-impl windows_core::TypeKind for IORING_BUFFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_BUFFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IORING_BUFFER_REF {
-    pub Kind: IORING_REF_KIND,
-    pub Buffer: IORING_BUFFER_REF_0,
-}
-impl windows_core::TypeKind for IORING_BUFFER_REF {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_BUFFER_REF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IORING_BUFFER_REF_0 {
-    pub Address: *mut core::ffi::c_void,
-    pub IndexAndOffset: IORING_REGISTERED_BUFFER,
-}
-impl windows_core::TypeKind for IORING_BUFFER_REF_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_BUFFER_REF_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_CAPABILITIES {
-    pub MaxVersion: IORING_VERSION,
-    pub MaxSubmissionQueueSize: u32,
-    pub MaxCompletionQueueSize: u32,
-    pub FeatureFlags: IORING_FEATURE_FLAGS,
-}
-impl windows_core::TypeKind for IORING_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_CQE {
-    pub UserData: usize,
-    pub ResultCode: windows_core::HRESULT,
-    pub Information: usize,
-}
-impl windows_core::TypeKind for IORING_CQE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_CQE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_CREATE_FLAGS {
-    pub Required: IORING_CREATE_REQUIRED_FLAGS,
-    pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
-}
-impl windows_core::TypeKind for IORING_CREATE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_CREATE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IORING_HANDLE_REF {
-    pub Kind: IORING_REF_KIND,
-    pub Handle: IORING_HANDLE_REF_0,
-}
-impl windows_core::TypeKind for IORING_HANDLE_REF {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_HANDLE_REF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IORING_HANDLE_REF_0 {
-    pub Handle: super::super::Foundation::HANDLE,
-    pub Index: u32,
-}
-impl windows_core::TypeKind for IORING_HANDLE_REF_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_HANDLE_REF_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_INFO {
-    pub IoRingVersion: IORING_VERSION,
-    pub Flags: IORING_CREATE_FLAGS,
-    pub SubmissionQueueSize: u32,
-    pub CompletionQueueSize: u32,
-}
-impl windows_core::TypeKind for IORING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IORING_REGISTERED_BUFFER {
-    pub BufferIndex: u32,
-    pub Offset: u32,
-}
-impl windows_core::TypeKind for IORING_REGISTERED_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IORING_REGISTERED_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KCRM_MARSHAL_HEADER {
-    pub VersionMajor: u32,
-    pub VersionMinor: u32,
-    pub NumProtocols: u32,
-    pub Unused: u32,
-}
-impl windows_core::TypeKind for KCRM_MARSHAL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for KCRM_MARSHAL_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KCRM_PROTOCOL_BLOB {
-    pub ProtocolId: windows_core::GUID,
-    pub StaticInfoLength: u32,
-    pub TransactionIdInfoLength: u32,
-    pub Unused1: u32,
-    pub Unused2: u32,
-}
-impl windows_core::TypeKind for KCRM_PROTOCOL_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for KCRM_PROTOCOL_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KCRM_TRANSACTION_BLOB {
-    pub UOW: windows_core::GUID,
-    pub TmIdentity: windows_core::GUID,
-    pub IsolationLevel: u32,
-    pub IsolationFlags: u32,
-    pub Timeout: u32,
-    pub Description: [u16; 64],
-}
-impl windows_core::TypeKind for KCRM_TRANSACTION_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for KCRM_TRANSACTION_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct LOG_MANAGEMENT_CALLBACKS {
-    pub CallbackContext: *mut core::ffi::c_void,
-    pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
-    pub LogFullHandlerCallback: PLOG_FULL_HANDLER_CALLBACK,
-    pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
-}
-impl windows_core::TypeKind for LOG_MANAGEMENT_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for LOG_MANAGEMENT_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MediaLabelInfo {
-    pub LabelType: [u16; 64],
-    pub LabelIDSize: u32,
-    pub LabelID: [u8; 256],
-    pub LabelAppDescr: [u16; 256],
-}
-impl windows_core::TypeKind for MediaLabelInfo {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MediaLabelInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NAME_CACHE_CONTEXT {
-    pub m_dwSignature: u32,
-}
-impl windows_core::TypeKind for NAME_CACHE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NAME_CACHE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_ALLOCATION_INFORMATION {
-    pub dwSize: u32,
-    pub lpReserved: *mut core::ffi::c_void,
-    pub AllocatedFrom: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_ALLOCATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_ALLOCATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_ASYNC_IO {
-    pub OperationId: windows_core::GUID,
-    pub EventId: windows_core::GUID,
-    pub dwOperationType: u32,
-    pub dwResult: u32,
-    pub dwAsyncState: u32,
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub bOnStateChange: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for NTMS_ASYNC_IO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_ASYNC_IO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_CHANGERINFORMATIONA {
-    pub Number: u32,
-    pub ChangerType: windows_core::GUID,
-    pub szSerialNumber: [i8; 32],
-    pub szRevision: [i8; 32],
-    pub szDeviceName: [i8; 64],
-    pub ScsiPort: u16,
-    pub ScsiBus: u16,
-    pub ScsiTarget: u16,
-    pub ScsiLun: u16,
-    pub Library: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_CHANGERINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_CHANGERINFORMATIONW {
-    pub Number: u32,
-    pub ChangerType: windows_core::GUID,
-    pub szSerialNumber: [u16; 32],
-    pub szRevision: [u16; 32],
-    pub szDeviceName: [u16; 64],
-    pub ScsiPort: u16,
-    pub ScsiBus: u16,
-    pub ScsiTarget: u16,
-    pub ScsiLun: u16,
-    pub Library: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_CHANGERINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_CHANGERTYPEINFORMATIONA {
-    pub szVendor: [i8; 128],
-    pub szProduct: [i8; 128],
-    pub DeviceType: u32,
-}
-impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_CHANGERTYPEINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_CHANGERTYPEINFORMATIONW {
-    pub szVendor: [u16; 128],
-    pub szProduct: [u16; 128],
-    pub DeviceType: u32,
-}
-impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_CHANGERTYPEINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_COMPUTERINFORMATION {
-    pub dwLibRequestPurgeTime: u32,
-    pub dwOpRequestPurgeTime: u32,
-    pub dwLibRequestFlags: u32,
-    pub dwOpRequestFlags: u32,
-    pub dwMediaPoolPolicy: u32,
-}
-impl windows_core::TypeKind for NTMS_COMPUTERINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_COMPUTERINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_DRIVEINFORMATIONA {
-    pub Number: u32,
-    pub State: u32,
-    pub DriveType: windows_core::GUID,
-    pub szDeviceName: [i8; 64],
-    pub szSerialNumber: [i8; 32],
-    pub szRevision: [i8; 32],
-    pub ScsiPort: u16,
-    pub ScsiBus: u16,
-    pub ScsiTarget: u16,
-    pub ScsiLun: u16,
-    pub dwMountCount: u32,
-    pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
-    pub SavedPartitionId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub Reserved: windows_core::GUID,
-    pub dwDeferDismountDelay: u32,
-}
-impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_DRIVEINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_DRIVEINFORMATIONW {
-    pub Number: u32,
-    pub State: u32,
-    pub DriveType: windows_core::GUID,
-    pub szDeviceName: [u16; 64],
-    pub szSerialNumber: [u16; 32],
-    pub szRevision: [u16; 32],
-    pub ScsiPort: u16,
-    pub ScsiBus: u16,
-    pub ScsiTarget: u16,
-    pub ScsiLun: u16,
-    pub dwMountCount: u32,
-    pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
-    pub SavedPartitionId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub Reserved: windows_core::GUID,
-    pub dwDeferDismountDelay: u32,
-}
-impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_DRIVEINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_DRIVETYPEINFORMATIONA {
-    pub szVendor: [i8; 128],
-    pub szProduct: [i8; 128],
-    pub NumberOfHeads: u32,
-    pub DeviceType: FILE_DEVICE_TYPE,
-}
-impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_DRIVETYPEINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_DRIVETYPEINFORMATIONW {
-    pub szVendor: [u16; 128],
-    pub szProduct: [u16; 128],
-    pub NumberOfHeads: u32,
-    pub DeviceType: FILE_DEVICE_TYPE,
-}
-impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_DRIVETYPEINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_FILESYSTEM_INFO {
-    pub FileSystemType: [u16; 64],
-    pub VolumeName: [u16; 256],
-    pub SerialNumber: u32,
-}
-impl windows_core::TypeKind for NTMS_FILESYSTEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_FILESYSTEM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_LIBRARYINFORMATION {
-    pub LibraryType: u32,
-    pub CleanerSlot: windows_core::GUID,
-    pub CleanerSlotDefault: windows_core::GUID,
-    pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
-    pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
-    pub InventoryMethod: u32,
-    pub dwCleanerUsesRemaining: u32,
-    pub FirstDriveNumber: u32,
-    pub dwNumberOfDrives: u32,
-    pub FirstSlotNumber: u32,
-    pub dwNumberOfSlots: u32,
-    pub FirstDoorNumber: u32,
-    pub dwNumberOfDoors: u32,
-    pub FirstPortNumber: u32,
-    pub dwNumberOfPorts: u32,
-    pub FirstChangerNumber: u32,
-    pub dwNumberOfChangers: u32,
-    pub dwNumberOfMedia: u32,
-    pub dwNumberOfMediaTypes: u32,
-    pub dwNumberOfLibRequests: u32,
-    pub Reserved: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_I1_LIBRARYINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_LIBRARYINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
-    pub OperationCode: u32,
-    pub OperationOption: u32,
-    pub State: u32,
-    pub PartitionId: windows_core::GUID,
-    pub DriveId: windows_core::GUID,
-    pub PhysMediaId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub SlotId: windows_core::GUID,
-    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
-    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [i8; 64],
-    pub szUser: [i8; 64],
-    pub szComputer: [i8; 64],
-}
-impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_LIBREQUESTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
-    pub OperationCode: u32,
-    pub OperationOption: u32,
-    pub State: u32,
-    pub PartitionId: windows_core::GUID,
-    pub DriveId: windows_core::GUID,
-    pub PhysMediaId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub SlotId: windows_core::GUID,
-    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
-    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [u16; 64],
-    pub szUser: [u16; 64],
-    pub szComputer: [u16; 64],
-}
-impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_LIBREQUESTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NTMS_I1_OBJECTINFORMATIONA {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub Created: super::super::Foundation::SYSTEMTIME,
-    pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: windows_core::GUID,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub dwOperationalState: u32,
-    pub szName: [i8; 64],
-    pub szDescription: [i8; 127],
-    pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
-}
-impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OBJECTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NTMS_I1_OBJECTINFORMATIONA_0 {
-    pub Drive: NTMS_DRIVEINFORMATIONA,
-    pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
-    pub Library: NTMS_I1_LIBRARYINFORMATION,
-    pub Changer: NTMS_CHANGERINFORMATIONA,
-    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONA,
-    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
-    pub IEDoor: NTMS_IEDOORINFORMATION,
-    pub IEPort: NTMS_IEPORTINFORMATION,
-    pub PhysicalMedia: NTMS_I1_PMIDINFORMATIONA,
-    pub LogicalMedia: NTMS_LMIDINFORMATION,
-    pub Partition: NTMS_I1_PARTITIONINFORMATIONA,
-    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
-    pub MediaType: NTMS_MEDIATYPEINFORMATION,
-    pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONA,
-    pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONA,
-}
-impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OBJECTINFORMATIONA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NTMS_I1_OBJECTINFORMATIONW {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub Created: super::super::Foundation::SYSTEMTIME,
-    pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: windows_core::GUID,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub dwOperationalState: u32,
-    pub szName: [u16; 64],
-    pub szDescription: [u16; 127],
-    pub Info: NTMS_I1_OBJECTINFORMATIONW_0,
-}
-impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OBJECTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NTMS_I1_OBJECTINFORMATIONW_0 {
-    pub Drive: NTMS_DRIVEINFORMATIONW,
-    pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
-    pub Library: NTMS_I1_LIBRARYINFORMATION,
-    pub Changer: NTMS_CHANGERINFORMATIONW,
-    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONW,
-    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
-    pub IEDoor: NTMS_IEDOORINFORMATION,
-    pub IEPort: NTMS_IEPORTINFORMATION,
-    pub PhysicalMedia: NTMS_I1_PMIDINFORMATIONW,
-    pub LogicalMedia: NTMS_LMIDINFORMATION,
-    pub Partition: NTMS_I1_PARTITIONINFORMATIONW,
-    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
-    pub MediaType: NTMS_MEDIATYPEINFORMATION,
-    pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONW,
-    pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONW,
-}
-impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OBJECTINFORMATIONW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_OPREQUESTINFORMATIONA {
-    pub Request: u32,
-    pub Submitted: super::super::Foundation::SYSTEMTIME,
-    pub State: u32,
-    pub szMessage: [i8; 127],
-    pub Arg1Type: u32,
-    pub Arg1: windows_core::GUID,
-    pub Arg2Type: u32,
-    pub Arg2: windows_core::GUID,
-    pub szApplication: [i8; 64],
-    pub szUser: [i8; 64],
-    pub szComputer: [i8; 64],
-}
-impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OPREQUESTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_OPREQUESTINFORMATIONW {
-    pub Request: u32,
-    pub Submitted: super::super::Foundation::SYSTEMTIME,
-    pub State: u32,
-    pub szMessage: [u16; 127],
-    pub Arg1Type: u32,
-    pub Arg1: windows_core::GUID,
-    pub Arg2Type: u32,
-    pub Arg2: windows_core::GUID,
-    pub szApplication: [u16; 64],
-    pub szUser: [u16; 64],
-    pub szComputer: [u16; 64],
-}
-impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_OPREQUESTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_PARTITIONINFORMATIONA {
-    pub PhysicalMedia: windows_core::GUID,
-    pub LogicalMedia: windows_core::GUID,
-    pub State: u32,
-    pub Side: u16,
-    pub dwOmidLabelIdLength: u32,
-    pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [i8; 64],
-    pub szOmidLabelInfo: [i8; 256],
-    pub dwMountCount: u32,
-    pub dwAllocateCount: u32,
-}
-impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_PARTITIONINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_PARTITIONINFORMATIONW {
-    pub PhysicalMedia: windows_core::GUID,
-    pub LogicalMedia: windows_core::GUID,
-    pub State: u32,
-    pub Side: u16,
-    pub dwOmidLabelIdLength: u32,
-    pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [u16; 64],
-    pub szOmidLabelInfo: [u16; 256],
-    pub dwMountCount: u32,
-    pub dwAllocateCount: u32,
-}
-impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_PARTITIONINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_PMIDINFORMATIONA {
-    pub CurrentLibrary: windows_core::GUID,
-    pub MediaPool: windows_core::GUID,
-    pub Location: windows_core::GUID,
-    pub LocationType: u32,
-    pub MediaType: windows_core::GUID,
-    pub HomeSlot: windows_core::GUID,
-    pub szBarCode: [i8; 64],
-    pub BarCodeState: u32,
-    pub szSequenceNumber: [i8; 32],
-    pub MediaState: u32,
-    pub dwNumberOfPartitions: u32,
-}
-impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_PMIDINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_I1_PMIDINFORMATIONW {
-    pub CurrentLibrary: windows_core::GUID,
-    pub MediaPool: windows_core::GUID,
-    pub Location: windows_core::GUID,
-    pub LocationType: u32,
-    pub MediaType: windows_core::GUID,
-    pub HomeSlot: windows_core::GUID,
-    pub szBarCode: [u16; 64],
-    pub BarCodeState: u32,
-    pub szSequenceNumber: [u16; 32],
-    pub MediaState: u32,
-    pub dwNumberOfPartitions: u32,
-}
-impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_I1_PMIDINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_IEDOORINFORMATION {
-    pub Number: u32,
-    pub State: u32,
-    pub MaxOpenSecs: u16,
-    pub Library: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_IEDOORINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_IEDOORINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_IEPORTINFORMATION {
-    pub Number: u32,
-    pub Content: u32,
-    pub Position: u32,
-    pub MaxExtendSecs: u16,
-    pub Library: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_IEPORTINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_IEPORTINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_LIBRARYINFORMATION {
-    pub LibraryType: u32,
-    pub CleanerSlot: windows_core::GUID,
-    pub CleanerSlotDefault: windows_core::GUID,
-    pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
-    pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
-    pub InventoryMethod: u32,
-    pub dwCleanerUsesRemaining: u32,
-    pub FirstDriveNumber: u32,
-    pub dwNumberOfDrives: u32,
-    pub FirstSlotNumber: u32,
-    pub dwNumberOfSlots: u32,
-    pub FirstDoorNumber: u32,
-    pub dwNumberOfDoors: u32,
-    pub FirstPortNumber: u32,
-    pub dwNumberOfPorts: u32,
-    pub FirstChangerNumber: u32,
-    pub dwNumberOfChangers: u32,
-    pub dwNumberOfMedia: u32,
-    pub dwNumberOfMediaTypes: u32,
-    pub dwNumberOfLibRequests: u32,
-    pub Reserved: windows_core::GUID,
-    pub AutoRecovery: super::super::Foundation::BOOL,
-    pub dwFlags: u32,
-}
-impl windows_core::TypeKind for NTMS_LIBRARYINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_LIBRARYINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_LIBREQUESTINFORMATIONA {
-    pub OperationCode: u32,
-    pub OperationOption: u32,
-    pub State: u32,
-    pub PartitionId: windows_core::GUID,
-    pub DriveId: windows_core::GUID,
-    pub PhysMediaId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub SlotId: windows_core::GUID,
-    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
-    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [i8; 64],
-    pub szUser: [i8; 64],
-    pub szComputer: [i8; 64],
-    pub dwErrorCode: u32,
-    pub WorkItemId: windows_core::GUID,
-    pub dwPriority: u32,
-}
-impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_LIBREQUESTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_LIBREQUESTINFORMATIONW {
-    pub OperationCode: u32,
-    pub OperationOption: u32,
-    pub State: u32,
-    pub PartitionId: windows_core::GUID,
-    pub DriveId: windows_core::GUID,
-    pub PhysMediaId: windows_core::GUID,
-    pub Library: windows_core::GUID,
-    pub SlotId: windows_core::GUID,
-    pub TimeQueued: super::super::Foundation::SYSTEMTIME,
-    pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [u16; 64],
-    pub szUser: [u16; 64],
-    pub szComputer: [u16; 64],
-    pub dwErrorCode: u32,
-    pub WorkItemId: windows_core::GUID,
-    pub dwPriority: u32,
-}
-impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_LIBREQUESTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_LMIDINFORMATION {
-    pub MediaPool: windows_core::GUID,
-    pub dwNumberOfPartitions: u32,
-}
-impl windows_core::TypeKind for NTMS_LMIDINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_LMIDINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_MEDIAPOOLINFORMATION {
-    pub PoolType: u32,
-    pub MediaType: windows_core::GUID,
-    pub Parent: windows_core::GUID,
-    pub AllocationPolicy: u32,
-    pub DeallocationPolicy: u32,
-    pub dwMaxAllocates: u32,
-    pub dwNumberOfPhysicalMedia: u32,
-    pub dwNumberOfLogicalMedia: u32,
-    pub dwNumberOfMediaPools: u32,
-}
-impl windows_core::TypeKind for NTMS_MEDIAPOOLINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_MEDIAPOOLINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_MEDIATYPEINFORMATION {
-    pub MediaType: u32,
-    pub NumberOfSides: u32,
-    pub ReadWriteCharacteristics: u32,
-    pub DeviceType: FILE_DEVICE_TYPE,
-}
-impl windows_core::TypeKind for NTMS_MEDIATYPEINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_MEDIATYPEINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_MOUNT_INFORMATION {
-    pub dwSize: u32,
-    pub lpReserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for NTMS_MOUNT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_MOUNT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_NOTIFICATIONINFORMATION {
-    pub dwOperation: u32,
-    pub ObjectId: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_NOTIFICATIONINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_NOTIFICATIONINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NTMS_OBJECTINFORMATIONA {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub Created: super::super::Foundation::SYSTEMTIME,
-    pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: windows_core::GUID,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub dwOperationalState: u32,
-    pub szName: [i8; 64],
-    pub szDescription: [i8; 127],
-    pub Info: NTMS_OBJECTINFORMATIONA_0,
-}
-impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OBJECTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NTMS_OBJECTINFORMATIONA_0 {
-    pub Drive: NTMS_DRIVEINFORMATIONA,
-    pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
-    pub Library: NTMS_LIBRARYINFORMATION,
-    pub Changer: NTMS_CHANGERINFORMATIONA,
-    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONA,
-    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
-    pub IEDoor: NTMS_IEDOORINFORMATION,
-    pub IEPort: NTMS_IEPORTINFORMATION,
-    pub PhysicalMedia: NTMS_PMIDINFORMATIONA,
-    pub LogicalMedia: NTMS_LMIDINFORMATION,
-    pub Partition: NTMS_PARTITIONINFORMATIONA,
-    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
-    pub MediaType: NTMS_MEDIATYPEINFORMATION,
-    pub LibRequest: NTMS_LIBREQUESTINFORMATIONA,
-    pub OpRequest: NTMS_OPREQUESTINFORMATIONA,
-    pub Computer: NTMS_COMPUTERINFORMATION,
-}
-impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OBJECTINFORMATIONA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NTMS_OBJECTINFORMATIONW {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub Created: super::super::Foundation::SYSTEMTIME,
-    pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: windows_core::GUID,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub dwOperationalState: u32,
-    pub szName: [u16; 64],
-    pub szDescription: [u16; 127],
-    pub Info: NTMS_OBJECTINFORMATIONW_0,
-}
-impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OBJECTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NTMS_OBJECTINFORMATIONW_0 {
-    pub Drive: NTMS_DRIVEINFORMATIONW,
-    pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
-    pub Library: NTMS_LIBRARYINFORMATION,
-    pub Changer: NTMS_CHANGERINFORMATIONW,
-    pub ChangerType: NTMS_CHANGERTYPEINFORMATIONW,
-    pub StorageSlot: NTMS_STORAGESLOTINFORMATION,
-    pub IEDoor: NTMS_IEDOORINFORMATION,
-    pub IEPort: NTMS_IEPORTINFORMATION,
-    pub PhysicalMedia: NTMS_PMIDINFORMATIONW,
-    pub LogicalMedia: NTMS_LMIDINFORMATION,
-    pub Partition: NTMS_PARTITIONINFORMATIONW,
-    pub MediaPool: NTMS_MEDIAPOOLINFORMATION,
-    pub MediaType: NTMS_MEDIATYPEINFORMATION,
-    pub LibRequest: NTMS_LIBREQUESTINFORMATIONW,
-    pub OpRequest: NTMS_OPREQUESTINFORMATIONW,
-    pub Computer: NTMS_COMPUTERINFORMATION,
-}
-impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OBJECTINFORMATIONW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_OPREQUESTINFORMATIONA {
-    pub Request: u32,
-    pub Submitted: super::super::Foundation::SYSTEMTIME,
-    pub State: u32,
-    pub szMessage: [i8; 256],
-    pub Arg1Type: u32,
-    pub Arg1: windows_core::GUID,
-    pub Arg2Type: u32,
-    pub Arg2: windows_core::GUID,
-    pub szApplication: [i8; 64],
-    pub szUser: [i8; 64],
-    pub szComputer: [i8; 64],
-}
-impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OPREQUESTINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_OPREQUESTINFORMATIONW {
-    pub Request: u32,
-    pub Submitted: super::super::Foundation::SYSTEMTIME,
-    pub State: u32,
-    pub szMessage: [u16; 256],
-    pub Arg1Type: u32,
-    pub Arg1: windows_core::GUID,
-    pub Arg2Type: u32,
-    pub Arg2: windows_core::GUID,
-    pub szApplication: [u16; 64],
-    pub szUser: [u16; 64],
-    pub szComputer: [u16; 64],
-}
-impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_OPREQUESTINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_PARTITIONINFORMATIONA {
-    pub PhysicalMedia: windows_core::GUID,
-    pub LogicalMedia: windows_core::GUID,
-    pub State: u32,
-    pub Side: u16,
-    pub dwOmidLabelIdLength: u32,
-    pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [i8; 64],
-    pub szOmidLabelInfo: [i8; 256],
-    pub dwMountCount: u32,
-    pub dwAllocateCount: u32,
-    pub Capacity: i64,
-}
-impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_PARTITIONINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_PARTITIONINFORMATIONW {
-    pub PhysicalMedia: windows_core::GUID,
-    pub LogicalMedia: windows_core::GUID,
-    pub State: u32,
-    pub Side: u16,
-    pub dwOmidLabelIdLength: u32,
-    pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [u16; 64],
-    pub szOmidLabelInfo: [u16; 256],
-    pub dwMountCount: u32,
-    pub dwAllocateCount: u32,
-    pub Capacity: i64,
-}
-impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_PARTITIONINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_PMIDINFORMATIONA {
-    pub CurrentLibrary: windows_core::GUID,
-    pub MediaPool: windows_core::GUID,
-    pub Location: windows_core::GUID,
-    pub LocationType: u32,
-    pub MediaType: windows_core::GUID,
-    pub HomeSlot: windows_core::GUID,
-    pub szBarCode: [i8; 64],
-    pub BarCodeState: u32,
-    pub szSequenceNumber: [i8; 32],
-    pub MediaState: u32,
-    pub dwNumberOfPartitions: u32,
-    pub dwMediaTypeCode: u32,
-    pub dwDensityCode: u32,
-    pub MountedPartition: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_PMIDINFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_PMIDINFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_PMIDINFORMATIONW {
-    pub CurrentLibrary: windows_core::GUID,
-    pub MediaPool: windows_core::GUID,
-    pub Location: windows_core::GUID,
-    pub LocationType: u32,
-    pub MediaType: windows_core::GUID,
-    pub HomeSlot: windows_core::GUID,
-    pub szBarCode: [u16; 64],
-    pub BarCodeState: u32,
-    pub szSequenceNumber: [u16; 32],
-    pub MediaState: u32,
-    pub dwNumberOfPartitions: u32,
-    pub dwMediaTypeCode: u32,
-    pub dwDensityCode: u32,
-    pub MountedPartition: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_PMIDINFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_PMIDINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NTMS_STORAGESLOTINFORMATION {
-    pub Number: u32,
-    pub State: u32,
-    pub Library: windows_core::GUID,
-}
-impl windows_core::TypeKind for NTMS_STORAGESLOTINFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NTMS_STORAGESLOTINFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OFSTRUCT {
-    pub cBytes: u8,
-    pub fFixedDisk: u8,
-    pub nErrCode: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u16,
-    pub szPathName: [i8; 128],
-}
-impl windows_core::TypeKind for OFSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for OFSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REPARSE_GUID_DATA_BUFFER {
-    pub ReparseTag: u32,
-    pub ReparseDataLength: u16,
-    pub Reserved: u16,
-    pub ReparseGuid: windows_core::GUID,
-    pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
-}
-impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REPARSE_GUID_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REPARSE_GUID_DATA_BUFFER_0 {
-    pub DataBuffer: [u8; 1],
-}
-impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REPARSE_GUID_DATA_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SERVER_ALIAS_INFO_0 {
-    pub srvai0_alias: windows_core::PWSTR,
-    pub srvai0_target: windows_core::PWSTR,
-    pub srvai0_default: super::super::Foundation::BOOLEAN,
-    pub srvai0_reserved: u32,
-}
-impl windows_core::TypeKind for SERVER_ALIAS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SERVER_ALIAS_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SERVER_CERTIFICATE_INFO_0 {
-    pub srvci0_name: windows_core::PWSTR,
-    pub srvci0_subject: windows_core::PWSTR,
-    pub srvci0_issuer: windows_core::PWSTR,
-    pub srvci0_thumbprint: windows_core::PWSTR,
-    pub srvci0_friendlyname: windows_core::PWSTR,
-    pub srvci0_notbefore: windows_core::PWSTR,
-    pub srvci0_notafter: windows_core::PWSTR,
-    pub srvci0_storelocation: windows_core::PWSTR,
-    pub srvci0_storename: windows_core::PWSTR,
-    pub srvci0_renewalchain: windows_core::PWSTR,
-    pub srvci0_type: u32,
-    pub srvci0_flags: u32,
-    pub srvci0_mapping_status: u32,
-}
-impl windows_core::TypeKind for SERVER_CERTIFICATE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SERVER_CERTIFICATE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SESSION_INFO_0 {
-    pub sesi0_cname: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SESSION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SESSION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SESSION_INFO_1 {
-    pub sesi1_cname: windows_core::PWSTR,
-    pub sesi1_username: windows_core::PWSTR,
-    pub sesi1_num_opens: u32,
-    pub sesi1_time: u32,
-    pub sesi1_idle_time: u32,
-    pub sesi1_user_flags: SESSION_INFO_USER_FLAGS,
-}
-impl windows_core::TypeKind for SESSION_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SESSION_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SESSION_INFO_10 {
-    pub sesi10_cname: windows_core::PWSTR,
-    pub sesi10_username: windows_core::PWSTR,
-    pub sesi10_time: u32,
-    pub sesi10_idle_time: u32,
-}
-impl windows_core::TypeKind for SESSION_INFO_10 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SESSION_INFO_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SESSION_INFO_2 {
-    pub sesi2_cname: windows_core::PWSTR,
-    pub sesi2_username: windows_core::PWSTR,
-    pub sesi2_num_opens: u32,
-    pub sesi2_time: u32,
-    pub sesi2_idle_time: u32,
-    pub sesi2_user_flags: SESSION_INFO_USER_FLAGS,
-    pub sesi2_cltype_name: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SESSION_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SESSION_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SESSION_INFO_502 {
-    pub sesi502_cname: windows_core::PWSTR,
-    pub sesi502_username: windows_core::PWSTR,
-    pub sesi502_num_opens: u32,
-    pub sesi502_time: u32,
-    pub sesi502_idle_time: u32,
-    pub sesi502_user_flags: SESSION_INFO_USER_FLAGS,
-    pub sesi502_cltype_name: windows_core::PWSTR,
-    pub sesi502_transport: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SESSION_INFO_502 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SESSION_INFO_502 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_0 {
-    pub shi0_netname: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SHARE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1 {
-    pub shi1_netname: windows_core::PWSTR,
-    pub shi1_type: SHARE_TYPE,
-    pub shi1_remark: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SHARE_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1004 {
-    pub shi1004_remark: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SHARE_INFO_1004 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_1004 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1005 {
-    pub shi1005_flags: u32,
-}
-impl windows_core::TypeKind for SHARE_INFO_1005 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_1005 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1006 {
-    pub shi1006_max_uses: u32,
-}
-impl windows_core::TypeKind for SHARE_INFO_1006 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_1006 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1501 {
-    pub shi1501_reserved: u32,
-    pub shi1501_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SHARE_INFO_1501 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for SHARE_INFO_1501 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_1503 {
-    pub shi1503_sharefilter: windows_core::GUID,
-}
-impl windows_core::TypeKind for SHARE_INFO_1503 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_1503 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_2 {
-    pub shi2_netname: windows_core::PWSTR,
-    pub shi2_type: SHARE_TYPE,
-    pub shi2_remark: windows_core::PWSTR,
-    pub shi2_permissions: SHARE_INFO_PERMISSIONS,
-    pub shi2_max_uses: u32,
-    pub shi2_current_uses: u32,
-    pub shi2_path: windows_core::PWSTR,
-    pub shi2_passwd: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SHARE_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_501 {
-    pub shi501_netname: windows_core::PWSTR,
-    pub shi501_type: SHARE_TYPE,
-    pub shi501_remark: windows_core::PWSTR,
-    pub shi501_flags: u32,
-}
-impl windows_core::TypeKind for SHARE_INFO_501 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SHARE_INFO_501 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_502 {
-    pub shi502_netname: windows_core::PWSTR,
-    pub shi502_type: SHARE_TYPE,
-    pub shi502_remark: windows_core::PWSTR,
-    pub shi502_permissions: SHARE_INFO_PERMISSIONS,
-    pub shi502_max_uses: u32,
-    pub shi502_current_uses: u32,
-    pub shi502_path: windows_core::PWSTR,
-    pub shi502_passwd: windows_core::PWSTR,
-    pub shi502_reserved: u32,
-    pub shi502_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SHARE_INFO_502 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for SHARE_INFO_502 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SHARE_INFO_503 {
-    pub shi503_netname: windows_core::PWSTR,
-    pub shi503_type: SHARE_TYPE,
-    pub shi503_remark: windows_core::PWSTR,
-    pub shi503_permissions: SHARE_INFO_PERMISSIONS,
-    pub shi503_max_uses: u32,
-    pub shi503_current_uses: u32,
-    pub shi503_path: windows_core::PWSTR,
-    pub shi503_passwd: windows_core::PWSTR,
-    pub shi503_servername: windows_core::PWSTR,
-    pub shi503_reserved: u32,
-    pub shi503_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SHARE_INFO_503 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for SHARE_INFO_503 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct STAT_SERVER_0 {
-    pub sts0_start: u32,
-    pub sts0_fopens: u32,
-    pub sts0_devopens: u32,
-    pub sts0_jobsqueued: u32,
-    pub sts0_sopens: u32,
-    pub sts0_stimedout: u32,
-    pub sts0_serrorout: u32,
-    pub sts0_pwerrors: u32,
-    pub sts0_permerrors: u32,
-    pub sts0_syserrors: u32,
-    pub sts0_bytessent_low: u32,
-    pub sts0_bytessent_high: u32,
-    pub sts0_bytesrcvd_low: u32,
-    pub sts0_bytesrcvd_high: u32,
-    pub sts0_avresponse: u32,
-    pub sts0_reqbufneed: u32,
-    pub sts0_bigbufneed: u32,
-}
-impl windows_core::TypeKind for STAT_SERVER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for STAT_SERVER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct STAT_WORKSTATION_0 {
-    pub StatisticsStartTime: i64,
-    pub BytesReceived: i64,
-    pub SmbsReceived: i64,
-    pub PagingReadBytesRequested: i64,
-    pub NonPagingReadBytesRequested: i64,
-    pub CacheReadBytesRequested: i64,
-    pub NetworkReadBytesRequested: i64,
-    pub BytesTransmitted: i64,
-    pub SmbsTransmitted: i64,
-    pub PagingWriteBytesRequested: i64,
-    pub NonPagingWriteBytesRequested: i64,
-    pub CacheWriteBytesRequested: i64,
-    pub NetworkWriteBytesRequested: i64,
-    pub InitiallyFailedOperations: u32,
-    pub FailedCompletionOperations: u32,
-    pub ReadOperations: u32,
-    pub RandomReadOperations: u32,
-    pub ReadSmbs: u32,
-    pub LargeReadSmbs: u32,
-    pub SmallReadSmbs: u32,
-    pub WriteOperations: u32,
-    pub RandomWriteOperations: u32,
-    pub WriteSmbs: u32,
-    pub LargeWriteSmbs: u32,
-    pub SmallWriteSmbs: u32,
-    pub RawReadsDenied: u32,
-    pub RawWritesDenied: u32,
-    pub NetworkErrors: u32,
-    pub Sessions: u32,
-    pub FailedSessions: u32,
-    pub Reconnects: u32,
-    pub CoreConnects: u32,
-    pub Lanman20Connects: u32,
-    pub Lanman21Connects: u32,
-    pub LanmanNtConnects: u32,
-    pub ServerDisconnects: u32,
-    pub HungSessions: u32,
-    pub UseCount: u32,
-    pub FailedUseCount: u32,
-    pub CurrentCommands: u32,
-}
-impl windows_core::TypeKind for STAT_WORKSTATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for STAT_WORKSTATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TAPE_ERASE {
-    pub Type: ERASE_TAPE_TYPE,
-    pub Immediate: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for TAPE_ERASE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TAPE_ERASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TAPE_GET_POSITION {
-    pub Type: TAPE_POSITION_TYPE,
-    pub Partition: u32,
-    pub Offset: i64,
-}
-impl windows_core::TypeKind for TAPE_GET_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TAPE_GET_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TAPE_PREPARE {
-    pub Operation: PREPARE_TAPE_OPERATION,
-    pub Immediate: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for TAPE_PREPARE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TAPE_PREPARE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TAPE_SET_POSITION {
-    pub Method: TAPE_POSITION_METHOD,
-    pub Partition: u32,
-    pub Offset: i64,
-    pub Immediate: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for TAPE_SET_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TAPE_SET_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TAPE_WRITE_MARKS {
-    pub Type: TAPEMARK_TYPE,
-    pub Count: u32,
-    pub Immediate: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for TAPE_WRITE_MARKS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TAPE_WRITE_MARKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION {
-    pub TransactionKey: *mut core::ffi::c_void,
-    pub TransactionNotification: u32,
-    pub TmVirtualClock: i64,
-    pub ArgumentLength: u32,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    pub MarshalCookie: u32,
-    pub UOW: windows_core::GUID,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    pub PropagationCookie: u32,
-    pub UOW: windows_core::GUID,
-    pub TmIdentity: windows_core::GUID,
-    pub BufferLength: u32,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    pub EnlistmentId: windows_core::GUID,
-    pub UOW: windows_core::GUID,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    pub SavepointId: u32,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    pub TmIdentity: windows_core::GUID,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_ID {
-    pub Anonymous: TXF_ID_0,
-}
-impl windows_core::TypeKind for TXF_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_ID_0 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-impl windows_core::TypeKind for TXF_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_ID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_LOG_RECORD_AFFECTED_FILE {
-    pub Version: u16,
-    pub RecordLength: u32,
-    pub Flags: u32,
-    pub TxfFileId: TXF_ID,
-    pub KtmGuid: windows_core::GUID,
-    pub FileNameLength: u32,
-    pub FileNameByteOffsetInStructure: u32,
-}
-impl windows_core::TypeKind for TXF_LOG_RECORD_AFFECTED_FILE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_LOG_RECORD_AFFECTED_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_LOG_RECORD_BASE {
-    pub Version: u16,
-    pub RecordType: TXF_LOG_RECORD_TYPE,
-    pub RecordLength: u32,
-}
-impl windows_core::TypeKind for TXF_LOG_RECORD_BASE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_LOG_RECORD_BASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_LOG_RECORD_TRUNCATE {
-    pub Version: u16,
-    pub RecordType: u16,
-    pub RecordLength: u32,
-    pub Flags: u32,
-    pub TxfFileId: TXF_ID,
-    pub KtmGuid: windows_core::GUID,
-    pub NewFileSize: i64,
-    pub FileNameLength: u32,
-    pub FileNameByteOffsetInStructure: u32,
-}
-impl windows_core::TypeKind for TXF_LOG_RECORD_TRUNCATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_LOG_RECORD_TRUNCATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct TXF_LOG_RECORD_WRITE {
-    pub Version: u16,
-    pub RecordType: u16,
-    pub RecordLength: u32,
-    pub Flags: u32,
-    pub TxfFileId: TXF_ID,
-    pub KtmGuid: windows_core::GUID,
-    pub ByteOffsetInFile: i64,
-    pub NumBytesWritten: u32,
-    pub ByteOffsetInStructure: u32,
-    pub FileNameLength: u32,
-    pub FileNameByteOffsetInStructure: u32,
-}
-impl windows_core::TypeKind for TXF_LOG_RECORD_WRITE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TXF_LOG_RECORD_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    pub Version: u32,
-    pub RequestsPerPeriod: u32,
-    pub Period: u32,
-    pub RetryFailures: super::super::Foundation::BOOLEAN,
-    pub Discardable: super::super::Foundation::BOOLEAN,
-    pub Reserved1: [super::super::Foundation::BOOLEAN; 2],
-    pub LowestByteOffset: u64,
-    pub HighestByteOffset: u64,
-    pub AccessType: u32,
-    pub AccessMode: u32,
-}
-impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    pub RequestSize: u64,
-    pub NumOutStandingRequests: u32,
-}
-impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_ALLOCATION_HINT_INPUT {
-    pub ClusterSize: u32,
-    pub NumberOfClusters: u32,
-    pub StartingClusterNumber: i64,
-}
-impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_ALLOCATION_HINT_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
-    pub Bitmap: [u32; 1],
-}
-impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_ALLOCATION_HINT_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_CRITICAL_IO {
-    pub AccessType: u32,
-    pub ExtentsCount: u32,
-    pub Extents: [FILE_EXTENT; 1],
-}
-impl windows_core::TypeKind for VOLUME_CRITICAL_IO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_CRITICAL_IO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_FAILOVER_SET {
-    pub NumberOfDisks: u32,
-    pub DiskNumbers: [u32; 1],
-}
-impl windows_core::TypeKind for VOLUME_FAILOVER_SET {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_FAILOVER_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
-    pub Version: u32,
-    pub Reserved1: u32,
-    pub LowestByteOffset: u64,
-    pub HighestByteOffset: u64,
-    pub AccessType: u32,
-    pub AccessMode: u32,
-}
-impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_GET_BC_PROPERTIES_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    pub MaximumRequestsPerPeriod: u32,
-    pub MinimumPeriod: u32,
-    pub MaximumRequestSize: u64,
-    pub EstimatedTimePerRequest: u32,
-    pub NumOutStandingRequests: u32,
-    pub RequestSize: u64,
-}
-impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_LOGICAL_OFFSET {
-    pub LogicalOffset: i64,
-}
-impl windows_core::TypeKind for VOLUME_LOGICAL_OFFSET {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_LOGICAL_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_NUMBER {
-    pub VolumeNumber: u32,
-    pub VolumeManagerName: [u16; 8],
-}
-impl windows_core::TypeKind for VOLUME_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_PHYSICAL_OFFSET {
-    pub DiskNumber: u32,
-    pub Offset: i64,
-}
-impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSET {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_PHYSICAL_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_PHYSICAL_OFFSETS {
-    pub NumberOfPhysicalOffsets: u32,
-    pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
-}
-impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSETS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_PHYSICAL_OFFSETS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_READ_PLEX_INPUT {
-    pub ByteOffset: i64,
-    pub Length: u32,
-    pub PlexNumber: u32,
-}
-impl windows_core::TypeKind for VOLUME_READ_PLEX_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_READ_PLEX_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    pub GptAttributes: u64,
-    pub RevertOnClose: super::super::Foundation::BOOLEAN,
-    pub ApplyToAllConnectedVolumes: super::super::Foundation::BOOLEAN,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
-}
-impl windows_core::TypeKind for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VOLUME_SHRINK_INFO {
-    pub VolumeSize: u64,
-}
-impl windows_core::TypeKind for VOLUME_SHRINK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VOLUME_SHRINK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VS_FIXEDFILEINFO {
-    pub dwSignature: u32,
-    pub dwStrucVersion: u32,
-    pub dwFileVersionMS: u32,
-    pub dwFileVersionLS: u32,
-    pub dwProductVersionMS: u32,
-    pub dwProductVersionLS: u32,
-    pub dwFileFlagsMask: u32,
-    pub dwFileFlags: VS_FIXEDFILEINFO_FILE_FLAGS,
-    pub dwFileOS: VS_FIXEDFILEINFO_FILE_OS,
-    pub dwFileType: u32,
-    pub dwFileSubtype: u32,
-    pub dwFileDateMS: u32,
-    pub dwFileDateLS: u32,
-}
-impl windows_core::TypeKind for VS_FIXEDFILEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VS_FIXEDFILEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIM_ENTRY_INFO {
-    pub WimEntryInfoSize: u32,
-    pub WimType: u32,
-    pub DataSourceId: i64,
-    pub WimGuid: windows_core::GUID,
-    pub WimPath: windows_core::PCWSTR,
-    pub WimIndex: u32,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for WIM_ENTRY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIM_ENTRY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIM_EXTERNAL_FILE_INFO {
-    pub DataSourceId: i64,
-    pub ResourceHash: [u8; 20],
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for WIM_EXTERNAL_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIM_EXTERNAL_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIN32_FILE_ATTRIBUTE_DATA {
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-}
-impl windows_core::TypeKind for WIN32_FILE_ATTRIBUTE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIN32_FILE_ATTRIBUTE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIN32_FIND_DATAA {
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub dwReserved0: u32,
-    pub dwReserved1: u32,
-    pub cFileName: [i8; 260],
-    pub cAlternateFileName: [i8; 14],
-}
-impl windows_core::TypeKind for WIN32_FIND_DATAA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIN32_FIND_DATAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIN32_FIND_DATAW {
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub dwReserved0: u32,
-    pub dwReserved1: u32,
-    pub cFileName: [u16; 260],
-    pub cAlternateFileName: [u16; 14],
-}
-impl windows_core::TypeKind for WIN32_FIND_DATAW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIN32_FIND_DATAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIN32_FIND_STREAM_DATA {
-    pub StreamSize: i64,
-    pub cStreamName: [u16; 296],
-}
-impl windows_core::TypeKind for WIN32_FIND_STREAM_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIN32_FIND_STREAM_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIN32_STREAM_ID {
-    pub dwStreamId: WIN_STREAM_ID,
-    pub dwStreamAttributes: u32,
-    pub Size: i64,
-    pub dwStreamNameSize: u32,
-    pub cStreamName: [u16; 1],
-}
-impl windows_core::TypeKind for WIN32_STREAM_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIN32_STREAM_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WOF_FILE_COMPRESSION_INFO_V0 {
-    pub Algorithm: u32,
-}
-impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WOF_FILE_COMPRESSION_INFO_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WOF_FILE_COMPRESSION_INFO_V1 {
-    pub Algorithm: u32,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WOF_FILE_COMPRESSION_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-pub type CACHE_ACCESS_CHECK = Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type CACHE_DESTROY_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
-pub type CACHE_KEY_COMPARE = Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
-pub type CACHE_KEY_HASH = Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
-pub type CACHE_READ_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type CLAIMMEDIALABEL = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
-pub type CLAIMMEDIALABELEX = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut windows_core::GUID) -> u32>;
-pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
-pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
-pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
-pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
-pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
-pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
-pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
-pub type PFE_EXPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const core::ffi::c_void, ullength: u32) -> u32>;
-pub type PFE_IMPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const core::ffi::c_void, ullength: *mut u32) -> u32>;
-pub type PFN_IO_COMPLETION = Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
-pub type PLOG_FULL_HANDLER_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut core::ffi::c_void)>;
-pub type PLOG_TAIL_ADVANCE_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut core::ffi::c_void)>;
-pub type PLOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut core::ffi::c_void)>;
-pub type WofEnumEntryProc = Option<unsafe extern "system" fn(entryinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type WofEnumFilesProc = Option<unsafe extern "system" fn(filepath: windows_core::PCWSTR, externalfileinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;

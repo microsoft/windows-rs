@@ -16,15 +16,15 @@ where
     CompareObjectHandles(hfirstobjecthandle.param().abi(), hsecondobjecthandle.param().abi())
 }
 #[inline]
-pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
+pub unsafe fn DuplicateHandle<P0, P1, P2, P5>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HANDLE>,
     P1: windows_core::Param<HANDLE>,
     P2: windows_core::Param<HANDLE>,
-    P3: windows_core::Param<BOOL>,
+    P5: windows_core::Param<BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    DuplicateHandle(hsourceprocesshandle.param().abi(), hsourcehandle.param().abi(), htargetprocesshandle.param().abi(), lptargethandle, dwdesiredaccess, binherithandle.param().abi(), dwoptions).ok()
+    DuplicateHandle(hsourceprocesshandle.param().abi(), hsourcehandle.param().abi(), htargetprocesshandle.param().abi(), core::mem::transmute(lptargethandle), core::mem::transmute(dwdesiredaccess), binherithandle.param().abi(), core::mem::transmute(dwoptions)).ok()
 }
 #[inline]
 pub unsafe fn FreeLibrary<P0>(hlibmodule: P0) -> windows_core::Result<()>
@@ -40,7 +40,7 @@ where
     P0: windows_core::Param<HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
-    GetHandleInformation(hobject.param().abi(), lpdwflags).ok()
+    GetHandleInformation(hobject.param().abi(), core::mem::transmute(lpdwflags)).ok()
 }
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -78,25 +78,22 @@ where
     P0: windows_core::Param<HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
-    SetHandleInformation(hobject.param().abi(), dwmask, dwflags).ok()
+    SetHandleInformation(hobject.param().abi(), core::mem::transmute(dwmask), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
-    SetLastError(dwerrcode)
+    SetLastError(core::mem::transmute(dwerrcode))
 }
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
-    SetLastErrorEx(dwerrcode, dwtype)
+    SetLastErrorEx(core::mem::transmute(dwerrcode), core::mem::transmute(dwtype))
 }
 #[inline]
-pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::BSTR>,
-{
-    windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    SysAddRefString(bstrstring.param().abi()).ok()
+pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::Result<()> {
+    windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    SysAddRefString(core::mem::transmute_copy(bstrstring)).ok()
 }
 #[inline]
 pub unsafe fn SysAllocString<P0>(psz: P0) -> windows_core::BSTR
@@ -117,52 +114,780 @@ pub unsafe fn SysAllocStringLen(strin: Option<&[u16]>) -> windows_core::BSTR {
     SysAllocStringLen(core::mem::transmute(strin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn SysFreeString<P0>(bstrstring: P0)
-where
-    P0: windows_core::Param<windows_core::BSTR>,
-{
-    windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >));
-    SysFreeString(bstrstring.param().abi())
+pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
+    windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
+    SysFreeString(core::mem::transmute_copy(bstrstring))
 }
 #[inline]
-pub unsafe fn SysReAllocString<P0>(pbstr: *mut windows_core::BSTR, psz: P0) -> i32
+pub unsafe fn SysReAllocString<P1>(pbstr: *mut windows_core::BSTR, psz: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut core::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR) -> i32);
+    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR) -> i32);
     SysReAllocString(core::mem::transmute(pbstr), psz.param().abi())
 }
 #[inline]
-pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut windows_core::BSTR, psz: P0, len: u32) -> i32
+pub unsafe fn SysReAllocStringLen<P1>(pbstr: *mut windows_core::BSTR, psz: P1, len: u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut core::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR, len : u32) -> i32);
-    SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), len)
+    windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR, len : u32) -> i32);
+    SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), core::mem::transmute(len))
 }
 #[inline]
-pub unsafe fn SysReleaseString<P0>(bstrstring: P0)
-where
-    P0: windows_core::Param<windows_core::BSTR>,
-{
-    windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : core::mem::MaybeUninit < windows_core::BSTR >));
-    SysReleaseString(bstrstring.param().abi())
+pub unsafe fn SysReleaseString(bstrstring: &windows_core::BSTR) {
+    windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : * mut core::ffi::c_void));
+    SysReleaseString(core::mem::transmute_copy(bstrstring))
 }
 #[inline]
-pub unsafe fn SysStringByteLen<P0>(bstr: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::BSTR>,
-{
-    windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
-    SysStringByteLen(bstr.param().abi())
+pub unsafe fn SysStringByteLen(bstr: &windows_core::BSTR) -> u32 {
+    windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : * mut core::ffi::c_void) -> u32);
+    SysStringByteLen(core::mem::transmute_copy(bstr))
 }
 #[inline]
-pub unsafe fn SysStringLen<P0>(pbstr: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::BSTR>,
-{
-    windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : core::mem::MaybeUninit < windows_core::BSTR >) -> u32);
-    SysStringLen(pbstr.param().abi())
+pub unsafe fn SysStringLen(pbstr: &windows_core::BSTR) -> u32 {
+    windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : * mut core::ffi::c_void) -> u32);
+    SysStringLen(core::mem::transmute_copy(pbstr))
+}
+pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
+pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
+pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
+pub type PROC = Option<unsafe extern "system" fn() -> isize>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
+impl DUPLICATE_HANDLE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GENERIC_ACCESS_RIGHTS(pub u32);
+impl GENERIC_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GENERIC_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GENERIC_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GENERIC_ACCESS_RIGHTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GENERIC_ACCESS_RIGHTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GENERIC_ACCESS_RIGHTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HANDLE_FLAGS(pub u32);
+impl HANDLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HANDLE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HANDLE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HANDLE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HANDLE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HANDLE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NTSTATUS_FACILITY_CODE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NTSTATUS_SEVERITY_CODE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJECT_ATTRIBUTE_FLAGS(pub u32);
+impl OBJECT_ATTRIBUTE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for OBJECT_ATTRIBUTE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for OBJECT_ATTRIBUTE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WAIT_EVENT(pub u32);
+#[must_use]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WIN32_ERROR(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct APP_LOCAL_DEVICE_ID {
+    pub value: [u8; 32],
+}
+impl Default for APP_LOCAL_DEVICE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[must_use]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct BOOL(pub i32);
+impl windows_core::TypeKind for BOOL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct BOOLEAN(pub u8);
+impl windows_core::TypeKind for BOOLEAN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct COLORREF(pub u32);
+impl windows_core::TypeKind for COLORREF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DECIMAL {
+    pub wReserved: u16,
+    pub Anonymous1: DECIMAL_0,
+    pub Hi32: u32,
+    pub Anonymous2: DECIMAL_1,
+}
+impl Default for DECIMAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DECIMAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DECIMAL_0 {
+    pub Anonymous: DECIMAL_0_0,
+    pub signscale: u16,
+}
+impl Default for DECIMAL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DECIMAL_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DECIMAL_0_0 {
+    pub scale: u8,
+    pub sign: u8,
+}
+impl Default for DECIMAL_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DECIMAL_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DECIMAL_1 {
+    pub Anonymous: DECIMAL_1_0,
+    pub Lo64: u64,
+}
+impl Default for DECIMAL_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DECIMAL_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DECIMAL_1_0 {
+    pub Lo32: u32,
+    pub Mid32: u32,
+}
+impl Default for DECIMAL_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DECIMAL_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVPROPKEY {
+    pub fmtid: windows_core::GUID,
+    pub pid: u32,
+}
+impl Default for DEVPROPKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPROPKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILETIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
+}
+impl Default for FILETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILETIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLOAT128 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl Default for FLOAT128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FLOAT128 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
+            CloseHandle(self.0);
+        }
+    }
+}
+impl Default for HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HANDLE_PTR(pub usize);
+impl windows_core::TypeKind for HANDLE_PTR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HGLOBAL(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HGLOBAL {
+    type TypeKind = windows_core::CopyType;
+}
+impl HGLOBAL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HGLOBAL {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+            GlobalFree(self.0);
+        }
+    }
+}
+impl Default for HGLOBAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HINSTANCE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HINSTANCE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for HINSTANCE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
+            FreeLibrary(self.0);
+        }
+    }
+}
+impl Default for HINSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HMODULE> for HINSTANCE {}
+impl From<HINSTANCE> for HMODULE {
+    fn from(value: HINSTANCE) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HLOCAL(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HLOCAL {
+    type TypeKind = windows_core::CopyType;
+}
+impl HLOCAL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HLOCAL {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+            LocalFree(self.0);
+        }
+    }
+}
+impl Default for HLOCAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HLSURF(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HLSURF {
+    type TypeKind = windows_core::CopyType;
+}
+impl HLSURF {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HLSURF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HMODULE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HMODULE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HMODULE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for HMODULE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
+            FreeLibrary(self.0);
+        }
+    }
+}
+impl Default for HMODULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HINSTANCE> for HMODULE {}
+impl From<HMODULE> for HINSTANCE {
+    fn from(value: HMODULE) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HRSRC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HRSRC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HRSRC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HRSRC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HSPRITE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSPRITE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HSPRITE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HSPRITE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HSTR(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSTR {
+    type TypeKind = windows_core::CopyType;
+}
+impl HSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HUMPD(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HUMPD {
+    type TypeKind = windows_core::CopyType;
+}
+impl HUMPD {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HUMPD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HWND(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HWND {
+    type TypeKind = windows_core::CopyType;
+}
+impl HWND {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HWND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HANDLE> for HWND {}
+impl From<HWND> for HANDLE {
+    fn from(value: HWND) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LPARAM(pub isize);
+impl windows_core::TypeKind for LPARAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LRESULT(pub isize);
+impl windows_core::TypeKind for LRESULT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl Default for LUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LUID {
+    type TypeKind = windows_core::CopyType;
+}
+#[must_use]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct NTSTATUS(pub i32);
+impl windows_core::TypeKind for NTSTATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
+impl Default for POINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POINTL {
+    pub x: i32,
+    pub y: i32,
+}
+impl Default for POINTL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POINTL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POINTS {
+    pub x: i16,
+    pub y: i16,
+}
+impl Default for POINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POINTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PROPERTYKEY {
+    pub fmtid: windows_core::GUID,
+    pub pid: u32,
+}
+impl Default for PROPERTYKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROPERTYKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl Default for RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RECTL {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl Default for RECTL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RECTL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct SHANDLE_PTR(pub isize);
+impl windows_core::TypeKind for SHANDLE_PTR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SIZE {
+    pub cx: i32,
+    pub cy: i32,
+}
+impl Default for SIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIZE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+}
+impl Default for SYSTEMTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYSTEMTIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct UNICODE_STRING {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: windows_core::PWSTR,
+}
+impl Default for UNICODE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for UNICODE_STRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct VARIANT_BOOL(pub i16);
+impl windows_core::TypeKind for VARIANT_BOOL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WPARAM(pub usize);
+impl windows_core::TypeKind for WPARAM {
+    type TypeKind = windows_core::CopyType;
 }
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: WIN32_ERROR = WIN32_ERROR(15705u32);
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED: WIN32_ERROR = WIN32_ERROR(15704u32);
@@ -10325,852 +11050,3 @@ pub const _WIN32_IE_MAXVER: u32 = 2560u32;
 pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
-impl windows_core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl DUPLICATE_HANDLE_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GENERIC_ACCESS_RIGHTS(pub u32);
-impl windows_core::TypeKind for GENERIC_ACCESS_RIGHTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GENERIC_ACCESS_RIGHTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GENERIC_ACCESS_RIGHTS").field(&self.0).finish()
-    }
-}
-impl GENERIC_ACCESS_RIGHTS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GENERIC_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GENERIC_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GENERIC_ACCESS_RIGHTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GENERIC_ACCESS_RIGHTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GENERIC_ACCESS_RIGHTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct HANDLE_FLAGS(pub u32);
-impl windows_core::TypeKind for HANDLE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HANDLE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
-    }
-}
-impl HANDLE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HANDLE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HANDLE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HANDLE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NTSTATUS_FACILITY_CODE(pub u32);
-impl windows_core::TypeKind for NTSTATUS_FACILITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NTSTATUS_FACILITY_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NTSTATUS_SEVERITY_CODE(pub u32);
-impl windows_core::TypeKind for NTSTATUS_SEVERITY_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTSTATUS_SEVERITY_CODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct OBJECT_ATTRIBUTE_FLAGS(pub u32);
-impl windows_core::TypeKind for OBJECT_ATTRIBUTE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for OBJECT_ATTRIBUTE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OBJECT_ATTRIBUTE_FLAGS").field(&self.0).finish()
-    }
-}
-impl OBJECT_ATTRIBUTE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for OBJECT_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for OBJECT_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for OBJECT_ATTRIBUTE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for OBJECT_ATTRIBUTE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WAIT_EVENT(pub u32);
-impl windows_core::TypeKind for WAIT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WAIT_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WAIT_EVENT").field(&self.0).finish()
-    }
-}
-#[must_use]
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WIN32_ERROR(pub u32);
-impl windows_core::TypeKind for WIN32_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WIN32_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct APP_LOCAL_DEVICE_ID {
-    pub value: [u8; 32],
-}
-impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for APP_LOCAL_DEVICE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[must_use]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct BOOL(pub i32);
-impl Default for BOOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BOOL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct BOOLEAN(pub u8);
-impl Default for BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BOOLEAN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct COLORREF(pub u32);
-impl Default for COLORREF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COLORREF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DECIMAL {
-    pub wReserved: u16,
-    pub Anonymous1: DECIMAL_0,
-    pub Hi32: u32,
-    pub Anonymous2: DECIMAL_1,
-}
-impl windows_core::TypeKind for DECIMAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DECIMAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DECIMAL_0 {
-    pub Anonymous: DECIMAL_0_0,
-    pub signscale: u16,
-}
-impl windows_core::TypeKind for DECIMAL_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DECIMAL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DECIMAL_0_0 {
-    pub scale: u8,
-    pub sign: u8,
-}
-impl windows_core::TypeKind for DECIMAL_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DECIMAL_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DECIMAL_1 {
-    pub Anonymous: DECIMAL_1_0,
-    pub Lo64: u64,
-}
-impl windows_core::TypeKind for DECIMAL_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DECIMAL_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DECIMAL_1_0 {
-    pub Lo32: u32,
-    pub Mid32: u32,
-}
-impl windows_core::TypeKind for DECIMAL_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DECIMAL_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVPROPKEY {
-    pub fmtid: windows_core::GUID,
-    pub pid: u32,
-}
-impl windows_core::TypeKind for DEVPROPKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DEVPROPKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FILETIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
-}
-impl windows_core::TypeKind for FILETIME {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FILETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FLOAT128 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-impl windows_core::TypeKind for FLOAT128 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for FLOAT128 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HANDLE(pub *mut core::ffi::c_void);
-impl HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = CloseHandle(*self);
-        }
-    }
-}
-impl Default for HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HANDLE_PTR(pub usize);
-impl Default for HANDLE_PTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HANDLE_PTR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGLOBAL(pub *mut core::ffi::c_void);
-impl HGLOBAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HGLOBAL {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = GlobalFree(*self);
-        }
-    }
-}
-impl Default for HGLOBAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HGLOBAL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HINSTANCE(pub *mut core::ffi::c_void);
-impl HINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl windows_core::Free for HINSTANCE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = FreeLibrary(*self);
-        }
-    }
-}
-impl Default for HINSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HINSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::imp::CanInto<HMODULE> for HINSTANCE {}
-impl From<HINSTANCE> for HMODULE {
-    fn from(value: HINSTANCE) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HLOCAL(pub *mut core::ffi::c_void);
-impl HLOCAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HLOCAL {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = LocalFree(*self);
-        }
-    }
-}
-impl Default for HLOCAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HLOCAL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HLSURF(pub *mut core::ffi::c_void);
-impl HLSURF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HLSURF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HLSURF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMODULE(pub *mut core::ffi::c_void);
-impl HMODULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl windows_core::Free for HMODULE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = FreeLibrary(*self);
-        }
-    }
-}
-impl Default for HMODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HMODULE {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::imp::CanInto<HINSTANCE> for HMODULE {}
-impl From<HMODULE> for HINSTANCE {
-    fn from(value: HMODULE) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRSRC(pub *mut core::ffi::c_void);
-impl HRSRC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HRSRC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HRSRC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSPRITE(pub *mut core::ffi::c_void);
-impl HSPRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HSPRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSPRITE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSTR(pub *mut core::ffi::c_void);
-impl HSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSTR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUMPD(pub *mut core::ffi::c_void);
-impl HUMPD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HUMPD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HUMPD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWND(pub *mut core::ffi::c_void);
-impl HWND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HWND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HWND {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::imp::CanInto<HANDLE> for HWND {}
-impl From<HWND> for HANDLE {
-    fn from(value: HWND) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPARAM(pub isize);
-impl Default for LPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LPARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LRESULT(pub isize);
-impl Default for LRESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LRESULT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct LUID {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl windows_core::TypeKind for LUID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for LUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[must_use]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NTSTATUS(pub i32);
-impl Default for NTSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for NTSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POINT {
-    pub x: i32,
-    pub y: i32,
-}
-impl windows_core::TypeKind for POINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POINTL {
-    pub x: i32,
-    pub y: i32,
-}
-impl windows_core::TypeKind for POINTL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POINTL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POINTS {
-    pub x: i16,
-    pub y: i16,
-}
-impl windows_core::TypeKind for POINTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROPERTYKEY {
-    pub fmtid: windows_core::GUID,
-    pub pid: u32,
-}
-impl windows_core::TypeKind for PROPERTYKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PROPERTYKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-impl windows_core::TypeKind for RECT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RECTL {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-impl windows_core::TypeKind for RECTL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RECTL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SHANDLE_PTR(pub isize);
-impl Default for SHANDLE_PTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SHANDLE_PTR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
-}
-impl windows_core::TypeKind for SIZE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEMTIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDayOfWeek: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wMilliseconds: u16,
-}
-impl windows_core::TypeKind for SYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for UNICODE_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct VARIANT_BOOL(pub i16);
-impl Default for VARIANT_BOOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VARIANT_BOOL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WPARAM(pub usize);
-impl Default for WPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WPARAM {
-    type TypeKind = windows_core::CopyType;
-}
-pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
-pub type PROC = Option<unsafe extern "system" fn() -> isize>;

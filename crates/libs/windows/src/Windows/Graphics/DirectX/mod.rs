@@ -1,7 +1,7 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXAlphaMode(pub i32);
 impl DirectXAlphaMode {
     pub const Unspecified: Self = Self(0i32);
@@ -12,16 +12,11 @@ impl DirectXAlphaMode {
 impl windows_core::TypeKind for DirectXAlphaMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DirectXAlphaMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXColorSpace(pub i32);
 impl DirectXColorSpace {
     pub const RgbFullG22NoneP709: Self = Self(0i32);
@@ -53,16 +48,11 @@ impl DirectXColorSpace {
 impl windows_core::TypeKind for DirectXColorSpace {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DirectXColorSpace {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXPixelFormat(pub i32);
 impl DirectXPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -191,16 +181,11 @@ impl DirectXPixelFormat {
 impl windows_core::TypeKind for DirectXPixelFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DirectXPixelFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXPrimitiveTopology(pub i32);
 impl DirectXPrimitiveTopology {
     pub const Undefined: Self = Self(0i32);
@@ -212,11 +197,6 @@ impl DirectXPrimitiveTopology {
 }
 impl windows_core::TypeKind for DirectXPrimitiveTopology {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DirectXPrimitiveTopology {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");

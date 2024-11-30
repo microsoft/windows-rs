@@ -42,12 +42,12 @@ pub unsafe fn CountClipboardFormats() -> i32 {
     CountClipboardFormats()
 }
 #[inline]
-pub unsafe fn DdeAbandonTransaction<P0>(idinst: u32, hconv: P0, idtransaction: u32) -> super::super::Foundation::BOOL
+pub unsafe fn DdeAbandonTransaction<P1>(idinst: u32, hconv: P1, idtransaction: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HCONV>,
+    P1: windows_core::Param<HCONV>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : u32, hconv : HCONV, idtransaction : u32) -> super::super::Foundation:: BOOL);
-    DdeAbandonTransaction(idinst, hconv.param().abi(), idtransaction)
+    DdeAbandonTransaction(core::mem::transmute(idinst), hconv.param().abi(), core::mem::transmute(idtransaction))
 }
 #[inline]
 pub unsafe fn DdeAccessData<P0>(hdata: P0, pcbdatasize: Option<*mut u32>) -> *mut u8
@@ -63,16 +63,16 @@ where
     P0: windows_core::Param<HDDEDATA>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : *const u8, cb : u32, cboff : u32) -> HDDEDATA);
-    DdeAddData(hdata.param().abi(), core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), cboff)
+    DdeAddData(hdata.param().abi(), core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), core::mem::transmute(cboff))
 }
 #[inline]
-pub unsafe fn DdeClientTransaction<P0, P1>(pdata: Option<*const u8>, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: Option<*mut u32>) -> HDDEDATA
+pub unsafe fn DdeClientTransaction<P2, P3>(pdata: Option<*const u8>, cbdata: u32, hconv: P2, hszitem: P3, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: Option<*mut u32>) -> HDDEDATA
 where
-    P0: windows_core::Param<HCONV>,
-    P1: windows_core::Param<HSZ>,
+    P2: windows_core::Param<HCONV>,
+    P3: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeClientTransaction(pdata : *const u8, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : DDE_CLIENT_TRANSACTION_TYPE, dwtimeout : u32, pdwresult : *mut u32) -> HDDEDATA);
-    DdeClientTransaction(core::mem::transmute(pdata.unwrap_or(core::ptr::null())), cbdata, hconv.param().abi(), hszitem.param().abi(), wfmt, wtype, dwtimeout, core::mem::transmute(pdwresult.unwrap_or(core::ptr::null_mut())))
+    DdeClientTransaction(core::mem::transmute(pdata.unwrap_or(core::ptr::null())), core::mem::transmute(cbdata), hconv.param().abi(), hszitem.param().abi(), core::mem::transmute(wfmt), core::mem::transmute(wtype), core::mem::transmute(dwtimeout), core::mem::transmute(pdwresult.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn DdeCmpStringHandles<P0, P1>(hsz1: P0, hsz2: P1) -> i32
@@ -85,48 +85,48 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn DdeConnect<P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: Option<*const CONVCONTEXT>) -> HCONV
+pub unsafe fn DdeConnect<P1, P2>(idinst: u32, hszservice: P1, hsztopic: P2, pcc: Option<*const CONVCONTEXT>) -> HCONV
 where
-    P0: windows_core::Param<HSZ>,
     P1: windows_core::Param<HSZ>,
+    P2: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : *const CONVCONTEXT) -> HCONV);
-    DdeConnect(idinst, hszservice.param().abi(), hsztopic.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
+    DdeConnect(core::mem::transmute(idinst), hszservice.param().abi(), hsztopic.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn DdeConnectList<P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: Option<*const CONVCONTEXT>) -> HCONVLIST
+pub unsafe fn DdeConnectList<P1, P2, P3>(idinst: u32, hszservice: P1, hsztopic: P2, hconvlist: P3, pcc: Option<*const CONVCONTEXT>) -> HCONVLIST
 where
-    P0: windows_core::Param<HSZ>,
     P1: windows_core::Param<HSZ>,
-    P2: windows_core::Param<HCONVLIST>,
+    P2: windows_core::Param<HSZ>,
+    P3: windows_core::Param<HCONVLIST>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
-    DdeConnectList(idinst, hszservice.param().abi(), hsztopic.param().abi(), hconvlist.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
+    DdeConnectList(core::mem::transmute(idinst), hszservice.param().abi(), hsztopic.param().abi(), hconvlist.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn DdeCreateDataHandle<P0>(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
+pub unsafe fn DdeCreateDataHandle<P4>(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: P4, wfmt: u32, afcmd: u32) -> HDDEDATA
 where
-    P0: windows_core::Param<HSZ>,
+    P4: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *const u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
-    DdeCreateDataHandle(idinst, core::mem::transmute(psrc.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.param().abi(), wfmt, afcmd)
+    DdeCreateDataHandle(core::mem::transmute(idinst), core::mem::transmute(psrc.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(cboff), hszitem.param().abi(), core::mem::transmute(wfmt), core::mem::transmute(afcmd))
 }
 #[inline]
-pub unsafe fn DdeCreateStringHandleA<P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleA<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : u32, psz : windows_core::PCSTR, icodepage : i32) -> HSZ);
-    DdeCreateStringHandleA(idinst, psz.param().abi(), icodepage)
+    DdeCreateStringHandleA(core::mem::transmute(idinst), psz.param().abi(), core::mem::transmute(icodepage))
 }
 #[inline]
-pub unsafe fn DdeCreateStringHandleW<P0>(idinst: u32, psz: P0, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleW<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : u32, psz : windows_core::PCWSTR, icodepage : i32) -> HSZ);
-    DdeCreateStringHandleW(idinst, psz.param().abi(), icodepage)
+    DdeCreateStringHandleW(core::mem::transmute(idinst), psz.param().abi(), core::mem::transmute(icodepage))
 }
 #[inline]
 pub unsafe fn DdeDisconnect<P0>(hconv: P0) -> super::super::Foundation::BOOL
@@ -145,12 +145,12 @@ where
     DdeDisconnectList(hconvlist.param().abi())
 }
 #[inline]
-pub unsafe fn DdeEnableCallback<P0>(idinst: u32, hconv: P0, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL
+pub unsafe fn DdeEnableCallback<P1>(idinst: u32, hconv: P1, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HCONV>,
+    P1: windows_core::Param<HCONV>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeEnableCallback(idinst : u32, hconv : HCONV, wcmd : DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation:: BOOL);
-    DdeEnableCallback(idinst, hconv.param().abi(), wcmd)
+    DdeEnableCallback(core::mem::transmute(idinst), hconv.param().abi(), core::mem::transmute(wcmd))
 }
 #[inline]
 pub unsafe fn DdeFreeDataHandle<P0>(hdata: P0) -> super::super::Foundation::BOOL
@@ -161,12 +161,12 @@ where
     DdeFreeDataHandle(hdata.param().abi())
 }
 #[inline]
-pub unsafe fn DdeFreeStringHandle<P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeFreeStringHandle<P1>(idinst: u32, hsz: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HSZ>,
+    P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : u32, hsz : HSZ) -> super::super::Foundation:: BOOL);
-    DdeFreeStringHandle(idinst, hsz.param().abi())
+    DdeFreeStringHandle(core::mem::transmute(idinst), hsz.param().abi())
 }
 #[inline]
 pub unsafe fn DdeGetData<P0>(hdata: P0, pdst: Option<&mut [u8]>, cboff: u32) -> u32
@@ -174,12 +174,12 @@ where
     P0: windows_core::Param<HDDEDATA>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : *mut u8, cbmax : u32, cboff : u32) -> u32);
-    DdeGetData(hdata.param().abi(), core::mem::transmute(pdst.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cboff)
+    DdeGetData(hdata.param().abi(), core::mem::transmute(pdst.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(cboff))
 }
 #[inline]
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn DdeGetLastError(idinst : u32) -> u32);
-    DdeGetLastError(idinst)
+    DdeGetLastError(core::mem::transmute(idinst))
 }
 #[inline]
 pub unsafe fn DdeImpersonateClient<P0>(hconv: P0) -> windows_core::Result<()>
@@ -192,38 +192,38 @@ where
 #[inline]
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn DdeInitializeA(pidinst : *mut u32, pfncallback : PFNCALLBACK, afcmd : DDE_INITIALIZE_COMMAND, ulres : u32) -> u32);
-    DdeInitializeA(pidinst, pfncallback, afcmd, ulres)
+    DdeInitializeA(core::mem::transmute(pidinst), core::mem::transmute(pfncallback), core::mem::transmute(afcmd), core::mem::transmute(ulres))
 }
 #[inline]
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn DdeInitializeW(pidinst : *mut u32, pfncallback : PFNCALLBACK, afcmd : DDE_INITIALIZE_COMMAND, ulres : u32) -> u32);
-    DdeInitializeW(pidinst, pfncallback, afcmd, ulres)
+    DdeInitializeW(core::mem::transmute(pidinst), core::mem::transmute(pfncallback), core::mem::transmute(afcmd), core::mem::transmute(ulres))
 }
 #[inline]
-pub unsafe fn DdeKeepStringHandle<P0>(idinst: u32, hsz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn DdeKeepStringHandle<P1>(idinst: u32, hsz: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HSZ>,
+    P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeKeepStringHandle(idinst : u32, hsz : HSZ) -> super::super::Foundation:: BOOL);
-    DdeKeepStringHandle(idinst, hsz.param().abi())
+    DdeKeepStringHandle(core::mem::transmute(idinst), hsz.param().abi())
 }
 #[inline]
-pub unsafe fn DdeNameService<P0, P1>(idinst: u32, hsz1: P0, hsz2: P1, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA
+pub unsafe fn DdeNameService<P1, P2>(idinst: u32, hsz1: P1, hsz2: P2, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA
 where
-    P0: windows_core::Param<HSZ>,
     P1: windows_core::Param<HSZ>,
+    P2: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeNameService(idinst : u32, hsz1 : HSZ, hsz2 : HSZ, afcmd : DDE_NAME_SERVICE_CMD) -> HDDEDATA);
-    DdeNameService(idinst, hsz1.param().abi(), hsz2.param().abi(), afcmd)
+    DdeNameService(core::mem::transmute(idinst), hsz1.param().abi(), hsz2.param().abi(), core::mem::transmute(afcmd))
 }
 #[inline]
-pub unsafe fn DdePostAdvise<P0, P1>(idinst: u32, hsztopic: P0, hszitem: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DdePostAdvise<P1, P2>(idinst: u32, hsztopic: P1, hszitem: P2) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HSZ>,
     P1: windows_core::Param<HSZ>,
+    P2: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> super::super::Foundation:: BOOL);
-    DdePostAdvise(idinst, hsztopic.param().abi(), hszitem.param().abi())
+    DdePostAdvise(core::mem::transmute(idinst), hsztopic.param().abi(), hszitem.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -232,7 +232,7 @@ where
     P0: windows_core::Param<HCONV>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : *mut CONVINFO) -> u32);
-    DdeQueryConvInfo(hconv.param().abi(), idtransaction, pconvinfo)
+    DdeQueryConvInfo(hconv.param().abi(), core::mem::transmute(idtransaction), core::mem::transmute(pconvinfo))
 }
 #[inline]
 pub unsafe fn DdeQueryNextServer<P0, P1>(hconvlist: P0, hconvprev: P1) -> HCONV
@@ -244,20 +244,20 @@ where
     DdeQueryNextServer(hconvlist.param().abi(), hconvprev.param().abi())
 }
 #[inline]
-pub unsafe fn DdeQueryStringA<P0>(idinst: u32, hsz: P0, psz: Option<&mut [u8]>, icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringA<P1>(idinst: u32, hsz: P1, psz: Option<&mut [u8]>, icodepage: i32) -> u32
 where
-    P0: windows_core::Param<HSZ>,
+    P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_core::PSTR, cchmax : u32, icodepage : i32) -> u32);
-    DdeQueryStringA(idinst, hsz.param().abi(), core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage)
+    DdeQueryStringA(core::mem::transmute(idinst), hsz.param().abi(), core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(icodepage))
 }
 #[inline]
-pub unsafe fn DdeQueryStringW<P0>(idinst: u32, hsz: P0, psz: Option<&mut [u16]>, icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringW<P1>(idinst: u32, hsz: P1, psz: Option<&mut [u16]>, icodepage: i32) -> u32
 where
-    P0: windows_core::Param<HSZ>,
+    P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeQueryStringW(idinst : u32, hsz : HSZ, psz : windows_core::PWSTR, cchmax : u32, icodepage : i32) -> u32);
-    DdeQueryStringW(idinst, hsz.param().abi(), core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage)
+    DdeQueryStringW(core::mem::transmute(idinst), hsz.param().abi(), core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(icodepage))
 }
 #[inline]
 pub unsafe fn DdeReconnect<P0>(hconv: P0) -> HCONV
@@ -274,7 +274,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::super::Foundation:: HWND, pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation:: BOOL);
-    DdeSetQualityOfService(hwndclient.param().abi(), pqosnew, pqosprev).ok()
+    DdeSetQualityOfService(hwndclient.param().abi(), core::mem::transmute(pqosnew), core::mem::transmute(pqosprev)).ok()
 }
 #[inline]
 pub unsafe fn DdeSetUserHandle<P0>(hconv: P0, id: u32, huser: usize) -> super::super::Foundation::BOOL
@@ -282,7 +282,7 @@ where
     P0: windows_core::Param<HCONV>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeSetUserHandle(hconv : HCONV, id : u32, huser : usize) -> super::super::Foundation:: BOOL);
-    DdeSetUserHandle(hconv.param().abi(), id, huser)
+    DdeSetUserHandle(hconv.param().abi(), core::mem::transmute(id), core::mem::transmute(huser))
 }
 #[inline]
 pub unsafe fn DdeUnaccessData<P0>(hdata: P0) -> super::super::Foundation::BOOL
@@ -295,12 +295,12 @@ where
 #[inline]
 pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn DdeUninitialize(idinst : u32) -> super::super::Foundation:: BOOL);
-    DdeUninitialize(idinst)
+    DdeUninitialize(core::mem::transmute(idinst))
 }
 #[inline]
 pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     windows_targets::link!("kernel32.dll" "system" fn DeleteAtom(natom : u16) -> u16);
-    DeleteAtom(natom)
+    DeleteAtom(core::mem::transmute(natom))
 }
 #[inline]
 pub unsafe fn EmptyClipboard() -> windows_core::Result<()> {
@@ -310,7 +310,7 @@ pub unsafe fn EmptyClipboard() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn EnumClipboardFormats(format : u32) -> u32);
-    EnumClipboardFormats(format)
+    EnumClipboardFormats(core::mem::transmute(format))
 }
 #[inline]
 pub unsafe fn FindAtomA<P0>(lpstring: P0) -> u16
@@ -329,38 +329,38 @@ where
     FindAtomW(lpstring.param().abi())
 }
 #[inline]
-pub unsafe fn FreeDDElParam<P0>(msg: u32, lparam: P0) -> super::super::Foundation::BOOL
+pub unsafe fn FreeDDElParam<P1>(msg: u32, lparam: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    FreeDDElParam(msg, lparam.param().abi())
+    FreeDDElParam(core::mem::transmute(msg), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetAtomNameA(natom : u16, lpbuffer : windows_core::PSTR, nsize : i32) -> u32);
-    GetAtomNameA(natom, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
+    GetAtomNameA(core::mem::transmute(natom), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetAtomNameW(natom : u16, lpbuffer : windows_core::PWSTR, nsize : i32) -> u32);
-    GetAtomNameW(natom, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
+    GetAtomNameW(core::mem::transmute(natom), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetClipboardData(uformat: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("user32.dll" "system" fn GetClipboardData(uformat : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = GetClipboardData(uformat);
+    let result__ = GetClipboardData(core::mem::transmute(uformat));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) -> i32 {
     windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : windows_core::PSTR, cchmaxcount : i32) -> i32);
-    GetClipboardFormatNameA(format, core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len().try_into().unwrap())
+    GetClipboardFormatNameA(core::mem::transmute(format), core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -> i32 {
     windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : windows_core::PWSTR, cchmaxcount : i32) -> i32);
-    GetClipboardFormatNameW(format, core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len().try_into().unwrap())
+    GetClipboardFormatNameW(core::mem::transmute(format), core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetClipboardOwner() -> windows_core::Result<super::super::Foundation::HWND> {
@@ -393,7 +393,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> super::super::Foundation:: BOOL);
-    GetUpdatedClipboardFormats(core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len().try_into().unwrap(), pcformatsout).ok()
+    GetUpdatedClipboardFormats(core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len().try_into().unwrap(), core::mem::transmute(pcformatsout)).ok()
 }
 #[inline]
 pub unsafe fn GlobalAddAtomA<P0>(lpstring: P0) -> u16
@@ -409,7 +409,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExA(lpstring : windows_core::PCSTR, flags : u32) -> u16);
-    GlobalAddAtomExA(lpstring.param().abi(), flags)
+    GlobalAddAtomExA(lpstring.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn GlobalAddAtomExW<P0>(lpstring: P0, flags: u32) -> u16
@@ -417,7 +417,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExW(lpstring : windows_core::PCWSTR, flags : u32) -> u16);
-    GlobalAddAtomExW(lpstring.param().abi(), flags)
+    GlobalAddAtomExW(lpstring.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn GlobalAddAtomW<P0>(lpstring: P0) -> u16
@@ -430,7 +430,7 @@ where
 #[inline]
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalDeleteAtom(natom : u16) -> u16);
-    GlobalDeleteAtom(natom)
+    GlobalDeleteAtom(core::mem::transmute(natom))
 }
 #[inline]
 pub unsafe fn GlobalFindAtomA<P0>(lpstring: P0) -> u16
@@ -451,12 +451,12 @@ where
 #[inline]
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameA(natom : u16, lpbuffer : windows_core::PSTR, nsize : i32) -> u32);
-    GlobalGetAtomNameA(natom, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
+    GlobalGetAtomNameA(core::mem::transmute(natom), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameW(natom : u16, lpbuffer : windows_core::PWSTR, nsize : i32) -> u32);
-    GlobalGetAtomNameW(natom, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
+    GlobalGetAtomNameW(core::mem::transmute(natom), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn ImpersonateDdeClientWindow<P0, P1>(hwndclient: P0, hwndserver: P1) -> windows_core::Result<()>
@@ -470,12 +470,12 @@ where
 #[inline]
 pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn InitAtomTable(nsize : u32) -> super::super::Foundation:: BOOL);
-    InitAtomTable(nsize)
+    InitAtomTable(core::mem::transmute(nsize))
 }
 #[inline]
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> super::super::Foundation:: BOOL);
-    IsClipboardFormatAvailable(format).ok()
+    IsClipboardFormatAvailable(core::mem::transmute(format)).ok()
 }
 #[inline]
 pub unsafe fn OpenClipboard<P0>(hwndnewowner: P0) -> windows_core::Result<()>
@@ -488,7 +488,7 @@ where
 #[inline]
 pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     windows_targets::link!("user32.dll" "system" fn PackDDElParam(msg : u32, uilo : usize, uihi : usize) -> super::super::Foundation:: LPARAM);
-    PackDDElParam(msg, uilo, uihi)
+    PackDDElParam(core::mem::transmute(msg), core::mem::transmute(uilo), core::mem::transmute(uihi))
 }
 #[inline]
 pub unsafe fn RegisterClipboardFormatA<P0>(lpszformat: P0) -> u32
@@ -520,15 +520,15 @@ where
     P0: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::super::Foundation:: LPARAM, msgin : u32, msgout : u32, uilo : usize, uihi : usize) -> super::super::Foundation:: LPARAM);
-    ReuseDDElParam(lparam.param().abi(), msgin, msgout, uilo, uihi)
+    ReuseDDElParam(lparam.param().abi(), core::mem::transmute(msgin), core::mem::transmute(msgout), core::mem::transmute(uilo), core::mem::transmute(uihi))
 }
 #[inline]
-pub unsafe fn SetClipboardData<P0>(uformat: u32, hmem: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn SetClipboardData<P1>(uformat: u32, hmem: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("user32.dll" "system" fn SetClipboardData(uformat : u32, hmem : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = SetClipboardData(uformat, hmem.param().abi());
+    let result__ = SetClipboardData(core::mem::transmute(uformat), hmem.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -542,20 +542,545 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
+pub unsafe fn SetWinMetaFileBits<P2>(lpmeta16data: &[u8], hdcref: P2, lpmfp: Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
 where
-    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : u32, lpmeta16data : *const u8, hdcref : super::super::Graphics::Gdi:: HDC, lpmfp : *const METAFILEPICT) -> super::super::Graphics::Gdi:: HENHMETAFILE);
     SetWinMetaFileBits(lpmeta16data.len().try_into().unwrap(), core::mem::transmute(lpmeta16data.as_ptr()), hdcref.param().abi(), core::mem::transmute(lpmfp.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn UnpackDDElParam<P0>(msg: u32, lparam: P0, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL
+pub unsafe fn UnpackDDElParam<P1>(msg: u32, lparam: P1, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM, puilo : *mut usize, puihi : *mut usize) -> super::super::Foundation:: BOOL);
-    UnpackDDElParam(msg, lparam.param().abi(), puilo, puihi)
+    UnpackDDElParam(core::mem::transmute(msg), lparam.param().abi(), core::mem::transmute(puilo), core::mem::transmute(puihi))
+}
+pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONVINFO_CONVERSATION_STATE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONVINFO_STATUS(pub u32);
+impl CONVINFO_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CONVINFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CONVINFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CONVINFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_INITIALIZE_COMMAND(pub u32);
+impl DDE_INITIALIZE_COMMAND {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_NAME_SERVICE_CMD(pub u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONVCONTEXT {
+    pub cb: u32,
+    pub wFlags: u32,
+    pub wCountryID: u32,
+    pub iCodePage: i32,
+    pub dwLangID: u32,
+    pub dwSecurity: u32,
+    pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for CONVCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CONVCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONVINFO {
+    pub cb: u32,
+    pub hUser: usize,
+    pub hConvPartner: HCONV,
+    pub hszSvcPartner: HSZ,
+    pub hszServiceReq: HSZ,
+    pub hszTopic: HSZ,
+    pub hszItem: HSZ,
+    pub wFmt: u32,
+    pub wType: DDE_CLIENT_TRANSACTION_TYPE,
+    pub wStatus: CONVINFO_STATUS,
+    pub wConvst: CONVINFO_CONVERSATION_STATE,
+    pub wLastError: u32,
+    pub hConvList: HCONVLIST,
+    pub ConvCtxt: CONVCONTEXT,
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndPartner: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for CONVINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CONVINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYDATASTRUCT {
+    pub dwData: usize,
+    pub cbData: u32,
+    pub lpData: *mut core::ffi::c_void,
+}
+impl Default for COPYDATASTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYDATASTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEACK {
+    pub _bitfield: u16,
+}
+impl Default for DDEACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEADVISE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl Default for DDEADVISE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEADVISE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEDATA {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl Default for DDEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDELN {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl Default for DDELN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDELN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEML_MSG_HOOK_DATA {
+    pub uiLo: usize,
+    pub uiHi: usize,
+    pub cbData: u32,
+    pub Data: [u32; 8],
+}
+impl Default for DDEML_MSG_HOOK_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEML_MSG_HOOK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEPOKE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl Default for DDEPOKE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEPOKE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DDEUP {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub rgb: [u8; 1],
+}
+impl Default for DDEUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DDEUP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCONV(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCONV {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCONV {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCONV {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DdeDisconnect(hconv : *mut core::ffi::c_void) -> i32);
+            DdeDisconnect(self.0);
+        }
+    }
+}
+impl Default for HCONV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCONVLIST(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCONVLIST {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCONVLIST {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCONVLIST {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DdeDisconnectList(hconvlist : *mut core::ffi::c_void) -> i32);
+            DdeDisconnectList(self.0);
+        }
+    }
+}
+impl Default for HCONVLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDDEDATA(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDDEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDDEDATA {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for HDDEDATA {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DdeFreeDataHandle(hdata : *mut core::ffi::c_void) -> i32);
+            DdeFreeDataHandle(self.0);
+        }
+    }
+}
+impl Default for HDDEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HSZ(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSZ {
+    type TypeKind = windows_core::CopyType;
+}
+impl HSZ {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HSZ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSZPAIR {
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+}
+impl Default for HSZPAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSZPAIR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METAFILEPICT {
+    pub mm: i32,
+    pub xExt: i32,
+    pub yExt: i32,
+    pub hMF: super::super::Graphics::Gdi::HMETAFILE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for METAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for METAFILEPICT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONCBSTRUCT {
+    pub cb: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub dwRet: u32,
+    pub wType: u32,
+    pub wFmt: u32,
+    pub hConv: HCONV,
+    pub hsz1: HSZ,
+    pub hsz2: HSZ,
+    pub hData: HDDEDATA,
+    pub dwData1: usize,
+    pub dwData2: usize,
+    pub cc: CONVCONTEXT,
+    pub cbData: u32,
+    pub Data: [u32; 8],
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for MONCBSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for MONCBSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONCONVSTRUCT {
+    pub cb: u32,
+    pub fConnect: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+    pub hConvClient: HCONV,
+    pub hConvServer: HCONV,
+}
+impl Default for MONCONVSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONCONVSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONERRSTRUCT {
+    pub cb: u32,
+    pub wLastError: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+}
+impl Default for MONERRSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONERRSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONHSZSTRUCTA {
+    pub cb: u32,
+    pub fsAction: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hsz: HSZ,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub str: [i8; 1],
+}
+impl Default for MONHSZSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONHSZSTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONHSZSTRUCTW {
+    pub cb: u32,
+    pub fsAction: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hsz: HSZ,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub str: [u16; 1],
+}
+impl Default for MONHSZSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONHSZSTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONLINKSTRUCT {
+    pub cb: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub fEstablished: super::super::Foundation::BOOL,
+    pub fNoData: super::super::Foundation::BOOL,
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+    pub hszItem: HSZ,
+    pub wFmt: u32,
+    pub fServer: super::super::Foundation::BOOL,
+    pub hConvServer: HCONV,
+    pub hConvClient: HCONV,
+}
+impl Default for MONLINKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONLINKSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONMSGSTRUCT {
+    pub cb: u32,
+    pub hwndTo: super::super::Foundation::HWND,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub wMsg: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dmhd: DDEML_MSG_HOOK_DATA,
+}
+impl Default for MONMSGSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONMSGSTRUCT {
+    type TypeKind = windows_core::CopyType;
 }
 pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
@@ -703,573 +1228,3 @@ pub const XTYP_SHIFT: u32 = 4u32;
 pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
 pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
 pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-impl windows_core::TypeKind for CONVINFO_CONVERSATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONVINFO_CONVERSATION_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct CONVINFO_STATUS(pub u32);
-impl windows_core::TypeKind for CONVINFO_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CONVINFO_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONVINFO_STATUS").field(&self.0).finish()
-    }
-}
-impl CONVINFO_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CONVINFO_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CONVINFO_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CONVINFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-impl windows_core::TypeKind for DDE_CLIENT_TRANSACTION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DDE_CLIENT_TRANSACTION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-impl windows_core::TypeKind for DDE_ENABLE_CALLBACK_CMD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DDE_ENABLE_CALLBACK_CMD").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DDE_INITIALIZE_COMMAND(pub u32);
-impl windows_core::TypeKind for DDE_INITIALIZE_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DDE_INITIALIZE_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DDE_INITIALIZE_COMMAND").field(&self.0).finish()
-    }
-}
-impl DDE_INITIALIZE_COMMAND {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DDE_NAME_SERVICE_CMD(pub u32);
-impl windows_core::TypeKind for DDE_NAME_SERVICE_CMD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DDE_NAME_SERVICE_CMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DDE_NAME_SERVICE_CMD").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CONVCONTEXT {
-    pub cb: u32,
-    pub wFlags: u32,
-    pub wCountryID: u32,
-    pub iCodePage: i32,
-    pub dwLangID: u32,
-    pub dwSecurity: u32,
-    pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CONVCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for CONVCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CONVINFO {
-    pub cb: u32,
-    pub hUser: usize,
-    pub hConvPartner: HCONV,
-    pub hszSvcPartner: HSZ,
-    pub hszServiceReq: HSZ,
-    pub hszTopic: HSZ,
-    pub hszItem: HSZ,
-    pub wFmt: u32,
-    pub wType: DDE_CLIENT_TRANSACTION_TYPE,
-    pub wStatus: CONVINFO_STATUS,
-    pub wConvst: CONVINFO_CONVERSATION_STATE,
-    pub wLastError: u32,
-    pub hConvList: HCONVLIST,
-    pub ConvCtxt: CONVCONTEXT,
-    pub hwnd: super::super::Foundation::HWND,
-    pub hwndPartner: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CONVINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for CONVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYDATASTRUCT {
-    pub dwData: usize,
-    pub cbData: u32,
-    pub lpData: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for COPYDATASTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYDATASTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEACK {
-    pub _bitfield: u16,
-}
-impl windows_core::TypeKind for DDEACK {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEADVISE {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-}
-impl windows_core::TypeKind for DDEADVISE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEADVISE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEDATA {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub Value: [u8; 1],
-}
-impl windows_core::TypeKind for DDEDATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDELN {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-}
-impl windows_core::TypeKind for DDELN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDELN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEML_MSG_HOOK_DATA {
-    pub uiLo: usize,
-    pub uiHi: usize,
-    pub cbData: u32,
-    pub Data: [u32; 8],
-}
-impl windows_core::TypeKind for DDEML_MSG_HOOK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEML_MSG_HOOK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEPOKE {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub Value: [u8; 1],
-}
-impl windows_core::TypeKind for DDEPOKE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEPOKE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DDEUP {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub rgb: [u8; 1],
-}
-impl windows_core::TypeKind for DDEUP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DDEUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCONV(pub *mut core::ffi::c_void);
-impl HCONV {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HCONV {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = DdeDisconnect(*self);
-        }
-    }
-}
-impl Default for HCONV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HCONV {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCONVLIST(pub *mut core::ffi::c_void);
-impl HCONVLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HCONVLIST {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = DdeDisconnectList(*self);
-        }
-    }
-}
-impl Default for HCONVLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HCONVLIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDDEDATA(pub *mut core::ffi::c_void);
-impl HDDEDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl windows_core::Free for HDDEDATA {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = DdeFreeDataHandle(*self);
-        }
-    }
-}
-impl Default for HDDEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HDDEDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSZ(pub *mut core::ffi::c_void);
-impl HSZ {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HSZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSZ {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HSZPAIR {
-    pub hszSvc: HSZ,
-    pub hszTopic: HSZ,
-}
-impl windows_core::TypeKind for HSZPAIR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for HSZPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct METAFILEPICT {
-    pub mm: i32,
-    pub xExt: i32,
-    pub yExt: i32,
-    pub hMF: super::super::Graphics::Gdi::HMETAFILE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for METAFILEPICT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for METAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONCBSTRUCT {
-    pub cb: u32,
-    pub dwTime: u32,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub dwRet: u32,
-    pub wType: u32,
-    pub wFmt: u32,
-    pub hConv: HCONV,
-    pub hsz1: HSZ,
-    pub hsz2: HSZ,
-    pub hData: HDDEDATA,
-    pub dwData1: usize,
-    pub dwData2: usize,
-    pub cc: CONVCONTEXT,
-    pub cbData: u32,
-    pub Data: [u32; 8],
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for MONCBSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for MONCBSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONCONVSTRUCT {
-    pub cb: u32,
-    pub fConnect: super::super::Foundation::BOOL,
-    pub dwTime: u32,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub hszSvc: HSZ,
-    pub hszTopic: HSZ,
-    pub hConvClient: HCONV,
-    pub hConvServer: HCONV,
-}
-impl windows_core::TypeKind for MONCONVSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONCONVSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONERRSTRUCT {
-    pub cb: u32,
-    pub wLastError: u32,
-    pub dwTime: u32,
-    pub hTask: super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for MONERRSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONERRSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONHSZSTRUCTA {
-    pub cb: u32,
-    pub fsAction: super::super::Foundation::BOOL,
-    pub dwTime: u32,
-    pub hsz: HSZ,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub str: [i8; 1],
-}
-impl windows_core::TypeKind for MONHSZSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONHSZSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONHSZSTRUCTW {
-    pub cb: u32,
-    pub fsAction: super::super::Foundation::BOOL,
-    pub dwTime: u32,
-    pub hsz: HSZ,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub str: [u16; 1],
-}
-impl windows_core::TypeKind for MONHSZSTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONHSZSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONLINKSTRUCT {
-    pub cb: u32,
-    pub dwTime: u32,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub fEstablished: super::super::Foundation::BOOL,
-    pub fNoData: super::super::Foundation::BOOL,
-    pub hszSvc: HSZ,
-    pub hszTopic: HSZ,
-    pub hszItem: HSZ,
-    pub wFmt: u32,
-    pub fServer: super::super::Foundation::BOOL,
-    pub hConvServer: HCONV,
-    pub hConvClient: HCONV,
-}
-impl windows_core::TypeKind for MONLINKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONLINKSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MONMSGSTRUCT {
-    pub cb: u32,
-    pub hwndTo: super::super::Foundation::HWND,
-    pub dwTime: u32,
-    pub hTask: super::super::Foundation::HANDLE,
-    pub wMsg: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub dmhd: DDEML_MSG_HOOK_DATA,
-}
-impl windows_core::TypeKind for MONMSGSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MONMSGSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;

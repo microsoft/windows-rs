@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<super::super::Networking::WinSock::SOCKET>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> super::super::Foundation:: BOOL);
-    QOSAddSocketToFlow(qoshandle.param().abi(), socket.param().abi(), core::mem::transmute(destaddr.unwrap_or(core::ptr::null())), traffictype, flags, flowid)
+    QOSAddSocketToFlow(qoshandle.param().abi(), socket.param().abi(), core::mem::transmute(destaddr.unwrap_or(core::ptr::null())), core::mem::transmute(traffictype), core::mem::transmute(flags), core::mem::transmute(flowid))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSCancel(qoshandle.param().abi(), overlapped)
+    QOSCancel(qoshandle.param().abi(), core::mem::transmute(overlapped))
 }
 #[inline]
 pub unsafe fn QOSCloseHandle<P0>(qoshandle: P0) -> super::super::Foundation::BOOL
@@ -28,7 +28,7 @@ where
 #[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     windows_targets::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    QOSCreateHandle(version, qoshandle)
+    QOSCreateHandle(core::mem::transmute(version), core::mem::transmute(qoshandle))
 }
 #[inline]
 pub unsafe fn QOSEnumerateFlows<P0>(qoshandle: P0, size: *mut u32, buffer: *mut core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -36,7 +36,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    QOSEnumerateFlows(qoshandle.param().abi(), size, buffer)
+    QOSEnumerateFlows(qoshandle.param().abi(), core::mem::transmute(size), core::mem::transmute(buffer))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSNotifyFlow(qoshandle.param().abi(), flowid, operation, core::mem::transmute(size.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
+    QOSNotifyFlow(qoshandle.param().abi(), core::mem::transmute(flowid), core::mem::transmute(operation), core::mem::transmute(size.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(flags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -54,7 +54,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSQueryFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
+    QOSQueryFlow(qoshandle.param().abi(), core::mem::transmute(flowid), core::mem::transmute(operation), core::mem::transmute(size), core::mem::transmute(buffer), core::mem::transmute(flags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -64,7 +64,7 @@ where
     P1: windows_core::Param<super::super::Networking::WinSock::SOCKET>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> super::super::Foundation:: BOOL);
-    QOSRemoveSocketFromFlow(qoshandle.param().abi(), socket.param().abi(), flowid, flags)
+    QOSRemoveSocketFromFlow(qoshandle.param().abi(), socket.param().abi(), core::mem::transmute(flowid), core::mem::transmute(flags))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -73,7 +73,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSSetFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
+    QOSSetFlow(qoshandle.param().abi(), core::mem::transmute(flowid), core::mem::transmute(operation), core::mem::transmute(size), core::mem::transmute(buffer), core::mem::transmute(flags), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -82,7 +82,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
-    QOSStartTrackingClient(qoshandle.param().abi(), destaddr, flags)
+    QOSStartTrackingClient(qoshandle.param().abi(), core::mem::transmute(destaddr), core::mem::transmute(flags))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -91,7 +91,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
-    QOSStopTrackingClient(qoshandle.param().abi(), destaddr, flags)
+    QOSStopTrackingClient(qoshandle.param().abi(), core::mem::transmute(destaddr), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn TcAddFilter<P0>(flowhandle: P0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -99,7 +99,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    TcAddFilter(flowhandle.param().abi(), pgenericfilter, pfilterhandle)
+    TcAddFilter(flowhandle.param().abi(), core::mem::transmute(pgenericfilter), core::mem::transmute(pfilterhandle))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -109,7 +109,7 @@ where
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::super::Foundation:: HANDLE, clflowctx : super::super::Foundation:: HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    TcAddFlow(ifchandle.param().abi(), clflowctx.param().abi(), flags, pgenericflow, pflowhandle)
+    TcAddFlow(ifchandle.param().abi(), clflowctx.param().abi(), core::mem::transmute(flags), core::mem::transmute(pgenericflow), core::mem::transmute(pflowhandle))
 }
 #[inline]
 pub unsafe fn TcCloseInterface<P0>(ifchandle: P0) -> u32
@@ -150,7 +150,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
-    TcEnumerateFlows(ifchandle.param().abi(), penumhandle, pflowcount, pbufsize, buffer)
+    TcEnumerateFlows(ifchandle.param().abi(), core::mem::transmute(penumhandle), core::mem::transmute(pflowcount), core::mem::transmute(pbufsize), core::mem::transmute(buffer))
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -159,7 +159,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
-    TcEnumerateInterfaces(clienthandle.param().abi(), pbuffersize, interfacebuffer)
+    TcEnumerateInterfaces(clienthandle.param().abi(), core::mem::transmute(pbuffersize), core::mem::transmute(interfacebuffer))
 }
 #[inline]
 pub unsafe fn TcGetFlowNameA<P0>(flowhandle: P0, pflowname: &mut [u8]) -> u32
@@ -184,7 +184,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
-    TcModifyFlow(flowhandle.param().abi(), pgenericflow)
+    TcModifyFlow(flowhandle.param().abi(), core::mem::transmute(pgenericflow))
 }
 #[inline]
 pub unsafe fn TcOpenInterfaceA<P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -194,7 +194,7 @@ where
     P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    TcOpenInterfaceA(pinterfacename.param().abi(), clienthandle.param().abi(), clifcctx.param().abi(), pifchandle)
+    TcOpenInterfaceA(pinterfacename.param().abi(), clienthandle.param().abi(), clifcctx.param().abi(), core::mem::transmute(pifchandle))
 }
 #[inline]
 pub unsafe fn TcOpenInterfaceW<P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -204,7 +204,7 @@ where
     P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    TcOpenInterfaceW(pinterfacename.param().abi(), clienthandle.param().abi(), clifcctx.param().abi(), pifchandle)
+    TcOpenInterfaceW(pinterfacename.param().abi(), clienthandle.param().abi(), clifcctx.param().abi(), core::mem::transmute(pifchandle))
 }
 #[inline]
 pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
@@ -212,7 +212,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-    TcQueryFlowA(pflowname.param().abi(), pguidparam, pbuffersize, buffer)
+    TcQueryFlowA(pflowname.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
@@ -220,24 +220,24 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-    TcQueryFlowW(pflowname.param().abi(), pguidparam, pbuffersize, buffer)
+    TcQueryFlowW(pflowname.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
-pub unsafe fn TcQueryInterface<P0, P1>(ifchandle: P0, pguidparam: *const windows_core::GUID, notifychange: P1, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
+pub unsafe fn TcQueryInterface<P0, P2>(ifchandle: P0, pguidparam: *const windows_core::GUID, notifychange: P2, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-    TcQueryInterface(ifchandle.param().abi(), pguidparam, notifychange.param().abi(), pbuffersize, buffer)
+    TcQueryInterface(ifchandle.param().abi(), core::mem::transmute(pguidparam), notifychange.param().abi(), core::mem::transmute(pbuffersize), core::mem::transmute(buffer))
 }
 #[inline]
-pub unsafe fn TcRegisterClient<P0>(tciversion: u32, clregctx: P0, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn TcRegisterClient<P1>(tciversion: u32, clregctx: P1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    TcRegisterClient(tciversion, clregctx.param().abi(), clienthandlerlist, pclienthandle)
+    TcRegisterClient(core::mem::transmute(tciversion), clregctx.param().abi(), core::mem::transmute(clienthandlerlist), core::mem::transmute(pclienthandle))
 }
 #[inline]
 pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
@@ -245,7 +245,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-    TcSetFlowA(pflowname.param().abi(), pguidparam, buffersize, buffer)
+    TcSetFlowA(pflowname.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(buffersize), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
@@ -253,7 +253,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-    TcSetFlowW(pflowname.param().abi(), pguidparam, buffersize, buffer)
+    TcSetFlowW(pflowname.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(buffersize), core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn TcSetInterface<P0>(ifchandle: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
@@ -261,7 +261,1824 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-    TcSetInterface(ifchandle.param().abi(), pguidparam, buffersize, buffer)
+    TcSetInterface(ifchandle.param().abi(), core::mem::transmute(pguidparam), core::mem::transmute(buffersize), core::mem::transmute(buffer))
+}
+pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
+pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
+pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
+pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FilterType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_FLOWRATE_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_NOTIFY_FLOW(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_QUERY_FLOW(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SET_FLOW(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SHAPING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_TRAFFIC_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct int_serv_wkp(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADDRESS_LIST_DESCRIPTOR {
+    pub MediaType: u32,
+    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl Default for ADDRESS_LIST_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for ADDRESS_LIST_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADSPEC {
+    pub adspec_header: RsvpObjHdr,
+    pub adspec_body: IS_ADSPEC_BODY,
+}
+impl Default for ADSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AD_GENERAL_PARAMS {
+    pub IntServAwareHopCount: u32,
+    pub PathBandwidthEstimate: u32,
+    pub MinimumLatency: u32,
+    pub PathMTU: u32,
+    pub Flags: u32,
+}
+impl Default for AD_GENERAL_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AD_GENERAL_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AD_GUARANTEED {
+    pub CTotal: u32,
+    pub DTotal: u32,
+    pub CSum: u32,
+    pub DSum: u32,
+}
+impl Default for AD_GUARANTEED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AD_GUARANTEED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONTROL_SERVICE {
+    pub Length: u32,
+    pub Service: u32,
+    pub Overrides: AD_GENERAL_PARAMS,
+    pub Anonymous: CONTROL_SERVICE_0,
+}
+impl Default for CONTROL_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONTROL_SERVICE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CONTROL_SERVICE_0 {
+    pub Guaranteed: AD_GUARANTEED,
+    pub ParamBuffer: [PARAM_BUFFER; 1],
+}
+impl Default for CONTROL_SERVICE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONTROL_SERVICE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CtrlLoadFlowspec {
+    pub CL_spec_serv_hdr: IntServServiceHdr,
+    pub CL_spec_parm_hdr: IntServParmHdr,
+    pub CL_spec_parms: GenTspecParms,
+}
+impl Default for CtrlLoadFlowspec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CtrlLoadFlowspec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMERATION_BUFFER {
+    pub Length: u32,
+    pub OwnerProcessId: u32,
+    pub FlowNameLength: u16,
+    pub FlowName: [u16; 256],
+    pub pFlow: *mut TC_GEN_FLOW,
+    pub NumberOfFilters: u32,
+    pub GenericFilter: [TC_GEN_FILTER; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ENUMERATION_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for ENUMERATION_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct ERROR_SPEC {
+    pub errs_header: RsvpObjHdr,
+    pub errs_u: ERROR_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ERROR_SPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for ERROR_SPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union ERROR_SPEC_0 {
+    pub errs_ipv4: Error_Spec_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ERROR_SPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for ERROR_SPEC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Error_Spec_IPv4 {
+    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
+    pub errs_flags: u8,
+    pub errs_code: u8,
+    pub errs_value: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Error_Spec_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Error_Spec_IPv4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FILTER_SPEC {
+    pub filt_header: RsvpObjHdr,
+    pub filt_u: FILTER_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FILTER_SPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FILTER_SPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FILTER_SPEC_0 {
+    pub filt_ipv4: Filter_Spec_IPv4,
+    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FILTER_SPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FILTER_SPEC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLOWDESCRIPTOR {
+    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
+    pub NumFilters: u32,
+    pub FilterList: *mut RSVP_FILTERSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOWDESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FLOWDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FLOW_DESC {
+    pub u1: FLOW_DESC_0,
+    pub u2: FLOW_DESC_1,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FLOW_DESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_0 {
+    pub stspec: *mut SENDER_TSPEC,
+    pub isflow: *mut IS_FLOWSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FLOW_DESC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_1 {
+    pub stemp: *mut FILTER_SPEC,
+    pub fspec: *mut FILTER_SPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for FLOW_DESC_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4 {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_unused: u16,
+    pub filt_port: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Filter_Spec_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Filter_Spec_IPv4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4GPI {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_gpi: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Filter_Spec_IPv4GPI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Filter_Spec_IPv4GPI {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Gads_parms_t {
+    pub Gads_serv_hdr: IntServServiceHdr,
+    pub Gads_Ctot_hdr: IntServParmHdr,
+    pub Gads_Ctot: u32,
+    pub Gads_Dtot_hdr: IntServParmHdr,
+    pub Gads_Dtot: u32,
+    pub Gads_Csum_hdr: IntServParmHdr,
+    pub Gads_Csum: u32,
+    pub Gads_Dsum_hdr: IntServParmHdr,
+    pub Gads_Dsum: u32,
+}
+impl Default for Gads_parms_t {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Gads_parms_t {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GenAdspecParams {
+    pub gen_parm_hdr: IntServServiceHdr,
+    pub gen_parm_hopcnt_hdr: IntServParmHdr,
+    pub gen_parm_hopcnt: u32,
+    pub gen_parm_pathbw_hdr: IntServParmHdr,
+    pub gen_parm_path_bw: f32,
+    pub gen_parm_minlat_hdr: IntServParmHdr,
+    pub gen_parm_min_latency: u32,
+    pub gen_parm_compmtu_hdr: IntServParmHdr,
+    pub gen_parm_composed_MTU: u32,
+}
+impl Default for GenAdspecParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GenAdspecParams {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GenTspec {
+    pub gen_Tspec_serv_hdr: IntServServiceHdr,
+    pub gen_Tspec_parm_hdr: IntServParmHdr,
+    pub gen_Tspec_parms: GenTspecParms,
+}
+impl Default for GenTspec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GenTspec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GenTspecParms {
+    pub TB_Tspec_r: f32,
+    pub TB_Tspec_b: f32,
+    pub TB_Tspec_p: f32,
+    pub TB_Tspec_m: u32,
+    pub TB_Tspec_M: u32,
+}
+impl Default for GenTspecParms {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GenTspecParms {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GuarFlowSpec {
+    pub Guar_serv_hdr: IntServServiceHdr,
+    pub Guar_Tspec_hdr: IntServParmHdr,
+    pub Guar_Tspec_parms: GenTspecParms,
+    pub Guar_Rspec_hdr: IntServParmHdr,
+    pub Guar_Rspec: GuarRspec,
+}
+impl Default for GuarFlowSpec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GuarFlowSpec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GuarRspec {
+    pub Guar_R: f32,
+    pub Guar_S: u32,
+}
+impl Default for GuarRspec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GuarRspec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct HSP_UPGRADE_IMAGEDATA {
+    pub hashAlgID: u16,
+    pub digestSize: u16,
+    pub digest: [u8; 64],
+    pub fileName: [u16; 64],
+}
+impl Default for HSP_UPGRADE_IMAGEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSP_UPGRADE_IMAGEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IDPE_ATTR {
+    pub PeAttribLength: u16,
+    pub PeAttribType: u8,
+    pub PeAttribSubType: u8,
+    pub PeAttribValue: [u8; 4],
+}
+impl Default for IDPE_ATTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IDPE_ATTR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ID_ERROR_OBJECT {
+    pub usIdErrLength: u16,
+    pub ucAType: u8,
+    pub ucSubType: u8,
+    pub usReserved: u16,
+    pub usIdErrorValue: u16,
+    pub ucIdErrData: [u8; 4],
+}
+impl Default for ID_ERROR_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ID_ERROR_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IN_ADDR_IPV4 {
+    pub Addr: u32,
+    pub AddrBytes: [u8; 4],
+}
+impl Default for IN_ADDR_IPV4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IN_ADDR_IPV4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IN_ADDR_IPV6 {
+    pub Addr: [u8; 16],
+}
+impl Default for IN_ADDR_IPV6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IN_ADDR_IPV6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IPX_PATTERN {
+    pub Src: IPX_PATTERN_0,
+    pub Dest: IPX_PATTERN_0,
+}
+impl Default for IPX_PATTERN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IPX_PATTERN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IPX_PATTERN_0 {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
+impl Default for IPX_PATTERN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IPX_PATTERN_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IP_PATTERN {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub SrcAddr: u32,
+    pub DstAddr: u32,
+    pub S_un: IP_PATTERN_0,
+    pub ProtocolId: u8,
+    pub Reserved3: [u8; 3],
+}
+impl Default for IP_PATTERN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IP_PATTERN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IP_PATTERN_0 {
+    pub S_un_ports: IP_PATTERN_0_0,
+    pub S_un_icmp: IP_PATTERN_0_1,
+    pub S_Spi: u32,
+}
+impl Default for IP_PATTERN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IP_PATTERN_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IP_PATTERN_0_1 {
+    pub s_type: u8,
+    pub s_code: u8,
+    pub filler: u16,
+}
+impl Default for IP_PATTERN_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IP_PATTERN_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IP_PATTERN_0_0 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
+}
+impl Default for IP_PATTERN_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IP_PATTERN_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IS_ADSPEC_BODY {
+    pub adspec_mh: IntServMainHdr,
+    pub adspec_genparms: GenAdspecParams,
+}
+impl Default for IS_ADSPEC_BODY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IS_ADSPEC_BODY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IS_FLOWSPEC {
+    pub flow_header: RsvpObjHdr,
+    pub flow_body: IntServFlowSpec,
+}
+impl Default for IS_FLOWSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IS_FLOWSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServFlowSpec {
+    pub spec_mh: IntServMainHdr,
+    pub spec_u: IntServFlowSpec_0,
+}
+impl Default for IntServFlowSpec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServFlowSpec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServFlowSpec_0 {
+    pub CL_spec: CtrlLoadFlowspec,
+    pub G_spec: GuarFlowSpec,
+    pub Q_spec: QualAppFlowSpec,
+}
+impl Default for IntServFlowSpec_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServFlowSpec_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IntServMainHdr {
+    pub ismh_version: u8,
+    pub ismh_unused: u8,
+    pub ismh_len32b: u16,
+}
+impl Default for IntServMainHdr {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServMainHdr {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IntServParmHdr {
+    pub isph_parm_num: u8,
+    pub isph_flags: u8,
+    pub isph_len32b: u16,
+}
+impl Default for IntServParmHdr {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServParmHdr {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IntServServiceHdr {
+    pub issh_service: u8,
+    pub issh_flags: u8,
+    pub issh_len32b: u16,
+}
+impl Default for IntServServiceHdr {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServServiceHdr {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServTspecBody {
+    pub st_mh: IntServMainHdr,
+    pub tspec_u: IntServTspecBody_0,
+}
+impl Default for IntServTspecBody {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServTspecBody {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServTspecBody_0 {
+    pub gen_stspec: GenTspec,
+    pub qual_stspec: QualTspec,
+}
+impl Default for IntServTspecBody_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IntServTspecBody_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct LPMIPTABLE {
+    pub ulIfIndex: u32,
+    pub MediaType: u32,
+    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
+    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for LPMIPTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for LPMIPTABLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPM_HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for LPM_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl LPM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for LPM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LPM_INIT_INFO {
+    pub PcmVersionNumber: u32,
+    pub ResultTimeLimit: u32,
+    pub ConfiguredLpmCount: i32,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
+}
+impl Default for LPM_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LPM_INIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PARAM_BUFFER {
+    pub ParameterId: u32,
+    pub Length: u32,
+    pub Buffer: [u8; 1],
+}
+impl Default for PARAM_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PARAM_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POLICY_DATA {
+    pub PolicyObjHdr: RsvpObjHdr,
+    pub usPeOffset: u16,
+    pub usReserved: u16,
+}
+impl Default for POLICY_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POLICY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POLICY_DECISION {
+    pub lpvResult: u32,
+    pub wPolicyErrCode: u16,
+    pub wPolicyErrValue: u16,
+}
+impl Default for POLICY_DECISION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POLICY_DECISION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POLICY_ELEMENT {
+    pub usPeLength: u16,
+    pub usPeType: u16,
+    pub ucPeData: [u8; 4],
+}
+impl Default for POLICY_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POLICY_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_DESTADDR {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
+    pub SocketAddressLength: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for QOS_DESTADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for QOS_DESTADDR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_DIFFSERV {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSFieldCount: u32,
+    pub DiffservRule: [u8; 1],
+}
+impl Default for QOS_DIFFSERV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_DIFFSERV {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_DIFFSERV_RULE {
+    pub InboundDSField: u8,
+    pub ConformingOutboundDSField: u8,
+    pub NonConformingOutboundDSField: u8,
+    pub ConformingUserPriority: u8,
+    pub NonConformingUserPriority: u8,
+}
+impl Default for QOS_DIFFSERV_RULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_DIFFSERV_RULE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_DS_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSField: u32,
+}
+impl Default for QOS_DS_CLASS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_DS_CLASS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_FLOWRATE_OUTGOING {
+    pub Bandwidth: u64,
+    pub ShapingBehavior: QOS_SHAPING,
+    pub Reason: QOS_FLOWRATE_REASON,
+}
+impl Default for QOS_FLOWRATE_OUTGOING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_FLOWRATE_OUTGOING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_FLOW_FUNDAMENTALS {
+    pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
+    pub BottleneckBandwidth: u64,
+    pub AvailableBandwidthSet: super::super::Foundation::BOOL,
+    pub AvailableBandwidth: u64,
+    pub RTTSet: super::super::Foundation::BOOL,
+    pub RTT: u32,
+}
+impl Default for QOS_FLOW_FUNDAMENTALS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_FLOW_FUNDAMENTALS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_FRIENDLY_NAME {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub FriendlyName: [u16; 256],
+}
+impl Default for QOS_FRIENDLY_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_FRIENDLY_NAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_OBJECT_HDR {
+    pub ObjectType: u32,
+    pub ObjectLength: u32,
+}
+impl Default for QOS_OBJECT_HDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_OBJECT_HDR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_PACKET_PRIORITY {
+    pub ConformantDSCPValue: u32,
+    pub NonConformantDSCPValue: u32,
+    pub ConformantL2Value: u32,
+    pub NonConformantL2Value: u32,
+}
+impl Default for QOS_PACKET_PRIORITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_PACKET_PRIORITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_SD_MODE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapeDiscardMode: u32,
+}
+impl Default for QOS_SD_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_SD_MODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_SHAPING_RATE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapingRate: u32,
+}
+impl Default for QOS_SHAPING_RATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_SHAPING_RATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_TCP_TRAFFIC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+}
+impl Default for QOS_TCP_TRAFFIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_TCP_TRAFFIC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_TRAFFIC_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub TrafficClass: u32,
+}
+impl Default for QOS_TRAFFIC_CLASS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_TRAFFIC_CLASS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QOS_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+impl Default for QOS_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QOS_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QualAppFlowSpec {
+    pub Q_spec_serv_hdr: IntServServiceHdr,
+    pub Q_spec_parm_hdr: IntServParmHdr,
+    pub Q_spec_parms: QualTspecParms,
+}
+impl Default for QualAppFlowSpec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QualAppFlowSpec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QualTspec {
+    pub qual_Tspec_serv_hdr: IntServServiceHdr,
+    pub qual_Tspec_parm_hdr: IntServParmHdr,
+    pub qual_Tspec_parms: QualTspecParms,
+}
+impl Default for QualTspec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QualTspec {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QualTspecParms {
+    pub TB_Tspec_M: u32,
+}
+impl Default for QualTspecParms {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QualTspecParms {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RESV_STYLE {
+    pub style_header: RsvpObjHdr,
+    pub style_word: u32,
+}
+impl Default for RESV_STYLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RESV_STYLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct RHANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for RHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl RHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for RHANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_ADSPEC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub GeneralParams: AD_GENERAL_PARAMS,
+    pub NumberOfServices: u32,
+    pub Services: [CONTROL_SERVICE; 1],
+}
+impl Default for RSVP_ADSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_ADSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC {
+    pub Type: FilterType,
+    pub Anonymous: RSVP_FILTERSPEC_0,
+}
+impl Default for RSVP_FILTERSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RSVP_FILTERSPEC_0 {
+    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
+    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
+    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
+    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
+    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
+}
+impl Default for RSVP_FILTERSPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4 {
+    pub Address: IN_ADDR_IPV4,
+    pub Unused: u16,
+    pub Port: u16,
+}
+impl Default for RSVP_FILTERSPEC_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_V4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4_GPI {
+    pub Address: IN_ADDR_IPV4,
+    pub GeneralPortId: u32,
+}
+impl Default for RSVP_FILTERSPEC_V4_GPI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_V4_GPI {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6 {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u16,
+    pub Port: u16,
+}
+impl Default for RSVP_FILTERSPEC_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_V6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6_FLOW {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u8,
+    pub FlowLabel: [u8; 3],
+}
+impl Default for RSVP_FILTERSPEC_V6_FLOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_V6_FLOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6_GPI {
+    pub Address: IN_ADDR_IPV6,
+    pub GeneralPortId: u32,
+}
+impl Default for RSVP_FILTERSPEC_V6_GPI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_FILTERSPEC_V6_GPI {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_HOP {
+    pub hop_header: RsvpObjHdr,
+    pub hop_u: RSVP_HOP_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_HOP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_HOP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_HOP_0 {
+    pub hop_ipv4: Rsvp_Hop_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_HOP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_HOP_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_MSG_OBJS {
+    pub RsvpMsgType: i32,
+    pub pRsvpSession: *mut RSVP_SESSION,
+    pub pRsvpFromHop: *mut RSVP_HOP,
+    pub pRsvpToHop: *mut RSVP_HOP,
+    pub pResvStyle: *mut RESV_STYLE,
+    pub pRsvpScope: *mut RSVP_SCOPE,
+    pub FlowDescCount: i32,
+    pub pFlowDescs: *mut FLOW_DESC,
+    pub PdObjectCount: i32,
+    pub ppPdObjects: *mut *mut POLICY_DATA,
+    pub pErrorSpec: *mut ERROR_SPEC,
+    pub pAdspec: *mut ADSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_MSG_OBJS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_MSG_OBJS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_POLICY {
+    pub Len: u16,
+    pub Type: u16,
+    pub Info: [u8; 4],
+}
+impl Default for RSVP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_POLICY_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub NumPolicyElement: u32,
+    pub PolicyElement: [RSVP_POLICY; 1],
+}
+impl Default for RSVP_POLICY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_POLICY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_RESERVE_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub Style: u32,
+    pub ConfirmRequest: u32,
+    pub PolicyElementList: *mut RSVP_POLICY_INFO,
+    pub NumFlowDesc: u32,
+    pub FlowDescList: *mut FLOWDESCRIPTOR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_RESERVE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_RESERVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SCOPE {
+    pub scopl_header: RsvpObjHdr,
+    pub scope_u: RSVP_SCOPE_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SCOPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_SCOPE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SCOPE_0 {
+    pub scopl_ipv4: Scope_list_ipv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SCOPE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_SCOPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SESSION {
+    pub sess_header: RsvpObjHdr,
+    pub sess_u: RSVP_SESSION_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_SESSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SESSION_0 {
+    pub sess_ipv4: Session_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SESSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for RSVP_SESSION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RSVP_STATUS_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub StatusCode: u32,
+    pub ExtendedStatus1: u32,
+    pub ExtendedStatus2: u32,
+}
+impl Default for RSVP_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RSVP_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RsvpObjHdr {
+    pub obj_length: u16,
+    pub obj_class: u8,
+    pub obj_ctype: u8,
+}
+impl Default for RsvpObjHdr {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RsvpObjHdr {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Rsvp_Hop_IPv4 {
+    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub hop_LIH: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Rsvp_Hop_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Rsvp_Hop_IPv4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SENDER_TSPEC {
+    pub stspec_header: RsvpObjHdr,
+    pub stspec_body: IntServTspecBody,
+}
+impl Default for SENDER_TSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SENDER_TSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    pub SignAlgID: u32,
+    pub SignatureLength: u32,
+    pub Signature: [u8; 1],
+}
+impl Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    pub CreationTime: i64,
+    pub DigestLength: u32,
+    pub HashAlgID: u16,
+    pub Digest: [u8; 1],
+}
+impl Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    pub PayloadVersion: u32,
+    pub VarDataOffset: u32,
+    pub HashAlgID: u16,
+    pub DigestLength: u16,
+    pub Options: u32,
+    pub SignersCount: u32,
+    pub VarData: [u8; 1],
+}
+impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
+    pub PolicyVersion: u64,
+    pub PolicyNameLength: u16,
+    pub HashAlgID: u16,
+    pub DigestLength: u32,
+    pub VarLengthData: [u8; 1],
+}
+impl Default for SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_SI_POLICY_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    pub KeyAlgID: u32,
+    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
+}
+impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
+}
+impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
+    pub KeyBitLength: u32,
+    pub PublicExpLengthBytes: u32,
+    pub ModulusSizeBytes: u32,
+    pub PublicKeyData: [u8; 1],
+}
+impl Default for SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_RSA_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Scope_list_ipv4 {
+    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Scope_list_ipv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Scope_list_ipv4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Session_IPv4 {
+    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub sess_protid: u8,
+    pub sess_flags: u8,
+    pub sess_destport: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Session_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for Session_IPv4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientPCREventStruct {
+    pub pcrIndex: u32,
+    pub eventType: u32,
+    pub digest: [u8; 20],
+    pub eventDataSize: u32,
+    pub event: [u8; 1],
+}
+impl Default for TCG_PCClientPCREventStruct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCG_PCClientPCREventStruct {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientTaggedEventStruct {
+    pub EventID: u32,
+    pub EventDataSize: u32,
+    pub EventData: [u8; 1],
+}
+impl Default for TCG_PCClientTaggedEventStruct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCG_PCClientTaggedEventStruct {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCI_CLIENT_FUNC_LIST {
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
+}
+impl Default for TCI_CLIENT_FUNC_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCI_CLIENT_FUNC_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TC_GEN_FILTER {
+    pub AddressType: u16,
+    pub PatternSize: u32,
+    pub Pattern: *mut core::ffi::c_void,
+    pub Mask: *mut core::ffi::c_void,
+}
+impl Default for TC_GEN_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TC_GEN_FILTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TC_GEN_FLOW {
+    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub TcObjectsLength: u32,
+    pub TcObjects: [QOS_OBJECT_HDR; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for TC_GEN_FLOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for TC_GEN_FLOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TC_IFC_DESCRIPTOR {
+    pub Length: u32,
+    pub pInterfaceName: windows_core::PWSTR,
+    pub pInterfaceID: windows_core::PWSTR,
+    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl Default for TC_IFC_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for TC_IFC_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TC_SUPPORTED_INFO_BUFFER {
+    pub InstanceIDLength: u16,
+    pub InstanceID: [u16; 256],
+    pub InterfaceLuid: u64,
+    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl Default for TC_SUPPORTED_INFO_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for TC_SUPPORTED_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WBCL_Iterator {
+    pub firstElementPtr: *mut core::ffi::c_void,
+    pub logSize: u32,
+    pub currentElementPtr: *mut core::ffi::c_void,
+    pub currentElementSize: u32,
+    pub digestSize: u16,
+    pub logFormat: u16,
+    pub numberOfDigests: u32,
+    pub digestSizes: *mut core::ffi::c_void,
+    pub supportedAlgorithms: u32,
+    pub hashAlgorithm: u16,
+}
+impl Default for WBCL_Iterator {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WBCL_Iterator {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WBCL_LogHdr {
+    pub signature: u32,
+    pub version: u32,
+    pub entries: u32,
+    pub length: u32,
+}
+impl Default for WBCL_LogHdr {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WBCL_LogHdr {
+    type TypeKind = windows_core::CopyType;
 }
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 pub const ADM_CTRL_FAILED: u32 = 3u32;
@@ -826,1884 +2643,3 @@ pub const mCOMPANY: u32 = 402653184u32;
 pub const mIOC_IN: u32 = 2147483648u32;
 pub const mIOC_OUT: u32 = 1073741824u32;
 pub const mIOC_VENDOR: u32 = 67108864u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct FilterType(pub i32);
-impl windows_core::TypeKind for FilterType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FilterType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FilterType").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_FLOWRATE_REASON(pub i32);
-impl windows_core::TypeKind for QOS_FLOWRATE_REASON {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_FLOWRATE_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_FLOWRATE_REASON").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_NOTIFY_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_NOTIFY_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_NOTIFY_FLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_NOTIFY_FLOW").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_QUERY_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_QUERY_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_QUERY_FLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_QUERY_FLOW").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_SET_FLOW(pub i32);
-impl windows_core::TypeKind for QOS_SET_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_SET_FLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_SET_FLOW").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_SHAPING(pub i32);
-impl windows_core::TypeKind for QOS_SHAPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_SHAPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_SHAPING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct QOS_TRAFFIC_TYPE(pub i32);
-impl windows_core::TypeKind for QOS_TRAFFIC_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for QOS_TRAFFIC_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("QOS_TRAFFIC_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct int_serv_wkp(pub i32);
-impl windows_core::TypeKind for int_serv_wkp {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for int_serv_wkp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("int_serv_wkp").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ADDRESS_LIST_DESCRIPTOR {
-    pub MediaType: u32,
-    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for ADDRESS_LIST_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for ADDRESS_LIST_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADSPEC {
-    pub adspec_header: RsvpObjHdr,
-    pub adspec_body: IS_ADSPEC_BODY,
-}
-impl windows_core::TypeKind for ADSPEC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for ADSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct AD_GENERAL_PARAMS {
-    pub IntServAwareHopCount: u32,
-    pub PathBandwidthEstimate: u32,
-    pub MinimumLatency: u32,
-    pub PathMTU: u32,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for AD_GENERAL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for AD_GENERAL_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct AD_GUARANTEED {
-    pub CTotal: u32,
-    pub DTotal: u32,
-    pub CSum: u32,
-    pub DSum: u32,
-}
-impl windows_core::TypeKind for AD_GUARANTEED {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for AD_GUARANTEED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONTROL_SERVICE {
-    pub Length: u32,
-    pub Service: u32,
-    pub Overrides: AD_GENERAL_PARAMS,
-    pub Anonymous: CONTROL_SERVICE_0,
-}
-impl windows_core::TypeKind for CONTROL_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CONTROL_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CONTROL_SERVICE_0 {
-    pub Guaranteed: AD_GUARANTEED,
-    pub ParamBuffer: [PARAM_BUFFER; 1],
-}
-impl windows_core::TypeKind for CONTROL_SERVICE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CONTROL_SERVICE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CtrlLoadFlowspec {
-    pub CL_spec_serv_hdr: IntServServiceHdr,
-    pub CL_spec_parm_hdr: IntServParmHdr,
-    pub CL_spec_parms: GenTspecParms,
-}
-impl windows_core::TypeKind for CtrlLoadFlowspec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CtrlLoadFlowspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ENUMERATION_BUFFER {
-    pub Length: u32,
-    pub OwnerProcessId: u32,
-    pub FlowNameLength: u16,
-    pub FlowName: [u16; 256],
-    pub pFlow: *mut TC_GEN_FLOW,
-    pub NumberOfFilters: u32,
-    pub GenericFilter: [TC_GEN_FILTER; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for ENUMERATION_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for ENUMERATION_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct ERROR_SPEC {
-    pub errs_header: RsvpObjHdr,
-    pub errs_u: ERROR_SPEC_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for ERROR_SPEC {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for ERROR_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union ERROR_SPEC_0 {
-    pub errs_ipv4: Error_Spec_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for ERROR_SPEC_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for ERROR_SPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Error_Spec_IPv4 {
-    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
-    pub errs_flags: u8,
-    pub errs_code: u8,
-    pub errs_value: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Error_Spec_IPv4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Error_Spec_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FILTER_SPEC {
-    pub filt_header: RsvpObjHdr,
-    pub filt_u: FILTER_SPEC_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FILTER_SPEC {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FILTER_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FILTER_SPEC_0 {
-    pub filt_ipv4: Filter_Spec_IPv4,
-    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FILTER_SPEC_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FILTER_SPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FLOWDESCRIPTOR {
-    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
-    pub NumFilters: u32,
-    pub FilterList: *mut RSVP_FILTERSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FLOWDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOWDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FLOW_DESC {
-    pub u1: FLOW_DESC_0,
-    pub u2: FLOW_DESC_1,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FLOW_DESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_0 {
-    pub stspec: *mut SENDER_TSPEC,
-    pub isflow: *mut IS_FLOWSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FLOW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_1 {
-    pub stemp: *mut FILTER_SPEC,
-    pub fspec: *mut FILTER_SPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for FLOW_DESC_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4 {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_unused: u16,
-    pub filt_port: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Filter_Spec_IPv4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Filter_Spec_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4GPI {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_gpi: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Filter_Spec_IPv4GPI {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Filter_Spec_IPv4GPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct Gads_parms_t {
-    pub Gads_serv_hdr: IntServServiceHdr,
-    pub Gads_Ctot_hdr: IntServParmHdr,
-    pub Gads_Ctot: u32,
-    pub Gads_Dtot_hdr: IntServParmHdr,
-    pub Gads_Dtot: u32,
-    pub Gads_Csum_hdr: IntServParmHdr,
-    pub Gads_Csum: u32,
-    pub Gads_Dsum_hdr: IntServParmHdr,
-    pub Gads_Dsum: u32,
-}
-impl windows_core::TypeKind for Gads_parms_t {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for Gads_parms_t {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GenAdspecParams {
-    pub gen_parm_hdr: IntServServiceHdr,
-    pub gen_parm_hopcnt_hdr: IntServParmHdr,
-    pub gen_parm_hopcnt: u32,
-    pub gen_parm_pathbw_hdr: IntServParmHdr,
-    pub gen_parm_path_bw: f32,
-    pub gen_parm_minlat_hdr: IntServParmHdr,
-    pub gen_parm_min_latency: u32,
-    pub gen_parm_compmtu_hdr: IntServParmHdr,
-    pub gen_parm_composed_MTU: u32,
-}
-impl windows_core::TypeKind for GenAdspecParams {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GenAdspecParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GenTspec {
-    pub gen_Tspec_serv_hdr: IntServServiceHdr,
-    pub gen_Tspec_parm_hdr: IntServParmHdr,
-    pub gen_Tspec_parms: GenTspecParms,
-}
-impl windows_core::TypeKind for GenTspec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GenTspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GenTspecParms {
-    pub TB_Tspec_r: f32,
-    pub TB_Tspec_b: f32,
-    pub TB_Tspec_p: f32,
-    pub TB_Tspec_m: u32,
-    pub TB_Tspec_M: u32,
-}
-impl windows_core::TypeKind for GenTspecParms {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GenTspecParms {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GuarFlowSpec {
-    pub Guar_serv_hdr: IntServServiceHdr,
-    pub Guar_Tspec_hdr: IntServParmHdr,
-    pub Guar_Tspec_parms: GenTspecParms,
-    pub Guar_Rspec_hdr: IntServParmHdr,
-    pub Guar_Rspec: GuarRspec,
-}
-impl windows_core::TypeKind for GuarFlowSpec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GuarFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GuarRspec {
-    pub Guar_R: f32,
-    pub Guar_S: u32,
-}
-impl windows_core::TypeKind for GuarRspec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GuarRspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct HSP_UPGRADE_IMAGEDATA {
-    pub hashAlgID: u16,
-    pub digestSize: u16,
-    pub digest: [u8; 64],
-    pub fileName: [u16; 64],
-}
-impl windows_core::TypeKind for HSP_UPGRADE_IMAGEDATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for HSP_UPGRADE_IMAGEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IDPE_ATTR {
-    pub PeAttribLength: u16,
-    pub PeAttribType: u8,
-    pub PeAttribSubType: u8,
-    pub PeAttribValue: [u8; 4],
-}
-impl windows_core::TypeKind for IDPE_ATTR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IDPE_ATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ID_ERROR_OBJECT {
-    pub usIdErrLength: u16,
-    pub ucAType: u8,
-    pub ucSubType: u8,
-    pub usReserved: u16,
-    pub usIdErrorValue: u16,
-    pub ucIdErrData: [u8; 4],
-}
-impl windows_core::TypeKind for ID_ERROR_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for ID_ERROR_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IN_ADDR_IPV4 {
-    pub Addr: u32,
-    pub AddrBytes: [u8; 4],
-}
-impl windows_core::TypeKind for IN_ADDR_IPV4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IN_ADDR_IPV4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IN_ADDR_IPV6 {
-    pub Addr: [u8; 16],
-}
-impl windows_core::TypeKind for IN_ADDR_IPV6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IN_ADDR_IPV6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IPX_PATTERN {
-    pub Src: IPX_PATTERN_0,
-    pub Dest: IPX_PATTERN_0,
-}
-impl windows_core::TypeKind for IPX_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IPX_PATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IPX_PATTERN_0 {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
-}
-impl windows_core::TypeKind for IPX_PATTERN_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IPX_PATTERN_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IP_PATTERN {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub SrcAddr: u32,
-    pub DstAddr: u32,
-    pub S_un: IP_PATTERN_0,
-    pub ProtocolId: u8,
-    pub Reserved3: [u8; 3],
-}
-impl windows_core::TypeKind for IP_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IP_PATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IP_PATTERN_0 {
-    pub S_un_ports: IP_PATTERN_0_0,
-    pub S_un_icmp: IP_PATTERN_0_1,
-    pub S_Spi: u32,
-}
-impl windows_core::TypeKind for IP_PATTERN_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IP_PATTERN_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IP_PATTERN_0_1 {
-    pub s_type: u8,
-    pub s_code: u8,
-    pub filler: u16,
-}
-impl windows_core::TypeKind for IP_PATTERN_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IP_PATTERN_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IP_PATTERN_0_0 {
-    pub s_srcport: u16,
-    pub s_dstport: u16,
-}
-impl windows_core::TypeKind for IP_PATTERN_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IP_PATTERN_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IS_ADSPEC_BODY {
-    pub adspec_mh: IntServMainHdr,
-    pub adspec_genparms: GenAdspecParams,
-}
-impl windows_core::TypeKind for IS_ADSPEC_BODY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IS_ADSPEC_BODY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IS_FLOWSPEC {
-    pub flow_header: RsvpObjHdr,
-    pub flow_body: IntServFlowSpec,
-}
-impl windows_core::TypeKind for IS_FLOWSPEC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IS_FLOWSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServFlowSpec {
-    pub spec_mh: IntServMainHdr,
-    pub spec_u: IntServFlowSpec_0,
-}
-impl windows_core::TypeKind for IntServFlowSpec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServFlowSpec_0 {
-    pub CL_spec: CtrlLoadFlowspec,
-    pub G_spec: GuarFlowSpec,
-    pub Q_spec: QualAppFlowSpec,
-}
-impl windows_core::TypeKind for IntServFlowSpec_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServFlowSpec_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IntServMainHdr {
-    pub ismh_version: u8,
-    pub ismh_unused: u8,
-    pub ismh_len32b: u16,
-}
-impl windows_core::TypeKind for IntServMainHdr {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServMainHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IntServParmHdr {
-    pub isph_parm_num: u8,
-    pub isph_flags: u8,
-    pub isph_len32b: u16,
-}
-impl windows_core::TypeKind for IntServParmHdr {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServParmHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IntServServiceHdr {
-    pub issh_service: u8,
-    pub issh_flags: u8,
-    pub issh_len32b: u16,
-}
-impl windows_core::TypeKind for IntServServiceHdr {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServServiceHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServTspecBody {
-    pub st_mh: IntServMainHdr,
-    pub tspec_u: IntServTspecBody_0,
-}
-impl windows_core::TypeKind for IntServTspecBody {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServTspecBody {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServTspecBody_0 {
-    pub gen_stspec: GenTspec,
-    pub qual_stspec: QualTspec,
-}
-impl windows_core::TypeKind for IntServTspecBody_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IntServTspecBody_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct LPMIPTABLE {
-    pub ulIfIndex: u32,
-    pub MediaType: u32,
-    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
-    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for LPMIPTABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for LPMIPTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPM_HANDLE(pub *mut core::ffi::c_void);
-impl LPM_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for LPM_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LPM_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct LPM_INIT_INFO {
-    pub PcmVersionNumber: u32,
-    pub ResultTimeLimit: u32,
-    pub ConfiguredLpmCount: i32,
-    pub AllocMemory: PALLOCMEM,
-    pub FreeMemory: PFREEMEM,
-    pub PcmAdmitResultCallback: CBADMITRESULT,
-    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
-}
-impl windows_core::TypeKind for LPM_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for LPM_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PARAM_BUFFER {
-    pub ParameterId: u32,
-    pub Length: u32,
-    pub Buffer: [u8; 1],
-}
-impl windows_core::TypeKind for PARAM_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PARAM_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POLICY_DATA {
-    pub PolicyObjHdr: RsvpObjHdr,
-    pub usPeOffset: u16,
-    pub usReserved: u16,
-}
-impl windows_core::TypeKind for POLICY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POLICY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POLICY_DECISION {
-    pub lpvResult: u32,
-    pub wPolicyErrCode: u16,
-    pub wPolicyErrValue: u16,
-}
-impl windows_core::TypeKind for POLICY_DECISION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POLICY_DECISION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct POLICY_ELEMENT {
-    pub usPeLength: u16,
-    pub usPeType: u16,
-    pub ucPeData: [u8; 4],
-}
-impl windows_core::TypeKind for POLICY_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POLICY_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_DESTADDR {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
-    pub SocketAddressLength: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for QOS_DESTADDR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for QOS_DESTADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_DIFFSERV {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub DSFieldCount: u32,
-    pub DiffservRule: [u8; 1],
-}
-impl windows_core::TypeKind for QOS_DIFFSERV {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_DIFFSERV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_DIFFSERV_RULE {
-    pub InboundDSField: u8,
-    pub ConformingOutboundDSField: u8,
-    pub NonConformingOutboundDSField: u8,
-    pub ConformingUserPriority: u8,
-    pub NonConformingUserPriority: u8,
-}
-impl windows_core::TypeKind for QOS_DIFFSERV_RULE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_DIFFSERV_RULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_DS_CLASS {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub DSField: u32,
-}
-impl windows_core::TypeKind for QOS_DS_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_DS_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_FLOWRATE_OUTGOING {
-    pub Bandwidth: u64,
-    pub ShapingBehavior: QOS_SHAPING,
-    pub Reason: QOS_FLOWRATE_REASON,
-}
-impl windows_core::TypeKind for QOS_FLOWRATE_OUTGOING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_FLOWRATE_OUTGOING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_FLOW_FUNDAMENTALS {
-    pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
-    pub BottleneckBandwidth: u64,
-    pub AvailableBandwidthSet: super::super::Foundation::BOOL,
-    pub AvailableBandwidth: u64,
-    pub RTTSet: super::super::Foundation::BOOL,
-    pub RTT: u32,
-}
-impl windows_core::TypeKind for QOS_FLOW_FUNDAMENTALS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_FLOW_FUNDAMENTALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_FRIENDLY_NAME {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub FriendlyName: [u16; 256],
-}
-impl windows_core::TypeKind for QOS_FRIENDLY_NAME {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_FRIENDLY_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_OBJECT_HDR {
-    pub ObjectType: u32,
-    pub ObjectLength: u32,
-}
-impl windows_core::TypeKind for QOS_OBJECT_HDR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_OBJECT_HDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_PACKET_PRIORITY {
-    pub ConformantDSCPValue: u32,
-    pub NonConformantDSCPValue: u32,
-    pub ConformantL2Value: u32,
-    pub NonConformantL2Value: u32,
-}
-impl windows_core::TypeKind for QOS_PACKET_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_PACKET_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_SD_MODE {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapeDiscardMode: u32,
-}
-impl windows_core::TypeKind for QOS_SD_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_SD_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_SHAPING_RATE {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapingRate: u32,
-}
-impl windows_core::TypeKind for QOS_SHAPING_RATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_SHAPING_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_TCP_TRAFFIC {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-}
-impl windows_core::TypeKind for QOS_TCP_TRAFFIC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_TCP_TRAFFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_TRAFFIC_CLASS {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub TrafficClass: u32,
-}
-impl windows_core::TypeKind for QOS_TRAFFIC_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_TRAFFIC_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QOS_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-impl windows_core::TypeKind for QOS_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QOS_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QualAppFlowSpec {
-    pub Q_spec_serv_hdr: IntServServiceHdr,
-    pub Q_spec_parm_hdr: IntServParmHdr,
-    pub Q_spec_parms: QualTspecParms,
-}
-impl windows_core::TypeKind for QualAppFlowSpec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QualAppFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QualTspec {
-    pub qual_Tspec_serv_hdr: IntServServiceHdr,
-    pub qual_Tspec_parm_hdr: IntServParmHdr,
-    pub qual_Tspec_parms: QualTspecParms,
-}
-impl windows_core::TypeKind for QualTspec {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QualTspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct QualTspecParms {
-    pub TB_Tspec_M: u32,
-}
-impl windows_core::TypeKind for QualTspecParms {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for QualTspecParms {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RESV_STYLE {
-    pub style_header: RsvpObjHdr,
-    pub style_word: u32,
-}
-impl windows_core::TypeKind for RESV_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RESV_STYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RHANDLE(pub *mut core::ffi::c_void);
-impl RHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for RHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_ADSPEC {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub GeneralParams: AD_GENERAL_PARAMS,
-    pub NumberOfServices: u32,
-    pub Services: [CONTROL_SERVICE; 1],
-}
-impl windows_core::TypeKind for RSVP_ADSPEC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_ADSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC {
-    pub Type: FilterType,
-    pub Anonymous: RSVP_FILTERSPEC_0,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RSVP_FILTERSPEC_0 {
-    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
-    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
-    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
-    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
-    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V4 {
-    pub Address: IN_ADDR_IPV4,
-    pub Unused: u16,
-    pub Port: u16,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_V4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RSVP_FILTERSPEC_V4_GPI {
-    pub Address: IN_ADDR_IPV4,
-    pub GeneralPortId: u32,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_V4_GPI {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_V4_GPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_FILTERSPEC_V6 {
-    pub Address: IN_ADDR_IPV6,
-    pub UnUsed: u16,
-    pub Port: u16,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_V6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_V6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_FILTERSPEC_V6_FLOW {
-    pub Address: IN_ADDR_IPV6,
-    pub UnUsed: u8,
-    pub FlowLabel: [u8; 3],
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_V6_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_V6_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_FILTERSPEC_V6_GPI {
-    pub Address: IN_ADDR_IPV6,
-    pub GeneralPortId: u32,
-}
-impl windows_core::TypeKind for RSVP_FILTERSPEC_V6_GPI {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_FILTERSPEC_V6_GPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_HOP {
-    pub hop_header: RsvpObjHdr,
-    pub hop_u: RSVP_HOP_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_HOP {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_HOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_HOP_0 {
-    pub hop_ipv4: Rsvp_Hop_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_HOP_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_HOP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_MSG_OBJS {
-    pub RsvpMsgType: i32,
-    pub pRsvpSession: *mut RSVP_SESSION,
-    pub pRsvpFromHop: *mut RSVP_HOP,
-    pub pRsvpToHop: *mut RSVP_HOP,
-    pub pResvStyle: *mut RESV_STYLE,
-    pub pRsvpScope: *mut RSVP_SCOPE,
-    pub FlowDescCount: i32,
-    pub pFlowDescs: *mut FLOW_DESC,
-    pub PdObjectCount: i32,
-    pub ppPdObjects: *mut *mut POLICY_DATA,
-    pub pErrorSpec: *mut ERROR_SPEC,
-    pub pAdspec: *mut ADSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_MSG_OBJS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_MSG_OBJS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_POLICY {
-    pub Len: u16,
-    pub Type: u16,
-    pub Info: [u8; 4],
-}
-impl windows_core::TypeKind for RSVP_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_POLICY_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub NumPolicyElement: u32,
-    pub PolicyElement: [RSVP_POLICY; 1],
-}
-impl windows_core::TypeKind for RSVP_POLICY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_POLICY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_RESERVE_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub Style: u32,
-    pub ConfirmRequest: u32,
-    pub PolicyElementList: *mut RSVP_POLICY_INFO,
-    pub NumFlowDesc: u32,
-    pub FlowDescList: *mut FLOWDESCRIPTOR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_RESERVE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_RESERVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SCOPE {
-    pub scopl_header: RsvpObjHdr,
-    pub scope_u: RSVP_SCOPE_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SCOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SCOPE_0 {
-    pub scopl_ipv4: Scope_list_ipv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_SCOPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SCOPE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SESSION {
-    pub sess_header: RsvpObjHdr,
-    pub sess_u: RSVP_SESSION_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_SESSION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SESSION_0 {
-    pub sess_ipv4: Session_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for RSVP_SESSION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SESSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RSVP_STATUS_INFO {
-    pub ObjectHdr: QOS_OBJECT_HDR,
-    pub StatusCode: u32,
-    pub ExtendedStatus1: u32,
-    pub ExtendedStatus2: u32,
-}
-impl windows_core::TypeKind for RSVP_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RSVP_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RsvpObjHdr {
-    pub obj_length: u16,
-    pub obj_class: u8,
-    pub obj_ctype: u8,
-}
-impl windows_core::TypeKind for RsvpObjHdr {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RsvpObjHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Rsvp_Hop_IPv4 {
-    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub hop_LIH: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Rsvp_Hop_IPv4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Rsvp_Hop_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SENDER_TSPEC {
-    pub stspec_header: RsvpObjHdr,
-    pub stspec_body: IntServTspecBody,
-}
-impl windows_core::TypeKind for SENDER_TSPEC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SENDER_TSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    pub SignAlgID: u32,
-    pub SignatureLength: u32,
-    pub Signature: [u8; 1],
-}
-impl windows_core::TypeKind for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    pub CreationTime: i64,
-    pub DigestLength: u32,
-    pub HashAlgID: u16,
-    pub Digest: [u8; 1],
-}
-impl windows_core::TypeKind for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    pub PayloadVersion: u32,
-    pub VarDataOffset: u32,
-    pub HashAlgID: u16,
-    pub DigestLength: u16,
-    pub Options: u32,
-    pub SignersCount: u32,
-    pub VarData: [u8; 1],
-}
-impl windows_core::TypeKind for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
-    pub PolicyVersion: u64,
-    pub PolicyNameLength: u16,
-    pub HashAlgID: u16,
-    pub DigestLength: u32,
-    pub VarLengthData: [u8; 1],
-}
-impl windows_core::TypeKind for SIPAEVENT_SI_POLICY_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_SI_POLICY_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    pub KeyAlgID: u32,
-    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
-}
-impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
-}
-impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
-    pub KeyBitLength: u32,
-    pub PublicExpLengthBytes: u32,
-    pub ModulusSizeBytes: u32,
-    pub PublicKeyData: [u8; 1],
-}
-impl windows_core::TypeKind for SIPAEVENT_VSM_IDK_RSA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SIPAEVENT_VSM_IDK_RSA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Scope_list_ipv4 {
-    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Scope_list_ipv4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Scope_list_ipv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Session_IPv4 {
-    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub sess_protid: u8,
-    pub sess_flags: u8,
-    pub sess_destport: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for Session_IPv4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Session_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TCG_PCClientPCREventStruct {
-    pub pcrIndex: u32,
-    pub eventType: u32,
-    pub digest: [u8; 20],
-    pub eventDataSize: u32,
-    pub event: [u8; 1],
-}
-impl windows_core::TypeKind for TCG_PCClientPCREventStruct {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TCG_PCClientPCREventStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TCG_PCClientTaggedEventStruct {
-    pub EventID: u32,
-    pub EventDataSize: u32,
-    pub EventData: [u8; 1],
-}
-impl windows_core::TypeKind for TCG_PCClientTaggedEventStruct {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TCG_PCClientTaggedEventStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
-    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
-    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
-    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
-}
-impl windows_core::TypeKind for TCI_CLIENT_FUNC_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TCI_CLIENT_FUNC_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TC_GEN_FILTER {
-    pub AddressType: u16,
-    pub PatternSize: u32,
-    pub Pattern: *mut core::ffi::c_void,
-    pub Mask: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for TC_GEN_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TC_GEN_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TC_GEN_FLOW {
-    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
-    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
-    pub TcObjectsLength: u32,
-    pub TcObjects: [QOS_OBJECT_HDR; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for TC_GEN_FLOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for TC_GEN_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TC_IFC_DESCRIPTOR {
-    pub Length: u32,
-    pub pInterfaceName: windows_core::PWSTR,
-    pub pInterfaceID: windows_core::PWSTR,
-    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for TC_IFC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for TC_IFC_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TC_SUPPORTED_INFO_BUFFER {
-    pub InstanceIDLength: u16,
-    pub InstanceID: [u16; 256],
-    pub InterfaceLuid: u64,
-    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for TC_SUPPORTED_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for TC_SUPPORTED_INFO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WBCL_Iterator {
-    pub firstElementPtr: *mut core::ffi::c_void,
-    pub logSize: u32,
-    pub currentElementPtr: *mut core::ffi::c_void,
-    pub currentElementSize: u32,
-    pub digestSize: u16,
-    pub logFormat: u16,
-    pub numberOfDigests: u32,
-    pub digestSizes: *mut core::ffi::c_void,
-    pub supportedAlgorithms: u32,
-    pub hashAlgorithm: u16,
-}
-impl windows_core::TypeKind for WBCL_Iterator {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WBCL_Iterator {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WBCL_LogHdr {
-    pub signature: u32,
-    pub version: u32,
-    pub entries: u32,
-    pub length: u32,
-}
-impl windows_core::TypeKind for WBCL_LogHdr {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WBCL_LogHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
-pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
-pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
-pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;

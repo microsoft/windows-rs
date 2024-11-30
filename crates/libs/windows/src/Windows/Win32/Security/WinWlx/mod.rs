@@ -1,3 +1,412 @@
+pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
+pub type PWLX_ASSIGN_SHELL_PROTECTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> i32>;
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+pub type PWLX_CLOSE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+pub type PWLX_CREATE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: windows_core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PWLX_DIALOG_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PWLX_DIALOG_BOX_INDIRECT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type PWLX_DIALOG_BOX_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PWLX_DISCONNECT = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type PWLX_GET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+pub type PWLX_GET_SOURCE_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_MESSAGE_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: windows_core::PCWSTR, lpsztitle: windows_core::PCWSTR, fustyle: u32) -> i32>;
+pub type PWLX_QUERY_CLIENT_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32>;
+pub type PWLX_QUERY_IC_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: windows_core::PCWSTR, domain: windows_core::PCWSTR) -> u32>;
+pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_SAS_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32)>;
+pub type PWLX_SET_CONTEXT_POINTER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut core::ffi::c_void)>;
+pub type PWLX_SET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+pub type PWLX_SET_RETURN_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_SET_TIMEOUT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL>;
+pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
+pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WLX_SHUTDOWN_TYPE(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    pub dwType: u32,
+    pub pszUserName: windows_core::PWSTR,
+    pub pszDomain: windows_core::PWSTR,
+    pub pszPassword: windows_core::PWSTR,
+    pub fPromptForPassword: super::super::Foundation::BOOL,
+}
+impl Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    pub dwType: u32,
+    pub pszUserName: windows_core::PWSTR,
+    pub pszDomain: windows_core::PWSTR,
+    pub pszPassword: windows_core::PWSTR,
+    pub fPromptForPassword: super::super::Foundation::BOOL,
+    pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
+}
+impl Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    pub dwType: u32,
+    pub UserToken: super::super::Foundation::HANDLE,
+    pub LogonId: super::super::Foundation::LUID,
+    pub Quotas: super::QUOTA_LIMITS,
+    pub UserName: windows_core::PWSTR,
+    pub Domain: windows_core::PWSTR,
+    pub LogonTime: i64,
+    pub SmartCardLogon: super::super::Foundation::BOOL,
+    pub ProfileLength: u32,
+    pub MessageType: u32,
+    pub LogonCount: u16,
+    pub BadPasswordCount: u16,
+    pub ProfileLogonTime: i64,
+    pub LogoffTime: i64,
+    pub KickOffTime: i64,
+    pub PasswordLastSet: i64,
+    pub PasswordCanChange: i64,
+    pub PasswordMustChange: i64,
+    pub LogonScript: windows_core::PWSTR,
+    pub HomeDirectory: windows_core::PWSTR,
+    pub FullName: windows_core::PWSTR,
+    pub ProfilePath: windows_core::PWSTR,
+    pub HomeDirectoryDrive: windows_core::PWSTR,
+    pub LogonServer: windows_core::PWSTR,
+    pub UserFlags: u32,
+    pub PrivateDataLen: u32,
+    pub PrivateData: *mut u8,
+}
+impl Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DESKTOP {
+    pub Size: u32,
+    pub Flags: u32,
+    pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
+    pub pszDesktopName: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+impl Default for WLX_DESKTOP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+impl windows_core::TypeKind for WLX_DESKTOP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DISPATCH_VERSION_1_0 {
+    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+    pub WlxSasNotify: PWLX_SAS_NOTIFY,
+    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
+    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+    pub WlxMessageBox: PWLX_MESSAGE_BOX,
+    pub WlxDialogBox: PWLX_DIALOG_BOX,
+    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for WLX_DISPATCH_VERSION_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DISPATCH_VERSION_1_1 {
+    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+    pub WlxSasNotify: PWLX_SAS_NOTIFY,
+    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
+    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+    pub WlxMessageBox: PWLX_MESSAGE_BOX,
+    pub WlxDialogBox: PWLX_DIALOG_BOX,
+    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for WLX_DISPATCH_VERSION_1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DISPATCH_VERSION_1_2 {
+    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+    pub WlxSasNotify: PWLX_SAS_NOTIFY,
+    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
+    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+    pub WlxMessageBox: PWLX_MESSAGE_BOX,
+    pub WlxDialogBox: PWLX_DIALOG_BOX,
+    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for WLX_DISPATCH_VERSION_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DISPATCH_VERSION_1_3 {
+    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+    pub WlxSasNotify: PWLX_SAS_NOTIFY,
+    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
+    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+    pub WlxMessageBox: PWLX_MESSAGE_BOX,
+    pub WlxDialogBox: PWLX_DIALOG_BOX,
+    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+    pub WlxSetOption: PWLX_SET_OPTION,
+    pub WlxGetOption: PWLX_GET_OPTION,
+    pub WlxWin31Migrate: PWLX_WIN31_MIGRATE,
+    pub WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
+    pub WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
+    pub WlxDisconnect: PWLX_DISCONNECT,
+    pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for WLX_DISPATCH_VERSION_1_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_DISPATCH_VERSION_1_4 {
+    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+    pub WlxSasNotify: PWLX_SAS_NOTIFY,
+    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
+    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+    pub WlxMessageBox: PWLX_MESSAGE_BOX,
+    pub WlxDialogBox: PWLX_DIALOG_BOX,
+    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+    pub WlxSetOption: PWLX_SET_OPTION,
+    pub WlxGetOption: PWLX_GET_OPTION,
+    pub WlxWin31Migrate: PWLX_WIN31_MIGRATE,
+    pub WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
+    pub WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
+    pub WlxDisconnect: PWLX_DISCONNECT,
+    pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
+    pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
+    pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for WLX_DISPATCH_VERSION_1_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_MPR_NOTIFY_INFO {
+    pub pszUserName: windows_core::PWSTR,
+    pub pszDomain: windows_core::PWSTR,
+    pub pszPassword: windows_core::PWSTR,
+    pub pszOldPassword: windows_core::PWSTR,
+}
+impl Default for WLX_MPR_NOTIFY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_MPR_NOTIFY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_NOTIFICATION_INFO {
+    pub Size: u32,
+    pub Flags: u32,
+    pub UserName: windows_core::PWSTR,
+    pub Domain: windows_core::PWSTR,
+    pub WindowStation: windows_core::PWSTR,
+    pub hToken: super::super::Foundation::HANDLE,
+    pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
+    pub pStatusCallback: PFNMSGECALLBACK,
+}
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+impl Default for WLX_NOTIFICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
+impl windows_core::TypeKind for WLX_NOTIFICATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_PROFILE_V1_0 {
+    pub dwType: u32,
+    pub pszProfile: windows_core::PWSTR,
+}
+impl Default for WLX_PROFILE_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_PROFILE_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_PROFILE_V2_0 {
+    pub dwType: u32,
+    pub pszProfile: windows_core::PWSTR,
+    pub pszPolicy: windows_core::PWSTR,
+    pub pszNetworkDefaultUserProfile: windows_core::PWSTR,
+    pub pszServerName: windows_core::PWSTR,
+    pub pszEnvironment: windows_core::PWSTR,
+}
+impl Default for WLX_PROFILE_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_PROFILE_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_SC_NOTIFICATION_INFO {
+    pub pszCard: windows_core::PWSTR,
+    pub pszReader: windows_core::PWSTR,
+    pub pszContainer: windows_core::PWSTR,
+    pub pszCryptoProvider: windows_core::PWSTR,
+}
+impl Default for WLX_SC_NOTIFICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_SC_NOTIFICATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WLX_TERMINAL_SERVICES_DATA {
+    pub ProfilePath: [u16; 257],
+    pub HomeDir: [u16; 257],
+    pub HomeDirDrive: [u16; 4],
+}
+impl Default for WLX_TERMINAL_SERVICES_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WLX_TERMINAL_SERVICES_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
 pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
@@ -60,420 +469,3 @@ pub const WLX_VERSION_1_2: u32 = 65538u32;
 pub const WLX_VERSION_1_3: u32 = 65539u32;
 pub const WLX_VERSION_1_4: u32 = 65540u32;
 pub const WLX_WM_SAS: u32 = 1625u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WLX_SHUTDOWN_TYPE(pub u32);
-impl windows_core::TypeKind for WLX_SHUTDOWN_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WLX_SHUTDOWN_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WLX_SHUTDOWN_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    pub dwType: u32,
-    pub pszUserName: windows_core::PWSTR,
-    pub pszDomain: windows_core::PWSTR,
-    pub pszPassword: windows_core::PWSTR,
-    pub fPromptForPassword: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    pub dwType: u32,
-    pub pszUserName: windows_core::PWSTR,
-    pub pszDomain: windows_core::PWSTR,
-    pub pszPassword: windows_core::PWSTR,
-    pub fPromptForPassword: super::super::Foundation::BOOL,
-    pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    pub dwType: u32,
-    pub UserToken: super::super::Foundation::HANDLE,
-    pub LogonId: super::super::Foundation::LUID,
-    pub Quotas: super::QUOTA_LIMITS,
-    pub UserName: windows_core::PWSTR,
-    pub Domain: windows_core::PWSTR,
-    pub LogonTime: i64,
-    pub SmartCardLogon: super::super::Foundation::BOOL,
-    pub ProfileLength: u32,
-    pub MessageType: u32,
-    pub LogonCount: u16,
-    pub BadPasswordCount: u16,
-    pub ProfileLogonTime: i64,
-    pub LogoffTime: i64,
-    pub KickOffTime: i64,
-    pub PasswordLastSet: i64,
-    pub PasswordCanChange: i64,
-    pub PasswordMustChange: i64,
-    pub LogonScript: windows_core::PWSTR,
-    pub HomeDirectory: windows_core::PWSTR,
-    pub FullName: windows_core::PWSTR,
-    pub ProfilePath: windows_core::PWSTR,
-    pub HomeDirectoryDrive: windows_core::PWSTR,
-    pub LogonServer: windows_core::PWSTR,
-    pub UserFlags: u32,
-    pub PrivateDataLen: u32,
-    pub PrivateData: *mut u8,
-}
-impl windows_core::TypeKind for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DESKTOP {
-    pub Size: u32,
-    pub Flags: u32,
-    pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
-    pub pszDesktopName: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl windows_core::TypeKind for WLX_DESKTOP {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Default for WLX_DESKTOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DISPATCH_VERSION_1_0 {
-    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
-    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
-    pub WlxSasNotify: PWLX_SAS_NOTIFY,
-    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
-    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
-    pub WlxMessageBox: PWLX_MESSAGE_BOX,
-    pub WlxDialogBox: PWLX_DIALOG_BOX,
-    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
-    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
-    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
-    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
-    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
-    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for WLX_DISPATCH_VERSION_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DISPATCH_VERSION_1_1 {
-    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
-    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
-    pub WlxSasNotify: PWLX_SAS_NOTIFY,
-    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
-    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
-    pub WlxMessageBox: PWLX_MESSAGE_BOX,
-    pub WlxDialogBox: PWLX_DIALOG_BOX,
-    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
-    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
-    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
-    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
-    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
-    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
-    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
-    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
-    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
-    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DISPATCH_VERSION_1_2 {
-    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
-    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
-    pub WlxSasNotify: PWLX_SAS_NOTIFY,
-    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
-    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
-    pub WlxMessageBox: PWLX_MESSAGE_BOX,
-    pub WlxDialogBox: PWLX_DIALOG_BOX,
-    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
-    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
-    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
-    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
-    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
-    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
-    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
-    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
-    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
-    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
-    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DISPATCH_VERSION_1_3 {
-    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
-    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
-    pub WlxSasNotify: PWLX_SAS_NOTIFY,
-    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
-    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
-    pub WlxMessageBox: PWLX_MESSAGE_BOX,
-    pub WlxDialogBox: PWLX_DIALOG_BOX,
-    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
-    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
-    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
-    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
-    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
-    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
-    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
-    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
-    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
-    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
-    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
-    pub WlxSetOption: PWLX_SET_OPTION,
-    pub WlxGetOption: PWLX_GET_OPTION,
-    pub WlxWin31Migrate: PWLX_WIN31_MIGRATE,
-    pub WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
-    pub WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
-    pub WlxDisconnect: PWLX_DISCONNECT,
-    pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_DISPATCH_VERSION_1_4 {
-    pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
-    pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
-    pub WlxSasNotify: PWLX_SAS_NOTIFY,
-    pub WlxSetTimeout: PWLX_SET_TIMEOUT,
-    pub WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
-    pub WlxMessageBox: PWLX_MESSAGE_BOX,
-    pub WlxDialogBox: PWLX_DIALOG_BOX,
-    pub WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
-    pub WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
-    pub WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
-    pub WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
-    pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
-    pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
-    pub WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
-    pub WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
-    pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
-    pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
-    pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
-    pub WlxSetOption: PWLX_SET_OPTION,
-    pub WlxGetOption: PWLX_GET_OPTION,
-    pub WlxWin31Migrate: PWLX_WIN31_MIGRATE,
-    pub WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
-    pub WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
-    pub WlxDisconnect: PWLX_DISCONNECT,
-    pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
-    pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
-    pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_MPR_NOTIFY_INFO {
-    pub pszUserName: windows_core::PWSTR,
-    pub pszDomain: windows_core::PWSTR,
-    pub pszPassword: windows_core::PWSTR,
-    pub pszOldPassword: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for WLX_MPR_NOTIFY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_MPR_NOTIFY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_NOTIFICATION_INFO {
-    pub Size: u32,
-    pub Flags: u32,
-    pub UserName: windows_core::PWSTR,
-    pub Domain: windows_core::PWSTR,
-    pub WindowStation: windows_core::PWSTR,
-    pub hToken: super::super::Foundation::HANDLE,
-    pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
-    pub pStatusCallback: PFNMSGECALLBACK,
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl windows_core::TypeKind for WLX_NOTIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Default for WLX_NOTIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_PROFILE_V1_0 {
-    pub dwType: u32,
-    pub pszProfile: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for WLX_PROFILE_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_PROFILE_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_PROFILE_V2_0 {
-    pub dwType: u32,
-    pub pszProfile: windows_core::PWSTR,
-    pub pszPolicy: windows_core::PWSTR,
-    pub pszNetworkDefaultUserProfile: windows_core::PWSTR,
-    pub pszServerName: windows_core::PWSTR,
-    pub pszEnvironment: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for WLX_PROFILE_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_PROFILE_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_SC_NOTIFICATION_INFO {
-    pub pszCard: windows_core::PWSTR,
-    pub pszReader: windows_core::PWSTR,
-    pub pszContainer: windows_core::PWSTR,
-    pub pszCryptoProvider: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for WLX_SC_NOTIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_SC_NOTIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WLX_TERMINAL_SERVICES_DATA {
-    pub ProfilePath: [u16; 257],
-    pub HomeDir: [u16; 257],
-    pub HomeDirDrive: [u16; 4],
-}
-impl windows_core::TypeKind for WLX_TERMINAL_SERVICES_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WLX_TERMINAL_SERVICES_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
-pub type PWLX_ASSIGN_SHELL_PROTECTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_CHANGE_PASSWORD_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
-pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> i32>;
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CLOSE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CREATE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: windows_core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_INDIRECT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PWLX_DISCONNECT = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type PWLX_GET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_GET_SOURCE_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-pub type PWLX_MESSAGE_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: windows_core::PCWSTR, lpsztitle: windows_core::PCWSTR, fustyle: u32) -> i32>;
-pub type PWLX_QUERY_CLIENT_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32>;
-pub type PWLX_QUERY_IC_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: windows_core::PCWSTR, domain: windows_core::PCWSTR) -> u32>;
-pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_SAS_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32)>;
-pub type PWLX_SET_CONTEXT_POINTER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut core::ffi::c_void)>;
-pub type PWLX_SET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_SET_RETURN_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-pub type PWLX_SET_TIMEOUT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL>;
-pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
-pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;

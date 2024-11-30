@@ -17,7 +17,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_core::PCSTR, pport : windows_core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
-    DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), fwcapability, core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
+    DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -27,7 +27,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_core::PCWSTR, pport : windows_core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
-    DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), fwcapability, core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
+    DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), core::mem::transmute(fwcapability), core::mem::transmute(poutput), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -54,7 +54,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : windows_core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-    Escape(hdc.param().abi(), iescape, pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pvout.unwrap_or(core::ptr::null_mut())))
+    Escape(hdc.param().abi(), core::mem::transmute(iescape), pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pvout.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -63,7 +63,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    ExtEscape(hdc.param().abi(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    ExtEscape(hdc.param().abi(), core::mem::transmute(iescape), lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -73,7 +73,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
-    PrintWindow(hwnd.param().abi(), hdcblt.param().abi(), nflags)
+    PrintWindow(hwnd.param().abi(), hdcblt.param().abi(), core::mem::transmute(nflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -82,7 +82,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn SetAbortProc(hdc : super::super::Graphics::Gdi:: HDC, proc : ABORTPROC) -> i32);
-    SetAbortProc(hdc.param().abi(), proc)
+    SetAbortProc(hdc.param().abi(), core::mem::transmute(proc))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -91,7 +91,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn StartDocA(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOA) -> i32);
-    StartDocA(hdc.param().abi(), lpdi)
+    StartDocA(hdc.param().abi(), core::mem::transmute(lpdi))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -100,7 +100,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn StartDocW(hdc : super::super::Graphics::Gdi:: HDC, lpdi : *const DOCINFOW) -> i32);
-    StartDocW(hdc.param().abi(), lpdi)
+    StartDocW(hdc.param().abi(), core::mem::transmute(lpdi))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -112,12 +112,6 @@ where
     StartPage(hdc.param().abi())
 }
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget, IXpsDocumentPackageTarget_Vtbl, 0x3b0b6d38_53ad_41da_b212_d37637a6714e);
-impl core::ops::Deref for IXpsDocumentPackageTarget {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget, windows_core::IUnknown);
 impl IXpsDocumentPackageTarget {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -149,16 +143,14 @@ pub struct IXpsDocumentPackageTarget_Vtbl {
     pub GetXpsType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsDocumentPackageTarget_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsDocumentPackageTarget_Impl: windows_core::IUnknownImpl {
     fn GetXpsOMPackageWriter(&self, documentsequencepartname: Option<&super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
     fn GetXpsOMFactory(&self) -> windows_core::Result<IXpsOMObjectFactory>;
     fn GetXpsType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsDocumentPackageTarget {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsDocumentPackageTarget_Vtbl {
-    pub const fn new<Identity: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>() -> IXpsDocumentPackageTarget_Vtbl {
+    pub const fn new<Identity: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXpsOMPackageWriter<Identity: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsDocumentPackageTarget_Impl::GetXpsOMPackageWriter(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
@@ -200,13 +192,9 @@ impl IXpsDocumentPackageTarget_Vtbl {
         iid == &<IXpsDocumentPackageTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsDocumentPackageTarget {}
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget3D, IXpsDocumentPackageTarget3D_Vtbl, 0x60ba71b8_3101_4984_9199_f4ea775ff01d);
-impl core::ops::Deref for IXpsDocumentPackageTarget3D {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget3D, windows_core::IUnknown);
 impl IXpsDocumentPackageTarget3D {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -235,15 +223,13 @@ pub struct IXpsDocumentPackageTarget3D_Vtbl {
     pub GetXpsOMFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsDocumentPackageTarget3D_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsDocumentPackageTarget3D_Impl: windows_core::IUnknownImpl {
     fn GetXpsOMPackageWriter3D(&self, documentsequencepartname: Option<&super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: Option<&super::Packaging::Opc::IOpcPartUri>, modelpartname: Option<&super::Packaging::Opc::IOpcPartUri>, modeldata: Option<&super::super::System::Com::IStream>) -> windows_core::Result<IXpsOMPackageWriter3D>;
     fn GetXpsOMFactory(&self) -> windows_core::Result<IXpsOMObjectFactory>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsDocumentPackageTarget3D {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsDocumentPackageTarget3D_Vtbl {
-    pub const fn new<Identity: IXpsDocumentPackageTarget3D_Impl, const OFFSET: isize>() -> IXpsDocumentPackageTarget3D_Vtbl {
+    pub const fn new<Identity: IXpsDocumentPackageTarget3D_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXpsOMPackageWriter3D<Identity: IXpsDocumentPackageTarget3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, modelpartname: *mut core::ffi::c_void, modeldata: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsDocumentPackageTarget3D_Impl::GetXpsOMPackageWriter3D(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname), windows_core::from_raw_borrowed(&modelpartname), windows_core::from_raw_borrowed(&modeldata)) {
@@ -274,6 +260,8 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
         iid == &<IXpsDocumentPackageTarget3D as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsDocumentPackageTarget3D {}
 windows_core::imp::define_interface!(IXpsOMBrush, IXpsOMBrush_Vtbl, 0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
 impl core::ops::Deref for IXpsOMBrush {
     type Target = IXpsOMShareable;
@@ -288,7 +276,7 @@ impl IXpsOMBrush {
         (windows_core::Interface::vtable(self).GetOpacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity).ok()
+        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), core::mem::transmute(opacity)).ok()
     }
 }
 #[repr(C)]
@@ -297,13 +285,12 @@ pub struct IXpsOMBrush_Vtbl {
     pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-pub trait IXpsOMBrush_Impl: Sized + IXpsOMShareable_Impl {
+pub trait IXpsOMBrush_Impl: IXpsOMShareable_Impl {
     fn GetOpacity(&self) -> windows_core::Result<f32>;
     fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMBrush {}
 impl IXpsOMBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMBrush_Impl, const OFFSET: isize>() -> IXpsOMBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOpacity<Identity: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMBrush_Impl::GetOpacity(this) {
@@ -324,6 +311,7 @@ impl IXpsOMBrush_Vtbl {
         iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMBrush {}
 windows_core::imp::define_interface!(IXpsOMCanvas, IXpsOMCanvas_Vtbl, 0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
 impl core::ops::Deref for IXpsOMCanvas {
     type Target = IXpsOMVisual;
@@ -414,7 +402,7 @@ pub struct IXpsOMCanvas_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXpsOMCanvas_Impl: Sized + IXpsOMVisual_Impl {
+pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
     fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetUseAliasedEdgeMode(&self, usealiasededgemode: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -430,10 +418,8 @@ pub trait IXpsOMCanvas_Impl: Sized + IXpsOMVisual_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMCanvas>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXpsOMCanvas {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMCanvas_Vtbl {
-    pub const fn new<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>() -> IXpsOMCanvas_Vtbl {
+    pub const fn new<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisuals<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visuals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMCanvas_Impl::GetVisuals(this) {
@@ -555,6 +541,8 @@ impl IXpsOMCanvas_Vtbl {
         iid == &<IXpsOMCanvas as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXpsOMCanvas {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResource, IXpsOMColorProfileResource_Vtbl, 0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 impl core::ops::Deref for IXpsOMColorProfileResource {
     type Target = IXpsOMResource;
@@ -591,15 +579,13 @@ pub struct IXpsOMColorProfileResource_Vtbl {
     SetContent: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMColorProfileResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMColorProfileResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMColorProfileResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMColorProfileResource_Vtbl {
-    pub const fn new<Identity: IXpsOMColorProfileResource_Impl, const OFFSET: isize>() -> IXpsOMColorProfileResource_Vtbl {
+    pub const fn new<Identity: IXpsOMColorProfileResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMColorProfileResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMColorProfileResource_Impl::GetStream(this) {
@@ -620,13 +606,9 @@ impl IXpsOMColorProfileResource_Vtbl {
         iid == &<IXpsOMColorProfileResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMColorProfileResource {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResourceCollection, IXpsOMColorProfileResourceCollection_Vtbl, 0x12759630_5fba_4283_8f7d_cca849809edb);
-impl core::ops::Deref for IXpsOMColorProfileResourceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMColorProfileResourceCollection, windows_core::IUnknown);
 impl IXpsOMColorProfileResourceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -635,22 +617,22 @@ impl IXpsOMColorProfileResourceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMColorProfileResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, object: P0) -> windows_core::Result<()>
     where
@@ -682,7 +664,7 @@ pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMColorProfileResourceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMColorProfileResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMColorProfileResource>;
     fn InsertAt(&self, index: u32, object: Option<&IXpsOMColorProfileResource>) -> windows_core::Result<()>;
@@ -692,10 +674,8 @@ pub trait IXpsOMColorProfileResourceCollection_Impl: Sized + windows_core::IUnkn
     fn GetByPartName(&self, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMColorProfileResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMColorProfileResourceCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMColorProfileResourceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>() -> IXpsOMColorProfileResourceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMColorProfileResourceCollection_Impl::GetCount(this) {
@@ -757,6 +737,8 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         iid == &<IXpsOMColorProfileResourceCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMColorProfileResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMCoreProperties, IXpsOMCoreProperties_Vtbl, 0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
 impl core::ops::Deref for IXpsOMCoreProperties {
     type Target = IXpsOMPart;
@@ -805,7 +787,7 @@ impl IXpsOMCoreProperties {
         (windows_core::Interface::vtable(self).GetCreated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCreated(&self, created: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCreated)(windows_core::Interface::as_raw(self), created).ok()
+        (windows_core::Interface::vtable(self).SetCreated)(windows_core::Interface::as_raw(self), core::mem::transmute(created)).ok()
     }
     pub unsafe fn GetCreator(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -872,14 +854,14 @@ impl IXpsOMCoreProperties {
         (windows_core::Interface::vtable(self).GetLastPrinted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLastPrinted(&self, lastprinted: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLastPrinted)(windows_core::Interface::as_raw(self), lastprinted).ok()
+        (windows_core::Interface::vtable(self).SetLastPrinted)(windows_core::Interface::as_raw(self), core::mem::transmute(lastprinted)).ok()
     }
     pub unsafe fn GetModified(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetModified(&self, modified: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetModified)(windows_core::Interface::as_raw(self), modified).ok()
+        (windows_core::Interface::vtable(self).SetModified)(windows_core::Interface::as_raw(self), core::mem::transmute(modified)).ok()
     }
     pub unsafe fn GetRevision(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -965,7 +947,7 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
+pub trait IXpsOMCoreProperties_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPackage>;
     fn GetCategory(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetCategory(&self, category: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1002,10 +984,8 @@ pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMCoreProperties>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMCoreProperties {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMCoreProperties_Vtbl {
-    pub const fn new<Identity: IXpsOMCoreProperties_Impl, const OFFSET: isize>() -> IXpsOMCoreProperties_Vtbl {
+    pub const fn new<Identity: IXpsOMCoreProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMCoreProperties_Impl::GetOwner(this) {
@@ -1292,13 +1272,9 @@ impl IXpsOMCoreProperties_Vtbl {
         iid == &<IXpsOMCoreProperties as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMCoreProperties {}
 windows_core::imp::define_interface!(IXpsOMDashCollection, IXpsOMDashCollection_Vtbl, 0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
-impl core::ops::Deref for IXpsOMDashCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMDashCollection, windows_core::IUnknown);
 impl IXpsOMDashCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -1307,19 +1283,19 @@ impl IXpsOMDashCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<XPS_DASH> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).map(|| result__)
     }
     pub unsafe fn InsertAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, dash).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(dash)).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
     pub unsafe fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, dash).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(dash)).ok()
     }
     pub unsafe fn Append(&self, dash: *const XPS_DASH) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), dash).ok()
+        (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), core::mem::transmute(dash)).ok()
     }
 }
 #[repr(C)]
@@ -1332,7 +1308,7 @@ pub struct IXpsOMDashCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XPS_DASH) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_DASH) -> windows_core::HRESULT,
 }
-pub trait IXpsOMDashCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMDashCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<XPS_DASH>;
     fn InsertAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::Result<()>;
@@ -1340,9 +1316,8 @@ pub trait IXpsOMDashCollection_Impl: Sized + windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::Result<()>;
     fn Append(&self, dash: *const XPS_DASH) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMDashCollection {}
 impl IXpsOMDashCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMDashCollection_Impl, const OFFSET: isize>() -> IXpsOMDashCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMDashCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDashCollection_Impl::GetCount(this) {
@@ -1393,13 +1368,8 @@ impl IXpsOMDashCollection_Vtbl {
         iid == &<IXpsOMDashCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMDashCollection {}
 windows_core::imp::define_interface!(IXpsOMDictionary, IXpsOMDictionary_Vtbl, 0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
-impl core::ops::Deref for IXpsOMDictionary {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMDictionary, windows_core::IUnknown);
 impl IXpsOMDictionary {
     pub unsafe fn GetOwner(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -1412,7 +1382,7 @@ impl IXpsOMDictionary {
     }
     pub unsafe fn GetAt(&self, index: u32, key: *mut windows_core::PWSTR) -> windows_core::Result<IXpsOMShareable> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetByKey<P0, P1>(&self, key: P0, beforeentry: P1) -> windows_core::Result<IXpsOMShareable>
     where
@@ -1436,22 +1406,22 @@ impl IXpsOMDictionary {
     {
         (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), key.param().abi(), entry.param().abi()).ok()
     }
-    pub unsafe fn InsertAt<P0, P1>(&self, index: u32, key: P0, entry: P1) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1, P2>(&self, index: u32, key: P1, entry: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IXpsOMShareable>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IXpsOMShareable>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, key.param().abi(), entry.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), key.param().abi(), entry.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0, P1>(&self, index: u32, key: P0, entry: P1) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1, P2>(&self, index: u32, key: P1, entry: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IXpsOMShareable>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IXpsOMShareable>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, key.param().abi(), entry.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), key.param().abi(), entry.param().abi()).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMDictionary> {
         let mut result__ = core::mem::zeroed();
@@ -1472,7 +1442,7 @@ pub struct IXpsOMDictionary_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMDictionary_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMDictionary_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32, key: *mut windows_core::PWSTR) -> windows_core::Result<IXpsOMShareable>;
@@ -1484,9 +1454,8 @@ pub trait IXpsOMDictionary_Impl: Sized + windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, key: &windows_core::PCWSTR, entry: Option<&IXpsOMShareable>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMDictionary>;
 }
-impl windows_core::RuntimeName for IXpsOMDictionary {}
 impl IXpsOMDictionary_Vtbl {
-    pub const fn new<Identity: IXpsOMDictionary_Impl, const OFFSET: isize>() -> IXpsOMDictionary_Vtbl {
+    pub const fn new<Identity: IXpsOMDictionary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDictionary_Impl::GetOwner(this) {
@@ -1581,6 +1550,7 @@ impl IXpsOMDictionary_Vtbl {
         iid == &<IXpsOMDictionary as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMDictionary {}
 windows_core::imp::define_interface!(IXpsOMDocument, IXpsOMDocument_Vtbl, 0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
 impl core::ops::Deref for IXpsOMDocument {
     type Target = IXpsOMPart;
@@ -1640,7 +1610,7 @@ pub struct IXpsOMDocument_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMDocument_Impl: Sized + IXpsOMPart_Impl {
+pub trait IXpsOMDocument_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocumentSequence>;
     fn GetPageReferences(&self) -> windows_core::Result<IXpsOMPageReferenceCollection>;
     fn GetPrintTicketResource(&self) -> windows_core::Result<IXpsOMPrintTicketResource>;
@@ -1651,10 +1621,8 @@ pub trait IXpsOMDocument_Impl: Sized + IXpsOMPart_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMDocument>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMDocument {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocument_Vtbl {
-    pub const fn new<Identity: IXpsOMDocument_Impl, const OFFSET: isize>() -> IXpsOMDocument_Vtbl {
+    pub const fn new<Identity: IXpsOMDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDocument_Impl::GetOwner(this) {
@@ -1739,13 +1707,9 @@ impl IXpsOMDocument_Vtbl {
         iid == &<IXpsOMDocument as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMDocument {}
 windows_core::imp::define_interface!(IXpsOMDocumentCollection, IXpsOMDocumentCollection_Vtbl, 0xd1c87f0d_e947_4754_8a25_971478f7e83e);
-impl core::ops::Deref for IXpsOMDocumentCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMDocumentCollection, windows_core::IUnknown);
 impl IXpsOMDocumentCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -1754,22 +1718,22 @@ impl IXpsOMDocumentCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMDocument> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, document: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, document: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMDocument>,
+        P1: windows_core::Param<IXpsOMDocument>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, document.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), document.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, document: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, document: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMDocument>,
+        P1: windows_core::Param<IXpsOMDocument>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, document.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), document.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, document: P0) -> windows_core::Result<()>
     where
@@ -1788,7 +1752,7 @@ pub struct IXpsOMDocumentCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMDocumentCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMDocumentCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMDocument>;
     fn InsertAt(&self, index: u32, document: Option<&IXpsOMDocument>) -> windows_core::Result<()>;
@@ -1796,9 +1760,8 @@ pub trait IXpsOMDocumentCollection_Impl: Sized + windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, document: Option<&IXpsOMDocument>) -> windows_core::Result<()>;
     fn Append(&self, document: Option<&IXpsOMDocument>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMDocumentCollection {}
 impl IXpsOMDocumentCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMDocumentCollection_Impl, const OFFSET: isize>() -> IXpsOMDocumentCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMDocumentCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDocumentCollection_Impl::GetCount(this) {
@@ -1849,6 +1812,7 @@ impl IXpsOMDocumentCollection_Vtbl {
         iid == &<IXpsOMDocumentCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMDocumentCollection {}
 windows_core::imp::define_interface!(IXpsOMDocumentSequence, IXpsOMDocumentSequence_Vtbl, 0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
 impl core::ops::Deref for IXpsOMDocumentSequence {
     type Target = IXpsOMPart;
@@ -1886,17 +1850,15 @@ pub struct IXpsOMDocumentSequence_Vtbl {
     pub SetPrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMDocumentSequence_Impl: Sized + IXpsOMPart_Impl {
+pub trait IXpsOMDocumentSequence_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPackage>;
     fn GetDocuments(&self) -> windows_core::Result<IXpsOMDocumentCollection>;
     fn GetPrintTicketResource(&self) -> windows_core::Result<IXpsOMPrintTicketResource>;
     fn SetPrintTicketResource(&self, printticketresource: Option<&IXpsOMPrintTicketResource>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMDocumentSequence {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocumentSequence_Vtbl {
-    pub const fn new<Identity: IXpsOMDocumentSequence_Impl, const OFFSET: isize>() -> IXpsOMDocumentSequence_Vtbl {
+    pub const fn new<Identity: IXpsOMDocumentSequence_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDocumentSequence_Impl::GetOwner(this) {
@@ -1943,6 +1905,8 @@ impl IXpsOMDocumentSequence_Vtbl {
         iid == &<IXpsOMDocumentSequence as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMDocumentSequence {}
 windows_core::imp::define_interface!(IXpsOMDocumentStructureResource, IXpsOMDocumentStructureResource_Vtbl, 0x85febc8a_6b63_48a9_af07_7064e4ecff30);
 impl core::ops::Deref for IXpsOMDocumentStructureResource {
     type Target = IXpsOMResource;
@@ -1984,16 +1948,14 @@ pub struct IXpsOMDocumentStructureResource_Vtbl {
     SetContent: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMDocumentStructureResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMDocumentStructureResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMDocumentStructureResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocumentStructureResource_Vtbl {
-    pub const fn new<Identity: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>() -> IXpsOMDocumentStructureResource_Vtbl {
+    pub const fn new<Identity: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMDocumentStructureResource_Impl::GetOwner(this) {
@@ -2029,6 +1991,8 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         iid == &<IXpsOMDocumentStructureResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMDocumentStructureResource {}
 windows_core::imp::define_interface!(IXpsOMFontResource, IXpsOMFontResource_Vtbl, 0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 impl core::ops::Deref for IXpsOMFontResource {
     type Target = IXpsOMResource;
@@ -2044,12 +2008,12 @@ impl IXpsOMFontResource {
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, embeddingoption: XPS_FONT_EMBEDDING, partname: P1) -> windows_core::Result<()>
+    pub unsafe fn SetContent<P0, P2>(&self, sourcestream: P0, embeddingoption: XPS_FONT_EMBEDDING, partname: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).SetContent)(windows_core::Interface::as_raw(self), sourcestream.param().abi(), embeddingoption, partname.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetContent)(windows_core::Interface::as_raw(self), sourcestream.param().abi(), core::mem::transmute(embeddingoption), partname.param().abi()).ok()
     }
     pub unsafe fn GetEmbeddingOption(&self) -> windows_core::Result<XPS_FONT_EMBEDDING> {
         let mut result__ = core::mem::zeroed();
@@ -2070,16 +2034,14 @@ pub struct IXpsOMFontResource_Vtbl {
     pub GetEmbeddingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_FONT_EMBEDDING) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMFontResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMFontResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, embeddingoption: XPS_FONT_EMBEDDING, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetEmbeddingOption(&self) -> windows_core::Result<XPS_FONT_EMBEDDING>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMFontResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMFontResource_Vtbl {
-    pub const fn new<Identity: IXpsOMFontResource_Impl, const OFFSET: isize>() -> IXpsOMFontResource_Vtbl {
+    pub const fn new<Identity: IXpsOMFontResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMFontResource_Impl::GetStream(this) {
@@ -2115,13 +2077,9 @@ impl IXpsOMFontResource_Vtbl {
         iid == &<IXpsOMFontResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMFontResource {}
 windows_core::imp::define_interface!(IXpsOMFontResourceCollection, IXpsOMFontResourceCollection_Vtbl, 0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
-impl core::ops::Deref for IXpsOMFontResourceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMFontResourceCollection, windows_core::IUnknown);
 impl IXpsOMFontResourceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -2130,19 +2088,19 @@ impl IXpsOMFontResourceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMFontResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMFontResource>,
+        P1: windows_core::Param<IXpsOMFontResource>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), value.param().abi()).ok()
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMFontResource>,
+        P1: windows_core::Param<IXpsOMFontResource>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), value.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -2151,7 +2109,7 @@ impl IXpsOMFontResourceCollection {
         (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMFontResource>
@@ -2177,7 +2135,7 @@ pub struct IXpsOMFontResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMFontResourceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMFontResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMFontResource>;
     fn SetAt(&self, index: u32, value: Option<&IXpsOMFontResource>) -> windows_core::Result<()>;
@@ -2187,10 +2145,8 @@ pub trait IXpsOMFontResourceCollection_Impl: Sized + windows_core::IUnknownImpl 
     fn GetByPartName(&self, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMFontResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMFontResourceCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMFontResourceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>() -> IXpsOMFontResourceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMFontResourceCollection_Impl::GetCount(this) {
@@ -2252,6 +2208,8 @@ impl IXpsOMFontResourceCollection_Vtbl {
         iid == &<IXpsOMFontResourceCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMFontResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMGeometry, IXpsOMGeometry_Vtbl, 0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
 impl core::ops::Deref for IXpsOMGeometry {
     type Target = IXpsOMShareable;
@@ -2270,7 +2228,7 @@ impl IXpsOMGeometry {
         (windows_core::Interface::vtable(self).GetFillRule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFillRule(&self, fillrule: XPS_FILL_RULE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFillRule)(windows_core::Interface::as_raw(self), fillrule).ok()
+        (windows_core::Interface::vtable(self).SetFillRule)(windows_core::Interface::as_raw(self), core::mem::transmute(fillrule)).ok()
     }
     pub unsafe fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform> {
         let mut result__ = core::mem::zeroed();
@@ -2314,7 +2272,7 @@ pub struct IXpsOMGeometry_Vtbl {
     pub SetTransformLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGeometry_Impl: Sized + IXpsOMShareable_Impl {
+pub trait IXpsOMGeometry_Impl: IXpsOMShareable_Impl {
     fn GetFigures(&self) -> windows_core::Result<IXpsOMGeometryFigureCollection>;
     fn GetFillRule(&self) -> windows_core::Result<XPS_FILL_RULE>;
     fn SetFillRule(&self, fillrule: XPS_FILL_RULE) -> windows_core::Result<()>;
@@ -2325,9 +2283,8 @@ pub trait IXpsOMGeometry_Impl: Sized + IXpsOMShareable_Impl {
     fn SetTransformLookup(&self, lookup: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGeometry>;
 }
-impl windows_core::RuntimeName for IXpsOMGeometry {}
 impl IXpsOMGeometry_Vtbl {
-    pub const fn new<Identity: IXpsOMGeometry_Impl, const OFFSET: isize>() -> IXpsOMGeometry_Vtbl {
+    pub const fn new<Identity: IXpsOMGeometry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFigures<Identity: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, figures: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGeometry_Impl::GetFigures(this) {
@@ -2417,13 +2374,8 @@ impl IXpsOMGeometry_Vtbl {
         iid == &<IXpsOMGeometry as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGeometry {}
 windows_core::imp::define_interface!(IXpsOMGeometryFigure, IXpsOMGeometryFigure_Vtbl, 0xd410dc83_908c_443e_8947_b1795d3c165a);
-impl core::ops::Deref for IXpsOMGeometryFigure {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigure, windows_core::IUnknown);
 impl IXpsOMGeometryFigure {
     pub unsafe fn GetOwner(&self) -> windows_core::Result<IXpsOMGeometry> {
@@ -2431,23 +2383,23 @@ impl IXpsOMGeometryFigure {
         (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), datacount, segmentdata).ok()
+        (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(datacount), core::mem::transmute(segmentdata)).ok()
     }
     pub unsafe fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSegmentTypes)(windows_core::Interface::as_raw(self), segmentcount, segmenttypes).ok()
+        (windows_core::Interface::vtable(self).GetSegmentTypes)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentcount), core::mem::transmute(segmenttypes)).ok()
     }
     pub unsafe fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSegmentStrokes)(windows_core::Interface::as_raw(self), segmentcount, segmentstrokes).ok()
+        (windows_core::Interface::vtable(self).GetSegmentStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentcount), core::mem::transmute(segmentstrokes)).ok()
     }
     pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), segmentcount, segmentdatacount, segmenttypes, segmentdata, segmentstrokes).ok()
+        (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentcount), core::mem::transmute(segmentdatacount), core::mem::transmute(segmenttypes), core::mem::transmute(segmentdata), core::mem::transmute(segmentstrokes)).ok()
     }
     pub unsafe fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint).ok()
+        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint)).ok()
     }
     pub unsafe fn GetIsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -2505,7 +2457,7 @@ pub struct IXpsOMGeometryFigure_Vtbl {
     pub GetSegmentStrokePattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SEGMENT_STROKE_PATTERN) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGeometryFigure_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMGeometryFigure_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::Result<()>;
     fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::Result<()>;
@@ -2522,9 +2474,8 @@ pub trait IXpsOMGeometryFigure_Impl: Sized + windows_core::IUnknownImpl {
     fn GetSegmentStrokePattern(&self) -> windows_core::Result<XPS_SEGMENT_STROKE_PATTERN>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGeometryFigure>;
 }
-impl windows_core::RuntimeName for IXpsOMGeometryFigure {}
 impl IXpsOMGeometryFigure_Vtbl {
-    pub const fn new<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>() -> IXpsOMGeometryFigure_Vtbl {
+    pub const fn new<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGeometryFigure_Impl::GetOwner(this) {
@@ -2656,13 +2607,8 @@ impl IXpsOMGeometryFigure_Vtbl {
         iid == &<IXpsOMGeometryFigure as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGeometryFigure {}
 windows_core::imp::define_interface!(IXpsOMGeometryFigureCollection, IXpsOMGeometryFigureCollection_Vtbl, 0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
-impl core::ops::Deref for IXpsOMGeometryFigureCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigureCollection, windows_core::IUnknown);
 impl IXpsOMGeometryFigureCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -2671,22 +2617,22 @@ impl IXpsOMGeometryFigureCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMGeometryFigure> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, geometryfigure: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, geometryfigure: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMGeometryFigure>,
+        P1: windows_core::Param<IXpsOMGeometryFigure>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, geometryfigure.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), geometryfigure.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, geometryfigure: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, geometryfigure: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMGeometryFigure>,
+        P1: windows_core::Param<IXpsOMGeometryFigure>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, geometryfigure.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), geometryfigure.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, geometryfigure: P0) -> windows_core::Result<()>
     where
@@ -2705,7 +2651,7 @@ pub struct IXpsOMGeometryFigureCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGeometryFigureCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMGeometryFigureCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMGeometryFigure>;
     fn InsertAt(&self, index: u32, geometryfigure: Option<&IXpsOMGeometryFigure>) -> windows_core::Result<()>;
@@ -2713,9 +2659,8 @@ pub trait IXpsOMGeometryFigureCollection_Impl: Sized + windows_core::IUnknownImp
     fn SetAt(&self, index: u32, geometryfigure: Option<&IXpsOMGeometryFigure>) -> windows_core::Result<()>;
     fn Append(&self, geometryfigure: Option<&IXpsOMGeometryFigure>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMGeometryFigureCollection {}
 impl IXpsOMGeometryFigureCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>() -> IXpsOMGeometryFigureCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGeometryFigureCollection_Impl::GetCount(this) {
@@ -2766,6 +2711,7 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         iid == &<IXpsOMGeometryFigureCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGeometryFigureCollection {}
 windows_core::imp::define_interface!(IXpsOMGlyphs, IXpsOMGlyphs_Vtbl, 0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
 impl core::ops::Deref for IXpsOMGlyphs {
     type Target = IXpsOMVisual;
@@ -2784,21 +2730,21 @@ impl IXpsOMGlyphs {
         (windows_core::Interface::vtable(self).GetGlyphIndexCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount, glyphindices).ok()
+        (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), core::mem::transmute(indexcount), core::mem::transmute(glyphindices)).ok()
     }
     pub unsafe fn GetGlyphMappingCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGlyphMappingCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGlyphMappings(&self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGlyphMappings)(windows_core::Interface::as_raw(self), glyphmappingcount, glyphmappings).ok()
+        (windows_core::Interface::vtable(self).GetGlyphMappings)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphmappingcount), core::mem::transmute(glyphmappings)).ok()
     }
     pub unsafe fn GetProhibitedCaretStopCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProhibitedCaretStopCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProhibitedCaretStops(&self, prohibitedcaretstopcount: *mut u32, prohibitedcaretstops: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetProhibitedCaretStops)(windows_core::Interface::as_raw(self), prohibitedcaretstopcount, prohibitedcaretstops).ok()
+        (windows_core::Interface::vtable(self).GetProhibitedCaretStops)(windows_core::Interface::as_raw(self), core::mem::transmute(prohibitedcaretstopcount), core::mem::transmute(prohibitedcaretstops)).ok()
     }
     pub unsafe fn GetBidiLevel(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2817,21 +2763,21 @@ impl IXpsOMGlyphs {
         (windows_core::Interface::vtable(self).GetStyleSimulations)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStyleSimulations(&self, stylesimulations: XPS_STYLE_SIMULATION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStyleSimulations)(windows_core::Interface::as_raw(self), stylesimulations).ok()
+        (windows_core::Interface::vtable(self).SetStyleSimulations)(windows_core::Interface::as_raw(self), core::mem::transmute(stylesimulations)).ok()
     }
     pub unsafe fn GetOrigin(&self) -> windows_core::Result<XPS_POINT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOrigin)(windows_core::Interface::as_raw(self), origin).ok()
+        (windows_core::Interface::vtable(self).SetOrigin)(windows_core::Interface::as_raw(self), core::mem::transmute(origin)).ok()
     }
     pub unsafe fn GetFontRenderingEmSize(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFontRenderingEmSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFontRenderingEmSize(&self, fontrenderingemsize: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFontRenderingEmSize)(windows_core::Interface::as_raw(self), fontrenderingemsize).ok()
+        (windows_core::Interface::vtable(self).SetFontRenderingEmSize)(windows_core::Interface::as_raw(self), core::mem::transmute(fontrenderingemsize)).ok()
     }
     pub unsafe fn GetFontResource(&self) -> windows_core::Result<IXpsOMFontResource> {
         let mut result__ = core::mem::zeroed();
@@ -2848,7 +2794,7 @@ impl IXpsOMGlyphs {
         (windows_core::Interface::vtable(self).GetFontFaceIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFontFaceIndex(&self, fontfaceindex: i16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFontFaceIndex)(windows_core::Interface::as_raw(self), fontfaceindex).ok()
+        (windows_core::Interface::vtable(self).SetFontFaceIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(fontfaceindex)).ok()
     }
     pub unsafe fn GetFillBrush(&self) -> windows_core::Result<IXpsOMBrush> {
         let mut result__ = core::mem::zeroed();
@@ -2915,7 +2861,7 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMVisual_Impl {
+pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetUnicodeString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetGlyphIndexCount(&self) -> windows_core::Result<u32>;
     fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::Result<()>;
@@ -2945,10 +2891,8 @@ pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMVisual_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMGlyphs>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXpsOMGlyphs {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMGlyphs_Vtbl {
-    pub const fn new<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>() -> IXpsOMGlyphs_Vtbl {
+    pub const fn new<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUnicodeString<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGlyphs_Impl::GetUnicodeString(this) {
@@ -3194,13 +3138,9 @@ impl IXpsOMGlyphs_Vtbl {
         iid == &<IXpsOMGlyphs as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXpsOMGlyphs {}
 windows_core::imp::define_interface!(IXpsOMGlyphsEditor, IXpsOMGlyphsEditor_Vtbl, 0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
-impl core::ops::Deref for IXpsOMGlyphsEditor {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMGlyphsEditor, windows_core::IUnknown);
 impl IXpsOMGlyphsEditor {
     pub unsafe fn ApplyEdits(&self) -> windows_core::Result<()> {
@@ -3221,37 +3161,37 @@ impl IXpsOMGlyphsEditor {
         (windows_core::Interface::vtable(self).GetGlyphIndexCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount, glyphindices).ok()
+        (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), core::mem::transmute(indexcount), core::mem::transmute(glyphindices)).ok()
     }
     pub unsafe fn SetGlyphIndices(&self, indexcount: u32, glyphindices: *const XPS_GLYPH_INDEX) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount, glyphindices).ok()
+        (windows_core::Interface::vtable(self).SetGlyphIndices)(windows_core::Interface::as_raw(self), core::mem::transmute(indexcount), core::mem::transmute(glyphindices)).ok()
     }
     pub unsafe fn GetGlyphMappingCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGlyphMappingCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGlyphMappings(&self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGlyphMappings)(windows_core::Interface::as_raw(self), glyphmappingcount, glyphmappings).ok()
+        (windows_core::Interface::vtable(self).GetGlyphMappings)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphmappingcount), core::mem::transmute(glyphmappings)).ok()
     }
     pub unsafe fn SetGlyphMappings(&self, glyphmappingcount: u32, glyphmappings: *const XPS_GLYPH_MAPPING) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetGlyphMappings)(windows_core::Interface::as_raw(self), glyphmappingcount, glyphmappings).ok()
+        (windows_core::Interface::vtable(self).SetGlyphMappings)(windows_core::Interface::as_raw(self), core::mem::transmute(glyphmappingcount), core::mem::transmute(glyphmappings)).ok()
     }
     pub unsafe fn GetProhibitedCaretStopCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProhibitedCaretStopCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProhibitedCaretStops(&self, count: *mut u32, prohibitedcaretstops: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetProhibitedCaretStops)(windows_core::Interface::as_raw(self), count, prohibitedcaretstops).ok()
+        (windows_core::Interface::vtable(self).GetProhibitedCaretStops)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(prohibitedcaretstops)).ok()
     }
     pub unsafe fn SetProhibitedCaretStops(&self, count: u32, prohibitedcaretstops: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProhibitedCaretStops)(windows_core::Interface::as_raw(self), count, prohibitedcaretstops).ok()
+        (windows_core::Interface::vtable(self).SetProhibitedCaretStops)(windows_core::Interface::as_raw(self), core::mem::transmute(count), core::mem::transmute(prohibitedcaretstops)).ok()
     }
     pub unsafe fn GetBidiLevel(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBidiLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBidiLevel(&self, bidilevel: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBidiLevel)(windows_core::Interface::as_raw(self), bidilevel).ok()
+        (windows_core::Interface::vtable(self).SetBidiLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(bidilevel)).ok()
     }
     pub unsafe fn GetIsSideways(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -3296,7 +3236,7 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub GetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGlyphsEditor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMGlyphsEditor_Impl: windows_core::IUnknownImpl {
     fn ApplyEdits(&self) -> windows_core::Result<()>;
     fn GetUnicodeString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetUnicodeString(&self, unicodestring: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -3316,9 +3256,8 @@ pub trait IXpsOMGlyphsEditor_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeviceFontName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetDeviceFontName(&self, devicefontname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMGlyphsEditor {}
 impl IXpsOMGlyphsEditor_Vtbl {
-    pub const fn new<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>() -> IXpsOMGlyphsEditor_Vtbl {
+    pub const fn new<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ApplyEdits<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXpsOMGlyphsEditor_Impl::ApplyEdits(this).into()
@@ -3459,6 +3398,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
         iid == &<IXpsOMGlyphsEditor as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGlyphsEditor {}
 windows_core::imp::define_interface!(IXpsOMGradientBrush, IXpsOMGradientBrush_Vtbl, 0xedb59622_61a2_42c3_bace_acf2286c06bf);
 impl core::ops::Deref for IXpsOMGradientBrush {
     type Target = IXpsOMBrush;
@@ -3501,14 +3441,14 @@ impl IXpsOMGradientBrush {
         (windows_core::Interface::vtable(self).GetSpreadMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpreadMethod)(windows_core::Interface::as_raw(self), spreadmethod).ok()
+        (windows_core::Interface::vtable(self).SetSpreadMethod)(windows_core::Interface::as_raw(self), core::mem::transmute(spreadmethod)).ok()
     }
     pub unsafe fn GetColorInterpolationMode(&self) -> windows_core::Result<XPS_COLOR_INTERPOLATION> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetColorInterpolationMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetColorInterpolationMode)(windows_core::Interface::as_raw(self), colorinterpolationmode).ok()
+        (windows_core::Interface::vtable(self).SetColorInterpolationMode)(windows_core::Interface::as_raw(self), core::mem::transmute(colorinterpolationmode)).ok()
     }
 }
 #[repr(C)]
@@ -3525,7 +3465,7 @@ pub struct IXpsOMGradientBrush_Vtbl {
     pub GetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT,
     pub SetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGradientBrush_Impl: Sized + IXpsOMBrush_Impl {
+pub trait IXpsOMGradientBrush_Impl: IXpsOMBrush_Impl {
     fn GetGradientStops(&self) -> windows_core::Result<IXpsOMGradientStopCollection>;
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
@@ -3537,9 +3477,8 @@ pub trait IXpsOMGradientBrush_Impl: Sized + IXpsOMBrush_Impl {
     fn GetColorInterpolationMode(&self) -> windows_core::Result<XPS_COLOR_INTERPOLATION>;
     fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMGradientBrush {}
 impl IXpsOMGradientBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMGradientBrush_Impl, const OFFSET: isize>() -> IXpsOMGradientBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGradientStops<Identity: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGradientBrush_Impl::GetGradientStops(this) {
@@ -3634,13 +3573,8 @@ impl IXpsOMGradientBrush_Vtbl {
         iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMGradientStop, IXpsOMGradientStop_Vtbl, 0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
-impl core::ops::Deref for IXpsOMGradientStop {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStop, windows_core::IUnknown);
 impl IXpsOMGradientStop {
     pub unsafe fn GetOwner(&self) -> windows_core::Result<IXpsOMGradientBrush> {
@@ -3652,17 +3586,17 @@ impl IXpsOMGradientStop {
         (windows_core::Interface::vtable(self).GetOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOffset(&self, offset: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOffset)(windows_core::Interface::as_raw(self), offset).ok()
+        (windows_core::Interface::vtable(self).SetOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(offset)).ok()
     }
     pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), color, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetColor<P0>(&self, color: *const XPS_COLOR, colorprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn SetColor<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
-        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color), colorprofile.param().abi()).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMGradientStop> {
         let mut result__ = core::mem::zeroed();
@@ -3679,7 +3613,7 @@ pub struct IXpsOMGradientStop_Vtbl {
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGradientStop_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMGradientStop_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMGradientBrush>;
     fn GetOffset(&self) -> windows_core::Result<f32>;
     fn SetOffset(&self, offset: f32) -> windows_core::Result<()>;
@@ -3687,9 +3621,8 @@ pub trait IXpsOMGradientStop_Impl: Sized + windows_core::IUnknownImpl {
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: Option<&IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGradientStop>;
 }
-impl windows_core::RuntimeName for IXpsOMGradientStop {}
 impl IXpsOMGradientStop_Vtbl {
-    pub const fn new<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>() -> IXpsOMGradientStop_Vtbl {
+    pub const fn new<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGradientStop_Impl::GetOwner(this) {
@@ -3752,13 +3685,8 @@ impl IXpsOMGradientStop_Vtbl {
         iid == &<IXpsOMGradientStop as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGradientStop {}
 windows_core::imp::define_interface!(IXpsOMGradientStopCollection, IXpsOMGradientStopCollection_Vtbl, 0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
-impl core::ops::Deref for IXpsOMGradientStopCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStopCollection, windows_core::IUnknown);
 impl IXpsOMGradientStopCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -3767,22 +3695,22 @@ impl IXpsOMGradientStopCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMGradientStop> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, stop: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, stop: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMGradientStop>,
+        P1: windows_core::Param<IXpsOMGradientStop>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, stop.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), stop.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, stop: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, stop: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMGradientStop>,
+        P1: windows_core::Param<IXpsOMGradientStop>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, stop.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), stop.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, stop: P0) -> windows_core::Result<()>
     where
@@ -3801,7 +3729,7 @@ pub struct IXpsOMGradientStopCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMGradientStopCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMGradientStopCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMGradientStop>;
     fn InsertAt(&self, index: u32, stop: Option<&IXpsOMGradientStop>) -> windows_core::Result<()>;
@@ -3809,9 +3737,8 @@ pub trait IXpsOMGradientStopCollection_Impl: Sized + windows_core::IUnknownImpl 
     fn SetAt(&self, index: u32, stop: Option<&IXpsOMGradientStop>) -> windows_core::Result<()>;
     fn Append(&self, stop: Option<&IXpsOMGradientStop>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMGradientStopCollection {}
 impl IXpsOMGradientStopCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>() -> IXpsOMGradientStopCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMGradientStopCollection_Impl::GetCount(this) {
@@ -3862,6 +3789,7 @@ impl IXpsOMGradientStopCollection_Vtbl {
         iid == &<IXpsOMGradientStopCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMGradientStopCollection {}
 windows_core::imp::define_interface!(IXpsOMImageBrush, IXpsOMImageBrush_Vtbl, 0x3df0b466_d382_49ef_8550_dd94c80242e4);
 impl core::ops::Deref for IXpsOMImageBrush {
     type Target = IXpsOMTileBrush;
@@ -3905,16 +3833,15 @@ pub struct IXpsOMImageBrush_Vtbl {
     pub SetColorProfileResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMImageBrush_Impl: Sized + IXpsOMTileBrush_Impl {
+pub trait IXpsOMImageBrush_Impl: IXpsOMTileBrush_Impl {
     fn GetImageResource(&self) -> windows_core::Result<IXpsOMImageResource>;
     fn SetImageResource(&self, imageresource: Option<&IXpsOMImageResource>) -> windows_core::Result<()>;
     fn GetColorProfileResource(&self) -> windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColorProfileResource(&self, colorprofileresource: Option<&IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMImageBrush>;
 }
-impl windows_core::RuntimeName for IXpsOMImageBrush {}
 impl IXpsOMImageBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMImageBrush_Impl, const OFFSET: isize>() -> IXpsOMImageBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMImageBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImageResource<Identity: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMImageBrush_Impl::GetImageResource(this) {
@@ -3966,6 +3893,7 @@ impl IXpsOMImageBrush_Vtbl {
         iid == &<IXpsOMImageBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMImageBrush {}
 windows_core::imp::define_interface!(IXpsOMImageResource, IXpsOMImageResource_Vtbl, 0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 impl core::ops::Deref for IXpsOMImageResource {
     type Target = IXpsOMResource;
@@ -3981,12 +3909,12 @@ impl IXpsOMImageResource {
         (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, imagetype: XPS_IMAGE_TYPE, partname: P1) -> windows_core::Result<()>
+    pub unsafe fn SetContent<P0, P2>(&self, sourcestream: P0, imagetype: XPS_IMAGE_TYPE, partname: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).SetContent)(windows_core::Interface::as_raw(self), sourcestream.param().abi(), imagetype, partname.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetContent)(windows_core::Interface::as_raw(self), sourcestream.param().abi(), core::mem::transmute(imagetype), partname.param().abi()).ok()
     }
     pub unsafe fn GetImageType(&self) -> windows_core::Result<XPS_IMAGE_TYPE> {
         let mut result__ = core::mem::zeroed();
@@ -4007,16 +3935,14 @@ pub struct IXpsOMImageResource_Vtbl {
     pub GetImageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_IMAGE_TYPE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMImageResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMImageResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, imagetype: XPS_IMAGE_TYPE, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetImageType(&self) -> windows_core::Result<XPS_IMAGE_TYPE>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMImageResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMImageResource_Vtbl {
-    pub const fn new<Identity: IXpsOMImageResource_Impl, const OFFSET: isize>() -> IXpsOMImageResource_Vtbl {
+    pub const fn new<Identity: IXpsOMImageResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMImageResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMImageResource_Impl::GetStream(this) {
@@ -4052,13 +3978,9 @@ impl IXpsOMImageResource_Vtbl {
         iid == &<IXpsOMImageResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMImageResource {}
 windows_core::imp::define_interface!(IXpsOMImageResourceCollection, IXpsOMImageResourceCollection_Vtbl, 0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
-impl core::ops::Deref for IXpsOMImageResourceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMImageResourceCollection, windows_core::IUnknown);
 impl IXpsOMImageResourceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -4067,22 +3989,22 @@ impl IXpsOMImageResourceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMImageResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMImageResource>,
+        P1: windows_core::Param<IXpsOMImageResource>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMImageResource>,
+        P1: windows_core::Param<IXpsOMImageResource>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, object: P0) -> windows_core::Result<()>
     where
@@ -4114,7 +4036,7 @@ pub struct IXpsOMImageResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMImageResourceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMImageResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMImageResource>;
     fn InsertAt(&self, index: u32, object: Option<&IXpsOMImageResource>) -> windows_core::Result<()>;
@@ -4124,10 +4046,8 @@ pub trait IXpsOMImageResourceCollection_Impl: Sized + windows_core::IUnknownImpl
     fn GetByPartName(&self, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMImageResourceCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMImageResourceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>() -> IXpsOMImageResourceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMImageResourceCollection_Impl::GetCount(this) {
@@ -4189,6 +4109,8 @@ impl IXpsOMImageResourceCollection_Vtbl {
         iid == &<IXpsOMImageResourceCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMImageResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMLinearGradientBrush, IXpsOMLinearGradientBrush_Vtbl, 0x005e279f_c30d_40ff_93ec_1950d3c528db);
 impl core::ops::Deref for IXpsOMLinearGradientBrush {
     type Target = IXpsOMGradientBrush;
@@ -4203,14 +4125,14 @@ impl IXpsOMLinearGradientBrush {
         (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint).ok()
+        (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint)).ok()
     }
     pub unsafe fn GetEndPoint(&self) -> windows_core::Result<XPS_POINT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEndPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEndPoint)(windows_core::Interface::as_raw(self), endpoint).ok()
+        (windows_core::Interface::vtable(self).SetEndPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(endpoint)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMLinearGradientBrush> {
         let mut result__ = core::mem::zeroed();
@@ -4226,16 +4148,15 @@ pub struct IXpsOMLinearGradientBrush_Vtbl {
     pub SetEndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMLinearGradientBrush_Impl: Sized + IXpsOMGradientBrush_Impl {
+pub trait IXpsOMLinearGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT>;
     fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()>;
     fn GetEndPoint(&self) -> windows_core::Result<XPS_POINT>;
     fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMLinearGradientBrush>;
 }
-impl windows_core::RuntimeName for IXpsOMLinearGradientBrush {}
 impl IXpsOMLinearGradientBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>() -> IXpsOMLinearGradientBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStartPoint<Identity: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *mut XPS_POINT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMLinearGradientBrush_Impl::GetStartPoint(this) {
@@ -4287,6 +4208,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         iid == &<IXpsOMLinearGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMLinearGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMMatrixTransform, IXpsOMMatrixTransform_Vtbl, 0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 impl core::ops::Deref for IXpsOMMatrixTransform {
     type Target = IXpsOMShareable;
@@ -4301,7 +4223,7 @@ impl IXpsOMMatrixTransform {
         (windows_core::Interface::vtable(self).GetMatrix)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix).ok()
+        (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMMatrixTransform> {
         let mut result__ = core::mem::zeroed();
@@ -4315,14 +4237,13 @@ pub struct IXpsOMMatrixTransform_Vtbl {
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_MATRIX) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMMatrixTransform_Impl: Sized + IXpsOMShareable_Impl {
+pub trait IXpsOMMatrixTransform_Impl: IXpsOMShareable_Impl {
     fn GetMatrix(&self) -> windows_core::Result<XPS_MATRIX>;
     fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
 }
-impl windows_core::RuntimeName for IXpsOMMatrixTransform {}
 impl IXpsOMMatrixTransform_Vtbl {
-    pub const fn new<Identity: IXpsOMMatrixTransform_Impl, const OFFSET: isize>() -> IXpsOMMatrixTransform_Vtbl {
+    pub const fn new<Identity: IXpsOMMatrixTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMatrix<Identity: IXpsOMMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *mut XPS_MATRIX) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMMatrixTransform_Impl::GetMatrix(this) {
@@ -4358,13 +4279,8 @@ impl IXpsOMMatrixTransform_Vtbl {
         iid == &<IXpsOMMatrixTransform as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMMatrixTransform {}
 windows_core::imp::define_interface!(IXpsOMNameCollection, IXpsOMNameCollection_Vtbl, 0x4bddf8ec_c915_421b_a166_d173d25653d2);
-impl core::ops::Deref for IXpsOMNameCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMNameCollection, windows_core::IUnknown);
 impl IXpsOMNameCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -4373,7 +4289,7 @@ impl IXpsOMNameCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -4382,13 +4298,12 @@ pub struct IXpsOMNameCollection_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-pub trait IXpsOMNameCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMNameCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<windows_core::PWSTR>;
 }
-impl windows_core::RuntimeName for IXpsOMNameCollection {}
 impl IXpsOMNameCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMNameCollection_Impl, const OFFSET: isize>() -> IXpsOMNameCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMNameCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMNameCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMNameCollection_Impl::GetCount(this) {
@@ -4415,13 +4330,8 @@ impl IXpsOMNameCollection_Vtbl {
         iid == &<IXpsOMNameCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMNameCollection {}
 windows_core::imp::define_interface!(IXpsOMObjectFactory, IXpsOMObjectFactory_Vtbl, 0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
-impl core::ops::Deref for IXpsOMObjectFactory {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMObjectFactory, windows_core::IUnknown);
 impl IXpsOMObjectFactory {
     pub unsafe fn CreatePackage(&self) -> windows_core::Result<IXpsOMPackage> {
@@ -4513,16 +4423,16 @@ impl IXpsOMObjectFactory {
     }
     pub unsafe fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> windows_core::Result<IXpsOMPageReference> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePageReference)(windows_core::Interface::as_raw(self), advisorypagedimensions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePageReference)(windows_core::Interface::as_raw(self), core::mem::transmute(advisorypagedimensions), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePage<P0, P1>(&self, pagedimensions: *const XPS_SIZE, language: P0, parturi: P1) -> windows_core::Result<IXpsOMPage>
+    pub unsafe fn CreatePage<P1, P2>(&self, pagedimensions: *const XPS_SIZE, language: P1, parturi: P2) -> windows_core::Result<IXpsOMPage>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePage)(windows_core::Interface::as_raw(self), pagedimensions, language.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePage)(windows_core::Interface::as_raw(self), core::mem::transmute(pagedimensions), language.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePageFromStream<P0, P1, P2, P3>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: P3) -> windows_core::Result<IXpsOMPage>
@@ -4556,18 +4466,18 @@ impl IXpsOMObjectFactory {
     }
     pub unsafe fn CreateGeometryFigure(&self, startpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMGeometryFigure> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGeometryFigure)(windows_core::Interface::as_raw(self), startpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGeometryFigure)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<IXpsOMMatrixTransform> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), matrix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateSolidColorBrush<P0>(&self, color: *const XPS_COLOR, colorprofile: P0) -> windows_core::Result<IXpsOMSolidColorBrush>
+    pub unsafe fn CreateSolidColorBrush<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::Result<IXpsOMSolidColorBrush>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSolidColorBrush)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSolidColorBrush)(windows_core::Interface::as_raw(self), core::mem::transmute(color), colorprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateColorProfileResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMColorProfileResource>
@@ -4583,20 +4493,20 @@ impl IXpsOMObjectFactory {
         P0: windows_core::Param<IXpsOMImageResource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImageBrush)(windows_core::Interface::as_raw(self), image.param().abi(), viewbox, viewport, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImageBrush)(windows_core::Interface::as_raw(self), image.param().abi(), core::mem::transmute(viewbox), core::mem::transmute(viewport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> windows_core::Result<IXpsOMVisualBrush> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateVisualBrush)(windows_core::Interface::as_raw(self), viewbox, viewport, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateVisualBrush)(windows_core::Interface::as_raw(self), core::mem::transmute(viewbox), core::mem::transmute(viewport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateImageResource<P0, P1>(&self, acquiredstream: P0, contenttype: XPS_IMAGE_TYPE, parturi: P1) -> windows_core::Result<IXpsOMImageResource>
+    pub unsafe fn CreateImageResource<P0, P2>(&self, acquiredstream: P0, contenttype: XPS_IMAGE_TYPE, parturi: P2) -> windows_core::Result<IXpsOMImageResource>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImageResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), contenttype, parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImageResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), core::mem::transmute(contenttype), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePrintTicketResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMPrintTicketResource>
@@ -4608,21 +4518,21 @@ impl IXpsOMObjectFactory {
         (windows_core::Interface::vtable(self).CreatePrintTicketResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateFontResource<P0, P1, P2>(&self, acquiredstream: P0, fontembedding: XPS_FONT_EMBEDDING, parturi: P1, isobfsourcestream: P2) -> windows_core::Result<IXpsOMFontResource>
+    pub unsafe fn CreateFontResource<P0, P2, P3>(&self, acquiredstream: P0, fontembedding: XPS_FONT_EMBEDDING, parturi: P2, isobfsourcestream: P3) -> windows_core::Result<IXpsOMFontResource>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateFontResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), fontembedding, parturi.param().abi(), isobfsourcestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFontResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), core::mem::transmute(fontembedding), parturi.param().abi(), isobfsourcestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateGradientStop<P0>(&self, color: *const XPS_COLOR, colorprofile: P0, offset: f32) -> windows_core::Result<IXpsOMGradientStop>
+    pub unsafe fn CreateGradientStop<P1>(&self, color: *const XPS_COLOR, colorprofile: P1, offset: f32) -> windows_core::Result<IXpsOMGradientStop>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGradientStop)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi(), offset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGradientStop)(windows_core::Interface::as_raw(self), core::mem::transmute(color), colorprofile.param().abi(), core::mem::transmute(offset), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateLinearGradientBrush<P0, P1>(&self, gradstop1: P0, gradstop2: P1, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMLinearGradientBrush>
     where
@@ -4630,7 +4540,7 @@ impl IXpsOMObjectFactory {
         P1: windows_core::Param<IXpsOMGradientStop>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLinearGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), startpoint, endpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLinearGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), core::mem::transmute(startpoint), core::mem::transmute(endpoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRadialGradientBrush<P0, P1>(&self, gradstop1: P0, gradstop2: P1, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> windows_core::Result<IXpsOMRadialGradientBrush>
     where
@@ -4638,7 +4548,7 @@ impl IXpsOMObjectFactory {
         P1: windows_core::Param<IXpsOMGradientStop>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRadialGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), centerpoint, gradientorigin, radiisizes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRadialGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), core::mem::transmute(centerpoint), core::mem::transmute(gradientorigin), core::mem::transmute(radiisizes), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateCoreProperties<P0>(&self, parturi: P0) -> windows_core::Result<IXpsOMCoreProperties>
@@ -4657,32 +4567,32 @@ impl IXpsOMObjectFactory {
         (windows_core::Interface::vtable(self).CreatePartUriCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnFile<P0, P1, P2, P3, P4, P5, P6>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreatePackageWriterOnFile<P0, P3, P5, P6, P7, P8, P9>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P3, interleaving: XPS_INTERLEAVING, documentsequencepartname: P5, coreproperties: P6, packagethumbnail: P7, documentsequenceprintticket: P8, discardcontrolpartname: P9) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
-        P3: windows_core::Param<IXpsOMCoreProperties>,
-        P4: windows_core::Param<IXpsOMImageResource>,
-        P5: windows_core::Param<IXpsOMPrintTicketResource>,
-        P6: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
+        P5: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P6: windows_core::Param<IXpsOMCoreProperties>,
+        P7: windows_core::Param<IXpsOMImageResource>,
+        P8: windows_core::Param<IXpsOMPrintTicketResource>,
+        P9: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePackageWriterOnFile)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.param().abi(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePackageWriterOnFile)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(securityattributes), core::mem::transmute(flagsandattributes), optimizemarkupsize.param().abi(), core::mem::transmute(interleaving), documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream<P0, P1, P2, P3, P4, P5, P6>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreatePackageWriterOnStream<P0, P1, P3, P4, P5, P6, P7>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P3, coreproperties: P4, packagethumbnail: P5, documentsequenceprintticket: P6, discardcontrolpartname: P7) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<super::super::System::Com::ISequentialStream>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
-        P3: windows_core::Param<IXpsOMCoreProperties>,
-        P4: windows_core::Param<IXpsOMImageResource>,
-        P5: windows_core::Param<IXpsOMPrintTicketResource>,
-        P6: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P4: windows_core::Param<IXpsOMCoreProperties>,
+        P5: windows_core::Param<IXpsOMImageResource>,
+        P6: windows_core::Param<IXpsOMPrintTicketResource>,
+        P7: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePackageWriterOnStream)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePackageWriterOnStream)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), core::mem::transmute(interleaving), documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePartUri<P0>(&self, uri: P0) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri>
@@ -4800,7 +4710,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     CreateReadOnlyStreamOnFile: usize,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMObjectFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePackage(&self) -> windows_core::Result<IXpsOMPackage>;
     fn CreatePackageFromFile(&self, filename: &windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage>;
     fn CreatePackageFromStream(&self, stream: Option<&super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage>;
@@ -4840,10 +4750,8 @@ pub trait IXpsOMObjectFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateReadOnlyStreamOnFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMObjectFactory {}
-#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory_Vtbl {
-    pub const fn new<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>() -> IXpsOMObjectFactory_Vtbl {
+    pub const fn new<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePackage<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMObjectFactory_Impl::CreatePackage(this) {
@@ -5271,6 +5179,8 @@ impl IXpsOMObjectFactory_Vtbl {
         iid == &<IXpsOMObjectFactory as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMObjectFactory {}
 windows_core::imp::define_interface!(IXpsOMObjectFactory1, IXpsOMObjectFactory1_Vtbl, 0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
 impl core::ops::Deref for IXpsOMObjectFactory1 {
     type Target = IXpsOMObjectFactory;
@@ -5308,32 +5218,32 @@ impl IXpsOMObjectFactory1 {
         (windows_core::Interface::vtable(self).ConvertJpegXRToHDPhoto)(windows_core::Interface::as_raw(self), imageresource.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnFile1<P0, P1, P2, P3, P4, P5, P6>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreatePackageWriterOnFile1<P0, P3, P5, P6, P7, P8, P9>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P3, interleaving: XPS_INTERLEAVING, documentsequencepartname: P5, coreproperties: P6, packagethumbnail: P7, documentsequenceprintticket: P8, discardcontrolpartname: P9, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
-        P3: windows_core::Param<IXpsOMCoreProperties>,
-        P4: windows_core::Param<IXpsOMImageResource>,
-        P5: windows_core::Param<IXpsOMPrintTicketResource>,
-        P6: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
+        P5: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P6: windows_core::Param<IXpsOMCoreProperties>,
+        P7: windows_core::Param<IXpsOMImageResource>,
+        P8: windows_core::Param<IXpsOMPrintTicketResource>,
+        P9: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePackageWriterOnFile1)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.param().abi(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), documenttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePackageWriterOnFile1)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(securityattributes), core::mem::transmute(flagsandattributes), optimizemarkupsize.param().abi(), core::mem::transmute(interleaving), documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), core::mem::transmute(documenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream1<P0, P1, P2, P3, P4, P5, P6>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreatePackageWriterOnStream1<P0, P1, P3, P4, P5, P6, P7>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P3, coreproperties: P4, packagethumbnail: P5, documentsequenceprintticket: P6, discardcontrolpartname: P7, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<super::super::System::Com::ISequentialStream>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
-        P3: windows_core::Param<IXpsOMCoreProperties>,
-        P4: windows_core::Param<IXpsOMImageResource>,
-        P5: windows_core::Param<IXpsOMPrintTicketResource>,
-        P6: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P4: windows_core::Param<IXpsOMCoreProperties>,
+        P5: windows_core::Param<IXpsOMImageResource>,
+        P6: windows_core::Param<IXpsOMPrintTicketResource>,
+        P7: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePackageWriterOnStream1)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), documenttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePackageWriterOnStream1)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), core::mem::transmute(interleaving), documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), core::mem::transmute(documenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePackage1(&self) -> windows_core::Result<IXpsOMPackage1> {
         let mut result__ = core::mem::zeroed();
@@ -5357,13 +5267,13 @@ impl IXpsOMObjectFactory1 {
         (windows_core::Interface::vtable(self).CreatePackageFromFile1)(windows_core::Interface::as_raw(self), filename.param().abi(), reuseobjects.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePage1<P0, P1>(&self, pagedimensions: *const XPS_SIZE, language: P0, parturi: P1) -> windows_core::Result<IXpsOMPage1>
+    pub unsafe fn CreatePage1<P1, P2>(&self, pagedimensions: *const XPS_SIZE, language: P1, parturi: P2) -> windows_core::Result<IXpsOMPage1>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePage1)(windows_core::Interface::as_raw(self), pagedimensions, language.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePage1)(windows_core::Interface::as_raw(self), core::mem::transmute(pagedimensions), language.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePageFromStream1<P0, P1, P2, P3>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: P3) -> windows_core::Result<IXpsOMPage1>
@@ -5425,7 +5335,7 @@ pub struct IXpsOMObjectFactory1_Vtbl {
     CreateRemoteDictionaryResourceFromStream1: usize,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
+pub trait IXpsOMObjectFactory1_Impl: IXpsOMObjectFactory_Impl {
     fn GetDocumentTypeFromFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn GetDocumentTypeFromStream(&self, xpsdocumentstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn ConvertHDPhotoToJpegXR(&self, imageresource: Option<&IXpsOMImageResource>) -> windows_core::Result<()>;
@@ -5440,10 +5350,8 @@ pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
     fn CreateRemoteDictionaryResourceFromStream1(&self, dictionarymarkupstream: Option<&super::super::System::Com::IStream>, parturi: Option<&super::Packaging::Opc::IOpcPartUri>, resources: Option<&IXpsOMPartResources>) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMObjectFactory1 {}
-#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory1_Vtbl {
-    pub const fn new<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>() -> IXpsOMObjectFactory1_Vtbl {
+    pub const fn new<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentTypeFromFile<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMObjectFactory1_Impl::GetDocumentTypeFromFile(this, core::mem::transmute(&filename)) {
@@ -5585,13 +5493,9 @@ impl IXpsOMObjectFactory1_Vtbl {
         iid == &<IXpsOMObjectFactory1 as windows_core::Interface>::IID || iid == &<IXpsOMObjectFactory as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMObjectFactory1 {}
 windows_core::imp::define_interface!(IXpsOMPackage, IXpsOMPackage_Vtbl, 0x18c3df65_81e1_4674_91dc_fc452f5a416f);
-impl core::ops::Deref for IXpsOMPackage {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPackage, windows_core::IUnknown);
 impl IXpsOMPackage {
     pub unsafe fn GetDocumentSequence(&self) -> windows_core::Result<IXpsOMDocumentSequence> {
@@ -5637,12 +5541,12 @@ impl IXpsOMPackage {
         (windows_core::Interface::vtable(self).SetThumbnailResource)(windows_core::Interface::as_raw(self), imageresource.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn WriteToFile<P0, P1>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1) -> windows_core::Result<()>
+    pub unsafe fn WriteToFile<P0, P3>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteToFile)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteToFile)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(securityattributes), core::mem::transmute(flagsandattributes), optimizemarkupsize.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteToStream<P0, P1>(&self, stream: P0, optimizemarkupsize: P1) -> windows_core::Result<()>
@@ -5680,7 +5584,7 @@ pub struct IXpsOMPackage_Vtbl {
     WriteToStream: usize,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPackage_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPackage_Impl: windows_core::IUnknownImpl {
     fn GetDocumentSequence(&self) -> windows_core::Result<IXpsOMDocumentSequence>;
     fn SetDocumentSequence(&self, documentsequence: Option<&IXpsOMDocumentSequence>) -> windows_core::Result<()>;
     fn GetCoreProperties(&self) -> windows_core::Result<IXpsOMCoreProperties>;
@@ -5693,10 +5597,8 @@ pub trait IXpsOMPackage_Impl: Sized + windows_core::IUnknownImpl {
     fn WriteToStream(&self, stream: Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPackage {}
-#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage_Vtbl {
-    pub const fn new<Identity: IXpsOMPackage_Impl, const OFFSET: isize>() -> IXpsOMPackage_Vtbl {
+    pub const fn new<Identity: IXpsOMPackage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentSequence<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPackage_Impl::GetDocumentSequence(this) {
@@ -5779,6 +5681,8 @@ impl IXpsOMPackage_Vtbl {
         iid == &<IXpsOMPackage as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPackage {}
 windows_core::imp::define_interface!(IXpsOMPackage1, IXpsOMPackage1_Vtbl, 0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
 impl core::ops::Deref for IXpsOMPackage1 {
     type Target = IXpsOMPackage;
@@ -5793,12 +5697,12 @@ impl IXpsOMPackage1 {
         (windows_core::Interface::vtable(self).GetDocumentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn WriteToFile1<P0, P1>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>
+    pub unsafe fn WriteToFile1<P0, P3>(&self, filename: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P3, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteToFile1)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.param().abi(), documenttype).ok()
+        (windows_core::Interface::vtable(self).WriteToFile1)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(securityattributes), core::mem::transmute(flagsandattributes), optimizemarkupsize.param().abi(), core::mem::transmute(documenttype)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteToStream1<P0, P1>(&self, outputstream: P0, optimizemarkupsize: P1, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>
@@ -5806,7 +5710,7 @@ impl IXpsOMPackage1 {
         P0: windows_core::Param<super::super::System::Com::ISequentialStream>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).WriteToStream1)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), documenttype).ok()
+        (windows_core::Interface::vtable(self).WriteToStream1)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.param().abi(), core::mem::transmute(documenttype)).ok()
     }
 }
 #[repr(C)]
@@ -5823,16 +5727,14 @@ pub struct IXpsOMPackage1_Vtbl {
     WriteToStream1: usize,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPackage1_Impl: Sized + IXpsOMPackage_Impl {
+pub trait IXpsOMPackage1_Impl: IXpsOMPackage_Impl {
     fn GetDocumentType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn WriteToFile1(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
     fn WriteToStream1(&self, outputstream: Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPackage1 {}
-#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage1_Vtbl {
-    pub const fn new<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>() -> IXpsOMPackage1_Vtbl {
+    pub const fn new<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentType<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPackage1_Impl::GetDocumentType(this) {
@@ -5862,13 +5764,9 @@ impl IXpsOMPackage1_Vtbl {
         iid == &<IXpsOMPackage1 as windows_core::Interface>::IID || iid == &<IXpsOMPackage as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPackage1 {}
 windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vtbl, 0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
-impl core::ops::Deref for IXpsOMPackageTarget {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, windows_core::IUnknown);
 impl IXpsOMPackageTarget {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5891,14 +5789,12 @@ pub struct IXpsOMPackageTarget_Vtbl {
     CreateXpsOMPackageWriter: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPackageTarget_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPackageTarget_Impl: windows_core::IUnknownImpl {
     fn CreateXpsOMPackageWriter(&self, documentsequencepartname: Option<&super::Packaging::Opc::IOpcPartUri>, documentsequenceprintticket: Option<&IXpsOMPrintTicketResource>, discardcontrolpartname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPackageTarget {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageTarget_Vtbl {
-    pub const fn new<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>() -> IXpsOMPackageTarget_Vtbl {
+    pub const fn new<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateXpsOMPackageWriter<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
@@ -5915,13 +5811,9 @@ impl IXpsOMPackageTarget_Vtbl {
         iid == &<IXpsOMPackageTarget as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPackageTarget {}
 windows_core::imp::define_interface!(IXpsOMPackageWriter, IXpsOMPackageWriter_Vtbl, 0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
-impl core::ops::Deref for IXpsOMPackageWriter {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPackageWriter, windows_core::IUnknown);
 impl IXpsOMPackageWriter {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5935,15 +5827,15 @@ impl IXpsOMPackageWriter {
     {
         (windows_core::Interface::vtable(self).StartNewDocument)(windows_core::Interface::as_raw(self), documentpartname.param().abi(), documentprintticket.param().abi(), documentstructure.param().abi(), signatureblockresources.param().abi(), restrictedfonts.param().abi()).ok()
     }
-    pub unsafe fn AddPage<P0, P1, P2, P3, P4>(&self, page: P0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: P1, storyfragments: P2, pageprintticket: P3, pagethumbnail: P4) -> windows_core::Result<()>
+    pub unsafe fn AddPage<P0, P2, P3, P4, P5>(&self, page: P0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: P2, storyfragments: P3, pageprintticket: P4, pagethumbnail: P5) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXpsOMPage>,
-        P1: windows_core::Param<IXpsOMPartUriCollection>,
-        P2: windows_core::Param<IXpsOMStoryFragmentsResource>,
-        P3: windows_core::Param<IXpsOMPrintTicketResource>,
-        P4: windows_core::Param<IXpsOMImageResource>,
+        P2: windows_core::Param<IXpsOMPartUriCollection>,
+        P3: windows_core::Param<IXpsOMStoryFragmentsResource>,
+        P4: windows_core::Param<IXpsOMPrintTicketResource>,
+        P5: windows_core::Param<IXpsOMImageResource>,
     {
-        (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), page.param().abi(), advisorypagedimensions, discardableresourceparts.param().abi(), storyfragments.param().abi(), pageprintticket.param().abi(), pagethumbnail.param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), page.param().abi(), core::mem::transmute(advisorypagedimensions), discardableresourceparts.param().abi(), storyfragments.param().abi(), pageprintticket.param().abi(), pagethumbnail.param().abi()).ok()
     }
     pub unsafe fn AddResource<P0>(&self, resource: P0) -> windows_core::Result<()>
     where
@@ -5972,7 +5864,7 @@ pub struct IXpsOMPackageWriter_Vtbl {
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPackageWriter_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn StartNewDocument(&self, documentpartname: Option<&super::Packaging::Opc::IOpcPartUri>, documentprintticket: Option<&IXpsOMPrintTicketResource>, documentstructure: Option<&IXpsOMDocumentStructureResource>, signatureblockresources: Option<&IXpsOMSignatureBlockResourceCollection>, restrictedfonts: Option<&IXpsOMPartUriCollection>) -> windows_core::Result<()>;
     fn AddPage(&self, page: Option<&IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: Option<&IXpsOMPartUriCollection>, storyfragments: Option<&IXpsOMStoryFragmentsResource>, pageprintticket: Option<&IXpsOMPrintTicketResource>, pagethumbnail: Option<&IXpsOMImageResource>) -> windows_core::Result<()>;
     fn AddResource(&self, resource: Option<&IXpsOMResource>) -> windows_core::Result<()>;
@@ -5980,10 +5872,8 @@ pub trait IXpsOMPackageWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn IsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPackageWriter {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter_Vtbl {
-    pub const fn new<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>() -> IXpsOMPackageWriter_Vtbl {
+    pub const fn new<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartNewDocument<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentpartname: *mut core::ffi::c_void, documentprintticket: *mut core::ffi::c_void, documentstructure: *mut core::ffi::c_void, signatureblockresources: *mut core::ffi::c_void, restrictedfonts: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXpsOMPackageWriter_Impl::StartNewDocument(this, windows_core::from_raw_borrowed(&documentpartname), windows_core::from_raw_borrowed(&documentprintticket), windows_core::from_raw_borrowed(&documentstructure), windows_core::from_raw_borrowed(&signatureblockresources), windows_core::from_raw_borrowed(&restrictedfonts)).into()
@@ -6023,6 +5913,8 @@ impl IXpsOMPackageWriter_Vtbl {
         iid == &<IXpsOMPackageWriter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPackageWriter {}
 windows_core::imp::define_interface!(IXpsOMPackageWriter3D, IXpsOMPackageWriter3D_Vtbl, 0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
 impl core::ops::Deref for IXpsOMPackageWriter3D {
     type Target = IXpsOMPackageWriter;
@@ -6062,15 +5954,13 @@ pub struct IXpsOMPackageWriter3D_Vtbl {
     SetModelPrintTicket: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPackageWriter3D_Impl: Sized + IXpsOMPackageWriter_Impl {
+pub trait IXpsOMPackageWriter3D_Impl: IXpsOMPackageWriter_Impl {
     fn AddModelTexture(&self, texturepartname: Option<&super::Packaging::Opc::IOpcPartUri>, texturedata: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn SetModelPrintTicket(&self, printticketpartname: Option<&super::Packaging::Opc::IOpcPartUri>, printticketdata: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPackageWriter3D {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter3D_Vtbl {
-    pub const fn new<Identity: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>() -> IXpsOMPackageWriter3D_Vtbl {
+    pub const fn new<Identity: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddModelTexture<Identity: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, texturepartname: *mut core::ffi::c_void, texturedata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXpsOMPackageWriter3D_Impl::AddModelTexture(this, windows_core::from_raw_borrowed(&texturepartname), windows_core::from_raw_borrowed(&texturedata)).into()
@@ -6089,6 +5979,8 @@ impl IXpsOMPackageWriter3D_Vtbl {
         iid == &<IXpsOMPackageWriter3D as windows_core::Interface>::IID || iid == &<IXpsOMPackageWriter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPackageWriter3D {}
 windows_core::imp::define_interface!(IXpsOMPage, IXpsOMPage_Vtbl, 0xd3e18888_f120_4fee_8c68_35296eae91d4);
 impl core::ops::Deref for IXpsOMPage {
     type Target = IXpsOMPart;
@@ -6111,21 +6003,21 @@ impl IXpsOMPage {
         (windows_core::Interface::vtable(self).GetPageDimensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPageDimensions)(windows_core::Interface::as_raw(self), pagedimensions).ok()
+        (windows_core::Interface::vtable(self).SetPageDimensions)(windows_core::Interface::as_raw(self), core::mem::transmute(pagedimensions)).ok()
     }
     pub unsafe fn GetContentBox(&self) -> windows_core::Result<XPS_RECT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetContentBox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetContentBox(&self, contentbox: *const XPS_RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetContentBox)(windows_core::Interface::as_raw(self), contentbox).ok()
+        (windows_core::Interface::vtable(self).SetContentBox)(windows_core::Interface::as_raw(self), core::mem::transmute(contentbox)).ok()
     }
     pub unsafe fn GetBleedBox(&self) -> windows_core::Result<XPS_RECT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBleedBox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBleedBox(&self, bleedbox: *const XPS_RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBleedBox)(windows_core::Interface::as_raw(self), bleedbox).ok()
+        (windows_core::Interface::vtable(self).SetBleedBox)(windows_core::Interface::as_raw(self), core::mem::transmute(bleedbox)).ok()
     }
     pub unsafe fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -6191,7 +6083,7 @@ impl IXpsOMPage {
     }
     pub unsafe fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GenerateUnusedLookupKey)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GenerateUnusedLookupKey)(windows_core::Interface::as_raw(self), core::mem::transmute(r#type), &mut result__).map(|| result__)
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMPage> {
         let mut result__ = core::mem::zeroed();
@@ -6228,7 +6120,7 @@ pub struct IXpsOMPage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
+pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPageReference>;
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
     fn GetPageDimensions(&self) -> windows_core::Result<XPS_SIZE>;
@@ -6253,10 +6145,8 @@ pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMPage>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPage {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage_Vtbl {
-    pub const fn new<Identity: IXpsOMPage_Impl, const OFFSET: isize>() -> IXpsOMPage_Vtbl {
+    pub const fn new<Identity: IXpsOMPage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPage_Impl::GetOwner(this) {
@@ -6453,6 +6343,8 @@ impl IXpsOMPage_Vtbl {
         iid == &<IXpsOMPage as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPage {}
 windows_core::imp::define_interface!(IXpsOMPage1, IXpsOMPage1_Vtbl, 0x305b60ef_6892_4dda_9cbb_3aa65974508a);
 impl core::ops::Deref for IXpsOMPage1 {
     type Target = IXpsOMPage;
@@ -6472,7 +6364,7 @@ impl IXpsOMPage1 {
         P0: windows_core::Param<super::super::System::Com::ISequentialStream>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Write1)(windows_core::Interface::as_raw(self), stream.param().abi(), optimizemarkupsize.param().abi(), documenttype).ok()
+        (windows_core::Interface::vtable(self).Write1)(windows_core::Interface::as_raw(self), stream.param().abi(), optimizemarkupsize.param().abi(), core::mem::transmute(documenttype)).ok()
     }
 }
 #[repr(C)]
@@ -6485,15 +6377,13 @@ pub struct IXpsOMPage1_Vtbl {
     Write1: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPage1_Impl: Sized + IXpsOMPage_Impl {
+pub trait IXpsOMPage1_Impl: IXpsOMPage_Impl {
     fn GetDocumentType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn Write1(&self, stream: Option<&super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPage1 {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage1_Vtbl {
-    pub const fn new<Identity: IXpsOMPage1_Impl, const OFFSET: isize>() -> IXpsOMPage1_Vtbl {
+    pub const fn new<Identity: IXpsOMPage1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentType<Identity: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPage1_Impl::GetDocumentType(this) {
@@ -6514,13 +6404,9 @@ impl IXpsOMPage1_Vtbl {
         iid == &<IXpsOMPage1 as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMPage as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPage1 {}
 windows_core::imp::define_interface!(IXpsOMPageReference, IXpsOMPageReference_Vtbl, 0xed360180_6f92_4998_890d_2f208531a0a0);
-impl core::ops::Deref for IXpsOMPageReference {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPageReference, windows_core::IUnknown);
 impl IXpsOMPageReference {
     pub unsafe fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument> {
@@ -6549,7 +6435,7 @@ impl IXpsOMPageReference {
         (windows_core::Interface::vtable(self).GetAdvisoryPageDimensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAdvisoryPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAdvisoryPageDimensions)(windows_core::Interface::as_raw(self), pagedimensions).ok()
+        (windows_core::Interface::vtable(self).SetAdvisoryPageDimensions)(windows_core::Interface::as_raw(self), core::mem::transmute(pagedimensions)).ok()
     }
     pub unsafe fn GetStoryFragmentsResource(&self) -> windows_core::Result<IXpsOMStoryFragmentsResource> {
         let mut result__ = core::mem::zeroed();
@@ -6619,7 +6505,7 @@ pub struct IXpsOMPageReference_Vtbl {
     pub HasRestrictedFonts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMPageReference_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetPage(&self) -> windows_core::Result<IXpsOMPage>;
     fn SetPage(&self, page: Option<&IXpsOMPage>) -> windows_core::Result<()>;
@@ -6638,9 +6524,8 @@ pub trait IXpsOMPageReference_Impl: Sized + windows_core::IUnknownImpl {
     fn HasRestrictedFonts(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPageReference>;
 }
-impl windows_core::RuntimeName for IXpsOMPageReference {}
 impl IXpsOMPageReference_Vtbl {
-    pub const fn new<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>() -> IXpsOMPageReference_Vtbl {
+    pub const fn new<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPageReference_Impl::GetOwner(this) {
@@ -6800,13 +6685,8 @@ impl IXpsOMPageReference_Vtbl {
         iid == &<IXpsOMPageReference as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMPageReference {}
 windows_core::imp::define_interface!(IXpsOMPageReferenceCollection, IXpsOMPageReferenceCollection_Vtbl, 0xca16ba4d_e7b9_45c5_958b_f98022473745);
-impl core::ops::Deref for IXpsOMPageReferenceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPageReferenceCollection, windows_core::IUnknown);
 impl IXpsOMPageReferenceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -6815,22 +6695,22 @@ impl IXpsOMPageReferenceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMPageReference> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, pagereference: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, pagereference: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMPageReference>,
+        P1: windows_core::Param<IXpsOMPageReference>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, pagereference.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), pagereference.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, pagereference: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, pagereference: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMPageReference>,
+        P1: windows_core::Param<IXpsOMPageReference>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, pagereference.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), pagereference.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, pagereference: P0) -> windows_core::Result<()>
     where
@@ -6849,7 +6729,7 @@ pub struct IXpsOMPageReferenceCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMPageReferenceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPageReferenceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMPageReference>;
     fn InsertAt(&self, index: u32, pagereference: Option<&IXpsOMPageReference>) -> windows_core::Result<()>;
@@ -6857,9 +6737,8 @@ pub trait IXpsOMPageReferenceCollection_Impl: Sized + windows_core::IUnknownImpl
     fn SetAt(&self, index: u32, pagereference: Option<&IXpsOMPageReference>) -> windows_core::Result<()>;
     fn Append(&self, pagereference: Option<&IXpsOMPageReference>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMPageReferenceCollection {}
 impl IXpsOMPageReferenceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>() -> IXpsOMPageReferenceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPageReferenceCollection_Impl::GetCount(this) {
@@ -6910,13 +6789,8 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         iid == &<IXpsOMPageReferenceCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMPageReferenceCollection {}
 windows_core::imp::define_interface!(IXpsOMPart, IXpsOMPart_Vtbl, 0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
-impl core::ops::Deref for IXpsOMPart {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPart, windows_core::IUnknown);
 impl IXpsOMPart {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -6945,15 +6819,13 @@ pub struct IXpsOMPart_Vtbl {
     SetPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPart_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPart_Impl: windows_core::IUnknownImpl {
     fn GetPartName(&self) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
     fn SetPartName(&self, parturi: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPart {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPart_Vtbl {
-    pub const fn new<Identity: IXpsOMPart_Impl, const OFFSET: isize>() -> IXpsOMPart_Vtbl {
+    pub const fn new<Identity: IXpsOMPart_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPartName<Identity: IXpsOMPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPart_Impl::GetPartName(this) {
@@ -6978,13 +6850,9 @@ impl IXpsOMPart_Vtbl {
         iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPart {}
 windows_core::imp::define_interface!(IXpsOMPartResources, IXpsOMPartResources_Vtbl, 0xf4cf7729_4864_4275_99b3_a8717163ecaf);
-impl core::ops::Deref for IXpsOMPartResources {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPartResources, windows_core::IUnknown);
 impl IXpsOMPartResources {
     pub unsafe fn GetFontResources(&self) -> windows_core::Result<IXpsOMFontResourceCollection> {
@@ -7012,15 +6880,14 @@ pub struct IXpsOMPartResources_Vtbl {
     pub GetColorProfileResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRemoteDictionaryResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMPartResources_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPartResources_Impl: windows_core::IUnknownImpl {
     fn GetFontResources(&self) -> windows_core::Result<IXpsOMFontResourceCollection>;
     fn GetImageResources(&self) -> windows_core::Result<IXpsOMImageResourceCollection>;
     fn GetColorProfileResources(&self) -> windows_core::Result<IXpsOMColorProfileResourceCollection>;
     fn GetRemoteDictionaryResources(&self) -> windows_core::Result<IXpsOMRemoteDictionaryResourceCollection>;
 }
-impl windows_core::RuntimeName for IXpsOMPartResources {}
 impl IXpsOMPartResources_Vtbl {
-    pub const fn new<Identity: IXpsOMPartResources_Impl, const OFFSET: isize>() -> IXpsOMPartResources_Vtbl {
+    pub const fn new<Identity: IXpsOMPartResources_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontResources<Identity: IXpsOMPartResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPartResources_Impl::GetFontResources(this) {
@@ -7073,13 +6940,8 @@ impl IXpsOMPartResources_Vtbl {
         iid == &<IXpsOMPartResources as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMPartResources {}
 windows_core::imp::define_interface!(IXpsOMPartUriCollection, IXpsOMPartUriCollection_Vtbl, 0x57c650d4_067c_4893_8c33_f62a0633730f);
-impl core::ops::Deref for IXpsOMPartUriCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMPartUriCollection, windows_core::IUnknown);
 impl IXpsOMPartUriCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -7089,24 +6951,24 @@ impl IXpsOMPartUriCollection {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertAt<P0>(&self, index: u32, parturi: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, parturi: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, parturi.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), parturi.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn SetAt<P0>(&self, index: u32, parturi: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, parturi: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, parturi.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), parturi.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn Append<P0>(&self, parturi: P0) -> windows_core::Result<()>
@@ -7139,7 +7001,7 @@ pub struct IXpsOMPartUriCollection_Vtbl {
     Append: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPartUriCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMPartUriCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
     fn InsertAt(&self, index: u32, parturi: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
@@ -7148,10 +7010,8 @@ pub trait IXpsOMPartUriCollection_Impl: Sized + windows_core::IUnknownImpl {
     fn Append(&self, parturi: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPartUriCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPartUriCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMPartUriCollection_Impl, const OFFSET: isize>() -> IXpsOMPartUriCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMPartUriCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPartUriCollection_Impl::GetCount(this) {
@@ -7202,6 +7062,8 @@ impl IXpsOMPartUriCollection_Vtbl {
         iid == &<IXpsOMPartUriCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPartUriCollection {}
 windows_core::imp::define_interface!(IXpsOMPath, IXpsOMPath_Vtbl, 0x37d38bb6_3ee9_4110_9312_14b194163337);
 impl core::ops::Deref for IXpsOMPath {
     type Target = IXpsOMVisual;
@@ -7298,49 +7160,49 @@ impl IXpsOMPath {
         (windows_core::Interface::vtable(self).GetStrokeDashCap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeDashCap(&self, strokedashcap: XPS_DASH_CAP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeDashCap)(windows_core::Interface::as_raw(self), strokedashcap).ok()
+        (windows_core::Interface::vtable(self).SetStrokeDashCap)(windows_core::Interface::as_raw(self), core::mem::transmute(strokedashcap)).ok()
     }
     pub unsafe fn GetStrokeDashOffset(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeDashOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeDashOffset(&self, strokedashoffset: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeDashOffset)(windows_core::Interface::as_raw(self), strokedashoffset).ok()
+        (windows_core::Interface::vtable(self).SetStrokeDashOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(strokedashoffset)).ok()
     }
     pub unsafe fn GetStrokeStartLineCap(&self) -> windows_core::Result<XPS_LINE_CAP> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeStartLineCap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeStartLineCap(&self, strokestartlinecap: XPS_LINE_CAP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeStartLineCap)(windows_core::Interface::as_raw(self), strokestartlinecap).ok()
+        (windows_core::Interface::vtable(self).SetStrokeStartLineCap)(windows_core::Interface::as_raw(self), core::mem::transmute(strokestartlinecap)).ok()
     }
     pub unsafe fn GetStrokeEndLineCap(&self) -> windows_core::Result<XPS_LINE_CAP> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeEndLineCap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeEndLineCap(&self, strokeendlinecap: XPS_LINE_CAP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeEndLineCap)(windows_core::Interface::as_raw(self), strokeendlinecap).ok()
+        (windows_core::Interface::vtable(self).SetStrokeEndLineCap)(windows_core::Interface::as_raw(self), core::mem::transmute(strokeendlinecap)).ok()
     }
     pub unsafe fn GetStrokeLineJoin(&self) -> windows_core::Result<XPS_LINE_JOIN> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeLineJoin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeLineJoin(&self, strokelinejoin: XPS_LINE_JOIN) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeLineJoin)(windows_core::Interface::as_raw(self), strokelinejoin).ok()
+        (windows_core::Interface::vtable(self).SetStrokeLineJoin)(windows_core::Interface::as_raw(self), core::mem::transmute(strokelinejoin)).ok()
     }
     pub unsafe fn GetStrokeMiterLimit(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeMiterLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeMiterLimit(&self, strokemiterlimit: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeMiterLimit)(windows_core::Interface::as_raw(self), strokemiterlimit).ok()
+        (windows_core::Interface::vtable(self).SetStrokeMiterLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(strokemiterlimit)).ok()
     }
     pub unsafe fn GetStrokeThickness(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStrokeThickness)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStrokeThickness(&self, strokethickness: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStrokeThickness)(windows_core::Interface::as_raw(self), strokethickness).ok()
+        (windows_core::Interface::vtable(self).SetStrokeThickness)(windows_core::Interface::as_raw(self), core::mem::transmute(strokethickness)).ok()
     }
     pub unsafe fn GetFillBrush(&self) -> windows_core::Result<IXpsOMBrush> {
         let mut result__ = core::mem::zeroed();
@@ -7413,7 +7275,7 @@ pub struct IXpsOMPath_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXpsOMPath_Impl: Sized + IXpsOMVisual_Impl {
+pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn GetGeometry(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn GetGeometryLocal(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn SetGeometryLocal(&self, geometry: Option<&IXpsOMGeometry>) -> windows_core::Result<()>;
@@ -7453,10 +7315,8 @@ pub trait IXpsOMPath_Impl: Sized + IXpsOMVisual_Impl {
     fn Clone(&self) -> windows_core::Result<IXpsOMPath>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXpsOMPath {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMPath_Vtbl {
-    pub const fn new<Identity: IXpsOMPath_Impl, const OFFSET: isize>() -> IXpsOMPath_Vtbl {
+    pub const fn new<Identity: IXpsOMPath_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGeometry<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPath_Impl::GetGeometry(this) {
@@ -7776,6 +7636,8 @@ impl IXpsOMPath_Vtbl {
         iid == &<IXpsOMPath as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXpsOMPath {}
 windows_core::imp::define_interface!(IXpsOMPrintTicketResource, IXpsOMPrintTicketResource_Vtbl, 0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 impl core::ops::Deref for IXpsOMPrintTicketResource {
     type Target = IXpsOMResource;
@@ -7812,15 +7674,13 @@ pub struct IXpsOMPrintTicketResource_Vtbl {
     SetContent: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMPrintTicketResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMPrintTicketResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMPrintTicketResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPrintTicketResource_Vtbl {
-    pub const fn new<Identity: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>() -> IXpsOMPrintTicketResource_Vtbl {
+    pub const fn new<Identity: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMPrintTicketResource_Impl::GetStream(this) {
@@ -7841,6 +7701,8 @@ impl IXpsOMPrintTicketResource_Vtbl {
         iid == &<IXpsOMPrintTicketResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMPrintTicketResource {}
 windows_core::imp::define_interface!(IXpsOMRadialGradientBrush, IXpsOMRadialGradientBrush_Vtbl, 0x75f207e5_08bf_413c_96b1_b82b4064176b);
 impl core::ops::Deref for IXpsOMRadialGradientBrush {
     type Target = IXpsOMGradientBrush;
@@ -7855,21 +7717,21 @@ impl IXpsOMRadialGradientBrush {
         (windows_core::Interface::vtable(self).GetCenter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCenter(&self, center: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCenter)(windows_core::Interface::as_raw(self), center).ok()
+        (windows_core::Interface::vtable(self).SetCenter)(windows_core::Interface::as_raw(self), core::mem::transmute(center)).ok()
     }
     pub unsafe fn GetRadiiSizes(&self) -> windows_core::Result<XPS_SIZE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetRadiiSizes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRadiiSizes(&self, radiisizes: *const XPS_SIZE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRadiiSizes)(windows_core::Interface::as_raw(self), radiisizes).ok()
+        (windows_core::Interface::vtable(self).SetRadiiSizes)(windows_core::Interface::as_raw(self), core::mem::transmute(radiisizes)).ok()
     }
     pub unsafe fn GetGradientOrigin(&self) -> windows_core::Result<XPS_POINT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGradientOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetGradientOrigin)(windows_core::Interface::as_raw(self), origin).ok()
+        (windows_core::Interface::vtable(self).SetGradientOrigin)(windows_core::Interface::as_raw(self), core::mem::transmute(origin)).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMRadialGradientBrush> {
         let mut result__ = core::mem::zeroed();
@@ -7887,7 +7749,7 @@ pub struct IXpsOMRadialGradientBrush_Vtbl {
     pub SetGradientOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMRadialGradientBrush_Impl: Sized + IXpsOMGradientBrush_Impl {
+pub trait IXpsOMRadialGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn GetCenter(&self) -> windows_core::Result<XPS_POINT>;
     fn SetCenter(&self, center: *const XPS_POINT) -> windows_core::Result<()>;
     fn GetRadiiSizes(&self) -> windows_core::Result<XPS_SIZE>;
@@ -7896,9 +7758,8 @@ pub trait IXpsOMRadialGradientBrush_Impl: Sized + IXpsOMGradientBrush_Impl {
     fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMRadialGradientBrush>;
 }
-impl windows_core::RuntimeName for IXpsOMRadialGradientBrush {}
 impl IXpsOMRadialGradientBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>() -> IXpsOMRadialGradientBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCenter<Identity: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: *mut XPS_POINT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMRadialGradientBrush_Impl::GetCenter(this) {
@@ -7966,6 +7827,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         iid == &<IXpsOMRadialGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMRadialGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource, IXpsOMRemoteDictionaryResource_Vtbl, 0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
 impl core::ops::Deref for IXpsOMRemoteDictionaryResource {
     type Target = IXpsOMResource;
@@ -7993,15 +7855,13 @@ pub struct IXpsOMRemoteDictionaryResource_Vtbl {
     pub SetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMRemoteDictionaryResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMRemoteDictionaryResource_Impl: IXpsOMResource_Impl {
     fn GetDictionary(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn SetDictionary(&self, dictionary: Option<&IXpsOMDictionary>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResource_Vtbl {
-    pub const fn new<Identity: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>() -> IXpsOMRemoteDictionaryResource_Vtbl {
+    pub const fn new<Identity: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDictionary<Identity: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMRemoteDictionaryResource_Impl::GetDictionary(this) {
@@ -8026,6 +7886,8 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource1, IXpsOMRemoteDictionaryResource1_Vtbl, 0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
 impl core::ops::Deref for IXpsOMRemoteDictionaryResource1 {
     type Target = IXpsOMRemoteDictionaryResource;
@@ -8044,7 +7906,7 @@ impl IXpsOMRemoteDictionaryResource1 {
     where
         P0: windows_core::Param<super::super::System::Com::ISequentialStream>,
     {
-        (windows_core::Interface::vtable(self).Write1)(windows_core::Interface::as_raw(self), stream.param().abi(), documenttype).ok()
+        (windows_core::Interface::vtable(self).Write1)(windows_core::Interface::as_raw(self), stream.param().abi(), core::mem::transmute(documenttype)).ok()
     }
 }
 #[repr(C)]
@@ -8057,15 +7919,13 @@ pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
     Write1: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMRemoteDictionaryResource1_Impl: Sized + IXpsOMRemoteDictionaryResource_Impl {
+pub trait IXpsOMRemoteDictionaryResource1_Impl: IXpsOMRemoteDictionaryResource_Impl {
     fn GetDocumentType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn Write1(&self, stream: Option<&super::super::System::Com::ISequentialStream>, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource1 {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResource1_Vtbl {
-    pub const fn new<Identity: IXpsOMRemoteDictionaryResource1_Impl, const OFFSET: isize>() -> IXpsOMRemoteDictionaryResource1_Vtbl {
+    pub const fn new<Identity: IXpsOMRemoteDictionaryResource1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentType<Identity: IXpsOMRemoteDictionaryResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMRemoteDictionaryResource1_Impl::GetDocumentType(this) {
@@ -8090,13 +7950,9 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResource1 as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource1 {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResourceCollection, IXpsOMRemoteDictionaryResourceCollection_Vtbl, 0x5c38db61_7fec_464a_87bd_41e3bef018be);
-impl core::ops::Deref for IXpsOMRemoteDictionaryResourceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, windows_core::IUnknown);
 impl IXpsOMRemoteDictionaryResourceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -8105,22 +7961,22 @@ impl IXpsOMRemoteDictionaryResourceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMRemoteDictionaryResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMRemoteDictionaryResource>,
+        P1: windows_core::Param<IXpsOMRemoteDictionaryResource>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMRemoteDictionaryResource>,
+        P1: windows_core::Param<IXpsOMRemoteDictionaryResource>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, object: P0) -> windows_core::Result<()>
     where
@@ -8152,7 +8008,7 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
     fn InsertAt(&self, index: u32, object: Option<&IXpsOMRemoteDictionaryResource>) -> windows_core::Result<()>;
@@ -8162,10 +8018,8 @@ pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: Sized + windows_core::I
     fn GetByPartName(&self, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResourceCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>() -> IXpsOMRemoteDictionaryResourceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMRemoteDictionaryResourceCollection_Impl::GetCount(this) {
@@ -8227,6 +8081,8 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResourceCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMResource, IXpsOMResource_Vtbl, 0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 impl core::ops::Deref for IXpsOMResource {
     type Target = IXpsOMPart;
@@ -8235,31 +8091,24 @@ impl core::ops::Deref for IXpsOMResource {
     }
 }
 windows_core::imp::interface_hierarchy!(IXpsOMResource, windows_core::IUnknown, IXpsOMPart);
-impl IXpsOMResource {}
 #[repr(C)]
 pub struct IXpsOMResource_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMResource_Impl: Sized + IXpsOMPart_Impl {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMResource {}
+pub trait IXpsOMResource_Impl: IXpsOMPart_Impl {}
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMResource_Vtbl {
-    pub const fn new<Identity: IXpsOMResource_Impl, const OFFSET: isize>() -> IXpsOMResource_Vtbl {
+    pub const fn new<Identity: IXpsOMResource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXpsOMPart_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMResource {}
 windows_core::imp::define_interface!(IXpsOMShareable, IXpsOMShareable_Vtbl, 0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
-impl core::ops::Deref for IXpsOMShareable {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMShareable, windows_core::IUnknown);
 impl IXpsOMShareable {
     pub unsafe fn GetOwner(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -8277,13 +8126,12 @@ pub struct IXpsOMShareable_Vtbl {
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_OBJECT_TYPE) -> windows_core::HRESULT,
 }
-pub trait IXpsOMShareable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMShareable_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetType(&self) -> windows_core::Result<XPS_OBJECT_TYPE>;
 }
-impl windows_core::RuntimeName for IXpsOMShareable {}
 impl IXpsOMShareable_Vtbl {
-    pub const fn new<Identity: IXpsOMShareable_Impl, const OFFSET: isize>() -> IXpsOMShareable_Vtbl {
+    pub const fn new<Identity: IXpsOMShareable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMShareable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMShareable_Impl::GetOwner(this) {
@@ -8310,6 +8158,7 @@ impl IXpsOMShareable_Vtbl {
         iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMShareable {}
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResource, IXpsOMSignatureBlockResource_Vtbl, 0x4776ad35_2e04_4357_8743_ebf6c171a905);
 impl core::ops::Deref for IXpsOMSignatureBlockResource {
     type Target = IXpsOMResource;
@@ -8351,16 +8200,14 @@ pub struct IXpsOMSignatureBlockResource_Vtbl {
     SetContent: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMSignatureBlockResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMSignatureBlockResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMSignatureBlockResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMSignatureBlockResource_Vtbl {
-    pub const fn new<Identity: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>() -> IXpsOMSignatureBlockResource_Vtbl {
+    pub const fn new<Identity: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMSignatureBlockResource_Impl::GetOwner(this) {
@@ -8396,13 +8243,9 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         iid == &<IXpsOMSignatureBlockResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMSignatureBlockResource {}
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResourceCollection, IXpsOMSignatureBlockResourceCollection_Vtbl, 0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
-impl core::ops::Deref for IXpsOMSignatureBlockResourceCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, windows_core::IUnknown);
 impl IXpsOMSignatureBlockResourceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -8411,22 +8254,22 @@ impl IXpsOMSignatureBlockResourceCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMSignatureBlockResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, signatureblockresource: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, signatureblockresource: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMSignatureBlockResource>,
+        P1: windows_core::Param<IXpsOMSignatureBlockResource>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, signatureblockresource.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), signatureblockresource.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, signatureblockresource: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, signatureblockresource: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMSignatureBlockResource>,
+        P1: windows_core::Param<IXpsOMSignatureBlockResource>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, signatureblockresource.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), signatureblockresource.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, signatureblockresource: P0) -> windows_core::Result<()>
     where
@@ -8458,7 +8301,7 @@ pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     GetByPartName: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMSignatureBlockResourceCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMSignatureBlockResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMSignatureBlockResource>;
     fn InsertAt(&self, index: u32, signatureblockresource: Option<&IXpsOMSignatureBlockResource>) -> windows_core::Result<()>;
@@ -8468,10 +8311,8 @@ pub trait IXpsOMSignatureBlockResourceCollection_Impl: Sized + windows_core::IUn
     fn GetByPartName(&self, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMSignatureBlockResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMSignatureBlockResourceCollection {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMSignatureBlockResourceCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>() -> IXpsOMSignatureBlockResourceCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMSignatureBlockResourceCollection_Impl::GetCount(this) {
@@ -8533,6 +8374,8 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
         iid == &<IXpsOMSignatureBlockResourceCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMSignatureBlockResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMSolidColorBrush, IXpsOMSolidColorBrush_Vtbl, 0xa06f9f05_3be9_4763_98a8_094fc672e488);
 impl core::ops::Deref for IXpsOMSolidColorBrush {
     type Target = IXpsOMBrush;
@@ -8544,13 +8387,13 @@ windows_core::imp::interface_hierarchy!(IXpsOMSolidColorBrush, windows_core::IUn
 impl IXpsOMSolidColorBrush {
     pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), color, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetColor<P0>(&self, color: *const XPS_COLOR, colorprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn SetColor<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMColorProfileResource>,
+        P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
-        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), core::mem::transmute(color), colorprofile.param().abi()).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMSolidColorBrush> {
         let mut result__ = core::mem::zeroed();
@@ -8564,14 +8407,13 @@ pub struct IXpsOMSolidColorBrush_Vtbl {
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMSolidColorBrush_Impl: Sized + IXpsOMBrush_Impl {
+pub trait IXpsOMSolidColorBrush_Impl: IXpsOMBrush_Impl {
     fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: Option<&IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMSolidColorBrush>;
 }
-impl windows_core::RuntimeName for IXpsOMSolidColorBrush {}
 impl IXpsOMSolidColorBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>() -> IXpsOMSolidColorBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColor<Identity: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMSolidColorBrush_Impl::GetColor(this, core::mem::transmute_copy(&color)) {
@@ -8607,6 +8449,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
         iid == &<IXpsOMSolidColorBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMSolidColorBrush {}
 windows_core::imp::define_interface!(IXpsOMStoryFragmentsResource, IXpsOMStoryFragmentsResource_Vtbl, 0xc2b3ca09_0473_4282_87ae_1780863223f0);
 impl core::ops::Deref for IXpsOMStoryFragmentsResource {
     type Target = IXpsOMResource;
@@ -8648,16 +8491,14 @@ pub struct IXpsOMStoryFragmentsResource_Vtbl {
     SetContent: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMStoryFragmentsResource_Impl: Sized + IXpsOMResource_Impl {
+pub trait IXpsOMStoryFragmentsResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPageReference>;
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetContent(&self, sourcestream: Option<&super::super::System::Com::IStream>, partname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMStoryFragmentsResource {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMStoryFragmentsResource_Vtbl {
-    pub const fn new<Identity: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>() -> IXpsOMStoryFragmentsResource_Vtbl {
+    pub const fn new<Identity: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMStoryFragmentsResource_Impl::GetOwner(this) {
@@ -8693,23 +8534,19 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         iid == &<IXpsOMStoryFragmentsResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMStoryFragmentsResource {}
 windows_core::imp::define_interface!(IXpsOMThumbnailGenerator, IXpsOMThumbnailGenerator_Vtbl, 0x15b873d5_1971_41e8_83a3_6578403064c7);
-impl core::ops::Deref for IXpsOMThumbnailGenerator {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMThumbnailGenerator, windows_core::IUnknown);
 impl IXpsOMThumbnailGenerator {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateThumbnail<P0, P1>(&self, page: P0, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: P1) -> windows_core::Result<IXpsOMImageResource>
+    pub unsafe fn GenerateThumbnail<P0, P3>(&self, page: P0, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: P3) -> windows_core::Result<IXpsOMImageResource>
     where
         P0: windows_core::Param<IXpsOMPage>,
-        P1: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
+        P3: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GenerateThumbnail)(windows_core::Interface::as_raw(self), page.param().abi(), thumbnailtype, thumbnailsize, imageresourcepartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GenerateThumbnail)(windows_core::Interface::as_raw(self), page.param().abi(), core::mem::transmute(thumbnailtype), core::mem::transmute(thumbnailsize), imageresourcepartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -8721,14 +8558,12 @@ pub struct IXpsOMThumbnailGenerator_Vtbl {
     GenerateThumbnail: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsOMThumbnailGenerator_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMThumbnailGenerator_Impl: windows_core::IUnknownImpl {
     fn GenerateThumbnail(&self, page: Option<&IXpsOMPage>, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: Option<&super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsOMThumbnailGenerator {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMThumbnailGenerator_Vtbl {
-    pub const fn new<Identity: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>() -> IXpsOMThumbnailGenerator_Vtbl {
+    pub const fn new<Identity: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GenerateThumbnail<Identity: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut core::ffi::c_void, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMThumbnailGenerator_Impl::GenerateThumbnail(this, windows_core::from_raw_borrowed(&page), core::mem::transmute_copy(&thumbnailtype), core::mem::transmute_copy(&thumbnailsize), windows_core::from_raw_borrowed(&imageresourcepartname)) {
@@ -8745,6 +8580,8 @@ impl IXpsOMThumbnailGenerator_Vtbl {
         iid == &<IXpsOMThumbnailGenerator as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsOMThumbnailGenerator {}
 windows_core::imp::define_interface!(IXpsOMTileBrush, IXpsOMTileBrush_Vtbl, 0x0fc2328d_d722_4a54_b2ec_be90218a789e);
 impl core::ops::Deref for IXpsOMTileBrush {
     type Target = IXpsOMBrush;
@@ -8783,21 +8620,21 @@ impl IXpsOMTileBrush {
         (windows_core::Interface::vtable(self).GetViewbox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetViewbox)(windows_core::Interface::as_raw(self), viewbox).ok()
+        (windows_core::Interface::vtable(self).SetViewbox)(windows_core::Interface::as_raw(self), core::mem::transmute(viewbox)).ok()
     }
     pub unsafe fn GetViewport(&self) -> windows_core::Result<XPS_RECT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetViewport)(windows_core::Interface::as_raw(self), viewport).ok()
+        (windows_core::Interface::vtable(self).SetViewport)(windows_core::Interface::as_raw(self), core::mem::transmute(viewport)).ok()
     }
     pub unsafe fn GetTileMode(&self) -> windows_core::Result<XPS_TILE_MODE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTileMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTileMode)(windows_core::Interface::as_raw(self), tilemode).ok()
+        (windows_core::Interface::vtable(self).SetTileMode)(windows_core::Interface::as_raw(self), core::mem::transmute(tilemode)).ok()
     }
 }
 #[repr(C)]
@@ -8815,7 +8652,7 @@ pub struct IXpsOMTileBrush_Vtbl {
     pub GetTileMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_TILE_MODE) -> windows_core::HRESULT,
     pub SetTileMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_TILE_MODE) -> windows_core::HRESULT,
 }
-pub trait IXpsOMTileBrush_Impl: Sized + IXpsOMBrush_Impl {
+pub trait IXpsOMTileBrush_Impl: IXpsOMBrush_Impl {
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn SetTransformLocal(&self, transform: Option<&IXpsOMMatrixTransform>) -> windows_core::Result<()>;
@@ -8828,9 +8665,8 @@ pub trait IXpsOMTileBrush_Impl: Sized + IXpsOMBrush_Impl {
     fn GetTileMode(&self) -> windows_core::Result<XPS_TILE_MODE>;
     fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMTileBrush {}
 impl IXpsOMTileBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMTileBrush_Impl, const OFFSET: isize>() -> IXpsOMTileBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMTileBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransform<Identity: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMTileBrush_Impl::GetTransform(this) {
@@ -8930,6 +8766,7 @@ impl IXpsOMTileBrush_Vtbl {
         iid == &<IXpsOMTileBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMTileBrush {}
 windows_core::imp::define_interface!(IXpsOMVisual, IXpsOMVisual_Vtbl, 0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
 impl core::ops::Deref for IXpsOMVisual {
     type Target = IXpsOMShareable;
@@ -8992,7 +8829,7 @@ impl IXpsOMVisual {
         (windows_core::Interface::vtable(self).GetOpacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity).ok()
+        (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), core::mem::transmute(opacity)).ok()
     }
     pub unsafe fn GetOpacityMaskBrush(&self) -> windows_core::Result<IXpsOMBrush> {
         let mut result__ = core::mem::zeroed();
@@ -9097,7 +8934,7 @@ pub struct IXpsOMVisual_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
+pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn SetTransformLocal(&self, matrixtransform: Option<&IXpsOMMatrixTransform>) -> windows_core::Result<()>;
@@ -9125,10 +8962,8 @@ pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
     fn SetLanguage(&self, language: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXpsOMVisual {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXpsOMVisual_Vtbl {
-    pub const fn new<Identity: IXpsOMVisual_Impl, const OFFSET: isize>() -> IXpsOMVisual_Vtbl {
+    pub const fn new<Identity: IXpsOMVisual_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransform<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMVisual_Impl::GetTransform(this) {
@@ -9346,6 +9181,8 @@ impl IXpsOMVisual_Vtbl {
         iid == &<IXpsOMVisual as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXpsOMVisual {}
 windows_core::imp::define_interface!(IXpsOMVisualBrush, IXpsOMVisualBrush_Vtbl, 0x97e294af_5b37_46b4_8057_874d2f64119b);
 impl core::ops::Deref for IXpsOMVisualBrush {
     type Target = IXpsOMTileBrush;
@@ -9394,7 +9231,7 @@ pub struct IXpsOMVisualBrush_Vtbl {
     pub SetVisualLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMVisualBrush_Impl: Sized + IXpsOMTileBrush_Impl {
+pub trait IXpsOMVisualBrush_Impl: IXpsOMTileBrush_Impl {
     fn GetVisual(&self) -> windows_core::Result<IXpsOMVisual>;
     fn GetVisualLocal(&self) -> windows_core::Result<IXpsOMVisual>;
     fn SetVisualLocal(&self, visual: Option<&IXpsOMVisual>) -> windows_core::Result<()>;
@@ -9402,9 +9239,8 @@ pub trait IXpsOMVisualBrush_Impl: Sized + IXpsOMTileBrush_Impl {
     fn SetVisualLookup(&self, lookup: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMVisualBrush>;
 }
-impl windows_core::RuntimeName for IXpsOMVisualBrush {}
 impl IXpsOMVisualBrush_Vtbl {
-    pub const fn new<Identity: IXpsOMVisualBrush_Impl, const OFFSET: isize>() -> IXpsOMVisualBrush_Vtbl {
+    pub const fn new<Identity: IXpsOMVisualBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisual<Identity: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMVisualBrush_Impl::GetVisual(this) {
@@ -9467,13 +9303,8 @@ impl IXpsOMVisualBrush_Vtbl {
         iid == &<IXpsOMVisualBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMVisualBrush {}
 windows_core::imp::define_interface!(IXpsOMVisualCollection, IXpsOMVisualCollection_Vtbl, 0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
-impl core::ops::Deref for IXpsOMVisualCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsOMVisualCollection, windows_core::IUnknown);
 impl IXpsOMVisualCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -9482,22 +9313,22 @@ impl IXpsOMVisualCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMVisual> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InsertAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn InsertAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMVisual>,
+        P1: windows_core::Param<IXpsOMVisual>,
     {
-        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
-    pub unsafe fn SetAt<P0>(&self, index: u32, object: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAt<P1>(&self, index: u32, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXpsOMVisual>,
+        P1: windows_core::Param<IXpsOMVisual>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, object.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), object.param().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, object: P0) -> windows_core::Result<()>
     where
@@ -9516,7 +9347,7 @@ pub struct IXpsOMVisualCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXpsOMVisualCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsOMVisualCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMVisual>;
     fn InsertAt(&self, index: u32, object: Option<&IXpsOMVisual>) -> windows_core::Result<()>;
@@ -9524,9 +9355,8 @@ pub trait IXpsOMVisualCollection_Impl: Sized + windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, object: Option<&IXpsOMVisual>) -> windows_core::Result<()>;
     fn Append(&self, object: Option<&IXpsOMVisual>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsOMVisualCollection {}
 impl IXpsOMVisualCollection_Vtbl {
-    pub const fn new<Identity: IXpsOMVisualCollection_Impl, const OFFSET: isize>() -> IXpsOMVisualCollection_Vtbl {
+    pub const fn new<Identity: IXpsOMVisualCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsOMVisualCollection_Impl::GetCount(this) {
@@ -9577,13 +9407,8 @@ impl IXpsOMVisualCollection_Vtbl {
         iid == &<IXpsOMVisualCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsOMVisualCollection {}
 windows_core::imp::define_interface!(IXpsSignature, IXpsSignature_Vtbl, 0x6ae4c93e_1ade_42fb_898b_3a5658284857);
-impl core::ops::Deref for IXpsSignature {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignature, windows_core::IUnknown);
 impl IXpsSignature {
     pub unsafe fn GetSignatureId(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -9591,7 +9416,7 @@ impl IXpsSignature {
         (windows_core::Interface::vtable(self).GetSignatureId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSignatureValue)(windows_core::Interface::as_raw(self), signaturehashvalue, count).ok()
+        (windows_core::Interface::vtable(self).GetSignatureValue)(windows_core::Interface::as_raw(self), core::mem::transmute(signaturehashvalue), core::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCertificateEnumerator(&self) -> windows_core::Result<super::Packaging::Opc::IOpcCertificateEnumerator> {
@@ -9615,7 +9440,7 @@ impl IXpsSignature {
     #[cfg(feature = "Win32_Security_Cryptography")]
     pub unsafe fn Verify(&self, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::Result<XPS_SIGNATURE_STATUS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Verify)(windows_core::Interface::as_raw(self), x509certificate, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Verify)(windows_core::Interface::as_raw(self), core::mem::transmute(x509certificate), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPolicy(&self) -> windows_core::Result<XPS_SIGN_POLICY> {
         let mut result__ = core::mem::zeroed();
@@ -9632,7 +9457,7 @@ impl IXpsSignature {
         (windows_core::Interface::vtable(self).GetCustomReferenceEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSignatureXml)(windows_core::Interface::as_raw(self), signaturexml, count).ok()
+        (windows_core::Interface::vtable(self).GetSignatureXml)(windows_core::Interface::as_raw(self), core::mem::transmute(signaturexml), core::mem::transmute(count)).ok()
     }
     pub unsafe fn SetSignatureXml(&self, signaturexml: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSignatureXml)(windows_core::Interface::as_raw(self), core::mem::transmute(signaturexml.as_ptr()), signaturexml.len().try_into().unwrap()).ok()
@@ -9673,7 +9498,7 @@ pub struct IXpsSignature_Vtbl {
     pub SetSignatureXml: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsSignature_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignature_Impl: windows_core::IUnknownImpl {
     fn GetSignatureId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()>;
     fn GetCertificateEnumerator(&self) -> windows_core::Result<super::Packaging::Opc::IOpcCertificateEnumerator>;
@@ -9688,10 +9513,8 @@ pub trait IXpsSignature_Impl: Sized + windows_core::IUnknownImpl {
     fn SetSignatureXml(&self, signaturexml: *const u8, count: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsSignature {}
-#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignature_Vtbl {
-    pub const fn new<Identity: IXpsSignature_Impl, const OFFSET: isize>() -> IXpsSignature_Vtbl {
+    pub const fn new<Identity: IXpsSignature_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSignatureId<Identity: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sigid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignature_Impl::GetSignatureId(this) {
@@ -9814,13 +9637,9 @@ impl IXpsSignature_Vtbl {
         iid == &<IXpsSignature as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsSignature {}
 windows_core::imp::define_interface!(IXpsSignatureBlock, IXpsSignatureBlock_Vtbl, 0x151fac09_0b97_4ac6_a323_5e4297d4322b);
-impl core::ops::Deref for IXpsSignatureBlock {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureBlock, windows_core::IUnknown);
 impl IXpsSignatureBlock {
     pub unsafe fn GetRequests(&self) -> windows_core::Result<IXpsSignatureRequestCollection> {
@@ -9865,7 +9684,7 @@ pub struct IXpsSignatureBlock_Vtbl {
     pub CreateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsSignatureBlock_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureBlock_Impl: windows_core::IUnknownImpl {
     fn GetRequests(&self) -> windows_core::Result<IXpsSignatureRequestCollection>;
     fn GetPartName(&self) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
     fn GetDocumentIndex(&self) -> windows_core::Result<u32>;
@@ -9873,10 +9692,8 @@ pub trait IXpsSignatureBlock_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateRequest(&self, requestid: &windows_core::PCWSTR) -> windows_core::Result<IXpsSignatureRequest>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsSignatureBlock {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureBlock_Vtbl {
-    pub const fn new<Identity: IXpsSignatureBlock_Impl, const OFFSET: isize>() -> IXpsSignatureBlock_Vtbl {
+    pub const fn new<Identity: IXpsSignatureBlock_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRequests<Identity: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requests: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignatureBlock_Impl::GetRequests(this) {
@@ -9940,13 +9757,9 @@ impl IXpsSignatureBlock_Vtbl {
         iid == &<IXpsSignatureBlock as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsSignatureBlock {}
 windows_core::imp::define_interface!(IXpsSignatureBlockCollection, IXpsSignatureBlockCollection_Vtbl, 0x23397050_fe99_467a_8dce_9237f074ffe4);
-impl core::ops::Deref for IXpsSignatureBlockCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureBlockCollection, windows_core::IUnknown);
 impl IXpsSignatureBlockCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -9955,10 +9768,10 @@ impl IXpsSignatureBlockCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignatureBlock> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
 }
 #[repr(C)]
@@ -9968,14 +9781,13 @@ pub struct IXpsSignatureBlockCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IXpsSignatureBlockCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureBlockCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignatureBlock>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsSignatureBlockCollection {}
 impl IXpsSignatureBlockCollection_Vtbl {
-    pub const fn new<Identity: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>() -> IXpsSignatureBlockCollection_Vtbl {
+    pub const fn new<Identity: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignatureBlockCollection_Impl::GetCount(this) {
@@ -10011,13 +9823,8 @@ impl IXpsSignatureBlockCollection_Vtbl {
         iid == &<IXpsSignatureBlockCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsSignatureBlockCollection {}
 windows_core::imp::define_interface!(IXpsSignatureCollection, IXpsSignatureCollection_Vtbl, 0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
-impl core::ops::Deref for IXpsSignatureCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureCollection, windows_core::IUnknown);
 impl IXpsSignatureCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -10026,10 +9833,10 @@ impl IXpsSignatureCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignature> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
 }
 #[repr(C)]
@@ -10039,14 +9846,13 @@ pub struct IXpsSignatureCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IXpsSignatureCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignature>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsSignatureCollection {}
 impl IXpsSignatureCollection_Vtbl {
-    pub const fn new<Identity: IXpsSignatureCollection_Impl, const OFFSET: isize>() -> IXpsSignatureCollection_Vtbl {
+    pub const fn new<Identity: IXpsSignatureCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsSignatureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignatureCollection_Impl::GetCount(this) {
@@ -10082,13 +9888,8 @@ impl IXpsSignatureCollection_Vtbl {
         iid == &<IXpsSignatureCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsSignatureCollection {}
 windows_core::imp::define_interface!(IXpsSignatureManager, IXpsSignatureManager_Vtbl, 0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
-impl core::ops::Deref for IXpsSignatureManager {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureManager, windows_core::IUnknown);
 impl IXpsSignatureManager {
     pub unsafe fn LoadPackageFile<P0>(&self, filename: P0) -> windows_core::Result<()>
@@ -10110,7 +9911,7 @@ impl IXpsSignatureManager {
         P0: windows_core::Param<IXpsSigningOptions>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Sign)(windows_core::Interface::as_raw(self), signoptions.param().abi(), x509certificate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Sign)(windows_core::Interface::as_raw(self), signoptions.param().abi(), core::mem::transmute(x509certificate), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSignatureOriginPartName(&self) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri> {
@@ -10134,7 +9935,7 @@ impl IXpsSignatureManager {
         P0: windows_core::Param<super::Packaging::Opc::IOpcPartUri>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddSignatureBlock)(windows_core::Interface::as_raw(self), partname.param().abi(), fixeddocumentindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddSignatureBlock)(windows_core::Interface::as_raw(self), partname.param().abi(), core::mem::transmute(fixeddocumentindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSignatureBlocks(&self) -> windows_core::Result<IXpsSignatureBlockCollection> {
         let mut result__ = core::mem::zeroed();
@@ -10149,7 +9950,7 @@ impl IXpsSignatureManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SavePackageToFile)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes).ok()
+        (windows_core::Interface::vtable(self).SavePackageToFile)(windows_core::Interface::as_raw(self), filename.param().abi(), core::mem::transmute(securityattributes), core::mem::transmute(flagsandattributes)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SavePackageToStream<P0>(&self, stream: P0) -> windows_core::Result<()>
@@ -10196,7 +9997,7 @@ pub struct IXpsSignatureManager_Vtbl {
     SavePackageToStream: usize,
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsSignatureManager_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureManager_Impl: windows_core::IUnknownImpl {
     fn LoadPackageFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn LoadPackageStream(&self, stream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Sign(&self, signoptions: Option<&IXpsSigningOptions>, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::Result<IXpsSignature>;
@@ -10210,10 +10011,8 @@ pub trait IXpsSignatureManager_Impl: Sized + windows_core::IUnknownImpl {
     fn SavePackageToStream(&self, stream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsSignatureManager {}
-#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureManager_Vtbl {
-    pub const fn new<Identity: IXpsSignatureManager_Impl, const OFFSET: isize>() -> IXpsSignatureManager_Vtbl {
+    pub const fn new<Identity: IXpsSignatureManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadPackageFile<Identity: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXpsSignatureManager_Impl::LoadPackageFile(this, core::mem::transmute(&filename)).into()
@@ -10313,13 +10112,9 @@ impl IXpsSignatureManager_Vtbl {
         iid == &<IXpsSignatureManager as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsSignatureManager {}
 windows_core::imp::define_interface!(IXpsSignatureRequest, IXpsSignatureRequest_Vtbl, 0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
-impl core::ops::Deref for IXpsSignatureRequest {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureRequest, windows_core::IUnknown);
 impl IXpsSignatureRequest {
     pub unsafe fn GetIntent(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -10364,10 +10159,10 @@ impl IXpsSignatureRequest {
     }
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSpotLocation(&self, pageindex: *mut i32, pagepartname: *mut Option<super::Packaging::Opc::IOpcPartUri>, x: *mut f32, y: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSpotLocation)(windows_core::Interface::as_raw(self), pageindex, core::mem::transmute(pagepartname), x, y).ok()
+        (windows_core::Interface::vtable(self).GetSpotLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(pageindex), core::mem::transmute(pagepartname), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
     pub unsafe fn SetSpotLocation(&self, pageindex: i32, x: f32, y: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSpotLocation)(windows_core::Interface::as_raw(self), pageindex, x, y).ok()
+        (windows_core::Interface::vtable(self).SetSpotLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(pageindex), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
     pub unsafe fn GetRequestId(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
@@ -10398,7 +10193,7 @@ pub struct IXpsSignatureRequest_Vtbl {
     pub GetSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsSignatureRequest_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureRequest_Impl: windows_core::IUnknownImpl {
     fn GetIntent(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetIntent(&self, intent: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetRequestedSigner(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -10413,10 +10208,8 @@ pub trait IXpsSignatureRequest_Impl: Sized + windows_core::IUnknownImpl {
     fn GetSignature(&self) -> windows_core::Result<IXpsSignature>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsSignatureRequest {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureRequest_Vtbl {
-    pub const fn new<Identity: IXpsSignatureRequest_Impl, const OFFSET: isize>() -> IXpsSignatureRequest_Vtbl {
+    pub const fn new<Identity: IXpsSignatureRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIntent<Identity: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intent: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignatureRequest_Impl::GetIntent(this) {
@@ -10521,13 +10314,9 @@ impl IXpsSignatureRequest_Vtbl {
         iid == &<IXpsSignatureRequest as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsSignatureRequest {}
 windows_core::imp::define_interface!(IXpsSignatureRequestCollection, IXpsSignatureRequestCollection_Vtbl, 0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
-impl core::ops::Deref for IXpsSignatureRequestCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSignatureRequestCollection, windows_core::IUnknown);
 impl IXpsSignatureRequestCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -10536,10 +10325,10 @@ impl IXpsSignatureRequestCollection {
     }
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignatureRequest> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
+        (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
     }
 }
 #[repr(C)]
@@ -10549,14 +10338,13 @@ pub struct IXpsSignatureRequestCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IXpsSignatureRequestCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSignatureRequestCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsSignatureRequest>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXpsSignatureRequestCollection {}
 impl IXpsSignatureRequestCollection_Vtbl {
-    pub const fn new<Identity: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>() -> IXpsSignatureRequestCollection_Vtbl {
+    pub const fn new<Identity: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSignatureRequestCollection_Impl::GetCount(this) {
@@ -10592,13 +10380,8 @@ impl IXpsSignatureRequestCollection_Vtbl {
         iid == &<IXpsSignatureRequestCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXpsSignatureRequestCollection {}
 windows_core::imp::define_interface!(IXpsSigningOptions, IXpsSigningOptions_Vtbl, 0x7718eae4_3215_49be_af5b_594fef7fcfa6);
-impl core::ops::Deref for IXpsSigningOptions {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXpsSigningOptions, windows_core::IUnknown);
 impl IXpsSigningOptions {
     pub unsafe fn GetSignatureId(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -10648,7 +10431,7 @@ impl IXpsSigningOptions {
         (windows_core::Interface::vtable(self).GetPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPolicy(&self, policy: XPS_SIGN_POLICY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), policy).ok()
+        (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(policy)).ok()
     }
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetSigningTimeFormat(&self) -> windows_core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT> {
@@ -10657,7 +10440,7 @@ impl IXpsSigningOptions {
     }
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn SetSigningTimeFormat(&self, timeformat: super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSigningTimeFormat)(windows_core::Interface::as_raw(self), timeformat).ok()
+        (windows_core::Interface::vtable(self).SetSigningTimeFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(timeformat)).ok()
     }
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCustomObjects(&self) -> windows_core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectSet> {
@@ -10679,7 +10462,7 @@ impl IXpsSigningOptions {
         (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFlags(&self, flags: XPS_SIGN_FLAGS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), flags).ok()
+        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(flags)).ok()
     }
 }
 #[repr(C)]
@@ -10725,7 +10508,7 @@ pub struct IXpsSigningOptions_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_SIGN_FLAGS) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-pub trait IXpsSigningOptions_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXpsSigningOptions_Impl: windows_core::IUnknownImpl {
     fn GetSignatureId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetSignatureId(&self, signatureid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetSignatureMethod(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -10745,10 +10528,8 @@ pub trait IXpsSigningOptions_Impl: Sized + windows_core::IUnknownImpl {
     fn SetFlags(&self, flags: XPS_SIGN_FLAGS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IXpsSigningOptions {}
-#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSigningOptions_Vtbl {
-    pub const fn new<Identity: IXpsSigningOptions_Impl, const OFFSET: isize>() -> IXpsSigningOptions_Vtbl {
+    pub const fn new<Identity: IXpsSigningOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSignatureId<Identity: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXpsSigningOptions_Impl::GetSignatureId(this) {
@@ -10902,6 +10683,460 @@ impl IXpsSigningOptions_Vtbl {
         iid == &<IXpsSigningOptions as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IXpsSigningOptions {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRINT_WINDOW_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PSINJECT_POINT(pub u16);
+impl PSINJECT_POINT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PSINJECT_POINT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PSINJECT_POINT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PSINJECT_POINT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PSINJECT_POINT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PSINJECT_POINT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_COLOR_INTERPOLATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_COLOR_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_DASH_CAP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_DOCUMENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_FILL_RULE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_FONT_EMBEDDING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_IMAGE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_INTERLEAVING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_LINE_CAP(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_LINE_JOIN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_OBJECT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SEGMENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SIGNATURE_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SIGN_FLAGS(pub i32);
+impl XPS_SIGN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for XPS_SIGN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for XPS_SIGN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for XPS_SIGN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for XPS_SIGN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for XPS_SIGN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SIGN_POLICY(pub i32);
+impl XPS_SIGN_POLICY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for XPS_SIGN_POLICY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for XPS_SIGN_POLICY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for XPS_SIGN_POLICY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for XPS_SIGN_POLICY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for XPS_SIGN_POLICY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_SPREAD_METHOD(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_STYLE_SIMULATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_THUMBNAIL_SIZE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_TILE_MODE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOCINFOA {
+    pub cbSize: i32,
+    pub lpszDocName: windows_core::PCSTR,
+    pub lpszOutput: windows_core::PCSTR,
+    pub lpszDatatype: windows_core::PCSTR,
+    pub fwType: u32,
+}
+impl Default for DOCINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOCINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOCINFOW {
+    pub cbSize: i32,
+    pub lpszDocName: windows_core::PCWSTR,
+    pub lpszOutput: windows_core::PCWSTR,
+    pub lpszDatatype: windows_core::PCWSTR,
+    pub fwType: u32,
+}
+impl Default for DOCINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOCINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DRAWPATRECT {
+    pub ptPosition: super::super::Foundation::POINT,
+    pub ptSize: super::super::Foundation::POINT,
+    pub wStyle: u16,
+    pub wPattern: u16,
+}
+impl Default for DRAWPATRECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DRAWPATRECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PSFEATURE_CUSTPAPER {
+    pub lOrientation: i32,
+    pub lWidth: i32,
+    pub lHeight: i32,
+    pub lWidthOffset: i32,
+    pub lHeightOffset: i32,
+}
+impl Default for PSFEATURE_CUSTPAPER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PSFEATURE_CUSTPAPER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PSFEATURE_OUTPUT {
+    pub bPageIndependent: super::super::Foundation::BOOL,
+    pub bSetPageDevice: super::super::Foundation::BOOL,
+}
+impl Default for PSFEATURE_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PSFEATURE_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PSINJECTDATA {
+    pub DataBytes: u32,
+    pub InjectionPoint: PSINJECT_POINT,
+    pub PageNumber: u16,
+}
+impl Default for PSINJECTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PSINJECTDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR {
+    pub colorType: XPS_COLOR_TYPE,
+    pub value: XPS_COLOR_0,
+}
+impl Default for XPS_COLOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_COLOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union XPS_COLOR_0 {
+    pub sRGB: XPS_COLOR_0_0,
+    pub scRGB: XPS_COLOR_0_1,
+    pub context: XPS_COLOR_0_2,
+}
+impl Default for XPS_COLOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_COLOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_COLOR_0_2 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+impl Default for XPS_COLOR_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_COLOR_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_COLOR_0_0 {
+    pub alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
+}
+impl Default for XPS_COLOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_COLOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_COLOR_0_1 {
+    pub alpha: f32,
+    pub red: f32,
+    pub green: f32,
+    pub blue: f32,
+}
+impl Default for XPS_COLOR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_COLOR_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_DASH {
+    pub length: f32,
+    pub gap: f32,
+}
+impl Default for XPS_DASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_DASH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_GLYPH_INDEX {
+    pub index: i32,
+    pub advanceWidth: f32,
+    pub horizontalOffset: f32,
+    pub verticalOffset: f32,
+}
+impl Default for XPS_GLYPH_INDEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_GLYPH_INDEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_GLYPH_MAPPING {
+    pub unicodeStringStart: u32,
+    pub unicodeStringLength: u16,
+    pub glyphIndicesStart: u32,
+    pub glyphIndicesLength: u16,
+}
+impl Default for XPS_GLYPH_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_GLYPH_MAPPING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_MATRIX {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub m31: f32,
+    pub m32: f32,
+}
+impl Default for XPS_MATRIX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_MATRIX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_POINT {
+    pub x: f32,
+    pub y: f32,
+}
+impl Default for XPS_POINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_POINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_RECT {
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+impl Default for XPS_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_RECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_SIZE {
+    pub width: f32,
+    pub height: f32,
+}
+impl Default for XPS_SIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XPS_SIZE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const XpsOMObjectFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
+pub const XpsOMThumbnailGenerator: windows_core::GUID = windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+pub const XpsSignatureManager: windows_core::GUID = windows_core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 pub const DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(12u16);
 pub const DC_BINS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(6u16);
 pub const DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(22u16);
@@ -11130,639 +11365,3 @@ pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = XPS_TILE_MODE(5i32);
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = XPS_TILE_MODE(4i32);
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = XPS_TILE_MODE(1i32);
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = XPS_TILE_MODE(2i32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
-impl windows_core::TypeKind for PRINTER_DEVICE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PRINTER_DEVICE_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRINTER_DEVICE_CAPABILITIES").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PRINT_WINDOW_FLAGS(pub u32);
-impl windows_core::TypeKind for PRINT_WINDOW_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PRINT_WINDOW_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRINT_WINDOW_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PSINJECT_POINT(pub u16);
-impl windows_core::TypeKind for PSINJECT_POINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PSINJECT_POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSINJECT_POINT").field(&self.0).finish()
-    }
-}
-impl PSINJECT_POINT {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PSINJECT_POINT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PSINJECT_POINT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PSINJECT_POINT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PSINJECT_POINT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PSINJECT_POINT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_COLOR_INTERPOLATION(pub i32);
-impl windows_core::TypeKind for XPS_COLOR_INTERPOLATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_COLOR_INTERPOLATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_COLOR_INTERPOLATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_COLOR_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_COLOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_COLOR_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_COLOR_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_DASH_CAP(pub i32);
-impl windows_core::TypeKind for XPS_DASH_CAP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_DASH_CAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_DASH_CAP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_DOCUMENT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_DOCUMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_DOCUMENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_DOCUMENT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_FILL_RULE(pub i32);
-impl windows_core::TypeKind for XPS_FILL_RULE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_FILL_RULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_FILL_RULE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_FONT_EMBEDDING(pub i32);
-impl windows_core::TypeKind for XPS_FONT_EMBEDDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_FONT_EMBEDDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_FONT_EMBEDDING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_IMAGE_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_IMAGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_IMAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_IMAGE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_INTERLEAVING(pub i32);
-impl windows_core::TypeKind for XPS_INTERLEAVING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_INTERLEAVING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_INTERLEAVING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_LINE_CAP(pub i32);
-impl windows_core::TypeKind for XPS_LINE_CAP {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_LINE_CAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_LINE_CAP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_LINE_JOIN(pub i32);
-impl windows_core::TypeKind for XPS_LINE_JOIN {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_LINE_JOIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_LINE_JOIN").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_OBJECT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
-impl windows_core::TypeKind for XPS_SEGMENT_STROKE_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SEGMENT_STROKE_PATTERN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SEGMENT_STROKE_PATTERN").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SEGMENT_TYPE(pub i32);
-impl windows_core::TypeKind for XPS_SEGMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SEGMENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SEGMENT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SIGNATURE_STATUS(pub i32);
-impl windows_core::TypeKind for XPS_SIGNATURE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SIGNATURE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SIGNATURE_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SIGN_FLAGS(pub i32);
-impl windows_core::TypeKind for XPS_SIGN_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SIGN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SIGN_FLAGS").field(&self.0).finish()
-    }
-}
-impl XPS_SIGN_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for XPS_SIGN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for XPS_SIGN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for XPS_SIGN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for XPS_SIGN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for XPS_SIGN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SIGN_POLICY(pub i32);
-impl windows_core::TypeKind for XPS_SIGN_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SIGN_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SIGN_POLICY").field(&self.0).finish()
-    }
-}
-impl XPS_SIGN_POLICY {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for XPS_SIGN_POLICY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for XPS_SIGN_POLICY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for XPS_SIGN_POLICY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for XPS_SIGN_POLICY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for XPS_SIGN_POLICY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_SPREAD_METHOD(pub i32);
-impl windows_core::TypeKind for XPS_SPREAD_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_SPREAD_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_SPREAD_METHOD").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_STYLE_SIMULATION(pub i32);
-impl windows_core::TypeKind for XPS_STYLE_SIMULATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_STYLE_SIMULATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_STYLE_SIMULATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_THUMBNAIL_SIZE(pub i32);
-impl windows_core::TypeKind for XPS_THUMBNAIL_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_THUMBNAIL_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_THUMBNAIL_SIZE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct XPS_TILE_MODE(pub i32);
-impl windows_core::TypeKind for XPS_TILE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XPS_TILE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XPS_TILE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DOCINFOA {
-    pub cbSize: i32,
-    pub lpszDocName: windows_core::PCSTR,
-    pub lpszOutput: windows_core::PCSTR,
-    pub lpszDatatype: windows_core::PCSTR,
-    pub fwType: u32,
-}
-impl windows_core::TypeKind for DOCINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DOCINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DOCINFOW {
-    pub cbSize: i32,
-    pub lpszDocName: windows_core::PCWSTR,
-    pub lpszOutput: windows_core::PCWSTR,
-    pub lpszDatatype: windows_core::PCWSTR,
-    pub fwType: u32,
-}
-impl windows_core::TypeKind for DOCINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DOCINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DRAWPATRECT {
-    pub ptPosition: super::super::Foundation::POINT,
-    pub ptSize: super::super::Foundation::POINT,
-    pub wStyle: u16,
-    pub wPattern: u16,
-}
-impl windows_core::TypeKind for DRAWPATRECT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DRAWPATRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSFEATURE_CUSTPAPER {
-    pub lOrientation: i32,
-    pub lWidth: i32,
-    pub lHeight: i32,
-    pub lWidthOffset: i32,
-    pub lHeightOffset: i32,
-}
-impl windows_core::TypeKind for PSFEATURE_CUSTPAPER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSFEATURE_CUSTPAPER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSFEATURE_OUTPUT {
-    pub bPageIndependent: super::super::Foundation::BOOL,
-    pub bSetPageDevice: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for PSFEATURE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSFEATURE_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSINJECTDATA {
-    pub DataBytes: u32,
-    pub InjectionPoint: PSINJECT_POINT,
-    pub PageNumber: u16,
-}
-impl windows_core::TypeKind for PSINJECTDATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSINJECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR {
-    pub colorType: XPS_COLOR_TYPE,
-    pub value: XPS_COLOR_0,
-}
-impl windows_core::TypeKind for XPS_COLOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union XPS_COLOR_0 {
-    pub sRGB: XPS_COLOR_0_0,
-    pub scRGB: XPS_COLOR_0_1,
-    pub context: XPS_COLOR_0_2,
-}
-impl windows_core::TypeKind for XPS_COLOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl windows_core::TypeKind for XPS_COLOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct XPS_COLOR_0_0 {
-    pub alpha: u8,
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-}
-impl windows_core::TypeKind for XPS_COLOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_1 {
-    pub alpha: f32,
-    pub red: f32,
-    pub green: f32,
-    pub blue: f32,
-}
-impl windows_core::TypeKind for XPS_COLOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_DASH {
-    pub length: f32,
-    pub gap: f32,
-}
-impl windows_core::TypeKind for XPS_DASH {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_DASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_GLYPH_INDEX {
-    pub index: i32,
-    pub advanceWidth: f32,
-    pub horizontalOffset: f32,
-    pub verticalOffset: f32,
-}
-impl windows_core::TypeKind for XPS_GLYPH_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_GLYPH_INDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct XPS_GLYPH_MAPPING {
-    pub unicodeStringStart: u32,
-    pub unicodeStringLength: u16,
-    pub glyphIndicesStart: u32,
-    pub glyphIndicesLength: u16,
-}
-impl windows_core::TypeKind for XPS_GLYPH_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_GLYPH_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub m31: f32,
-    pub m32: f32,
-}
-impl windows_core::TypeKind for XPS_MATRIX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_MATRIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_POINT {
-    pub x: f32,
-    pub y: f32,
-}
-impl windows_core::TypeKind for XPS_POINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_RECT {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
-}
-impl windows_core::TypeKind for XPS_RECT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_SIZE {
-    pub width: f32,
-    pub height: f32,
-}
-impl windows_core::TypeKind for XPS_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const XpsOMObjectFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
-pub const XpsOMThumbnailGenerator: windows_core::GUID = windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
-pub const XpsSignatureManager: windows_core::GUID = windows_core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;

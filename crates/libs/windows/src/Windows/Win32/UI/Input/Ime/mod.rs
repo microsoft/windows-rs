@@ -14,7 +14,7 @@ where
     P1: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : HIMC, param2 : u32) -> super::super::super::Foundation:: BOOL);
-    ImmAssociateContextEx(param0.param().abi(), param1.param().abi(), param2)
+    ImmAssociateContextEx(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -24,7 +24,7 @@ where
     P1: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    ImmConfigureIMEA(param0.param().abi(), param1.param().abi(), param2, param3)
+    ImmConfigureIMEA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -34,7 +34,7 @@ where
     P1: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    ImmConfigureIMEW(param0.param().abi(), param1.param().abi(), param2, param3)
+    ImmConfigureIMEW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[inline]
 pub unsafe fn ImmCreateContext() -> HIMC {
@@ -44,15 +44,15 @@ pub unsafe fn ImmCreateContext() -> HIMC {
 #[inline]
 pub unsafe fn ImmCreateIMCC(param0: u32) -> HIMCC {
     windows_targets::link!("imm32.dll" "system" fn ImmCreateIMCC(param0 : u32) -> HIMCC);
-    ImmCreateIMCC(param0)
+    ImmCreateIMCC(core::mem::transmute(param0))
 }
 #[inline]
-pub unsafe fn ImmCreateSoftKeyboard<P0>(param0: u32, param1: P0, param2: i32, param3: i32) -> super::super::super::Foundation::HWND
+pub unsafe fn ImmCreateSoftKeyboard<P1>(param0: u32, param1: P1, param2: i32, param3: i32) -> super::super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
-    ImmCreateSoftKeyboard(param0, param1.param().abi(), param2, param3)
+    ImmCreateSoftKeyboard(core::mem::transmute(param0), param1.param().abi(), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[inline]
 pub unsafe fn ImmDestroyContext<P0>(param0: P0) -> super::super::super::Foundation::BOOL
@@ -81,7 +81,7 @@ where
 #[inline]
 pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> super::super::super::Foundation:: BOOL);
-    ImmDisableIME(param0)
+    ImmDisableIME(core::mem::transmute(param0))
 }
 #[inline]
 pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
@@ -91,37 +91,37 @@ pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> super::super::super::Foundation:: BOOL);
-    ImmDisableTextFrameService(idthread)
+    ImmDisableTextFrameService(core::mem::transmute(idthread))
 }
 #[inline]
-pub unsafe fn ImmEnumInputContext<P0>(idthread: u32, lpfn: IMCENUMPROC, lparam: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmEnumInputContext<P2>(idthread: u32, lpfn: IMCENUMPROC, lparam: P2) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
-    ImmEnumInputContext(idthread, lpfn, lparam.param().abi())
+    ImmEnumInputContext(core::mem::transmute(idthread), core::mem::transmute(lpfn), lparam.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordA<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCA, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordA<P0, P2, P4>(param0: P0, param1: REGISTERWORDENUMPROCA, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
-    ImmEnumRegisterWordA(param0.param().abi(), param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5)
+    ImmEnumRegisterWordA(param0.param().abi(), core::mem::transmute(param1), lpszreading.param().abi(), core::mem::transmute(param3), lpszregister.param().abi(), core::mem::transmute(param5))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordW<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCW, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordW<P0, P2, P4>(param0: P0, param1: REGISTERWORDENUMPROCW, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
-    ImmEnumRegisterWordW(param0.param().abi(), param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5)
+    ImmEnumRegisterWordW(param0.param().abi(), core::mem::transmute(param1), lpszreading.param().abi(), core::mem::transmute(param3), lpszregister.param().abi(), core::mem::transmute(param5))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -131,7 +131,7 @@ where
     P1: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
-    ImmEscapeA(param0.param().abi(), param1.param().abi(), param2, param3)
+    ImmEscapeA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -141,7 +141,7 @@ where
     P1: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
-    ImmEscapeW(param0.param().abi(), param1.param().abi(), param2, param3)
+    ImmEscapeW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[inline]
 pub unsafe fn ImmGenerateMessage<P0>(param0: P0) -> super::super::super::Foundation::BOOL
@@ -157,7 +157,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    ImmGetCandidateListA(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), dwbuflen)
+    ImmGetCandidateListA(param0.param().abi(), core::mem::transmute(deindex), core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwbuflen))
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA<P0>(param0: P0, lpdwlistcount: *mut u32) -> u32
@@ -165,7 +165,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
-    ImmGetCandidateListCountA(param0.param().abi(), lpdwlistcount)
+    ImmGetCandidateListCountA(param0.param().abi(), core::mem::transmute(lpdwlistcount))
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountW<P0>(param0: P0, lpdwlistcount: *mut u32) -> u32
@@ -173,7 +173,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
-    ImmGetCandidateListCountW(param0.param().abi(), lpdwlistcount)
+    ImmGetCandidateListCountW(param0.param().abi(), core::mem::transmute(lpdwlistcount))
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListW<P0>(param0: P0, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32
@@ -181,7 +181,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    ImmGetCandidateListW(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), dwbuflen)
+    ImmGetCandidateListW(param0.param().abi(), core::mem::transmute(deindex), core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwbuflen))
 }
 #[inline]
 pub unsafe fn ImmGetCandidateWindow<P0>(param0: P0, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL
@@ -189,7 +189,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
-    ImmGetCandidateWindow(param0.param().abi(), param1, lpcandidate)
+    ImmGetCandidateWindow(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(lpcandidate))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -198,7 +198,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
-    ImmGetCompositionFontA(param0.param().abi(), lplf)
+    ImmGetCompositionFontA(param0.param().abi(), core::mem::transmute(lplf))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -207,7 +207,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
-    ImmGetCompositionFontW(param0.param().abi(), lplf)
+    ImmGetCompositionFontW(param0.param().abi(), core::mem::transmute(lplf))
 }
 #[inline]
 pub unsafe fn ImmGetCompositionStringA<P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32
@@ -215,7 +215,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    ImmGetCompositionStringA(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), dwbuflen)
+    ImmGetCompositionStringA(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwbuflen))
 }
 #[inline]
 pub unsafe fn ImmGetCompositionStringW<P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32
@@ -223,7 +223,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    ImmGetCompositionStringW(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), dwbuflen)
+    ImmGetCompositionStringW(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwbuflen))
 }
 #[inline]
 pub unsafe fn ImmGetCompositionWindow<P0>(param0: P0, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL
@@ -231,7 +231,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
-    ImmGetCompositionWindow(param0.param().abi(), lpcompform)
+    ImmGetCompositionWindow(param0.param().abi(), core::mem::transmute(lpcompform))
 }
 #[inline]
 pub unsafe fn ImmGetContext<P0>(param0: P0) -> HIMC
@@ -250,7 +250,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
-    ImmGetConversionListA(param0.param().abi(), param1.param().abi(), lpsrc.param().abi(), lpdst, dwbuflen, uflag)
+    ImmGetConversionListA(param0.param().abi(), param1.param().abi(), lpsrc.param().abi(), core::mem::transmute(lpdst), core::mem::transmute(dwbuflen), core::mem::transmute(uflag))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -261,7 +261,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
-    ImmGetConversionListW(param0.param().abi(), param1.param().abi(), lpsrc.param().abi(), lpdst, dwbuflen, uflag)
+    ImmGetConversionListW(param0.param().abi(), param1.param().abi(), lpsrc.param().abi(), core::mem::transmute(lpdst), core::mem::transmute(dwbuflen), core::mem::transmute(uflag))
 }
 #[inline]
 pub unsafe fn ImmGetConversionStatus<P0>(param0: P0, lpfdwconversion: Option<*mut IME_CONVERSION_MODE>, lpfdwsentence: Option<*mut IME_SENTENCE_MODE>) -> super::super::super::Foundation::BOOL
@@ -303,7 +303,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
-    ImmGetGuideLineA(param0.param().abi(), dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    ImmGetGuideLineA(param0.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineW<P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: windows_core::PWSTR, dwbuflen: u32) -> u32
@@ -311,13 +311,13 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
-    ImmGetGuideLineW(param0.param().abi(), dwindex, core::mem::transmute(lpbuf), dwbuflen)
+    ImmGetGuideLineW(param0.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(lpbuf), core::mem::transmute(dwbuflen))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::KeyboardAndMouse::HKL) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
-    ImmGetHotKey(param0, lpumodifiers, lpuvkey, phkl)
+    ImmGetHotKey(core::mem::transmute(param0), core::mem::transmute(lpumodifiers), core::mem::transmute(lpuvkey), core::mem::transmute(phkl))
 }
 #[inline]
 pub unsafe fn ImmGetIMCCLockCount<P0>(param0: P0) -> u32
@@ -368,7 +368,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
-    ImmGetImeMenuItemsA(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), dwsize)
+    ImmGetImeMenuItemsA(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwsize))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -377,7 +377,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
-    ImmGetImeMenuItemsW(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), dwsize)
+    ImmGetImeMenuItemsW(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2), core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(dwsize))
 }
 #[inline]
 pub unsafe fn ImmGetOpenStatus<P0>(param0: P0) -> super::super::super::Foundation::BOOL
@@ -394,7 +394,7 @@ where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::KeyboardAndMouse:: HKL, param1 : u32) -> u32);
-    ImmGetProperty(param0.param().abi(), param1)
+    ImmGetProperty(param0.param().abi(), core::mem::transmute(param1))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -420,7 +420,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
-    ImmGetStatusWindowPos(param0.param().abi(), lpptpos)
+    ImmGetStatusWindowPos(param0.param().abi(), core::mem::transmute(lpptpos))
 }
 #[inline]
 pub unsafe fn ImmGetVirtualKey<P0>(param0: P0) -> u32
@@ -460,24 +460,24 @@ where
     ImmIsIME(param0.param().abi())
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageA<P0, P1, P2>(param0: P0, param1: u32, param2: P1, param3: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmIsUIMessageA<P0, P2, P3>(param0: P0, param1: u32, param2: P2, param3: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+    P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
-    ImmIsUIMessageA(param0.param().abi(), param1, param2.param().abi(), param3.param().abi())
+    ImmIsUIMessageA(param0.param().abi(), core::mem::transmute(param1), param2.param().abi(), param3.param().abi())
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageW<P0, P1, P2>(param0: P0, param1: u32, param2: P1, param3: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmIsUIMessageW<P0, P2, P3>(param0: P0, param1: u32, param2: P2, param3: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+    P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
-    ImmIsUIMessageW(param0.param().abi(), param1, param2.param().abi(), param3.param().abi())
+    ImmIsUIMessageW(param0.param().abi(), core::mem::transmute(param1), param2.param().abi(), param3.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -502,7 +502,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> super::super::super::Foundation:: BOOL);
-    ImmNotifyIME(param0.param().abi(), dwaction, dwindex, dwvalue)
+    ImmNotifyIME(param0.param().abi(), core::mem::transmute(dwaction), core::mem::transmute(dwindex), core::mem::transmute(dwvalue))
 }
 #[inline]
 pub unsafe fn ImmReSizeIMCC<P0>(param0: P0, param1: u32) -> HIMCC
@@ -510,29 +510,29 @@ where
     P0: windows_core::Param<HIMCC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmReSizeIMCC(param0 : HIMCC, param1 : u32) -> HIMCC);
-    ImmReSizeIMCC(param0.param().abi(), param1)
+    ImmReSizeIMCC(param0.param().abi(), core::mem::transmute(param1))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordA<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    ImmRegisterWordA(param0.param().abi(), lpszreading.param().abi(), param2, lpszregister.param().abi())
+    ImmRegisterWordA(param0.param().abi(), lpszreading.param().abi(), core::mem::transmute(param2), lpszregister.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordW<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
-    ImmRegisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszregister.param().abi())
+    ImmRegisterWordW(param0.param().abi(), lpszreading.param().abi(), core::mem::transmute(param2), lpszregister.param().abi())
 }
 #[inline]
 pub unsafe fn ImmReleaseContext<P0, P1>(param0: P0, param1: P1) -> super::super::super::Foundation::BOOL
@@ -569,7 +569,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
-    ImmSetCandidateWindow(param0.param().abi(), lpcandidate)
+    ImmSetCandidateWindow(param0.param().abi(), core::mem::transmute(lpcandidate))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -578,7 +578,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionFontA(param0.param().abi(), lplf)
+    ImmSetCompositionFontA(param0.param().abi(), core::mem::transmute(lplf))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -587,7 +587,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionFontW(param0.param().abi(), lplf)
+    ImmSetCompositionFontW(param0.param().abi(), core::mem::transmute(lplf))
 }
 #[inline]
 pub unsafe fn ImmSetCompositionStringA<P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL
@@ -595,7 +595,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionStringA(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(core::ptr::null())), dwreadlen)
+    ImmSetCompositionStringA(param0.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), core::mem::transmute(dwcomplen), core::mem::transmute(lpread.unwrap_or(core::ptr::null())), core::mem::transmute(dwreadlen))
 }
 #[inline]
 pub unsafe fn ImmSetCompositionStringW<P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL
@@ -603,7 +603,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionStringW(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(core::ptr::null())), dwreadlen)
+    ImmSetCompositionStringW(param0.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), core::mem::transmute(dwcomplen), core::mem::transmute(lpread.unwrap_or(core::ptr::null())), core::mem::transmute(dwreadlen))
 }
 #[inline]
 pub unsafe fn ImmSetCompositionWindow<P0>(param0: P0, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL
@@ -611,7 +611,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionWindow(param0.param().abi(), lpcompform)
+    ImmSetCompositionWindow(param0.param().abi(), core::mem::transmute(lpcompform))
 }
 #[inline]
 pub unsafe fn ImmSetConversionStatus<P0>(param0: P0, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE) -> super::super::super::Foundation::BOOL
@@ -619,16 +619,16 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
-    ImmSetConversionStatus(param0.param().abi(), param1, param2)
+    ImmSetConversionStatus(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmSetHotKey<P0>(param0: u32, param1: u32, param2: u32, param3: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetHotKey<P3>(param0: u32, param1: u32, param2: u32, param3: P3) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
+    P3: windows_core::Param<super::KeyboardAndMouse::HKL>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
-    ImmSetHotKey(param0, param1, param2, param3.param().abi())
+    ImmSetHotKey(core::mem::transmute(param0), core::mem::transmute(param1), core::mem::transmute(param2), param3.param().abi())
 }
 #[inline]
 pub unsafe fn ImmSetOpenStatus<P0, P1>(param0: P0, param1: P1) -> super::super::super::Foundation::BOOL
@@ -645,7 +645,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
-    ImmSetStatusWindowPos(param0.param().abi(), lpptpos)
+    ImmSetStatusWindowPos(param0.param().abi(), core::mem::transmute(lpptpos))
 }
 #[inline]
 pub unsafe fn ImmShowSoftKeyboard<P0>(param0: P0, param1: i32) -> super::super::super::Foundation::BOOL
@@ -653,7 +653,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> super::super::super::Foundation:: BOOL);
-    ImmShowSoftKeyboard(param0.param().abi(), param1)
+    ImmShowSoftKeyboard(param0.param().abi(), core::mem::transmute(param1))
 }
 #[inline]
 pub unsafe fn ImmSimulateHotKey<P0>(param0: P0, param1: IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation::BOOL
@@ -661,7 +661,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation:: BOOL);
-    ImmSimulateHotKey(param0.param().abi(), param1)
+    ImmSimulateHotKey(param0.param().abi(), core::mem::transmute(param1))
 }
 #[inline]
 pub unsafe fn ImmUnlockIMC<P0>(param0: P0) -> super::super::super::Foundation::BOOL
@@ -681,44 +681,38 @@ where
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordA<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    ImmUnregisterWordA(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
+    ImmUnregisterWordA(param0.param().abi(), lpszreading.param().abi(), core::mem::transmute(param2), lpszunregister.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordW<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
-    ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
+    ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), core::mem::transmute(param2), lpszunregister.param().abi())
 }
 windows_core::imp::define_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
-impl core::ops::Deref for IActiveIME {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IActiveIME, windows_core::IUnknown);
 impl IActiveIME {
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Inquire)(windows_core::Interface::as_raw(self), dwsysteminfoflags, pimeinfo, core::mem::transmute(szwndclass), pdwprivate).ok()
+        (windows_core::Interface::vtable(self).Inquire)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsysteminfoflags), core::mem::transmute(pimeinfo), core::mem::transmute(szwndclass), core::mem::transmute(pdwprivate)).ok()
     }
     pub unsafe fn ConversionList<P0, P1>(&self, himc: P0, szsource: P1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConversionList)(windows_core::Interface::as_raw(self), himc.param().abi(), szsource.param().abi(), uflag, ubuflen, pdest, pucopied).ok()
+        (windows_core::Interface::vtable(self).ConversionList)(windows_core::Interface::as_raw(self), himc.param().abi(), szsource.param().abi(), core::mem::transmute(uflag), core::mem::transmute(ubuflen), core::mem::transmute(pdest), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn Configure<P0, P1>(&self, hkl: P0, hwnd: P1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> windows_core::Result<()>
@@ -726,16 +720,16 @@ impl IActiveIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pregisterword).ok()
+        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(pregisterword)).ok()
     }
     pub unsafe fn Destroy(&self, ureserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), ureserved).ok()
+        (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), core::mem::transmute(ureserved)).ok()
     }
     pub unsafe fn Escape<P0>(&self, himc: P0, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), himc.param().abi(), uescape, pdata, plresult).ok()
+        (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
     pub unsafe fn SetActiveContext<P0, P1>(&self, himc: P0, fflag: P1) -> windows_core::Result<()>
     where
@@ -748,13 +742,13 @@ impl IActiveIME {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).ProcessKey)(windows_core::Interface::as_raw(self), himc.param().abi(), uvirkey, lparam, pbkeystate).ok()
+        (windows_core::Interface::vtable(self).ProcessKey)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(uvirkey), core::mem::transmute(lparam), core::mem::transmute(pbkeystate)).ok()
     }
     pub unsafe fn Notify<P0>(&self, himc: P0, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwaction), core::mem::transmute(dwindex), core::mem::transmute(dwvalue)).ok()
     }
     pub unsafe fn Select<P0, P1>(&self, himc: P0, fselect: P1) -> windows_core::Result<()>
     where
@@ -767,38 +761,38 @@ impl IActiveIME {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionString)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
+        (windows_core::Interface::vtable(self).SetCompositionString)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
     }
-    pub unsafe fn ToAsciiEx<P0>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: P0, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn ToAsciiEx<P4>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: P4, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HIMC>,
+        P4: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).ToAsciiEx)(windows_core::Interface::as_raw(self), uvirkey, uscancode, pbkeystate, fustate, himc.param().abi(), pdwtransbuf, pusize).ok()
+        (windows_core::Interface::vtable(self).ToAsciiEx)(windows_core::Interface::as_raw(self), core::mem::transmute(uvirkey), core::mem::transmute(uscancode), core::mem::transmute(pbkeystate), core::mem::transmute(fustate), himc.param().abi(), core::mem::transmute(pdwtransbuf), core::mem::transmute(pusize)).ok()
     }
-    pub unsafe fn RegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).RegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
-    }
-    pub unsafe fn UnregisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szstring: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), core::mem::transmute(dwstyle), szstring.param().abi()).ok()
+    }
+    pub unsafe fn UnregisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szstring: P2) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+    {
+        (windows_core::Interface::vtable(self).UnregisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), core::mem::transmute(dwstyle), szstring.param().abi()).ok()
     }
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRegisterWordStyle)(windows_core::Interface::as_raw(self), nitem, pstylebuf, pubufsize).ok()
+        (windows_core::Interface::vtable(self).GetRegisterWordStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(nitem), core::mem::transmute(pstylebuf), core::mem::transmute(pubufsize)).ok()
     }
-    pub unsafe fn EnumRegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szregister: P1, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi(), core::mem::transmute(pdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCodePageA(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -834,7 +828,7 @@ pub struct IActiveIME_Vtbl {
     pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-pub trait IActiveIME_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActiveIME_Impl: windows_core::IUnknownImpl {
     fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()>;
     fn ConversionList(&self, himc: HIMC, szsource: &windows_core::PCWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>;
     fn Configure(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -854,10 +848,8 @@ pub trait IActiveIME_Impl: Sized + windows_core::IUnknownImpl {
     fn GetLangId(&self) -> windows_core::Result<u16>;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl windows_core::RuntimeName for IActiveIME {}
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl IActiveIME_Vtbl {
-    pub const fn new<Identity: IActiveIME_Impl, const OFFSET: isize>() -> IActiveIME_Vtbl {
+    pub const fn new<Identity: IActiveIME_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Inquire<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIME_Impl::Inquire(this, core::mem::transmute_copy(&dwsysteminfoflags), core::mem::transmute_copy(&pimeinfo), core::mem::transmute_copy(&szwndclass), core::mem::transmute_copy(&pdwprivate)).into()
@@ -969,6 +961,8 @@ impl IActiveIME_Vtbl {
         iid == &<IActiveIME as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl windows_core::RuntimeName for IActiveIME {}
 windows_core::imp::define_interface!(IActiveIME2, IActiveIME2_Vtbl, 0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
 impl core::ops::Deref for IActiveIME2 {
     type Target = IActiveIME;
@@ -995,15 +989,13 @@ pub struct IActiveIME2_Vtbl {
     pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
+pub trait IActiveIME2_Impl: IActiveIME_Impl {
     fn Sleep(&self) -> windows_core::Result<()>;
     fn Unsleep(&self, fdead: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl windows_core::RuntimeName for IActiveIME2 {}
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl IActiveIME2_Vtbl {
-    pub const fn new<Identity: IActiveIME2_Impl, const OFFSET: isize>() -> IActiveIME2_Vtbl {
+    pub const fn new<Identity: IActiveIME2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Sleep<Identity: IActiveIME2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIME2_Impl::Sleep(this).into()
@@ -1018,13 +1010,9 @@ impl IActiveIME2_Vtbl {
         iid == &<IActiveIME2 as windows_core::Interface>::IID || iid == &<IActiveIME as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl windows_core::RuntimeName for IActiveIME2 {}
 windows_core::imp::define_interface!(IActiveIMMApp, IActiveIMMApp_Vtbl, 0x08c0e040_62d1_11d1_9326_0060b067b86e);
-impl core::ops::Deref for IActiveIMMApp {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IActiveIMMApp, windows_core::IUnknown);
 impl IActiveIMMApp {
     pub unsafe fn AssociateContext<P0, P1>(&self, hwnd: P0, hime: P1) -> windows_core::Result<HIMC>
@@ -1041,7 +1029,7 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ConfigureIMEA)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pdata).ok()
+        (windows_core::Interface::vtable(self).ConfigureIMEA)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(pdata)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn ConfigureIMEW<P0, P1>(&self, hkl: P0, hwnd: P1, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>
@@ -1049,7 +1037,7 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ConfigureIMEW)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pdata).ok()
+        (windows_core::Interface::vtable(self).ConfigureIMEW)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn CreateContext(&self) -> windows_core::Result<HIMC> {
         let mut result__ = core::mem::zeroed();
@@ -1062,24 +1050,24 @@ impl IActiveIMMApp {
         (windows_core::Interface::vtable(self).DestroyContext)(windows_core::Interface::as_raw(self), hime.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
+    pub unsafe fn EnumRegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi(), core::mem::transmute(pdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi(), core::mem::transmute(pdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn EscapeA<P0, P1>(&self, hkl: P0, himc: P1, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
@@ -1087,7 +1075,7 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).EscapeA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), uescape, pdata, plresult).ok()
+        (windows_core::Interface::vtable(self).EscapeA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn EscapeW<P0, P1>(&self, hkl: P0, himc: P1, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
@@ -1095,69 +1083,69 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).EscapeW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), uescape, pdata, plresult).ok()
+        (windows_core::Interface::vtable(self).EscapeW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
     pub unsafe fn GetCandidateListA<P0>(&self, himc: P0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, ubuflen, pcandlist, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(ubuflen), core::mem::transmute(pcandlist), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetCandidateListW<P0>(&self, himc: P0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, ubuflen, pcandlist, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(ubuflen), core::mem::transmute(pcandlist), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetCandidateListCountA<P0>(&self, himc: P0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListCountA)(windows_core::Interface::as_raw(self), himc.param().abi(), pdwlistsize, pdwbuflen).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListCountA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pdwlistsize), core::mem::transmute(pdwbuflen)).ok()
     }
     pub unsafe fn GetCandidateListCountW<P0>(&self, himc: P0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListCountW)(windows_core::Interface::as_raw(self), himc.param().abi(), pdwlistsize, pdwbuflen).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListCountW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pdwlistsize), core::mem::transmute(pdwbuflen)).ok()
     }
     pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcandidate).ok()
+        (windows_core::Interface::vtable(self).GetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcandidate)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     pub unsafe fn GetCompositionStringA<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, plcopied, pbuf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(plcopied), core::mem::transmute(pbuf)).ok()
     }
     pub unsafe fn GetCompositionStringW<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, plcopied, pbuf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(plcopied), core::mem::transmute(pbuf)).ok()
     }
     pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0, pcompform: *mut COMPOSITIONFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcompform).ok()
+        (windows_core::Interface::vtable(self).GetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcompform)).ok()
     }
     pub unsafe fn GetContext<P0>(&self, hwnd: P0) -> windows_core::Result<HIMC>
     where
@@ -1173,7 +1161,7 @@ impl IActiveIMMApp {
         P1: windows_core::Param<HIMC>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetConversionListA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), ubuflen, uflag, pdst, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetConversionListA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(uflag), core::mem::transmute(pdst), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetConversionListW<P0, P1, P2>(&self, hkl: P0, himc: P1, psrc: P2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
@@ -1182,13 +1170,13 @@ impl IActiveIMMApp {
         P1: windows_core::Param<HIMC>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetConversionListW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), ubuflen, uflag, pdst, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetConversionListW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(uflag), core::mem::transmute(pdst), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetConversionStatus<P0>(&self, himc: P0, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), pfdwconversion, pfdwsentence).ok()
+        (windows_core::Interface::vtable(self).GetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pfdwconversion), core::mem::transmute(pfdwsentence)).ok()
     }
     pub unsafe fn GetDefaultIMEWnd<P0>(&self, hwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>
     where
@@ -1202,40 +1190,40 @@ impl IActiveIMMApp {
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetDescriptionA)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szdescription), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetDescriptionA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szdescription), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetDescriptionW<P0>(&self, hkl: P0, ubuflen: u32, szdescription: windows_core::PWSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetDescriptionW)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szdescription), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetDescriptionW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szdescription), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetGuideLineA<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, pbuf: windows_core::PSTR, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetGuideLineA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, core::mem::transmute(pbuf), pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetGuideLineA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(pbuf), core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn GetGuideLineW<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, pbuf: windows_core::PWSTR, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetGuideLineW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, core::mem::transmute(pbuf), pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetGuideLineW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(pbuf), core::mem::transmute(pdwresult)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetIMEFileNameA<P0>(&self, hkl: P0, ubuflen: u32, szfilename: windows_core::PSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetIMEFileNameA)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szfilename), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetIMEFileNameA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szfilename), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetIMEFileNameW<P0>(&self, hkl: P0, ubuflen: u32, szfilename: windows_core::PWSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetIMEFileNameW)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szfilename), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetIMEFileNameW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szfilename), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetOpenStatus<P0>(&self, himc: P0) -> windows_core::Result<()>
     where
@@ -1249,21 +1237,21 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), hkl.param().abi(), fdwindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(fdwindex), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetRegisterWordStyleA<P0>(&self, hkl: P0, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetRegisterWordStyleA)(windows_core::Interface::as_raw(self), hkl.param().abi(), nitem, pstylebuf, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetRegisterWordStyleA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(nitem), core::mem::transmute(pstylebuf), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetRegisterWordStyleW<P0>(&self, hkl: P0, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetRegisterWordStyleW)(windows_core::Interface::as_raw(self), hkl.param().abi(), nitem, pstylebuf, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetRegisterWordStyleW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(nitem), core::mem::transmute(pstylebuf), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetStatusWindowPos<P0>(&self, himc: P0) -> windows_core::Result<super::super::super::Foundation::POINT>
     where
@@ -1304,45 +1292,45 @@ impl IActiveIMMApp {
     {
         (windows_core::Interface::vtable(self).IsIME)(windows_core::Interface::as_raw(self), hkl.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageA<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageA<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageW<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageW<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi()).ok()
     }
     pub unsafe fn NotifyIME<P0>(&self, himc: P0, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
+        (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwaction), core::mem::transmute(dwindex), core::mem::transmute(dwvalue)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi()).ok()
     }
     pub unsafe fn ReleaseContext<P0, P1>(&self, hwnd: P0, himc: P1) -> windows_core::Result<()>
     where
@@ -1355,45 +1343,45 @@ impl IActiveIMMApp {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcandidate).ok()
+        (windows_core::Interface::vtable(self).SetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcandidate)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetCompositionFontA<P0>(&self, himc: P0, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).SetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetCompositionFontW<P0>(&self, himc: P0, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).SetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     pub unsafe fn SetCompositionStringA<P0>(&self, himc: P0, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
+        (windows_core::Interface::vtable(self).SetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
     }
     pub unsafe fn SetCompositionStringW<P0>(&self, himc: P0, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
+        (windows_core::Interface::vtable(self).SetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
     }
     pub unsafe fn SetCompositionWindow<P0>(&self, himc: P0, pcompform: *const COMPOSITIONFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcompform).ok()
+        (windows_core::Interface::vtable(self).SetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcompform)).ok()
     }
     pub unsafe fn SetConversionStatus<P0>(&self, himc: P0, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), fdwconversion, fdwsentence).ok()
+        (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(fdwconversion), core::mem::transmute(fdwsentence)).ok()
     }
     pub unsafe fn SetOpenStatus<P0, P1>(&self, himc: P0, fopen: P1) -> windows_core::Result<()>
     where
@@ -1406,31 +1394,31 @@ impl IActiveIMMApp {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), himc.param().abi(), pptpos).ok()
+        (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pptpos)).ok()
     }
     pub unsafe fn SimulateHotKey<P0>(&self, hwnd: P0, dwhotkeyid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwhotkeyid).ok()
+        (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(dwhotkeyid)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szunregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szunregister.param().abi()).ok()
     }
     pub unsafe fn Activate<P0>(&self, frestorelayout: P0) -> windows_core::Result<()>
     where
@@ -1441,17 +1429,17 @@ impl IActiveIMMApp {
     pub unsafe fn Deactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn OnDefWindowProc<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn OnDefWindowProc<P0, P2, P3>(&self, hwnd: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnDefWindowProc)(windows_core::Interface::as_raw(self), hwnd.param().abi(), msg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnDefWindowProc)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FilterClientWindows)(windows_core::Interface::as_raw(self), aaclasslist, usize).ok()
+        (windows_core::Interface::vtable(self).FilterClientWindows)(windows_core::Interface::as_raw(self), core::mem::transmute(aaclasslist), core::mem::transmute(usize)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetCodePageA<P0>(&self, hkl: P0) -> windows_core::Result<u32>
@@ -1474,28 +1462,28 @@ impl IActiveIMMApp {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).AssociateContextEx)(windows_core::Interface::as_raw(self), hwnd.param().abi(), himc.param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).AssociateContextEx)(windows_core::Interface::as_raw(self), hwnd.param().abi(), himc.param().abi(), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn DisableIME(&self, idthread: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DisableIME)(windows_core::Interface::as_raw(self), idthread).ok()
+        (windows_core::Interface::vtable(self).DisableIME)(windows_core::Interface::as_raw(self), core::mem::transmute(idthread)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImeMenuItemsA<P0>(&self, himc: P0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetImeMenuItemsA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetImeMenuItemsA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwtype), core::mem::transmute(pimeparentmenu), core::mem::transmute(pimemenu), core::mem::transmute(dwsize), core::mem::transmute(pdwresult)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImeMenuItemsW<P0>(&self, himc: P0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetImeMenuItemsW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetImeMenuItemsW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwtype), core::mem::transmute(pimeparentmenu), core::mem::transmute(pimemenu), core::mem::transmute(dwsize), core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), core::mem::transmute(idthread), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1661,7 +1649,7 @@ pub struct IActiveIMMApp_Vtbl {
     pub EnumInputContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-pub trait IActiveIMMApp_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActiveIMMApp_Impl: windows_core::IUnknownImpl {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: HIMC) -> windows_core::Result<HIMC>;
     fn ConfigureIMEA(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> windows_core::Result<()>;
     fn ConfigureIMEW(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -1732,10 +1720,8 @@ pub trait IActiveIMMApp_Impl: Sized + windows_core::IUnknownImpl {
     fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-impl windows_core::RuntimeName for IActiveIMMApp {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl IActiveIMMApp_Vtbl {
-    pub const fn new<Identity: IActiveIMMApp_Impl, const OFFSET: isize>() -> IActiveIMMApp_Vtbl {
+    pub const fn new<Identity: IActiveIMMApp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AssociateContext<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: HIMC, phprev: *mut HIMC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActiveIMMApp_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
@@ -2174,13 +2160,9 @@ impl IActiveIMMApp_Vtbl {
         iid == &<IActiveIMMApp as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl windows_core::RuntimeName for IActiveIMMApp {}
 windows_core::imp::define_interface!(IActiveIMMIME, IActiveIMMIME_Vtbl, 0x08c03411_f96b_11d0_a475_00aa006bcc59);
-impl core::ops::Deref for IActiveIMMIME {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IActiveIMMIME, windows_core::IUnknown);
 impl IActiveIMMIME {
     pub unsafe fn AssociateContext<P0, P1>(&self, hwnd: P0, hime: P1) -> windows_core::Result<HIMC>
@@ -2197,7 +2179,7 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ConfigureIMEA)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pdata).ok()
+        (windows_core::Interface::vtable(self).ConfigureIMEA)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(pdata)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn ConfigureIMEW<P0, P1>(&self, hkl: P0, hwnd: P1, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>
@@ -2205,7 +2187,7 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ConfigureIMEW)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pdata).ok()
+        (windows_core::Interface::vtable(self).ConfigureIMEW)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), core::mem::transmute(dwmode), core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn CreateContext(&self) -> windows_core::Result<HIMC> {
         let mut result__ = core::mem::zeroed();
@@ -2218,24 +2200,24 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).DestroyContext)(windows_core::Interface::as_raw(self), hime.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
+    pub unsafe fn EnumRegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi(), core::mem::transmute(pdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi(), core::mem::transmute(pdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn EscapeA<P0, P1>(&self, hkl: P0, himc: P1, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
@@ -2243,7 +2225,7 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).EscapeA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), uescape, pdata, plresult).ok()
+        (windows_core::Interface::vtable(self).EscapeA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn EscapeW<P0, P1>(&self, hkl: P0, himc: P1, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
@@ -2251,69 +2233,69 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).EscapeW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), uescape, pdata, plresult).ok()
+        (windows_core::Interface::vtable(self).EscapeW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), core::mem::transmute(uescape), core::mem::transmute(pdata), core::mem::transmute(plresult)).ok()
     }
     pub unsafe fn GetCandidateListA<P0>(&self, himc: P0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, ubuflen, pcandlist, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(ubuflen), core::mem::transmute(pcandlist), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetCandidateListW<P0>(&self, himc: P0, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, ubuflen, pcandlist, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(ubuflen), core::mem::transmute(pcandlist), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetCandidateListCountA<P0>(&self, himc: P0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListCountA)(windows_core::Interface::as_raw(self), himc.param().abi(), pdwlistsize, pdwbuflen).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListCountA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pdwlistsize), core::mem::transmute(pdwbuflen)).ok()
     }
     pub unsafe fn GetCandidateListCountW<P0>(&self, himc: P0, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateListCountW)(windows_core::Interface::as_raw(self), himc.param().abi(), pdwlistsize, pdwbuflen).ok()
+        (windows_core::Interface::vtable(self).GetCandidateListCountW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pdwlistsize), core::mem::transmute(pdwbuflen)).ok()
     }
     pub unsafe fn GetCandidateWindow<P0>(&self, himc: P0, dwindex: u32, pcandidate: *mut CANDIDATEFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcandidate).ok()
+        (windows_core::Interface::vtable(self).GetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcandidate)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCompositionFontA<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCompositionFontW<P0>(&self, himc: P0, plf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     pub unsafe fn GetCompositionStringA<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, plcopied, pbuf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(plcopied), core::mem::transmute(pbuf)).ok()
     }
     pub unsafe fn GetCompositionStringW<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, plcopied, pbuf).ok()
+        (windows_core::Interface::vtable(self).GetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(plcopied), core::mem::transmute(pbuf)).ok()
     }
     pub unsafe fn GetCompositionWindow<P0>(&self, himc: P0, pcompform: *mut COMPOSITIONFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcompform).ok()
+        (windows_core::Interface::vtable(self).GetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcompform)).ok()
     }
     pub unsafe fn GetContext<P0>(&self, hwnd: P0) -> windows_core::Result<HIMC>
     where
@@ -2329,7 +2311,7 @@ impl IActiveIMMIME {
         P1: windows_core::Param<HIMC>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetConversionListA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), ubuflen, uflag, pdst, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetConversionListA)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(uflag), core::mem::transmute(pdst), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetConversionListW<P0, P1, P2>(&self, hkl: P0, himc: P1, psrc: P2, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
@@ -2338,13 +2320,13 @@ impl IActiveIMMIME {
         P1: windows_core::Param<HIMC>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetConversionListW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), ubuflen, uflag, pdst, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetConversionListW)(windows_core::Interface::as_raw(self), hkl.param().abi(), himc.param().abi(), psrc.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(uflag), core::mem::transmute(pdst), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetConversionStatus<P0>(&self, himc: P0, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), pfdwconversion, pfdwsentence).ok()
+        (windows_core::Interface::vtable(self).GetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pfdwconversion), core::mem::transmute(pfdwsentence)).ok()
     }
     pub unsafe fn GetDefaultIMEWnd<P0>(&self, hwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>
     where
@@ -2358,40 +2340,40 @@ impl IActiveIMMIME {
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetDescriptionA)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szdescription), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetDescriptionA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szdescription), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetDescriptionW<P0>(&self, hkl: P0, ubuflen: u32, szdescription: windows_core::PWSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetDescriptionW)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szdescription), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetDescriptionW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szdescription), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetGuideLineA<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, pbuf: windows_core::PSTR, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetGuideLineA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, core::mem::transmute(pbuf), pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetGuideLineA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(pbuf), core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn GetGuideLineW<P0>(&self, himc: P0, dwindex: u32, dwbuflen: u32, pbuf: windows_core::PWSTR, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetGuideLineW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, dwbuflen, core::mem::transmute(pbuf), pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetGuideLineW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(dwbuflen), core::mem::transmute(pbuf), core::mem::transmute(pdwresult)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetIMEFileNameA<P0>(&self, hkl: P0, ubuflen: u32, szfilename: windows_core::PSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetIMEFileNameA)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szfilename), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetIMEFileNameA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szfilename), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetIMEFileNameW<P0>(&self, hkl: P0, ubuflen: u32, szfilename: windows_core::PWSTR, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetIMEFileNameW)(windows_core::Interface::as_raw(self), hkl.param().abi(), ubuflen, core::mem::transmute(szfilename), pucopied).ok()
+        (windows_core::Interface::vtable(self).GetIMEFileNameW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(ubuflen), core::mem::transmute(szfilename), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetOpenStatus<P0>(&self, himc: P0) -> windows_core::Result<()>
     where
@@ -2405,21 +2387,21 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), hkl.param().abi(), fdwindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(fdwindex), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetRegisterWordStyleA<P0>(&self, hkl: P0, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetRegisterWordStyleA)(windows_core::Interface::as_raw(self), hkl.param().abi(), nitem, pstylebuf, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetRegisterWordStyleA)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(nitem), core::mem::transmute(pstylebuf), core::mem::transmute(pucopied)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetRegisterWordStyleW<P0>(&self, hkl: P0, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).GetRegisterWordStyleW)(windows_core::Interface::as_raw(self), hkl.param().abi(), nitem, pstylebuf, pucopied).ok()
+        (windows_core::Interface::vtable(self).GetRegisterWordStyleW)(windows_core::Interface::as_raw(self), hkl.param().abi(), core::mem::transmute(nitem), core::mem::transmute(pstylebuf), core::mem::transmute(pucopied)).ok()
     }
     pub unsafe fn GetStatusWindowPos<P0>(&self, himc: P0) -> windows_core::Result<super::super::super::Foundation::POINT>
     where
@@ -2460,45 +2442,45 @@ impl IActiveIMMIME {
     {
         (windows_core::Interface::vtable(self).IsIME)(windows_core::Interface::as_raw(self), hkl.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageA<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageA<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageW<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageW<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), core::mem::transmute(msg), wparam.param().abi(), lparam.param().abi()).ok()
     }
     pub unsafe fn NotifyIME<P0>(&self, himc: P0, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
+        (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwaction), core::mem::transmute(dwindex), core::mem::transmute(dwvalue)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szregister.param().abi()).ok()
     }
     pub unsafe fn ReleaseContext<P0, P1>(&self, hwnd: P0, himc: P1) -> windows_core::Result<()>
     where
@@ -2511,45 +2493,45 @@ impl IActiveIMMIME {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcandidate).ok()
+        (windows_core::Interface::vtable(self).SetCandidateWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcandidate)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetCompositionFontA<P0>(&self, himc: P0, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).SetCompositionFontA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetCompositionFontW<P0>(&self, himc: P0, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), plf).ok()
+        (windows_core::Interface::vtable(self).SetCompositionFontW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(plf)).ok()
     }
     pub unsafe fn SetCompositionStringA<P0>(&self, himc: P0, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
+        (windows_core::Interface::vtable(self).SetCompositionStringA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
     }
     pub unsafe fn SetCompositionStringW<P0>(&self, himc: P0, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
+        (windows_core::Interface::vtable(self).SetCompositionStringW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwindex), core::mem::transmute(pcomp), core::mem::transmute(dwcomplen), core::mem::transmute(pread), core::mem::transmute(dwreadlen)).ok()
     }
     pub unsafe fn SetCompositionWindow<P0>(&self, himc: P0, pcompform: *const COMPOSITIONFORM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), pcompform).ok()
+        (windows_core::Interface::vtable(self).SetCompositionWindow)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pcompform)).ok()
     }
     pub unsafe fn SetConversionStatus<P0>(&self, himc: P0, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), fdwconversion, fdwsentence).ok()
+        (windows_core::Interface::vtable(self).SetConversionStatus)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(fdwconversion), core::mem::transmute(fdwsentence)).ok()
     }
     pub unsafe fn SetOpenStatus<P0, P1>(&self, himc: P0, fopen: P1) -> windows_core::Result<()>
     where
@@ -2562,31 +2544,31 @@ impl IActiveIMMIME {
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), himc.param().abi(), pptpos).ok()
+        (windows_core::Interface::vtable(self).SetStatusWindowPos)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(pptpos)).ok()
     }
     pub unsafe fn SimulateHotKey<P0>(&self, hwnd: P0, dwhotkeyid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwhotkeyid).ok()
+        (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(dwhotkeyid)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P2: windows_core::Param<windows_core::PCSTR>,
+        P3: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szunregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), core::mem::transmute(dwstyle), szunregister.param().abi()).ok()
     }
     pub unsafe fn GenerateMessage<P0>(&self, himc: P0) -> windows_core::Result<()>
     where
@@ -2617,7 +2599,7 @@ impl IActiveIMMIME {
     }
     pub unsafe fn CreateIMCC(&self, dwsize: u32) -> windows_core::Result<HIMCC> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateIMCC)(windows_core::Interface::as_raw(self), dwsize, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CreateIMCC)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsize), &mut result__).map(|| result__)
     }
     pub unsafe fn DestroyIMCC<P0>(&self, himcc: P0) -> windows_core::Result<()>
     where
@@ -2629,7 +2611,7 @@ impl IActiveIMMIME {
     where
         P0: windows_core::Param<HIMCC>,
     {
-        (windows_core::Interface::vtable(self).LockIMCC)(windows_core::Interface::as_raw(self), himcc.param().abi(), ppv).ok()
+        (windows_core::Interface::vtable(self).LockIMCC)(windows_core::Interface::as_raw(self), himcc.param().abi(), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn UnlockIMCC<P0>(&self, himcc: P0) -> windows_core::Result<()>
     where
@@ -2642,7 +2624,7 @@ impl IActiveIMMIME {
         P0: windows_core::Param<HIMCC>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReSizeIMCC)(windows_core::Interface::as_raw(self), himcc.param().abi(), dwsize, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ReSizeIMCC)(windows_core::Interface::as_raw(self), himcc.param().abi(), core::mem::transmute(dwsize), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIMCCSize<P0>(&self, himcc: P0) -> windows_core::Result<u32>
     where
@@ -2660,21 +2642,21 @@ impl IActiveIMMIME {
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetHotKey(&self, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::KeyboardAndMouse::HKL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetHotKey)(windows_core::Interface::as_raw(self), dwhotkeyid, pumodifiers, puvkey, phkl).ok()
+        (windows_core::Interface::vtable(self).GetHotKey)(windows_core::Interface::as_raw(self), core::mem::transmute(dwhotkeyid), core::mem::transmute(pumodifiers), core::mem::transmute(puvkey), core::mem::transmute(phkl)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn SetHotKey<P0>(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: P0) -> windows_core::Result<()>
+    pub unsafe fn SetHotKey<P3>(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
+        P3: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
-        (windows_core::Interface::vtable(self).SetHotKey)(windows_core::Interface::as_raw(self), dwhotkeyid, umodifiers, uvkey, hkl.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHotKey)(windows_core::Interface::as_raw(self), core::mem::transmute(dwhotkeyid), core::mem::transmute(umodifiers), core::mem::transmute(uvkey), hkl.param().abi()).ok()
     }
-    pub unsafe fn CreateSoftKeyboard<P0>(&self, utype: u32, howner: P0, x: i32, y: i32) -> windows_core::Result<super::super::super::Foundation::HWND>
+    pub unsafe fn CreateSoftKeyboard<P1>(&self, utype: u32, howner: P1, x: i32, y: i32) -> windows_core::Result<super::super::super::Foundation::HWND>
     where
-        P0: windows_core::Param<super::super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::super::Foundation::HWND>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSoftKeyboard)(windows_core::Interface::as_raw(self), utype, howner.param().abi(), x, y, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CreateSoftKeyboard)(windows_core::Interface::as_raw(self), core::mem::transmute(utype), howner.param().abi(), core::mem::transmute(x), core::mem::transmute(y), &mut result__).map(|| result__)
     }
     pub unsafe fn DestroySoftKeyboard<P0>(&self, hsoftkbdwnd: P0) -> windows_core::Result<()>
     where
@@ -2686,7 +2668,7 @@ impl IActiveIMMIME {
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ShowSoftKeyboard)(windows_core::Interface::as_raw(self), hsoftkbdwnd.param().abi(), ncmdshow).ok()
+        (windows_core::Interface::vtable(self).ShowSoftKeyboard)(windows_core::Interface::as_raw(self), hsoftkbdwnd.param().abi(), core::mem::transmute(ncmdshow)).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetCodePageA<P0>(&self, hkl: P0) -> windows_core::Result<u32>
@@ -2705,7 +2687,7 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), hkl.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).KeybdEvent)(windows_core::Interface::as_raw(self), lgidime, bvk, bscan, dwflags, dwextrainfo).ok()
+        (windows_core::Interface::vtable(self).KeybdEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(lgidime), core::mem::transmute(bvk), core::mem::transmute(bscan), core::mem::transmute(dwflags), core::mem::transmute(dwextrainfo)).ok()
     }
     pub unsafe fn LockModal(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).LockModal)(windows_core::Interface::as_raw(self)).ok()
@@ -2718,28 +2700,28 @@ impl IActiveIMMIME {
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
         P1: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).AssociateContextEx)(windows_core::Interface::as_raw(self), hwnd.param().abi(), himc.param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).AssociateContextEx)(windows_core::Interface::as_raw(self), hwnd.param().abi(), himc.param().abi(), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn DisableIME(&self, idthread: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DisableIME)(windows_core::Interface::as_raw(self), idthread).ok()
+        (windows_core::Interface::vtable(self).DisableIME)(windows_core::Interface::as_raw(self), core::mem::transmute(idthread)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImeMenuItemsA<P0>(&self, himc: P0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetImeMenuItemsA)(windows_core::Interface::as_raw(self), himc.param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetImeMenuItemsA)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwtype), core::mem::transmute(pimeparentmenu), core::mem::transmute(pimemenu), core::mem::transmute(dwsize), core::mem::transmute(pdwresult)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImeMenuItemsW<P0>(&self, himc: P0, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HIMC>,
     {
-        (windows_core::Interface::vtable(self).GetImeMenuItemsW)(windows_core::Interface::as_raw(self), himc.param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
+        (windows_core::Interface::vtable(self).GetImeMenuItemsW)(windows_core::Interface::as_raw(self), himc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(dwtype), core::mem::transmute(pimeparentmenu), core::mem::transmute(pimemenu), core::mem::transmute(dwsize), core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), core::mem::transmute(idthread), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestMessageA<P0, P1, P2>(&self, himc: P0, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
@@ -2759,23 +2741,23 @@ impl IActiveIMMIME {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RequestMessageW)(windows_core::Interface::as_raw(self), himc.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SendIMCA<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn SendIMCA<P0, P2, P3>(&self, hwnd: P0, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SendIMCA)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SendIMCA)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(umsg), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SendIMCW<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn SendIMCW<P0, P2, P3>(&self, hwnd: P0, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SendIMCW)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SendIMCW)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(umsg), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn IsSleeping(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsSleeping)(windows_core::Interface::as_raw(self)).ok()
@@ -2973,7 +2955,7 @@ pub struct IActiveIMMIME_Vtbl {
     pub IsSleeping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-pub trait IActiveIMMIME_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActiveIMMIME_Impl: windows_core::IUnknownImpl {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: HIMC) -> windows_core::Result<HIMC>;
     fn ConfigureIMEA(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> windows_core::Result<()>;
     fn ConfigureIMEW(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -3064,10 +3046,8 @@ pub trait IActiveIMMIME_Impl: Sized + windows_core::IUnknownImpl {
     fn IsSleeping(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-impl windows_core::RuntimeName for IActiveIMMIME {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl IActiveIMMIME_Vtbl {
-    pub const fn new<Identity: IActiveIMMIME_Impl, const OFFSET: isize>() -> IActiveIMMIME_Vtbl {
+    pub const fn new<Identity: IActiveIMMIME_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AssociateContext<Identity: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: HIMC, phprev: *mut HIMC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActiveIMMIME_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
@@ -3666,13 +3646,9 @@ impl IActiveIMMIME_Vtbl {
         iid == &<IActiveIMMIME as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl windows_core::RuntimeName for IActiveIMMIME {}
 windows_core::imp::define_interface!(IActiveIMMMessagePumpOwner, IActiveIMMMessagePumpOwner_Vtbl, 0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
-impl core::ops::Deref for IActiveIMMMessagePumpOwner {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IActiveIMMMessagePumpOwner, windows_core::IUnknown);
 impl IActiveIMMMessagePumpOwner {
     pub unsafe fn Start(&self) -> windows_core::Result<()> {
@@ -3683,14 +3659,14 @@ impl IActiveIMMMessagePumpOwner {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn OnTranslateMessage(&self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTranslateMessage)(windows_core::Interface::as_raw(self), pmsg).ok()
+        (windows_core::Interface::vtable(self).OnTranslateMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(pmsg)).ok()
     }
     pub unsafe fn Pause(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Resume(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self), dwcookie).ok()
+        (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcookie)).ok()
     }
 }
 #[repr(C)]
@@ -3706,7 +3682,7 @@ pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IActiveIMMMessagePumpOwner_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActiveIMMMessagePumpOwner_Impl: windows_core::IUnknownImpl {
     fn Start(&self) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
     fn OnTranslateMessage(&self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
@@ -3714,10 +3690,8 @@ pub trait IActiveIMMMessagePumpOwner_Impl: Sized + windows_core::IUnknownImpl {
     fn Resume(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IActiveIMMMessagePumpOwner {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IActiveIMMMessagePumpOwner_Vtbl {
-    pub const fn new<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>() -> IActiveIMMMessagePumpOwner_Vtbl {
+    pub const fn new<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIMMMessagePumpOwner_Impl::Start(this).into()
@@ -3757,24 +3731,20 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
         iid == &<IActiveIMMMessagePumpOwner as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IActiveIMMMessagePumpOwner {}
 windows_core::imp::define_interface!(IActiveIMMRegistrar, IActiveIMMRegistrar_Vtbl, 0xb3458082_bd00_11d1_939b_0060b067b86e);
-impl core::ops::Deref for IActiveIMMRegistrar {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IActiveIMMRegistrar, windows_core::IUnknown);
 impl IActiveIMMRegistrar {
-    pub unsafe fn RegisterIME<P0, P1>(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: P0, pszdesc: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterIME<P2, P3>(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: P2, pszdesc: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterIME)(windows_core::Interface::as_raw(self), rclsid, lgid, psziconfile.param().abi(), pszdesc.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterIME)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsid), core::mem::transmute(lgid), psziconfile.param().abi(), pszdesc.param().abi()).ok()
     }
     pub unsafe fn UnregisterIME(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterIME)(windows_core::Interface::as_raw(self), rclsid).ok()
+        (windows_core::Interface::vtable(self).UnregisterIME)(windows_core::Interface::as_raw(self), core::mem::transmute(rclsid)).ok()
     }
 }
 #[repr(C)]
@@ -3783,13 +3753,12 @@ pub struct IActiveIMMRegistrar_Vtbl {
     pub RegisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub UnregisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IActiveIMMRegistrar_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IActiveIMMRegistrar_Impl: windows_core::IUnknownImpl {
     fn RegisterIME(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: &windows_core::PCWSTR, pszdesc: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UnregisterIME(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 impl IActiveIMMRegistrar_Vtbl {
-    pub const fn new<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> IActiveIMMRegistrar_Vtbl {
+    pub const fn new<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterIME<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: windows_core::PCWSTR, pszdesc: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIMMRegistrar_Impl::RegisterIME(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&lgid), core::mem::transmute(&psziconfile), core::mem::transmute(&pszdesc)).into()
@@ -3808,13 +3777,8 @@ impl IActiveIMMRegistrar_Vtbl {
         iid == &<IActiveIMMRegistrar as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
-impl core::ops::Deref for IEnumInputContext {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumInputContext, windows_core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumInputContext> {
@@ -3822,13 +3786,13 @@ impl IEnumInputContext {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Next(&self, ulcount: u32, rginputcontext: *mut HIMC, pcfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, rginputcontext, pcfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount), core::mem::transmute(rginputcontext), core::mem::transmute(pcfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, ulcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), ulcount).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount)).ok()
     }
 }
 #[repr(C)]
@@ -3839,15 +3803,14 @@ pub struct IEnumInputContext_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumInputContext_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumInputContext_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumInputContext>;
     fn Next(&self, ulcount: u32, rginputcontext: *mut HIMC, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IEnumInputContext {}
 impl IEnumInputContext_Vtbl {
-    pub const fn new<Identity: IEnumInputContext_Impl, const OFFSET: isize>() -> IEnumInputContext_Vtbl {
+    pub const fn new<Identity: IEnumInputContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumInputContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumInputContext_Impl::Clone(this) {
@@ -3882,13 +3845,8 @@ impl IEnumInputContext_Vtbl {
         iid == &<IEnumInputContext as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IEnumInputContext {}
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
-impl core::ops::Deref for IEnumRegisterWordA {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordA, windows_core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA> {
@@ -3896,13 +3854,13 @@ impl IEnumRegisterWordA {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, rgregisterword, pcfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount), core::mem::transmute(rgregisterword), core::mem::transmute(pcfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, ulcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), ulcount).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount)).ok()
     }
 }
 #[repr(C)]
@@ -3913,15 +3871,14 @@ pub struct IEnumRegisterWordA_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumRegisterWordA_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumRegisterWordA_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IEnumRegisterWordA {}
 impl IEnumRegisterWordA_Vtbl {
-    pub const fn new<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> IEnumRegisterWordA_Vtbl {
+    pub const fn new<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumRegisterWordA_Impl::Clone(this) {
@@ -3956,13 +3913,8 @@ impl IEnumRegisterWordA_Vtbl {
         iid == &<IEnumRegisterWordA as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IEnumRegisterWordA {}
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
-impl core::ops::Deref for IEnumRegisterWordW {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordW, windows_core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW> {
@@ -3970,13 +3922,13 @@ impl IEnumRegisterWordW {
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, rgregisterword, pcfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount), core::mem::transmute(rgregisterword), core::mem::transmute(pcfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, ulcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), ulcount).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(ulcount)).ok()
     }
 }
 #[repr(C)]
@@ -3987,15 +3939,14 @@ pub struct IEnumRegisterWordW_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumRegisterWordW_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumRegisterWordW_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IEnumRegisterWordW {}
 impl IEnumRegisterWordW_Vtbl {
-    pub const fn new<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> IEnumRegisterWordW_Vtbl {
+    pub const fn new<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumRegisterWordW_Impl::Clone(this) {
@@ -4030,6 +3981,7 @@ impl IEnumRegisterWordW_Vtbl {
         iid == &<IEnumRegisterWordW as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IEnumRegisterWordW {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
@@ -4042,32 +3994,24 @@ impl core::ops::Deref for IFEClassFactory {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFEClassFactory, windows_core::IUnknown, super::super::super::System::Com::IClassFactory);
 #[cfg(feature = "Win32_System_Com")]
-impl IFEClassFactory {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IFEClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IClassFactory_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClassFactory_Impl {}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IFEClassFactory {}
+pub trait IFEClassFactory_Impl: super::super::super::System::Com::IClassFactory_Impl {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFEClassFactory_Vtbl {
-    pub const fn new<Identity: IFEClassFactory_Impl, const OFFSET: isize>() -> IFEClassFactory_Vtbl {
+    pub const fn new<Identity: IFEClassFactory_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFEClassFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IFEClassFactory {}
 windows_core::imp::define_interface!(IFECommon, IFECommon_Vtbl, 0x019f7151_e6db_11d0_83c3_00c04fddb82e);
-impl core::ops::Deref for IFECommon {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IFECommon, windows_core::IUnknown);
 impl IFECommon {
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> windows_core::Result<()> {
@@ -4077,10 +4021,10 @@ impl IFECommon {
         (windows_core::Interface::vtable(self).SetDefaultIME)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InvokeWordRegDialog)(windows_core::Interface::as_raw(self), pimedlg).ok()
+        (windows_core::Interface::vtable(self).InvokeWordRegDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(pimedlg)).ok()
     }
     pub unsafe fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InvokeDictToolDialog)(windows_core::Interface::as_raw(self), pimedlg).ok()
+        (windows_core::Interface::vtable(self).InvokeDictToolDialog)(windows_core::Interface::as_raw(self), core::mem::transmute(pimedlg)).ok()
     }
 }
 #[repr(C)]
@@ -4091,15 +4035,14 @@ pub struct IFECommon_Vtbl {
     pub InvokeWordRegDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
     pub InvokeDictToolDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
 }
-pub trait IFECommon_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFECommon_Impl: windows_core::IUnknownImpl {
     fn IsDefaultIME(&self, szname: &windows_core::PCSTR, cszname: i32) -> windows_core::Result<()>;
     fn SetDefaultIME(&self) -> windows_core::Result<()>;
     fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
     fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IFECommon {}
 impl IFECommon_Vtbl {
-    pub const fn new<Identity: IFECommon_Impl, const OFFSET: isize>() -> IFECommon_Vtbl {
+    pub const fn new<Identity: IFECommon_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDefaultIME<Identity: IFECommon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCSTR, cszname: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFECommon_Impl::IsDefaultIME(this, core::mem::transmute(&szname), core::mem::transmute_copy(&cszname)).into()
@@ -4128,23 +4071,18 @@ impl IFECommon_Vtbl {
         iid == &<IFECommon as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IFECommon {}
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
-impl core::ops::Deref for IFEDictionary {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IFEDictionary, windows_core::IUnknown);
 impl IFEDictionary {
     pub unsafe fn Open(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pshf).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pshf)).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHeader(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pshf, pjfmt, pultype).ok()
+        (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pshf), core::mem::transmute(pjfmt), core::mem::transmute(pultype)).ok()
     }
     pub unsafe fn DisplayProperty<P0>(&self, hwnd: P0) -> windows_core::Result<()>
     where
@@ -4153,7 +4091,7 @@ impl IFEDictionary {
         (windows_core::Interface::vtable(self).DisplayProperty)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
     }
     pub unsafe fn GetPosTable(&self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPosTable)(windows_core::Interface::as_raw(self), prgpostbl, pcpostbl).ok()
+        (windows_core::Interface::vtable(self).GetPosTable)(windows_core::Interface::as_raw(self), core::mem::transmute(prgpostbl), core::mem::transmute(pcpostbl)).ok()
     }
     pub unsafe fn GetWords<P0, P1, P2>(&self, pwchfirst: P0, pwchlast: P1, pwchdisplay: P2, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> windows_core::Result<()>
     where
@@ -4161,49 +4099,49 @@ impl IFEDictionary {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetWords)(windows_core::Interface::as_raw(self), pwchfirst.param().abi(), pwchlast.param().abi(), pwchdisplay.param().abi(), ulpos, ulselect, ulwordsrc, pchbuffer, cbbuffer, pcwrd).ok()
+        (windows_core::Interface::vtable(self).GetWords)(windows_core::Interface::as_raw(self), pwchfirst.param().abi(), pwchlast.param().abi(), pwchdisplay.param().abi(), core::mem::transmute(ulpos), core::mem::transmute(ulselect), core::mem::transmute(ulwordsrc), core::mem::transmute(pchbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcwrd)).ok()
     }
     pub unsafe fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NextWords)(windows_core::Interface::as_raw(self), pchbuffer, cbbuffer, pcwrd).ok()
+        (windows_core::Interface::vtable(self).NextWords)(windows_core::Interface::as_raw(self), core::mem::transmute(pchbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcwrd)).ok()
     }
     pub unsafe fn Create<P0>(&self, pchdictpath: P0, pshf: *mut IMESHF) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), pchdictpath.param().abi(), pshf).ok()
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), pchdictpath.param().abi(), core::mem::transmute(pshf)).ok()
     }
     pub unsafe fn SetHeader(&self, pshf: *mut IMESHF) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), pshf).ok()
+        (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshf)).ok()
     }
     pub unsafe fn ExistWord(&self, pwrd: *mut IMEWRD) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).ExistWord)(windows_core::Interface::as_raw(self), pwrd)
+        (windows_core::Interface::vtable(self).ExistWord)(windows_core::Interface::as_raw(self), core::mem::transmute(pwrd))
     }
     pub unsafe fn ExistDependency(&self, pdp: *mut IMEDP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExistDependency)(windows_core::Interface::as_raw(self), pdp).ok()
+        (windows_core::Interface::vtable(self).ExistDependency)(windows_core::Interface::as_raw(self), core::mem::transmute(pdp)).ok()
     }
     pub unsafe fn RegisterWord(&self, reg: IMEREG, pwrd: *mut IMEWRD) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterWord)(windows_core::Interface::as_raw(self), reg, pwrd).ok()
+        (windows_core::Interface::vtable(self).RegisterWord)(windows_core::Interface::as_raw(self), core::mem::transmute(reg), core::mem::transmute(pwrd)).ok()
     }
     pub unsafe fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterDependency)(windows_core::Interface::as_raw(self), reg, pdp).ok()
+        (windows_core::Interface::vtable(self).RegisterDependency)(windows_core::Interface::as_raw(self), core::mem::transmute(reg), core::mem::transmute(pdp)).ok()
     }
-    pub unsafe fn GetDependencies<P0, P1, P2, P3>(&self, pwchkakarireading: P0, pwchkakaridisplay: P1, ulkakaripos: u32, pwchukereading: P2, pwchukedisplay: P3, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetDependencies<P0, P1, P3, P4>(&self, pwchkakarireading: P0, pwchkakaridisplay: P1, ulkakaripos: u32, pwchukereading: P3, pwchukedisplay: P4, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDependencies)(windows_core::Interface::as_raw(self), pwchkakarireading.param().abi(), pwchkakaridisplay.param().abi(), ulkakaripos, pwchukereading.param().abi(), pwchukedisplay.param().abi(), ulukepos, jrel, ulwordsrc, pchbuffer, cbbuffer, pcdp).ok()
+        (windows_core::Interface::vtable(self).GetDependencies)(windows_core::Interface::as_raw(self), pwchkakarireading.param().abi(), pwchkakaridisplay.param().abi(), core::mem::transmute(ulkakaripos), pwchukereading.param().abi(), pwchukedisplay.param().abi(), core::mem::transmute(ulukepos), core::mem::transmute(jrel), core::mem::transmute(ulwordsrc), core::mem::transmute(pchbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcdp)).ok()
     }
     pub unsafe fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NextDependencies)(windows_core::Interface::as_raw(self), pchbuffer, cbbuffer, pcdp).ok()
+        (windows_core::Interface::vtable(self).NextDependencies)(windows_core::Interface::as_raw(self), core::mem::transmute(pchbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(pcdp)).ok()
     }
     pub unsafe fn ConvertFromOldMSIME<P0>(&self, pchdic: P0, pfnlog: PFNLOG, reg: IMEREG) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertFromOldMSIME)(windows_core::Interface::as_raw(self), pchdic.param().abi(), pfnlog, reg).ok()
+        (windows_core::Interface::vtable(self).ConvertFromOldMSIME)(windows_core::Interface::as_raw(self), pchdic.param().abi(), core::mem::transmute(pfnlog), core::mem::transmute(reg)).ok()
     }
     pub unsafe fn ConvertFromUserToSys(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConvertFromUserToSys)(windows_core::Interface::as_raw(self)).ok()
@@ -4230,7 +4168,7 @@ pub struct IFEDictionary_Vtbl {
     pub ConvertFromOldMSIME: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, PFNLOG, IMEREG) -> windows_core::HRESULT,
     pub ConvertFromUserToSys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IFEDictionary_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFEDictionary_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetHeader(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()>;
@@ -4249,9 +4187,8 @@ pub trait IFEDictionary_Impl: Sized + windows_core::IUnknownImpl {
     fn ConvertFromOldMSIME(&self, pchdic: &windows_core::PCSTR, pfnlog: PFNLOG, reg: IMEREG) -> windows_core::Result<()>;
     fn ConvertFromUserToSys(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IFEDictionary {}
 impl IFEDictionary_Vtbl {
-    pub const fn new<Identity: IFEDictionary_Impl, const OFFSET: isize>() -> IFEDictionary_Vtbl {
+    pub const fn new<Identity: IFEDictionary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFEDictionary_Impl::Open(this, core::mem::transmute(&pchdictpath), core::mem::transmute_copy(&pshf)).into()
@@ -4345,13 +4282,8 @@ impl IFEDictionary_Vtbl {
         iid == &<IFEDictionary as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IFEDictionary {}
 windows_core::imp::define_interface!(IFELanguage, IFELanguage_Vtbl, 0x019f7152_e6db_11d0_83c3_00c04fddb82e);
-impl core::ops::Deref for IFELanguage {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IFELanguage, windows_core::IUnknown);
 impl IFELanguage {
     pub unsafe fn Open(&self) -> windows_core::Result<()> {
@@ -4360,26 +4292,20 @@ impl IFELanguage {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetJMorphResult<P0>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: P0, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>
+    pub unsafe fn GetJMorphResult<P3>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: P3, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetJMorphResult)(windows_core::Interface::as_raw(self), dwrequest, dwcmode, cwchinput, pwchinput.param().abi(), pfcinfo, ppresult).ok()
+        (windows_core::Interface::vtable(self).GetJMorphResult)(windows_core::Interface::as_raw(self), core::mem::transmute(dwrequest), core::mem::transmute(dwcmode), core::mem::transmute(cwchinput), pwchinput.param().abi(), core::mem::transmute(pfcinfo), core::mem::transmute(ppresult)).ok()
     }
     pub unsafe fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetConversionModeCaps)(windows_core::Interface::as_raw(self), pdwcaps).ok()
+        (windows_core::Interface::vtable(self).GetConversionModeCaps)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcaps)).ok()
     }
-    pub unsafe fn GetPhonetic<P0>(&self, string: P0, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).GetPhonetic)(windows_core::Interface::as_raw(self), string.param().abi(), start, length, core::mem::transmute(phonetic)).ok()
+    pub unsafe fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetPhonetic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), core::mem::transmute(start), core::mem::transmute(length), core::mem::transmute(phonetic)).ok()
     }
-    pub unsafe fn GetConversion<P0>(&self, string: P0, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).GetConversion)(windows_core::Interface::as_raw(self), string.param().abi(), start, length, core::mem::transmute(result)).ok()
+    pub unsafe fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetConversion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), core::mem::transmute(start), core::mem::transmute(length), core::mem::transmute(result)).ok()
     }
 }
 #[repr(C)]
@@ -4389,10 +4315,10 @@ pub struct IFELanguage_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetJMorphResult: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, i32, windows_core::PCWSTR, *mut u32, *mut *mut MORRSLT) -> windows_core::HRESULT,
     pub GetConversionModeCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetPhonetic: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetConversion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetPhonetic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetConversion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IFELanguage_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IFELanguage_Impl: windows_core::IUnknownImpl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: &windows_core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>;
@@ -4400,9 +4326,8 @@ pub trait IFELanguage_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IFELanguage {}
 impl IFELanguage_Vtbl {
-    pub const fn new<Identity: IFELanguage_Impl, const OFFSET: isize>() -> IFELanguage_Vtbl {
+    pub const fn new<Identity: IFELanguage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFELanguage_Impl::Open(this).into()
@@ -4419,11 +4344,11 @@ impl IFELanguage_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFELanguage_Impl::GetConversionModeCaps(this, core::mem::transmute_copy(&pdwcaps)).into()
         }
-        unsafe extern "system" fn GetPhonetic<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: core::mem::MaybeUninit<windows_core::BSTR>, start: i32, length: i32, phonetic: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPhonetic<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: *mut core::ffi::c_void, start: i32, length: i32, phonetic: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFELanguage_Impl::GetPhonetic(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length), core::mem::transmute_copy(&phonetic)).into()
         }
-        unsafe extern "system" fn GetConversion<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: core::mem::MaybeUninit<windows_core::BSTR>, start: i32, length: i32, result: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConversion<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: *mut core::ffi::c_void, start: i32, length: i32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFELanguage_Impl::GetConversion(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length), core::mem::transmute_copy(&result)).into()
         }
@@ -4441,20 +4366,15 @@ impl IFELanguage_Vtbl {
         iid == &<IFELanguage as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IFELanguage {}
 windows_core::imp::define_interface!(IImePad, IImePad_Vtbl, 0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
-impl core::ops::Deref for IImePad {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IImePad, windows_core::IUnknown);
 impl IImePad {
-    pub unsafe fn Request<P0, P1, P2>(&self, piimepadapplet: P0, reqid: IME_PAD_REQUEST_FLAGS, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn Request<P0, P2, P3>(&self, piimepadapplet: P0, reqid: IME_PAD_REQUEST_FLAGS, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IImePadApplet>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), piimepadapplet.param().abi(), reqid.0 as _, wparam.param().abi(), lparam.param().abi()).ok()
     }
@@ -4464,12 +4384,11 @@ pub struct IImePad_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
-pub trait IImePad_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImePad_Impl: windows_core::IUnknownImpl {
     fn Request(&self, piimepadapplet: Option<&IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IImePad {}
 impl IImePad_Vtbl {
-    pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> IImePad_Vtbl {
+    pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Request<Identity: IImePad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piimepadapplet: *mut core::ffi::c_void, reqid: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePad_Impl::Request(this, windows_core::from_raw_borrowed(&piimepadapplet), core::mem::transmute(&reqid), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
@@ -4480,13 +4399,8 @@ impl IImePad_Vtbl {
         iid == &<IImePad as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IImePad {}
 windows_core::imp::define_interface!(IImePadApplet, IImePadApplet_Vtbl, 0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
-impl core::ops::Deref for IImePadApplet {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IImePadApplet, windows_core::IUnknown);
 impl IImePadApplet {
     pub unsafe fn Initialize<P0>(&self, lpiimepad: P0) -> windows_core::Result<()>
@@ -4500,21 +4414,21 @@ impl IImePadApplet {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAppletConfig)(windows_core::Interface::as_raw(self), lpappletcfg).ok()
+        (windows_core::Interface::vtable(self).GetAppletConfig)(windows_core::Interface::as_raw(self), core::mem::transmute(lpappletcfg)).ok()
     }
     pub unsafe fn CreateUI<P0>(&self, hwndparent: P0, lpimeappletui: *mut IMEAPPLETUI) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).CreateUI)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpimeappletui).ok()
+        (windows_core::Interface::vtable(self).CreateUI)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(lpimeappletui)).ok()
     }
-    pub unsafe fn Notify<P0, P1, P2>(&self, lpimepad: P0, notify: i32, wparam: P1, lparam: P2) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0, P2, P3>(&self, lpimepad: P0, notify: i32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpimepad.param().abi(), notify, wparam.param().abi(), lparam.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpimepad.param().abi(), core::mem::transmute(notify), wparam.param().abi(), lparam.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4530,7 +4444,7 @@ pub struct IImePadApplet_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IImePadApplet_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImePadApplet_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, lpiimepad: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Terminate(&self) -> windows_core::Result<()>;
     fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> windows_core::Result<()>;
@@ -4538,10 +4452,8 @@ pub trait IImePadApplet_Impl: Sized + windows_core::IUnknownImpl {
     fn Notify(&self, lpimepad: Option<&windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IImePadApplet {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IImePadApplet_Vtbl {
-    pub const fn new<Identity: IImePadApplet_Impl, const OFFSET: isize>() -> IImePadApplet_Vtbl {
+    pub const fn new<Identity: IImePadApplet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IImePadApplet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiimepad: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePadApplet_Impl::Initialize(this, windows_core::from_raw_borrowed(&lpiimepad)).into()
@@ -4575,24 +4487,17 @@ impl IImePadApplet_Vtbl {
         iid == &<IImePadApplet as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IImePadApplet {}
 windows_core::imp::define_interface!(IImePlugInDictDictionaryList, IImePlugInDictDictionaryList_Vtbl, 0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
-impl core::ops::Deref for IImePlugInDictDictionaryList {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IImePlugInDictDictionaryList, windows_core::IUnknown);
 impl IImePlugInDictDictionaryList {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDictionariesInUse)(windows_core::Interface::as_raw(self), prgdictionaryguid, prgdatecreated, prgfencrypted).ok()
+        (windows_core::Interface::vtable(self).GetDictionariesInUse)(windows_core::Interface::as_raw(self), core::mem::transmute(prgdictionaryguid), core::mem::transmute(prgdatecreated), core::mem::transmute(prgfencrypted)).ok()
     }
-    pub unsafe fn DeleteDictionary<P0>(&self, bstrdictionaryguid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).DeleteDictionary)(windows_core::Interface::as_raw(self), bstrdictionaryguid.param().abi()).ok()
+    pub unsafe fn DeleteDictionary(&self, bstrdictionaryguid: &windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeleteDictionary)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdictionaryguid)).ok()
     }
 }
 #[repr(C)]
@@ -4602,23 +4507,21 @@ pub struct IImePlugInDictDictionaryList_Vtbl {
     pub GetDictionariesInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::super::System::Com::SAFEARRAY, *mut *mut super::super::super::System::Com::SAFEARRAY, *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDictionariesInUse: usize,
-    pub DeleteDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DeleteDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IImePlugInDictDictionaryList_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImePlugInDictDictionaryList_Impl: windows_core::IUnknownImpl {
     fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn DeleteDictionary(&self, bstrdictionaryguid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
-#[cfg(feature = "Win32_System_Com")]
 impl IImePlugInDictDictionaryList_Vtbl {
-    pub const fn new<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> IImePlugInDictDictionaryList_Vtbl {
+    pub const fn new<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDictionariesInUse<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePlugInDictDictionaryList_Impl::GetDictionariesInUse(this, core::mem::transmute_copy(&prgdictionaryguid), core::mem::transmute_copy(&prgdatecreated), core::mem::transmute_copy(&prgfencrypted)).into()
         }
-        unsafe extern "system" fn DeleteDictionary<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdictionaryguid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteDictionary<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdictionaryguid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePlugInDictDictionaryList_Impl::DeleteDictionary(this, core::mem::transmute(&bstrdictionaryguid)).into()
         }
@@ -4632,17 +4535,13 @@ impl IImePlugInDictDictionaryList_Vtbl {
         iid == &<IImePlugInDictDictionaryList as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
-impl core::ops::Deref for IImeSpecifyApplets {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IImeSpecifyApplets, windows_core::IUnknown);
 impl IImeSpecifyApplets {
     pub unsafe fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAppletIIDList)(windows_core::Interface::as_raw(self), refiid, lpiidlist).ok()
+        (windows_core::Interface::vtable(self).GetAppletIIDList)(windows_core::Interface::as_raw(self), core::mem::transmute(refiid), core::mem::transmute(lpiidlist)).ok()
     }
 }
 #[repr(C)]
@@ -4650,12 +4549,11 @@ pub struct IImeSpecifyApplets_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAppletIIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut APPLETIDLIST) -> windows_core::HRESULT,
 }
-pub trait IImeSpecifyApplets_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImeSpecifyApplets_Impl: windows_core::IUnknownImpl {
     fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IImeSpecifyApplets {}
 impl IImeSpecifyApplets_Vtbl {
-    pub const fn new<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> IImeSpecifyApplets_Vtbl {
+    pub const fn new<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAppletIIDList<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImeSpecifyApplets_Impl::GetAppletIIDList(this, core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&lpiidlist)).into()
@@ -4665,6 +4563,1137 @@ impl IImeSpecifyApplets_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImeSpecifyApplets as windows_core::Interface>::IID
     }
+}
+impl windows_core::RuntimeName for IImeSpecifyApplets {}
+pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
+pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;
+pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
+pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
+pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fpCreateIFEDictionaryInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_CONVERSION_LIST_FLAG(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_GUIDE_LINE_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEFMT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEREG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEREL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEUCT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_COMPOSITION_STRING(pub u32);
+impl IME_COMPOSITION_STRING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_COMPOSITION_STRING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_COMPOSITION_STRING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_CONVERSION_MODE(pub u32);
+impl IME_CONVERSION_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_CONVERSION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_CONVERSION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_ESCAPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_HOTKEY_IDENTIFIER(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_PAD_REQUEST_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_SENTENCE_MODE(pub u32);
+impl IME_SENTENCE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_SENTENCE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_SENTENCE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NOTIFY_IME_ACTION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NOTIFY_IME_INDEX(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct APPLETIDLIST {
+    pub count: i32,
+    pub pIIDList: *mut windows_core::GUID,
+}
+impl Default for APPLETIDLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APPLETIDLIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct APPLYCANDEXPARAM {
+    pub dwSize: u32,
+    pub lpwstrDisplay: windows_core::PWSTR,
+    pub lpwstrReading: windows_core::PWSTR,
+    pub dwReserved: u32,
+}
+impl Default for APPLYCANDEXPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APPLYCANDEXPARAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATEFORM {
+    pub dwIndex: u32,
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+impl Default for CANDIDATEFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATEFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATEINFO {
+    pub dwSize: u32,
+    pub dwCount: u32,
+    pub dwOffset: [u32; 32],
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for CANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATELIST {
+    pub dwSize: u32,
+    pub dwStyle: u32,
+    pub dwCount: u32,
+    pub dwSelection: u32,
+    pub dwPageStart: u32,
+    pub dwPageSize: u32,
+    pub dwOffset: [u32; 1],
+}
+impl Default for CANDIDATELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATELIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPOSITIONFORM {
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+impl Default for COMPOSITIONFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPOSITIONFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPOSITIONSTRING {
+    pub dwSize: u32,
+    pub dwCompReadAttrLen: u32,
+    pub dwCompReadAttrOffset: u32,
+    pub dwCompReadClauseLen: u32,
+    pub dwCompReadClauseOffset: u32,
+    pub dwCompReadStrLen: u32,
+    pub dwCompReadStrOffset: u32,
+    pub dwCompAttrLen: u32,
+    pub dwCompAttrOffset: u32,
+    pub dwCompClauseLen: u32,
+    pub dwCompClauseOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwCursorPos: u32,
+    pub dwDeltaStart: u32,
+    pub dwResultReadClauseLen: u32,
+    pub dwResultReadClauseOffset: u32,
+    pub dwResultReadStrLen: u32,
+    pub dwResultReadStrOffset: u32,
+    pub dwResultClauseLen: u32,
+    pub dwResultClauseOffset: u32,
+    pub dwResultStrLen: u32,
+    pub dwResultStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for COMPOSITIONSTRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPOSITIONSTRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GUIDELINE {
+    pub dwSize: u32,
+    pub dwLevel: u32,
+    pub dwIndex: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for GUIDELINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GUIDELINE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIMC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIMC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIMC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIMC {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
+            ImmDestroyContext(self.0);
+        }
+    }
+}
+impl Default for HIMC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIMCC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIMCC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIMCC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HIMCC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEAPPLETCFG {
+    pub dwConfig: u32,
+    pub wchTitle: [u16; 64],
+    pub wchTitleFontFace: [u16; 32],
+    pub dwCharSet: u32,
+    pub iCategory: i32,
+    pub hIcon: super::super::WindowsAndMessaging::HICON,
+    pub langID: u16,
+    pub dummy: u16,
+    pub lReserved1: super::super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for IMEAPPLETCFG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for IMEAPPLETCFG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEAPPLETUI {
+    pub hwnd: super::super::super::Foundation::HWND,
+    pub dwStyle: u32,
+    pub width: i32,
+    pub height: i32,
+    pub minWidth: i32,
+    pub minHeight: i32,
+    pub maxWidth: i32,
+    pub maxHeight: i32,
+    pub lReserved1: super::super::super::Foundation::LPARAM,
+    pub lReserved2: super::super::super::Foundation::LPARAM,
+}
+impl Default for IMEAPPLETUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEAPPLETUI {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMECHARINFO {
+    pub wch: u16,
+    pub dwCharInfo: u32,
+}
+impl Default for IMECHARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMECHARINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMECHARPOSITION {
+    pub dwSize: u32,
+    pub dwCharPos: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub cLineHeight: u32,
+    pub rcDocument: super::super::super::Foundation::RECT,
+}
+impl Default for IMECHARPOSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMECHARPOSITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMECOMPOSITIONSTRINGINFO {
+    pub iCompStrLen: i32,
+    pub iCaretPos: i32,
+    pub iEditStart: i32,
+    pub iEditLen: i32,
+    pub iTargetStart: i32,
+    pub iTargetLen: i32,
+}
+impl Default for IMECOMPOSITIONSTRINGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEDLG {
+    pub cbIMEDLG: i32,
+    pub hwnd: super::super::super::Foundation::HWND,
+    pub lpwstrWord: windows_core::PWSTR,
+    pub nTabId: i32,
+}
+impl Default for IMEDLG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEDLG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEDP {
+    pub wrdModifier: IMEWRD,
+    pub wrdModifiee: IMEWRD,
+    pub relID: IMEREL,
+}
+impl Default for IMEDP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEDP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEFAREASTINFO {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub dwData: [u32; 1],
+}
+impl Default for IMEFAREASTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEFAREASTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEINFO {
+    pub dwPrivateDataSize: u32,
+    pub fdwProperty: u32,
+    pub fdwConversionCaps: u32,
+    pub fdwSentenceCaps: u32,
+    pub fdwUICaps: u32,
+    pub fdwSCSCaps: u32,
+    pub fdwSelectCaps: u32,
+}
+impl Default for IMEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEITEM {
+    pub cbSize: i32,
+    pub iType: i32,
+    pub lpItemData: *mut core::ffi::c_void,
+}
+impl Default for IMEITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEITEM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEITEMCANDIDATE {
+    pub uCount: u32,
+    pub imeItem: [IMEITEM; 1],
+}
+impl Default for IMEITEMCANDIDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEITEMCANDIDATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMS {
+    pub cbSize: i32,
+    pub hIMC: HIMC,
+    pub cKeyList: u32,
+    pub pKeyList: *mut IMEKMSKEY,
+}
+impl Default for IMEKMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSFUNCDESC {
+    pub cbSize: i32,
+    pub idLang: u16,
+    pub dwControl: u32,
+    pub pwszDescription: [u16; 128],
+}
+impl Default for IMEKMSFUNCDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSFUNCDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSINIT {
+    pub cbSize: i32,
+    pub hWnd: super::super::super::Foundation::HWND,
+}
+impl Default for IMEKMSINIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSINIT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSINVK {
+    pub cbSize: i32,
+    pub hIMC: HIMC,
+    pub dwControl: u32,
+}
+impl Default for IMEKMSINVK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSINVK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSKEY {
+    pub dwStatus: u32,
+    pub dwCompStatus: u32,
+    pub dwVKEY: u32,
+    pub Anonymous1: IMEKMSKEY_0,
+    pub Anonymous2: IMEKMSKEY_1,
+}
+impl Default for IMEKMSKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union IMEKMSKEY_0 {
+    pub dwControl: u32,
+    pub dwNotUsed: u32,
+}
+impl Default for IMEKMSKEY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSKEY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union IMEKMSKEY_1 {
+    pub pwszDscr: [u16; 31],
+    pub pwszNoUse: [u16; 31],
+}
+impl Default for IMEKMSKEY_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSKEY_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSKMP {
+    pub cbSize: i32,
+    pub hIMC: HIMC,
+    pub idLang: u16,
+    pub wVKStart: u16,
+    pub wVKEnd: u16,
+    pub cKeyList: i32,
+    pub pKeyList: *mut IMEKMSKEY,
+}
+impl Default for IMEKMSKMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSKMP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEKMSNTFY {
+    pub cbSize: i32,
+    pub hIMC: HIMC,
+    pub fSelect: super::super::super::Foundation::BOOL,
+}
+impl Default for IMEKMSNTFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEKMSNTFY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEMENUITEMINFOA {
+    pub cbSize: u32,
+    pub fType: u32,
+    pub fState: u32,
+    pub wID: u32,
+    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: u32,
+    pub szString: [i8; 80],
+    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMEMENUITEMINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMEMENUITEMINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMEMENUITEMINFOW {
+    pub cbSize: u32,
+    pub fType: u32,
+    pub fState: u32,
+    pub wID: u32,
+    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: u32,
+    pub szString: [u16; 80],
+    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMEMENUITEMINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMEMENUITEMINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMESHF {
+    pub cbShf: u16,
+    pub verDic: u16,
+    pub szTitle: [i8; 48],
+    pub szDescription: [i8; 256],
+    pub szCopyright: [i8; 128],
+}
+impl Default for IMESHF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESHF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGCANDIDATE {
+    pub uCount: u32,
+    pub lpwstr: [windows_core::PWSTR; 1],
+}
+impl Default for IMESTRINGCANDIDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGCANDIDATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGCANDIDATEINFO {
+    pub dwFarEastId: u32,
+    pub lpFarEastInfo: *mut IMEFAREASTINFO,
+    pub fInfoMask: u32,
+    pub iSelIndex: i32,
+    pub uCount: u32,
+    pub lpwstr: [windows_core::PWSTR; 1],
+}
+impl Default for IMESTRINGCANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGINFO {
+    pub dwFarEastId: u32,
+    pub lpwstr: windows_core::PWSTR,
+}
+impl Default for IMESTRINGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEWRD {
+    pub pwchReading: windows_core::PWSTR,
+    pub pwchDisplay: windows_core::PWSTR,
+    pub Anonymous: IMEWRD_0,
+    pub rgulAttrs: [u32; 2],
+    pub cbComment: i32,
+    pub uct: IMEUCT,
+    pub pvComment: *mut core::ffi::c_void,
+}
+impl Default for IMEWRD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union IMEWRD_0 {
+    pub ulPos: u32,
+    pub Anonymous: IMEWRD_0_0,
+}
+impl Default for IMEWRD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEWRD_0_0 {
+    pub nPos1: u16,
+    pub nPos2: u16,
+}
+impl Default for IMEWRD_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct INPUTCONTEXT {
+    pub hWnd: super::super::super::Foundation::HWND,
+    pub fOpen: super::super::super::Foundation::BOOL,
+    pub ptStatusWndPos: super::super::super::Foundation::POINT,
+    pub ptSoftKbdPos: super::super::super::Foundation::POINT,
+    pub fdwConversion: u32,
+    pub fdwSentence: u32,
+    pub lfFont: INPUTCONTEXT_0,
+    pub cfCompForm: COMPOSITIONFORM,
+    pub cfCandForm: [CANDIDATEFORM; 4],
+    pub hCompStr: HIMCC,
+    pub hCandInfo: HIMCC,
+    pub hGuideLine: HIMCC,
+    pub hPrivate: HIMCC,
+    pub dwNumMsgBuf: u32,
+    pub hMsgBuf: HIMCC,
+    pub fdwInit: u32,
+    pub dwReserve: [u32; 3],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union INPUTCONTEXT_0 {
+    pub A: super::super::super::Graphics::Gdi::LOGFONTA,
+    pub W: super::super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MORRSLT {
+    pub dwSize: u32,
+    pub pwchOutput: windows_core::PWSTR,
+    pub cchOutput: u16,
+    pub Anonymous1: MORRSLT_0,
+    pub Anonymous2: MORRSLT_1,
+    pub pchInputPos: *mut u16,
+    pub pchOutputIdxWDD: *mut u16,
+    pub Anonymous3: MORRSLT_2,
+    pub paMonoRubyPos: *mut u16,
+    pub pWDD: *mut WDD,
+    pub cWDD: i32,
+    pub pPrivate: *mut core::ffi::c_void,
+    pub BLKBuff: [u16; 1],
+}
+impl Default for MORRSLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_0 {
+    pub pwchRead: windows_core::PWSTR,
+    pub pwchComp: windows_core::PWSTR,
+}
+impl Default for MORRSLT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+impl Default for MORRSLT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_2 {
+    pub pchReadIdxWDD: *mut u16,
+    pub pchCompIdxWDD: *mut u16,
+}
+impl Default for MORRSLT_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct POSTBL {
+    pub nPos: u16,
+    pub szName: *mut u8,
+}
+impl Default for POSTBL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POSTBL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RECONVERTSTRING {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwTargetStrLen: u32,
+    pub dwTargetStrOffset: u32,
+}
+impl Default for RECONVERTSTRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RECONVERTSTRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REGISTERWORDA {
+    pub lpReading: windows_core::PSTR,
+    pub lpWord: windows_core::PSTR,
+}
+impl Default for REGISTERWORDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REGISTERWORDA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REGISTERWORDW {
+    pub lpReading: windows_core::PWSTR,
+    pub lpWord: windows_core::PWSTR,
+}
+impl Default for REGISTERWORDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REGISTERWORDW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SOFTKBDDATA {
+    pub uCount: u32,
+    pub wCode: [u16; 256],
+}
+impl Default for SOFTKBDDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SOFTKBDDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STYLEBUFA {
+    pub dwStyle: u32,
+    pub szDescription: [i8; 32],
+}
+impl Default for STYLEBUFA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STYLEBUFA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STYLEBUFW {
+    pub dwStyle: u32,
+    pub szDescription: [u16; 32],
+}
+impl Default for STYLEBUFW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STYLEBUFW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSMSG {
+    pub message: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+impl Default for TRANSMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSMSG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSMSGLIST {
+    pub uMsgCount: u32,
+    pub TransMsg: [TRANSMSG; 1],
+}
+impl Default for TRANSMSGLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSMSGLIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WDD {
+    pub wDispPos: u16,
+    pub Anonymous1: WDD_0,
+    pub cchDisp: u16,
+    pub Anonymous2: WDD_1,
+    pub WDD_nReserve1: u32,
+    pub nPos: u16,
+    pub _bitfield: u16,
+    pub pReserved: *mut core::ffi::c_void,
+}
+impl Default for WDD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union WDD_0 {
+    pub wReadPos: u16,
+    pub wCompPos: u16,
+}
+impl Default for WDD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union WDD_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+impl Default for WDD_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD_1 {
+    type TypeKind = windows_core::CopyType;
 }
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
@@ -5435,1252 +6464,3 @@ pub const szImeJapan: windows_core::PCWSTR = windows_core::w!("MSIME.Japan");
 pub const szImeKorea: windows_core::PCWSTR = windows_core::w!("MSIME.Korea");
 pub const szImeTaiwan: windows_core::PCWSTR = windows_core::w!("MSIME.Taiwan");
 pub const wchPrivate1: u32 = 57344u32;
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GET_CONVERSION_LIST_FLAG(pub u32);
-impl windows_core::TypeKind for GET_CONVERSION_LIST_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_CONVERSION_LIST_FLAG").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GET_GUIDE_LINE_TYPE(pub u32);
-impl windows_core::TypeKind for GET_GUIDE_LINE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GET_GUIDE_LINE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_GUIDE_LINE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMEFMT(pub i32);
-impl windows_core::TypeKind for IMEFMT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMEFMT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMEFMT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMEREG(pub i32);
-impl windows_core::TypeKind for IMEREG {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMEREG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMEREG").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMEREL(pub i32);
-impl windows_core::TypeKind for IMEREL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMEREL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMEREL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IMEUCT(pub i32);
-impl windows_core::TypeKind for IMEUCT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMEUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMEUCT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_COMPOSITION_STRING(pub u32);
-impl windows_core::TypeKind for IME_COMPOSITION_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_COMPOSITION_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_COMPOSITION_STRING").field(&self.0).finish()
-    }
-}
-impl IME_COMPOSITION_STRING {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_COMPOSITION_STRING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_COMPOSITION_STRING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_CONVERSION_MODE(pub u32);
-impl windows_core::TypeKind for IME_CONVERSION_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_CONVERSION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_CONVERSION_MODE").field(&self.0).finish()
-    }
-}
-impl IME_CONVERSION_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_CONVERSION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_CONVERSION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_ESCAPE(pub u32);
-impl windows_core::TypeKind for IME_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_ESCAPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_ESCAPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_HOTKEY_IDENTIFIER(pub u32);
-impl windows_core::TypeKind for IME_HOTKEY_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_HOTKEY_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_HOTKEY_IDENTIFIER").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_PAD_REQUEST_FLAGS(pub u32);
-impl windows_core::TypeKind for IME_PAD_REQUEST_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_PAD_REQUEST_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct IME_SENTENCE_MODE(pub u32);
-impl windows_core::TypeKind for IME_SENTENCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IME_SENTENCE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IME_SENTENCE_MODE").field(&self.0).finish()
-    }
-}
-impl IME_SENTENCE_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_SENTENCE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_SENTENCE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NOTIFY_IME_ACTION(pub u32);
-impl windows_core::TypeKind for NOTIFY_IME_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NOTIFY_IME_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NOTIFY_IME_ACTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct NOTIFY_IME_INDEX(pub u32);
-impl windows_core::TypeKind for NOTIFY_IME_INDEX {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NOTIFY_IME_INDEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NOTIFY_IME_INDEX").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
-impl windows_core::TypeKind for SET_COMPOSITION_STRING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SET_COMPOSITION_STRING_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct APPLETIDLIST {
-    pub count: i32,
-    pub pIIDList: *mut windows_core::GUID,
-}
-impl windows_core::TypeKind for APPLETIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for APPLETIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct APPLYCANDEXPARAM {
-    pub dwSize: u32,
-    pub lpwstrDisplay: windows_core::PWSTR,
-    pub lpwstrReading: windows_core::PWSTR,
-    pub dwReserved: u32,
-}
-impl windows_core::TypeKind for APPLYCANDEXPARAM {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for APPLYCANDEXPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CANDIDATEFORM {
-    pub dwIndex: u32,
-    pub dwStyle: u32,
-    pub ptCurrentPos: super::super::super::Foundation::POINT,
-    pub rcArea: super::super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for CANDIDATEFORM {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CANDIDATEFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CANDIDATEINFO {
-    pub dwSize: u32,
-    pub dwCount: u32,
-    pub dwOffset: [u32; 32],
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl windows_core::TypeKind for CANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CANDIDATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CANDIDATELIST {
-    pub dwSize: u32,
-    pub dwStyle: u32,
-    pub dwCount: u32,
-    pub dwSelection: u32,
-    pub dwPageStart: u32,
-    pub dwPageSize: u32,
-    pub dwOffset: [u32; 1],
-}
-impl windows_core::TypeKind for CANDIDATELIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CANDIDATELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COMPOSITIONFORM {
-    pub dwStyle: u32,
-    pub ptCurrentPos: super::super::super::Foundation::POINT,
-    pub rcArea: super::super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for COMPOSITIONFORM {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COMPOSITIONFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COMPOSITIONSTRING {
-    pub dwSize: u32,
-    pub dwCompReadAttrLen: u32,
-    pub dwCompReadAttrOffset: u32,
-    pub dwCompReadClauseLen: u32,
-    pub dwCompReadClauseOffset: u32,
-    pub dwCompReadStrLen: u32,
-    pub dwCompReadStrOffset: u32,
-    pub dwCompAttrLen: u32,
-    pub dwCompAttrOffset: u32,
-    pub dwCompClauseLen: u32,
-    pub dwCompClauseOffset: u32,
-    pub dwCompStrLen: u32,
-    pub dwCompStrOffset: u32,
-    pub dwCursorPos: u32,
-    pub dwDeltaStart: u32,
-    pub dwResultReadClauseLen: u32,
-    pub dwResultReadClauseOffset: u32,
-    pub dwResultReadStrLen: u32,
-    pub dwResultReadStrOffset: u32,
-    pub dwResultClauseLen: u32,
-    pub dwResultClauseOffset: u32,
-    pub dwResultStrLen: u32,
-    pub dwResultStrOffset: u32,
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl windows_core::TypeKind for COMPOSITIONSTRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COMPOSITIONSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GUIDELINE {
-    pub dwSize: u32,
-    pub dwLevel: u32,
-    pub dwIndex: u32,
-    pub dwStrLen: u32,
-    pub dwStrOffset: u32,
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl windows_core::TypeKind for GUIDELINE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for GUIDELINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMC(pub *mut core::ffi::c_void);
-impl HIMC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HIMC {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            _ = ImmDestroyContext(*self);
-        }
-    }
-}
-impl Default for HIMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIMC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMCC(pub *mut core::ffi::c_void);
-impl HIMCC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HIMCC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIMCC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEAPPLETCFG {
-    pub dwConfig: u32,
-    pub wchTitle: [u16; 64],
-    pub wchTitleFontFace: [u16; 32],
-    pub dwCharSet: u32,
-    pub iCategory: i32,
-    pub hIcon: super::super::WindowsAndMessaging::HICON,
-    pub langID: u16,
-    pub dummy: u16,
-    pub lReserved1: super::super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for IMEAPPLETCFG {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for IMEAPPLETCFG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEAPPLETUI {
-    pub hwnd: super::super::super::Foundation::HWND,
-    pub dwStyle: u32,
-    pub width: i32,
-    pub height: i32,
-    pub minWidth: i32,
-    pub minHeight: i32,
-    pub maxWidth: i32,
-    pub maxHeight: i32,
-    pub lReserved1: super::super::super::Foundation::LPARAM,
-    pub lReserved2: super::super::super::Foundation::LPARAM,
-}
-impl windows_core::TypeKind for IMEAPPLETUI {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEAPPLETUI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMECHARINFO {
-    pub wch: u16,
-    pub dwCharInfo: u32,
-}
-impl windows_core::TypeKind for IMECHARINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMECHARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMECHARPOSITION {
-    pub dwSize: u32,
-    pub dwCharPos: u32,
-    pub pt: super::super::super::Foundation::POINT,
-    pub cLineHeight: u32,
-    pub rcDocument: super::super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for IMECHARPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMECHARPOSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMECOMPOSITIONSTRINGINFO {
-    pub iCompStrLen: i32,
-    pub iCaretPos: i32,
-    pub iEditStart: i32,
-    pub iEditLen: i32,
-    pub iTargetStart: i32,
-    pub iTargetLen: i32,
-}
-impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMECOMPOSITIONSTRINGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEDLG {
-    pub cbIMEDLG: i32,
-    pub hwnd: super::super::super::Foundation::HWND,
-    pub lpwstrWord: windows_core::PWSTR,
-    pub nTabId: i32,
-}
-impl windows_core::TypeKind for IMEDLG {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEDLG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEDP {
-    pub wrdModifier: IMEWRD,
-    pub wrdModifiee: IMEWRD,
-    pub relID: IMEREL,
-}
-impl windows_core::TypeKind for IMEDP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEDP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEFAREASTINFO {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub dwData: [u32; 1],
-}
-impl windows_core::TypeKind for IMEFAREASTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEFAREASTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEINFO {
-    pub dwPrivateDataSize: u32,
-    pub fdwProperty: u32,
-    pub fdwConversionCaps: u32,
-    pub fdwSentenceCaps: u32,
-    pub fdwUICaps: u32,
-    pub fdwSCSCaps: u32,
-    pub fdwSelectCaps: u32,
-}
-impl windows_core::TypeKind for IMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEITEM {
-    pub cbSize: i32,
-    pub iType: i32,
-    pub lpItemData: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for IMEITEM {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEITEMCANDIDATE {
-    pub uCount: u32,
-    pub imeItem: [IMEITEM; 1],
-}
-impl windows_core::TypeKind for IMEITEMCANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEITEMCANDIDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMS {
-    pub cbSize: i32,
-    pub hIMC: HIMC,
-    pub cKeyList: u32,
-    pub pKeyList: *mut IMEKMSKEY,
-}
-impl windows_core::TypeKind for IMEKMS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSFUNCDESC {
-    pub cbSize: i32,
-    pub idLang: u16,
-    pub dwControl: u32,
-    pub pwszDescription: [u16; 128],
-}
-impl windows_core::TypeKind for IMEKMSFUNCDESC {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSFUNCDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSINIT {
-    pub cbSize: i32,
-    pub hWnd: super::super::super::Foundation::HWND,
-}
-impl windows_core::TypeKind for IMEKMSINIT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSINIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSINVK {
-    pub cbSize: i32,
-    pub hIMC: HIMC,
-    pub dwControl: u32,
-}
-impl windows_core::TypeKind for IMEKMSINVK {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSINVK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSKEY {
-    pub dwStatus: u32,
-    pub dwCompStatus: u32,
-    pub dwVKEY: u32,
-    pub Anonymous1: IMEKMSKEY_0,
-    pub Anonymous2: IMEKMSKEY_1,
-}
-impl windows_core::TypeKind for IMEKMSKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union IMEKMSKEY_0 {
-    pub dwControl: u32,
-    pub dwNotUsed: u32,
-}
-impl windows_core::TypeKind for IMEKMSKEY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSKEY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union IMEKMSKEY_1 {
-    pub pwszDscr: [u16; 31],
-    pub pwszNoUse: [u16; 31],
-}
-impl windows_core::TypeKind for IMEKMSKEY_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSKEY_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSKMP {
-    pub cbSize: i32,
-    pub hIMC: HIMC,
-    pub idLang: u16,
-    pub wVKStart: u16,
-    pub wVKEnd: u16,
-    pub cKeyList: i32,
-    pub pKeyList: *mut IMEKMSKEY,
-}
-impl windows_core::TypeKind for IMEKMSKMP {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSKMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEKMSNTFY {
-    pub cbSize: i32,
-    pub hIMC: HIMC,
-    pub fSelect: super::super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for IMEKMSNTFY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEKMSNTFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEMENUITEMINFOA {
-    pub cbSize: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
-    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: u32,
-    pub szString: [i8; 80],
-    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for IMEMENUITEMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMEMENUITEMINFOW {
-    pub cbSize: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
-    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: u32,
-    pub szString: [u16; 80],
-    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for IMEMENUITEMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMESHF {
-    pub cbShf: u16,
-    pub verDic: u16,
-    pub szTitle: [i8; 48],
-    pub szDescription: [i8; 256],
-    pub szCopyright: [i8; 128],
-}
-impl windows_core::TypeKind for IMESHF {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMESHF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMESTRINGCANDIDATE {
-    pub uCount: u32,
-    pub lpwstr: [windows_core::PWSTR; 1],
-}
-impl windows_core::TypeKind for IMESTRINGCANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMESTRINGCANDIDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMESTRINGCANDIDATEINFO {
-    pub dwFarEastId: u32,
-    pub lpFarEastInfo: *mut IMEFAREASTINFO,
-    pub fInfoMask: u32,
-    pub iSelIndex: i32,
-    pub uCount: u32,
-    pub lpwstr: [windows_core::PWSTR; 1],
-}
-impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMESTRINGCANDIDATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMESTRINGINFO {
-    pub dwFarEastId: u32,
-    pub lpwstr: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for IMESTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMESTRINGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEWRD {
-    pub pwchReading: windows_core::PWSTR,
-    pub pwchDisplay: windows_core::PWSTR,
-    pub Anonymous: IMEWRD_0,
-    pub rgulAttrs: [u32; 2],
-    pub cbComment: i32,
-    pub uct: IMEUCT,
-    pub pvComment: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for IMEWRD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEWRD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union IMEWRD_0 {
-    pub ulPos: u32,
-    pub Anonymous: IMEWRD_0_0,
-}
-impl windows_core::TypeKind for IMEWRD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEWRD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEWRD_0_0 {
-    pub nPos1: u16,
-    pub nPos2: u16,
-}
-impl windows_core::TypeKind for IMEWRD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMEWRD_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct INPUTCONTEXT {
-    pub hWnd: super::super::super::Foundation::HWND,
-    pub fOpen: super::super::super::Foundation::BOOL,
-    pub ptStatusWndPos: super::super::super::Foundation::POINT,
-    pub ptSoftKbdPos: super::super::super::Foundation::POINT,
-    pub fdwConversion: u32,
-    pub fdwSentence: u32,
-    pub lfFont: INPUTCONTEXT_0,
-    pub cfCompForm: COMPOSITIONFORM,
-    pub cfCandForm: [CANDIDATEFORM; 4],
-    pub hCompStr: HIMCC,
-    pub hCandInfo: HIMCC,
-    pub hGuideLine: HIMCC,
-    pub hPrivate: HIMCC,
-    pub dwNumMsgBuf: u32,
-    pub hMsgBuf: HIMCC,
-    pub fdwInit: u32,
-    pub dwReserve: [u32; 3],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for INPUTCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union INPUTCONTEXT_0 {
-    pub A: super::super::super::Graphics::Gdi::LOGFONTA,
-    pub W: super::super::super::Graphics::Gdi::LOGFONTW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for INPUTCONTEXT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MORRSLT {
-    pub dwSize: u32,
-    pub pwchOutput: windows_core::PWSTR,
-    pub cchOutput: u16,
-    pub Anonymous1: MORRSLT_0,
-    pub Anonymous2: MORRSLT_1,
-    pub pchInputPos: *mut u16,
-    pub pchOutputIdxWDD: *mut u16,
-    pub Anonymous3: MORRSLT_2,
-    pub paMonoRubyPos: *mut u16,
-    pub pWDD: *mut WDD,
-    pub cWDD: i32,
-    pub pPrivate: *mut core::ffi::c_void,
-    pub BLKBuff: [u16; 1],
-}
-impl windows_core::TypeKind for MORRSLT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MORRSLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_0 {
-    pub pwchRead: windows_core::PWSTR,
-    pub pwchComp: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for MORRSLT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MORRSLT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_1 {
-    pub cchRead: u16,
-    pub cchComp: u16,
-}
-impl windows_core::TypeKind for MORRSLT_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MORRSLT_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_2 {
-    pub pchReadIdxWDD: *mut u16,
-    pub pchCompIdxWDD: *mut u16,
-}
-impl windows_core::TypeKind for MORRSLT_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for MORRSLT_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct POSTBL {
-    pub nPos: u16,
-    pub szName: *mut u8,
-}
-impl windows_core::TypeKind for POSTBL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for POSTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RECONVERTSTRING {
-    pub dwSize: u32,
-    pub dwVersion: u32,
-    pub dwStrLen: u32,
-    pub dwStrOffset: u32,
-    pub dwCompStrLen: u32,
-    pub dwCompStrOffset: u32,
-    pub dwTargetStrLen: u32,
-    pub dwTargetStrOffset: u32,
-}
-impl windows_core::TypeKind for RECONVERTSTRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for RECONVERTSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REGISTERWORDA {
-    pub lpReading: windows_core::PSTR,
-    pub lpWord: windows_core::PSTR,
-}
-impl windows_core::TypeKind for REGISTERWORDA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REGISTERWORDW {
-    pub lpReading: windows_core::PWSTR,
-    pub lpWord: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for REGISTERWORDW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SOFTKBDDATA {
-    pub uCount: u32,
-    pub wCode: [u16; 256],
-}
-impl windows_core::TypeKind for SOFTKBDDATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SOFTKBDDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct STYLEBUFA {
-    pub dwStyle: u32,
-    pub szDescription: [i8; 32],
-}
-impl windows_core::TypeKind for STYLEBUFA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for STYLEBUFA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct STYLEBUFW {
-    pub dwStyle: u32,
-    pub szDescription: [u16; 32],
-}
-impl windows_core::TypeKind for STYLEBUFW {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for STYLEBUFW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSMSG {
-    pub message: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-}
-impl windows_core::TypeKind for TRANSMSG {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct TRANSMSGLIST {
-    pub uMsgCount: u32,
-    pub TransMsg: [TRANSMSG; 1],
-}
-impl windows_core::TypeKind for TRANSMSGLIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for TRANSMSGLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WDD {
-    pub wDispPos: u16,
-    pub Anonymous1: WDD_0,
-    pub cchDisp: u16,
-    pub Anonymous2: WDD_1,
-    pub WDD_nReserve1: u32,
-    pub nPos: u16,
-    pub _bitfield: u16,
-    pub pReserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WDD {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WDD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union WDD_0 {
-    pub wReadPos: u16,
-    pub wCompPos: u16,
-}
-impl windows_core::TypeKind for WDD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WDD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union WDD_1 {
-    pub cchRead: u16,
-    pub cchComp: u16,
-}
-impl windows_core::TypeKind for WDD_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WDD_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
-pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;
-pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
-pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
-pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type fpCreateIFEDictionaryInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

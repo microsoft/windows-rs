@@ -20,8 +20,8 @@ where
         pszextensions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pinitialheaders.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pinitialheaders.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        padditionalheaders,
-        puladditionalheadercount,
+        core::mem::transmute(padditionalheaders),
+        core::mem::transmute(puladditionalheadercount),
     )
     .ok()
 }
@@ -32,7 +32,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_core::PCSTR, pszextensionselected : *const windows_core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_core::HRESULT);
-    WebSocketBeginServerHandshake(hwebsocket.param().abi(), pszsubprotocolselected.param().abi(), core::mem::transmute(pszextensionselected.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len().try_into().unwrap(), presponseheaders, pulresponseheadercount).ok()
+    WebSocketBeginServerHandshake(hwebsocket.param().abi(), pszsubprotocolselected.param().abi(), core::mem::transmute(pszextensionselected.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len().try_into().unwrap(), core::mem::transmute(presponseheaders), core::mem::transmute(pulresponseheadercount)).ok()
 }
 #[inline]
 pub unsafe fn WebSocketCompleteAction<P0>(hwebsocket: P0, pvactioncontext: *const core::ffi::c_void, ulbytestransferred: u32)
@@ -40,19 +40,19 @@ where
     P0: windows_core::Param<WEB_SOCKET_HANDLE>,
 {
     windows_targets::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const core::ffi::c_void, ulbytestransferred : u32));
-    WebSocketCompleteAction(hwebsocket.param().abi(), pvactioncontext, ulbytestransferred)
+    WebSocketCompleteAction(hwebsocket.param().abi(), core::mem::transmute(pvactioncontext), core::mem::transmute(ulbytestransferred))
 }
 #[inline]
 pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> windows_core::Result<WEB_SOCKET_HANDLE> {
     windows_targets::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
+    WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> windows_core::Result<WEB_SOCKET_HANDLE> {
     windows_targets::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
+    WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebSocketDeleteHandle<P0>(hwebsocket: P0)
@@ -84,12 +84,12 @@ where
     P0: windows_core::Param<WEB_SOCKET_HANDLE>,
 {
     windows_targets::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut core::ffi::c_void, pvactioncontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    WebSocketGetAction(hwebsocket.param().abi(), eactionqueue, pdatabuffers, puldatabuffercount, paction, pbuffertype, core::mem::transmute(pvapplicationcontext.unwrap_or(core::ptr::null_mut())), pvactioncontext).ok()
+    WebSocketGetAction(hwebsocket.param().abi(), core::mem::transmute(eactionqueue), core::mem::transmute(pdatabuffers), core::mem::transmute(puldatabuffercount), core::mem::transmute(paction), core::mem::transmute(pbuffertype), core::mem::transmute(pvapplicationcontext.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvactioncontext)).ok()
 }
 #[inline]
 pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut core::ffi::c_void, ulsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : *mut core::ffi::c_void, ulsize : *mut u32) -> windows_core::HRESULT);
-    WebSocketGetGlobalProperty(etype, pvvalue, ulsize).ok()
+    WebSocketGetGlobalProperty(core::mem::transmute(etype), core::mem::transmute(pvvalue), core::mem::transmute(ulsize)).ok()
 }
 #[inline]
 pub unsafe fn WebSocketReceive<P0>(hwebsocket: P0, pbuffer: Option<*const WEB_SOCKET_BUFFER>, pvcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -105,7 +105,121 @@ where
     P0: windows_core::Param<WEB_SOCKET_HANDLE>,
 {
     windows_targets::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WebSocketSend(hwebsocket.param().abi(), buffertype, core::mem::transmute(pbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+    WebSocketSend(hwebsocket.param().abi(), core::mem::transmute(buffertype), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEB_SOCKET_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WEB_SOCKET_BUFFER {
+    pub Data: WEB_SOCKET_BUFFER_0,
+    pub CloseStatus: WEB_SOCKET_BUFFER_1,
+}
+impl Default for WEB_SOCKET_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEB_SOCKET_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEB_SOCKET_BUFFER_1 {
+    pub pbReason: *mut u8,
+    pub ulReasonLength: u32,
+    pub usStatus: u16,
+}
+impl Default for WEB_SOCKET_BUFFER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEB_SOCKET_BUFFER_0 {
+    pub pbBuffer: *mut u8,
+    pub ulBufferLength: u32,
+}
+impl Default for WEB_SOCKET_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct WEB_SOCKET_HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for WEB_SOCKET_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl WEB_SOCKET_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for WEB_SOCKET_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : *mut core::ffi::c_void));
+            WebSocketDeleteHandle(self.0);
+        }
+    }
+}
+impl Default for WEB_SOCKET_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEB_SOCKET_HTTP_HEADER {
+    pub pcName: windows_core::PSTR,
+    pub ulNameLength: u32,
+    pub pcValue: windows_core::PSTR,
+    pub ulValueLength: u32,
+}
+impl Default for WEB_SOCKET_HTTP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEB_SOCKET_HTTP_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEB_SOCKET_PROPERTY {
+    pub Type: WEB_SOCKET_PROPERTY_TYPE,
+    pub pvValue: *mut core::ffi::c_void,
+    pub ulValueSize: u32,
+}
+impl Default for WEB_SOCKET_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEB_SOCKET_PROPERTY {
+    type TypeKind = windows_core::CopyType;
 }
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1006i32);
 pub const WEB_SOCKET_ALLOCATED_BUFFER_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(3i32);
@@ -142,156 +256,3 @@ pub const WEB_SOCKET_UNSOLICITED_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_
 pub const WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1010i32);
 pub const WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483647i32);
 pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483648i32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WEB_SOCKET_ACTION(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WEB_SOCKET_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_ACTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_ACTION_QUEUE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WEB_SOCKET_ACTION_QUEUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_ACTION_QUEUE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_BUFFER_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_CLOSE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WEB_SOCKET_CLOSE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_CLOSE_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
-impl windows_core::TypeKind for WEB_SOCKET_PROPERTY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_PROPERTY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WEB_SOCKET_BUFFER {
-    pub Data: WEB_SOCKET_BUFFER_0,
-    pub CloseStatus: WEB_SOCKET_BUFFER_1,
-}
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEB_SOCKET_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_BUFFER_1 {
-    pub pbReason: *mut u8,
-    pub ulReasonLength: u32,
-    pub usStatus: u16,
-}
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEB_SOCKET_BUFFER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_BUFFER_0 {
-    pub pbBuffer: *mut u8,
-    pub ulBufferLength: u32,
-}
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEB_SOCKET_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WEB_SOCKET_HANDLE(pub *mut core::ffi::c_void);
-impl WEB_SOCKET_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for WEB_SOCKET_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            WebSocketDeleteHandle(*self);
-        }
-    }
-}
-impl Default for WEB_SOCKET_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WEB_SOCKET_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_HTTP_HEADER {
-    pub pcName: windows_core::PSTR,
-    pub ulNameLength: u32,
-    pub pcValue: windows_core::PSTR,
-    pub ulValueLength: u32,
-}
-impl windows_core::TypeKind for WEB_SOCKET_HTTP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEB_SOCKET_HTTP_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_PROPERTY {
-    pub Type: WEB_SOCKET_PROPERTY_TYPE,
-    pub pvValue: *mut core::ffi::c_void,
-    pub ulValueSize: u32,
-}
-impl windows_core::TypeKind for WEB_SOCKET_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEB_SOCKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

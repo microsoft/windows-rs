@@ -6,7 +6,7 @@ where
 {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::super::Foundation:: HWND, pwszrpid : windows_core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.param().abi(), pwszrpid.param().abi(), pwebauthnclientdata, core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.param().abi(), pwszrpid.param().abi(), core::mem::transmute(pwebauthnclientdata), core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> windows_core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
@@ -15,12 +15,12 @@ where
 {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebAuthNAuthenticatorMakeCredential(hwnd.param().abi(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.param().abi(), core::mem::transmute(prpinformation), core::mem::transmute(puserinformation), core::mem::transmute(ppubkeycredparams), core::mem::transmute(pwebauthnclientdata), core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_core::GUID) -> windows_core::Result<()> {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const windows_core::GUID) -> windows_core::HRESULT);
-    WebAuthNCancelCurrentOperation(pcancellationid).ok()
+    WebAuthNCancelCurrentOperation(core::mem::transmute(pcancellationid)).ok()
 }
 #[inline]
 pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows_core::Result<()> {
@@ -30,7 +30,7 @@ pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows
 #[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION));
-    WebAuthNFreeAssertion(pwebauthnassertion)
+    WebAuthNFreeAssertion(core::mem::transmute(pwebauthnassertion))
 }
 #[inline]
 pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Option<*const WEBAUTHN_CREDENTIAL_ATTESTATION>) {
@@ -40,7 +40,7 @@ pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: 
 #[inline]
 pub unsafe fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist: *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST));
-    WebAuthNFreePlatformCredentialList(pcredentialdetailslist)
+    WebAuthNFreePlatformCredentialList(core::mem::transmute(pcredentialdetailslist))
 }
 #[inline]
 pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
@@ -51,208 +51,208 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 pub unsafe fn WebAuthNGetCancellationId() -> windows_core::Result<windows_core::GUID> {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebAuthNGetCancellationId(&mut result__).map(|| result__)
+    WebAuthNGetCancellationId(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebAuthNGetErrorName(hr: windows_core::HRESULT) -> windows_core::PCWSTR {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetErrorName(hr : windows_core::HRESULT) -> windows_core::PCWSTR);
-    WebAuthNGetErrorName(hr)
+    WebAuthNGetErrorName(core::mem::transmute(hr))
 }
 #[inline]
 pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: *const WEBAUTHN_GET_CREDENTIALS_OPTIONS) -> windows_core::Result<*mut WEBAUTHN_CREDENTIAL_DETAILS_LIST> {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut *mut WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).map(|| result__)
+    WebAuthNGetPlatformCredentialList(core::mem::transmute(pgetcredentialsoptions), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> windows_core::Result<()> {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetW3CExceptionDOMError(hr : windows_core::HRESULT) -> windows_core::HRESULT);
-    WebAuthNGetW3CExceptionDOMError(hr).ok()
+    WebAuthNGetW3CExceptionDOMError(core::mem::transmute(hr)).ok()
 }
 #[inline]
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).map(|| result__)
+    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WsAbandonCall(serviceproxy: *const WS_SERVICE_PROXY, callid: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbandonCall(serviceproxy : *const WS_SERVICE_PROXY, callid : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbandonCall(serviceproxy, callid, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbandonCall(core::mem::transmute(serviceproxy), core::mem::transmute(callid), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAbandonMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbandonMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbandonMessage(channel, message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbandonMessage(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAbortChannel(channel: *const WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbortChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbortChannel(channel, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbortChannel(core::mem::transmute(channel), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAbortListener(listener: *const WS_LISTENER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbortListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbortListener(listener, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbortListener(core::mem::transmute(listener), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAbortServiceHost(servicehost: *const WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbortServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbortServiceHost(servicehost, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbortServiceHost(core::mem::transmute(servicehost), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAbortServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAbortServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAbortServiceProxy(serviceproxy, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAbortServiceProxy(core::mem::transmute(serviceproxy), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_CHANNEL, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAcceptChannel(listener : *const WS_LISTENER, channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAcceptChannel(listener, channel, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAcceptChannel(core::mem::transmute(listener), core::mem::transmute(channel), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, headerattributes: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAddCustomHeader(message : *const WS_MESSAGE, headerdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, headerattributes : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAddCustomHeader(message, headerdescription, writeoption, value, valuesize, headerattributes, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAddCustomHeader(core::mem::transmute(message), core::mem::transmute(headerdescription), core::mem::transmute(writeoption), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(headerattributes), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAddErrorString(error : *const WS_ERROR, string : *const WS_STRING) -> windows_core::HRESULT);
-    WsAddErrorString(error, string).ok()
+    WsAddErrorString(core::mem::transmute(error), core::mem::transmute(string)).ok()
 }
 #[inline]
 pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAddMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAddMappedHeader(message, headername, valuetype, writeoption, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAddMappedHeader(core::mem::transmute(message), core::mem::transmute(headername), core::mem::transmute(valuetype), core::mem::transmute(writeoption), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: Option<*const WS_ENDPOINT_ADDRESS>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAddressMessage(message : *const WS_MESSAGE, address : *const WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAddressMessage(message, core::mem::transmute(address.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAddressMessage(core::mem::transmute(message), core::mem::transmute(address.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut core::ffi::c_void, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAlloc(heap : *const WS_HEAP, size : usize, ptr : *mut *mut core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAlloc(heap, size, ptr, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAlloc(core::mem::transmute(heap), core::mem::transmute(size), core::mem::transmute(ptr), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Option<*const core::ffi::c_void>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsAsyncExecute(asyncstate : *const WS_ASYNC_STATE, operation : WS_ASYNC_FUNCTION, callbackmodel : WS_CALLBACK_MODEL, callbackstate : *const core::ffi::c_void, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsAsyncExecute(asyncstate, operation, callbackmodel, core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsAsyncExecute(core::mem::transmute(asyncstate), core::mem::transmute(operation), core::mem::transmute(callbackmodel), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: Option<*const *const core::ffi::c_void>, heap: *const WS_HEAP, callproperties: Option<&[WS_CALL_PROPERTY]>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCall(serviceproxy, operation, core::mem::transmute(arguments.unwrap_or(core::ptr::null())), heap, core::mem::transmute(callproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), callproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCall(core::mem::transmute(serviceproxy), core::mem::transmute(operation), core::mem::transmute(arguments.unwrap_or(core::ptr::null())), core::mem::transmute(heap), core::mem::transmute(callproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), callproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCheckMustUnderstandHeaders(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCheckMustUnderstandHeaders(message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCheckMustUnderstandHeaders(core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCloseChannel(channel: *const WS_CHANNEL, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCloseChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCloseChannel(channel, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCloseChannel(core::mem::transmute(channel), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCloseListener(listener: *const WS_LISTENER, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCloseListener(listener : *const WS_LISTENER, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCloseListener(listener, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCloseListener(core::mem::transmute(listener), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCloseServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCloseServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCloseServiceHost(servicehost, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCloseServiceHost(core::mem::transmute(servicehost), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCloseServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCloseServiceProxy(serviceproxy, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCloseServiceProxy(core::mem::transmute(serviceproxy), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCombineUrl(baseurl : *const WS_STRING, referenceurl : *const WS_STRING, flags : u32, heap : *const WS_HEAP, resulturl : *mut WS_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCombineUrl(baseurl, referenceurl, flags, heap, resulturl, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCombineUrl(core::mem::transmute(baseurl), core::mem::transmute(referenceurl), core::mem::transmute(flags), core::mem::transmute(heap), core::mem::transmute(resulturl), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCopyError(source: *const WS_ERROR, destination: *const WS_ERROR) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCopyError(source : *const WS_ERROR, destination : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCopyError(source, destination).ok()
+    WsCopyError(core::mem::transmute(source), core::mem::transmute(destination)).ok()
 }
 #[inline]
 pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCopyNode(writer : *const WS_XML_WRITER, reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCopyNode(writer, reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCopyNode(core::mem::transmute(writer), core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateChannel(channeltype, channelbinding, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(securitydescription.unwrap_or(core::ptr::null())), channel, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateChannel(core::mem::transmute(channeltype), core::mem::transmute(channelbinding), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(securitydescription.unwrap_or(core::ptr::null())), core::mem::transmute(channel), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateChannelForListener(listener : *const WS_LISTENER, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateChannelForListener(listener, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), channel, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateChannelForListener(core::mem::transmute(listener), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(channel), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateError(properties: Option<&[WS_ERROR_PROPERTY]>) -> windows_core::Result<*mut WS_ERROR> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WsCreateError(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
+    WsCreateError(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateFaultFromError(error : *const WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, heap : *const WS_HEAP, fault : *mut WS_FAULT) -> windows_core::HRESULT);
-    WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, fault).ok()
+    WsCreateFaultFromError(core::mem::transmute(error), core::mem::transmute(faulterrorcode), core::mem::transmute(faultdisclosure), core::mem::transmute(heap), core::mem::transmute(fault)).ok()
 }
 #[inline]
 pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: Option<*const WS_HEAP_PROPERTY>, propertycount: u32, heap: *mut *mut WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateHeap(maxsize : usize, trimsize : usize, properties : *const WS_HEAP_PROPERTY, propertycount : u32, heap : *mut *mut WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateHeap(maxsize, trimsize, core::mem::transmute(properties.unwrap_or(core::ptr::null())), propertycount, heap, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateHeap(core::mem::transmute(maxsize), core::mem::transmute(trimsize), core::mem::transmute(properties.unwrap_or(core::ptr::null())), core::mem::transmute(propertycount), core::mem::transmute(heap), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<&[WS_LISTENER_PROPERTY]>, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateListener(channeltype, channelbinding, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(securitydescription.unwrap_or(core::ptr::null())), listener, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateListener(core::mem::transmute(channeltype), core::mem::transmute(channelbinding), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(securitydescription.unwrap_or(core::ptr::null())), core::mem::transmute(listener), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateMessage(envelopeversion, addressingversion, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateMessage(core::mem::transmute(envelopeversion), core::mem::transmute(addressingversion), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateMessageForChannel(channel : *const WS_CHANNEL, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateMessageForChannel(channel, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateMessageForChannel(core::mem::transmute(channel), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateMetadata(properties: Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateMetadata(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), metadata, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateMetadata(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(metadata), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateReader(properties: Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateReader(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateReader(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateServiceEndpointFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount : u32, addressurl : *const WS_STRING, contract : *const WS_SERVICE_CONTRACT, authorizationcallback : WS_SERVICE_SECURITY_CALLBACK, heap : *const WS_HEAP, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const core::ffi::c_void, templatesize : u32, templatedescription : *const core::ffi::c_void, templatedescriptionsize : u32, serviceendpoint : *mut *mut WS_SERVICE_ENDPOINT, error : *const WS_ERROR) -> windows_core::HRESULT);
     WsCreateServiceEndpointFromTemplate(
-        channeltype,
+        core::mem::transmute(channeltype),
         core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(addressurl.unwrap_or(core::ptr::null())),
-        contract,
-        authorizationcallback,
-        heap,
-        templatetype,
+        core::mem::transmute(contract),
+        core::mem::transmute(authorizationcallback),
+        core::mem::transmute(heap),
+        core::mem::transmute(templatetype),
         core::mem::transmute(templatevalue.unwrap_or(core::ptr::null())),
-        templatesize,
-        templatedescription,
-        templatedescriptionsize,
-        serviceendpoint,
+        core::mem::transmute(templatesize),
+        core::mem::transmute(templatedescription),
+        core::mem::transmute(templatedescriptionsize),
+        core::mem::transmute(serviceendpoint),
         core::mem::transmute(error.unwrap_or(core::ptr::null())),
     )
     .ok()
@@ -260,20 +260,20 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
 #[inline]
 pub unsafe fn WsCreateServiceHost(endpoints: Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateServiceHost(endpoints : *const *const WS_SERVICE_ENDPOINT, endpointcount : u16, serviceproperties : *const WS_SERVICE_PROPERTY, servicepropertycount : u32, servicehost : *mut *mut WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateServiceHost(core::mem::transmute(endpoints.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), endpoints.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(serviceproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), serviceproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), servicehost, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateServiceHost(core::mem::transmute(endpoints.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), endpoints.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(serviceproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), serviceproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(servicehost), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, properties: Option<&[WS_PROXY_PROPERTY]>, channelproperties: Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *const WS_SECURITY_DESCRIPTION, properties : *const WS_PROXY_PROPERTY, propertycount : u32, channelproperties : *const WS_CHANNEL_PROPERTY, channelpropertycount : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
     WsCreateServiceProxy(
-        channeltype,
-        channelbinding,
+        core::mem::transmute(channeltype),
+        core::mem::transmute(channelbinding),
         core::mem::transmute(securitydescription.unwrap_or(core::ptr::null())),
         core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(channelproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         channelproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        serviceproxy,
+        core::mem::transmute(serviceproxy),
         core::mem::transmute(error.unwrap_or(core::ptr::null())),
     )
     .ok()
@@ -281,665 +281,707 @@ pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding:
 #[inline]
 pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxyFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_PROXY_PROPERTY, propertycount : u32, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const core::ffi::c_void, templatesize : u32, templatedescription : *const core::ffi::c_void, templatedescriptionsize : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateServiceProxyFromTemplate(channeltype, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), templatetype, core::mem::transmute(templatevalue.unwrap_or(core::ptr::null())), templatesize, templatedescription, templatedescriptionsize, serviceproxy, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateServiceProxyFromTemplate(
+        core::mem::transmute(channeltype),
+        core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(templatetype),
+        core::mem::transmute(templatevalue.unwrap_or(core::ptr::null())),
+        core::mem::transmute(templatesize),
+        core::mem::transmute(templatedescription),
+        core::mem::transmute(templatedescriptionsize),
+        core::mem::transmute(serviceproxy),
+        core::mem::transmute(error.unwrap_or(core::ptr::null())),
+    )
+    .ok()
 }
 #[inline]
 pub unsafe fn WsCreateWriter(properties: Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateWriter(properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, writer : *mut *mut WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateWriter(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateWriter(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateXmlBuffer(heap, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), buffer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateXmlBuffer(core::mem::transmute(heap), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(buffer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsCreateXmlSecurityToken(tokenxml: Option<*const WS_XML_BUFFER>, tokenkey: Option<*const WS_SECURITY_KEY_HANDLE>, properties: Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsCreateXmlSecurityToken(core::mem::transmute(tokenxml.unwrap_or(core::ptr::null())), core::mem::transmute(tokenkey.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), token, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsCreateXmlSecurityToken(core::mem::transmute(tokenxml.unwrap_or(core::ptr::null())), core::mem::transmute(tokenkey.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(token), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsDateTimeToFileTime(datetime, filetime, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsDateTimeToFileTime(core::mem::transmute(datetime), core::mem::transmute(filetime), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsDecodeUrl(url : *const WS_STRING, flags : u32, heap : *const WS_HEAP, outurl : *mut *mut WS_URL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsDecodeUrl(url, flags, heap, outurl, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsDecodeUrl(core::mem::transmute(url), core::mem::transmute(flags), core::mem::transmute(heap), core::mem::transmute(outurl), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsEncodeUrl(url : *const WS_URL, flags : u32, heap : *const WS_HEAP, outurl : *mut WS_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsEncodeUrl(url, flags, heap, outurl, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsEncodeUrl(core::mem::transmute(url), core::mem::transmute(flags), core::mem::transmute(heap), core::mem::transmute(outurl), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsEndReaderCanonicalization(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsEndReaderCanonicalization(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsEndReaderCanonicalization(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsEndReaderCanonicalization(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsEndWriterCanonicalization(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsEndWriterCanonicalization(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFileTimeToDateTime(filetime, datetime, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFileTimeToDateTime(core::mem::transmute(filetime), core::mem::transmute(datetime), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFillBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFillBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFillBody(message, minsize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFillBody(core::mem::transmute(message), core::mem::transmute(minsize), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFillReader(reader : *const WS_XML_READER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFillReader(reader, minsize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFillReader(core::mem::transmute(reader), core::mem::transmute(minsize), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsFindAttribute<P0>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P0, attributeindex: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsFindAttribute<P3>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P3, attributeindex: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFindAttribute(reader, localname, ns, required.param().abi(), attributeindex, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFindAttribute(core::mem::transmute(reader), core::mem::transmute(localname), core::mem::transmute(ns), required.param().abi(), core::mem::transmute(attributeindex), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFlushBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFlushBody(message, minsize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFlushBody(core::mem::transmute(message), core::mem::transmute(minsize), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFlushWriter(writer: *const WS_XML_WRITER, minsize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsFlushWriter(writer : *const WS_XML_WRITER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsFlushWriter(writer, minsize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsFlushWriter(core::mem::transmute(writer), core::mem::transmute(minsize), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeChannel(channel : *const WS_CHANNEL));
-    WsFreeChannel(channel)
+    WsFreeChannel(core::mem::transmute(channel))
 }
 #[inline]
 pub unsafe fn WsFreeError(error: *const WS_ERROR) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeError(error : *const WS_ERROR));
-    WsFreeError(error)
+    WsFreeError(core::mem::transmute(error))
 }
 #[inline]
 pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeHeap(heap : *const WS_HEAP));
-    WsFreeHeap(heap)
+    WsFreeHeap(core::mem::transmute(heap))
 }
 #[inline]
 pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeListener(listener : *const WS_LISTENER));
-    WsFreeListener(listener)
+    WsFreeListener(core::mem::transmute(listener))
 }
 #[inline]
 pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeMessage(message : *const WS_MESSAGE));
-    WsFreeMessage(message)
+    WsFreeMessage(core::mem::transmute(message))
 }
 #[inline]
 pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeMetadata(metadata : *const WS_METADATA));
-    WsFreeMetadata(metadata)
+    WsFreeMetadata(core::mem::transmute(metadata))
 }
 #[inline]
 pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeReader(reader : *const WS_XML_READER));
-    WsFreeReader(reader)
+    WsFreeReader(core::mem::transmute(reader))
 }
 #[inline]
 pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeSecurityToken(token : *const WS_SECURITY_TOKEN));
-    WsFreeSecurityToken(token)
+    WsFreeSecurityToken(core::mem::transmute(token))
 }
 #[inline]
 pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeServiceHost(servicehost : *const WS_SERVICE_HOST));
-    WsFreeServiceHost(servicehost)
+    WsFreeServiceHost(core::mem::transmute(servicehost))
 }
 #[inline]
 pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeServiceProxy(serviceproxy : *const WS_SERVICE_PROXY));
-    WsFreeServiceProxy(serviceproxy)
+    WsFreeServiceProxy(core::mem::transmute(serviceproxy))
 }
 #[inline]
 pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
     windows_targets::link!("webservices.dll" "system" fn WsFreeWriter(writer : *const WS_XML_WRITER));
-    WsFreeWriter(writer)
+    WsFreeWriter(core::mem::transmute(writer))
 }
 #[inline]
 pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetChannelProperty(channel, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetChannelProperty(core::mem::transmute(channel), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, headerattributes: Option<*mut u32>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetCustomHeader(message : *const WS_MESSAGE, customheaderdescription : *const WS_ELEMENT_DESCRIPTION, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, headerattributes : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetCustomHeader(message, customheaderdescription, repeatingoption, headerindex, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(headerattributes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetCustomHeader(core::mem::transmute(message), core::mem::transmute(customheaderdescription), core::mem::transmute(repeatingoption), core::mem::transmute(headerindex), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(headerattributes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetDictionary(encoding : WS_ENCODING, dictionary : *mut *mut WS_XML_DICTIONARY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetDictionary(encoding, dictionary, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetDictionary(core::mem::transmute(encoding), core::mem::transmute(dictionary), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, buffer : *mut core::ffi::c_void, buffersize : u32) -> windows_core::HRESULT);
-    WsGetErrorProperty(error, id, buffer, buffersize).ok()
+    WsGetErrorProperty(core::mem::transmute(error), core::mem::transmute(id), core::mem::transmute(buffer), core::mem::transmute(buffersize)).ok()
 }
 #[inline]
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> windows_core::Result<WS_STRING> {
     windows_targets::link!("webservices.dll" "system" fn WsGetErrorString(error : *const WS_ERROR, index : u32, string : *mut WS_STRING) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WsGetErrorString(error, index, &mut result__).map(|| result__)
+    WsGetErrorString(core::mem::transmute(error), core::mem::transmute(index), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    WsGetFaultErrorDetail(error, faultdetaildescription, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize).ok()
+    WsGetFaultErrorDetail(core::mem::transmute(error), core::mem::transmute(faultdetaildescription), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize)).ok()
 }
 #[inline]
 pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, buffer : *mut core::ffi::c_void, buffersize : u32) -> windows_core::HRESULT);
-    WsGetFaultErrorProperty(error, id, buffer, buffersize).ok()
+    WsGetFaultErrorProperty(core::mem::transmute(error), core::mem::transmute(id), core::mem::transmute(buffer), core::mem::transmute(buffersize)).ok()
 }
 #[inline]
 pub unsafe fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetHeader(message, headertype, valuetype, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetHeader(core::mem::transmute(message), core::mem::transmute(headertype), core::mem::transmute(valuetype), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetHeaderAttributes(message: *const WS_MESSAGE, reader: *const WS_XML_READER, headerattributes: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetHeaderAttributes(message : *const WS_MESSAGE, reader : *const WS_XML_READER, headerattributes : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetHeaderAttributes(message, reader, headerattributes, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetHeaderAttributes(core::mem::transmute(message), core::mem::transmute(reader), core::mem::transmute(headerattributes), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetHeapProperty(heap : *const WS_HEAP, id : WS_HEAP_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetHeapProperty(heap, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetHeapProperty(core::mem::transmute(heap), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetListenerProperty(listener, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetListenerProperty(core::mem::transmute(listener), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetMappedHeader(message, headername, repeatingoption, headerindex, valuetype, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetMappedHeader(core::mem::transmute(message), core::mem::transmute(headername), core::mem::transmute(repeatingoption), core::mem::transmute(headerindex), core::mem::transmute(valuetype), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetMessageProperty(message, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetMessageProperty(core::mem::transmute(message), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetMetadataEndpoints(metadata : *const WS_METADATA, endpoints : *mut WS_METADATA_ENDPOINTS, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetMetadataEndpoints(metadata, endpoints, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetMetadataEndpoints(core::mem::transmute(metadata), core::mem::transmute(endpoints), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetMetadataProperty(metadata : *const WS_METADATA, id : WS_METADATA_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetMetadataProperty(metadata, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetMetadataProperty(core::mem::transmute(metadata), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetMissingMetadataDocumentAddress(metadata : *const WS_METADATA, address : *mut *mut WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetMissingMetadataDocumentAddress(metadata, address, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetMissingMetadataDocumentAddress(core::mem::transmute(metadata), core::mem::transmute(address), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsGetNamespaceFromPrefix<P0>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P0, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsGetNamespaceFromPrefix<P2>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P2, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetNamespaceFromPrefix(reader, prefix, required.param().abi(), ns, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetNamespaceFromPrefix(core::mem::transmute(reader), core::mem::transmute(prefix), required.param().abi(), core::mem::transmute(ns), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetOperationContextProperty(context : *const WS_OPERATION_CONTEXT, id : WS_OPERATION_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetOperationContextProperty(context, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetOperationContextProperty(core::mem::transmute(context), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetPolicyAlternativeCount(policy : *const WS_POLICY, count : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetPolicyAlternativeCount(policy, count, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetPolicyAlternativeCount(core::mem::transmute(policy), core::mem::transmute(count), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetPolicyProperty(policy : *const WS_POLICY, id : WS_POLICY_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetPolicyProperty(policy, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetPolicyProperty(core::mem::transmute(policy), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace<P0>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P0, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsGetPrefixFromNamespace<P2>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P2, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetPrefixFromNamespace(writer, ns, required.param().abi(), prefix, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetPrefixFromNamespace(core::mem::transmute(writer), core::mem::transmute(ns), required.param().abi(), core::mem::transmute(prefix), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetReaderNode(xmlreader, node, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetReaderNode(core::mem::transmute(xmlreader), core::mem::transmute(node), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetReaderPosition(reader : *const WS_XML_READER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetReaderPosition(reader, nodeposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetReaderPosition(core::mem::transmute(reader), core::mem::transmute(nodeposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetReaderProperty(reader : *const WS_XML_READER, id : WS_XML_READER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetReaderProperty(reader, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetReaderProperty(core::mem::transmute(reader), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetSecurityContextProperty(securitycontext : *const WS_SECURITY_CONTEXT, id : WS_SECURITY_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetSecurityContextProperty(securitycontext, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetSecurityContextProperty(core::mem::transmute(securitycontext), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, heap: Option<*const WS_HEAP>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetSecurityTokenProperty(securitytoken : *const WS_SECURITY_TOKEN, id : WS_SECURITY_TOKEN_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetSecurityTokenProperty(securitytoken, id, value, valuesize, core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetSecurityTokenProperty(core::mem::transmute(securitytoken), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetServiceHostProperty(servicehost : *const WS_SERVICE_HOST, id : WS_SERVICE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetServiceHostProperty(servicehost, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetServiceHostProperty(core::mem::transmute(servicehost), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetServiceProxyProperty(serviceproxy : *const WS_SERVICE_PROXY, id : WS_PROXY_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetServiceProxyProperty(serviceproxy, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetServiceProxyProperty(core::mem::transmute(serviceproxy), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *mut WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetWriterPosition(writer, nodeposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetWriterPosition(core::mem::transmute(writer), core::mem::transmute(nodeposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetWriterProperty(writer : *const WS_XML_WRITER, id : WS_XML_WRITER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetWriterProperty(writer, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetWriterProperty(core::mem::transmute(writer), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, heap: *const WS_HEAP, valuechars: Option<*mut *mut u16>, valuecharcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsGetXmlAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, heap : *const WS_HEAP, valuechars : *mut *mut u16, valuecharcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsGetXmlAttribute(reader, localname, heap, core::mem::transmute(valuechars.unwrap_or(core::ptr::null_mut())), valuecharcount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsGetXmlAttribute(core::mem::transmute(reader), core::mem::transmute(localname), core::mem::transmute(heap), core::mem::transmute(valuechars.unwrap_or(core::ptr::null_mut())), core::mem::transmute(valuecharcount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: Option<*const WS_MESSAGE>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsInitializeMessage(message : *const WS_MESSAGE, initialization : WS_MESSAGE_INITIALIZATION, sourcemessage : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsInitializeMessage(message, initialization, core::mem::transmute(sourcemessage.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsInitializeMessage(core::mem::transmute(message), core::mem::transmute(initialization), core::mem::transmute(sourcemessage.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerposition: *const WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsMarkHeaderAsUnderstood(message : *const WS_MESSAGE, headerposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsMarkHeaderAsUnderstood(message, headerposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsMarkHeaderAsUnderstood(core::mem::transmute(message), core::mem::transmute(headerposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsMatchPolicyAlternative<P0>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P0, heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsMatchPolicyAlternative<P3>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P3, heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : super::super::Foundation:: BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.param().abi(), heap, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsMatchPolicyAlternative(core::mem::transmute(policy), core::mem::transmute(alternativeindex), core::mem::transmute(policyconstraints), matchrequired.param().abi(), core::mem::transmute(heap), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsMoveReader(reader : *const WS_XML_READER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsMoveReader(reader, moveto, core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsMoveReader(core::mem::transmute(reader), core::mem::transmute(moveto), core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsMoveWriter(writer, moveto, core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsMoveWriter(core::mem::transmute(writer), core::mem::transmute(moveto), core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsOpenChannel(channel : *const WS_CHANNEL, endpointaddress : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsOpenChannel(channel, endpointaddress, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsOpenChannel(core::mem::transmute(channel), core::mem::transmute(endpointaddress), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsOpenListener(listener : *const WS_LISTENER, url : *const WS_STRING, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsOpenListener(listener, url, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsOpenListener(core::mem::transmute(listener), core::mem::transmute(url), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsOpenServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsOpenServiceHost(servicehost, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsOpenServiceHost(core::mem::transmute(servicehost), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsOpenServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, address : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsOpenServiceProxy(serviceproxy, address, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsOpenServiceProxy(core::mem::transmute(serviceproxy), core::mem::transmute(address), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsPullBytes(writer : *const WS_XML_WRITER, callback : WS_PULL_BYTES_CALLBACK, callbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsPullBytes(writer, callback, core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsPullBytes(core::mem::transmute(writer), core::mem::transmute(callback), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsPushBytes(writer : *const WS_XML_WRITER, callback : WS_PUSH_BYTES_CALLBACK, callbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsPushBytes(writer, callback, core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsPushBytes(core::mem::transmute(writer), core::mem::transmute(callback), core::mem::transmute(callbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: Option<*mut core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadArray(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *mut core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, actualitemcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadArray(reader, localname, ns, valuetype, core::mem::transmute(array.unwrap_or(core::ptr::null_mut())), arraysize, itemoffset, itemcount, actualitemcount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadArray(core::mem::transmute(reader), core::mem::transmute(localname), core::mem::transmute(ns), core::mem::transmute(valuetype), core::mem::transmute(array.unwrap_or(core::ptr::null_mut())), core::mem::transmute(arraysize), core::mem::transmute(itemoffset), core::mem::transmute(itemcount), core::mem::transmute(actualitemcount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadAttribute(reader : *const WS_XML_READER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadAttribute(reader, attributedescription, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadAttribute(core::mem::transmute(reader), core::mem::transmute(attributedescription), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadBody(message, bodydescription, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadBody(core::mem::transmute(message), core::mem::transmute(bodydescription), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut core::ffi::c_void, maxbytecount: u32, actualbytecount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadBytes(reader : *const WS_XML_READER, bytes : *mut core::ffi::c_void, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadBytes(reader, bytes, maxbytecount, actualbytecount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadBytes(core::mem::transmute(reader), core::mem::transmute(bytes), core::mem::transmute(maxbytecount), core::mem::transmute(actualbytecount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actualcharcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : windows_core::PWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadChars(reader, core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), actualcharcount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadChars(core::mem::transmute(reader), core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), core::mem::transmute(actualcharcount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], actualbytecount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadCharsUtf8(reader, core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), actualbytecount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadCharsUtf8(core::mem::transmute(reader), core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), core::mem::transmute(actualbytecount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadElement(reader : *const WS_XML_READER, elementdescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadElement(reader, elementdescription, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadElement(core::mem::transmute(reader), core::mem::transmute(elementdescription), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadEndAttribute(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadEndAttribute(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadEndAttribute(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadEndAttribute(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadEndElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadEndElement(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadEndElement(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadEndpointAddressExtension(reader : *const WS_XML_READER, endpointaddress : *const WS_ENDPOINT_ADDRESS, extensiontype : WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadEndpointAddressExtension(reader, endpointaddress, extensiontype, readoption, heap, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadEndpointAddressExtension(core::mem::transmute(reader), core::mem::transmute(endpointaddress), core::mem::transmute(extensiontype), core::mem::transmute(readoption), core::mem::transmute(heap), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadEnvelopeEnd(message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadEnvelopeEnd(core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *const WS_MESSAGE, reader : *const WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadEnvelopeStart(message, reader, donecallback, core::mem::transmute(donecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadEnvelopeStart(core::mem::transmute(message), core::mem::transmute(reader), core::mem::transmute(donecallback), core::mem::transmute(donecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadMessageEnd(channel, message, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadMessageEnd(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadMessageStart(channel, message, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadMessageStart(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadMetadata(metadata : *const WS_METADATA, reader : *const WS_XML_READER, url : *const WS_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadMetadata(metadata, reader, url, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadMetadata(core::mem::transmute(metadata), core::mem::transmute(reader), core::mem::transmute(url), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadNode(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadNode(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadNode(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadQualifiedName(reader: *const WS_XML_READER, heap: *const WS_HEAP, prefix: Option<*mut WS_XML_STRING>, localname: *mut WS_XML_STRING, ns: Option<*mut WS_XML_STRING>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadQualifiedName(reader : *const WS_XML_READER, heap : *const WS_HEAP, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadQualifiedName(reader, heap, core::mem::transmute(prefix.unwrap_or(core::ptr::null_mut())), localname, core::mem::transmute(ns.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadQualifiedName(core::mem::transmute(reader), core::mem::transmute(heap), core::mem::transmute(prefix.unwrap_or(core::ptr::null_mut())), core::mem::transmute(localname), core::mem::transmute(ns.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadStartAttribute(reader: *const WS_XML_READER, attributeindex: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadStartAttribute(reader : *const WS_XML_READER, attributeindex : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadStartAttribute(reader, attributeindex, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadStartAttribute(core::mem::transmute(reader), core::mem::transmute(attributeindex), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadStartElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadStartElement(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadStartElement(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: Option<*const WS_XML_STRING>, ns: Option<*const WS_XML_STRING>, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadToStartElement(reader, core::mem::transmute(localname.unwrap_or(core::ptr::null())), core::mem::transmute(ns.unwrap_or(core::ptr::null())), core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadToStartElement(core::mem::transmute(reader), core::mem::transmute(localname.unwrap_or(core::ptr::null())), core::mem::transmute(ns.unwrap_or(core::ptr::null())), core::mem::transmute(found.unwrap_or(core::ptr::null_mut())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: Option<*const core::ffi::c_void>, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadType(reader : *const WS_XML_READER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const core::ffi::c_void, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadType(reader, typemapping, r#type, core::mem::transmute(typedescription.unwrap_or(core::ptr::null())), readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadType(core::mem::transmute(reader), core::mem::transmute(typemapping), core::mem::transmute(r#type), core::mem::transmute(typedescription.unwrap_or(core::ptr::null())), core::mem::transmute(readoption), core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadValue(reader : *const WS_XML_READER, valuetype : WS_VALUE_TYPE, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadValue(reader, valuetype, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadValue(core::mem::transmute(reader), core::mem::transmute(valuetype), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadXmlBuffer(reader : *const WS_XML_READER, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadXmlBuffer(reader, heap, xmlbuffer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadXmlBuffer(core::mem::transmute(reader), core::mem::transmute(heap), core::mem::transmute(xmlbuffer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, properties: Option<&[WS_XML_READER_PROPERTY]>, bytes: *const core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReadXmlBufferFromBytes(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, bytes : *const core::ffi::c_void, bytecount : u32, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReadXmlBufferFromBytes(reader, core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytes, bytecount, heap, xmlbuffer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReadXmlBufferFromBytes(core::mem::transmute(reader), core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bytes), core::mem::transmute(bytecount), core::mem::transmute(heap), core::mem::transmute(xmlbuffer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, index: Option<*mut u32>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsReceiveMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescriptions : *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount : u32, receiveoption : WS_RECEIVE_OPTION, readbodyoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, index : *mut u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsReceiveMessage(channel, message, core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len().try_into().unwrap(), receiveoption, readbodyoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), value, valuesize, core::mem::transmute(index.unwrap_or(core::ptr::null_mut())), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsReceiveMessage(
+        core::mem::transmute(channel),
+        core::mem::transmute(message),
+        core::mem::transmute(messagedescriptions.as_ptr()),
+        messagedescriptions.len().try_into().unwrap(),
+        core::mem::transmute(receiveoption),
+        core::mem::transmute(readbodyoption),
+        core::mem::transmute(heap.unwrap_or(core::ptr::null())),
+        core::mem::transmute(value),
+        core::mem::transmute(valuesize),
+        core::mem::transmute(index.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(error.unwrap_or(core::ptr::null())),
+    )
+    .ok()
 }
 #[inline]
 pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *const WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRegisterOperationForCancel(context, cancelcallback, freestatecallback, core::mem::transmute(userstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRegisterOperationForCancel(core::mem::transmute(context), core::mem::transmute(cancelcallback), core::mem::transmute(freestatecallback), core::mem::transmute(userstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRemoveCustomHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, headerns : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRemoveCustomHeader(message, headername, headerns, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRemoveCustomHeader(core::mem::transmute(message), core::mem::transmute(headername), core::mem::transmute(headerns), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRemoveHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRemoveHeader(message, headertype, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRemoveHeader(core::mem::transmute(message), core::mem::transmute(headertype), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRemoveMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRemoveMappedHeader(message, headername, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRemoveMappedHeader(core::mem::transmute(message), core::mem::transmute(headername), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRemoveNode(nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRemoveNode(nodeposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRemoveNode(core::mem::transmute(nodeposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: Option<*const core::ffi::c_void>, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: Option<*mut core::ffi::c_void>, valuesize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRequestReply(channel : *const WS_CHANNEL, requestmessage : *const WS_MESSAGE, requestmessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, requestbodyvalue : *const core::ffi::c_void, requestbodyvaluesize : u32, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRequestReply(channel, requestmessage, requestmessagedescription, writeoption, core::mem::transmute(requestbodyvalue.unwrap_or(core::ptr::null())), requestbodyvaluesize, replymessage, replymessagedescription, readoption, core::mem::transmute(heap.unwrap_or(core::ptr::null())), core::mem::transmute(value.unwrap_or(core::ptr::null_mut())), valuesize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRequestReply(
+        core::mem::transmute(channel),
+        core::mem::transmute(requestmessage),
+        core::mem::transmute(requestmessagedescription),
+        core::mem::transmute(writeoption),
+        core::mem::transmute(requestbodyvalue.unwrap_or(core::ptr::null())),
+        core::mem::transmute(requestbodyvaluesize),
+        core::mem::transmute(replymessage),
+        core::mem::transmute(replymessagedescription),
+        core::mem::transmute(readoption),
+        core::mem::transmute(heap.unwrap_or(core::ptr::null())),
+        core::mem::transmute(value.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(valuesize),
+        core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())),
+        core::mem::transmute(error.unwrap_or(core::ptr::null())),
+    )
+    .ok()
 }
 #[inline]
 pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRequestSecurityToken(channel : *const WS_CHANNEL, properties : *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRequestSecurityToken(channel, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), token, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRequestSecurityToken(core::mem::transmute(channel), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(token), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetChannel(channel, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetChannel(core::mem::transmute(channel), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetError(error: *const WS_ERROR) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetError(error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetError(error).ok()
+    WsResetError(core::mem::transmute(error)).ok()
 }
 #[inline]
 pub unsafe fn WsResetHeap(heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetHeap(heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetHeap(heap, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetHeap(core::mem::transmute(heap), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetListener(listener: *const WS_LISTENER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetListener(listener, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetListener(core::mem::transmute(listener), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetMessage(message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetMessage(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetMessage(message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetMessage(core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetMetadata(metadata: *const WS_METADATA, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetMetadata(metadata : *const WS_METADATA, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetMetadata(metadata, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetMetadata(core::mem::transmute(metadata), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetServiceHost(servicehost: *const WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetServiceHost(servicehost, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetServiceHost(core::mem::transmute(servicehost), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsResetServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsResetServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsResetServiceProxy(serviceproxy, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsResetServiceProxy(core::mem::transmute(serviceproxy), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsRevokeSecurityContext(securitycontext: *const WS_SECURITY_CONTEXT, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsRevokeSecurityContext(securitycontext : *const WS_SECURITY_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsRevokeSecurityContext(securitycontext, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsRevokeSecurityContext(core::mem::transmute(securitycontext), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSendFaultMessageForError(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, faulterror : *const WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSendFaultMessageForError(channel, replymessage, faulterror, faulterrorcode, faultdisclosure, requestmessage, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSendFaultMessageForError(core::mem::transmute(channel), core::mem::transmute(replymessage), core::mem::transmute(faulterror), core::mem::transmute(faulterrorcode), core::mem::transmute(faultdisclosure), core::mem::transmute(requestmessage), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: Option<*const core::ffi::c_void>, bodyvaluesize: u32, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSendMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, bodyvalue : *const core::ffi::c_void, bodyvaluesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSendMessage(channel, message, messagedescription, writeoption, core::mem::transmute(bodyvalue.unwrap_or(core::ptr::null())), bodyvaluesize, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSendMessage(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(messagedescription), core::mem::transmute(writeoption), core::mem::transmute(bodyvalue.unwrap_or(core::ptr::null())), core::mem::transmute(bodyvaluesize), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: Option<*const core::ffi::c_void>, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSendReplyMessage(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, replybodyvalue : *const core::ffi::c_void, replybodyvaluesize : u32, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSendReplyMessage(channel, replymessage, replymessagedescription, writeoption, core::mem::transmute(replybodyvalue.unwrap_or(core::ptr::null())), replybodyvaluesize, requestmessage, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSendReplyMessage(core::mem::transmute(channel), core::mem::transmute(replymessage), core::mem::transmute(replymessagedescription), core::mem::transmute(writeoption), core::mem::transmute(replybodyvalue.unwrap_or(core::ptr::null())), core::mem::transmute(replybodyvaluesize), core::mem::transmute(requestmessage), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetChannelProperty(channel, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetChannelProperty(core::mem::transmute(channel), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    WsSetErrorProperty(error, id, value, valuesize).ok()
+    WsSetErrorProperty(core::mem::transmute(error), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize)).ok()
 }
 #[inline]
 pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: Option<*const core::ffi::c_void>, valuesize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    WsSetFaultErrorDetail(error, faultdetaildescription, writeoption, core::mem::transmute(value.unwrap_or(core::ptr::null())), valuesize).ok()
+    WsSetFaultErrorDetail(core::mem::transmute(error), core::mem::transmute(faultdetaildescription), core::mem::transmute(writeoption), core::mem::transmute(value.unwrap_or(core::ptr::null())), core::mem::transmute(valuesize)).ok()
 }
 #[inline]
 pub unsafe fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    WsSetFaultErrorProperty(error, id, value, valuesize).ok()
+    WsSetFaultErrorProperty(core::mem::transmute(error), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize)).ok()
 }
 #[inline]
 pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetHeader(message, headertype, valuetype, writeoption, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetHeader(core::mem::transmute(message), core::mem::transmute(headertype), core::mem::transmute(valuetype), core::mem::transmute(writeoption), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, input: Option<*const WS_XML_READER_INPUT>, properties: Option<&[WS_XML_READER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetInput(reader, core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(input.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetInput(core::mem::transmute(reader), core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(input.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: Option<&[WS_XML_READER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetInputToBuffer(reader : *const WS_XML_READER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetInputToBuffer(reader, buffer, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetInputToBuffer(core::mem::transmute(reader), core::mem::transmute(buffer), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetListenerProperty(listener, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetListenerProperty(core::mem::transmute(listener), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetMessageProperty(message, id, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetMessageProperty(core::mem::transmute(message), core::mem::transmute(id), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: Option<*const WS_XML_WRITER_ENCODING>, output: Option<*const WS_XML_WRITER_OUTPUT>, properties: Option<&[WS_XML_WRITER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetOutput(writer : *const WS_XML_WRITER, encoding : *const WS_XML_WRITER_ENCODING, output : *const WS_XML_WRITER_OUTPUT, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetOutput(writer, core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(output.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetOutput(core::mem::transmute(writer), core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(output.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: Option<&[WS_XML_WRITER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetOutputToBuffer(writer, buffer, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetOutputToBuffer(core::mem::transmute(writer), core::mem::transmute(buffer), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetReaderPosition(reader : *const WS_XML_READER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetReaderPosition(reader, nodeposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetReaderPosition(core::mem::transmute(reader), core::mem::transmute(nodeposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *const WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSetWriterPosition(writer, nodeposition, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSetWriterPosition(core::mem::transmute(writer), core::mem::transmute(nodeposition), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsShutdownSessionChannel(channel: *const WS_CHANNEL, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsShutdownSessionChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsShutdownSessionChannel(channel, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsShutdownSessionChannel(core::mem::transmute(channel), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsSkipNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsSkipNode(reader, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsSkipNode(core::mem::transmute(reader), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsStartReaderCanonicalization(reader, writecallback, core::mem::transmute(writecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsStartReaderCanonicalization(core::mem::transmute(reader), core::mem::transmute(writecallback), core::mem::transmute(writecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsStartWriterCanonicalization(writer, writecallback, core::mem::transmute(writecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsStartWriterCanonicalization(core::mem::transmute(writer), core::mem::transmute(writecallback), core::mem::transmute(writecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsTrimXmlWhitespace(chars: &[u16], trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : windows_core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsTrimXmlWhitespace(core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), trimmedchars, trimmedcount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsTrimXmlWhitespace(core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), core::mem::transmute(trimmedchars), core::mem::transmute(trimmedcount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -949,151 +991,145 @@ pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: Option<*const WS_ERR
 #[inline]
 pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: Option<*const core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteArray(writer : *const WS_XML_WRITER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *const core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteArray(writer, localname, ns, valuetype, core::mem::transmute(array.unwrap_or(core::ptr::null())), arraysize, itemoffset, itemcount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteArray(core::mem::transmute(writer), core::mem::transmute(localname), core::mem::transmute(ns), core::mem::transmute(valuetype), core::mem::transmute(array.unwrap_or(core::ptr::null())), core::mem::transmute(arraysize), core::mem::transmute(itemoffset), core::mem::transmute(itemcount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: Option<*const core::ffi::c_void>, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteAttribute(writer : *const WS_XML_WRITER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteAttribute(writer, attributedescription, writeoption, core::mem::transmute(value.unwrap_or(core::ptr::null())), valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteAttribute(core::mem::transmute(writer), core::mem::transmute(attributedescription), core::mem::transmute(writeoption), core::mem::transmute(value.unwrap_or(core::ptr::null())), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteBody(message, bodydescription, writeoption, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteBody(core::mem::transmute(message), core::mem::transmute(bodydescription), core::mem::transmute(writeoption), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const core::ffi::c_void, bytecount: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteBytes(writer : *const WS_XML_WRITER, bytes : *const core::ffi::c_void, bytecount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteBytes(writer, bytes, bytecount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteBytes(core::mem::transmute(writer), core::mem::transmute(bytes), core::mem::transmute(bytecount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[u16], error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : windows_core::PCWSTR, charcount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteChars(writer, core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteChars(core::mem::transmute(writer), core::mem::transmute(chars.as_ptr()), chars.len().try_into().unwrap(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteCharsUtf8(writer : *const WS_XML_WRITER, bytes : *const u8, bytecount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteCharsUtf8(writer, core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteCharsUtf8(core::mem::transmute(writer), core::mem::transmute(bytes.as_ptr()), bytes.len().try_into().unwrap(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: Option<*const core::ffi::c_void>, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteElement(writer : *const WS_XML_WRITER, elementdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteElement(writer, elementdescription, writeoption, core::mem::transmute(value.unwrap_or(core::ptr::null())), valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteElement(core::mem::transmute(writer), core::mem::transmute(elementdescription), core::mem::transmute(writeoption), core::mem::transmute(value.unwrap_or(core::ptr::null())), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEndAttribute(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEndAttribute(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEndAttribute(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEndAttribute(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEndCData(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEndCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEndCData(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEndCData(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEndElement(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEndElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEndElement(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEndElement(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEndStartElement(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEndStartElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEndStartElement(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEndStartElement(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEnvelopeEnd(message, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEnvelopeEnd(core::mem::transmute(message), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *const WS_MESSAGE, writer : *const WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteEnvelopeStart(message, writer, donecallback, core::mem::transmute(donecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteEnvelopeStart(core::mem::transmute(message), core::mem::transmute(writer), core::mem::transmute(donecallback), core::mem::transmute(donecallbackstate.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteMessageEnd(channel, message, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteMessageEnd(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteMessageStart(channel, message, core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteMessageStart(core::mem::transmute(channel), core::mem::transmute(message), core::mem::transmute(asynccontext.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteNode(writer: *const WS_XML_WRITER, node: *const WS_XML_NODE, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteNode(writer : *const WS_XML_WRITER, node : *const WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteNode(writer, node, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteNode(core::mem::transmute(writer), core::mem::transmute(node), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: Option<*const WS_XML_STRING>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteQualifiedName(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteQualifiedName(writer, core::mem::transmute(prefix.unwrap_or(core::ptr::null())), localname, core::mem::transmute(ns.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteQualifiedName(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::ptr::null())), core::mem::transmute(localname), core::mem::transmute(ns.unwrap_or(core::ptr::null())), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsWriteStartAttribute<P0>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P0, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsWriteStartAttribute<P4>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P4, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteStartAttribute(writer, core::mem::transmute(prefix.unwrap_or(core::ptr::null())), localname, ns, singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteStartAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::ptr::null())), core::mem::transmute(localname), core::mem::transmute(ns), singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteStartCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteStartCData(writer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteStartCData(core::mem::transmute(writer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteStartElement(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteStartElement(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteStartElement(writer, core::mem::transmute(prefix.unwrap_or(core::ptr::null())), localname, ns, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteStartElement(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::ptr::null())), core::mem::transmute(localname), core::mem::transmute(ns), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteText(writer: *const WS_XML_WRITER, text: *const WS_XML_TEXT, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteText(writer : *const WS_XML_WRITER, text : *const WS_XML_TEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteText(writer, text, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteText(core::mem::transmute(writer), core::mem::transmute(text), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: Option<*const core::ffi::c_void>, writeoption: WS_WRITE_OPTION, value: Option<*const core::ffi::c_void>, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteType(writer : *const WS_XML_WRITER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const core::ffi::c_void, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteType(writer, typemapping, r#type, core::mem::transmute(typedescription.unwrap_or(core::ptr::null())), writeoption, core::mem::transmute(value.unwrap_or(core::ptr::null())), valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteType(core::mem::transmute(writer), core::mem::transmute(typemapping), core::mem::transmute(r#type), core::mem::transmute(typedescription.unwrap_or(core::ptr::null())), core::mem::transmute(writeoption), core::mem::transmute(value.unwrap_or(core::ptr::null())), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteValue(writer : *const WS_XML_WRITER, valuetype : WS_VALUE_TYPE, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteValue(writer, valuetype, value, valuesize, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteValue(core::mem::transmute(writer), core::mem::transmute(valuetype), core::mem::transmute(value), core::mem::transmute(valuesize), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBuffer(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteXmlBuffer(writer, xmlbuffer, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteXmlBuffer(core::mem::transmute(writer), core::mem::transmute(xmlbuffer), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: Option<*const WS_XML_WRITER_ENCODING>, properties: Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut core::ffi::c_void, bytecount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteXmlBufferToBytes(writer, xmlbuffer, core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), heap, bytes, bytecount, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteXmlBufferToBytes(core::mem::transmute(writer), core::mem::transmute(xmlbuffer), core::mem::transmute(encoding.unwrap_or(core::ptr::null())), core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(heap), core::mem::transmute(bytes), core::mem::transmute(bytecount), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn WsWriteXmlnsAttribute<P0>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P0, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
+pub unsafe fn WsWriteXmlnsAttribute<P3>(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P3, error: Option<*const WS_ERROR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsWriteXmlnsAttribute(writer, core::mem::transmute(prefix.unwrap_or(core::ptr::null())), ns, singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsWriteXmlnsAttribute(core::mem::transmute(writer), core::mem::transmute(prefix.unwrap_or(core::ptr::null())), core::mem::transmute(ns), singlequote.param().abi(), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    WsXmlStringEquals(string1, string2, core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
+    WsXmlStringEquals(core::mem::transmute(string1), core::mem::transmute(string2), core::mem::transmute(error.unwrap_or(core::ptr::null()))).ok()
 }
 windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
-impl core::ops::Deref for IContentPrefetcherTaskTrigger {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
@@ -1116,13 +1152,12 @@ pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
 }
-pub trait IContentPrefetcherTaskTrigger_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IContentPrefetcherTaskTrigger_Impl: windows_core::IUnknownImpl {
     fn TriggerContentPrefetcherTask(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn IsRegisteredForContentPrefetch(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<u8>;
 }
-impl windows_core::RuntimeName for IContentPrefetcherTaskTrigger {}
 impl IContentPrefetcherTaskTrigger_Vtbl {
-    pub const fn new<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>() -> IContentPrefetcherTaskTrigger_Vtbl {
+    pub const fn new<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TriggerContentPrefetcherTask<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IContentPrefetcherTaskTrigger_Impl::TriggerContentPrefetcherTask(this, core::mem::transmute(&packagefullname)).into()
@@ -1146,6 +1181,4876 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContentPrefetcherTaskTrigger as windows_core::Interface>::IID
     }
+}
+impl windows_core::RuntimeName for IContentPrefetcherTaskTrigger {}
+pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ABORT_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void)>;
+pub type WS_ASYNC_FUNCTION = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+#[cfg(feature = "Win32_Security_Cryptography")]
+pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_DECODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const core::ffi::c_void, decodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const core::ffi::c_void, encodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_DECODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DYNAMIC_STRING_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ENCODER_ENCODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ENCODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ENCODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_FREE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void)>;
+pub type WS_FREE_DECODER_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void)>;
+pub type WS_FREE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void)>;
+pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void)>;
+#[cfg(feature = "Win32_Security_Cryptography")]
+pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_GET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_HTTP_REDIRECT_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> windows_core::HRESULT>;
+pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_MESSAGE_DONE_CALLBACK = Option<unsafe extern "system" fn(donecallbackstate: *const core::ffi::c_void)>;
+pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_OPEN_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_OPERATION_CANCEL_CALLBACK = Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const core::ffi::c_void)>;
+pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void)>;
+pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_PULL_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_PUSH_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_TYPE_CALLBACK = Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_RESET_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_RESET_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> windows_core::HRESULT>;
+pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_SECURITY_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_STUB_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const core::ffi::c_void, callback: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_VALIDATE_PASSWORD_CALLBACK = Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_VALIDATE_SAML_CALLBACK = Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_TYPE_CALLBACK = Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ADDRESSING_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CALLBACK_MODEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CALL_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CHANNEL_BINDING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CHANNEL_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CHANNEL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_CHARSET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_COOKIE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_DATETIME_FORMAT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ENCODING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ENVELOPE_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_ERROR_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_EXCEPTION_CODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_EXTENDED_PROTECTION_POLICY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_FAULT_DISCLOSURE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_FIELD_MAPPING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_HEADER_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_HEAP_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_IP_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_LISTENER_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_LISTENER_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_MESSAGE_INITIALIZATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_MESSAGE_SECURITY_USAGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_MESSAGE_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_METADATA_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_METADATA_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_MOVE_TO(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_OPERATION_STYLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_PARAMETER_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_POLICY_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_POLICY_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_PROTECTION_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_PROXY_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_READ_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_RECEIVE_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_REPEATING_HEADER_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURE_PROTOCOL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_ALGORITHM_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_BINDING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_HEADER_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_KEY_ENTROPY_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_KEY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_TIMESTAMP_USAGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SERVICE_CANCEL_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SERVICE_HOST_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SERVICE_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_SERVICE_PROXY_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_TRACE_API(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_TRANSFER_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_TRUST_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_TYPE_MAPPING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_URL_SCHEME_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_VALUE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_WRITE_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_CANONICALIZATION_ALGORITHM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_NODE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_READER_INPUT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_READER_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_TEXT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    pub dwVersion: u32,
+    pub cbContactId: u32,
+    pub pbContactId: *mut u8,
+    pub cbLinkId: u32,
+    pub pbLinkId: *mut u8,
+    pub cbLinkSecret: u32,
+    pub pbLinkSecret: *mut u8,
+    pub cbPublicKey: u32,
+    pub pbPublicKey: *mut u8,
+    pub pwszAuthenticatorName: windows_core::PCWSTR,
+    pub wEncodedTunnelServerDomain: u16,
+}
+impl Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_ASSERTION {
+    pub dwVersion: u32,
+    pub cbAuthenticatorData: u32,
+    pub pbAuthenticatorData: *mut u8,
+    pub cbSignature: u32,
+    pub pbSignature: *mut u8,
+    pub Credential: WEBAUTHN_CREDENTIAL,
+    pub cbUserId: u32,
+    pub pbUserId: *mut u8,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub cbCredLargeBlob: u32,
+    pub pbCredLargeBlob: *mut u8,
+    pub dwCredLargeBlobStatus: u32,
+    pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub dwUsedTransport: u32,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
+}
+impl Default for WEBAUTHN_ASSERTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_ASSERTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    pub dwVersion: u32,
+    pub dwTimeoutMilliseconds: u32,
+    pub CredentialList: WEBAUTHN_CREDENTIALS,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwAuthenticatorAttachment: u32,
+    pub dwUserVerificationRequirement: u32,
+    pub dwFlags: u32,
+    pub pwszU2fAppId: windows_core::PCWSTR,
+    pub pbU2fAppId: *mut super::super::Foundation::BOOL,
+    pub pCancellationId: *mut windows_core::GUID,
+    pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
+    pub dwCredLargeBlobOperation: u32,
+    pub cbCredLargeBlob: u32,
+    pub pbCredLargeBlob: *mut u8,
+    pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub bAutoFill: super::super::Foundation::BOOL,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
+}
+impl Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    pub dwVersion: u32,
+    pub dwTimeoutMilliseconds: u32,
+    pub CredentialList: WEBAUTHN_CREDENTIALS,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwAuthenticatorAttachment: u32,
+    pub bRequireResidentKey: super::super::Foundation::BOOL,
+    pub dwUserVerificationRequirement: u32,
+    pub dwAttestationConveyancePreference: u32,
+    pub dwFlags: u32,
+    pub pCancellationId: *mut windows_core::GUID,
+    pub pExcludeCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
+    pub dwEnterpriseAttestation: u32,
+    pub dwLargeBlobSupport: u32,
+    pub bPreferResidentKey: super::super::Foundation::BOOL,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub bEnablePrf: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
+}
+impl Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CLIENT_DATA {
+    pub dwVersion: u32,
+    pub cbClientDataJSON: u32,
+    pub pbClientDataJSON: *mut u8,
+    pub pwszHashAlgId: windows_core::PCWSTR,
+}
+impl Default for WEBAUTHN_CLIENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CLIENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_COMMON_ATTESTATION {
+    pub dwVersion: u32,
+    pub pwszAlg: windows_core::PCWSTR,
+    pub lAlg: i32,
+    pub cbSignature: u32,
+    pub pbSignature: *mut u8,
+    pub cX5c: u32,
+    pub pX5c: *mut WEBAUTHN_X5C,
+    pub pwszVer: windows_core::PCWSTR,
+    pub cbCertInfo: u32,
+    pub pbCertInfo: *mut u8,
+    pub cbPubArea: u32,
+    pub pbPubArea: *mut u8,
+}
+impl Default for WEBAUTHN_COMMON_ATTESTATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_COMMON_ATTESTATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    pub dwVersion: u32,
+    pub pwszCredentialType: windows_core::PCWSTR,
+    pub lAlg: i32,
+}
+impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    pub cCredentialParameters: u32,
+    pub pCredentialParameters: *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETER,
+}
+impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszCredentialType: windows_core::PCWSTR,
+}
+impl Default for WEBAUTHN_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIALS {
+    pub cCredentials: u32,
+    pub pCredentials: *mut WEBAUTHN_CREDENTIAL,
+}
+impl Default for WEBAUTHN_CREDENTIALS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIALS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
+    pub dwVersion: u32,
+    pub pwszFormatType: windows_core::PCWSTR,
+    pub cbAuthenticatorData: u32,
+    pub pbAuthenticatorData: *mut u8,
+    pub cbAttestation: u32,
+    pub pbAttestation: *mut u8,
+    pub dwAttestationDecodeType: u32,
+    pub pvAttestationDecode: *mut core::ffi::c_void,
+    pub cbAttestationObject: u32,
+    pub pbAttestationObject: *mut u8,
+    pub cbCredentialId: u32,
+    pub pbCredentialId: *mut u8,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwUsedTransport: u32,
+    pub bEpAtt: super::super::Foundation::BOOL,
+    pub bLargeBlobSupported: super::super::Foundation::BOOL,
+    pub bResidentKey: super::super::Foundation::BOOL,
+    pub bPrfEnabled: super::super::Foundation::BOOL,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
+}
+impl Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS {
+    pub dwVersion: u32,
+    pub cbCredentialID: u32,
+    pub pbCredentialID: *mut u8,
+    pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
+    pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
+    pub bRemovable: super::super::Foundation::BOOL,
+    pub bBackedUp: super::super::Foundation::BOOL,
+}
+impl Default for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    pub cCredentialDetails: u32,
+    pub ppCredentialDetails: *mut *mut WEBAUTHN_CREDENTIAL_DETAILS,
+}
+impl Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL_EX {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszCredentialType: windows_core::PCWSTR,
+    pub dwTransports: u32,
+}
+impl Default for WEBAUTHN_CREDENTIAL_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CREDENTIAL_LIST {
+    pub cCredentials: u32,
+    pub ppCredentials: *mut *mut WEBAUTHN_CREDENTIAL_EX,
+}
+impl Default for WEBAUTHN_CREDENTIAL_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
+    pub cbCredBlob: u32,
+    pub pbCredBlob: *mut u8,
+}
+impl Default for WEBAUTHN_CRED_BLOB_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CRED_BLOB_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    pub dwCredProtect: u32,
+    pub bRequireCredProtect: super::super::Foundation::BOOL,
+}
+impl Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    pub cbCredID: u32,
+    pub pbCredID: *mut u8,
+    pub pHmacSecretSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+}
+impl Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_EXTENSION {
+    pub pwszExtensionIdentifier: windows_core::PCWSTR,
+    pub cbExtension: u32,
+    pub pvExtension: *mut core::ffi::c_void,
+}
+impl Default for WEBAUTHN_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_EXTENSIONS {
+    pub cExtensions: u32,
+    pub pExtensions: *mut WEBAUTHN_EXTENSION,
+}
+impl Default for WEBAUTHN_EXTENSIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_EXTENSIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    pub dwVersion: u32,
+    pub pwszRpId: windows_core::PCWSTR,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+}
+impl Default for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_HMAC_SECRET_SALT {
+    pub cbFirst: u32,
+    pub pbFirst: *mut u8,
+    pub cbSecond: u32,
+    pub pbSecond: *mut u8,
+}
+impl Default for WEBAUTHN_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    pub pGlobalHmacSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub cCredWithHmacSecretSaltList: u32,
+    pub pCredWithHmacSecretSaltList: *mut WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
+}
+impl Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_RP_ENTITY_INFORMATION {
+    pub dwVersion: u32,
+    pub pwszId: windows_core::PCWSTR,
+    pub pwszName: windows_core::PCWSTR,
+    pub pwszIcon: windows_core::PCWSTR,
+}
+impl Default for WEBAUTHN_RP_ENTITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_RP_ENTITY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszName: windows_core::PCWSTR,
+    pub pwszIcon: windows_core::PCWSTR,
+    pub pwszDisplayName: windows_core::PCWSTR,
+}
+impl Default for WEBAUTHN_USER_ENTITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_USER_ENTITY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WEBAUTHN_X5C {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for WEBAUTHN_X5C {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WEBAUTHN_X5C {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ANY_ATTRIBUTE {
+    pub localName: WS_XML_STRING,
+    pub ns: WS_XML_STRING,
+    pub value: *mut WS_XML_TEXT,
+}
+impl Default for WS_ANY_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ANY_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ANY_ATTRIBUTES {
+    pub attributes: *mut WS_ANY_ATTRIBUTE,
+    pub attributeCount: u32,
+}
+impl Default for WS_ANY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ANY_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ASYNC_CONTEXT {
+    pub callback: WS_ASYNC_CALLBACK,
+    pub callbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_ASYNC_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ASYNC_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ASYNC_OPERATION {
+    pub function: WS_ASYNC_FUNCTION,
+}
+impl Default for WS_ASYNC_OPERATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ASYNC_OPERATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ASYNC_STATE {
+    pub internal0: *mut core::ffi::c_void,
+    pub internal1: *mut core::ffi::c_void,
+    pub internal2: *mut core::ffi::c_void,
+    pub internal3: *mut core::ffi::c_void,
+    pub internal4: *mut core::ffi::c_void,
+}
+impl Default for WS_ASYNC_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ASYNC_STATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ATTRIBUTE_DESCRIPTION {
+    pub attributeLocalName: *mut WS_XML_STRING,
+    pub attributeNs: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut core::ffi::c_void,
+}
+impl Default for WS_ATTRIBUTE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ATTRIBUTE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_BOOL_DESCRIPTION {
+    pub value: super::super::Foundation::BOOL,
+}
+impl Default for WS_BOOL_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_BOOL_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_BUFFERS {
+    pub bufferCount: u32,
+    pub buffers: *mut WS_BYTES,
+}
+impl Default for WS_BUFFERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_BUFFERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_BYTES {
+    pub length: u32,
+    pub bytes: *mut u8,
+}
+impl Default for WS_BYTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_BYTES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_BYTES_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl Default for WS_BYTES_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_BYTES_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_BYTE_ARRAY_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl Default for WS_BYTE_ARRAY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_BYTE_ARRAY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CALL_PROPERTY {
+    pub id: WS_CALL_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_CALL_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CALL_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub provider: usize,
+    pub keySpec: u32,
+}
+impl Default for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
+    pub state: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CERT_CREDENTIAL {
+    pub credentialType: WS_CERT_CREDENTIAL_TYPE,
+}
+impl Default for WS_CERT_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CERT_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CERT_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub rawCertificateData: WS_BYTES,
+}
+impl Default for WS_CERT_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CERT_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    pub authenticator: WS_SAML_AUTHENTICATOR,
+    pub trustedIssuerCerts: *const *const super::super::Security::Cryptography::CERT_CONTEXT,
+    pub trustedIssuerCertCount: u32,
+    pub decryptionCert: *const super::super::Security::Cryptography::CERT_CONTEXT,
+    pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
+    pub samlValidatorCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_CHANNEL(pub isize);
+impl windows_core::TypeKind for WS_CHANNEL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_DECODER {
+    pub createContext: *mut core::ffi::c_void,
+    pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
+    pub decoderGetContentTypeCallback: WS_DECODER_GET_CONTENT_TYPE_CALLBACK,
+    pub decoderStartCallback: WS_DECODER_START_CALLBACK,
+    pub decoderDecodeCallback: WS_DECODER_DECODE_CALLBACK,
+    pub decoderEndCallback: WS_DECODER_END_CALLBACK,
+    pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
+}
+impl Default for WS_CHANNEL_DECODER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_DECODER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_ENCODER {
+    pub createContext: *mut core::ffi::c_void,
+    pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
+    pub encoderGetContentTypeCallback: WS_ENCODER_GET_CONTENT_TYPE_CALLBACK,
+    pub encoderStartCallback: WS_ENCODER_START_CALLBACK,
+    pub encoderEncodeCallback: WS_ENCODER_ENCODE_CALLBACK,
+    pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
+    pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
+}
+impl Default for WS_CHANNEL_ENCODER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_ENCODER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_PROPERTIES {
+    pub properties: *mut WS_CHANNEL_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_CHANNEL_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_PROPERTY {
+    pub id: WS_CHANNEL_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_CHANNEL_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_PROPERTY_CONSTRAINT {
+    pub id: WS_CHANNEL_PROPERTY_ID,
+    pub allowedValues: *mut core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_CHANNEL_PROPERTY_CONSTRAINT_0,
+}
+impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    pub channelProperty: WS_CHANNEL_PROPERTY,
+}
+impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CHAR_ARRAY_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl Default for WS_CHAR_ARRAY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CHAR_ARRAY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CONTRACT_DESCRIPTION {
+    pub operationCount: u32,
+    pub operations: *mut *mut WS_OPERATION_DESCRIPTION,
+}
+impl Default for WS_CONTRACT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CONTRACT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CUSTOM_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub getCertCallback: WS_GET_CERT_CALLBACK,
+    pub getCertCallbackState: *mut core::ffi::c_void,
+    pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
+    pub certIssuerListNotificationCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl Default for WS_CUSTOM_CERT_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl windows_core::TypeKind for WS_CUSTOM_CERT_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
+    pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
+    pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
+    pub resetChannelCallback: WS_RESET_CHANNEL_CALLBACK,
+    pub openChannelCallback: WS_OPEN_CHANNEL_CALLBACK,
+    pub closeChannelCallback: WS_CLOSE_CHANNEL_CALLBACK,
+    pub abortChannelCallback: WS_ABORT_CHANNEL_CALLBACK,
+    pub getChannelPropertyCallback: WS_GET_CHANNEL_PROPERTY_CALLBACK,
+    pub setChannelPropertyCallback: WS_SET_CHANNEL_PROPERTY_CALLBACK,
+    pub writeMessageStartCallback: WS_WRITE_MESSAGE_START_CALLBACK,
+    pub writeMessageEndCallback: WS_WRITE_MESSAGE_END_CALLBACK,
+    pub readMessageStartCallback: WS_READ_MESSAGE_START_CALLBACK,
+    pub readMessageEndCallback: WS_READ_MESSAGE_END_CALLBACK,
+    pub abandonMessageCallback: WS_ABANDON_MESSAGE_CALLBACK,
+    pub shutdownSessionChannelCallback: WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK,
+}
+impl Default for WS_CUSTOM_CHANNEL_CALLBACKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CUSTOM_CHANNEL_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CUSTOM_HTTP_PROXY {
+    pub servers: WS_STRING,
+    pub bypass: WS_STRING,
+}
+impl Default for WS_CUSTOM_HTTP_PROXY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CUSTOM_HTTP_PROXY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CUSTOM_LISTENER_CALLBACKS {
+    pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
+    pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
+    pub resetListenerCallback: WS_RESET_LISTENER_CALLBACK,
+    pub openListenerCallback: WS_OPEN_LISTENER_CALLBACK,
+    pub closeListenerCallback: WS_CLOSE_LISTENER_CALLBACK,
+    pub abortListenerCallback: WS_ABORT_LISTENER_CALLBACK,
+    pub getListenerPropertyCallback: WS_GET_LISTENER_PROPERTY_CALLBACK,
+    pub setListenerPropertyCallback: WS_SET_LISTENER_PROPERTY_CALLBACK,
+    pub createChannelForListenerCallback: WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK,
+    pub acceptChannelCallback: WS_ACCEPT_CHANNEL_CALLBACK,
+}
+impl Default for WS_CUSTOM_LISTENER_CALLBACKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CUSTOM_LISTENER_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_CUSTOM_TYPE_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub readCallback: WS_READ_TYPE_CALLBACK,
+    pub writeCallback: WS_WRITE_TYPE_CALLBACK,
+    pub descriptionData: *mut core::ffi::c_void,
+    pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
+}
+impl Default for WS_CUSTOM_TYPE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_CUSTOM_TYPE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DATETIME {
+    pub ticks: u64,
+    pub format: WS_DATETIME_FORMAT,
+}
+impl Default for WS_DATETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DATETIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DATETIME_DESCRIPTION {
+    pub minValue: WS_DATETIME,
+    pub maxValue: WS_DATETIME,
+}
+impl Default for WS_DATETIME_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DATETIME_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WS_DECIMAL_DESCRIPTION {
+    pub minValue: super::super::Foundation::DECIMAL,
+    pub maxValue: super::super::Foundation::DECIMAL,
+}
+impl Default for WS_DECIMAL_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DECIMAL_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DEFAULT_VALUE {
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_DEFAULT_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DEFAULT_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    pub subStringCount: u32,
+    pub subStrings: *mut *mut WS_STRING,
+}
+impl Default for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DNS_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub dns: WS_STRING,
+}
+impl Default for WS_DNS_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DNS_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DOUBLE_DESCRIPTION {
+    pub minValue: f64,
+    pub maxValue: f64,
+}
+impl Default for WS_DOUBLE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DOUBLE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DURATION {
+    pub negative: super::super::Foundation::BOOL,
+    pub years: u32,
+    pub months: u32,
+    pub days: u32,
+    pub hours: u32,
+    pub minutes: u32,
+    pub seconds: u32,
+    pub milliseconds: u32,
+    pub ticks: u32,
+}
+impl Default for WS_DURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DURATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_DURATION_DESCRIPTION {
+    pub minValue: WS_DURATION,
+    pub maxValue: WS_DURATION,
+    pub comparer: WS_DURATION_COMPARISON_CALLBACK,
+}
+impl Default for WS_DURATION_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_DURATION_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ELEMENT_DESCRIPTION {
+    pub elementLocalName: *mut WS_XML_STRING,
+    pub elementNs: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut core::ffi::c_void,
+}
+impl Default for WS_ELEMENT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ELEMENT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENDPOINT_ADDRESS {
+    pub url: WS_STRING,
+    pub headers: *mut WS_XML_BUFFER,
+    pub extensions: *mut WS_XML_BUFFER,
+    pub identity: *mut WS_ENDPOINT_IDENTITY,
+}
+impl Default for WS_ENDPOINT_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    pub addressingVersion: WS_ADDRESSING_VERSION,
+}
+impl Default for WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENDPOINT_IDENTITY {
+    pub identityType: WS_ENDPOINT_IDENTITY_TYPE,
+}
+impl Default for WS_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENDPOINT_POLICY_EXTENSION {
+    pub policyExtension: WS_POLICY_EXTENSION,
+    pub assertionName: *mut WS_XML_STRING,
+    pub assertionNs: *mut WS_XML_STRING,
+    pub out: WS_ENDPOINT_POLICY_EXTENSION_0,
+}
+impl Default for WS_ENDPOINT_POLICY_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
+    pub assertionValue: *mut WS_XML_BUFFER,
+}
+impl Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENUM_DESCRIPTION {
+    pub values: *mut WS_ENUM_VALUE,
+    pub valueCount: u32,
+    pub maxByteCount: u32,
+    pub nameIndices: *mut u32,
+}
+impl Default for WS_ENUM_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENUM_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ENUM_VALUE {
+    pub value: i32,
+    pub name: *mut WS_XML_STRING,
+}
+impl Default for WS_ENUM_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ENUM_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_ERROR(pub isize);
+impl windows_core::TypeKind for WS_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ERROR_PROPERTY {
+    pub id: WS_ERROR_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_ERROR_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ERROR_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FAULT {
+    pub code: *mut WS_FAULT_CODE,
+    pub reasons: *mut WS_FAULT_REASON,
+    pub reasonCount: u32,
+    pub actor: WS_STRING,
+    pub node: WS_STRING,
+    pub detail: *mut WS_XML_BUFFER,
+}
+impl Default for WS_FAULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FAULT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FAULT_CODE {
+    pub value: WS_XML_QNAME,
+    pub subCode: *mut WS_FAULT_CODE,
+}
+impl Default for WS_FAULT_CODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FAULT_CODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FAULT_DESCRIPTION {
+    pub envelopeVersion: WS_ENVELOPE_VERSION,
+}
+impl Default for WS_FAULT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FAULT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FAULT_DETAIL_DESCRIPTION {
+    pub action: *mut WS_XML_STRING,
+    pub detailElementDescription: *mut WS_ELEMENT_DESCRIPTION,
+}
+impl Default for WS_FAULT_DETAIL_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FAULT_DETAIL_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FAULT_REASON {
+    pub text: WS_STRING,
+    pub lang: WS_STRING,
+}
+impl Default for WS_FAULT_REASON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FAULT_REASON {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FIELD_DESCRIPTION {
+    pub mapping: WS_FIELD_MAPPING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut core::ffi::c_void,
+    pub offset: u32,
+    pub options: u32,
+    pub defaultValue: *mut WS_DEFAULT_VALUE,
+    pub countOffset: u32,
+    pub itemLocalName: *mut WS_XML_STRING,
+    pub itemNs: *mut WS_XML_STRING,
+    pub itemRange: *mut WS_ITEM_RANGE,
+}
+impl Default for WS_FIELD_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FIELD_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_FLOAT_DESCRIPTION {
+    pub minValue: f32,
+    pub maxValue: f32,
+}
+impl Default for WS_FLOAT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_FLOAT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_GUID_DESCRIPTION {
+    pub value: windows_core::GUID,
+}
+impl Default for WS_GUID_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_GUID_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_HEAP(pub isize);
+impl windows_core::TypeKind for WS_HEAP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HEAP_PROPERTIES {
+    pub properties: *mut WS_HEAP_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_HEAP_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HEAP_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HEAP_PROPERTY {
+    pub id: WS_HEAP_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_HEAP_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HEAP_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HOST_NAMES {
+    pub hostNames: *mut WS_STRING,
+    pub hostNameCount: u32,
+}
+impl Default for WS_HOST_NAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HOST_NAMES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTPS_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+impl Default for WS_HTTPS_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTPS_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl Default for WS_HTTP_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+}
+impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_HEADER_MAPPING {
+    pub headerName: WS_XML_STRING,
+    pub headerMappingOptions: u32,
+}
+impl Default for WS_HTTP_HEADER_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_HEADER_MAPPING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_MESSAGE_MAPPING {
+    pub requestMappingOptions: u32,
+    pub responseMappingOptions: u32,
+    pub requestHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
+    pub requestHeaderMappingCount: u32,
+    pub responseHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
+    pub responseHeaderMappingCount: u32,
+}
+impl Default for WS_HTTP_MESSAGE_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_MESSAGE_MAPPING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl Default for WS_HTTP_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    pub callback: WS_HTTP_REDIRECT_CALLBACK,
+    pub state: *mut core::ffi::c_void,
+}
+impl Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_HTTP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+impl Default for WS_HTTP_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_HTTP_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_INT16_DESCRIPTION {
+    pub minValue: i16,
+    pub maxValue: i16,
+}
+impl Default for WS_INT16_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_INT16_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_INT32_DESCRIPTION {
+    pub minValue: i32,
+    pub maxValue: i32,
+}
+impl Default for WS_INT32_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_INT32_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_INT64_DESCRIPTION {
+    pub minValue: i64,
+    pub maxValue: i64,
+}
+impl Default for WS_INT64_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_INT64_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_INT8_DESCRIPTION {
+    pub minValue: i8,
+    pub maxValue: i8,
+}
+impl Default for WS_INT8_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_INT8_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub claimConstraints: *mut WS_XML_STRING,
+    pub claimConstraintCount: u32,
+    pub requestSecurityTokenPropertyConstraints: *mut WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT,
+    pub requestSecurityTokenPropertyConstraintCount: u32,
+    pub out: WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0,
+}
+impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
+    pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
+}
+impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_ITEM_RANGE {
+    pub minItemCount: u32,
+    pub maxItemCount: u32,
+}
+impl Default for WS_ITEM_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_ITEM_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_LISTENER(pub isize);
+impl windows_core::TypeKind for WS_LISTENER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_LISTENER_PROPERTIES {
+    pub properties: *mut WS_LISTENER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_LISTENER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_LISTENER_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_LISTENER_PROPERTY {
+    pub id: WS_LISTENER_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_LISTENER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_LISTENER_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_MESSAGE(pub isize);
+impl windows_core::TypeKind for WS_MESSAGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_MESSAGE_DESCRIPTION {
+    pub action: *mut WS_XML_STRING,
+    pub bodyElementDescription: *mut WS_ELEMENT_DESCRIPTION,
+}
+impl Default for WS_MESSAGE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_MESSAGE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_MESSAGE_PROPERTIES {
+    pub properties: *mut WS_MESSAGE_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_MESSAGE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_MESSAGE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_MESSAGE_PROPERTY {
+    pub id: WS_MESSAGE_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_MESSAGE_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_MESSAGE_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_METADATA(pub isize);
+impl windows_core::TypeKind for WS_METADATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_METADATA_ENDPOINT {
+    pub endpointAddress: WS_ENDPOINT_ADDRESS,
+    pub endpointPolicy: *mut WS_POLICY,
+    pub portName: *mut WS_XML_STRING,
+    pub serviceName: *mut WS_XML_STRING,
+    pub serviceNs: *mut WS_XML_STRING,
+    pub bindingName: *mut WS_XML_STRING,
+    pub bindingNs: *mut WS_XML_STRING,
+    pub portTypeName: *mut WS_XML_STRING,
+    pub portTypeNs: *mut WS_XML_STRING,
+}
+impl Default for WS_METADATA_ENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_METADATA_ENDPOINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_METADATA_ENDPOINTS {
+    pub endpoints: *mut WS_METADATA_ENDPOINT,
+    pub endpointCount: u32,
+}
+impl Default for WS_METADATA_ENDPOINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_METADATA_ENDPOINTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_METADATA_PROPERTY {
+    pub id: WS_METADATA_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_METADATA_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_METADATA_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub asymmetricKey: super::super::Security::Cryptography::NCRYPT_KEY_HANDLE,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_NETPIPE_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+impl Default for WS_NETPIPE_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_NETPIPE_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_NETTCP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+impl Default for WS_NETTCP_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_NETTCP_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+    pub opaqueAuthIdentity: *mut core::ffi::c_void,
+}
+impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_OPERATION_CONTEXT(pub isize);
+impl windows_core::TypeKind for WS_OPERATION_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_OPERATION_DESCRIPTION {
+    pub versionInfo: u32,
+    pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
+    pub outputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
+    pub inputMessageOptions: u32,
+    pub outputMessageOptions: u32,
+    pub parameterCount: u16,
+    pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
+    pub stubCallback: WS_SERVICE_STUB_CALLBACK,
+    pub style: WS_OPERATION_STYLE,
+}
+impl Default for WS_OPERATION_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_OPERATION_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_PARAMETER_DESCRIPTION {
+    pub parameterType: WS_PARAMETER_TYPE,
+    pub inputMessageIndex: u16,
+    pub outputMessageIndex: u16,
+}
+impl Default for WS_PARAMETER_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_PARAMETER_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_POLICY(pub isize);
+impl windows_core::TypeKind for WS_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_POLICY_CONSTRAINTS {
+    pub channelBinding: WS_CHANNEL_BINDING,
+    pub channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
+    pub channelPropertyConstraintCount: u32,
+    pub securityConstraints: *mut WS_SECURITY_CONSTRAINTS,
+    pub policyExtensions: *mut *mut WS_POLICY_EXTENSION,
+    pub policyExtensionCount: u32,
+}
+impl Default for WS_POLICY_CONSTRAINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_POLICY_CONSTRAINTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_POLICY_EXTENSION {
+    pub r#type: WS_POLICY_EXTENSION_TYPE,
+}
+impl Default for WS_POLICY_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_POLICY_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_POLICY_PROPERTIES {
+    pub properties: *mut WS_POLICY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_POLICY_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_POLICY_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_POLICY_PROPERTY {
+    pub id: WS_POLICY_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_POLICY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_POLICY_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    pub callback: WS_PROXY_MESSAGE_CALLBACK,
+    pub state: *mut core::ffi::c_void,
+}
+impl Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_PROXY_PROPERTY {
+    pub id: WS_PROXY_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_PROXY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_PROXY_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub rawKeyBytes: WS_BYTES,
+}
+impl Default for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
+    pub allowedValues: *mut core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0,
+}
+impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    pub requestSecurityTokenProperty: WS_REQUEST_SECURITY_TOKEN_PROPERTY,
+}
+impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_RSA_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub modulus: WS_BYTES,
+    pub exponent: WS_BYTES,
+}
+impl Default for WS_RSA_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_RSA_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SAML_AUTHENTICATOR {
+    pub authenticatorType: WS_SAML_AUTHENTICATOR_TYPE,
+}
+impl Default for WS_SAML_AUTHENTICATOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SAML_AUTHENTICATOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SAML_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub authenticator: *mut WS_SAML_AUTHENTICATOR,
+}
+impl Default for WS_SAML_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SAML_MESSAGE_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_ALGORITHM_PROPERTY {
+    pub id: WS_SECURITY_ALGORITHM_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SECURITY_ALGORITHM_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_ALGORITHM_SUITE {
+    pub canonicalizationAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub digestAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub symmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub asymmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub encryptionAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub keyDerivationAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub symmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub asymmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub minSymmetricKeyLength: u32,
+    pub maxSymmetricKeyLength: u32,
+    pub minAsymmetricKeyLength: u32,
+    pub maxAsymmetricKeyLength: u32,
+    pub properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_SECURITY_ALGORITHM_SUITE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING {
+    pub bindingType: WS_SECURITY_BINDING_TYPE,
+    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING_CONSTRAINT {
+    pub r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
+    pub propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
+    pub propertyConstraintCount: u32,
+}
+impl Default for WS_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING_PROPERTIES {
+    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_SECURITY_BINDING_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING_PROPERTY {
+    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SECURITY_BINDING_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
+    pub allowedValues: *mut core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0,
+}
+impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    pub securityBindingProperty: WS_SECURITY_BINDING_PROPERTY,
+}
+impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONSTRAINTS {
+    pub securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
+    pub securityPropertyConstraintCount: u32,
+    pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
+    pub securityBindingConstraintCount: u32,
+}
+impl Default for WS_SECURITY_CONSTRAINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONSTRAINTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_SECURITY_CONTEXT(pub isize);
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub bootstrapSecurityDescription: *mut WS_SECURITY_DESCRIPTION,
+}
+impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub bootstrapSecurityConstraint: *mut WS_SECURITY_CONSTRAINTS,
+}
+impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_PROPERTY {
+    pub id: WS_SECURITY_CONTEXT_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SECURITY_CONTEXT_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+}
+impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+}
+impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_DESCRIPTION {
+    pub securityBindings: *mut *mut WS_SECURITY_BINDING,
+    pub securityBindingCount: u32,
+    pub properties: *mut WS_SECURITY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_SECURITY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_KEY_HANDLE {
+    pub keyHandleType: WS_SECURITY_KEY_HANDLE_TYPE,
+}
+impl Default for WS_SECURITY_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_PROPERTIES {
+    pub properties: *mut WS_SECURITY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_SECURITY_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_PROPERTY {
+    pub id: WS_SECURITY_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SECURITY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_PROPERTY_CONSTRAINT {
+    pub id: WS_SECURITY_PROPERTY_ID,
+    pub allowedValues: *mut core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_SECURITY_PROPERTY_CONSTRAINT_0,
+}
+impl Default for WS_SECURITY_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    pub securityProperty: WS_SECURITY_PROPERTY,
+}
+impl Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_SECURITY_TOKEN(pub isize);
+impl windows_core::TypeKind for WS_SECURITY_TOKEN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_CONTRACT {
+    pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
+    pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
+    pub methodTable: *const core::ffi::c_void,
+}
+impl Default for WS_SERVICE_CONTRACT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_CONTRACT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_ENDPOINT {
+    pub address: WS_ENDPOINT_ADDRESS,
+    pub channelBinding: WS_CHANNEL_BINDING,
+    pub channelType: WS_CHANNEL_TYPE,
+    pub securityDescription: *const WS_SECURITY_DESCRIPTION,
+    pub contract: *const WS_SERVICE_CONTRACT,
+    pub authorizationCallback: WS_SERVICE_SECURITY_CALLBACK,
+    pub properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
+    pub propertyCount: u32,
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl Default for WS_SERVICE_ENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_ENDPOINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_ENDPOINT_METADATA {
+    pub portName: *mut WS_XML_STRING,
+    pub bindingName: *mut WS_XML_STRING,
+    pub bindingNs: *mut WS_XML_STRING,
+}
+impl Default for WS_SERVICE_ENDPOINT_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_METADATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_ENDPOINT_PROPERTY {
+    pub id: WS_SERVICE_ENDPOINT_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SERVICE_ENDPOINT_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_SERVICE_HOST(pub isize);
+impl windows_core::TypeKind for WS_SERVICE_HOST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_METADATA {
+    pub documentCount: u32,
+    pub documents: *mut *mut WS_SERVICE_METADATA_DOCUMENT,
+    pub serviceName: *mut WS_XML_STRING,
+    pub serviceNs: *mut WS_XML_STRING,
+}
+impl Default for WS_SERVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_METADATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_METADATA_DOCUMENT {
+    pub content: *mut WS_XML_STRING,
+    pub name: *mut WS_STRING,
+}
+impl Default for WS_SERVICE_METADATA_DOCUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_METADATA_DOCUMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_PROPERTY {
+    pub id: WS_SERVICE_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_SERVICE_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    pub callback: WS_SERVICE_ACCEPT_CHANNEL_CALLBACK,
+}
+impl Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    pub callback: WS_SERVICE_CLOSE_CHANNEL_CALLBACK,
+}
+impl Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_SERVICE_PROXY(pub isize);
+impl windows_core::TypeKind for WS_SERVICE_PROXY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SERVICE_SECURITY_IDENTITIES {
+    pub serviceIdentities: *mut WS_STRING,
+    pub serviceIdentityCount: u32,
+}
+impl Default for WS_SERVICE_SECURITY_IDENTITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SERVICE_SECURITY_IDENTITIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SOAPUDP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+impl Default for WS_SOAPUDP_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SOAPUDP_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SPN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub spn: WS_STRING,
+}
+impl Default for WS_SPN_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SPN_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub out: WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0,
+}
+impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    pub clientCertCredentialRequired: super::super::Foundation::BOOL,
+}
+impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl Default for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_STRING {
+    pub length: u32,
+    pub chars: windows_core::PWSTR,
+}
+impl Default for WS_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_STRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_STRING_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl Default for WS_STRING_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_STRING_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_STRING_USERNAME_CREDENTIAL {
+    pub credential: WS_USERNAME_CREDENTIAL,
+    pub username: WS_STRING,
+    pub password: WS_STRING,
+}
+impl Default for WS_STRING_USERNAME_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_STRING_USERNAME_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+    pub username: WS_STRING,
+    pub password: WS_STRING,
+    pub domain: WS_STRING,
+}
+impl Default for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_STRUCT_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub fields: *mut *mut WS_FIELD_DESCRIPTION,
+    pub fieldCount: u32,
+    pub typeLocalName: *mut WS_XML_STRING,
+    pub typeNs: *mut WS_XML_STRING,
+    pub parentType: *mut WS_STRUCT_DESCRIPTION,
+    pub subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
+    pub subTypeCount: u32,
+    pub structOptions: u32,
+}
+impl Default for WS_STRUCT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_STRUCT_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub storeLocation: u32,
+    pub storeName: WS_STRING,
+    pub subjectName: WS_STRING,
+}
+impl Default for WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl Default for WS_TCP_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl Default for WS_TCP_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_TCP_SSPI_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_TCP_SSPI_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+}
+impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_THUMBPRINT_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub storeLocation: u32,
+    pub storeName: WS_STRING,
+    pub thumbprint: WS_STRING,
+}
+impl Default for WS_THUMBPRINT_CERT_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_THUMBPRINT_CERT_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TIMESPAN {
+    pub ticks: i64,
+}
+impl Default for WS_TIMESPAN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TIMESPAN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_TIMESPAN_DESCRIPTION {
+    pub minValue: WS_TIMESPAN,
+    pub maxValue: WS_TIMESPAN,
+}
+impl Default for WS_TIMESPAN_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_TIMESPAN_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UINT16_DESCRIPTION {
+    pub minValue: u16,
+    pub maxValue: u16,
+}
+impl Default for WS_UINT16_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UINT16_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UINT32_DESCRIPTION {
+    pub minValue: u32,
+    pub maxValue: u32,
+}
+impl Default for WS_UINT32_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UINT32_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UINT64_DESCRIPTION {
+    pub minValue: u64,
+    pub maxValue: u64,
+}
+impl Default for WS_UINT64_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UINT64_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UINT8_DESCRIPTION {
+    pub minValue: u8,
+    pub maxValue: u8,
+}
+impl Default for WS_UINT8_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UINT8_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UNION_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub fields: *mut *mut WS_UNION_FIELD_DESCRIPTION,
+    pub fieldCount: u32,
+    pub enumOffset: u32,
+    pub noneEnumValue: i32,
+    pub valueIndices: *mut u32,
+}
+impl Default for WS_UNION_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UNION_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UNION_FIELD_DESCRIPTION {
+    pub value: i32,
+    pub field: WS_FIELD_DESCRIPTION,
+}
+impl Default for WS_UNION_FIELD_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UNION_FIELD_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UNIQUE_ID {
+    pub uri: WS_STRING,
+    pub guid: windows_core::GUID,
+}
+impl Default for WS_UNIQUE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UNIQUE_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UNIQUE_ID_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl Default for WS_UNIQUE_ID_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UNIQUE_ID_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UNKNOWN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub element: *mut WS_XML_BUFFER,
+}
+impl Default for WS_UNKNOWN_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UNKNOWN_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UPN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub upn: WS_STRING,
+}
+impl Default for WS_UPN_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UPN_ENDPOINT_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_URL {
+    pub scheme: WS_URL_SCHEME_TYPE,
+}
+impl Default for WS_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_URL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_USERNAME_CREDENTIAL {
+    pub credentialType: WS_USERNAME_CREDENTIAL_TYPE,
+}
+impl Default for WS_USERNAME_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_USERNAME_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
+    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
+    pub passwordValidatorCallbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
+    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
+    pub passwordValidatorCallbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_UTF8_ARRAY_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl Default for WS_UTF8_ARRAY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_UTF8_ARRAY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_VOID_DESCRIPTION {
+    pub size: u32,
+}
+impl Default for WS_VOID_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_VOID_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credentialType: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE,
+}
+impl Default for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_WSZ_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl Default for WS_WSZ_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_WSZ_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_ATTRIBUTE {
+    pub singleQuote: u8,
+    pub isXmlNs: u8,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub value: *mut WS_XML_TEXT,
+}
+impl Default for WS_XML_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_BASE64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub bytes: *mut u8,
+    pub length: u32,
+}
+impl Default for WS_XML_BASE64_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_BASE64_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_BOOL_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: super::super::Foundation::BOOL,
+}
+impl Default for WS_XML_BOOL_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_BOOL_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_XML_BUFFER(pub isize);
+impl windows_core::TypeKind for WS_XML_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_BUFFER_PROPERTY {
+    pub id: WS_XML_BUFFER_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_XML_BUFFER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_BUFFER_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    pub prefixCount: u32,
+    pub prefixes: *mut WS_XML_STRING,
+}
+impl Default for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_CANONICALIZATION_PROPERTY {
+    pub id: WS_XML_CANONICALIZATION_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_XML_CANONICALIZATION_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_COMMENT_NODE {
+    pub node: WS_XML_NODE,
+    pub value: WS_XML_STRING,
+}
+impl Default for WS_XML_COMMENT_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_COMMENT_NODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_DATETIME_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_DATETIME,
+}
+impl Default for WS_XML_DATETIME_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_DATETIME_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WS_XML_DECIMAL_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: super::super::Foundation::DECIMAL,
+}
+impl Default for WS_XML_DECIMAL_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_DECIMAL_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_DICTIONARY {
+    pub guid: windows_core::GUID,
+    pub strings: *mut WS_XML_STRING,
+    pub stringCount: u32,
+    pub isConst: super::super::Foundation::BOOL,
+}
+impl Default for WS_XML_DICTIONARY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_DICTIONARY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_DOUBLE_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: f64,
+}
+impl Default for WS_XML_DOUBLE_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_DOUBLE_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_ELEMENT_NODE {
+    pub node: WS_XML_NODE,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub attributeCount: u32,
+    pub attributes: *mut *mut WS_XML_ATTRIBUTE,
+    pub isEmpty: super::super::Foundation::BOOL,
+}
+impl Default for WS_XML_ELEMENT_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_ELEMENT_NODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_FLOAT_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: f32,
+}
+impl Default for WS_XML_FLOAT_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_FLOAT_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_GUID_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: windows_core::GUID,
+}
+impl Default for WS_XML_GUID_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_GUID_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_INT32_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: i32,
+}
+impl Default for WS_XML_INT32_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_INT32_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_INT64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: i64,
+}
+impl Default for WS_XML_INT64_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_INT64_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_LIST_TEXT {
+    pub text: WS_XML_TEXT,
+    pub itemCount: u32,
+    pub items: *mut *mut WS_XML_TEXT,
+}
+impl Default for WS_XML_LIST_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_LIST_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_NODE {
+    pub nodeType: WS_XML_NODE_TYPE,
+}
+impl Default for WS_XML_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_NODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_NODE_POSITION {
+    pub buffer: *mut WS_XML_BUFFER,
+    pub node: *mut core::ffi::c_void,
+}
+impl Default for WS_XML_NODE_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_NODE_POSITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_QNAME {
+    pub localName: WS_XML_STRING,
+    pub ns: WS_XML_STRING,
+}
+impl Default for WS_XML_QNAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_QNAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_QNAME_DESCRIPTION {
+    pub minLocalNameByteCount: u32,
+    pub maxLocalNameByteCount: u32,
+    pub minNsByteCount: u32,
+    pub maxNsByteCount: u32,
+}
+impl Default for WS_XML_QNAME_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_QNAME_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_QNAME_TEXT {
+    pub text: WS_XML_TEXT,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+}
+impl Default for WS_XML_QNAME_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_QNAME_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_XML_READER(pub isize);
+impl windows_core::TypeKind for WS_XML_READER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_BINARY_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub staticDictionary: *mut WS_XML_DICTIONARY,
+    pub dynamicDictionary: *mut WS_XML_DICTIONARY,
+}
+impl Default for WS_XML_READER_BINARY_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_BINARY_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_BUFFER_INPUT {
+    pub input: WS_XML_READER_INPUT,
+    pub encodedData: *mut core::ffi::c_void,
+    pub encodedDataSize: u32,
+}
+impl Default for WS_XML_READER_BUFFER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_BUFFER_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_ENCODING {
+    pub encodingType: WS_XML_READER_ENCODING_TYPE,
+}
+impl Default for WS_XML_READER_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_INPUT {
+    pub inputType: WS_XML_READER_INPUT_TYPE,
+}
+impl Default for WS_XML_READER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_MTOM_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub textEncoding: *mut WS_XML_READER_ENCODING,
+    pub readMimeHeader: super::super::Foundation::BOOL,
+    pub startInfo: WS_STRING,
+    pub boundary: WS_STRING,
+    pub startUri: WS_STRING,
+}
+impl Default for WS_XML_READER_MTOM_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_MTOM_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_PROPERTIES {
+    pub properties: *mut WS_XML_READER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_XML_READER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_PROPERTY {
+    pub id: WS_XML_READER_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_XML_READER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_RAW_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+}
+impl Default for WS_XML_READER_RAW_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_RAW_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_STREAM_INPUT {
+    pub input: WS_XML_READER_INPUT,
+    pub readCallback: WS_READ_CALLBACK,
+    pub readCallbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_XML_READER_STREAM_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_STREAM_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_READER_TEXT_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub charSet: WS_CHARSET,
+}
+impl Default for WS_XML_READER_TEXT_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_READER_TEXT_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_SECURITY_TOKEN_PROPERTY {
+    pub id: WS_XML_SECURITY_TOKEN_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_XML_SECURITY_TOKEN_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_STRING {
+    pub length: u32,
+    pub bytes: *mut u8,
+    pub dictionary: *mut WS_XML_DICTIONARY,
+    pub id: u32,
+}
+impl Default for WS_XML_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_STRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_STRING_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl Default for WS_XML_STRING_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_STRING_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_TEXT {
+    pub textType: WS_XML_TEXT_TYPE,
+}
+impl Default for WS_XML_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_TEXT_NODE {
+    pub node: WS_XML_NODE,
+    pub text: *mut WS_XML_TEXT,
+}
+impl Default for WS_XML_TEXT_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_TEXT_NODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_TIMESPAN_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_TIMESPAN,
+}
+impl Default for WS_XML_TIMESPAN_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_TIMESPAN_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub xmlToken: *mut WS_SECURITY_TOKEN,
+}
+impl Default for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_UINT64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: u64,
+}
+impl Default for WS_XML_UINT64_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_UINT64_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_UNIQUE_ID_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: windows_core::GUID,
+}
+impl Default for WS_XML_UNIQUE_ID_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_UNIQUE_ID_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_UTF16_TEXT {
+    pub text: WS_XML_TEXT,
+    pub bytes: *mut u8,
+    pub byteCount: u32,
+}
+impl Default for WS_XML_UTF16_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_UTF16_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_UTF8_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_XML_STRING,
+}
+impl Default for WS_XML_UTF8_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_UTF8_TEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WS_XML_WRITER(pub isize);
+impl windows_core::TypeKind for WS_XML_WRITER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_BINARY_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub staticDictionary: *mut WS_XML_DICTIONARY,
+    pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
+    pub dynamicStringCallbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_XML_WRITER_BINARY_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_BINARY_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_BUFFER_OUTPUT {
+    pub output: WS_XML_WRITER_OUTPUT,
+}
+impl Default for WS_XML_WRITER_BUFFER_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_BUFFER_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_ENCODING {
+    pub encodingType: WS_XML_WRITER_ENCODING_TYPE,
+}
+impl Default for WS_XML_WRITER_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_MTOM_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub textEncoding: *mut WS_XML_WRITER_ENCODING,
+    pub writeMimeHeader: super::super::Foundation::BOOL,
+    pub boundary: WS_STRING,
+    pub startInfo: WS_STRING,
+    pub startUri: WS_STRING,
+    pub maxInlineByteCount: u32,
+}
+impl Default for WS_XML_WRITER_MTOM_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_MTOM_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_OUTPUT {
+    pub outputType: WS_XML_WRITER_OUTPUT_TYPE,
+}
+impl Default for WS_XML_WRITER_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_PROPERTIES {
+    pub properties: *mut WS_XML_WRITER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl Default for WS_XML_WRITER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_PROPERTY {
+    pub id: WS_XML_WRITER_PROPERTY_ID,
+    pub value: *mut core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl Default for WS_XML_WRITER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_RAW_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+}
+impl Default for WS_XML_WRITER_RAW_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_RAW_ENCODING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_STREAM_OUTPUT {
+    pub output: WS_XML_WRITER_OUTPUT,
+    pub writeCallback: WS_WRITE_CALLBACK,
+    pub writeCallbackState: *mut core::ffi::c_void,
+}
+impl Default for WS_XML_WRITER_STREAM_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_STREAM_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WS_XML_WRITER_TEXT_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub charSet: WS_CHARSET,
+}
+impl Default for WS_XML_WRITER_TEXT_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WS_XML_WRITER_TEXT_ENCODING {
+    type TypeKind = windows_core::CopyType;
 }
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
@@ -2137,5739 +7042,3 @@ pub const WS_XML_WRITER_PROPERTY_MAX_DEPTH: WS_XML_WRITER_PROPERTY_ID = WS_XML_W
 pub const WS_XML_WRITER_PROPERTY_MAX_MIME_PARTS_BUFFER_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(11i32);
 pub const WS_XML_WRITER_PROPERTY_MAX_NAMESPACES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(14i32);
 pub const WS_XML_WRITER_PROPERTY_WRITE_DECLARATION: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(3i32);
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ADDRESSING_VERSION(pub i32);
-impl windows_core::TypeKind for WS_ADDRESSING_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ADDRESSING_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ADDRESSING_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_BINDING_TEMPLATE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_BINDING_TEMPLATE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_BINDING_TEMPLATE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CALLBACK_MODEL(pub i32);
-impl windows_core::TypeKind for WS_CALLBACK_MODEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CALLBACK_MODEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CALLBACK_MODEL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CALL_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_CALL_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CALL_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CALL_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_CERT_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CERT_CREDENTIAL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CERT_CREDENTIAL_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CHANNEL_BINDING(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CHANNEL_BINDING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHANNEL_BINDING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CHANNEL_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHANNEL_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CHANNEL_STATE(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CHANNEL_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHANNEL_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CHANNEL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_CHANNEL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CHANNEL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHANNEL_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_CHARSET(pub i32);
-impl windows_core::TypeKind for WS_CHARSET {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_CHARSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHARSET").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_COOKIE_MODE(pub i32);
-impl windows_core::TypeKind for WS_COOKIE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_COOKIE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_COOKIE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_DATETIME_FORMAT(pub i32);
-impl windows_core::TypeKind for WS_DATETIME_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_DATETIME_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_DATETIME_FORMAT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ENCODING(pub i32);
-impl windows_core::TypeKind for WS_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ENCODING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ENCODING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ENDPOINT_ADDRESS_EXTENSION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
-impl windows_core::TypeKind for WS_ENDPOINT_IDENTITY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ENDPOINT_IDENTITY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ENDPOINT_IDENTITY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ENVELOPE_VERSION(pub i32);
-impl windows_core::TypeKind for WS_ENVELOPE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ENVELOPE_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ENVELOPE_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_ERROR_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_ERROR_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_ERROR_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ERROR_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_EXCEPTION_CODE(pub i32);
-impl windows_core::TypeKind for WS_EXCEPTION_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_EXCEPTION_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_EXCEPTION_CODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_EXTENDED_PROTECTION_POLICY(pub i32);
-impl windows_core::TypeKind for WS_EXTENDED_PROTECTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_EXTENDED_PROTECTION_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_EXTENDED_PROTECTION_POLICY").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
-impl windows_core::TypeKind for WS_EXTENDED_PROTECTION_SCENARIO {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_EXTENDED_PROTECTION_SCENARIO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_EXTENDED_PROTECTION_SCENARIO").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_FAULT_DISCLOSURE(pub i32);
-impl windows_core::TypeKind for WS_FAULT_DISCLOSURE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_FAULT_DISCLOSURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_FAULT_DISCLOSURE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_FAULT_ERROR_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_FAULT_ERROR_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_FAULT_ERROR_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_FIELD_MAPPING(pub i32);
-impl windows_core::TypeKind for WS_FIELD_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_FIELD_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_FIELD_MAPPING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_HEADER_TYPE(pub i32);
-impl windows_core::TypeKind for WS_HEADER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_HEADER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_HEADER_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_HEAP_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_HEAP_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_HEAP_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_HEAP_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_HTTP_HEADER_AUTH_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_HTTP_HEADER_AUTH_TARGET").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
-impl windows_core::TypeKind for WS_HTTP_PROXY_SETTING_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_HTTP_PROXY_SETTING_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_HTTP_PROXY_SETTING_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_IP_VERSION(pub i32);
-impl windows_core::TypeKind for WS_IP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_IP_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_IP_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_LISTENER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_LISTENER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_LISTENER_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_LISTENER_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_LISTENER_STATE(pub i32);
-impl windows_core::TypeKind for WS_LISTENER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_LISTENER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_LISTENER_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_MESSAGE_INITIALIZATION(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_INITIALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_MESSAGE_INITIALIZATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MESSAGE_INITIALIZATION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_MESSAGE_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MESSAGE_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_MESSAGE_SECURITY_USAGE(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_SECURITY_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_MESSAGE_SECURITY_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MESSAGE_SECURITY_USAGE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_MESSAGE_STATE(pub i32);
-impl windows_core::TypeKind for WS_MESSAGE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_MESSAGE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MESSAGE_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_METADATA_EXCHANGE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_METADATA_EXCHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_METADATA_EXCHANGE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_METADATA_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_METADATA_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_METADATA_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_METADATA_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_METADATA_STATE(pub i32);
-impl windows_core::TypeKind for WS_METADATA_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_METADATA_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_METADATA_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_MOVE_TO(pub i32);
-impl windows_core::TypeKind for WS_MOVE_TO {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_MOVE_TO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MOVE_TO").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_OPERATION_CONTEXT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_OPERATION_CONTEXT_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_OPERATION_CONTEXT_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_OPERATION_STYLE(pub i32);
-impl windows_core::TypeKind for WS_OPERATION_STYLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_OPERATION_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_OPERATION_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_PARAMETER_TYPE(pub i32);
-impl windows_core::TypeKind for WS_PARAMETER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_PARAMETER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_PARAMETER_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
-impl windows_core::TypeKind for WS_POLICY_EXTENSION_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_POLICY_EXTENSION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_POLICY_EXTENSION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_POLICY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_POLICY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_POLICY_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_POLICY_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_POLICY_STATE(pub i32);
-impl windows_core::TypeKind for WS_POLICY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_POLICY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_POLICY_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_PROTECTION_LEVEL(pub i32);
-impl windows_core::TypeKind for WS_PROTECTION_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_PROTECTION_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_PROTECTION_LEVEL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_PROXY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_PROXY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_PROXY_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_PROXY_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_READ_OPTION(pub i32);
-impl windows_core::TypeKind for WS_READ_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_READ_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_READ_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_RECEIVE_OPTION(pub i32);
-impl windows_core::TypeKind for WS_RECEIVE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_RECEIVE_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_RECEIVE_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_REPEATING_HEADER_OPTION(pub i32);
-impl windows_core::TypeKind for WS_REPEATING_HEADER_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_REPEATING_HEADER_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_REPEATING_HEADER_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(pub i32);
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_REQUEST_SECURITY_TOKEN_ACTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SAML_AUTHENTICATOR_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SAML_AUTHENTICATOR_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SAML_AUTHENTICATOR_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURE_CONVERSATION_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURE_CONVERSATION_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURE_CONVERSATION_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURE_PROTOCOL(pub i32);
-impl windows_core::TypeKind for WS_SECURE_PROTOCOL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURE_PROTOCOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURE_PROTOCOL").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_ALGORITHM_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_ALGORITHM_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_ALGORITHM_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_ALGORITHM_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_ALGORITHM_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE_NAME {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_ALGORITHM_SUITE_NAME").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_BEARER_KEY_TYPE_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_BINDING_CONSTRAINT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_BINDING_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_BINDING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_BINDING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_BINDING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_BINDING_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_CONTEXT_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_CONTEXT_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_HEADER_LAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_HEADER_LAYOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_HEADER_LAYOUT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_HEADER_VERSION(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_HEADER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_HEADER_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_HEADER_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_KEY_ENTROPY_MODE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_ENTROPY_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_KEY_ENTROPY_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_KEY_ENTROPY_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_HANDLE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_KEY_HANDLE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_KEY_HANDLE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_KEY_TYPE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_KEY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_KEY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_KEY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_TIMESTAMP_USAGE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TIMESTAMP_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_TIMESTAMP_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_TIMESTAMP_USAGE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_TOKEN_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_TOKEN_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(pub i32);
-impl windows_core::TypeKind for WS_SECURITY_TOKEN_REFERENCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SECURITY_TOKEN_REFERENCE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_TOKEN_REFERENCE_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SERVICE_CANCEL_REASON(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_CANCEL_REASON {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SERVICE_CANCEL_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_CANCEL_REASON").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_ENDPOINT_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SERVICE_HOST_STATE(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_HOST_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SERVICE_HOST_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_HOST_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SERVICE_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SERVICE_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_SERVICE_PROXY_STATE(pub i32);
-impl windows_core::TypeKind for WS_SERVICE_PROXY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_SERVICE_PROXY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_PROXY_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_TRACE_API(pub i32);
-impl windows_core::TypeKind for WS_TRACE_API {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_TRACE_API {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_TRACE_API").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_TRANSFER_MODE(pub i32);
-impl windows_core::TypeKind for WS_TRANSFER_MODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_TRANSFER_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_TRANSFER_MODE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_TRUST_VERSION(pub i32);
-impl windows_core::TypeKind for WS_TRUST_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_TRUST_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_TRUST_VERSION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_TYPE(pub i32);
-impl windows_core::TypeKind for WS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_TYPE_MAPPING(pub i32);
-impl windows_core::TypeKind for WS_TYPE_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_TYPE_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_TYPE_MAPPING").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_URL_SCHEME_TYPE(pub i32);
-impl windows_core::TypeKind for WS_URL_SCHEME_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_URL_SCHEME_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_URL_SCHEME_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_USERNAME_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_USERNAME_CREDENTIAL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_USERNAME_CREDENTIAL_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_VALUE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_VALUE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_VALUE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_VALUE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(pub i32);
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_WINDOWS_INTEGRATED_AUTH_PACKAGE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_WRITE_OPTION(pub i32);
-impl windows_core::TypeKind for WS_WRITE_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_WRITE_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_WRITE_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_BUFFER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_BUFFER_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_BUFFER_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_CANONICALIZATION_ALGORITHM(pub i32);
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_CANONICALIZATION_ALGORITHM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_CANONICALIZATION_ALGORITHM").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_CANONICALIZATION_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_CANONICALIZATION_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_NODE_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_NODE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_NODE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_NODE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_ENCODING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_READER_ENCODING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_READER_ENCODING_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_READER_INPUT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_INPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_READER_INPUT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_READER_INPUT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_READER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_READER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_READER_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_READER_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_SECURITY_TOKEN_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_TEXT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_TEXT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_TEXT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_TEXT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_ENCODING_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_WRITER_ENCODING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_WRITER_ENCODING_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_OUTPUT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_WRITER_OUTPUT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_WRITER_OUTPUT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTY_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WS_XML_WRITER_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_WRITER_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
-    pub dwVersion: u32,
-    pub cbContactId: u32,
-    pub pbContactId: *mut u8,
-    pub cbLinkId: u32,
-    pub pbLinkId: *mut u8,
-    pub cbLinkSecret: u32,
-    pub pbLinkSecret: *mut u8,
-    pub cbPublicKey: u32,
-    pub pbPublicKey: *mut u8,
-    pub pwszAuthenticatorName: windows_core::PCWSTR,
-    pub wEncodedTunnelServerDomain: u16,
-}
-impl windows_core::TypeKind for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_ASSERTION {
-    pub dwVersion: u32,
-    pub cbAuthenticatorData: u32,
-    pub pbAuthenticatorData: *mut u8,
-    pub cbSignature: u32,
-    pub pbSignature: *mut u8,
-    pub Credential: WEBAUTHN_CREDENTIAL,
-    pub cbUserId: u32,
-    pub pbUserId: *mut u8,
-    pub Extensions: WEBAUTHN_EXTENSIONS,
-    pub cbCredLargeBlob: u32,
-    pub pbCredLargeBlob: *mut u8,
-    pub dwCredLargeBlobStatus: u32,
-    pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
-    pub dwUsedTransport: u32,
-    pub cbUnsignedExtensionOutputs: u32,
-    pub pbUnsignedExtensionOutputs: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_ASSERTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_ASSERTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    pub dwVersion: u32,
-    pub dwTimeoutMilliseconds: u32,
-    pub CredentialList: WEBAUTHN_CREDENTIALS,
-    pub Extensions: WEBAUTHN_EXTENSIONS,
-    pub dwAuthenticatorAttachment: u32,
-    pub dwUserVerificationRequirement: u32,
-    pub dwFlags: u32,
-    pub pwszU2fAppId: windows_core::PCWSTR,
-    pub pbU2fAppId: *mut super::super::Foundation::BOOL,
-    pub pCancellationId: *mut windows_core::GUID,
-    pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
-    pub dwCredLargeBlobOperation: u32,
-    pub cbCredLargeBlob: u32,
-    pub pbCredLargeBlob: *mut u8,
-    pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
-    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
-    pub bAutoFill: super::super::Foundation::BOOL,
-    pub cbJsonExt: u32,
-    pub pbJsonExt: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    pub dwVersion: u32,
-    pub dwTimeoutMilliseconds: u32,
-    pub CredentialList: WEBAUTHN_CREDENTIALS,
-    pub Extensions: WEBAUTHN_EXTENSIONS,
-    pub dwAuthenticatorAttachment: u32,
-    pub bRequireResidentKey: super::super::Foundation::BOOL,
-    pub dwUserVerificationRequirement: u32,
-    pub dwAttestationConveyancePreference: u32,
-    pub dwFlags: u32,
-    pub pCancellationId: *mut windows_core::GUID,
-    pub pExcludeCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
-    pub dwEnterpriseAttestation: u32,
-    pub dwLargeBlobSupport: u32,
-    pub bPreferResidentKey: super::super::Foundation::BOOL,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
-    pub bEnablePrf: super::super::Foundation::BOOL,
-    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
-    pub cbJsonExt: u32,
-    pub pbJsonExt: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CLIENT_DATA {
-    pub dwVersion: u32,
-    pub cbClientDataJSON: u32,
-    pub pbClientDataJSON: *mut u8,
-    pub pwszHashAlgId: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for WEBAUTHN_CLIENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CLIENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_COMMON_ATTESTATION {
-    pub dwVersion: u32,
-    pub pwszAlg: windows_core::PCWSTR,
-    pub lAlg: i32,
-    pub cbSignature: u32,
-    pub pbSignature: *mut u8,
-    pub cX5c: u32,
-    pub pX5c: *mut WEBAUTHN_X5C,
-    pub pwszVer: windows_core::PCWSTR,
-    pub cbCertInfo: u32,
-    pub pbCertInfo: *mut u8,
-    pub cbPubArea: u32,
-    pub pbPubArea: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_COMMON_ATTESTATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_COMMON_ATTESTATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-    pub dwVersion: u32,
-    pub pwszCredentialType: windows_core::PCWSTR,
-    pub lAlg: i32,
-}
-impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-    pub cCredentialParameters: u32,
-    pub pCredentialParameters: *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETER,
-}
-impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL {
-    pub dwVersion: u32,
-    pub cbId: u32,
-    pub pbId: *mut u8,
-    pub pwszCredentialType: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIALS {
-    pub cCredentials: u32,
-    pub pCredentials: *mut WEBAUTHN_CREDENTIAL,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
-    pub dwVersion: u32,
-    pub pwszFormatType: windows_core::PCWSTR,
-    pub cbAuthenticatorData: u32,
-    pub pbAuthenticatorData: *mut u8,
-    pub cbAttestation: u32,
-    pub pbAttestation: *mut u8,
-    pub dwAttestationDecodeType: u32,
-    pub pvAttestationDecode: *mut core::ffi::c_void,
-    pub cbAttestationObject: u32,
-    pub pbAttestationObject: *mut u8,
-    pub cbCredentialId: u32,
-    pub pbCredentialId: *mut u8,
-    pub Extensions: WEBAUTHN_EXTENSIONS,
-    pub dwUsedTransport: u32,
-    pub bEpAtt: super::super::Foundation::BOOL,
-    pub bLargeBlobSupported: super::super::Foundation::BOOL,
-    pub bResidentKey: super::super::Foundation::BOOL,
-    pub bPrfEnabled: super::super::Foundation::BOOL,
-    pub cbUnsignedExtensionOutputs: u32,
-    pub pbUnsignedExtensionOutputs: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_ATTESTATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL_DETAILS {
-    pub dwVersion: u32,
-    pub cbCredentialID: u32,
-    pub pbCredentialID: *mut u8,
-    pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
-    pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
-    pub bRemovable: super::super::Foundation::BOOL,
-    pub bBackedUp: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    pub cCredentialDetails: u32,
-    pub ppCredentialDetails: *mut *mut WEBAUTHN_CREDENTIAL_DETAILS,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL_EX {
-    pub dwVersion: u32,
-    pub cbId: u32,
-    pub pbId: *mut u8,
-    pub pwszCredentialType: windows_core::PCWSTR,
-    pub dwTransports: u32,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_EX {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CREDENTIAL_LIST {
-    pub cCredentials: u32,
-    pub ppCredentials: *mut *mut WEBAUTHN_CREDENTIAL_EX,
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CREDENTIAL_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
-    pub cbCredBlob: u32,
-    pub pbCredBlob: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_CRED_BLOB_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CRED_BLOB_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-    pub dwCredProtect: u32,
-    pub bRequireCredProtect: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-    pub cbCredID: u32,
-    pub pbCredID: *mut u8,
-    pub pHmacSecretSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
-}
-impl windows_core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_EXTENSION {
-    pub pwszExtensionIdentifier: windows_core::PCWSTR,
-    pub cbExtension: u32,
-    pub pvExtension: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WEBAUTHN_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_EXTENSIONS {
-    pub cExtensions: u32,
-    pub pExtensions: *mut WEBAUTHN_EXTENSION,
-}
-impl windows_core::TypeKind for WEBAUTHN_EXTENSIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_EXTENSIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-    pub dwVersion: u32,
-    pub pwszRpId: windows_core::PCWSTR,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_HMAC_SECRET_SALT {
-    pub cbFirst: u32,
-    pub pbFirst: *mut u8,
-    pub cbSecond: u32,
-    pub pbSecond: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_HMAC_SECRET_SALT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
-    pub pGlobalHmacSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
-    pub cCredWithHmacSecretSaltList: u32,
-    pub pCredWithHmacSecretSaltList: *mut WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
-}
-impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_RP_ENTITY_INFORMATION {
-    pub dwVersion: u32,
-    pub pwszId: windows_core::PCWSTR,
-    pub pwszName: windows_core::PCWSTR,
-    pub pwszIcon: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for WEBAUTHN_RP_ENTITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_RP_ENTITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
-    pub dwVersion: u32,
-    pub cbId: u32,
-    pub pbId: *mut u8,
-    pub pwszName: windows_core::PCWSTR,
-    pub pwszIcon: windows_core::PCWSTR,
-    pub pwszDisplayName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for WEBAUTHN_USER_ENTITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_USER_ENTITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEBAUTHN_X5C {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for WEBAUTHN_X5C {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WEBAUTHN_X5C {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ANY_ATTRIBUTE {
-    pub localName: WS_XML_STRING,
-    pub ns: WS_XML_STRING,
-    pub value: *mut WS_XML_TEXT,
-}
-impl windows_core::TypeKind for WS_ANY_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ANY_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ANY_ATTRIBUTES {
-    pub attributes: *mut WS_ANY_ATTRIBUTE,
-    pub attributeCount: u32,
-}
-impl windows_core::TypeKind for WS_ANY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ANY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ASYNC_CONTEXT {
-    pub callback: WS_ASYNC_CALLBACK,
-    pub callbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_ASYNC_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ASYNC_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ASYNC_OPERATION {
-    pub function: WS_ASYNC_FUNCTION,
-}
-impl windows_core::TypeKind for WS_ASYNC_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ASYNC_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ASYNC_STATE {
-    pub internal0: *mut core::ffi::c_void,
-    pub internal1: *mut core::ffi::c_void,
-    pub internal2: *mut core::ffi::c_void,
-    pub internal3: *mut core::ffi::c_void,
-    pub internal4: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_ASYNC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ASYNC_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ATTRIBUTE_DESCRIPTION {
-    pub attributeLocalName: *mut WS_XML_STRING,
-    pub attributeNs: *mut WS_XML_STRING,
-    pub r#type: WS_TYPE,
-    pub typeDescription: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_ATTRIBUTE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ATTRIBUTE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_BOOL_DESCRIPTION {
-    pub value: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WS_BOOL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_BOOL_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_BUFFERS {
-    pub bufferCount: u32,
-    pub buffers: *mut WS_BYTES,
-}
-impl windows_core::TypeKind for WS_BUFFERS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_BUFFERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_BYTES {
-    pub length: u32,
-    pub bytes: *mut u8,
-}
-impl windows_core::TypeKind for WS_BYTES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_BYTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_BYTES_DESCRIPTION {
-    pub minByteCount: u32,
-    pub maxByteCount: u32,
-}
-impl windows_core::TypeKind for WS_BYTES_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_BYTES_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_BYTE_ARRAY_DESCRIPTION {
-    pub minByteCount: u32,
-    pub maxByteCount: u32,
-}
-impl windows_core::TypeKind for WS_BYTE_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_BYTE_ARRAY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CALL_PROPERTY {
-    pub id: WS_CALL_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_CALL_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CALL_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    pub keyHandle: WS_SECURITY_KEY_HANDLE,
-    pub provider: usize,
-    pub keySpec: u32,
-}
-impl windows_core::TypeKind for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
-    pub state: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CERT_CREDENTIAL {
-    pub credentialType: WS_CERT_CREDENTIAL_TYPE,
-}
-impl windows_core::TypeKind for WS_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CERT_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CERT_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub rawCertificateData: WS_BYTES,
-}
-impl windows_core::TypeKind for WS_CERT_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CERT_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    pub authenticator: WS_SAML_AUTHENTICATOR,
-    pub trustedIssuerCerts: *const *const super::super::Security::Cryptography::CERT_CONTEXT,
-    pub trustedIssuerCertCount: u32,
-    pub decryptionCert: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
-    pub samlValidatorCallbackState: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_CHANNEL(pub isize);
-impl Default for WS_CHANNEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_CHANNEL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_DECODER {
-    pub createContext: *mut core::ffi::c_void,
-    pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
-    pub decoderGetContentTypeCallback: WS_DECODER_GET_CONTENT_TYPE_CALLBACK,
-    pub decoderStartCallback: WS_DECODER_START_CALLBACK,
-    pub decoderDecodeCallback: WS_DECODER_DECODE_CALLBACK,
-    pub decoderEndCallback: WS_DECODER_END_CALLBACK,
-    pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
-}
-impl windows_core::TypeKind for WS_CHANNEL_DECODER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_DECODER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_ENCODER {
-    pub createContext: *mut core::ffi::c_void,
-    pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
-    pub encoderGetContentTypeCallback: WS_ENCODER_GET_CONTENT_TYPE_CALLBACK,
-    pub encoderStartCallback: WS_ENCODER_START_CALLBACK,
-    pub encoderEncodeCallback: WS_ENCODER_ENCODE_CALLBACK,
-    pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
-    pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
-}
-impl windows_core::TypeKind for WS_CHANNEL_ENCODER {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_ENCODER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_PROPERTIES {
-    pub properties: *mut WS_CHANNEL_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_PROPERTY {
-    pub id: WS_CHANNEL_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_PROPERTY_CONSTRAINT {
-    pub id: WS_CHANNEL_PROPERTY_ID,
-    pub allowedValues: *mut core::ffi::c_void,
-    pub allowedValuesSize: u32,
-    pub out: WS_CHANNEL_PROPERTY_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
-    pub channelProperty: WS_CHANNEL_PROPERTY,
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CHAR_ARRAY_DESCRIPTION {
-    pub minCharCount: u32,
-    pub maxCharCount: u32,
-}
-impl windows_core::TypeKind for WS_CHAR_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CHAR_ARRAY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CONTRACT_DESCRIPTION {
-    pub operationCount: u32,
-    pub operations: *mut *mut WS_OPERATION_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_CONTRACT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CONTRACT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CUSTOM_CERT_CREDENTIAL {
-    pub credential: WS_CERT_CREDENTIAL,
-    pub getCertCallback: WS_GET_CERT_CALLBACK,
-    pub getCertCallbackState: *mut core::ffi::c_void,
-    pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
-    pub certIssuerListNotificationCallbackState: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for WS_CUSTOM_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl Default for WS_CUSTOM_CERT_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
-    pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
-    pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
-    pub resetChannelCallback: WS_RESET_CHANNEL_CALLBACK,
-    pub openChannelCallback: WS_OPEN_CHANNEL_CALLBACK,
-    pub closeChannelCallback: WS_CLOSE_CHANNEL_CALLBACK,
-    pub abortChannelCallback: WS_ABORT_CHANNEL_CALLBACK,
-    pub getChannelPropertyCallback: WS_GET_CHANNEL_PROPERTY_CALLBACK,
-    pub setChannelPropertyCallback: WS_SET_CHANNEL_PROPERTY_CALLBACK,
-    pub writeMessageStartCallback: WS_WRITE_MESSAGE_START_CALLBACK,
-    pub writeMessageEndCallback: WS_WRITE_MESSAGE_END_CALLBACK,
-    pub readMessageStartCallback: WS_READ_MESSAGE_START_CALLBACK,
-    pub readMessageEndCallback: WS_READ_MESSAGE_END_CALLBACK,
-    pub abandonMessageCallback: WS_ABANDON_MESSAGE_CALLBACK,
-    pub shutdownSessionChannelCallback: WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK,
-}
-impl windows_core::TypeKind for WS_CUSTOM_CHANNEL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CUSTOM_CHANNEL_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CUSTOM_HTTP_PROXY {
-    pub servers: WS_STRING,
-    pub bypass: WS_STRING,
-}
-impl windows_core::TypeKind for WS_CUSTOM_HTTP_PROXY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CUSTOM_HTTP_PROXY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CUSTOM_LISTENER_CALLBACKS {
-    pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
-    pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
-    pub resetListenerCallback: WS_RESET_LISTENER_CALLBACK,
-    pub openListenerCallback: WS_OPEN_LISTENER_CALLBACK,
-    pub closeListenerCallback: WS_CLOSE_LISTENER_CALLBACK,
-    pub abortListenerCallback: WS_ABORT_LISTENER_CALLBACK,
-    pub getListenerPropertyCallback: WS_GET_LISTENER_PROPERTY_CALLBACK,
-    pub setListenerPropertyCallback: WS_SET_LISTENER_PROPERTY_CALLBACK,
-    pub createChannelForListenerCallback: WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK,
-    pub acceptChannelCallback: WS_ACCEPT_CHANNEL_CALLBACK,
-}
-impl windows_core::TypeKind for WS_CUSTOM_LISTENER_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CUSTOM_LISTENER_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_CUSTOM_TYPE_DESCRIPTION {
-    pub size: u32,
-    pub alignment: u32,
-    pub readCallback: WS_READ_TYPE_CALLBACK,
-    pub writeCallback: WS_WRITE_TYPE_CALLBACK,
-    pub descriptionData: *mut core::ffi::c_void,
-    pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
-}
-impl windows_core::TypeKind for WS_CUSTOM_TYPE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_CUSTOM_TYPE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DATETIME {
-    pub ticks: u64,
-    pub format: WS_DATETIME_FORMAT,
-}
-impl windows_core::TypeKind for WS_DATETIME {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DATETIME_DESCRIPTION {
-    pub minValue: WS_DATETIME,
-    pub maxValue: WS_DATETIME,
-}
-impl windows_core::TypeKind for WS_DATETIME_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DATETIME_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WS_DECIMAL_DESCRIPTION {
-    pub minValue: super::super::Foundation::DECIMAL,
-    pub maxValue: super::super::Foundation::DECIMAL,
-}
-impl windows_core::TypeKind for WS_DECIMAL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DECIMAL_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DEFAULT_VALUE {
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_DEFAULT_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DEFAULT_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    pub subStringCount: u32,
-    pub subStrings: *mut *mut WS_STRING,
-}
-impl windows_core::TypeKind for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DNS_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub dns: WS_STRING,
-}
-impl windows_core::TypeKind for WS_DNS_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DNS_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WS_DOUBLE_DESCRIPTION {
-    pub minValue: f64,
-    pub maxValue: f64,
-}
-impl windows_core::TypeKind for WS_DOUBLE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DOUBLE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DURATION {
-    pub negative: super::super::Foundation::BOOL,
-    pub years: u32,
-    pub months: u32,
-    pub days: u32,
-    pub hours: u32,
-    pub minutes: u32,
-    pub seconds: u32,
-    pub milliseconds: u32,
-    pub ticks: u32,
-}
-impl windows_core::TypeKind for WS_DURATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_DURATION_DESCRIPTION {
-    pub minValue: WS_DURATION,
-    pub maxValue: WS_DURATION,
-    pub comparer: WS_DURATION_COMPARISON_CALLBACK,
-}
-impl windows_core::TypeKind for WS_DURATION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_DURATION_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ELEMENT_DESCRIPTION {
-    pub elementLocalName: *mut WS_XML_STRING,
-    pub elementNs: *mut WS_XML_STRING,
-    pub r#type: WS_TYPE,
-    pub typeDescription: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_ELEMENT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ELEMENT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENDPOINT_ADDRESS {
-    pub url: WS_STRING,
-    pub headers: *mut WS_XML_BUFFER,
-    pub extensions: *mut WS_XML_BUFFER,
-    pub identity: *mut WS_ENDPOINT_IDENTITY,
-}
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENDPOINT_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION {
-    pub addressingVersion: WS_ADDRESSING_VERSION,
-}
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENDPOINT_ADDRESS_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENDPOINT_IDENTITY {
-    pub identityType: WS_ENDPOINT_IDENTITY_TYPE,
-}
-impl windows_core::TypeKind for WS_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENDPOINT_POLICY_EXTENSION {
-    pub policyExtension: WS_POLICY_EXTENSION,
-    pub assertionName: *mut WS_XML_STRING,
-    pub assertionNs: *mut WS_XML_STRING,
-    pub out: WS_ENDPOINT_POLICY_EXTENSION_0,
-}
-impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENDPOINT_POLICY_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
-    pub assertionValue: *mut WS_XML_BUFFER,
-}
-impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENUM_DESCRIPTION {
-    pub values: *mut WS_ENUM_VALUE,
-    pub valueCount: u32,
-    pub maxByteCount: u32,
-    pub nameIndices: *mut u32,
-}
-impl windows_core::TypeKind for WS_ENUM_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENUM_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ENUM_VALUE {
-    pub value: i32,
-    pub name: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_ENUM_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ENUM_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_ERROR(pub isize);
-impl Default for WS_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ERROR_PROPERTY {
-    pub id: WS_ERROR_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_ERROR_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ERROR_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FAULT {
-    pub code: *mut WS_FAULT_CODE,
-    pub reasons: *mut WS_FAULT_REASON,
-    pub reasonCount: u32,
-    pub actor: WS_STRING,
-    pub node: WS_STRING,
-    pub detail: *mut WS_XML_BUFFER,
-}
-impl windows_core::TypeKind for WS_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FAULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FAULT_CODE {
-    pub value: WS_XML_QNAME,
-    pub subCode: *mut WS_FAULT_CODE,
-}
-impl windows_core::TypeKind for WS_FAULT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FAULT_CODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FAULT_DESCRIPTION {
-    pub envelopeVersion: WS_ENVELOPE_VERSION,
-}
-impl windows_core::TypeKind for WS_FAULT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FAULT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FAULT_DETAIL_DESCRIPTION {
-    pub action: *mut WS_XML_STRING,
-    pub detailElementDescription: *mut WS_ELEMENT_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_FAULT_DETAIL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FAULT_DETAIL_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FAULT_REASON {
-    pub text: WS_STRING,
-    pub lang: WS_STRING,
-}
-impl windows_core::TypeKind for WS_FAULT_REASON {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FAULT_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_FIELD_DESCRIPTION {
-    pub mapping: WS_FIELD_MAPPING,
-    pub localName: *mut WS_XML_STRING,
-    pub ns: *mut WS_XML_STRING,
-    pub r#type: WS_TYPE,
-    pub typeDescription: *mut core::ffi::c_void,
-    pub offset: u32,
-    pub options: u32,
-    pub defaultValue: *mut WS_DEFAULT_VALUE,
-    pub countOffset: u32,
-    pub itemLocalName: *mut WS_XML_STRING,
-    pub itemNs: *mut WS_XML_STRING,
-    pub itemRange: *mut WS_ITEM_RANGE,
-}
-impl windows_core::TypeKind for WS_FIELD_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FIELD_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WS_FLOAT_DESCRIPTION {
-    pub minValue: f32,
-    pub maxValue: f32,
-}
-impl windows_core::TypeKind for WS_FLOAT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_FLOAT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_GUID_DESCRIPTION {
-    pub value: windows_core::GUID,
-}
-impl windows_core::TypeKind for WS_GUID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_GUID_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_HEAP(pub isize);
-impl Default for WS_HEAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_HEAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HEAP_PROPERTIES {
-    pub properties: *mut WS_HEAP_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_HEAP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HEAP_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HEAP_PROPERTY {
-    pub id: WS_HEAP_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_HEAP_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HEAP_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HOST_NAMES {
-    pub hostNames: *mut WS_STRING,
-    pub hostNameCount: u32,
-}
-impl windows_core::TypeKind for WS_HOST_NAMES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HOST_NAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTPS_URL {
-    pub url: WS_URL,
-    pub host: WS_STRING,
-    pub port: u16,
-    pub portAsString: WS_STRING,
-    pub path: WS_STRING,
-    pub query: WS_STRING,
-    pub fragment: WS_STRING,
-}
-impl windows_core::TypeKind for WS_HTTPS_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTPS_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_HTTP_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_HEADER_MAPPING {
-    pub headerName: WS_XML_STRING,
-    pub headerMappingOptions: u32,
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_HEADER_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_MESSAGE_MAPPING {
-    pub requestMappingOptions: u32,
-    pub responseMappingOptions: u32,
-    pub requestHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
-    pub requestHeaderMappingCount: u32,
-    pub responseHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
-    pub responseHeaderMappingCount: u32,
-}
-impl windows_core::TypeKind for WS_HTTP_MESSAGE_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_MESSAGE_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_HTTP_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    pub callback: WS_HTTP_REDIRECT_CALLBACK,
-    pub state: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_HTTP_URL {
-    pub url: WS_URL,
-    pub host: WS_STRING,
-    pub port: u16,
-    pub portAsString: WS_STRING,
-    pub path: WS_STRING,
-    pub query: WS_STRING,
-    pub fragment: WS_STRING,
-}
-impl windows_core::TypeKind for WS_HTTP_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_HTTP_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_INT16_DESCRIPTION {
-    pub minValue: i16,
-    pub maxValue: i16,
-}
-impl windows_core::TypeKind for WS_INT16_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_INT16_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_INT32_DESCRIPTION {
-    pub minValue: i32,
-    pub maxValue: i32,
-}
-impl windows_core::TypeKind for WS_INT32_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_INT32_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_INT64_DESCRIPTION {
-    pub minValue: i64,
-    pub maxValue: i64,
-}
-impl windows_core::TypeKind for WS_INT64_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_INT64_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_INT8_DESCRIPTION {
-    pub minValue: i8,
-    pub maxValue: i8,
-}
-impl windows_core::TypeKind for WS_INT8_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_INT8_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub claimConstraints: *mut WS_XML_STRING,
-    pub claimConstraintCount: u32,
-    pub requestSecurityTokenPropertyConstraints: *mut WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT,
-    pub requestSecurityTokenPropertyConstraintCount: u32,
-    pub out: WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
-    pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
-}
-impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_ITEM_RANGE {
-    pub minItemCount: u32,
-    pub maxItemCount: u32,
-}
-impl windows_core::TypeKind for WS_ITEM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_ITEM_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_LISTENER(pub isize);
-impl Default for WS_LISTENER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_LISTENER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_LISTENER_PROPERTIES {
-    pub properties: *mut WS_LISTENER_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_LISTENER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_LISTENER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_LISTENER_PROPERTY {
-    pub id: WS_LISTENER_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_LISTENER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_LISTENER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_MESSAGE(pub isize);
-impl Default for WS_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_MESSAGE_DESCRIPTION {
-    pub action: *mut WS_XML_STRING,
-    pub bodyElementDescription: *mut WS_ELEMENT_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_MESSAGE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_MESSAGE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_MESSAGE_PROPERTIES {
-    pub properties: *mut WS_MESSAGE_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_MESSAGE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_MESSAGE_PROPERTY {
-    pub id: WS_MESSAGE_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_MESSAGE_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_METADATA(pub isize);
-impl Default for WS_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_METADATA_ENDPOINT {
-    pub endpointAddress: WS_ENDPOINT_ADDRESS,
-    pub endpointPolicy: *mut WS_POLICY,
-    pub portName: *mut WS_XML_STRING,
-    pub serviceName: *mut WS_XML_STRING,
-    pub serviceNs: *mut WS_XML_STRING,
-    pub bindingName: *mut WS_XML_STRING,
-    pub bindingNs: *mut WS_XML_STRING,
-    pub portTypeName: *mut WS_XML_STRING,
-    pub portTypeNs: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_METADATA_ENDPOINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_METADATA_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_METADATA_ENDPOINTS {
-    pub endpoints: *mut WS_METADATA_ENDPOINT,
-    pub endpointCount: u32,
-}
-impl windows_core::TypeKind for WS_METADATA_ENDPOINTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_METADATA_ENDPOINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_METADATA_PROPERTY {
-    pub id: WS_METADATA_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_METADATA_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_METADATA_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    pub keyHandle: WS_SECURITY_KEY_HANDLE,
-    pub asymmetricKey: super::super::Security::Cryptography::NCRYPT_KEY_HANDLE,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_NETPIPE_URL {
-    pub url: WS_URL,
-    pub host: WS_STRING,
-    pub port: u16,
-    pub portAsString: WS_STRING,
-    pub path: WS_STRING,
-    pub query: WS_STRING,
-    pub fragment: WS_STRING,
-}
-impl windows_core::TypeKind for WS_NETPIPE_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_NETPIPE_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_NETTCP_URL {
-    pub url: WS_URL,
-    pub host: WS_STRING,
-    pub port: u16,
-    pub portAsString: WS_STRING,
-    pub path: WS_STRING,
-    pub query: WS_STRING,
-    pub fragment: WS_STRING,
-}
-impl windows_core::TypeKind for WS_NETTCP_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_NETTCP_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-    pub opaqueAuthIdentity: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_OPERATION_CONTEXT(pub isize);
-impl Default for WS_OPERATION_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_OPERATION_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_OPERATION_DESCRIPTION {
-    pub versionInfo: u32,
-    pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
-    pub outputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
-    pub inputMessageOptions: u32,
-    pub outputMessageOptions: u32,
-    pub parameterCount: u16,
-    pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
-    pub stubCallback: WS_SERVICE_STUB_CALLBACK,
-    pub style: WS_OPERATION_STYLE,
-}
-impl windows_core::TypeKind for WS_OPERATION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_OPERATION_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_PARAMETER_DESCRIPTION {
-    pub parameterType: WS_PARAMETER_TYPE,
-    pub inputMessageIndex: u16,
-    pub outputMessageIndex: u16,
-}
-impl windows_core::TypeKind for WS_PARAMETER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_PARAMETER_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_POLICY(pub isize);
-impl Default for WS_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_POLICY_CONSTRAINTS {
-    pub channelBinding: WS_CHANNEL_BINDING,
-    pub channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
-    pub channelPropertyConstraintCount: u32,
-    pub securityConstraints: *mut WS_SECURITY_CONSTRAINTS,
-    pub policyExtensions: *mut *mut WS_POLICY_EXTENSION,
-    pub policyExtensionCount: u32,
-}
-impl windows_core::TypeKind for WS_POLICY_CONSTRAINTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_POLICY_CONSTRAINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_POLICY_EXTENSION {
-    pub r#type: WS_POLICY_EXTENSION_TYPE,
-}
-impl windows_core::TypeKind for WS_POLICY_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_POLICY_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_POLICY_PROPERTIES {
-    pub properties: *mut WS_POLICY_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_POLICY_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_POLICY_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_POLICY_PROPERTY {
-    pub id: WS_POLICY_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_POLICY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_POLICY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    pub callback: WS_PROXY_MESSAGE_CALLBACK,
-    pub state: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_PROXY_PROPERTY {
-    pub id: WS_PROXY_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_PROXY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_PROXY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
-    pub keyHandle: WS_SECURITY_KEY_HANDLE,
-    pub rawKeyBytes: WS_BYTES,
-}
-impl windows_core::TypeKind for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
-    pub allowedValues: *mut core::ffi::c_void,
-    pub allowedValuesSize: u32,
-    pub out: WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
-    pub requestSecurityTokenProperty: WS_REQUEST_SECURITY_TOKEN_PROPERTY,
-}
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_RSA_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub modulus: WS_BYTES,
-    pub exponent: WS_BYTES,
-}
-impl windows_core::TypeKind for WS_RSA_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_RSA_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SAML_AUTHENTICATOR {
-    pub authenticatorType: WS_SAML_AUTHENTICATOR_TYPE,
-}
-impl windows_core::TypeKind for WS_SAML_AUTHENTICATOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SAML_AUTHENTICATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SAML_MESSAGE_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub authenticator: *mut WS_SAML_AUTHENTICATOR,
-}
-impl windows_core::TypeKind for WS_SAML_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SAML_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_ALGORITHM_PROPERTY {
-    pub id: WS_SECURITY_ALGORITHM_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_ALGORITHM_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_ALGORITHM_SUITE {
-    pub canonicalizationAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub digestAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub symmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub asymmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub encryptionAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub keyDerivationAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub symmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub asymmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
-    pub minSymmetricKeyLength: u32,
-    pub maxSymmetricKeyLength: u32,
-    pub minAsymmetricKeyLength: u32,
-    pub maxAsymmetricKeyLength: u32,
-    pub properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_ALGORITHM_SUITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING {
-    pub bindingType: WS_SECURITY_BINDING_TYPE,
-    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING_CONSTRAINT {
-    pub r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
-    pub propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
-    pub propertyConstraintCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING_PROPERTIES {
-    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING_PROPERTY {
-    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
-    pub allowedValues: *mut core::ffi::c_void,
-    pub allowedValuesSize: u32,
-    pub out: WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
-    pub securityBindingProperty: WS_SECURITY_BINDING_PROPERTY,
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONSTRAINTS {
-    pub securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
-    pub securityPropertyConstraintCount: u32,
-    pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
-    pub securityBindingConstraintCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONSTRAINTS {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONSTRAINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_SECURITY_CONTEXT(pub isize);
-impl Default for WS_SECURITY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub bootstrapSecurityDescription: *mut WS_SECURITY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub bootstrapSecurityConstraint: *mut WS_SECURITY_CONSTRAINTS,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_PROPERTY {
-    pub id: WS_SECURITY_CONTEXT_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
-    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_DESCRIPTION {
-    pub securityBindings: *mut *mut WS_SECURITY_BINDING,
-    pub securityBindingCount: u32,
-    pub properties: *mut WS_SECURITY_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_KEY_HANDLE {
-    pub keyHandleType: WS_SECURITY_KEY_HANDLE_TYPE,
-}
-impl windows_core::TypeKind for WS_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_KEY_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_PROPERTIES {
-    pub properties: *mut WS_SECURITY_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_PROPERTY {
-    pub id: WS_SECURITY_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_PROPERTY_CONSTRAINT {
-    pub id: WS_SECURITY_PROPERTY_ID,
-    pub allowedValues: *mut core::ffi::c_void,
-    pub allowedValuesSize: u32,
-    pub out: WS_SECURITY_PROPERTY_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SECURITY_PROPERTY_CONSTRAINT_0 {
-    pub securityProperty: WS_SECURITY_PROPERTY,
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_SECURITY_TOKEN(pub isize);
-impl Default for WS_SECURITY_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_SECURITY_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_CONTRACT {
-    pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
-    pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
-    pub methodTable: *const core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_SERVICE_CONTRACT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_CONTRACT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_ENDPOINT {
-    pub address: WS_ENDPOINT_ADDRESS,
-    pub channelBinding: WS_CHANNEL_BINDING,
-    pub channelType: WS_CHANNEL_TYPE,
-    pub securityDescription: *const WS_SECURITY_DESCRIPTION,
-    pub contract: *const WS_SERVICE_CONTRACT,
-    pub authorizationCallback: WS_SERVICE_SECURITY_CALLBACK,
-    pub properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
-    pub propertyCount: u32,
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_ENDPOINT_METADATA {
-    pub portName: *mut WS_XML_STRING,
-    pub bindingName: *mut WS_XML_STRING,
-    pub bindingNs: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_ENDPOINT_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_ENDPOINT_PROPERTY {
-    pub id: WS_SERVICE_ENDPOINT_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_ENDPOINT_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_SERVICE_HOST(pub isize);
-impl Default for WS_SERVICE_HOST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_SERVICE_HOST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_METADATA {
-    pub documentCount: u32,
-    pub documents: *mut *mut WS_SERVICE_METADATA_DOCUMENT,
-    pub serviceName: *mut WS_XML_STRING,
-    pub serviceNs: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_SERVICE_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_METADATA_DOCUMENT {
-    pub content: *mut WS_XML_STRING,
-    pub name: *mut WS_STRING,
-}
-impl windows_core::TypeKind for WS_SERVICE_METADATA_DOCUMENT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_METADATA_DOCUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_PROPERTY {
-    pub id: WS_SERVICE_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    pub callback: WS_SERVICE_ACCEPT_CHANNEL_CALLBACK,
-}
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    pub callback: WS_SERVICE_CLOSE_CHANNEL_CALLBACK,
-}
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_SERVICE_PROXY(pub isize);
-impl Default for WS_SERVICE_PROXY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_SERVICE_PROXY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SERVICE_SECURITY_IDENTITIES {
-    pub serviceIdentities: *mut WS_STRING,
-    pub serviceIdentityCount: u32,
-}
-impl windows_core::TypeKind for WS_SERVICE_SECURITY_IDENTITIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SERVICE_SECURITY_IDENTITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SOAPUDP_URL {
-    pub url: WS_URL,
-    pub host: WS_STRING,
-    pub port: u16,
-    pub portAsString: WS_STRING,
-    pub path: WS_STRING,
-    pub query: WS_STRING,
-    pub fragment: WS_STRING,
-}
-impl windows_core::TypeKind for WS_SOAPUDP_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SOAPUDP_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SPN_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub spn: WS_STRING,
-}
-impl windows_core::TypeKind for WS_SPN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SPN_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub out: WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0,
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    pub clientCertCredentialRequired: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_STRING {
-    pub length: u32,
-    pub chars: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for WS_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_STRING_DESCRIPTION {
-    pub minCharCount: u32,
-    pub maxCharCount: u32,
-}
-impl windows_core::TypeKind for WS_STRING_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_STRING_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_STRING_USERNAME_CREDENTIAL {
-    pub credential: WS_USERNAME_CREDENTIAL,
-    pub username: WS_STRING,
-    pub password: WS_STRING,
-}
-impl windows_core::TypeKind for WS_STRING_USERNAME_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_STRING_USERNAME_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-    pub username: WS_STRING,
-    pub password: WS_STRING,
-    pub domain: WS_STRING,
-}
-impl windows_core::TypeKind for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_STRUCT_DESCRIPTION {
-    pub size: u32,
-    pub alignment: u32,
-    pub fields: *mut *mut WS_FIELD_DESCRIPTION,
-    pub fieldCount: u32,
-    pub typeLocalName: *mut WS_XML_STRING,
-    pub typeNs: *mut WS_XML_STRING,
-    pub parentType: *mut WS_STRUCT_DESCRIPTION,
-    pub subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
-    pub subTypeCount: u32,
-    pub structOptions: u32,
-}
-impl windows_core::TypeKind for WS_STRUCT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_STRUCT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL {
-    pub credential: WS_CERT_CREDENTIAL,
-    pub storeLocation: u32,
-    pub storeName: WS_STRING,
-    pub subjectName: WS_STRING,
-}
-impl windows_core::TypeKind for WS_SUBJECT_NAME_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_SUBJECT_NAME_CERT_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_TCP_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-}
-impl windows_core::TypeKind for WS_TCP_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    pub channelProperties: WS_CHANNEL_PROPERTIES,
-    pub securityProperties: WS_SECURITY_PROPERTIES,
-    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
-    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_THUMBPRINT_CERT_CREDENTIAL {
-    pub credential: WS_CERT_CREDENTIAL,
-    pub storeLocation: u32,
-    pub storeName: WS_STRING,
-    pub thumbprint: WS_STRING,
-}
-impl windows_core::TypeKind for WS_THUMBPRINT_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_THUMBPRINT_CERT_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TIMESPAN {
-    pub ticks: i64,
-}
-impl windows_core::TypeKind for WS_TIMESPAN {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TIMESPAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_TIMESPAN_DESCRIPTION {
-    pub minValue: WS_TIMESPAN,
-    pub maxValue: WS_TIMESPAN,
-}
-impl windows_core::TypeKind for WS_TIMESPAN_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_TIMESPAN_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UINT16_DESCRIPTION {
-    pub minValue: u16,
-    pub maxValue: u16,
-}
-impl windows_core::TypeKind for WS_UINT16_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UINT16_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UINT32_DESCRIPTION {
-    pub minValue: u32,
-    pub maxValue: u32,
-}
-impl windows_core::TypeKind for WS_UINT32_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UINT32_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UINT64_DESCRIPTION {
-    pub minValue: u64,
-    pub maxValue: u64,
-}
-impl windows_core::TypeKind for WS_UINT64_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UINT64_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UINT8_DESCRIPTION {
-    pub minValue: u8,
-    pub maxValue: u8,
-}
-impl windows_core::TypeKind for WS_UINT8_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UINT8_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UNION_DESCRIPTION {
-    pub size: u32,
-    pub alignment: u32,
-    pub fields: *mut *mut WS_UNION_FIELD_DESCRIPTION,
-    pub fieldCount: u32,
-    pub enumOffset: u32,
-    pub noneEnumValue: i32,
-    pub valueIndices: *mut u32,
-}
-impl windows_core::TypeKind for WS_UNION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UNION_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UNION_FIELD_DESCRIPTION {
-    pub value: i32,
-    pub field: WS_FIELD_DESCRIPTION,
-}
-impl windows_core::TypeKind for WS_UNION_FIELD_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UNION_FIELD_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UNIQUE_ID {
-    pub uri: WS_STRING,
-    pub guid: windows_core::GUID,
-}
-impl windows_core::TypeKind for WS_UNIQUE_ID {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UNIQUE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UNIQUE_ID_DESCRIPTION {
-    pub minCharCount: u32,
-    pub maxCharCount: u32,
-}
-impl windows_core::TypeKind for WS_UNIQUE_ID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UNIQUE_ID_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UNKNOWN_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub element: *mut WS_XML_BUFFER,
-}
-impl windows_core::TypeKind for WS_UNKNOWN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UNKNOWN_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UPN_ENDPOINT_IDENTITY {
-    pub identity: WS_ENDPOINT_IDENTITY,
-    pub upn: WS_STRING,
-}
-impl windows_core::TypeKind for WS_UPN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UPN_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_URL {
-    pub scheme: WS_URL_SCHEME_TYPE,
-}
-impl windows_core::TypeKind for WS_URL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_USERNAME_CREDENTIAL {
-    pub credentialType: WS_USERNAME_CREDENTIAL_TYPE,
-}
-impl windows_core::TypeKind for WS_USERNAME_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_USERNAME_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
-    pub passwordValidatorCallbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
-    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
-    pub passwordValidatorCallbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_UTF8_ARRAY_DESCRIPTION {
-    pub minByteCount: u32,
-    pub maxByteCount: u32,
-}
-impl windows_core::TypeKind for WS_UTF8_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_UTF8_ARRAY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_VOID_DESCRIPTION {
-    pub size: u32,
-}
-impl windows_core::TypeKind for WS_VOID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_VOID_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    pub credentialType: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE,
-}
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_WSZ_DESCRIPTION {
-    pub minCharCount: u32,
-    pub maxCharCount: u32,
-}
-impl windows_core::TypeKind for WS_WSZ_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_WSZ_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_ATTRIBUTE {
-    pub singleQuote: u8,
-    pub isXmlNs: u8,
-    pub prefix: *mut WS_XML_STRING,
-    pub localName: *mut WS_XML_STRING,
-    pub ns: *mut WS_XML_STRING,
-    pub value: *mut WS_XML_TEXT,
-}
-impl windows_core::TypeKind for WS_XML_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_BASE64_TEXT {
-    pub text: WS_XML_TEXT,
-    pub bytes: *mut u8,
-    pub length: u32,
-}
-impl windows_core::TypeKind for WS_XML_BASE64_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_BASE64_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_BOOL_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WS_XML_BOOL_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_BOOL_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_XML_BUFFER(pub isize);
-impl Default for WS_XML_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_XML_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_BUFFER_PROPERTY {
-    pub id: WS_XML_BUFFER_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_BUFFER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_BUFFER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    pub prefixCount: u32,
-    pub prefixes: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_CANONICALIZATION_PROPERTY {
-    pub id: WS_XML_CANONICALIZATION_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_CANONICALIZATION_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_COMMENT_NODE {
-    pub node: WS_XML_NODE,
-    pub value: WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_XML_COMMENT_NODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_COMMENT_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_DATETIME_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: WS_DATETIME,
-}
-impl windows_core::TypeKind for WS_XML_DATETIME_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_DATETIME_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WS_XML_DECIMAL_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: super::super::Foundation::DECIMAL,
-}
-impl windows_core::TypeKind for WS_XML_DECIMAL_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_DECIMAL_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_DICTIONARY {
-    pub guid: windows_core::GUID,
-    pub strings: *mut WS_XML_STRING,
-    pub stringCount: u32,
-    pub isConst: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WS_XML_DICTIONARY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_DICTIONARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WS_XML_DOUBLE_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: f64,
-}
-impl windows_core::TypeKind for WS_XML_DOUBLE_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_DOUBLE_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_ELEMENT_NODE {
-    pub node: WS_XML_NODE,
-    pub prefix: *mut WS_XML_STRING,
-    pub localName: *mut WS_XML_STRING,
-    pub ns: *mut WS_XML_STRING,
-    pub attributeCount: u32,
-    pub attributes: *mut *mut WS_XML_ATTRIBUTE,
-    pub isEmpty: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WS_XML_ELEMENT_NODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_ELEMENT_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WS_XML_FLOAT_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: f32,
-}
-impl windows_core::TypeKind for WS_XML_FLOAT_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_FLOAT_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_GUID_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: windows_core::GUID,
-}
-impl windows_core::TypeKind for WS_XML_GUID_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_GUID_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_INT32_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: i32,
-}
-impl windows_core::TypeKind for WS_XML_INT32_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_INT32_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_INT64_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: i64,
-}
-impl windows_core::TypeKind for WS_XML_INT64_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_INT64_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_LIST_TEXT {
-    pub text: WS_XML_TEXT,
-    pub itemCount: u32,
-    pub items: *mut *mut WS_XML_TEXT,
-}
-impl windows_core::TypeKind for WS_XML_LIST_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_LIST_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_NODE {
-    pub nodeType: WS_XML_NODE_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_NODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_NODE_POSITION {
-    pub buffer: *mut WS_XML_BUFFER,
-    pub node: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_XML_NODE_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_NODE_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_QNAME {
-    pub localName: WS_XML_STRING,
-    pub ns: WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_XML_QNAME {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_QNAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_QNAME_DESCRIPTION {
-    pub minLocalNameByteCount: u32,
-    pub maxLocalNameByteCount: u32,
-    pub minNsByteCount: u32,
-    pub maxNsByteCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_QNAME_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_QNAME_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_QNAME_TEXT {
-    pub text: WS_XML_TEXT,
-    pub prefix: *mut WS_XML_STRING,
-    pub localName: *mut WS_XML_STRING,
-    pub ns: *mut WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_XML_QNAME_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_QNAME_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_XML_READER(pub isize);
-impl Default for WS_XML_READER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_XML_READER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_BINARY_ENCODING {
-    pub encoding: WS_XML_READER_ENCODING,
-    pub staticDictionary: *mut WS_XML_DICTIONARY,
-    pub dynamicDictionary: *mut WS_XML_DICTIONARY,
-}
-impl windows_core::TypeKind for WS_XML_READER_BINARY_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_BINARY_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_BUFFER_INPUT {
-    pub input: WS_XML_READER_INPUT,
-    pub encodedData: *mut core::ffi::c_void,
-    pub encodedDataSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_READER_BUFFER_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_BUFFER_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_ENCODING {
-    pub encodingType: WS_XML_READER_ENCODING_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_READER_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_INPUT {
-    pub inputType: WS_XML_READER_INPUT_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_READER_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_MTOM_ENCODING {
-    pub encoding: WS_XML_READER_ENCODING,
-    pub textEncoding: *mut WS_XML_READER_ENCODING,
-    pub readMimeHeader: super::super::Foundation::BOOL,
-    pub startInfo: WS_STRING,
-    pub boundary: WS_STRING,
-    pub startUri: WS_STRING,
-}
-impl windows_core::TypeKind for WS_XML_READER_MTOM_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_MTOM_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_PROPERTIES {
-    pub properties: *mut WS_XML_READER_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_READER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_PROPERTY {
-    pub id: WS_XML_READER_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_READER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_RAW_ENCODING {
-    pub encoding: WS_XML_READER_ENCODING,
-}
-impl windows_core::TypeKind for WS_XML_READER_RAW_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_RAW_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_STREAM_INPUT {
-    pub input: WS_XML_READER_INPUT,
-    pub readCallback: WS_READ_CALLBACK,
-    pub readCallbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_XML_READER_STREAM_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_STREAM_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_READER_TEXT_ENCODING {
-    pub encoding: WS_XML_READER_ENCODING,
-    pub charSet: WS_CHARSET,
-}
-impl windows_core::TypeKind for WS_XML_READER_TEXT_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_READER_TEXT_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_SECURITY_TOKEN_PROPERTY {
-    pub id: WS_XML_SECURITY_TOKEN_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_SECURITY_TOKEN_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_STRING {
-    pub length: u32,
-    pub bytes: *mut u8,
-    pub dictionary: *mut WS_XML_DICTIONARY,
-    pub id: u32,
-}
-impl windows_core::TypeKind for WS_XML_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_STRING_DESCRIPTION {
-    pub minByteCount: u32,
-    pub maxByteCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_STRING_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_STRING_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_TEXT {
-    pub textType: WS_XML_TEXT_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_TEXT_NODE {
-    pub node: WS_XML_NODE,
-    pub text: *mut WS_XML_TEXT,
-}
-impl windows_core::TypeKind for WS_XML_TEXT_NODE {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_TEXT_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_TIMESPAN_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: WS_TIMESPAN,
-}
-impl windows_core::TypeKind for WS_XML_TIMESPAN_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_TIMESPAN_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    pub binding: WS_SECURITY_BINDING,
-    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
-    pub xmlToken: *mut WS_SECURITY_TOKEN,
-}
-impl windows_core::TypeKind for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_UINT64_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: u64,
-}
-impl windows_core::TypeKind for WS_XML_UINT64_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_UINT64_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_UNIQUE_ID_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: windows_core::GUID,
-}
-impl windows_core::TypeKind for WS_XML_UNIQUE_ID_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_UNIQUE_ID_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_UTF16_TEXT {
-    pub text: WS_XML_TEXT,
-    pub bytes: *mut u8,
-    pub byteCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_UTF16_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_UTF16_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_UTF8_TEXT {
-    pub text: WS_XML_TEXT,
-    pub value: WS_XML_STRING,
-}
-impl windows_core::TypeKind for WS_XML_UTF8_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_UTF8_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WS_XML_WRITER(pub isize);
-impl Default for WS_XML_WRITER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WS_XML_WRITER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_BINARY_ENCODING {
-    pub encoding: WS_XML_WRITER_ENCODING,
-    pub staticDictionary: *mut WS_XML_DICTIONARY,
-    pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
-    pub dynamicStringCallbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_BINARY_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_BINARY_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_BUFFER_OUTPUT {
-    pub output: WS_XML_WRITER_OUTPUT,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_BUFFER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_BUFFER_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_ENCODING {
-    pub encodingType: WS_XML_WRITER_ENCODING_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_MTOM_ENCODING {
-    pub encoding: WS_XML_WRITER_ENCODING,
-    pub textEncoding: *mut WS_XML_WRITER_ENCODING,
-    pub writeMimeHeader: super::super::Foundation::BOOL,
-    pub boundary: WS_STRING,
-    pub startInfo: WS_STRING,
-    pub startUri: WS_STRING,
-    pub maxInlineByteCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_MTOM_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_MTOM_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_OUTPUT {
-    pub outputType: WS_XML_WRITER_OUTPUT_TYPE,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_PROPERTIES {
-    pub properties: *mut WS_XML_WRITER_PROPERTY,
-    pub propertyCount: u32,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_PROPERTY {
-    pub id: WS_XML_WRITER_PROPERTY_ID,
-    pub value: *mut core::ffi::c_void,
-    pub valueSize: u32,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_RAW_ENCODING {
-    pub encoding: WS_XML_WRITER_ENCODING,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_RAW_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_RAW_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_STREAM_OUTPUT {
-    pub output: WS_XML_WRITER_OUTPUT,
-    pub writeCallback: WS_WRITE_CALLBACK,
-    pub writeCallbackState: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_STREAM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_STREAM_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WS_XML_WRITER_TEXT_ENCODING {
-    pub encoding: WS_XML_WRITER_ENCODING,
-    pub charSet: WS_CHARSET,
-}
-impl windows_core::TypeKind for WS_XML_WRITER_TEXT_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WS_XML_WRITER_TEXT_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ABORT_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void)>;
-pub type WS_ASYNC_FUNCTION = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_Security_Cryptography")]
-pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_DECODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const core::ffi::c_void, decodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const core::ffi::c_void, encodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_DECODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DYNAMIC_STRING_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ENCODER_ENCODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ENCODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ENCODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_FREE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void)>;
-pub type WS_FREE_DECODER_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void)>;
-pub type WS_FREE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void)>;
-pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void)>;
-#[cfg(feature = "Win32_Security_Cryptography")]
-pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_GET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_HTTP_REDIRECT_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> windows_core::HRESULT>;
-pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_MESSAGE_DONE_CALLBACK = Option<unsafe extern "system" fn(donecallbackstate: *const core::ffi::c_void)>;
-pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_OPEN_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_OPERATION_CANCEL_CALLBACK = Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const core::ffi::c_void)>;
-pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void)>;
-pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_PULL_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_PUSH_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_READ_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_READ_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_READ_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_READ_TYPE_CALLBACK = Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_RESET_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_RESET_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> windows_core::HRESULT>;
-pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SERVICE_SECURITY_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SERVICE_STUB_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const core::ffi::c_void, callback: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_VALIDATE_PASSWORD_CALLBACK = Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_VALIDATE_SAML_CALLBACK = Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_TYPE_CALLBACK = Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;

@@ -1,55 +1,5 @@
-windows_core::imp::define_interface!(ILanguageFont, ILanguageFont_Vtbl, 0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
-impl windows_core::RuntimeType for ILanguageFont {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILanguageFont_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FontFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Text")]
-    pub FontWeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontWeight) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Text"))]
-    FontWeight: usize,
-    #[cfg(feature = "UI_Text")]
-    pub FontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontStretch) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Text"))]
-    FontStretch: usize,
-    #[cfg(feature = "UI_Text")]
-    pub FontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontStyle) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Text"))]
-    FontStyle: usize,
-    pub ScaleFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ILanguageFontGroup, ILanguageFontGroup_Vtbl, 0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
-impl windows_core::RuntimeType for ILanguageFontGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILanguageFontGroup_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub UITextFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UIHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UITitleFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UICaptionFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UINotificationHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TraditionalDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ModernDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DocumentHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FixedWidthTextFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DocumentAlternate1Font: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DocumentAlternate2Font: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ILanguageFontGroupFactory, ILanguageFontGroupFactory_Vtbl, 0xfcaeac67_4e77_49c7_b856_dde934fc735b);
-impl windows_core::RuntimeType for ILanguageFontGroupFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILanguageFontGroupFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateLanguageFontGroup: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanguageFont(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFont, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFont {
@@ -57,7 +7,7 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FontFamily)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FontFamily)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "UI_Text")]
@@ -65,7 +15,7 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FontWeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FontWeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "UI_Text")]
@@ -96,7 +46,7 @@ impl windows_core::RuntimeType for LanguageFont {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFont>();
 }
 unsafe impl windows_core::Interface for LanguageFont {
-    type Vtable = ILanguageFont_Vtbl;
+    type Vtable = <ILanguageFont as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanguageFont as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LanguageFont {
@@ -105,7 +55,7 @@ impl windows_core::RuntimeName for LanguageFont {
 unsafe impl Send for LanguageFont {}
 unsafe impl Sync for LanguageFont {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanguageFontGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFontGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFontGroup {
@@ -201,7 +151,7 @@ impl windows_core::RuntimeType for LanguageFontGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFontGroup>();
 }
 unsafe impl windows_core::Interface for LanguageFontGroup {
-    type Vtable = ILanguageFontGroup_Vtbl;
+    type Vtable = <ILanguageFontGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanguageFontGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LanguageFontGroup {
@@ -209,3 +159,53 @@ impl windows_core::RuntimeName for LanguageFontGroup {
 }
 unsafe impl Send for LanguageFontGroup {}
 unsafe impl Sync for LanguageFontGroup {}
+windows_core::imp::define_interface!(ILanguageFont, ILanguageFont_Vtbl, 0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
+impl windows_core::RuntimeType for ILanguageFont {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILanguageFont_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FontFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "UI_Text")]
+    pub FontWeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontWeight) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Text"))]
+    FontWeight: usize,
+    #[cfg(feature = "UI_Text")]
+    pub FontStretch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontStretch) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Text"))]
+    FontStretch: usize,
+    #[cfg(feature = "UI_Text")]
+    pub FontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::UI::Text::FontStyle) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Text"))]
+    FontStyle: usize,
+    pub ScaleFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ILanguageFontGroup, ILanguageFontGroup_Vtbl, 0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
+impl windows_core::RuntimeType for ILanguageFontGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILanguageFontGroup_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UITextFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UIHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UITitleFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UICaptionFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UINotificationHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TraditionalDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ModernDocumentFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DocumentHeadingFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FixedWidthTextFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DocumentAlternate1Font: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DocumentAlternate2Font: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ILanguageFontGroupFactory, ILanguageFontGroupFactory_Vtbl, 0xfcaeac67_4e77_49c7_b856_dde934fc735b);
+impl windows_core::RuntimeType for ILanguageFontGroupFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILanguageFontGroupFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateLanguageFontGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
