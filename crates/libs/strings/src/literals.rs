@@ -44,7 +44,7 @@ macro_rules! h {
         #[allow(clippy::declare_interior_mutable_const)]
         const RESULT: $crate::HSTRING = {
             if OUTPUT_LEN == 1 {
-                unsafe { ::std::mem::transmute(::std::ptr::null::<u16>()) }
+                unsafe { ::core::mem::transmute(::core::ptr::null::<u16>()) }
             } else {
                 const OUTPUT: $crate::PCWSTR = $crate::w!($s);
                 const HEADER: $crate::HSTRING_HEADER = $crate::HSTRING_HEADER {
@@ -56,7 +56,7 @@ macro_rules! h {
                 };
                 // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
                 unsafe {
-                    ::std::mem::transmute::<&$crate::HSTRING_HEADER, $crate::HSTRING>(&HEADER)
+                    ::core::mem::transmute::<&$crate::HSTRING_HEADER, $crate::HSTRING>(&HEADER)
                 }
             }
         };
