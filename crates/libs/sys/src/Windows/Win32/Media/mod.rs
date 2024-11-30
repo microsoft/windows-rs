@@ -17,6 +17,70 @@ windows_targets::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut MMT
 windows_targets::link!("winmm.dll" "system" fn timeGetTime() -> u32);
 windows_targets::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
+#[cfg(feature = "Win32_Media_Multimedia")]
+pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type TIMECODE_SAMPLE_FLAGS = u32;
+pub type HTASK = *mut core::ffi::c_void;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MMTIME {
+    pub wType: u32,
+    pub u: MMTIME_0,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MMTIME_0 {
+    pub ms: u32,
+    pub sample: u32,
+    pub cb: u32,
+    pub ticks: u32,
+    pub smpte: MMTIME_0_0,
+    pub midi: MMTIME_0_1,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MMTIME_0_1 {
+    pub songptrpos: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MMTIME_0_0 {
+    pub hour: u8,
+    pub min: u8,
+    pub sec: u8,
+    pub frame: u8,
+    pub fps: u8,
+    pub dummy: u8,
+    pub pad: [u8; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TIMECAPS {
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TIMECODE {
+    pub Anonymous: TIMECODE_0,
+    pub qw: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TIMECODE_0 {
+    pub wFrameRate: u16,
+    pub wFrameFract: u16,
+    pub dwFrames: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TIMECODE_SAMPLE {
+    pub qwTick: i64,
+    pub timecode: TIMECODE,
+    pub dwUser: u32,
+    pub dwFlags: TIMECODE_SAMPLE_FLAGS,
+}
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
@@ -121,67 +185,3 @@ pub const TIME_SAMPLES: u32 = 2u32;
 pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
-pub type TIMECODE_SAMPLE_FLAGS = u32;
-pub type HTASK = *mut core::ffi::c_void;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MMTIME {
-    pub wType: u32,
-    pub u: MMTIME_0,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MMTIME_0 {
-    pub ms: u32,
-    pub sample: u32,
-    pub cb: u32,
-    pub ticks: u32,
-    pub smpte: MMTIME_0_0,
-    pub midi: MMTIME_0_1,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MMTIME_0_1 {
-    pub songptrpos: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MMTIME_0_0 {
-    pub hour: u8,
-    pub min: u8,
-    pub sec: u8,
-    pub frame: u8,
-    pub fps: u8,
-    pub dummy: u8,
-    pub pad: [u8; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TIMECAPS {
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TIMECODE {
-    pub Anonymous: TIMECODE_0,
-    pub qw: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TIMECODE_0 {
-    pub wFrameRate: u16,
-    pub wFrameFract: u16,
-    pub dwFrames: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TIMECODE_SAMPLE {
-    pub qwTick: i64,
-    pub timecode: TIMECODE,
-    pub dwUser: u32,
-    pub dwFlags: TIMECODE_SAMPLE_FLAGS,
-}
-#[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

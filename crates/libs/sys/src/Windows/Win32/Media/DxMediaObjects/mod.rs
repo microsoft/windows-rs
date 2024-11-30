@@ -9,6 +9,45 @@ windows_targets::link!("msdmo.dll" "system" fn MoDeleteMediaType(pmt : *mut DMO_
 windows_targets::link!("msdmo.dll" "system" fn MoDuplicateMediaType(ppmtdest : *mut *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> windows_sys::core::HRESULT);
 windows_targets::link!("msdmo.dll" "system" fn MoFreeMediaType(pmt : *mut DMO_MEDIA_TYPE) -> windows_sys::core::HRESULT);
 windows_targets::link!("msdmo.dll" "system" fn MoInitMediaType(pmt : *mut DMO_MEDIA_TYPE, cbformat : u32) -> windows_sys::core::HRESULT);
+pub type DMO_ENUM_FLAGS = i32;
+pub type DMO_REGISTER_FLAGS = i32;
+pub type _DMO_INPLACE_PROCESS_FLAGS = i32;
+pub type _DMO_INPUT_DATA_BUFFER_FLAGS = i32;
+pub type _DMO_INPUT_STATUS_FLAGS = i32;
+pub type _DMO_INPUT_STREAM_INFO_FLAGS = i32;
+pub type _DMO_OUTPUT_DATA_BUFFER_FLAGS = i32;
+pub type _DMO_OUTPUT_STREAM_INFO_FLAGS = i32;
+pub type _DMO_PROCESS_OUTPUT_FLAGS = i32;
+pub type _DMO_QUALITY_STATUS_FLAGS = i32;
+pub type _DMO_SET_TYPE_FLAGS = i32;
+pub type _DMO_VIDEO_OUTPUT_STREAM_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DMO_MEDIA_TYPE {
+    pub majortype: windows_sys::core::GUID,
+    pub subtype: windows_sys::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DMO_OUTPUT_DATA_BUFFER {
+    pub pBuffer: *mut core::ffi::c_void,
+    pub dwStatus: u32,
+    pub rtTimestamp: i64,
+    pub rtTimelength: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DMO_PARTIAL_MEDIATYPE {
+    pub r#type: windows_sys::core::GUID,
+    pub subtype: windows_sys::core::GUID,
+}
 pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
@@ -53,42 +92,3 @@ pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = 1i32;
 pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = 2i32;
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = 1i32;
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = 1i32;
-pub type DMO_ENUM_FLAGS = i32;
-pub type DMO_REGISTER_FLAGS = i32;
-pub type _DMO_INPLACE_PROCESS_FLAGS = i32;
-pub type _DMO_INPUT_DATA_BUFFER_FLAGS = i32;
-pub type _DMO_INPUT_STATUS_FLAGS = i32;
-pub type _DMO_INPUT_STREAM_INFO_FLAGS = i32;
-pub type _DMO_OUTPUT_DATA_BUFFER_FLAGS = i32;
-pub type _DMO_OUTPUT_STREAM_INFO_FLAGS = i32;
-pub type _DMO_PROCESS_OUTPUT_FLAGS = i32;
-pub type _DMO_QUALITY_STATUS_FLAGS = i32;
-pub type _DMO_SET_TYPE_FLAGS = i32;
-pub type _DMO_VIDEO_OUTPUT_STREAM_FLAGS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DMO_MEDIA_TYPE {
-    pub majortype: windows_sys::core::GUID,
-    pub subtype: windows_sys::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
-    pub lSampleSize: u32,
-    pub formattype: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: *mut core::ffi::c_void,
-    pub dwStatus: u32,
-    pub rtTimestamp: i64,
-    pub rtTimelength: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DMO_PARTIAL_MEDIATYPE {
-    pub r#type: windows_sys::core::GUID,
-    pub subtype: windows_sys::core::GUID,
-}

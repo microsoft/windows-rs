@@ -82,6 +82,63 @@ windows_targets::link!("msdrm.dll" "system" fn DRMSetNameAndDescription(hissuanc
 windows_targets::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : u32, fdelete : super::super::Foundation:: BOOL, wszid : windows_sys::core::PCWSTR, wszidtype : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pstfrequency : *mut super::super::Foundation:: SYSTEMTIME, wszname : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : u32, eusagepolicytype : DRM_USAGEPOLICY_TYPE, fdelete : super::super::Foundation:: BOOL, fexclusion : super::super::Foundation:: BOOL, wszname : windows_sys::core::PCWSTR, wszminversion : windows_sys::core::PCWSTR, wszmaxversion : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR, wszdigestalgorithm : windows_sys::core::PCWSTR, pbdigest : *mut u8, cbdigest : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("msdrm.dll" "system" fn DRMVerify(wszdata : windows_sys::core::PCWSTR, pcattesteddata : *mut u32, wszattesteddata : windows_sys::core::PWSTR, petype : *mut DRMATTESTTYPE, pcprincipal : *mut u32, wszprincipal : windows_sys::core::PWSTR, pcmanifest : *mut u32, wszmanifest : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_sys::core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DRMATTESTTYPE = i32;
+pub type DRMENCODINGTYPE = i32;
+pub type DRMGLOBALOPTIONS = i32;
+pub type DRMSECURITYPROVIDERTYPE = i32;
+pub type DRMSPECTYPE = i32;
+pub type DRMTIMETYPE = i32;
+pub type DRM_DISTRIBUTION_POINT_INFO = i32;
+pub type DRM_STATUS_MSG = i32;
+pub type DRM_USAGEPOLICY_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRMBOUNDLICENSEPARAMS {
+    pub uVersion: u32,
+    pub hEnablingPrincipal: u32,
+    pub hSecureStore: u32,
+    pub wszRightsRequested: windows_sys::core::PWSTR,
+    pub wszRightsGroup: windows_sys::core::PWSTR,
+    pub idResource: DRMID,
+    pub cAuthenticatorCount: u32,
+    pub rghAuthenticators: *mut u32,
+    pub wszDefaultEnablingPrincipalCredentials: windows_sys::core::PWSTR,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRMID {
+    pub uVersion: u32,
+    pub wszIDType: windows_sys::core::PWSTR,
+    pub wszID: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRM_ACTSERV_INFO {
+    pub uVersion: u32,
+    pub wszPubKey: windows_sys::core::PWSTR,
+    pub wszURL: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRM_CLIENT_VERSION_INFO {
+    pub uStructVersion: u32,
+    pub dwVersion: [u32; 4],
+    pub wszHierarchy: [u16; 256],
+    pub wszProductId: [u16; 256],
+    pub wszProductDescription: [u16; 256],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRM_LICENSE_ACQ_DATA {
+    pub uVersion: u32,
+    pub wszURL: windows_sys::core::PWSTR,
+    pub wszLocalFilename: windows_sys::core::PWSTR,
+    pub pbPostData: *mut u8,
+    pub dwPostDataSize: u32,
+    pub wszFriendlyName: windows_sys::core::PWSTR,
+}
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = 0i32;
 pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1i32;
@@ -178,60 +235,3 @@ pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = 1i32;
 pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = 3i32;
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;
-pub type DRMATTESTTYPE = i32;
-pub type DRMENCODINGTYPE = i32;
-pub type DRMGLOBALOPTIONS = i32;
-pub type DRMSECURITYPROVIDERTYPE = i32;
-pub type DRMSPECTYPE = i32;
-pub type DRMTIMETYPE = i32;
-pub type DRM_DISTRIBUTION_POINT_INFO = i32;
-pub type DRM_STATUS_MSG = i32;
-pub type DRM_USAGEPOLICY_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRMBOUNDLICENSEPARAMS {
-    pub uVersion: u32,
-    pub hEnablingPrincipal: u32,
-    pub hSecureStore: u32,
-    pub wszRightsRequested: windows_sys::core::PWSTR,
-    pub wszRightsGroup: windows_sys::core::PWSTR,
-    pub idResource: DRMID,
-    pub cAuthenticatorCount: u32,
-    pub rghAuthenticators: *mut u32,
-    pub wszDefaultEnablingPrincipalCredentials: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRMID {
-    pub uVersion: u32,
-    pub wszIDType: windows_sys::core::PWSTR,
-    pub wszID: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRM_ACTSERV_INFO {
-    pub uVersion: u32,
-    pub wszPubKey: windows_sys::core::PWSTR,
-    pub wszURL: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRM_CLIENT_VERSION_INFO {
-    pub uStructVersion: u32,
-    pub dwVersion: [u32; 4],
-    pub wszHierarchy: [u16; 256],
-    pub wszProductId: [u16; 256],
-    pub wszProductDescription: [u16; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DRM_LICENSE_ACQ_DATA {
-    pub uVersion: u32,
-    pub wszURL: windows_sys::core::PWSTR,
-    pub wszLocalFilename: windows_sys::core::PWSTR,
-    pub pbPostData: *mut u8,
-    pub dwPostDataSize: u32,
-    pub wszFriendlyName: windows_sys::core::PWSTR,
-}
-pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_sys::core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

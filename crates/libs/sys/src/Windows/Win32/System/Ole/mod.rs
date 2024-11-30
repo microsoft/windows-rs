@@ -6,6 +6,7 @@ windows_targets::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : *mut
 windows_targets::link!("oleaut32.dll" "system" fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn CreateErrorInfo(pperrinfo : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CreateOleAdviseHolder(ppoaholder : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn CreateStdDispatch(punkouter : * mut core::ffi::c_void, pvthis : *mut core::ffi::c_void, ptinfo : * mut core::ffi::c_void, ppunkstddisp : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super::Com:: SYSKIND, szfile : windows_sys::core::PCWSTR, ppctlib : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -13,15 +14,18 @@ windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super:
 windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib2(syskind : super::Com:: SYSKIND, szfile : windows_sys::core::PCWSTR, ppctlib : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Variant:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Variant:: VARIANT, pvargresult : *mut super::Variant:: VARIANT) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn DispGetIDsOfNames(ptinfo : * mut core::ffi::c_void, rgsznames : *const windows_sys::core::PCWSTR, cnames : u32, rgdispid : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Variant:: VARENUM, pvarresult : *mut super::Variant:: VARIANT, puargerr : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut core::ffi::c_void, ptinfo : * mut core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Variant:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn DoDragDrop(pdataobj : * mut core::ffi::c_void, pdropsource : * mut core::ffi::c_void, dwokeffects : DROPEFFECT, pdweffect : *mut DROPEFFECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn GetActiveObject(rclsid : *const windows_sys::core::GUID, pvreserved : *mut core::ffi::c_void, ppunk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn GetAltMonthNames(lcid : u32, prgp : *mut *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn GetRecordInfoFromGuids(rguidtypelib : *const windows_sys::core::GUID, uvermajor : u32, uverminor : u32, lcid : u32, rguidtypeinfo : *const windows_sys::core::GUID, pprecinfo : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn GetRecordInfoFromTypeInfo(ptypeinfo : * mut core::ffi::c_void, pprecinfo : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HRGN));
@@ -45,8 +49,11 @@ windows_targets::link!("ole32.dll" "system" fn IsAccelerator(haccel : super::sup
 windows_targets::link!("oleaut32.dll" "system" fn LHashValOfNameSys(syskind : super::Com:: SYSKIND, lcid : u32, szname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn LHashValOfNameSysA(syskind : super::Com:: SYSKIND, lcid : u32, szname : windows_sys::core::PCSTR) -> u32);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn LoadRegTypeLib(rguid : *const windows_sys::core::GUID, wvermajor : u16, wverminor : u16, lcid : u32, pptlib : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn LoadTypeLib(szfile : windows_sys::core::PCWSTR, pptlib : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn LoadTypeLibEx(szfile : windows_sys::core::PCWSTR, regkind : REGKIND, pptlib : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn OaBuildVersion() -> u32);
 windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration());
@@ -55,33 +62,34 @@ windows_targets::link!("ole32.dll" "system" fn OleBuildVersion() -> u32);
 windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage2(lpolestream : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, ptd : *const super::Com:: DVTARGETDEVICE, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreate(rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, flags : EMBDHLP_FLAGS, pcf : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
+windows_targets::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, flags : EMBDHLP_FLAGS, pcf : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateEx(rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : *const FONTDESC, riid : *const windows_sys::core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateFromData(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateFromDataEx(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateFromFile(rclsid : *const windows_sys::core::GUID, lpszfilename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateFromFileEx(rclsid : *const windows_sys::core::GUID, lpszfilename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLink(pmklinksrc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLinkEx(pmklinksrc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLinkFromData(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLinkFromDataEx(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLinkToFile(lpszfilename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateLinkToFileEx(lpszfilename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateMenuDescriptor(hmenucombined : super::super::UI::WindowsAndMessaging:: HMENU, lpmenuwidths : *const OLEMENUGROUPWIDTHS) -> isize);
@@ -89,9 +97,10 @@ windows_targets::link!("ole32.dll" "system" fn OleCreateMenuDescriptor(hmenucomb
 windows_targets::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *const PICTDESC, riid : *const windows_sys::core::GUID, fown : super::super::Foundation:: BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : windows_sys::core::PCWSTR, cobjects : u32, ppunk : *const * mut core::ffi::c_void, cpages : u32, ppageclsid : *const windows_sys::core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrameIndirect(lpparams : *const OCPFIPARAMS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleCreateStaticFromData(psrcdataobj : * mut core::ffi::c_void, iid : *const windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleDestroyMenuDescriptor(holemenu : isize) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleDoAutoConvert(pstg : * mut core::ffi::c_void, pclsidnew : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("ole32.dll" "system" fn OleDraw(punknown : * mut core::ffi::c_void, dwaspect : u32, hdcdraw : super::super::Graphics::Gdi:: HDC, lprcbounds : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
@@ -99,18 +108,25 @@ windows_targets::link!("ole32.dll" "system" fn OleDraw(punknown : * mut core::ff
 windows_targets::link!("ole32.dll" "system" fn OleDuplicateData(hsrc : super::super::Foundation:: HANDLE, cfformat : CLIPBOARD_FORMAT, uiflags : super::Memory:: GLOBAL_ALLOC_FLAGS) -> super::super::Foundation:: HANDLE);
 windows_targets::link!("ole32.dll" "system" fn OleFlushClipboard() -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleGetAutoConvert(clsidold : *const windows_sys::core::GUID, pclsidnew : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleGetClipboard(ppdataobj : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleGetClipboardWithEnterpriseInfo(dataobject : *mut * mut core::ffi::c_void, dataenterpriseid : *mut windows_sys::core::PWSTR, sourcedescription : *mut windows_sys::core::PWSTR, targetdescription : *mut windows_sys::core::PWSTR, datadescription : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleGetIconOfClass(rclsid : *const windows_sys::core::GUID, lpszlabel : windows_sys::core::PCWSTR, fusetypeaslabel : super::super::Foundation:: BOOL) -> super::super::Foundation:: HGLOBAL);
 windows_targets::link!("ole32.dll" "system" fn OleGetIconOfFile(lpszpath : windows_sys::core::PCWSTR, fusefileaslabel : super::super::Foundation:: BOOL) -> super::super::Foundation:: HGLOBAL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("oleaut32.dll" "system" fn OleIconToCursor(hinstexe : super::super::Foundation:: HINSTANCE, hicon : super::super::UI::WindowsAndMessaging:: HICON) -> super::super::UI::WindowsAndMessaging:: HCURSOR);
 windows_targets::link!("ole32.dll" "system" fn OleInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleIsCurrentClipboard(pdataobj : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleIsRunning(pobject : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleLoad(pstg : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, pclientsite : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleLoadFromStream(pstm : * mut core::ffi::c_void, iidinterface : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : * mut core::ffi::c_void, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const windows_sys::core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : * mut core::ffi::c_void, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const windows_sys::core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::Variant:: VARIANT, lplpdisppicture : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -121,17 +137,24 @@ windows_targets::link!("ole32.dll" "system" fn OleLockRunning(punknown : * mut c
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("ole32.dll" "system" fn OleMetafilePictFromIconAndLabel(hicon : super::super::UI::WindowsAndMessaging:: HICON, lpszlabel : windows_sys::core::PCWSTR, lpszsourcefile : windows_sys::core::PCWSTR, iiconindex : u32) -> super::super::Foundation:: HGLOBAL);
 windows_targets::link!("ole32.dll" "system" fn OleNoteObjectVisible(punknown : * mut core::ffi::c_void, fvisible : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleQueryCreateFromData(psrcdataobject : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleQueryLinkFromData(psrcdataobject : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleRegEnumFormatEtc(clsid : *const windows_sys::core::GUID, dwdirection : u32, ppenum : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleRegEnumVerbs(clsid : *const windows_sys::core::GUID, ppenum : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleRegGetMiscStatus(clsid : *const windows_sys::core::GUID, dwaspect : u32, pdwstatus : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleRegGetUserType(clsid : *const windows_sys::core::GUID, dwformoftype : u32, pszusertype : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleRun(punknown : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("ole32.dll" "system" fn OleSave(pps : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, fsameasload : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn OleSavePictureFile(lpdisppicture : * mut core::ffi::c_void, bstrfilename : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleSaveToStream(ppstm : * mut core::ffi::c_void, pstm : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleSetAutoConvert(clsidold : *const windows_sys::core::GUID, clsidnew : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn OleSetClipboard(pdataobj : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleSetContainedObject(punknown : * mut core::ffi::c_void, fcontained : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn OleSetMenuDescriptor(holemenu : isize, hwndframe : super::super::Foundation:: HWND, hwndactiveobject : super::super::Foundation:: HWND, lpframe : * mut core::ffi::c_void, lpactiveobj : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -158,9 +181,9 @@ windows_targets::link!("oledlg.dll" "system" fn OleUIConvertA(param0 : *const OL
 windows_targets::link!("oledlg.dll" "system" fn OleUIConvertW(param0 : *const OLEUICONVERTW) -> u32);
 windows_targets::link!("oledlg.dll" "system" fn OleUIEditLinksA(param0 : *const OLEUIEDITLINKSA) -> u32);
 windows_targets::link!("oledlg.dll" "system" fn OleUIEditLinksW(param0 : *const OLEUIEDITLINKSW) -> u32);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("oledlg.dll" "system" fn OleUIInsertObjectA(param0 : *const OLEUIINSERTOBJECTA) -> u32);
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("oledlg.dll" "system" fn OleUIInsertObjectW(param0 : *const OLEUIINSERTOBJECTW) -> u32);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 windows_targets::link!("oledlg.dll" "system" fn OleUIObjectPropertiesA(param0 : *const OLEUIOBJECTPROPSA) -> u32);
@@ -178,9 +201,11 @@ windows_targets::link!("ole32.dll" "system" fn OleUninitialize());
 windows_targets::link!("oleaut32.dll" "system" fn QueryPathOfRegTypeLib(guid : *const windows_sys::core::GUID, wmaj : u16, wmin : u16, lcid : u32, lpbstrpathname : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn RegisterActiveObject(punk : * mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID, dwflags : ACTIVEOBJECT_FLAGS, pdwregister : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn RegisterDragDrop(hwnd : super::super::Foundation:: HWND, pdroptarget : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn RegisterTypeLib(ptlib : * mut core::ffi::c_void, szfullpath : windows_sys::core::PCWSTR, szhelpdir : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn RegisterTypeLibForUser(ptlib : * mut core::ffi::c_void, szfullpath : windows_sys::core::PCWSTR, szhelpdir : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("ole32.dll" "system" fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM));
 windows_targets::link!("oleaut32.dll" "system" fn RevokeActiveObject(dwregister : u32, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn RevokeDragDrop(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
@@ -261,6 +286,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const super
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromCy(cyin : super::Com:: CY, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromDate(datein : f64, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromDec(pdecin : *const super::super::Foundation:: DECIMAL, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromI1(cin : i8, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromI2(sin : i16, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> windows_sys::core::HRESULT);
@@ -280,6 +306,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromBool(boolin : super
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromCy(cyin : super::Com:: CY, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromDate(datein : f64, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromDec(pdecin : *const super::super::Foundation:: DECIMAL, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromI1(cin : i8, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromI2(ival : i16, lcid : u32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
@@ -353,6 +380,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarDateFromBool(boolin : super
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarDateFromCy(cyin : super::Com:: CY, pdateout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDateFromDec(pdecin : *const super::super::Foundation:: DECIMAL, pdateout : *mut f64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarDateFromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDateFromI1(cin : i8, pdateout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDateFromI2(sin : i16, pdateout : *mut f64) -> windows_sys::core::HRESULT);
@@ -377,6 +405,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarDecFromBool(boolin : super:
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarDecFromCy(cyin : super::Com:: CY, pdecout : *mut super::super::Foundation:: DECIMAL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDecFromDate(datein : f64, pdecout : *mut super::super::Foundation:: DECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarDecFromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pdecout : *mut super::super::Foundation:: DECIMAL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDecFromI1(cin : i8, pdecout : *mut super::super::Foundation:: DECIMAL) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarDecFromI2(uiin : i16, pdecout : *mut super::super::Foundation:: DECIMAL) -> windows_sys::core::HRESULT);
@@ -417,6 +446,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarI1FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromCy(cyin : super::Com:: CY, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromDate(datein : f64, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromI2(uiin : i16, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI1FromI4(lin : i32, pcout : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
@@ -433,6 +463,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarI2FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromCy(cyin : super::Com:: CY, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromDate(datein : f64, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromDec(pdecin : *const super::super::Foundation:: DECIMAL, psout : *mut i16) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromI1(cin : i8, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI2FromI4(lin : i32, psout : *mut i16) -> windows_sys::core::HRESULT);
@@ -449,6 +480,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarI4FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromCy(cyin : super::Com:: CY, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromDate(datein : f64, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromDec(pdecin : *const super::super::Foundation:: DECIMAL, plout : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromI1(cin : i8, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI4FromI2(sin : i16, plout : *mut i32) -> windows_sys::core::HRESULT);
@@ -465,6 +497,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarI8FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromCy(cyin : super::Com:: CY, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromDate(datein : f64, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pi64out : *mut i64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromI1(cin : i8, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarI8FromI2(sin : i16, pi64out : *mut i64) -> windows_sys::core::HRESULT);
@@ -503,6 +536,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarR4FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromCy(cyin : super::Com:: CY, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromDate(datein : f64, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pfltout : *mut f32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromI1(cin : i8, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR4FromI2(sin : i16, pfltout : *mut f32) -> windows_sys::core::HRESULT);
@@ -519,6 +553,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarR8FromBool(boolin : super::
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromCy(cyin : super::Com:: CY, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromDate(datein : f64, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pdblout : *mut f64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromI1(cin : i8, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarR8FromI2(sin : i16, pdblout : *mut f64) -> windows_sys::core::HRESULT);
@@ -542,6 +577,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromBool(boolin : super:
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromCy(cyin : super::Com:: CY, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromDate(datein : f64, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pbout : *mut u8) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromI1(cin : i8, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromI2(sin : i16, pbout : *mut u8) -> windows_sys::core::HRESULT);
@@ -558,6 +594,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromBool(boolin : super:
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromCy(cyin : super::Com:: CY, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromDate(datein : f64, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromDec(pdecin : *const super::super::Foundation:: DECIMAL, puiout : *mut u16) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromI1(cin : i8, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromI2(uiin : i16, puiout : *mut u16) -> windows_sys::core::HRESULT);
@@ -574,6 +611,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromBool(boolin : super:
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromCy(cyin : super::Com:: CY, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromDate(datein : f64, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pulout : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromI1(cin : i8, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromI2(uiin : i16, pulout : *mut u32) -> windows_sys::core::HRESULT);
@@ -590,6 +628,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromBool(boolin : super:
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromCy(cyin : super::Com:: CY, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromDate(datein : f64, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromDec(pdecin : *const super::super::Foundation:: DECIMAL, pi64out : *mut u64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromDisp(pdispin : * mut core::ffi::c_void, lcid : u32, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromI1(cin : i8, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromI2(sin : i16, pi64out : *mut u64) -> windows_sys::core::HRESULT);
@@ -606,6 +645,956 @@ windows_targets::link!("oleaut32.dll" "system" fn VarWeekdayName(iweekday : i32,
 windows_targets::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("oleaut32.dll" "system" fn VectorFromBstr(bstr : windows_sys::core::BSTR, ppsa : *mut *mut super::Com:: SAFEARRAY) -> windows_sys::core::HRESULT);
+pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
+pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_sys::core::GUID, szclass: windows_sys::core::PCWSTR, sztopicname: windows_sys::core::PCWSTR, szitemname: windows_sys::core::PCWSTR, szuncname: windows_sys::core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type ACTIVATEFLAGS = i32;
+pub type ACTIVEOBJECT_FLAGS = u32;
+pub type BINDSPEED = i32;
+pub type BUSY_DIALOG_FLAGS = u32;
+pub type CHANGEKIND = i32;
+pub type CHANGE_ICON_FLAGS = u32;
+pub type CHANGE_SOURCE_FLAGS = u32;
+pub type CLIPBOARD_FORMAT = u16;
+pub type CTRLINFO = i32;
+pub type DISCARDCACHE = i32;
+pub type DOCMISC = i32;
+pub type DROPEFFECT = u32;
+pub type DVASPECTINFOFLAG = i32;
+pub type DVEXTENTMODE = i32;
+pub type EDIT_LINKS_FLAGS = u32;
+pub type EMBDHLP_FLAGS = u32;
+pub type ENUM_CONTROLS_WHICH_FLAGS = u32;
+pub type FDEX_PROP_FLAGS = u32;
+pub type GUIDKIND = i32;
+pub type HITRESULT = i32;
+pub type IGNOREMIME = i32;
+pub type INSERT_OBJECT_FLAGS = u32;
+pub type KEYMODIFIERS = u32;
+pub type LIBFLAGS = i32;
+pub type LOAD_PICTURE_FLAGS = u32;
+pub type MEDIAPLAYBACK_STATE = i32;
+pub type MULTICLASSINFO_FLAGS = u32;
+pub type NUMPARSE_FLAGS = u32;
+pub type OBJECT_PROPERTIES_FLAGS = u32;
+pub type OLECLOSE = i32;
+pub type OLECMDEXECOPT = i32;
+pub type OLECMDF = i32;
+pub type OLECMDID = i32;
+pub type OLECMDID_BROWSERSTATEFLAG = i32;
+pub type OLECMDID_OPTICAL_ZOOMFLAG = i32;
+pub type OLECMDID_PAGEACTIONFLAG = i32;
+pub type OLECMDID_REFRESHFLAG = i32;
+pub type OLECMDID_VIEWPORT_MODE_FLAG = i32;
+pub type OLECMDID_WINDOWSTATE_FLAG = i32;
+pub type OLECMDTEXTF = i32;
+pub type OLECONTF = i32;
+pub type OLECREATE = u32;
+pub type OLEDCFLAGS = i32;
+pub type OLEGETMONIKER = i32;
+pub type OLEIVERB = i32;
+pub type OLELINKBIND = i32;
+pub type OLEMISC = i32;
+pub type OLERENDER = i32;
+pub type OLEUIPASTEFLAG = i32;
+pub type OLEUPDATE = i32;
+pub type OLEVERBATTRIB = i32;
+pub type OLEWHICHMK = i32;
+pub type OLE_TRISTATE = i32;
+pub type PAGEACTION_UI = i32;
+pub type PARAMFLAGS = u16;
+pub type PASTE_SPECIAL_FLAGS = u32;
+pub type PICTUREATTRIBUTES = i32;
+pub type PICTYPE = i16;
+pub type POINTERINACTIVE = i32;
+pub type PRINTFLAG = i32;
+pub type PROPBAG2_TYPE = i32;
+pub type PROPPAGESTATUS = i32;
+pub type QACONTAINERFLAGS = i32;
+pub type READYSTATE = i32;
+pub type REGKIND = i32;
+pub type SF_TYPE = i32;
+pub type TYPEFLAGS = i32;
+pub type UASFLAGS = i32;
+pub type UI_CONVERT_FLAGS = u32;
+pub type UPDFCACHE_FLAGS = u32;
+pub type USERCLASSTYPE = i32;
+pub type VARCMP = u32;
+pub type VARFORMAT_FIRST_DAY = i32;
+pub type VARFORMAT_FIRST_WEEK = i32;
+pub type VARFORMAT_GROUP = i32;
+pub type VARFORMAT_LEADING_DIGIT = i32;
+pub type VARFORMAT_NAMED_FORMAT = i32;
+pub type VARFORMAT_PARENTHESES = i32;
+pub type VIEWSTATUS = i32;
+pub type VIEW_OBJECT_PROPERTIES_FLAGS = u32;
+pub type WPCSETTING = i32;
+pub type XFORMCOORDS = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct ARRAYDESC {
+    pub tdescElem: super::Com::TYPEDESC,
+    pub cDims: u16,
+    pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CADWORD {
+    pub cElems: u32,
+    pub pElems: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CALPOLESTR {
+    pub cElems: u32,
+    pub pElems: *mut windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CAUUID {
+    pub cElems: u32,
+    pub pElems: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLEANLOCALSTORAGE {
+    pub pInterface: *mut core::ffi::c_void,
+    pub pStorage: *mut core::ffi::c_void,
+    pub flags: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct CONTROLINFO {
+    pub cb: u32,
+    pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
+    pub cAccel: u16,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DVASPECTINFO {
+    pub cb: u32,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DVEXTENTINFO {
+    pub cb: u32,
+    pub dwExtentMode: u32,
+    pub sizelProposed: super::super::Foundation::SIZE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct FONTDESC {
+    pub cbSizeofstruct: u32,
+    pub lpstrName: windows_sys::core::PWSTR,
+    pub cySize: super::Com::CY,
+    pub sWeight: i16,
+    pub sCharset: i16,
+    pub fItalic: super::super::Foundation::BOOL,
+    pub fUnderline: super::super::Foundation::BOOL,
+    pub fStrikethrough: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct INTERFACEDATA {
+    pub pmethdata: *mut METHODDATA,
+    pub cMembers: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LICINFO {
+    pub cbLicInfo: i32,
+    pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
+    pub fLicVerified: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct METHODDATA {
+    pub szName: windows_sys::core::PWSTR,
+    pub ppdata: *mut PARAMDATA,
+    pub dispid: i32,
+    pub iMeth: u32,
+    pub cc: super::Com::CALLCONV,
+    pub cArgs: u32,
+    pub wFlags: u16,
+    pub vtReturn: super::Variant::VARENUM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NUMPARSE {
+    pub cDig: i32,
+    pub dwInFlags: NUMPARSE_FLAGS,
+    pub dwOutFlags: NUMPARSE_FLAGS,
+    pub cchUsed: i32,
+    pub nBaseShift: i32,
+    pub nPwr10: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTDESCRIPTOR {
+    pub cbSize: u32,
+    pub clsid: windows_sys::core::GUID,
+    pub dwDrawAspect: u32,
+    pub sizel: super::super::Foundation::SIZE,
+    pub pointl: super::super::Foundation::POINTL,
+    pub dwStatus: u32,
+    pub dwFullUserTypeName: u32,
+    pub dwSrcOfCopy: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OCPFIPARAMS {
+    pub cbStructSize: u32,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub x: i32,
+    pub y: i32,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub cObjects: u32,
+    pub lplpUnk: *mut *mut core::ffi::c_void,
+    pub cPages: u32,
+    pub lpPages: *mut windows_sys::core::GUID,
+    pub lcid: u32,
+    pub dispidInitialProperty: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLECMD {
+    pub cmdID: u32,
+    pub cmdf: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLECMDTEXT {
+    pub cmdtextf: u32,
+    pub cwActual: u32,
+    pub cwBuf: u32,
+    pub rgwz: [u16; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct OLEINPLACEFRAMEINFO {
+    pub cb: u32,
+    pub fMDIApp: super::super::Foundation::BOOL,
+    pub hwndFrame: super::super::Foundation::HWND,
+    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
+    pub cAccelEntries: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEMENUGROUPWIDTHS {
+    pub width: [i32; 6],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Media")]
+#[derive(Clone, Copy)]
+pub struct OLEUIBUSYA {
+    pub cbStruct: u32,
+    pub dwFlags: BUSY_DIALOG_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub hTask: super::super::Media::HTASK,
+    pub lphWndDialog: *mut super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Media")]
+#[derive(Clone, Copy)]
+pub struct OLEUIBUSYW {
+    pub cbStruct: u32,
+    pub dwFlags: BUSY_DIALOG_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub hTask: super::super::Media::HTASK,
+    pub lphWndDialog: *mut super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUICHANGEICONA {
+    pub cbStruct: u32,
+    pub dwFlags: CHANGE_ICON_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub clsid: windows_sys::core::GUID,
+    pub szIconExe: [i8; 260],
+    pub cchIconExe: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUICHANGEICONW {
+    pub cbStruct: u32,
+    pub dwFlags: CHANGE_ICON_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub clsid: windows_sys::core::GUID,
+    pub szIconExe: [u16; 260],
+    pub cchIconExe: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[derive(Clone, Copy)]
+pub struct OLEUICHANGESOURCEA {
+    pub cbStruct: u32,
+    pub dwFlags: CHANGE_SOURCE_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
+    pub dwReserved1: [u32; 4],
+    pub lpOleUILinkContainer: *mut core::ffi::c_void,
+    pub dwLink: u32,
+    pub lpszDisplayName: windows_sys::core::PSTR,
+    pub nFileLength: u32,
+    pub lpszFrom: windows_sys::core::PSTR,
+    pub lpszTo: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[derive(Clone, Copy)]
+pub struct OLEUICHANGESOURCEW {
+    pub cbStruct: u32,
+    pub dwFlags: CHANGE_SOURCE_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
+    pub dwReserved1: [u32; 4],
+    pub lpOleUILinkContainer: *mut core::ffi::c_void,
+    pub dwLink: u32,
+    pub lpszDisplayName: windows_sys::core::PWSTR,
+    pub nFileLength: u32,
+    pub lpszFrom: windows_sys::core::PWSTR,
+    pub lpszTo: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUICONVERTA {
+    pub cbStruct: u32,
+    pub dwFlags: UI_CONVERT_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub clsid: windows_sys::core::GUID,
+    pub clsidConvertDefault: windows_sys::core::GUID,
+    pub clsidActivateDefault: windows_sys::core::GUID,
+    pub clsidNew: windows_sys::core::GUID,
+    pub dvAspect: u32,
+    pub wFormat: u16,
+    pub fIsLinkedObject: super::super::Foundation::BOOL,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub lpszUserType: windows_sys::core::PSTR,
+    pub fObjectsIconChanged: super::super::Foundation::BOOL,
+    pub lpszDefLabel: windows_sys::core::PSTR,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUICONVERTW {
+    pub cbStruct: u32,
+    pub dwFlags: UI_CONVERT_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub clsid: windows_sys::core::GUID,
+    pub clsidConvertDefault: windows_sys::core::GUID,
+    pub clsidActivateDefault: windows_sys::core::GUID,
+    pub clsidNew: windows_sys::core::GUID,
+    pub dvAspect: u32,
+    pub wFormat: u16,
+    pub fIsLinkedObject: super::super::Foundation::BOOL,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub lpszUserType: windows_sys::core::PWSTR,
+    pub fObjectsIconChanged: super::super::Foundation::BOOL,
+    pub lpszDefLabel: windows_sys::core::PWSTR,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUIEDITLINKSA {
+    pub cbStruct: u32,
+    pub dwFlags: EDIT_LINKS_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpOleUILinkContainer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OLEUIEDITLINKSW {
+    pub cbStruct: u32,
+    pub dwFlags: EDIT_LINKS_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpOleUILinkContainer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIGNRLPROPSA {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSA,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIGNRLPROPSW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSW,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct OLEUIINSERTOBJECTA {
+    pub cbStruct: u32,
+    pub dwFlags: INSERT_OBJECT_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub clsid: windows_sys::core::GUID,
+    pub lpszFile: windows_sys::core::PSTR,
+    pub cchFile: u32,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
+    pub oleRender: u32,
+    pub lpFormatEtc: *mut super::Com::FORMATETC,
+    pub lpIOleClientSite: *mut core::ffi::c_void,
+    pub lpIStorage: *mut core::ffi::c_void,
+    pub ppvObj: *mut *mut core::ffi::c_void,
+    pub sc: i32,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct OLEUIINSERTOBJECTW {
+    pub cbStruct: u32,
+    pub dwFlags: INSERT_OBJECT_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub clsid: windows_sys::core::GUID,
+    pub lpszFile: windows_sys::core::PWSTR,
+    pub cchFile: u32,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
+    pub oleRender: u32,
+    pub lpFormatEtc: *mut super::Com::FORMATETC,
+    pub lpIOleClientSite: *mut core::ffi::c_void,
+    pub lpIStorage: *mut core::ffi::c_void,
+    pub ppvObj: *mut *mut core::ffi::c_void,
+    pub sc: i32,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUILINKPROPSA {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSA,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUILINKPROPSW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSW,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIOBJECTPROPSA {
+    pub cbStruct: u32,
+    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
+    pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
+    pub dwObject: u32,
+    pub lpObjInfo: *mut core::ffi::c_void,
+    pub dwLink: u32,
+    pub lpLinkInfo: *mut core::ffi::c_void,
+    pub lpGP: *mut OLEUIGNRLPROPSA,
+    pub lpVP: *mut OLEUIVIEWPROPSA,
+    pub lpLP: *mut OLEUILINKPROPSA,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIOBJECTPROPSW {
+    pub cbStruct: u32,
+    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
+    pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
+    pub dwObject: u32,
+    pub lpObjInfo: *mut core::ffi::c_void,
+    pub dwLink: u32,
+    pub lpLinkInfo: *mut core::ffi::c_void,
+    pub lpGP: *mut OLEUIGNRLPROPSW,
+    pub lpVP: *mut OLEUIVIEWPROPSW,
+    pub lpLP: *mut OLEUILINKPROPSW,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct OLEUIPASTEENTRYA {
+    pub fmtetc: super::Com::FORMATETC,
+    pub lpstrFormatName: windows_sys::core::PCSTR,
+    pub lpstrResultText: windows_sys::core::PCSTR,
+    pub dwFlags: u32,
+    pub dwScratchSpace: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct OLEUIPASTEENTRYW {
+    pub fmtetc: super::Com::FORMATETC,
+    pub lpstrFormatName: windows_sys::core::PCWSTR,
+    pub lpstrResultText: windows_sys::core::PCWSTR,
+    pub dwFlags: u32,
+    pub dwScratchSpace: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct OLEUIPASTESPECIALA {
+    pub cbStruct: u32,
+    pub dwFlags: PASTE_SPECIAL_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpSrcDataObj: *mut core::ffi::c_void,
+    pub arrPasteEntries: *mut OLEUIPASTEENTRYA,
+    pub cPasteEntries: i32,
+    pub arrLinkTypes: *mut u32,
+    pub cLinkTypes: i32,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+    pub nSelectedIndex: i32,
+    pub fLink: super::super::Foundation::BOOL,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub sizel: super::super::Foundation::SIZE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct OLEUIPASTESPECIALW {
+    pub cbStruct: u32,
+    pub dwFlags: PASTE_SPECIAL_FLAGS,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszTemplate: windows_sys::core::PCWSTR,
+    pub hResource: super::super::Foundation::HRSRC,
+    pub lpSrcDataObj: *mut core::ffi::c_void,
+    pub arrPasteEntries: *mut OLEUIPASTEENTRYW,
+    pub cPasteEntries: i32,
+    pub arrLinkTypes: *mut u32,
+    pub cLinkTypes: i32,
+    pub cClsidExclude: u32,
+    pub lpClsidExclude: *mut windows_sys::core::GUID,
+    pub nSelectedIndex: i32,
+    pub fLink: super::super::Foundation::BOOL,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
+    pub sizel: super::super::Foundation::SIZE,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIVIEWPROPSA {
+    pub cbStruct: u32,
+    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSA,
+    pub nScaleMin: i32,
+    pub nScaleMax: i32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct OLEUIVIEWPROPSW {
+    pub cbStruct: u32,
+    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
+    pub dwReserved1: [u32; 2],
+    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub dwReserved2: [u32; 3],
+    pub lpOP: *mut OLEUIOBJECTPROPSW,
+    pub nScaleMin: i32,
+    pub nScaleMax: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct OLEVERB {
+    pub lVerb: OLEIVERB,
+    pub lpszVerbName: windows_sys::core::PWSTR,
+    pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
+    pub grfAttribs: u32,
+}
+pub type OLE_HANDLE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PAGERANGE {
+    pub nFromPage: i32,
+    pub nToPage: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PAGESET {
+    pub cbStruct: u32,
+    pub fOddPages: super::super::Foundation::BOOL,
+    pub fEvenPages: super::super::Foundation::BOOL,
+    pub cPageRange: u32,
+    pub rgPages: [PAGERANGE; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
+pub struct PARAMDATA {
+    pub szName: windows_sys::core::PWSTR,
+    pub vt: super::Variant::VARENUM,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct PARAMDESC {
+    pub pparamdescex: *mut PARAMDESCEX,
+    pub wParamFlags: PARAMFLAGS,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct PARAMDESCEX {
+    pub cBytes: u32,
+    pub varDefaultValue: super::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct PICTDESC {
+    pub cbSizeofstruct: u32,
+    pub picType: u32,
+    pub Anonymous: PICTDESC_0,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub union PICTDESC_0 {
+    pub bmp: PICTDESC_0_0,
+    pub wmf: PICTDESC_0_1,
+    pub icon: PICTDESC_0_2,
+    pub emf: PICTDESC_0_3,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct PICTDESC_0_0 {
+    pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
+    pub hpal: super::super::Graphics::Gdi::HPALETTE,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct PICTDESC_0_3 {
+    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct PICTDESC_0_2 {
+    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
+pub struct PICTDESC_0_1 {
+    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
+    pub xExt: i32,
+    pub yExt: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POINTF {
+    pub x: f32,
+    pub y: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROPPAGEINFO {
+    pub cb: u32,
+    pub pszTitle: windows_sys::core::PWSTR,
+    pub size: super::super::Foundation::SIZE,
+    pub pszDocString: windows_sys::core::PWSTR,
+    pub pszHelpFile: windows_sys::core::PWSTR,
+    pub dwHelpContext: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[derive(Clone, Copy)]
+pub struct QACONTAINER {
+    pub cbSize: u32,
+    pub pClientSite: *mut core::ffi::c_void,
+    pub pAdviseSink: *mut core::ffi::c_void,
+    pub pPropertyNotifySink: *mut core::ffi::c_void,
+    pub pUnkEventSink: *mut core::ffi::c_void,
+    pub dwAmbientFlags: u32,
+    pub colorFore: u32,
+    pub colorBack: u32,
+    pub pFont: *mut core::ffi::c_void,
+    pub pUndoMgr: *mut core::ffi::c_void,
+    pub dwAppearance: u32,
+    pub lcid: i32,
+    pub hpal: super::super::Graphics::Gdi::HPALETTE,
+    pub pBindHost: *mut core::ffi::c_void,
+    pub pOleControlSite: *mut core::ffi::c_void,
+    pub pServiceProvider: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QACONTROL {
+    pub cbSize: u32,
+    pub dwMiscStatus: u32,
+    pub dwViewStatus: u32,
+    pub dwEventCookie: u32,
+    pub dwPropNotifyCookie: u32,
+    pub dwPointerActivationPolicy: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SAFEARRAYUNION {
+    pub sfType: u32,
+    pub u: SAFEARRAYUNION_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union SAFEARRAYUNION_0 {
+    pub BstrStr: SAFEARR_BSTR,
+    pub UnknownStr: SAFEARR_UNKNOWN,
+    pub DispatchStr: SAFEARR_DISPATCH,
+    pub VariantStr: SAFEARR_VARIANT,
+    pub RecordStr: SAFEARR_BRECORD,
+    pub HaveIidStr: SAFEARR_HAVEIID,
+    pub ByteStr: super::Com::BYTE_SIZEDARR,
+    pub WordStr: super::Com::WORD_SIZEDARR,
+    pub LongStr: super::Com::DWORD_SIZEDARR,
+    pub HyperStr: super::Com::HYPER_SIZEDARR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_BRECORD {
+    pub Size: u32,
+    pub aRecord: *mut *mut _wireBRECORD,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_BSTR {
+    pub Size: u32,
+    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_DISPATCH {
+    pub Size: u32,
+    pub apDispatch: *mut *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_HAVEIID {
+    pub Size: u32,
+    pub apUnknown: *mut *mut core::ffi::c_void,
+    pub iid: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_UNKNOWN {
+    pub Size: u32,
+    pub apUnknown: *mut *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SAFEARR_VARIANT {
+    pub Size: u32,
+    pub aVariant: *mut *mut _wireVARIANT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UDATE {
+    pub st: super::super::Foundation::SYSTEMTIME,
+    pub wDayOfYear: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _wireBRECORD {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub pRecInfo: *mut core::ffi::c_void,
+    pub pRecord: *mut u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct _wireSAFEARRAY {
+    pub cDims: u16,
+    pub fFeatures: u16,
+    pub cbElements: u32,
+    pub cLocks: u32,
+    pub uArrayStructs: SAFEARRAYUNION,
+    pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct _wireVARIANT {
+    pub clSize: u32,
+    pub rpcReserved: u32,
+    pub vt: u16,
+    pub wReserved1: u16,
+    pub wReserved2: u16,
+    pub wReserved3: u16,
+    pub Anonymous: _wireVARIANT_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union _wireVARIANT_0 {
+    pub llVal: i64,
+    pub lVal: i32,
+    pub bVal: u8,
+    pub iVal: i16,
+    pub fltVal: f32,
+    pub dblVal: f64,
+    pub boolVal: super::super::Foundation::VARIANT_BOOL,
+    pub scode: i32,
+    pub cyVal: super::Com::CY,
+    pub date: f64,
+    pub bstrVal: *mut super::Com::FLAGGED_WORD_BLOB,
+    pub punkVal: *mut core::ffi::c_void,
+    pub pdispVal: *mut core::ffi::c_void,
+    pub parray: *mut *mut _wireSAFEARRAY,
+    pub brecVal: *mut _wireBRECORD,
+    pub pbVal: *mut u8,
+    pub piVal: *mut i16,
+    pub plVal: *mut i32,
+    pub pllVal: *mut i64,
+    pub pfltVal: *mut f32,
+    pub pdblVal: *mut f64,
+    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
+    pub pscode: *mut i32,
+    pub pcyVal: *mut super::Com::CY,
+    pub pdate: *mut f64,
+    pub pbstrVal: *mut *mut super::Com::FLAGGED_WORD_BLOB,
+    pub ppunkVal: *mut *mut core::ffi::c_void,
+    pub ppdispVal: *mut *mut core::ffi::c_void,
+    pub pparray: *mut *mut *mut _wireSAFEARRAY,
+    pub pvarVal: *mut *mut _wireVARIANT,
+    pub cVal: i8,
+    pub uiVal: u16,
+    pub ulVal: u32,
+    pub ullVal: u64,
+    pub intVal: i32,
+    pub uintVal: u32,
+    pub decVal: super::super::Foundation::DECIMAL,
+    pub pdecVal: *mut super::super::Foundation::DECIMAL,
+    pub pcVal: windows_sys::core::PSTR,
+    pub puiVal: *mut u16,
+    pub pulVal: *mut u32,
+    pub pullVal: *mut u64,
+    pub pintVal: *mut i32,
+    pub puintVal: *mut u32,
+}
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1i32;
 pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = 0u32;
 pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = 1u32;
@@ -1648,952 +2637,3 @@ pub const fdexPropNoSideEffects: FDEX_PROP_FLAGS = 64u32;
 pub const triChecked: OLE_TRISTATE = 1i32;
 pub const triGray: OLE_TRISTATE = 2i32;
 pub const triUnchecked: OLE_TRISTATE = 0i32;
-pub type ACTIVATEFLAGS = i32;
-pub type ACTIVEOBJECT_FLAGS = u32;
-pub type BINDSPEED = i32;
-pub type BUSY_DIALOG_FLAGS = u32;
-pub type CHANGEKIND = i32;
-pub type CHANGE_ICON_FLAGS = u32;
-pub type CHANGE_SOURCE_FLAGS = u32;
-pub type CLIPBOARD_FORMAT = u16;
-pub type CTRLINFO = i32;
-pub type DISCARDCACHE = i32;
-pub type DOCMISC = i32;
-pub type DROPEFFECT = u32;
-pub type DVASPECTINFOFLAG = i32;
-pub type DVEXTENTMODE = i32;
-pub type EDIT_LINKS_FLAGS = u32;
-pub type EMBDHLP_FLAGS = u32;
-pub type ENUM_CONTROLS_WHICH_FLAGS = u32;
-pub type FDEX_PROP_FLAGS = u32;
-pub type GUIDKIND = i32;
-pub type HITRESULT = i32;
-pub type IGNOREMIME = i32;
-pub type INSERT_OBJECT_FLAGS = u32;
-pub type KEYMODIFIERS = u32;
-pub type LIBFLAGS = i32;
-pub type LOAD_PICTURE_FLAGS = u32;
-pub type MEDIAPLAYBACK_STATE = i32;
-pub type MULTICLASSINFO_FLAGS = u32;
-pub type NUMPARSE_FLAGS = u32;
-pub type OBJECT_PROPERTIES_FLAGS = u32;
-pub type OLECLOSE = i32;
-pub type OLECMDEXECOPT = i32;
-pub type OLECMDF = i32;
-pub type OLECMDID = i32;
-pub type OLECMDID_BROWSERSTATEFLAG = i32;
-pub type OLECMDID_OPTICAL_ZOOMFLAG = i32;
-pub type OLECMDID_PAGEACTIONFLAG = i32;
-pub type OLECMDID_REFRESHFLAG = i32;
-pub type OLECMDID_VIEWPORT_MODE_FLAG = i32;
-pub type OLECMDID_WINDOWSTATE_FLAG = i32;
-pub type OLECMDTEXTF = i32;
-pub type OLECONTF = i32;
-pub type OLECREATE = u32;
-pub type OLEDCFLAGS = i32;
-pub type OLEGETMONIKER = i32;
-pub type OLEIVERB = i32;
-pub type OLELINKBIND = i32;
-pub type OLEMISC = i32;
-pub type OLERENDER = i32;
-pub type OLEUIPASTEFLAG = i32;
-pub type OLEUPDATE = i32;
-pub type OLEVERBATTRIB = i32;
-pub type OLEWHICHMK = i32;
-pub type OLE_TRISTATE = i32;
-pub type PAGEACTION_UI = i32;
-pub type PARAMFLAGS = u16;
-pub type PASTE_SPECIAL_FLAGS = u32;
-pub type PICTUREATTRIBUTES = i32;
-pub type PICTYPE = i16;
-pub type POINTERINACTIVE = i32;
-pub type PRINTFLAG = i32;
-pub type PROPBAG2_TYPE = i32;
-pub type PROPPAGESTATUS = i32;
-pub type QACONTAINERFLAGS = i32;
-pub type READYSTATE = i32;
-pub type REGKIND = i32;
-pub type SF_TYPE = i32;
-pub type TYPEFLAGS = i32;
-pub type UASFLAGS = i32;
-pub type UI_CONVERT_FLAGS = u32;
-pub type UPDFCACHE_FLAGS = u32;
-pub type USERCLASSTYPE = i32;
-pub type VARCMP = u32;
-pub type VARFORMAT_FIRST_DAY = i32;
-pub type VARFORMAT_FIRST_WEEK = i32;
-pub type VARFORMAT_GROUP = i32;
-pub type VARFORMAT_LEADING_DIGIT = i32;
-pub type VARFORMAT_NAMED_FORMAT = i32;
-pub type VARFORMAT_PARENTHESES = i32;
-pub type VIEWSTATUS = i32;
-pub type VIEW_OBJECT_PROPERTIES_FLAGS = u32;
-pub type WPCSETTING = i32;
-pub type XFORMCOORDS = i32;
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct ARRAYDESC {
-    pub tdescElem: super::Com::TYPEDESC,
-    pub cDims: u16,
-    pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CADWORD {
-    pub cElems: u32,
-    pub pElems: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CALPOLESTR {
-    pub cElems: u32,
-    pub pElems: *mut windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CAUUID {
-    pub cElems: u32,
-    pub pElems: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLEANLOCALSTORAGE {
-    pub pInterface: *mut core::ffi::c_void,
-    pub pStorage: *mut core::ffi::c_void,
-    pub flags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct CONTROLINFO {
-    pub cb: u32,
-    pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
-    pub cAccel: u16,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DVASPECTINFO {
-    pub cb: u32,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DVEXTENTINFO {
-    pub cb: u32,
-    pub dwExtentMode: u32,
-    pub sizelProposed: super::super::Foundation::SIZE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct FONTDESC {
-    pub cbSizeofstruct: u32,
-    pub lpstrName: windows_sys::core::PWSTR,
-    pub cySize: super::Com::CY,
-    pub sWeight: i16,
-    pub sCharset: i16,
-    pub fItalic: super::super::Foundation::BOOL,
-    pub fUnderline: super::super::Foundation::BOOL,
-    pub fStrikethrough: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct INTERFACEDATA {
-    pub pmethdata: *mut METHODDATA,
-    pub cMembers: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LICINFO {
-    pub cbLicInfo: i32,
-    pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
-    pub fLicVerified: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct METHODDATA {
-    pub szName: windows_sys::core::PWSTR,
-    pub ppdata: *mut PARAMDATA,
-    pub dispid: i32,
-    pub iMeth: u32,
-    pub cc: super::Com::CALLCONV,
-    pub cArgs: u32,
-    pub wFlags: u16,
-    pub vtReturn: super::Variant::VARENUM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NUMPARSE {
-    pub cDig: i32,
-    pub dwInFlags: NUMPARSE_FLAGS,
-    pub dwOutFlags: NUMPARSE_FLAGS,
-    pub cchUsed: i32,
-    pub nBaseShift: i32,
-    pub nPwr10: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTDESCRIPTOR {
-    pub cbSize: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub dwDrawAspect: u32,
-    pub sizel: super::super::Foundation::SIZE,
-    pub pointl: super::super::Foundation::POINTL,
-    pub dwStatus: u32,
-    pub dwFullUserTypeName: u32,
-    pub dwSrcOfCopy: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OCPFIPARAMS {
-    pub cbStructSize: u32,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub x: i32,
-    pub y: i32,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub cObjects: u32,
-    pub lplpUnk: *mut *mut core::ffi::c_void,
-    pub cPages: u32,
-    pub lpPages: *mut windows_sys::core::GUID,
-    pub lcid: u32,
-    pub dispidInitialProperty: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLECMD {
-    pub cmdID: u32,
-    pub cmdf: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLECMDTEXT {
-    pub cmdtextf: u32,
-    pub cwActual: u32,
-    pub cwBuf: u32,
-    pub rgwz: [u16; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct OLEINPLACEFRAMEINFO {
-    pub cb: u32,
-    pub fMDIApp: super::super::Foundation::BOOL,
-    pub hwndFrame: super::super::Foundation::HWND,
-    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
-    pub cAccelEntries: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEMENUGROUPWIDTHS {
-    pub width: [i32; 6],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Media")]
-#[derive(Clone, Copy)]
-pub struct OLEUIBUSYA {
-    pub cbStruct: u32,
-    pub dwFlags: BUSY_DIALOG_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
-    pub lphWndDialog: *mut super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Media")]
-#[derive(Clone, Copy)]
-pub struct OLEUIBUSYW {
-    pub cbStruct: u32,
-    pub dwFlags: BUSY_DIALOG_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
-    pub lphWndDialog: *mut super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUICHANGEICONA {
-    pub cbStruct: u32,
-    pub dwFlags: CHANGE_ICON_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub clsid: windows_sys::core::GUID,
-    pub szIconExe: [i8; 260],
-    pub cchIconExe: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUICHANGEICONW {
-    pub cbStruct: u32,
-    pub dwFlags: CHANGE_ICON_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub clsid: windows_sys::core::GUID,
-    pub szIconExe: [u16; 260],
-    pub cchIconExe: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Clone, Copy)]
-pub struct OLEUICHANGESOURCEA {
-    pub cbStruct: u32,
-    pub dwFlags: CHANGE_SOURCE_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
-    pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: *mut core::ffi::c_void,
-    pub dwLink: u32,
-    pub lpszDisplayName: windows_sys::core::PSTR,
-    pub nFileLength: u32,
-    pub lpszFrom: windows_sys::core::PSTR,
-    pub lpszTo: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Clone, Copy)]
-pub struct OLEUICHANGESOURCEW {
-    pub cbStruct: u32,
-    pub dwFlags: CHANGE_SOURCE_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
-    pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: *mut core::ffi::c_void,
-    pub dwLink: u32,
-    pub lpszDisplayName: windows_sys::core::PWSTR,
-    pub nFileLength: u32,
-    pub lpszFrom: windows_sys::core::PWSTR,
-    pub lpszTo: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUICONVERTA {
-    pub cbStruct: u32,
-    pub dwFlags: UI_CONVERT_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub clsid: windows_sys::core::GUID,
-    pub clsidConvertDefault: windows_sys::core::GUID,
-    pub clsidActivateDefault: windows_sys::core::GUID,
-    pub clsidNew: windows_sys::core::GUID,
-    pub dvAspect: u32,
-    pub wFormat: u16,
-    pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub lpszUserType: windows_sys::core::PSTR,
-    pub fObjectsIconChanged: super::super::Foundation::BOOL,
-    pub lpszDefLabel: windows_sys::core::PSTR,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUICONVERTW {
-    pub cbStruct: u32,
-    pub dwFlags: UI_CONVERT_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub clsid: windows_sys::core::GUID,
-    pub clsidConvertDefault: windows_sys::core::GUID,
-    pub clsidActivateDefault: windows_sys::core::GUID,
-    pub clsidNew: windows_sys::core::GUID,
-    pub dvAspect: u32,
-    pub wFormat: u16,
-    pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub lpszUserType: windows_sys::core::PWSTR,
-    pub fObjectsIconChanged: super::super::Foundation::BOOL,
-    pub lpszDefLabel: windows_sys::core::PWSTR,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUIEDITLINKSA {
-    pub cbStruct: u32,
-    pub dwFlags: EDIT_LINKS_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OLEUIEDITLINKSW {
-    pub cbStruct: u32,
-    pub dwFlags: EDIT_LINKS_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIGNRLPROPSA {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSA,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIGNRLPROPSW {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSW,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIINSERTOBJECTA {
-    pub cbStruct: u32,
-    pub dwFlags: INSERT_OBJECT_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub clsid: windows_sys::core::GUID,
-    pub lpszFile: windows_sys::core::PSTR,
-    pub cchFile: u32,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-    pub iid: windows_sys::core::GUID,
-    pub oleRender: u32,
-    pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: *mut core::ffi::c_void,
-    pub lpIStorage: *mut core::ffi::c_void,
-    pub ppvObj: *mut *mut core::ffi::c_void,
-    pub sc: i32,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIINSERTOBJECTW {
-    pub cbStruct: u32,
-    pub dwFlags: INSERT_OBJECT_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub clsid: windows_sys::core::GUID,
-    pub lpszFile: windows_sys::core::PWSTR,
-    pub cchFile: u32,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-    pub iid: windows_sys::core::GUID,
-    pub oleRender: u32,
-    pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: *mut core::ffi::c_void,
-    pub lpIStorage: *mut core::ffi::c_void,
-    pub ppvObj: *mut *mut core::ffi::c_void,
-    pub sc: i32,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUILINKPROPSA {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSA,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUILINKPROPSW {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSW,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIOBJECTPROPSA {
-    pub cbStruct: u32,
-    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
-    pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
-    pub dwObject: u32,
-    pub lpObjInfo: *mut core::ffi::c_void,
-    pub dwLink: u32,
-    pub lpLinkInfo: *mut core::ffi::c_void,
-    pub lpGP: *mut OLEUIGNRLPROPSA,
-    pub lpVP: *mut OLEUIVIEWPROPSA,
-    pub lpLP: *mut OLEUILINKPROPSA,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIOBJECTPROPSW {
-    pub cbStruct: u32,
-    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
-    pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
-    pub dwObject: u32,
-    pub lpObjInfo: *mut core::ffi::c_void,
-    pub dwLink: u32,
-    pub lpLinkInfo: *mut core::ffi::c_void,
-    pub lpGP: *mut OLEUIGNRLPROPSW,
-    pub lpVP: *mut OLEUIVIEWPROPSW,
-    pub lpLP: *mut OLEUILINKPROPSW,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIPASTEENTRYA {
-    pub fmtetc: super::Com::FORMATETC,
-    pub lpstrFormatName: windows_sys::core::PCSTR,
-    pub lpstrResultText: windows_sys::core::PCSTR,
-    pub dwFlags: u32,
-    pub dwScratchSpace: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIPASTEENTRYW {
-    pub fmtetc: super::Com::FORMATETC,
-    pub lpstrFormatName: windows_sys::core::PCWSTR,
-    pub lpstrResultText: windows_sys::core::PCWSTR,
-    pub dwFlags: u32,
-    pub dwScratchSpace: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIPASTESPECIALA {
-    pub cbStruct: u32,
-    pub dwFlags: PASTE_SPECIAL_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: *mut core::ffi::c_void,
-    pub arrPasteEntries: *mut OLEUIPASTEENTRYA,
-    pub cPasteEntries: i32,
-    pub arrLinkTypes: *mut u32,
-    pub cLinkTypes: i32,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-    pub nSelectedIndex: i32,
-    pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub sizel: super::super::Foundation::SIZE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct OLEUIPASTESPECIALW {
-    pub cbStruct: u32,
-    pub dwFlags: PASTE_SPECIAL_FLAGS,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszTemplate: windows_sys::core::PCWSTR,
-    pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: *mut core::ffi::c_void,
-    pub arrPasteEntries: *mut OLEUIPASTEENTRYW,
-    pub cPasteEntries: i32,
-    pub arrLinkTypes: *mut u32,
-    pub cLinkTypes: i32,
-    pub cClsidExclude: u32,
-    pub lpClsidExclude: *mut windows_sys::core::GUID,
-    pub nSelectedIndex: i32,
-    pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: super::super::Foundation::HGLOBAL,
-    pub sizel: super::super::Foundation::SIZE,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIVIEWPROPSA {
-    pub cbStruct: u32,
-    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSA,
-    pub nScaleMin: i32,
-    pub nScaleMax: i32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct OLEUIVIEWPROPSW {
-    pub cbStruct: u32,
-    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
-    pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub dwReserved2: [u32; 3],
-    pub lpOP: *mut OLEUIOBJECTPROPSW,
-    pub nScaleMin: i32,
-    pub nScaleMax: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct OLEVERB {
-    pub lVerb: OLEIVERB,
-    pub lpszVerbName: windows_sys::core::PWSTR,
-    pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
-    pub grfAttribs: u32,
-}
-pub type OLE_HANDLE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PAGERANGE {
-    pub nFromPage: i32,
-    pub nToPage: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PAGESET {
-    pub cbStruct: u32,
-    pub fOddPages: super::super::Foundation::BOOL,
-    pub fEvenPages: super::super::Foundation::BOOL,
-    pub cPageRange: u32,
-    pub rgPages: [PAGERANGE; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
-pub struct PARAMDATA {
-    pub szName: windows_sys::core::PWSTR,
-    pub vt: super::Variant::VARENUM,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct PARAMDESC {
-    pub pparamdescex: *mut PARAMDESCEX,
-    pub wParamFlags: PARAMFLAGS,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct PARAMDESCEX {
-    pub cBytes: u32,
-    pub varDefaultValue: super::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct PICTDESC {
-    pub cbSizeofstruct: u32,
-    pub picType: u32,
-    pub Anonymous: PICTDESC_0,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub union PICTDESC_0 {
-    pub bmp: PICTDESC_0_0,
-    pub wmf: PICTDESC_0_1,
-    pub icon: PICTDESC_0_2,
-    pub emf: PICTDESC_0_3,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct PICTDESC_0_0 {
-    pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
-    pub hpal: super::super::Graphics::Gdi::HPALETTE,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct PICTDESC_0_3 {
-    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct PICTDESC_0_2 {
-    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct PICTDESC_0_1 {
-    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
-    pub xExt: i32,
-    pub yExt: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POINTF {
-    pub x: f32,
-    pub y: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROPPAGEINFO {
-    pub cb: u32,
-    pub pszTitle: windows_sys::core::PWSTR,
-    pub size: super::super::Foundation::SIZE,
-    pub pszDocString: windows_sys::core::PWSTR,
-    pub pszHelpFile: windows_sys::core::PWSTR,
-    pub dwHelpContext: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct QACONTAINER {
-    pub cbSize: u32,
-    pub pClientSite: *mut core::ffi::c_void,
-    pub pAdviseSink: *mut core::ffi::c_void,
-    pub pPropertyNotifySink: *mut core::ffi::c_void,
-    pub pUnkEventSink: *mut core::ffi::c_void,
-    pub dwAmbientFlags: u32,
-    pub colorFore: u32,
-    pub colorBack: u32,
-    pub pFont: *mut core::ffi::c_void,
-    pub pUndoMgr: *mut core::ffi::c_void,
-    pub dwAppearance: u32,
-    pub lcid: i32,
-    pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub pBindHost: *mut core::ffi::c_void,
-    pub pOleControlSite: *mut core::ffi::c_void,
-    pub pServiceProvider: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QACONTROL {
-    pub cbSize: u32,
-    pub dwMiscStatus: u32,
-    pub dwViewStatus: u32,
-    pub dwEventCookie: u32,
-    pub dwPropNotifyCookie: u32,
-    pub dwPointerActivationPolicy: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct SAFEARRAYUNION {
-    pub sfType: u32,
-    pub u: SAFEARRAYUNION_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union SAFEARRAYUNION_0 {
-    pub BstrStr: SAFEARR_BSTR,
-    pub UnknownStr: SAFEARR_UNKNOWN,
-    pub DispatchStr: SAFEARR_DISPATCH,
-    pub VariantStr: SAFEARR_VARIANT,
-    pub RecordStr: SAFEARR_BRECORD,
-    pub HaveIidStr: SAFEARR_HAVEIID,
-    pub ByteStr: super::Com::BYTE_SIZEDARR,
-    pub WordStr: super::Com::WORD_SIZEDARR,
-    pub LongStr: super::Com::DWORD_SIZEDARR,
-    pub HyperStr: super::Com::HYPER_SIZEDARR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_BRECORD {
-    pub Size: u32,
-    pub aRecord: *mut *mut _wireBRECORD,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_BSTR {
-    pub Size: u32,
-    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_DISPATCH {
-    pub Size: u32,
-    pub apDispatch: *mut *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_HAVEIID {
-    pub Size: u32,
-    pub apUnknown: *mut *mut core::ffi::c_void,
-    pub iid: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_UNKNOWN {
-    pub Size: u32,
-    pub apUnknown: *mut *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct SAFEARR_VARIANT {
-    pub Size: u32,
-    pub aVariant: *mut *mut _wireVARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UDATE {
-    pub st: super::super::Foundation::SYSTEMTIME,
-    pub wDayOfYear: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _wireBRECORD {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub pRecInfo: *mut core::ffi::c_void,
-    pub pRecord: *mut u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct _wireSAFEARRAY {
-    pub cDims: u16,
-    pub fFeatures: u16,
-    pub cbElements: u32,
-    pub cLocks: u32,
-    pub uArrayStructs: SAFEARRAYUNION,
-    pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct _wireVARIANT {
-    pub clSize: u32,
-    pub rpcReserved: u32,
-    pub vt: u16,
-    pub wReserved1: u16,
-    pub wReserved2: u16,
-    pub wReserved3: u16,
-    pub Anonymous: _wireVARIANT_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union _wireVARIANT_0 {
-    pub llVal: i64,
-    pub lVal: i32,
-    pub bVal: u8,
-    pub iVal: i16,
-    pub fltVal: f32,
-    pub dblVal: f64,
-    pub boolVal: super::super::Foundation::VARIANT_BOOL,
-    pub scode: i32,
-    pub cyVal: super::Com::CY,
-    pub date: f64,
-    pub bstrVal: *mut super::Com::FLAGGED_WORD_BLOB,
-    pub punkVal: *mut core::ffi::c_void,
-    pub pdispVal: *mut core::ffi::c_void,
-    pub parray: *mut *mut _wireSAFEARRAY,
-    pub brecVal: *mut _wireBRECORD,
-    pub pbVal: *mut u8,
-    pub piVal: *mut i16,
-    pub plVal: *mut i32,
-    pub pllVal: *mut i64,
-    pub pfltVal: *mut f32,
-    pub pdblVal: *mut f64,
-    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
-    pub pscode: *mut i32,
-    pub pcyVal: *mut super::Com::CY,
-    pub pdate: *mut f64,
-    pub pbstrVal: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-    pub ppunkVal: *mut *mut core::ffi::c_void,
-    pub ppdispVal: *mut *mut core::ffi::c_void,
-    pub pparray: *mut *mut *mut _wireSAFEARRAY,
-    pub pvarVal: *mut *mut _wireVARIANT,
-    pub cVal: i8,
-    pub uiVal: u16,
-    pub ulVal: u32,
-    pub ullVal: u64,
-    pub intVal: i32,
-    pub uintVal: u32,
-    pub decVal: super::super::Foundation::DECIMAL,
-    pub pdecVal: *mut super::super::Foundation::DECIMAL,
-    pub pcVal: windows_sys::core::PSTR,
-    pub puiVal: *mut u16,
-    pub pulVal: *mut u32,
-    pub pullVal: *mut u64,
-    pub pintVal: *mut i32,
-    pub puintVal: *mut u32,
-}
-pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
-pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_sys::core::GUID, szclass: windows_sys::core::PCWSTR, sztopicname: windows_sys::core::PCWSTR, szitemname: windows_sys::core::PCWSTR, szuncname: windows_sys::core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;

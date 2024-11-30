@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_sys::core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_sys::core::HRESULT);
@@ -64,7 +64,69 @@ windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl
 windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_sys::core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type ADDURL_FLAG = i32;
+pub type ExtensionValidationContexts = i32;
+pub type ExtensionValidationResults = i32;
+pub type FINDFRAME_FLAGS = i32;
+pub type FRAMEOPTIONS_FLAGS = i32;
+pub type IELAUNCHOPTION_FLAGS = i32;
+pub type INTERNETEXPLORERCONFIGURATION = i32;
+pub type MEDIA_ACTIVITY_NOTIFY_TYPE = i32;
+pub type NAVIGATEFRAME_FLAGS = i32;
+pub type OpenServiceActivityContentType = i32;
+pub type OpenServiceErrors = i32;
+pub type SCROLLABLECONTEXTMENU_PLACEMENT = i32;
+pub const AnchorClick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
+pub const CDeviceRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
+pub const CDownloadBehavior: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
+pub const CHeaderFooter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLayoutRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistDataPeer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistShortcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistSnapshot: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistUserData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
+pub const CoDitherToRGB8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
+pub const CoMapMIMEToCLSID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
+pub const CoSniffStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
+pub const HomePage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
+pub const HomePageSetting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IELAUNCHURLINFO {
+    pub cbSize: u32,
+    pub dwCreationFlags: u32,
+    pub dwLaunchOptionFlags: u32,
+}
+pub const IEWebDriverManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
+pub const IntelliForms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
+pub const InternetExplorerManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NAVIGATEDATA {
+    pub ulTarget: u32,
+    pub ulURL: u32,
+    pub ulRefURL: u32,
+    pub ulPostData: u32,
+    pub dwFlags: u32,
+}
+pub const OpenServiceActivityManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
+pub const OpenServiceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
+pub const PeerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STATURL {
+    pub cbSize: u32,
+    pub pwcsUrl: windows_sys::core::PWSTR,
+    pub pwcsTitle: windows_sys::core::PWSTR,
+    pub ftLastVisited: super::super::Foundation::FILETIME,
+    pub ftLastUpdated: super::super::Foundation::FILETIME,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+pub const wfolders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);
 pub const ADDRESSBAND: u32 = 2u32;
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = 1i32;
 pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = 0i32;
@@ -565,64 +627,3 @@ pub const msoslHigh: u32 = 3u32;
 pub const msoslMedium: u32 = 2u32;
 pub const msoslNone: u32 = 1u32;
 pub const msoslUndefined: u32 = 0u32;
-pub type ADDURL_FLAG = i32;
-pub type ExtensionValidationContexts = i32;
-pub type ExtensionValidationResults = i32;
-pub type FINDFRAME_FLAGS = i32;
-pub type FRAMEOPTIONS_FLAGS = i32;
-pub type IELAUNCHOPTION_FLAGS = i32;
-pub type INTERNETEXPLORERCONFIGURATION = i32;
-pub type MEDIA_ACTIVITY_NOTIFY_TYPE = i32;
-pub type NAVIGATEFRAME_FLAGS = i32;
-pub type OpenServiceActivityContentType = i32;
-pub type OpenServiceErrors = i32;
-pub type SCROLLABLECONTEXTMENU_PLACEMENT = i32;
-pub const AnchorClick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
-pub const CDeviceRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
-pub const CDownloadBehavior: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
-pub const CHeaderFooter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLayoutRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistDataPeer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistShortcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistSnapshot: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistUserData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
-pub const CoDitherToRGB8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
-pub const CoMapMIMEToCLSID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
-pub const CoSniffStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
-pub const HomePage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
-pub const HomePageSetting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IELAUNCHURLINFO {
-    pub cbSize: u32,
-    pub dwCreationFlags: u32,
-    pub dwLaunchOptionFlags: u32,
-}
-pub const IEWebDriverManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
-pub const IntelliForms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
-pub const InternetExplorerManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NAVIGATEDATA {
-    pub ulTarget: u32,
-    pub ulURL: u32,
-    pub ulRefURL: u32,
-    pub ulPostData: u32,
-    pub dwFlags: u32,
-}
-pub const OpenServiceActivityManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
-pub const OpenServiceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
-pub const PeerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STATURL {
-    pub cbSize: u32,
-    pub pwcsUrl: windows_sys::core::PWSTR,
-    pub pwcsTitle: windows_sys::core::PWSTR,
-    pub ftLastVisited: super::super::Foundation::FILETIME,
-    pub ftLastUpdated: super::super::Foundation::FILETIME,
-    pub ftExpires: super::super::Foundation::FILETIME,
-    pub dwFlags: u32,
-}
-pub const wfolders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);

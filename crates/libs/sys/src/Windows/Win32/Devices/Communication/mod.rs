@@ -29,6 +29,128 @@ windows_targets::link!("kernel32.dll" "system" fn SetupComm(hfile : super::super
 windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+pub type CLEAR_COMM_ERROR_FLAGS = u32;
+pub type COMMPROP_STOP_PARITY = u16;
+pub type COMM_EVENT_MASK = u32;
+pub type DCB_PARITY = u8;
+pub type DCB_STOP_BITS = u8;
+pub type ESCAPE_COMM_FUNCTION = u32;
+pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
+pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
+pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
+pub type MODEMSETTINGS_SPEAKER_MODE = u32;
+pub type MODEM_SPEAKER_VOLUME = u32;
+pub type MODEM_STATUS_FLAGS = u32;
+pub type PURGE_COMM_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMMCONFIG {
+    pub dwSize: u32,
+    pub wVersion: u16,
+    pub wReserved: u16,
+    pub dcb: DCB,
+    pub dwProviderSubType: u32,
+    pub dwProviderOffset: u32,
+    pub dwProviderSize: u32,
+    pub wcProviderData: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMMPROP {
+    pub wPacketLength: u16,
+    pub wPacketVersion: u16,
+    pub dwServiceMask: u32,
+    pub dwReserved1: u32,
+    pub dwMaxTxQueue: u32,
+    pub dwMaxRxQueue: u32,
+    pub dwMaxBaud: u32,
+    pub dwProvSubType: u32,
+    pub dwProvCapabilities: u32,
+    pub dwSettableParams: u32,
+    pub dwSettableBaud: u32,
+    pub wSettableData: u16,
+    pub wSettableStopParity: COMMPROP_STOP_PARITY,
+    pub dwCurrentTxQueue: u32,
+    pub dwCurrentRxQueue: u32,
+    pub dwProvSpec1: u32,
+    pub dwProvSpec2: u32,
+    pub wcProvChar: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMMTIMEOUTS {
+    pub ReadIntervalTimeout: u32,
+    pub ReadTotalTimeoutMultiplier: u32,
+    pub ReadTotalTimeoutConstant: u32,
+    pub WriteTotalTimeoutMultiplier: u32,
+    pub WriteTotalTimeoutConstant: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COMSTAT {
+    pub _bitfield: u32,
+    pub cbInQue: u32,
+    pub cbOutQue: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DCB {
+    pub DCBlength: u32,
+    pub BaudRate: u32,
+    pub _bitfield: u32,
+    pub wReserved: u16,
+    pub XonLim: u16,
+    pub XoffLim: u16,
+    pub ByteSize: u8,
+    pub Parity: DCB_PARITY,
+    pub StopBits: DCB_STOP_BITS,
+    pub XonChar: i8,
+    pub XoffChar: i8,
+    pub ErrorChar: i8,
+    pub EofChar: i8,
+    pub EvtChar: i8,
+    pub wReserved1: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODEMDEVCAPS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwModemProviderVersion: u32,
+    pub dwModemManufacturerOffset: u32,
+    pub dwModemManufacturerSize: u32,
+    pub dwModemModelOffset: u32,
+    pub dwModemModelSize: u32,
+    pub dwModemVersionOffset: u32,
+    pub dwModemVersionSize: u32,
+    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
+    pub dwModemOptions: u32,
+    pub dwMaxDTERate: u32,
+    pub dwMaxDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODEMSETTINGS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
+    pub dwPreferredModemOptions: u32,
+    pub dwNegotiatedModemOptions: u32,
+    pub dwNegotiatedDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
 pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
 pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;
@@ -188,125 +310,3 @@ pub const STOPBITS_10: COMMPROP_STOP_PARITY = 1u16;
 pub const STOPBITS_15: COMMPROP_STOP_PARITY = 2u16;
 pub const STOPBITS_20: COMMPROP_STOP_PARITY = 4u16;
 pub const TWOSTOPBITS: DCB_STOP_BITS = 2u8;
-pub type CLEAR_COMM_ERROR_FLAGS = u32;
-pub type COMMPROP_STOP_PARITY = u16;
-pub type COMM_EVENT_MASK = u32;
-pub type DCB_PARITY = u8;
-pub type DCB_STOP_BITS = u8;
-pub type ESCAPE_COMM_FUNCTION = u32;
-pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
-pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
-pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
-pub type MODEMSETTINGS_SPEAKER_MODE = u32;
-pub type MODEM_SPEAKER_VOLUME = u32;
-pub type MODEM_STATUS_FLAGS = u32;
-pub type PURGE_COMM_FLAGS = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMMCONFIG {
-    pub dwSize: u32,
-    pub wVersion: u16,
-    pub wReserved: u16,
-    pub dcb: DCB,
-    pub dwProviderSubType: u32,
-    pub dwProviderOffset: u32,
-    pub dwProviderSize: u32,
-    pub wcProviderData: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMMPROP {
-    pub wPacketLength: u16,
-    pub wPacketVersion: u16,
-    pub dwServiceMask: u32,
-    pub dwReserved1: u32,
-    pub dwMaxTxQueue: u32,
-    pub dwMaxRxQueue: u32,
-    pub dwMaxBaud: u32,
-    pub dwProvSubType: u32,
-    pub dwProvCapabilities: u32,
-    pub dwSettableParams: u32,
-    pub dwSettableBaud: u32,
-    pub wSettableData: u16,
-    pub wSettableStopParity: COMMPROP_STOP_PARITY,
-    pub dwCurrentTxQueue: u32,
-    pub dwCurrentRxQueue: u32,
-    pub dwProvSpec1: u32,
-    pub dwProvSpec2: u32,
-    pub wcProvChar: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMMTIMEOUTS {
-    pub ReadIntervalTimeout: u32,
-    pub ReadTotalTimeoutMultiplier: u32,
-    pub ReadTotalTimeoutConstant: u32,
-    pub WriteTotalTimeoutMultiplier: u32,
-    pub WriteTotalTimeoutConstant: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COMSTAT {
-    pub _bitfield: u32,
-    pub cbInQue: u32,
-    pub cbOutQue: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DCB {
-    pub DCBlength: u32,
-    pub BaudRate: u32,
-    pub _bitfield: u32,
-    pub wReserved: u16,
-    pub XonLim: u16,
-    pub XoffLim: u16,
-    pub ByteSize: u8,
-    pub Parity: DCB_PARITY,
-    pub StopBits: DCB_STOP_BITS,
-    pub XonChar: i8,
-    pub XoffChar: i8,
-    pub ErrorChar: i8,
-    pub EofChar: i8,
-    pub EvtChar: i8,
-    pub wReserved1: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODEMDEVCAPS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwModemProviderVersion: u32,
-    pub dwModemManufacturerOffset: u32,
-    pub dwModemManufacturerSize: u32,
-    pub dwModemModelOffset: u32,
-    pub dwModemModelSize: u32,
-    pub dwModemVersionOffset: u32,
-    pub dwModemVersionSize: u32,
-    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
-    pub dwModemOptions: u32,
-    pub dwMaxDTERate: u32,
-    pub dwMaxDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODEMSETTINGS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
-    pub dwPreferredModemOptions: u32,
-    pub dwNegotiatedModemOptions: u32,
-    pub dwNegotiatedDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}

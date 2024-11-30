@@ -5,6 +5,14 @@ windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> wind
 windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_sys::core::HRESULT);
 windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+pub type SECURITY_PRODUCT_TYPE = i32;
+pub type WSC_SECURITY_PRODUCT_STATE = i32;
+pub type WSC_SECURITY_PRODUCT_SUBSTATUS = i32;
+pub type WSC_SECURITY_PROVIDER = i32;
+pub type WSC_SECURITY_PROVIDER_HEALTH = i32;
+pub type WSC_SECURITY_SIGNATURE_STATUS = i32;
+pub const WSCDefaultProduct: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+pub const WSCProductList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = 2i32;
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = 0i32;
 pub const SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = 1i32;
@@ -31,11 +39,3 @@ pub const WSC_SECURITY_PROVIDER_INTERNET_SETTINGS: WSC_SECURITY_PROVIDER = 16i32
 pub const WSC_SECURITY_PROVIDER_NONE: WSC_SECURITY_PROVIDER = 0i32;
 pub const WSC_SECURITY_PROVIDER_SERVICE: WSC_SECURITY_PROVIDER = 64i32;
 pub const WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WSC_SECURITY_PROVIDER = 32i32;
-pub type SECURITY_PRODUCT_TYPE = i32;
-pub type WSC_SECURITY_PRODUCT_STATE = i32;
-pub type WSC_SECURITY_PRODUCT_SUBSTATUS = i32;
-pub type WSC_SECURITY_PROVIDER = i32;
-pub type WSC_SECURITY_PROVIDER_HEALTH = i32;
-pub type WSC_SECURITY_SIGNATURE_STATUS = i32;
-pub const WSCDefaultProduct: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
-pub const WSCProductList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);

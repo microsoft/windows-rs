@@ -3,6 +3,1810 @@ windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : win
 windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type ENTRY_CALLBACK = Option<unsafe extern "system" fn(entryaddress: u64, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
+pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_sys::core::HRESULT>;
+pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_DECODE_ERROR = Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
+pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, classid: windows_sys::core::GUID, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_sys::core::PCSTR, buffer: windows_sys::core::PCSTR, buffersize: u32) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_sys::core::HRESULT>;
+pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_sys::core::HRESULT>;
+pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, symbolname: windows_sys::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
+pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_sys::core::HRESULT>;
+pub type KDEXTS_LOCK_CALLBACKROUTINE = Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, name: windows_sys::core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
+pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_sys::core::HRESULT>;
+pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_sys::core::HRESULT>;
+pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_sys::core::HRESULT>;
+pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_sys::core::HRESULT>;
+pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, fullimagename: *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT>;
+pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_TAG_DESCRIPTION = Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> windows_sys::core::HRESULT>;
+pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_sys::core::HRESULT>;
+pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_sys::core::HRESULT>;
+pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_sys::core::HRESULT>;
+pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
+pub type PWINDBG_CHECK_CONTROL_C = Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
+pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_EXTENSION_ROUTINE32 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_EXTENSION_ROUTINE64 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_GET_EXPRESSION = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> usize>;
+pub type PWINDBG_GET_EXPRESSION32 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u32>;
+pub type PWINDBG_GET_EXPRESSION64 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u64>;
+pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *mut core::ffi::c_void, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut usize)>;
+pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u32)>;
+pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u64)>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_OUTPUT_ROUTINE = Option<unsafe extern "system" fn(lpformat: windows_sys::core::PCSTR)>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCWSTR, flags: u32, rclsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type CallingConventionKind = i32;
+pub type DBGKD_MAJOR_TYPES = i32;
+pub type DEBUG_FAILURE_TYPE = i32;
+pub type DEBUG_FLR_PARAM_TYPE = i32;
+pub type DEBUG_POOL_REGION = i32;
+pub type EXT_TDOP = i32;
+pub type ErrorClass = i32;
+pub type FA_ENTRY_TYPE = i32;
+pub type FA_EXTENSION_PLUGIN_PHASE = i32;
+pub type IntrinsicKind = i32;
+pub type LanguageKind = i32;
+pub type LocationKind = i32;
+pub type ModelObjectKind = i32;
+pub type OS_TYPE = i32;
+pub type PointerKind = i32;
+pub type PreferredFormat = i32;
+pub type RawSearchFlags = i32;
+pub type ScriptChangeKind = i32;
+pub type ScriptDebugEvent = i32;
+pub type ScriptDebugEventFilter = i32;
+pub type ScriptDebugState = i32;
+pub type ScriptExecutionKind = i32;
+pub type SignatureComparison = i32;
+pub type SymbolKind = i32;
+pub type SymbolSearchOptions = i32;
+pub type TANALYZE_RETURN = i32;
+pub type TypeKind = i32;
+pub type VarArgsKind = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ArrayDimension {
+    pub LowerBound: i64,
+    pub Length: u64,
+    pub Stride: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BUSDATA {
+    pub BusDataType: u32,
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub Offset: u32,
+    pub Length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CKCL_DATA {
+    pub NextLogEvent: *mut core::ffi::c_void,
+    pub TAnalyzeString: windows_sys::core::PSTR,
+    pub TAnalyzeReturnType: TANALYZE_RETURN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CKCL_LISTHEAD {
+    pub LogEventListHead: *mut CKCL_DATA,
+    pub Heap: super::super::super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CPU_INFO {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 2048],
+    pub Mhz: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CPU_INFO_v1 {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 32],
+    pub Mhz: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CPU_INFO_v2 {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 1280],
+    pub Mhz: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct DBGKD_DEBUG_DATA_HEADER32 {
+    pub List: super::super::super::Kernel::LIST_ENTRY32,
+    pub OwnerTag: u32,
+    pub Size: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct DBGKD_DEBUG_DATA_HEADER64 {
+    pub List: super::super::super::Kernel::LIST_ENTRY64,
+    pub OwnerTag: u32,
+    pub Size: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DBGKD_GET_VERSION32 {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub ProtocolVersion: u16,
+    pub Flags: u16,
+    pub KernBase: u32,
+    pub PsLoadedModuleList: u32,
+    pub MachineType: u16,
+    pub ThCallbackStack: u16,
+    pub NextCallback: u16,
+    pub FramePointer: u16,
+    pub KiCallUserMode: u32,
+    pub KeUserCallbackDispatcher: u32,
+    pub BreakpointWithStatus: u32,
+    pub DebuggerDataList: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DBGKD_GET_VERSION64 {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub ProtocolVersion: u8,
+    pub KdSecondaryVersion: u8,
+    pub Flags: u16,
+    pub MachineType: u16,
+    pub MaxPacketType: u8,
+    pub MaxStateChange: u8,
+    pub MaxManipulate: u8,
+    pub Simulation: u8,
+    pub Unused: [u16; 1],
+    pub KernBase: u64,
+    pub PsLoadedModuleList: u64,
+    pub DebuggerDataList: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DBG_THREAD_ATTRIBUTES {
+    pub ThreadIndex: u32,
+    pub ProcessID: u64,
+    pub ThreadID: u64,
+    pub AttributeBits: u64,
+    pub BoolBits: u32,
+    pub BlockedOnPID: u64,
+    pub BlockedOnTID: u64,
+    pub CritSecAddress: u64,
+    pub Timeout_msec: u32,
+    pub StringData: [i8; 100],
+    pub SymName: [i8; 100],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
+    pub SizeOfStruct: u32,
+    pub Model: u32,
+    pub Family: u32,
+    pub Stepping: u32,
+    pub Architecture: u32,
+    pub Revision: u32,
+    pub CurrentClockSpeed: u32,
+    pub CurrentVoltage: u32,
+    pub MaxClockSpeed: u32,
+    pub ProcessorType: u32,
+    pub DeviceID: [i8; 32],
+    pub Manufacturer: [i8; 64],
+    pub Name: [i8; 64],
+    pub Version: [i8; 64],
+    pub Description: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_BREAKPOINT_PARAMETERS {
+    pub Offset: u64,
+    pub Id: u32,
+    pub BreakType: u32,
+    pub ProcType: u32,
+    pub Flags: u32,
+    pub DataSize: u32,
+    pub DataAccessType: u32,
+    pub PassCount: u32,
+    pub CurrentPassCount: u32,
+    pub MatchThread: u32,
+    pub CommandSize: u32,
+    pub OffsetExpressionSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_CACHED_SYMBOL_INFO {
+    pub ModBase: u64,
+    pub Arg1: u64,
+    pub Arg2: u64,
+    pub Id: u32,
+    pub Arg3: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_CLIENT_CONTEXT {
+    pub cbSize: u32,
+    pub eClient: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_CPU_MICROCODE_VERSION {
+    pub SizeOfStruct: u32,
+    pub CachedSignature: i64,
+    pub InitialSignature: i64,
+    pub ProcessorModel: u32,
+    pub ProcessorFamily: u32,
+    pub ProcessorStepping: u32,
+    pub ProcessorArchRev: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_CPU_SPEED_INFO {
+    pub SizeOfStruct: u32,
+    pub CurrentSpeed: u32,
+    pub RatedSpeed: u32,
+    pub NameString: [u16; 256],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_CREATE_PROCESS_OPTIONS {
+    pub CreateFlags: u32,
+    pub EngCreateFlags: u32,
+    pub VerifierFlags: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_DECODE_ERROR {
+    pub SizeOfStruct: u32,
+    pub Code: u32,
+    pub TreatAsStatus: super::super::super::super::Foundation::BOOL,
+    pub Source: [i8; 64],
+    pub Message: [i8; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_DEVICE_OBJECT_INFO {
+    pub SizeOfStruct: u32,
+    pub DevObjAddress: u64,
+    pub ReferenceCount: u32,
+    pub QBusy: super::super::super::super::Foundation::BOOL,
+    pub DriverObject: u64,
+    pub CurrentIrp: u64,
+    pub DevExtension: u64,
+    pub DevObjExtension: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_DRIVER_OBJECT_INFO {
+    pub SizeOfStruct: u32,
+    pub DriverSize: u32,
+    pub DriverObjAddress: u64,
+    pub DriverStart: u64,
+    pub DriverExtension: u64,
+    pub DeviceObject: u64,
+    pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_EVENT_CONTEXT {
+    pub Size: u32,
+    pub ProcessEngineId: u32,
+    pub ThreadEngineId: u32,
+    pub FrameEngineId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
+    pub ExecutionOption: u32,
+    pub ContinueOption: u32,
+    pub TextSize: u32,
+    pub CommandSize: u32,
+    pub SecondCommandSize: u32,
+    pub ExceptionCode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
+    pub Flags: u32,
+    pub MatchCountLimit: u32,
+    pub Reserved: [u64; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
+    pub Flags: u32,
+    pub ReplaceIndex: u32,
+    pub MatchCount: u32,
+    pub Reserved1: u32,
+    pub Reserved2: [u64; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_HANDLE_DATA_BASIC {
+    pub TypeNameSize: u32,
+    pub ObjectNameSize: u32,
+    pub Attributes: u32,
+    pub GrantedAccess: u32,
+    pub HandleCount: u32,
+    pub PointerCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_IRP_INFO {
+    pub SizeOfStruct: u32,
+    pub IrpAddress: u64,
+    pub IoStatus: u32,
+    pub StackCount: u32,
+    pub CurrentLocation: u32,
+    pub MdlAddress: u64,
+    pub Thread: u64,
+    pub CancelRoutine: u64,
+    pub CurrentStack: DEBUG_IRP_STACK_INFO,
+    pub Stack: [DEBUG_IRP_STACK_INFO; 10],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_IRP_STACK_INFO {
+    pub Major: u8,
+    pub Minor: u8,
+    pub DeviceObject: u64,
+    pub FileObject: u64,
+    pub CompletionRoutine: u64,
+    pub StackAddress: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
+    pub Id: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
+    pub ExceptionRecord: super::EXCEPTION_RECORD64,
+    pub FirstChance: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
+    pub ExitCode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
+    pub ExitCode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
+    pub Base: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
+    pub Kind: u32,
+    pub DataSize: u32,
+    pub Address: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
+    pub Error: u32,
+    pub Level: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
+    pub Base: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_MODULE_AND_ID {
+    pub ModuleBase: u64,
+    pub Id: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_MODULE_PARAMETERS {
+    pub Base: u64,
+    pub Size: u32,
+    pub TimeDateStamp: u32,
+    pub Checksum: u32,
+    pub Flags: u32,
+    pub SymbolType: u32,
+    pub ImageNameSize: u32,
+    pub ModuleNameSize: u32,
+    pub LoadedImageNameSize: u32,
+    pub SymbolFileNameSize: u32,
+    pub MappedImageNameSize: u32,
+    pub Reserved: [u64; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_OFFSET_REGION {
+    pub Base: u64,
+    pub Size: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PNP_TRIAGE_INFO {
+    pub SizeOfStruct: u32,
+    pub Lock_Address: u64,
+    pub Lock_ActiveCount: i32,
+    pub Lock_ContentionCount: u32,
+    pub Lock_NumberOfExclusiveWaiters: u32,
+    pub Lock_NumberOfSharedWaiters: u32,
+    pub Lock_Flag: u16,
+    pub TriagedThread: u64,
+    pub ThreadCount: i32,
+    pub TriagedThread_WaitTime: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_POOLTAG_DESCRIPTION {
+    pub SizeOfStruct: u32,
+    pub PoolTag: u32,
+    pub Description: [i8; 260],
+    pub Binary: [i8; 32],
+    pub Owner: [i8; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_POOL_DATA {
+    pub SizeofStruct: u32,
+    pub PoolBlock: u64,
+    pub Pool: u64,
+    pub PreviousSize: u32,
+    pub Size: u32,
+    pub PoolTag: u32,
+    pub ProcessBilled: u64,
+    pub Anonymous: DEBUG_POOL_DATA_0,
+    pub Reserved2: [u64; 4],
+    pub PoolTagDescription: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DEBUG_POOL_DATA_0 {
+    pub Anonymous: DEBUG_POOL_DATA_0_0,
+    pub AsUlong: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_POOL_DATA_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
+    pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
+    pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
+    pub Ia64: DEBUG_PROCESSOR_IDENTIFICATION_IA64,
+    pub X86: DEBUG_PROCESSOR_IDENTIFICATION_X86,
+    pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
+    pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
+    pub Type: u32,
+    pub Revision: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
+    pub Family: u32,
+    pub Model: u32,
+    pub Stepping: u32,
+    pub VendorString: [i8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
+    pub Model: u32,
+    pub Revision: u32,
+    pub VendorString: [i8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
+    pub Model: u32,
+    pub Revision: u32,
+    pub VendorString: [i8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
+    pub Model: u32,
+    pub Revision: u32,
+    pub Family: u32,
+    pub ArchRev: u32,
+    pub VendorString: [i8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
+    pub Family: u32,
+    pub Model: u32,
+    pub Stepping: u32,
+    pub VendorString: [i8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
+    pub StreamType: u32,
+    pub Flags: u32,
+    pub Offset: u64,
+    pub Buffer: *mut core::ffi::c_void,
+    pub BufferSize: u32,
+    pub BufferUsed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_REGISTER_DESCRIPTION {
+    pub Type: u32,
+    pub Flags: u32,
+    pub SubregMaster: u32,
+    pub SubregLength: u32,
+    pub SubregMask: u64,
+    pub SubregShift: u32,
+    pub Reserved0: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_SMBIOS_INFO {
+    pub SizeOfStruct: u32,
+    pub SmbiosMajorVersion: u8,
+    pub SmbiosMinorVersion: u8,
+    pub DMIVersion: u8,
+    pub TableSize: u32,
+    pub BiosMajorRelease: u8,
+    pub BiosMinorRelease: u8,
+    pub FirmwareMajorRelease: u8,
+    pub FirmwareMinorRelease: u8,
+    pub BaseBoardManufacturer: [i8; 64],
+    pub BaseBoardProduct: [i8; 64],
+    pub BaseBoardVersion: [i8; 64],
+    pub BiosReleaseDate: [i8; 64],
+    pub BiosVendor: [i8; 64],
+    pub BiosVersion: [i8; 64],
+    pub SystemFamily: [i8; 64],
+    pub SystemManufacturer: [i8; 64],
+    pub SystemProductName: [i8; 64],
+    pub SystemSKU: [i8; 64],
+    pub SystemVersion: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
+    pub ExecutionOption: u32,
+    pub ContinueOption: u32,
+    pub TextSize: u32,
+    pub CommandSize: u32,
+    pub ArgumentSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_STACK_FRAME {
+    pub InstructionOffset: u64,
+    pub ReturnOffset: u64,
+    pub FrameOffset: u64,
+    pub StackOffset: u64,
+    pub FuncTableEntry: u64,
+    pub Params: [u64; 4],
+    pub Reserved: [u64; 6],
+    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub FrameNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_STACK_FRAME_EX {
+    pub InstructionOffset: u64,
+    pub ReturnOffset: u64,
+    pub FrameOffset: u64,
+    pub StackOffset: u64,
+    pub FuncTableEntry: u64,
+    pub Params: [u64; 4],
+    pub Reserved: [u64; 6],
+    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub FrameNumber: u32,
+    pub InlineFrameContext: u32,
+    pub Reserved1: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_SYMBOL_ENTRY {
+    pub ModuleBase: u64,
+    pub Offset: u64,
+    pub Id: u64,
+    pub Arg64: u64,
+    pub Size: u32,
+    pub Flags: u32,
+    pub TypeId: u32,
+    pub NameSize: u32,
+    pub Token: u32,
+    pub Tag: u32,
+    pub Arg32: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_SYMBOL_PARAMETERS {
+    pub Module: u64,
+    pub TypeId: u32,
+    pub ParentSymbol: u32,
+    pub SubElements: u32,
+    pub Flags: u32,
+    pub Reserved: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
+    pub ModuleBase: u64,
+    pub Offset: u64,
+    pub FileNameId: u64,
+    pub EngineInternal: u64,
+    pub Size: u32,
+    pub Flags: u32,
+    pub FileNameSize: u32,
+    pub StartLine: u32,
+    pub EndLine: u32,
+    pub StartColumn: u32,
+    pub EndColumn: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_THREAD_BASIC_INFORMATION {
+    pub Valid: u32,
+    pub ExitStatus: u32,
+    pub PriorityClass: u32,
+    pub Priority: u32,
+    pub CreateTime: u64,
+    pub ExitTime: u64,
+    pub KernelTime: u64,
+    pub UserTime: u64,
+    pub StartOffset: u64,
+    pub Affinity: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
+    pub SizeOfStruct: u32,
+    pub OwnerNameSize: u32,
+    pub OwnerName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    pub SizeOfStruct: u32,
+    pub OwnerNameSize: u32,
+    pub OwnerName: windows_sys::core::PSTR,
+    pub FeaturePathSize: u32,
+    pub FeaturePath: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_TYPED_DATA {
+    pub ModBase: u64,
+    pub Offset: u64,
+    pub EngineHandle: u64,
+    pub Data: u64,
+    pub Size: u32,
+    pub Flags: u32,
+    pub TypeId: u32,
+    pub BaseTypeId: u32,
+    pub Tag: u32,
+    pub Register: u32,
+    pub Internal: [u64; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_VALUE {
+    pub Anonymous: DEBUG_VALUE_0,
+    pub TailOfRawBytes: u32,
+    pub Type: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DEBUG_VALUE_0 {
+    pub I8: u8,
+    pub I16: u16,
+    pub I32: u32,
+    pub Anonymous: DEBUG_VALUE_0_0,
+    pub F32: f32,
+    pub F64: f64,
+    pub F80Bytes: [u8; 10],
+    pub F82Bytes: [u8; 11],
+    pub F128Bytes: [u8; 16],
+    pub VI8: [u8; 16],
+    pub VI16: [u16; 8],
+    pub VI32: [u32; 4],
+    pub VI64: [u64; 2],
+    pub VF32: [f32; 4],
+    pub VF64: [f64; 2],
+    pub I64Parts32: DEBUG_VALUE_0_1,
+    pub F128Parts64: DEBUG_VALUE_0_2,
+    pub RawBytes: [u8; 24],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_VALUE_0_0 {
+    pub I64: u64,
+    pub Nat: super::super::super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_VALUE_0_2 {
+    pub LowPart: u64,
+    pub HighPart: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEBUG_VALUE_0_1 {
+    pub LowPart: u32,
+    pub HighPart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTSTACKTRACE {
+    pub FramePointer: u32,
+    pub ProgramCounter: u32,
+    pub ReturnAddress: u32,
+    pub Args: [u32; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTSTACKTRACE32 {
+    pub FramePointer: u32,
+    pub ProgramCounter: u32,
+    pub ReturnAddress: u32,
+    pub Args: [u32; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXTSTACKTRACE64 {
+    pub FramePointer: u64,
+    pub ProgramCounter: u64,
+    pub ReturnAddress: u64,
+    pub Args: [u64; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_API_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub Revision: u16,
+    pub Reserved: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_CAB_XML_DATA {
+    pub SizeOfStruct: u32,
+    pub XmlObjectTag: windows_sys::core::PCWSTR,
+    pub NumSubTags: u32,
+    pub SubTags: [EXT_CAB_XML_DATA_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_CAB_XML_DATA_0 {
+    pub SubTag: windows_sys::core::PCWSTR,
+    pub MatchPattern: windows_sys::core::PCWSTR,
+    pub ReturnText: windows_sys::core::PWSTR,
+    pub ReturnTextSize: u32,
+    pub _bitfield: u32,
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_FIND_FILE {
+    pub FileName: windows_sys::core::PCWSTR,
+    pub IndexedSize: u64,
+    pub ImageTimeDateStamp: u32,
+    pub ImageCheckSum: u32,
+    pub ExtraInfo: *mut core::ffi::c_void,
+    pub ExtraInfoSize: u32,
+    pub Flags: u32,
+    pub FileMapping: *mut core::ffi::c_void,
+    pub FileMappingSize: u64,
+    pub FileHandle: super::super::super::super::Foundation::HANDLE,
+    pub FoundFileName: windows_sys::core::PWSTR,
+    pub FoundFileNameChars: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_MATCH_PATTERN_A {
+    pub Str: windows_sys::core::PCSTR,
+    pub Pattern: windows_sys::core::PCSTR,
+    pub CaseSensitive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXT_TYPED_DATA {
+    pub Operation: EXT_TDOP,
+    pub Flags: u32,
+    pub InData: DEBUG_TYPED_DATA,
+    pub OutData: DEBUG_TYPED_DATA,
+    pub InStrIndex: u32,
+    pub In32: u32,
+    pub Out32: u32,
+    pub In64: u64,
+    pub Out64: u64,
+    pub StrBufferIndex: u32,
+    pub StrBufferChars: u32,
+    pub StrCharsNeeded: u32,
+    pub DataBufferIndex: u32,
+    pub DataBufferBytes: u32,
+    pub DataBytesNeeded: u32,
+    pub Status: windows_sys::core::HRESULT,
+    pub Reserved: [u64; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FA_ENTRY {
+    pub Tag: DEBUG_FLR_PARAM_TYPE,
+    pub FullSize: u16,
+    pub DataSize: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FIELD_INFO {
+    pub fName: *mut u8,
+    pub printName: *mut u8,
+    pub size: u32,
+    pub fOptions: u32,
+    pub address: u64,
+    pub Anonymous: FIELD_INFO_0,
+    pub TypeId: u32,
+    pub FieldOffset: u32,
+    pub BufferSize: u32,
+    pub BitField: FIELD_INFO_1,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FIELD_INFO_0 {
+    pub fieldCallBack: *mut core::ffi::c_void,
+    pub pBuffer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FIELD_INFO_1 {
+    pub Position: u16,
+    pub Size: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_CONTEXT_EX {
+    pub Status: u32,
+    pub ContextSize: u32,
+    pub pContext: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_CURRENT_PROCESS_ADDRESS {
+    pub Processor: u32,
+    pub CurrentThread: u64,
+    pub Address: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_CURRENT_THREAD_ADDRESS {
+    pub Processor: u32,
+    pub Address: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_EXPRESSION_EX {
+    pub Expression: windows_sys::core::PCSTR,
+    pub Remainder: windows_sys::core::PCSTR,
+    pub Value: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_INPUT_LINE {
+    pub Prompt: windows_sys::core::PCSTR,
+    pub Buffer: windows_sys::core::PSTR,
+    pub BufferSize: u32,
+    pub InputSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_PEB_ADDRESS {
+    pub CurrentThread: u64,
+    pub Address: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_SET_SYMPATH {
+    pub Args: windows_sys::core::PCSTR,
+    pub Result: windows_sys::core::PSTR,
+    pub Length: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GET_TEB_ADDRESS {
+    pub Address: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union INLINE_FRAME_CONTEXT {
+    pub ContextValue: u32,
+    pub Anonymous: INLINE_FRAME_CONTEXT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INLINE_FRAME_CONTEXT_0 {
+    pub FrameId: u8,
+    pub FrameType: u8,
+    pub FrameSignature: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE {
+    pub Address: u32,
+    pub Length: u32,
+    pub Data: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE32 {
+    pub Address: u32,
+    pub Length: u32,
+    pub Data: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE64 {
+    pub Address: u64,
+    pub Length: u32,
+    pub Data: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE_EX {
+    pub Address: u32,
+    pub Length: u32,
+    pub Data: u32,
+    pub InterfaceType: u32,
+    pub BusNumber: u32,
+    pub AddressSpace: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE_EX32 {
+    pub Address: u32,
+    pub Length: u32,
+    pub Data: u32,
+    pub InterfaceType: u32,
+    pub BusNumber: u32,
+    pub AddressSpace: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IOSPACE_EX64 {
+    pub Address: u64,
+    pub Length: u32,
+    pub Data: u32,
+    pub InterfaceType: u32,
+    pub BusNumber: u32,
+    pub AddressSpace: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct KDDEBUGGER_DATA32 {
+    pub Header: DBGKD_DEBUG_DATA_HEADER32,
+    pub KernBase: u32,
+    pub BreakpointWithStatus: u32,
+    pub SavedContext: u32,
+    pub ThCallbackStack: u16,
+    pub NextCallback: u16,
+    pub FramePointer: u16,
+    pub _bitfield: u16,
+    pub KiCallUserMode: u32,
+    pub KeUserCallbackDispatcher: u32,
+    pub PsLoadedModuleList: u32,
+    pub PsActiveProcessHead: u32,
+    pub PspCidTable: u32,
+    pub ExpSystemResourcesList: u32,
+    pub ExpPagedPoolDescriptor: u32,
+    pub ExpNumberOfPagedPools: u32,
+    pub KeTimeIncrement: u32,
+    pub KeBugCheckCallbackListHead: u32,
+    pub KiBugcheckData: u32,
+    pub IopErrorLogListHead: u32,
+    pub ObpRootDirectoryObject: u32,
+    pub ObpTypeObjectType: u32,
+    pub MmSystemCacheStart: u32,
+    pub MmSystemCacheEnd: u32,
+    pub MmSystemCacheWs: u32,
+    pub MmPfnDatabase: u32,
+    pub MmSystemPtesStart: u32,
+    pub MmSystemPtesEnd: u32,
+    pub MmSubsectionBase: u32,
+    pub MmNumberOfPagingFiles: u32,
+    pub MmLowestPhysicalPage: u32,
+    pub MmHighestPhysicalPage: u32,
+    pub MmNumberOfPhysicalPages: u32,
+    pub MmMaximumNonPagedPoolInBytes: u32,
+    pub MmNonPagedSystemStart: u32,
+    pub MmNonPagedPoolStart: u32,
+    pub MmNonPagedPoolEnd: u32,
+    pub MmPagedPoolStart: u32,
+    pub MmPagedPoolEnd: u32,
+    pub MmPagedPoolInformation: u32,
+    pub MmPageSize: u32,
+    pub MmSizeOfPagedPoolInBytes: u32,
+    pub MmTotalCommitLimit: u32,
+    pub MmTotalCommittedPages: u32,
+    pub MmSharedCommit: u32,
+    pub MmDriverCommit: u32,
+    pub MmProcessCommit: u32,
+    pub MmPagedPoolCommit: u32,
+    pub MmExtendedCommit: u32,
+    pub MmZeroedPageListHead: u32,
+    pub MmFreePageListHead: u32,
+    pub MmStandbyPageListHead: u32,
+    pub MmModifiedPageListHead: u32,
+    pub MmModifiedNoWritePageListHead: u32,
+    pub MmAvailablePages: u32,
+    pub MmResidentAvailablePages: u32,
+    pub PoolTrackTable: u32,
+    pub NonPagedPoolDescriptor: u32,
+    pub MmHighestUserAddress: u32,
+    pub MmSystemRangeStart: u32,
+    pub MmUserProbeAddress: u32,
+    pub KdPrintCircularBuffer: u32,
+    pub KdPrintCircularBufferEnd: u32,
+    pub KdPrintWritePointer: u32,
+    pub KdPrintRolloverCount: u32,
+    pub MmLoadedUserImageList: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct KDDEBUGGER_DATA64 {
+    pub Header: DBGKD_DEBUG_DATA_HEADER64,
+    pub KernBase: u64,
+    pub BreakpointWithStatus: u64,
+    pub SavedContext: u64,
+    pub ThCallbackStack: u16,
+    pub NextCallback: u16,
+    pub FramePointer: u16,
+    pub _bitfield: u16,
+    pub KiCallUserMode: u64,
+    pub KeUserCallbackDispatcher: u64,
+    pub PsLoadedModuleList: u64,
+    pub PsActiveProcessHead: u64,
+    pub PspCidTable: u64,
+    pub ExpSystemResourcesList: u64,
+    pub ExpPagedPoolDescriptor: u64,
+    pub ExpNumberOfPagedPools: u64,
+    pub KeTimeIncrement: u64,
+    pub KeBugCheckCallbackListHead: u64,
+    pub KiBugcheckData: u64,
+    pub IopErrorLogListHead: u64,
+    pub ObpRootDirectoryObject: u64,
+    pub ObpTypeObjectType: u64,
+    pub MmSystemCacheStart: u64,
+    pub MmSystemCacheEnd: u64,
+    pub MmSystemCacheWs: u64,
+    pub MmPfnDatabase: u64,
+    pub MmSystemPtesStart: u64,
+    pub MmSystemPtesEnd: u64,
+    pub MmSubsectionBase: u64,
+    pub MmNumberOfPagingFiles: u64,
+    pub MmLowestPhysicalPage: u64,
+    pub MmHighestPhysicalPage: u64,
+    pub MmNumberOfPhysicalPages: u64,
+    pub MmMaximumNonPagedPoolInBytes: u64,
+    pub MmNonPagedSystemStart: u64,
+    pub MmNonPagedPoolStart: u64,
+    pub MmNonPagedPoolEnd: u64,
+    pub MmPagedPoolStart: u64,
+    pub MmPagedPoolEnd: u64,
+    pub MmPagedPoolInformation: u64,
+    pub MmPageSize: u64,
+    pub MmSizeOfPagedPoolInBytes: u64,
+    pub MmTotalCommitLimit: u64,
+    pub MmTotalCommittedPages: u64,
+    pub MmSharedCommit: u64,
+    pub MmDriverCommit: u64,
+    pub MmProcessCommit: u64,
+    pub MmPagedPoolCommit: u64,
+    pub MmExtendedCommit: u64,
+    pub MmZeroedPageListHead: u64,
+    pub MmFreePageListHead: u64,
+    pub MmStandbyPageListHead: u64,
+    pub MmModifiedPageListHead: u64,
+    pub MmModifiedNoWritePageListHead: u64,
+    pub MmAvailablePages: u64,
+    pub MmResidentAvailablePages: u64,
+    pub PoolTrackTable: u64,
+    pub NonPagedPoolDescriptor: u64,
+    pub MmHighestUserAddress: u64,
+    pub MmSystemRangeStart: u64,
+    pub MmUserProbeAddress: u64,
+    pub KdPrintCircularBuffer: u64,
+    pub KdPrintCircularBufferEnd: u64,
+    pub KdPrintWritePointer: u64,
+    pub KdPrintRolloverCount: u64,
+    pub MmLoadedUserImageList: u64,
+    pub NtBuildLab: u64,
+    pub KiNormalSystemCall: u64,
+    pub KiProcessorBlock: u64,
+    pub MmUnloadedDrivers: u64,
+    pub MmLastUnloadedDriver: u64,
+    pub MmTriageActionTaken: u64,
+    pub MmSpecialPoolTag: u64,
+    pub KernelVerifier: u64,
+    pub MmVerifierData: u64,
+    pub MmAllocatedNonPagedPool: u64,
+    pub MmPeakCommitment: u64,
+    pub MmTotalCommitLimitMaximum: u64,
+    pub CmNtCSDVersion: u64,
+    pub MmPhysicalMemoryBlock: u64,
+    pub MmSessionBase: u64,
+    pub MmSessionSize: u64,
+    pub MmSystemParentTablePage: u64,
+    pub MmVirtualTranslationBase: u64,
+    pub OffsetKThreadNextProcessor: u16,
+    pub OffsetKThreadTeb: u16,
+    pub OffsetKThreadKernelStack: u16,
+    pub OffsetKThreadInitialStack: u16,
+    pub OffsetKThreadApcProcess: u16,
+    pub OffsetKThreadState: u16,
+    pub OffsetKThreadBStore: u16,
+    pub OffsetKThreadBStoreLimit: u16,
+    pub SizeEProcess: u16,
+    pub OffsetEprocessPeb: u16,
+    pub OffsetEprocessParentCID: u16,
+    pub OffsetEprocessDirectoryTableBase: u16,
+    pub SizePrcb: u16,
+    pub OffsetPrcbDpcRoutine: u16,
+    pub OffsetPrcbCurrentThread: u16,
+    pub OffsetPrcbMhz: u16,
+    pub OffsetPrcbCpuType: u16,
+    pub OffsetPrcbVendorString: u16,
+    pub OffsetPrcbProcStateContext: u16,
+    pub OffsetPrcbNumber: u16,
+    pub SizeEThread: u16,
+    pub L1tfHighPhysicalBitIndex: u8,
+    pub L1tfSwizzleBitIndex: u8,
+    pub Padding0: u32,
+    pub KdPrintCircularBufferPtr: u64,
+    pub KdPrintBufferSize: u64,
+    pub KeLoaderBlock: u64,
+    pub SizePcr: u16,
+    pub OffsetPcrSelfPcr: u16,
+    pub OffsetPcrCurrentPrcb: u16,
+    pub OffsetPcrContainedPrcb: u16,
+    pub OffsetPcrInitialBStore: u16,
+    pub OffsetPcrBStoreLimit: u16,
+    pub OffsetPcrInitialStack: u16,
+    pub OffsetPcrStackLimit: u16,
+    pub OffsetPrcbPcrPage: u16,
+    pub OffsetPrcbProcStateSpecialReg: u16,
+    pub GdtR0Code: u16,
+    pub GdtR0Data: u16,
+    pub GdtR0Pcr: u16,
+    pub GdtR3Code: u16,
+    pub GdtR3Data: u16,
+    pub GdtR3Teb: u16,
+    pub GdtLdt: u16,
+    pub GdtTss: u16,
+    pub Gdt64R3CmCode: u16,
+    pub Gdt64R3CmTeb: u16,
+    pub IopNumTriageDumpDataBlocks: u64,
+    pub IopTriageDumpDataBlocks: u64,
+    pub VfCrashDataBlock: u64,
+    pub MmBadPagesDetected: u64,
+    pub MmZeroedPageSingleBitErrorsDetected: u64,
+    pub EtwpDebuggerData: u64,
+    pub OffsetPrcbContext: u16,
+    pub OffsetPrcbMaxBreakpoints: u16,
+    pub OffsetPrcbMaxWatchpoints: u16,
+    pub OffsetKThreadStackLimit: u32,
+    pub OffsetKThreadStackBase: u32,
+    pub OffsetKThreadQueueListEntry: u32,
+    pub OffsetEThreadIrpList: u32,
+    pub OffsetPrcbIdleThread: u16,
+    pub OffsetPrcbNormalDpcState: u16,
+    pub OffsetPrcbDpcStack: u16,
+    pub OffsetPrcbIsrStack: u16,
+    pub SizeKDPC_STACK_FRAME: u16,
+    pub OffsetKPriQueueThreadListHead: u16,
+    pub OffsetKThreadWaitReason: u16,
+    pub Padding1: u16,
+    pub PteBase: u64,
+    pub RetpolineStubFunctionTable: u64,
+    pub RetpolineStubFunctionTableSize: u32,
+    pub RetpolineStubOffset: u32,
+    pub RetpolineStubSize: u32,
+    pub OffsetEProcessMmHotPatchContext: u16,
+    pub OffsetKThreadShadowStackLimit: u32,
+    pub OffsetKThreadShadowStackBase: u32,
+    pub ShadowStackEnabled: u64,
+    pub PointerAuthMask: u64,
+    pub OffsetPrcbExceptionStack: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXTS_LOCK_INFO {
+    pub SizeOfStruct: u32,
+    pub Address: u64,
+    pub OwningThread: u64,
+    pub ExclusiveOwned: super::super::super::super::Foundation::BOOL,
+    pub NumOwners: u32,
+    pub ContentionCount: u32,
+    pub NumExclusiveWaiters: u32,
+    pub NumSharedWaiters: u32,
+    pub pOwnerThreads: *mut u64,
+    pub pWaiterThreads: *mut u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXTS_PTE_INFO {
+    pub SizeOfStruct: u32,
+    pub VirtualAddress: u64,
+    pub PpeAddress: u64,
+    pub PdeAddress: u64,
+    pub PteAddress: u64,
+    pub Pfn: u64,
+    pub Levels: u64,
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXT_FILELOCK_OWNER {
+    pub Sizeofstruct: u32,
+    pub FileObject: u64,
+    pub OwnerThread: u64,
+    pub WaitIrp: u64,
+    pub DeviceObject: u64,
+    pub BlockingDirver: [i8; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXT_HANDLE_INFORMATION {
+    pub HandleTableEntry: u64,
+    pub Handle: u64,
+    pub Object: u64,
+    pub ObjectBody: u64,
+    pub GrantedAccess: u64,
+    pub HandleAttributes: u32,
+    pub PagedOut: super::super::super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXT_PROCESS_FIND_PARAMS {
+    pub SizeofStruct: u32,
+    pub Pid: u32,
+    pub Session: u32,
+    pub ImageName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KDEXT_THREAD_FIND_PARAMS {
+    pub SizeofStruct: u32,
+    pub StackPointer: u64,
+    pub Cid: u32,
+    pub Thread: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Location {
+    pub HostDefined: u64,
+    pub Offset: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OS_INFO {
+    pub MajorVer: u32,
+    pub MinorVer: u32,
+    pub Build: u32,
+    pub BuildQfe: u32,
+    pub ProductType: u32,
+    pub Suite: u32,
+    pub Revision: u32,
+    pub s: OS_INFO_0,
+    pub SrvPackNumber: u32,
+    pub ServicePackBuild: u32,
+    pub Architecture: u32,
+    pub Lcid: u32,
+    pub Name: [i8; 64],
+    pub FullName: [i8; 256],
+    pub Language: [i8; 30],
+    pub BuildVersion: [i8; 64],
+    pub ServicePackString: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OS_INFO_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OS_INFO_v1 {
+    pub Type: OS_TYPE,
+    pub Anonymous: OS_INFO_v1_0,
+    pub ProductType: u32,
+    pub Suite: u32,
+    pub s: OS_INFO_v1_1,
+    pub SrvPackNumber: u32,
+    pub Language: [i8; 30],
+    pub OsString: [i8; 64],
+    pub ServicePackString: [i8; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union OS_INFO_v1_0 {
+    pub Version: OS_INFO_v1_0_0,
+    pub Ver64: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OS_INFO_v1_0_0 {
+    pub Major: u32,
+    pub Minor: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OS_INFO_v1_1 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL {
+    pub Address: u64,
+    pub BufLen: u32,
+    pub Buf: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL_TO_VIRTUAL {
+    pub Status: u32,
+    pub Size: u32,
+    pub PdeAddress: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL_WITH_FLAGS {
+    pub Address: u64,
+    pub BufLen: u32,
+    pub Flags: u32,
+    pub Buf: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POINTER_SEARCH_PHYSICAL {
+    pub Offset: u64,
+    pub Length: u64,
+    pub PointerMin: u64,
+    pub PointerMax: u64,
+    pub Flags: u32,
+    pub MatchOffsets: *mut u64,
+    pub MatchOffsetsSize: u32,
+    pub MatchOffsetsCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESSORINFO {
+    pub Processor: u16,
+    pub NumberProcessors: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_COMMIT_USAGE {
+    pub ImageFileName: [u8; 16],
+    pub ClientId: u64,
+    pub ProcessAddress: u64,
+    pub CommitCharge: u64,
+    pub SharedCommitCharge: u64,
+    pub ReleasedCommitDebt: u64,
+    pub Reserved: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROCESS_NAME_ENTRY {
+    pub ProcessId: u32,
+    pub NameOffset: u32,
+    pub NameSize: u32,
+    pub NextEntry: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READCONTROLSPACE {
+    pub Processor: u16,
+    pub Address: u32,
+    pub BufLen: u32,
+    pub Buf: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READCONTROLSPACE32 {
+    pub Processor: u16,
+    pub Address: u32,
+    pub BufLen: u32,
+    pub Buf: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READCONTROLSPACE64 {
+    pub Processor: u16,
+    pub Address: u64,
+    pub BufLen: u32,
+    pub Buf: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READ_WRITE_MSR {
+    pub Msr: u32,
+    pub Value: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEARCHMEMORY {
+    pub SearchAddress: u64,
+    pub SearchLength: u64,
+    pub FoundAddress: u64,
+    pub PatternLength: u32,
+    pub Pattern: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STACK_SRC_INFO {
+    pub ImagePath: windows_sys::core::PCWSTR,
+    pub ModuleName: windows_sys::core::PCWSTR,
+    pub Function: windows_sys::core::PCWSTR,
+    pub Displacement: u32,
+    pub Row: u32,
+    pub Column: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STACK_SYM_FRAME_INFO {
+    pub StackFrameEx: DEBUG_STACK_FRAME_EX,
+    pub SrcInfo: STACK_SRC_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYMBOL_INFO_EX {
+    pub SizeOfStruct: u32,
+    pub TypeOfInfo: u32,
+    pub Offset: u64,
+    pub Line: u32,
+    pub Displacement: u32,
+    pub Reserved: [u32; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYM_DUMP_PARAM {
+    pub size: u32,
+    pub sName: *mut u8,
+    pub Options: u32,
+    pub addr: u64,
+    pub listLink: *mut FIELD_INFO,
+    pub Anonymous: SYM_DUMP_PARAM_0,
+    pub CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
+    pub nFields: u32,
+    pub Fields: *mut FIELD_INFO,
+    pub ModBase: u64,
+    pub TypeId: u32,
+    pub TypeSize: u32,
+    pub BufferSize: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SYM_DUMP_PARAM_0 {
+    pub Context: *mut core::ffi::c_void,
+    pub pBuffer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ScriptDebugEventInformation {
+    pub DebugEvent: ScriptDebugEvent,
+    pub EventPosition: ScriptDebugPosition,
+    pub EventSpanEnd: ScriptDebugPosition,
+    pub u: ScriptDebugEventInformation_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ScriptDebugEventInformation_0 {
+    pub ExceptionInformation: ScriptDebugEventInformation_0_0,
+    pub BreakpointInformation: ScriptDebugEventInformation_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ScriptDebugEventInformation_0_1 {
+    pub BreakpointId: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ScriptDebugEventInformation_0_0 {
+    pub IsUncaught: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ScriptDebugPosition {
+    pub Line: u32,
+    pub Column: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TARGET_DEBUG_INFO {
+    pub SizeOfStruct: u32,
+    pub EntryDate: u64,
+    pub DebugeeClass: u32,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub OsInfo: OS_INFO,
+    pub Cpu: CPU_INFO,
+    pub DumpFile: [i8; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TARGET_DEBUG_INFO_v1 {
+    pub SizeOfStruct: u32,
+    pub Id: u64,
+    pub Source: u64,
+    pub EntryDate: u64,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub Mode: u64,
+    pub OsInfo: OS_INFO_v1,
+    pub Cpu: CPU_INFO_v1,
+    pub DumpFile: [i8; 260],
+    pub FailureData: *mut core::ffi::c_void,
+    pub StackTr: [i8; 4096],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TARGET_DEBUG_INFO_v2 {
+    pub SizeOfStruct: u32,
+    pub EntryDate: u64,
+    pub DebugeeClass: u32,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub OsInfo: OS_INFO,
+    pub Cpu: CPU_INFO_v2,
+    pub DumpFile: [i8; 260],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
+    pub Virtual: u64,
+    pub Physical: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VIRTUAL_TO_PHYSICAL {
+    pub Status: u32,
+    pub Size: u32,
+    pub PdeAddress: u64,
+    pub Virtual: u64,
+    pub Physical: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDBGEXTS_CLR_DATA_INTERFACE {
+    pub Iid: *const windows_sys::core::GUID,
+    pub Iface: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
+    pub InOffset: u64,
+    pub OutOffset: u64,
+    pub AddrFlags: u32,
+    pub FormatFlags: u32,
+    pub DataBufferBytes: u32,
+    pub DisasmBufferChars: u32,
+    pub DataBuffer: *mut core::ffi::c_void,
+    pub DisasmBuffer: windows_sys::core::PWSTR,
+    pub Reserved0: [u64; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDBGEXTS_MODULE_IN_RANGE {
+    pub Start: u64,
+    pub End: u64,
+    pub FoundModBase: u64,
+    pub FoundModSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDBGEXTS_QUERY_INTERFACE {
+    pub Iid: *const windows_sys::core::GUID,
+    pub Iface: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WDBGEXTS_THREAD_OS_INFO {
+    pub ThreadId: u32,
+    pub ExitStatus: u32,
+    pub PriorityClass: u32,
+    pub Priority: u32,
+    pub CreateTime: u64,
+    pub ExitTime: u64,
+    pub KernelTime: u64,
+    pub UserTime: u64,
+    pub StartOffset: u64,
+    pub Affinity: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct WINDBG_EXTENSION_APIS {
+    pub nSize: u32,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct WINDBG_EXTENSION_APIS32 {
+    pub nSize: u32,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct WINDBG_EXTENSION_APIS64 {
+    pub nSize: u32,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
+    pub lpDisasmRoutine: PWINDBG_DISASM64,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDBG_OLDKD_EXTENSION_APIS {
+    pub nSize: u32,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
+    pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDBG_OLD_EXTENSION_APIS {
+    pub nSize: u32,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XML_DRIVER_NODE_INFO {
+    pub FileName: [i8; 64],
+    pub FileSize: u64,
+    pub CreationDate: u64,
+    pub Version: [i8; 64],
+    pub Manufacturer: [i8; 260],
+    pub ProductName: [i8; 260],
+    pub Group: [i8; 260],
+    pub Altitude: [i8; 260],
+}
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub const Ambiguous: SignatureComparison = 1i32;
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
@@ -1904,1807 +3708,3 @@ pub const WIN_NT6_0: OS_TYPE = 7i32;
 pub const WIN_NT6_1: OS_TYPE = 8i32;
 pub const WIN_UNDEFINED: OS_TYPE = 255i32;
 pub const _EXTSAPI_VER_: u32 = 10u32;
-pub type CallingConventionKind = i32;
-pub type DBGKD_MAJOR_TYPES = i32;
-pub type DEBUG_FAILURE_TYPE = i32;
-pub type DEBUG_FLR_PARAM_TYPE = i32;
-pub type DEBUG_POOL_REGION = i32;
-pub type EXT_TDOP = i32;
-pub type ErrorClass = i32;
-pub type FA_ENTRY_TYPE = i32;
-pub type FA_EXTENSION_PLUGIN_PHASE = i32;
-pub type IntrinsicKind = i32;
-pub type LanguageKind = i32;
-pub type LocationKind = i32;
-pub type ModelObjectKind = i32;
-pub type OS_TYPE = i32;
-pub type PointerKind = i32;
-pub type PreferredFormat = i32;
-pub type RawSearchFlags = i32;
-pub type ScriptChangeKind = i32;
-pub type ScriptDebugEvent = i32;
-pub type ScriptDebugEventFilter = i32;
-pub type ScriptDebugState = i32;
-pub type ScriptExecutionKind = i32;
-pub type SignatureComparison = i32;
-pub type SymbolKind = i32;
-pub type SymbolSearchOptions = i32;
-pub type TANALYZE_RETURN = i32;
-pub type TypeKind = i32;
-pub type VarArgsKind = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ArrayDimension {
-    pub LowerBound: i64,
-    pub Length: u64,
-    pub Stride: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BUSDATA {
-    pub BusDataType: u32,
-    pub BusNumber: u32,
-    pub SlotNumber: u32,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Offset: u32,
-    pub Length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CKCL_DATA {
-    pub NextLogEvent: *mut core::ffi::c_void,
-    pub TAnalyzeString: windows_sys::core::PSTR,
-    pub TAnalyzeReturnType: TANALYZE_RETURN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CKCL_LISTHEAD {
-    pub LogEventListHead: *mut CKCL_DATA,
-    pub Heap: super::super::super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CPU_INFO {
-    pub Type: u32,
-    pub NumCPUs: u32,
-    pub CurrentProc: u32,
-    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 2048],
-    pub Mhz: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CPU_INFO_v1 {
-    pub Type: u32,
-    pub NumCPUs: u32,
-    pub CurrentProc: u32,
-    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 32],
-    pub Mhz: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CPU_INFO_v2 {
-    pub Type: u32,
-    pub NumCPUs: u32,
-    pub CurrentProc: u32,
-    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 1280],
-    pub Mhz: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct DBGKD_DEBUG_DATA_HEADER32 {
-    pub List: super::super::super::Kernel::LIST_ENTRY32,
-    pub OwnerTag: u32,
-    pub Size: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct DBGKD_DEBUG_DATA_HEADER64 {
-    pub List: super::super::super::Kernel::LIST_ENTRY64,
-    pub OwnerTag: u32,
-    pub Size: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DBGKD_GET_VERSION32 {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub ProtocolVersion: u16,
-    pub Flags: u16,
-    pub KernBase: u32,
-    pub PsLoadedModuleList: u32,
-    pub MachineType: u16,
-    pub ThCallbackStack: u16,
-    pub NextCallback: u16,
-    pub FramePointer: u16,
-    pub KiCallUserMode: u32,
-    pub KeUserCallbackDispatcher: u32,
-    pub BreakpointWithStatus: u32,
-    pub DebuggerDataList: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DBGKD_GET_VERSION64 {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub ProtocolVersion: u8,
-    pub KdSecondaryVersion: u8,
-    pub Flags: u16,
-    pub MachineType: u16,
-    pub MaxPacketType: u8,
-    pub MaxStateChange: u8,
-    pub MaxManipulate: u8,
-    pub Simulation: u8,
-    pub Unused: [u16; 1],
-    pub KernBase: u64,
-    pub PsLoadedModuleList: u64,
-    pub DebuggerDataList: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DBG_THREAD_ATTRIBUTES {
-    pub ThreadIndex: u32,
-    pub ProcessID: u64,
-    pub ThreadID: u64,
-    pub AttributeBits: u64,
-    pub BoolBits: u32,
-    pub BlockedOnPID: u64,
-    pub BlockedOnTID: u64,
-    pub CritSecAddress: u64,
-    pub Timeout_msec: u32,
-    pub StringData: [i8; 100],
-    pub SymName: [i8; 100],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
-    pub SizeOfStruct: u32,
-    pub Model: u32,
-    pub Family: u32,
-    pub Stepping: u32,
-    pub Architecture: u32,
-    pub Revision: u32,
-    pub CurrentClockSpeed: u32,
-    pub CurrentVoltage: u32,
-    pub MaxClockSpeed: u32,
-    pub ProcessorType: u32,
-    pub DeviceID: [i8; 32],
-    pub Manufacturer: [i8; 64],
-    pub Name: [i8; 64],
-    pub Version: [i8; 64],
-    pub Description: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_BREAKPOINT_PARAMETERS {
-    pub Offset: u64,
-    pub Id: u32,
-    pub BreakType: u32,
-    pub ProcType: u32,
-    pub Flags: u32,
-    pub DataSize: u32,
-    pub DataAccessType: u32,
-    pub PassCount: u32,
-    pub CurrentPassCount: u32,
-    pub MatchThread: u32,
-    pub CommandSize: u32,
-    pub OffsetExpressionSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_CACHED_SYMBOL_INFO {
-    pub ModBase: u64,
-    pub Arg1: u64,
-    pub Arg2: u64,
-    pub Id: u32,
-    pub Arg3: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_CLIENT_CONTEXT {
-    pub cbSize: u32,
-    pub eClient: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_CPU_MICROCODE_VERSION {
-    pub SizeOfStruct: u32,
-    pub CachedSignature: i64,
-    pub InitialSignature: i64,
-    pub ProcessorModel: u32,
-    pub ProcessorFamily: u32,
-    pub ProcessorStepping: u32,
-    pub ProcessorArchRev: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_CPU_SPEED_INFO {
-    pub SizeOfStruct: u32,
-    pub CurrentSpeed: u32,
-    pub RatedSpeed: u32,
-    pub NameString: [u16; 256],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_CREATE_PROCESS_OPTIONS {
-    pub CreateFlags: u32,
-    pub EngCreateFlags: u32,
-    pub VerifierFlags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_DECODE_ERROR {
-    pub SizeOfStruct: u32,
-    pub Code: u32,
-    pub TreatAsStatus: super::super::super::super::Foundation::BOOL,
-    pub Source: [i8; 64],
-    pub Message: [i8; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_DEVICE_OBJECT_INFO {
-    pub SizeOfStruct: u32,
-    pub DevObjAddress: u64,
-    pub ReferenceCount: u32,
-    pub QBusy: super::super::super::super::Foundation::BOOL,
-    pub DriverObject: u64,
-    pub CurrentIrp: u64,
-    pub DevExtension: u64,
-    pub DevObjExtension: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_DRIVER_OBJECT_INFO {
-    pub SizeOfStruct: u32,
-    pub DriverSize: u32,
-    pub DriverObjAddress: u64,
-    pub DriverStart: u64,
-    pub DriverExtension: u64,
-    pub DeviceObject: u64,
-    pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_EVENT_CONTEXT {
-    pub Size: u32,
-    pub ProcessEngineId: u32,
-    pub ThreadEngineId: u32,
-    pub FrameEngineId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
-    pub ExecutionOption: u32,
-    pub ContinueOption: u32,
-    pub TextSize: u32,
-    pub CommandSize: u32,
-    pub SecondCommandSize: u32,
-    pub ExceptionCode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
-    pub Flags: u32,
-    pub MatchCountLimit: u32,
-    pub Reserved: [u64; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
-    pub Flags: u32,
-    pub ReplaceIndex: u32,
-    pub MatchCount: u32,
-    pub Reserved1: u32,
-    pub Reserved2: [u64; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_HANDLE_DATA_BASIC {
-    pub TypeNameSize: u32,
-    pub ObjectNameSize: u32,
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_IRP_INFO {
-    pub SizeOfStruct: u32,
-    pub IrpAddress: u64,
-    pub IoStatus: u32,
-    pub StackCount: u32,
-    pub CurrentLocation: u32,
-    pub MdlAddress: u64,
-    pub Thread: u64,
-    pub CancelRoutine: u64,
-    pub CurrentStack: DEBUG_IRP_STACK_INFO,
-    pub Stack: [DEBUG_IRP_STACK_INFO; 10],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_IRP_STACK_INFO {
-    pub Major: u8,
-    pub Minor: u8,
-    pub DeviceObject: u64,
-    pub FileObject: u64,
-    pub CompletionRoutine: u64,
-    pub StackAddress: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    pub Id: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
-    pub ExceptionRecord: super::EXCEPTION_RECORD64,
-    pub FirstChance: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    pub ExitCode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    pub ExitCode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    pub Base: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    pub Kind: u32,
-    pub DataSize: u32,
-    pub Address: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    pub Error: u32,
-    pub Level: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    pub Base: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_MODULE_AND_ID {
-    pub ModuleBase: u64,
-    pub Id: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_MODULE_PARAMETERS {
-    pub Base: u64,
-    pub Size: u32,
-    pub TimeDateStamp: u32,
-    pub Checksum: u32,
-    pub Flags: u32,
-    pub SymbolType: u32,
-    pub ImageNameSize: u32,
-    pub ModuleNameSize: u32,
-    pub LoadedImageNameSize: u32,
-    pub SymbolFileNameSize: u32,
-    pub MappedImageNameSize: u32,
-    pub Reserved: [u64; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_OFFSET_REGION {
-    pub Base: u64,
-    pub Size: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PNP_TRIAGE_INFO {
-    pub SizeOfStruct: u32,
-    pub Lock_Address: u64,
-    pub Lock_ActiveCount: i32,
-    pub Lock_ContentionCount: u32,
-    pub Lock_NumberOfExclusiveWaiters: u32,
-    pub Lock_NumberOfSharedWaiters: u32,
-    pub Lock_Flag: u16,
-    pub TriagedThread: u64,
-    pub ThreadCount: i32,
-    pub TriagedThread_WaitTime: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_POOLTAG_DESCRIPTION {
-    pub SizeOfStruct: u32,
-    pub PoolTag: u32,
-    pub Description: [i8; 260],
-    pub Binary: [i8; 32],
-    pub Owner: [i8; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_POOL_DATA {
-    pub SizeofStruct: u32,
-    pub PoolBlock: u64,
-    pub Pool: u64,
-    pub PreviousSize: u32,
-    pub Size: u32,
-    pub PoolTag: u32,
-    pub ProcessBilled: u64,
-    pub Anonymous: DEBUG_POOL_DATA_0,
-    pub Reserved2: [u64; 4],
-    pub PoolTagDescription: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DEBUG_POOL_DATA_0 {
-    pub Anonymous: DEBUG_POOL_DATA_0_0,
-    pub AsUlong: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_POOL_DATA_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
-    pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
-    pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
-    pub Ia64: DEBUG_PROCESSOR_IDENTIFICATION_IA64,
-    pub X86: DEBUG_PROCESSOR_IDENTIFICATION_X86,
-    pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
-    pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    pub Type: u32,
-    pub Revision: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    pub Family: u32,
-    pub Model: u32,
-    pub Stepping: u32,
-    pub VendorString: [i8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    pub Model: u32,
-    pub Revision: u32,
-    pub VendorString: [i8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    pub Model: u32,
-    pub Revision: u32,
-    pub VendorString: [i8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    pub Model: u32,
-    pub Revision: u32,
-    pub Family: u32,
-    pub ArchRev: u32,
-    pub VendorString: [i8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    pub Family: u32,
-    pub Model: u32,
-    pub Stepping: u32,
-    pub VendorString: [i8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
-    pub StreamType: u32,
-    pub Flags: u32,
-    pub Offset: u64,
-    pub Buffer: *mut core::ffi::c_void,
-    pub BufferSize: u32,
-    pub BufferUsed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_REGISTER_DESCRIPTION {
-    pub Type: u32,
-    pub Flags: u32,
-    pub SubregMaster: u32,
-    pub SubregLength: u32,
-    pub SubregMask: u64,
-    pub SubregShift: u32,
-    pub Reserved0: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_SMBIOS_INFO {
-    pub SizeOfStruct: u32,
-    pub SmbiosMajorVersion: u8,
-    pub SmbiosMinorVersion: u8,
-    pub DMIVersion: u8,
-    pub TableSize: u32,
-    pub BiosMajorRelease: u8,
-    pub BiosMinorRelease: u8,
-    pub FirmwareMajorRelease: u8,
-    pub FirmwareMinorRelease: u8,
-    pub BaseBoardManufacturer: [i8; 64],
-    pub BaseBoardProduct: [i8; 64],
-    pub BaseBoardVersion: [i8; 64],
-    pub BiosReleaseDate: [i8; 64],
-    pub BiosVendor: [i8; 64],
-    pub BiosVersion: [i8; 64],
-    pub SystemFamily: [i8; 64],
-    pub SystemManufacturer: [i8; 64],
-    pub SystemProductName: [i8; 64],
-    pub SystemSKU: [i8; 64],
-    pub SystemVersion: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
-    pub ExecutionOption: u32,
-    pub ContinueOption: u32,
-    pub TextSize: u32,
-    pub CommandSize: u32,
-    pub ArgumentSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_STACK_FRAME {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-    pub FuncTableEntry: u64,
-    pub Params: [u64; 4],
-    pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
-    pub FrameNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_STACK_FRAME_EX {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-    pub FuncTableEntry: u64,
-    pub Params: [u64; 4],
-    pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
-    pub FrameNumber: u32,
-    pub InlineFrameContext: u32,
-    pub Reserved1: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_SYMBOL_ENTRY {
-    pub ModuleBase: u64,
-    pub Offset: u64,
-    pub Id: u64,
-    pub Arg64: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub TypeId: u32,
-    pub NameSize: u32,
-    pub Token: u32,
-    pub Tag: u32,
-    pub Arg32: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_SYMBOL_PARAMETERS {
-    pub Module: u64,
-    pub TypeId: u32,
-    pub ParentSymbol: u32,
-    pub SubElements: u32,
-    pub Flags: u32,
-    pub Reserved: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
-    pub ModuleBase: u64,
-    pub Offset: u64,
-    pub FileNameId: u64,
-    pub EngineInternal: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub FileNameSize: u32,
-    pub StartLine: u32,
-    pub EndLine: u32,
-    pub StartColumn: u32,
-    pub EndColumn: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_THREAD_BASIC_INFORMATION {
-    pub Valid: u32,
-    pub ExitStatus: u32,
-    pub PriorityClass: u32,
-    pub Priority: u32,
-    pub CreateTime: u64,
-    pub ExitTime: u64,
-    pub KernelTime: u64,
-    pub UserTime: u64,
-    pub StartOffset: u64,
-    pub Affinity: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
-    pub SizeOfStruct: u32,
-    pub OwnerNameSize: u32,
-    pub OwnerName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
-    pub SizeOfStruct: u32,
-    pub OwnerNameSize: u32,
-    pub OwnerName: windows_sys::core::PSTR,
-    pub FeaturePathSize: u32,
-    pub FeaturePath: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_TYPED_DATA {
-    pub ModBase: u64,
-    pub Offset: u64,
-    pub EngineHandle: u64,
-    pub Data: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub TypeId: u32,
-    pub BaseTypeId: u32,
-    pub Tag: u32,
-    pub Register: u32,
-    pub Internal: [u64; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_VALUE {
-    pub Anonymous: DEBUG_VALUE_0,
-    pub TailOfRawBytes: u32,
-    pub Type: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DEBUG_VALUE_0 {
-    pub I8: u8,
-    pub I16: u16,
-    pub I32: u32,
-    pub Anonymous: DEBUG_VALUE_0_0,
-    pub F32: f32,
-    pub F64: f64,
-    pub F80Bytes: [u8; 10],
-    pub F82Bytes: [u8; 11],
-    pub F128Bytes: [u8; 16],
-    pub VI8: [u8; 16],
-    pub VI16: [u16; 8],
-    pub VI32: [u32; 4],
-    pub VI64: [u64; 2],
-    pub VF32: [f32; 4],
-    pub VF64: [f64; 2],
-    pub I64Parts32: DEBUG_VALUE_0_1,
-    pub F128Parts64: DEBUG_VALUE_0_2,
-    pub RawBytes: [u8; 24],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_VALUE_0_0 {
-    pub I64: u64,
-    pub Nat: super::super::super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_VALUE_0_2 {
-    pub LowPart: u64,
-    pub HighPart: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEBUG_VALUE_0_1 {
-    pub LowPart: u32,
-    pub HighPart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTSTACKTRACE {
-    pub FramePointer: u32,
-    pub ProgramCounter: u32,
-    pub ReturnAddress: u32,
-    pub Args: [u32; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTSTACKTRACE32 {
-    pub FramePointer: u32,
-    pub ProgramCounter: u32,
-    pub ReturnAddress: u32,
-    pub Args: [u32; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXTSTACKTRACE64 {
-    pub FramePointer: u64,
-    pub ProgramCounter: u64,
-    pub ReturnAddress: u64,
-    pub Args: [u64; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_API_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub Revision: u16,
-    pub Reserved: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_CAB_XML_DATA {
-    pub SizeOfStruct: u32,
-    pub XmlObjectTag: windows_sys::core::PCWSTR,
-    pub NumSubTags: u32,
-    pub SubTags: [EXT_CAB_XML_DATA_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_CAB_XML_DATA_0 {
-    pub SubTag: windows_sys::core::PCWSTR,
-    pub MatchPattern: windows_sys::core::PCWSTR,
-    pub ReturnText: windows_sys::core::PWSTR,
-    pub ReturnTextSize: u32,
-    pub _bitfield: u32,
-    pub Reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_FIND_FILE {
-    pub FileName: windows_sys::core::PCWSTR,
-    pub IndexedSize: u64,
-    pub ImageTimeDateStamp: u32,
-    pub ImageCheckSum: u32,
-    pub ExtraInfo: *mut core::ffi::c_void,
-    pub ExtraInfoSize: u32,
-    pub Flags: u32,
-    pub FileMapping: *mut core::ffi::c_void,
-    pub FileMappingSize: u64,
-    pub FileHandle: super::super::super::super::Foundation::HANDLE,
-    pub FoundFileName: windows_sys::core::PWSTR,
-    pub FoundFileNameChars: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_MATCH_PATTERN_A {
-    pub Str: windows_sys::core::PCSTR,
-    pub Pattern: windows_sys::core::PCSTR,
-    pub CaseSensitive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXT_TYPED_DATA {
-    pub Operation: EXT_TDOP,
-    pub Flags: u32,
-    pub InData: DEBUG_TYPED_DATA,
-    pub OutData: DEBUG_TYPED_DATA,
-    pub InStrIndex: u32,
-    pub In32: u32,
-    pub Out32: u32,
-    pub In64: u64,
-    pub Out64: u64,
-    pub StrBufferIndex: u32,
-    pub StrBufferChars: u32,
-    pub StrCharsNeeded: u32,
-    pub DataBufferIndex: u32,
-    pub DataBufferBytes: u32,
-    pub DataBytesNeeded: u32,
-    pub Status: windows_sys::core::HRESULT,
-    pub Reserved: [u64; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FA_ENTRY {
-    pub Tag: DEBUG_FLR_PARAM_TYPE,
-    pub FullSize: u16,
-    pub DataSize: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FIELD_INFO {
-    pub fName: *mut u8,
-    pub printName: *mut u8,
-    pub size: u32,
-    pub fOptions: u32,
-    pub address: u64,
-    pub Anonymous: FIELD_INFO_0,
-    pub TypeId: u32,
-    pub FieldOffset: u32,
-    pub BufferSize: u32,
-    pub BitField: FIELD_INFO_1,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FIELD_INFO_0 {
-    pub fieldCallBack: *mut core::ffi::c_void,
-    pub pBuffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FIELD_INFO_1 {
-    pub Position: u16,
-    pub Size: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_CONTEXT_EX {
-    pub Status: u32,
-    pub ContextSize: u32,
-    pub pContext: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_CURRENT_PROCESS_ADDRESS {
-    pub Processor: u32,
-    pub CurrentThread: u64,
-    pub Address: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_CURRENT_THREAD_ADDRESS {
-    pub Processor: u32,
-    pub Address: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_EXPRESSION_EX {
-    pub Expression: windows_sys::core::PCSTR,
-    pub Remainder: windows_sys::core::PCSTR,
-    pub Value: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_INPUT_LINE {
-    pub Prompt: windows_sys::core::PCSTR,
-    pub Buffer: windows_sys::core::PSTR,
-    pub BufferSize: u32,
-    pub InputSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_PEB_ADDRESS {
-    pub CurrentThread: u64,
-    pub Address: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_SET_SYMPATH {
-    pub Args: windows_sys::core::PCSTR,
-    pub Result: windows_sys::core::PSTR,
-    pub Length: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_TEB_ADDRESS {
-    pub Address: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union INLINE_FRAME_CONTEXT {
-    pub ContextValue: u32,
-    pub Anonymous: INLINE_FRAME_CONTEXT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INLINE_FRAME_CONTEXT_0 {
-    pub FrameId: u8,
-    pub FrameType: u8,
-    pub FrameSignature: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE {
-    pub Address: u32,
-    pub Length: u32,
-    pub Data: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE32 {
-    pub Address: u32,
-    pub Length: u32,
-    pub Data: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE64 {
-    pub Address: u64,
-    pub Length: u32,
-    pub Data: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE_EX {
-    pub Address: u32,
-    pub Length: u32,
-    pub Data: u32,
-    pub InterfaceType: u32,
-    pub BusNumber: u32,
-    pub AddressSpace: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE_EX32 {
-    pub Address: u32,
-    pub Length: u32,
-    pub Data: u32,
-    pub InterfaceType: u32,
-    pub BusNumber: u32,
-    pub AddressSpace: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IOSPACE_EX64 {
-    pub Address: u64,
-    pub Length: u32,
-    pub Data: u32,
-    pub InterfaceType: u32,
-    pub BusNumber: u32,
-    pub AddressSpace: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct KDDEBUGGER_DATA32 {
-    pub Header: DBGKD_DEBUG_DATA_HEADER32,
-    pub KernBase: u32,
-    pub BreakpointWithStatus: u32,
-    pub SavedContext: u32,
-    pub ThCallbackStack: u16,
-    pub NextCallback: u16,
-    pub FramePointer: u16,
-    pub _bitfield: u16,
-    pub KiCallUserMode: u32,
-    pub KeUserCallbackDispatcher: u32,
-    pub PsLoadedModuleList: u32,
-    pub PsActiveProcessHead: u32,
-    pub PspCidTable: u32,
-    pub ExpSystemResourcesList: u32,
-    pub ExpPagedPoolDescriptor: u32,
-    pub ExpNumberOfPagedPools: u32,
-    pub KeTimeIncrement: u32,
-    pub KeBugCheckCallbackListHead: u32,
-    pub KiBugcheckData: u32,
-    pub IopErrorLogListHead: u32,
-    pub ObpRootDirectoryObject: u32,
-    pub ObpTypeObjectType: u32,
-    pub MmSystemCacheStart: u32,
-    pub MmSystemCacheEnd: u32,
-    pub MmSystemCacheWs: u32,
-    pub MmPfnDatabase: u32,
-    pub MmSystemPtesStart: u32,
-    pub MmSystemPtesEnd: u32,
-    pub MmSubsectionBase: u32,
-    pub MmNumberOfPagingFiles: u32,
-    pub MmLowestPhysicalPage: u32,
-    pub MmHighestPhysicalPage: u32,
-    pub MmNumberOfPhysicalPages: u32,
-    pub MmMaximumNonPagedPoolInBytes: u32,
-    pub MmNonPagedSystemStart: u32,
-    pub MmNonPagedPoolStart: u32,
-    pub MmNonPagedPoolEnd: u32,
-    pub MmPagedPoolStart: u32,
-    pub MmPagedPoolEnd: u32,
-    pub MmPagedPoolInformation: u32,
-    pub MmPageSize: u32,
-    pub MmSizeOfPagedPoolInBytes: u32,
-    pub MmTotalCommitLimit: u32,
-    pub MmTotalCommittedPages: u32,
-    pub MmSharedCommit: u32,
-    pub MmDriverCommit: u32,
-    pub MmProcessCommit: u32,
-    pub MmPagedPoolCommit: u32,
-    pub MmExtendedCommit: u32,
-    pub MmZeroedPageListHead: u32,
-    pub MmFreePageListHead: u32,
-    pub MmStandbyPageListHead: u32,
-    pub MmModifiedPageListHead: u32,
-    pub MmModifiedNoWritePageListHead: u32,
-    pub MmAvailablePages: u32,
-    pub MmResidentAvailablePages: u32,
-    pub PoolTrackTable: u32,
-    pub NonPagedPoolDescriptor: u32,
-    pub MmHighestUserAddress: u32,
-    pub MmSystemRangeStart: u32,
-    pub MmUserProbeAddress: u32,
-    pub KdPrintCircularBuffer: u32,
-    pub KdPrintCircularBufferEnd: u32,
-    pub KdPrintWritePointer: u32,
-    pub KdPrintRolloverCount: u32,
-    pub MmLoadedUserImageList: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct KDDEBUGGER_DATA64 {
-    pub Header: DBGKD_DEBUG_DATA_HEADER64,
-    pub KernBase: u64,
-    pub BreakpointWithStatus: u64,
-    pub SavedContext: u64,
-    pub ThCallbackStack: u16,
-    pub NextCallback: u16,
-    pub FramePointer: u16,
-    pub _bitfield: u16,
-    pub KiCallUserMode: u64,
-    pub KeUserCallbackDispatcher: u64,
-    pub PsLoadedModuleList: u64,
-    pub PsActiveProcessHead: u64,
-    pub PspCidTable: u64,
-    pub ExpSystemResourcesList: u64,
-    pub ExpPagedPoolDescriptor: u64,
-    pub ExpNumberOfPagedPools: u64,
-    pub KeTimeIncrement: u64,
-    pub KeBugCheckCallbackListHead: u64,
-    pub KiBugcheckData: u64,
-    pub IopErrorLogListHead: u64,
-    pub ObpRootDirectoryObject: u64,
-    pub ObpTypeObjectType: u64,
-    pub MmSystemCacheStart: u64,
-    pub MmSystemCacheEnd: u64,
-    pub MmSystemCacheWs: u64,
-    pub MmPfnDatabase: u64,
-    pub MmSystemPtesStart: u64,
-    pub MmSystemPtesEnd: u64,
-    pub MmSubsectionBase: u64,
-    pub MmNumberOfPagingFiles: u64,
-    pub MmLowestPhysicalPage: u64,
-    pub MmHighestPhysicalPage: u64,
-    pub MmNumberOfPhysicalPages: u64,
-    pub MmMaximumNonPagedPoolInBytes: u64,
-    pub MmNonPagedSystemStart: u64,
-    pub MmNonPagedPoolStart: u64,
-    pub MmNonPagedPoolEnd: u64,
-    pub MmPagedPoolStart: u64,
-    pub MmPagedPoolEnd: u64,
-    pub MmPagedPoolInformation: u64,
-    pub MmPageSize: u64,
-    pub MmSizeOfPagedPoolInBytes: u64,
-    pub MmTotalCommitLimit: u64,
-    pub MmTotalCommittedPages: u64,
-    pub MmSharedCommit: u64,
-    pub MmDriverCommit: u64,
-    pub MmProcessCommit: u64,
-    pub MmPagedPoolCommit: u64,
-    pub MmExtendedCommit: u64,
-    pub MmZeroedPageListHead: u64,
-    pub MmFreePageListHead: u64,
-    pub MmStandbyPageListHead: u64,
-    pub MmModifiedPageListHead: u64,
-    pub MmModifiedNoWritePageListHead: u64,
-    pub MmAvailablePages: u64,
-    pub MmResidentAvailablePages: u64,
-    pub PoolTrackTable: u64,
-    pub NonPagedPoolDescriptor: u64,
-    pub MmHighestUserAddress: u64,
-    pub MmSystemRangeStart: u64,
-    pub MmUserProbeAddress: u64,
-    pub KdPrintCircularBuffer: u64,
-    pub KdPrintCircularBufferEnd: u64,
-    pub KdPrintWritePointer: u64,
-    pub KdPrintRolloverCount: u64,
-    pub MmLoadedUserImageList: u64,
-    pub NtBuildLab: u64,
-    pub KiNormalSystemCall: u64,
-    pub KiProcessorBlock: u64,
-    pub MmUnloadedDrivers: u64,
-    pub MmLastUnloadedDriver: u64,
-    pub MmTriageActionTaken: u64,
-    pub MmSpecialPoolTag: u64,
-    pub KernelVerifier: u64,
-    pub MmVerifierData: u64,
-    pub MmAllocatedNonPagedPool: u64,
-    pub MmPeakCommitment: u64,
-    pub MmTotalCommitLimitMaximum: u64,
-    pub CmNtCSDVersion: u64,
-    pub MmPhysicalMemoryBlock: u64,
-    pub MmSessionBase: u64,
-    pub MmSessionSize: u64,
-    pub MmSystemParentTablePage: u64,
-    pub MmVirtualTranslationBase: u64,
-    pub OffsetKThreadNextProcessor: u16,
-    pub OffsetKThreadTeb: u16,
-    pub OffsetKThreadKernelStack: u16,
-    pub OffsetKThreadInitialStack: u16,
-    pub OffsetKThreadApcProcess: u16,
-    pub OffsetKThreadState: u16,
-    pub OffsetKThreadBStore: u16,
-    pub OffsetKThreadBStoreLimit: u16,
-    pub SizeEProcess: u16,
-    pub OffsetEprocessPeb: u16,
-    pub OffsetEprocessParentCID: u16,
-    pub OffsetEprocessDirectoryTableBase: u16,
-    pub SizePrcb: u16,
-    pub OffsetPrcbDpcRoutine: u16,
-    pub OffsetPrcbCurrentThread: u16,
-    pub OffsetPrcbMhz: u16,
-    pub OffsetPrcbCpuType: u16,
-    pub OffsetPrcbVendorString: u16,
-    pub OffsetPrcbProcStateContext: u16,
-    pub OffsetPrcbNumber: u16,
-    pub SizeEThread: u16,
-    pub L1tfHighPhysicalBitIndex: u8,
-    pub L1tfSwizzleBitIndex: u8,
-    pub Padding0: u32,
-    pub KdPrintCircularBufferPtr: u64,
-    pub KdPrintBufferSize: u64,
-    pub KeLoaderBlock: u64,
-    pub SizePcr: u16,
-    pub OffsetPcrSelfPcr: u16,
-    pub OffsetPcrCurrentPrcb: u16,
-    pub OffsetPcrContainedPrcb: u16,
-    pub OffsetPcrInitialBStore: u16,
-    pub OffsetPcrBStoreLimit: u16,
-    pub OffsetPcrInitialStack: u16,
-    pub OffsetPcrStackLimit: u16,
-    pub OffsetPrcbPcrPage: u16,
-    pub OffsetPrcbProcStateSpecialReg: u16,
-    pub GdtR0Code: u16,
-    pub GdtR0Data: u16,
-    pub GdtR0Pcr: u16,
-    pub GdtR3Code: u16,
-    pub GdtR3Data: u16,
-    pub GdtR3Teb: u16,
-    pub GdtLdt: u16,
-    pub GdtTss: u16,
-    pub Gdt64R3CmCode: u16,
-    pub Gdt64R3CmTeb: u16,
-    pub IopNumTriageDumpDataBlocks: u64,
-    pub IopTriageDumpDataBlocks: u64,
-    pub VfCrashDataBlock: u64,
-    pub MmBadPagesDetected: u64,
-    pub MmZeroedPageSingleBitErrorsDetected: u64,
-    pub EtwpDebuggerData: u64,
-    pub OffsetPrcbContext: u16,
-    pub OffsetPrcbMaxBreakpoints: u16,
-    pub OffsetPrcbMaxWatchpoints: u16,
-    pub OffsetKThreadStackLimit: u32,
-    pub OffsetKThreadStackBase: u32,
-    pub OffsetKThreadQueueListEntry: u32,
-    pub OffsetEThreadIrpList: u32,
-    pub OffsetPrcbIdleThread: u16,
-    pub OffsetPrcbNormalDpcState: u16,
-    pub OffsetPrcbDpcStack: u16,
-    pub OffsetPrcbIsrStack: u16,
-    pub SizeKDPC_STACK_FRAME: u16,
-    pub OffsetKPriQueueThreadListHead: u16,
-    pub OffsetKThreadWaitReason: u16,
-    pub Padding1: u16,
-    pub PteBase: u64,
-    pub RetpolineStubFunctionTable: u64,
-    pub RetpolineStubFunctionTableSize: u32,
-    pub RetpolineStubOffset: u32,
-    pub RetpolineStubSize: u32,
-    pub OffsetEProcessMmHotPatchContext: u16,
-    pub OffsetKThreadShadowStackLimit: u32,
-    pub OffsetKThreadShadowStackBase: u32,
-    pub ShadowStackEnabled: u64,
-    pub PointerAuthMask: u64,
-    pub OffsetPrcbExceptionStack: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXTS_LOCK_INFO {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub OwningThread: u64,
-    pub ExclusiveOwned: super::super::super::super::Foundation::BOOL,
-    pub NumOwners: u32,
-    pub ContentionCount: u32,
-    pub NumExclusiveWaiters: u32,
-    pub NumSharedWaiters: u32,
-    pub pOwnerThreads: *mut u64,
-    pub pWaiterThreads: *mut u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXTS_PTE_INFO {
-    pub SizeOfStruct: u32,
-    pub VirtualAddress: u64,
-    pub PpeAddress: u64,
-    pub PdeAddress: u64,
-    pub PteAddress: u64,
-    pub Pfn: u64,
-    pub Levels: u64,
-    pub _bitfield1: u32,
-    pub _bitfield2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXT_FILELOCK_OWNER {
-    pub Sizeofstruct: u32,
-    pub FileObject: u64,
-    pub OwnerThread: u64,
-    pub WaitIrp: u64,
-    pub DeviceObject: u64,
-    pub BlockingDirver: [i8; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXT_HANDLE_INFORMATION {
-    pub HandleTableEntry: u64,
-    pub Handle: u64,
-    pub Object: u64,
-    pub ObjectBody: u64,
-    pub GrantedAccess: u64,
-    pub HandleAttributes: u32,
-    pub PagedOut: super::super::super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXT_PROCESS_FIND_PARAMS {
-    pub SizeofStruct: u32,
-    pub Pid: u32,
-    pub Session: u32,
-    pub ImageName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KDEXT_THREAD_FIND_PARAMS {
-    pub SizeofStruct: u32,
-    pub StackPointer: u64,
-    pub Cid: u32,
-    pub Thread: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Location {
-    pub HostDefined: u64,
-    pub Offset: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OS_INFO {
-    pub MajorVer: u32,
-    pub MinorVer: u32,
-    pub Build: u32,
-    pub BuildQfe: u32,
-    pub ProductType: u32,
-    pub Suite: u32,
-    pub Revision: u32,
-    pub s: OS_INFO_0,
-    pub SrvPackNumber: u32,
-    pub ServicePackBuild: u32,
-    pub Architecture: u32,
-    pub Lcid: u32,
-    pub Name: [i8; 64],
-    pub FullName: [i8; 256],
-    pub Language: [i8; 30],
-    pub BuildVersion: [i8; 64],
-    pub ServicePackString: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OS_INFO_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OS_INFO_v1 {
-    pub Type: OS_TYPE,
-    pub Anonymous: OS_INFO_v1_0,
-    pub ProductType: u32,
-    pub Suite: u32,
-    pub s: OS_INFO_v1_1,
-    pub SrvPackNumber: u32,
-    pub Language: [i8; 30],
-    pub OsString: [i8; 64],
-    pub ServicePackString: [i8; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union OS_INFO_v1_0 {
-    pub Version: OS_INFO_v1_0_0,
-    pub Ver64: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OS_INFO_v1_0_0 {
-    pub Major: u32,
-    pub Minor: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OS_INFO_v1_1 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL {
-    pub Address: u64,
-    pub BufLen: u32,
-    pub Buf: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL_TO_VIRTUAL {
-    pub Status: u32,
-    pub Size: u32,
-    pub PdeAddress: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL_WITH_FLAGS {
-    pub Address: u64,
-    pub BufLen: u32,
-    pub Flags: u32,
-    pub Buf: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct POINTER_SEARCH_PHYSICAL {
-    pub Offset: u64,
-    pub Length: u64,
-    pub PointerMin: u64,
-    pub PointerMax: u64,
-    pub Flags: u32,
-    pub MatchOffsets: *mut u64,
-    pub MatchOffsetsSize: u32,
-    pub MatchOffsetsCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESSORINFO {
-    pub Processor: u16,
-    pub NumberProcessors: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_COMMIT_USAGE {
-    pub ImageFileName: [u8; 16],
-    pub ClientId: u64,
-    pub ProcessAddress: u64,
-    pub CommitCharge: u64,
-    pub SharedCommitCharge: u64,
-    pub ReleasedCommitDebt: u64,
-    pub Reserved: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_NAME_ENTRY {
-    pub ProcessId: u32,
-    pub NameOffset: u32,
-    pub NameSize: u32,
-    pub NextEntry: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READCONTROLSPACE {
-    pub Processor: u16,
-    pub Address: u32,
-    pub BufLen: u32,
-    pub Buf: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READCONTROLSPACE32 {
-    pub Processor: u16,
-    pub Address: u32,
-    pub BufLen: u32,
-    pub Buf: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READCONTROLSPACE64 {
-    pub Processor: u16,
-    pub Address: u64,
-    pub BufLen: u32,
-    pub Buf: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READ_WRITE_MSR {
-    pub Msr: u32,
-    pub Value: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEARCHMEMORY {
-    pub SearchAddress: u64,
-    pub SearchLength: u64,
-    pub FoundAddress: u64,
-    pub PatternLength: u32,
-    pub Pattern: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STACK_SRC_INFO {
-    pub ImagePath: windows_sys::core::PCWSTR,
-    pub ModuleName: windows_sys::core::PCWSTR,
-    pub Function: windows_sys::core::PCWSTR,
-    pub Displacement: u32,
-    pub Row: u32,
-    pub Column: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STACK_SYM_FRAME_INFO {
-    pub StackFrameEx: DEBUG_STACK_FRAME_EX,
-    pub SrcInfo: STACK_SRC_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYMBOL_INFO_EX {
-    pub SizeOfStruct: u32,
-    pub TypeOfInfo: u32,
-    pub Offset: u64,
-    pub Line: u32,
-    pub Displacement: u32,
-    pub Reserved: [u32; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYM_DUMP_PARAM {
-    pub size: u32,
-    pub sName: *mut u8,
-    pub Options: u32,
-    pub addr: u64,
-    pub listLink: *mut FIELD_INFO,
-    pub Anonymous: SYM_DUMP_PARAM_0,
-    pub CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
-    pub nFields: u32,
-    pub Fields: *mut FIELD_INFO,
-    pub ModBase: u64,
-    pub TypeId: u32,
-    pub TypeSize: u32,
-    pub BufferSize: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYM_DUMP_PARAM_0 {
-    pub Context: *mut core::ffi::c_void,
-    pub pBuffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ScriptDebugEventInformation {
-    pub DebugEvent: ScriptDebugEvent,
-    pub EventPosition: ScriptDebugPosition,
-    pub EventSpanEnd: ScriptDebugPosition,
-    pub u: ScriptDebugEventInformation_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ScriptDebugEventInformation_0 {
-    pub ExceptionInformation: ScriptDebugEventInformation_0_0,
-    pub BreakpointInformation: ScriptDebugEventInformation_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ScriptDebugEventInformation_0_1 {
-    pub BreakpointId: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ScriptDebugEventInformation_0_0 {
-    pub IsUncaught: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ScriptDebugPosition {
-    pub Line: u32,
-    pub Column: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TARGET_DEBUG_INFO {
-    pub SizeOfStruct: u32,
-    pub EntryDate: u64,
-    pub DebugeeClass: u32,
-    pub SysUpTime: u64,
-    pub AppUpTime: u64,
-    pub CrashTime: u64,
-    pub OsInfo: OS_INFO,
-    pub Cpu: CPU_INFO,
-    pub DumpFile: [i8; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TARGET_DEBUG_INFO_v1 {
-    pub SizeOfStruct: u32,
-    pub Id: u64,
-    pub Source: u64,
-    pub EntryDate: u64,
-    pub SysUpTime: u64,
-    pub AppUpTime: u64,
-    pub CrashTime: u64,
-    pub Mode: u64,
-    pub OsInfo: OS_INFO_v1,
-    pub Cpu: CPU_INFO_v1,
-    pub DumpFile: [i8; 260],
-    pub FailureData: *mut core::ffi::c_void,
-    pub StackTr: [i8; 4096],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TARGET_DEBUG_INFO_v2 {
-    pub SizeOfStruct: u32,
-    pub EntryDate: u64,
-    pub DebugeeClass: u32,
-    pub SysUpTime: u64,
-    pub AppUpTime: u64,
-    pub CrashTime: u64,
-    pub OsInfo: OS_INFO,
-    pub Cpu: CPU_INFO_v2,
-    pub DumpFile: [i8; 260],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
-    pub Virtual: u64,
-    pub Physical: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VIRTUAL_TO_PHYSICAL {
-    pub Status: u32,
-    pub Size: u32,
-    pub PdeAddress: u64,
-    pub Virtual: u64,
-    pub Physical: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDBGEXTS_CLR_DATA_INTERFACE {
-    pub Iid: *const windows_sys::core::GUID,
-    pub Iface: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
-    pub InOffset: u64,
-    pub OutOffset: u64,
-    pub AddrFlags: u32,
-    pub FormatFlags: u32,
-    pub DataBufferBytes: u32,
-    pub DisasmBufferChars: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-    pub DisasmBuffer: windows_sys::core::PWSTR,
-    pub Reserved0: [u64; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDBGEXTS_MODULE_IN_RANGE {
-    pub Start: u64,
-    pub End: u64,
-    pub FoundModBase: u64,
-    pub FoundModSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDBGEXTS_QUERY_INTERFACE {
-    pub Iid: *const windows_sys::core::GUID,
-    pub Iface: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WDBGEXTS_THREAD_OS_INFO {
-    pub ThreadId: u32,
-    pub ExitStatus: u32,
-    pub PriorityClass: u32,
-    pub Priority: u32,
-    pub CreateTime: u64,
-    pub ExitTime: u64,
-    pub KernelTime: u64,
-    pub UserTime: u64,
-    pub StartOffset: u64,
-    pub Affinity: u64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct WINDBG_EXTENSION_APIS {
-    pub nSize: u32,
-    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
-    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
-    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
-    pub lpDisasmRoutine: PWINDBG_DISASM,
-    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
-    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
-    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
-    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
-    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
-    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct WINDBG_EXTENSION_APIS32 {
-    pub nSize: u32,
-    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
-    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
-    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
-    pub lpDisasmRoutine: PWINDBG_DISASM32,
-    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
-    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
-    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
-    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
-    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
-    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct WINDBG_EXTENSION_APIS64 {
-    pub nSize: u32,
-    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
-    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
-    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
-    pub lpDisasmRoutine: PWINDBG_DISASM64,
-    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
-    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
-    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
-    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
-    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
-    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDBG_OLDKD_EXTENSION_APIS {
-    pub nSize: u32,
-    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
-    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
-    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
-    pub lpDisasmRoutine: PWINDBG_DISASM32,
-    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-    pub lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
-    pub lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
-    pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
-    pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDBG_OLD_EXTENSION_APIS {
-    pub nSize: u32,
-    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
-    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
-    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
-    pub lpDisasmRoutine: PWINDBG_DISASM,
-    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XML_DRIVER_NODE_INFO {
-    pub FileName: [i8; 64],
-    pub FileSize: u64,
-    pub CreationDate: u64,
-    pub Version: [i8; 64],
-    pub Manufacturer: [i8; 260],
-    pub ProductName: [i8; 260],
-    pub Group: [i8; 260],
-    pub Altitude: [i8; 260],
-}
-pub type ENTRY_CALLBACK = Option<unsafe extern "system" fn(entryaddress: u64, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
-pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_sys::core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_sys::core::HRESULT>;
-pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_DECODE_ERROR = Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
-pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, classid: windows_sys::core::GUID, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_sys::core::PCSTR, buffer: windows_sys::core::PCSTR, buffersize: u32) -> windows_sys::core::HRESULT>;
-pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_sys::core::HRESULT>;
-pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_sys::core::HRESULT>;
-pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_sys::core::HRESULT>;
-pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, symbolname: windows_sys::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
-pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_sys::core::HRESULT>;
-pub type KDEXTS_LOCK_CALLBACKROUTINE = Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, name: windows_sys::core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
-pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_sys::core::HRESULT>;
-pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_sys::core::HRESULT>;
-pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_sys::core::HRESULT>;
-pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_sys::core::HRESULT>;
-pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_sys::core::HRESULT>;
-pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_sys::core::HRESULT>;
-pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_sys::core::HRESULT>;
-pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, fullimagename: *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT>;
-pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_sys::core::HRESULT>;
-pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_sys::core::HRESULT>;
-pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_sys::core::HRESULT>;
-pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_sys::core::HRESULT>;
-pub type PGET_POOL_TAG_DESCRIPTION = Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> windows_sys::core::HRESULT>;
-pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_sys::core::HRESULT>;
-pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_sys::core::HRESULT>;
-pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_sys::core::HRESULT>;
-pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
-pub type PWINDBG_CHECK_CONTROL_C = Option<unsafe extern "system" fn() -> u32>;
-pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
-pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
-pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_EXTENSION_ROUTINE32 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_EXTENSION_ROUTINE64 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_GET_EXPRESSION = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> usize>;
-pub type PWINDBG_GET_EXPRESSION32 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u32>;
-pub type PWINDBG_GET_EXPRESSION64 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u64>;
-pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *mut core::ffi::c_void, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut usize)>;
-pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u32)>;
-pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u64)>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_OUTPUT_ROUTINE = Option<unsafe extern "system" fn(lpformat: windows_sys::core::PCSTR)>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCWSTR, flags: u32, rclsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

@@ -82,6 +82,140 @@ windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindCpy(pvbdst : *mu
 windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindFree(pvb : *mut SnmpVarBind));
 windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListCpy(pvbldst : *mut SnmpVarBindList, pvblsrc : *mut SnmpVarBindList) -> i32);
 windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList));
+pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
+pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;
+pub type PFNSNMPEXTENSIONINIT = Option<unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONINITEX = Option<unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONMONITOR = Option<unsafe extern "system" fn(pagentmgmtdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONQUERY = Option<unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONQUERYEX = Option<unsafe extern "system" fn(nrequesttype: u32, ntransactionid: u32, pvarbindlist: *mut SnmpVarBindList, pcontextinfo: *mut AsnOctetString, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPEXTENSIONTRAP = Option<unsafe extern "system" fn(penterpriseoid: *mut AsnObjectIdentifier, pgenerictrapid: *mut i32, pspecifictrapid: *mut i32, ptimestamp: *mut u32, pvarbindlist: *mut SnmpVarBindList) -> super::super::Foundation::BOOL>;
+pub type PFNSNMPSTARTUPEX = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u32, param2: *mut u32, param3: *mut u32, param4: *mut u32) -> u32>;
+pub type SNMPAPI_CALLBACK = Option<unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut core::ffi::c_void) -> u32>;
+pub type SNMP_API_TRANSLATE_MODE = u32;
+pub type SNMP_ERROR = u32;
+pub type SNMP_ERROR_STATUS = u32;
+pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
+pub type SNMP_GENERICTRAP = u32;
+pub type SNMP_LOG = i32;
+pub type SNMP_OUTPUT_LOG_TYPE = u32;
+pub type SNMP_PDU_TYPE = u32;
+pub type SNMP_STATUS = u32;
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct AsnAny {
+    pub asnType: u8,
+    pub asnValue: AsnAny_0,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub union AsnAny_0 {
+    pub number: i32,
+    pub unsigned32: u32,
+    pub counter64: u64,
+    pub string: AsnOctetString,
+    pub bits: AsnOctetString,
+    pub object: AsnObjectIdentifier,
+    pub sequence: AsnOctetString,
+    pub address: AsnOctetString,
+    pub counter: u32,
+    pub gauge: u32,
+    pub ticks: u32,
+    pub arbitrary: AsnOctetString,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: super::super::Foundation::BOOL,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct SnmpVarBind {
+    pub name: AsnObjectIdentifier,
+    pub value: AsnAny,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SnmpVarBindList {
+    pub list: *mut SnmpVarBind,
+    pub len: u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SnmpVarBindList {
+    pub list: *mut SnmpVarBind,
+    pub len: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct smiCNTR64 {
+    pub hipart: u32,
+    pub lopart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct smiOCTETS {
+    pub len: u32,
+    pub ptr: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct smiOID {
+    pub len: u32,
+    pub ptr: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct smiVALUE {
+    pub syntax: u32,
+    pub value: smiVALUE_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union smiVALUE_0 {
+    pub sNumber: i32,
+    pub uNumber: u32,
+    pub hNumber: smiCNTR64,
+    pub string: smiOCTETS,
+    pub oid: smiOID,
+    pub empty: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct smiVENDORINFO {
+    pub vendorName: [i8; 64],
+    pub vendorContact: [i8; 64],
+    pub vendorVersionId: [i8; 32],
+    pub vendorVersionDate: [i8; 32],
+    pub vendorEnterprise: u32,
+}
 pub const ASN_APPLICATION: u32 = 64u32;
 pub const ASN_CONSTRUCTOR: u32 = 32u32;
 pub const ASN_CONTEXT: u32 = 128u32;
@@ -245,137 +379,3 @@ pub const SNMP_TRAP_ENTERPRISESPECIFIC: u32 = 6u32;
 pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
-pub type SNMP_API_TRANSLATE_MODE = u32;
-pub type SNMP_ERROR = u32;
-pub type SNMP_ERROR_STATUS = u32;
-pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
-pub type SNMP_GENERICTRAP = u32;
-pub type SNMP_LOG = i32;
-pub type SNMP_OUTPUT_LOG_TYPE = u32;
-pub type SNMP_PDU_TYPE = u32;
-pub type SNMP_STATUS = u32;
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct AsnAny {
-    pub asnType: u8,
-    pub asnValue: AsnAny_0,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub union AsnAny_0 {
-    pub number: i32,
-    pub unsigned32: u32,
-    pub counter64: u64,
-    pub string: AsnOctetString,
-    pub bits: AsnOctetString,
-    pub object: AsnObjectIdentifier,
-    pub sequence: AsnOctetString,
-    pub address: AsnOctetString,
-    pub counter: u32,
-    pub gauge: u32,
-    pub ticks: u32,
-    pub arbitrary: AsnOctetString,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct AsnObjectIdentifier {
-    pub idLength: u32,
-    pub ids: *mut u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct AsnObjectIdentifier {
-    pub idLength: u32,
-    pub ids: *mut u32,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct AsnOctetString {
-    pub stream: *mut u8,
-    pub length: u32,
-    pub dynamic: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct AsnOctetString {
-    pub stream: *mut u8,
-    pub length: u32,
-    pub dynamic: super::super::Foundation::BOOL,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct SnmpVarBind {
-    pub name: AsnObjectIdentifier,
-    pub value: AsnAny,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SnmpVarBindList {
-    pub list: *mut SnmpVarBind,
-    pub len: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SnmpVarBindList {
-    pub list: *mut SnmpVarBind,
-    pub len: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct smiCNTR64 {
-    pub hipart: u32,
-    pub lopart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct smiOCTETS {
-    pub len: u32,
-    pub ptr: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct smiOID {
-    pub len: u32,
-    pub ptr: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct smiVALUE {
-    pub syntax: u32,
-    pub value: smiVALUE_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union smiVALUE_0 {
-    pub sNumber: i32,
-    pub uNumber: u32,
-    pub hNumber: smiCNTR64,
-    pub string: smiOCTETS,
-    pub oid: smiOID,
-    pub empty: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct smiVENDORINFO {
-    pub vendorName: [i8; 64],
-    pub vendorContact: [i8; 64],
-    pub vendorVersionId: [i8; 32],
-    pub vendorVersionDate: [i8; 32],
-    pub vendorEnterprise: u32,
-}
-pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
-pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;
-pub type PFNSNMPEXTENSIONINIT = Option<unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONINITEX = Option<unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONMONITOR = Option<unsafe extern "system" fn(pagentmgmtdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONQUERY = Option<unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONQUERYEX = Option<unsafe extern "system" fn(nrequesttype: u32, ntransactionid: u32, pvarbindlist: *mut SnmpVarBindList, pcontextinfo: *mut AsnOctetString, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPEXTENSIONTRAP = Option<unsafe extern "system" fn(penterpriseoid: *mut AsnObjectIdentifier, pgenerictrapid: *mut i32, pspecifictrapid: *mut i32, ptimestamp: *mut u32, pvarbindlist: *mut SnmpVarBindList) -> super::super::Foundation::BOOL>;
-pub type PFNSNMPSTARTUPEX = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u32, param2: *mut u32, param3: *mut u32, param4: *mut u32) -> u32>;
-pub type SNMPAPI_CALLBACK = Option<unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut core::ffi::c_void) -> u32>;

@@ -12,6 +12,9 @@ windows_targets::link!("user32.dll" "system" fn LockWorkStation() -> super::supe
 windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation:: HWND, pwszreason : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut u32) -> super::super::Foundation:: BOOL);
+pub type EXIT_WINDOWS_FLAGS = u32;
+pub type SHUTDOWN_FLAGS = u32;
+pub type SHUTDOWN_REASON = u32;
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = 67108864u32;
 pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = 16777216u32;
 pub const EWX_CHECK_SAFE_FOR_SERVER: EXIT_WINDOWS_FLAGS = 134217728u32;
@@ -106,6 +109,3 @@ pub const SHUTDOWN_VAIL_CONTAINER: SHUTDOWN_FLAGS = 32768u32;
 pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
 pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
-pub type EXIT_WINDOWS_FLAGS = u32;
-pub type SHUTDOWN_FLAGS = u32;
-pub type SHUTDOWN_REASON = u32;

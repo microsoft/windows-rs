@@ -116,6 +116,657 @@ windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32,
 windows_targets::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_sys::core::GUID, lpsz : windows_sys::core::PWSTR, cchmax : i32) -> i32);
 windows_targets::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_sys::core::HRESULT>;
+pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_sys::core::GUID, param1: *const windows_sys::core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_sys::core::HRESULT>;
+pub type ADVANCED_FEATURE_FLAGS = u16;
+pub type ADVF = i32;
+pub type APTTYPE = i32;
+pub type APTTYPEQUALIFIER = i32;
+pub type ApplicationType = i32;
+pub type BINDINFOF = i32;
+pub type BIND_FLAGS = i32;
+pub type CALLCONV = i32;
+pub type CALLTYPE = i32;
+pub type CLSCTX = u32;
+pub type COINIT = i32;
+pub type COINITBASE = i32;
+pub type COMSD = i32;
+pub type COWAIT_FLAGS = i32;
+pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
+pub type CWMO_FLAGS = i32;
+pub type DATADIR = i32;
+pub type DCOM_CALL_STATE = i32;
+pub type DESCKIND = i32;
+pub type DISPATCH_FLAGS = u16;
+pub type DVASPECT = u32;
+pub type EOLE_AUTHENTICATION_CAPABILITIES = i32;
+pub type EXTCONN = i32;
+pub type FUNCFLAGS = u16;
+pub type FUNCKIND = i32;
+pub type GLOBALOPT_EH_VALUES = i32;
+pub type GLOBALOPT_PROPERTIES = i32;
+pub type GLOBALOPT_RO_FLAGS = i32;
+pub type GLOBALOPT_RPCTP_VALUES = i32;
+pub type GLOBALOPT_UNMARSHALING_POLICY_VALUES = i32;
+pub type IDLFLAGS = u16;
+pub type IMPLTYPEFLAGS = i32;
+pub type INVOKEKIND = i32;
+pub type LOCKTYPE = i32;
+pub type MEMCTX = i32;
+pub type MKRREDUCE = i32;
+pub type MKSYS = i32;
+pub type MSHCTX = i32;
+pub type MSHLFLAGS = i32;
+pub type PENDINGMSG = i32;
+pub type PENDINGTYPE = i32;
+pub type REGCLS = i32;
+pub type ROT_FLAGS = u32;
+pub type RPCOPT_PROPERTIES = i32;
+pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
+pub type RPC_C_AUTHN_LEVEL = u32;
+pub type RPC_C_IMP_LEVEL = u32;
+pub type SERVERCALL = i32;
+pub type STATFLAG = i32;
+pub type STGC = i32;
+pub type STGM = u32;
+pub type STGTY = i32;
+pub type STREAM_SEEK = u32;
+pub type SYSKIND = i32;
+pub type ShutdownType = i32;
+pub type THDTYPE = i32;
+pub type TYMED = i32;
+pub type TYPEKIND = i32;
+pub type TYSPEC = i32;
+pub type URI_CREATE_FLAGS = u32;
+pub type Uri_PROPERTY = i32;
+pub type VARFLAGS = u16;
+pub type VARKIND = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUTHENTICATEINFO {
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct BINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: windows_sys::core::PWSTR,
+    pub stgmedData: STGMEDIUM,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: windows_sys::core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
+    pub iid: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union BINDPTR {
+    pub lpfuncdesc: *mut FUNCDESC,
+    pub lpvardesc: *mut VARDESC,
+    pub lptcomp: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIND_OPTS {
+    pub cbStruct: u32,
+    pub grfFlags: u32,
+    pub grfMode: u32,
+    pub dwTickCountDeadline: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIND_OPTS2 {
+    pub Base: BIND_OPTS,
+    pub dwTrackFlags: u32,
+    pub dwClassContext: u32,
+    pub locale: u32,
+    pub pServerInfo: *mut COSERVERINFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BIND_OPTS3 {
+    pub Base: BIND_OPTS2,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BLOB {
+    pub cbSize: u32,
+    pub pBlobData: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BYTE_BLOB {
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BYTE_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CATEGORYINFO {
+    pub catid: windows_sys::core::GUID,
+    pub lcid: u32,
+    pub szDescription: [u16; 128],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COAUTHIDENTITY {
+    pub User: *mut u16,
+    pub UserLength: u32,
+    pub Domain: *mut u16,
+    pub DomainLength: u32,
+    pub Password: *mut u16,
+    pub PasswordLength: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COAUTHINFO {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pwszServerPrincName: windows_sys::core::PWSTR,
+    pub dwAuthnLevel: u32,
+    pub dwImpersonationLevel: u32,
+    pub pAuthIdentityData: *mut COAUTHIDENTITY,
+    pub dwCapabilities: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONNECTDATA {
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwCookie: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COSERVERINFO {
+    pub dwReserved1: u32,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pAuthInfo: *mut COAUTHINFO,
+    pub dwReserved2: u32,
+}
+pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
+pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CSPLATFORM {
+    pub dwPlatformId: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+    pub dwProcessorArch: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct CUSTDATA {
+    pub cCustData: u32,
+    pub prgCustData: *mut CUSTDATAITEM,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct CUSTDATAITEM {
+    pub guid: windows_sys::core::GUID,
+    pub varValue: super::Variant::VARIANT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CY {
+    pub Anonymous: CY_0,
+    pub int64: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CY_0 {
+    pub Lo: u32,
+    pub Hi: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ComCallData {
+    pub dwDispid: u32,
+    pub dwReserved: u32,
+    pub pUserDefined: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ContextProperty {
+    pub policyId: windows_sys::core::GUID,
+    pub flags: u32,
+    pub pUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DISPPARAMS {
+    pub rgvarg: *mut super::Variant::VARIANT,
+    pub rgdispidNamedArgs: *mut i32,
+    pub cArgs: u32,
+    pub cNamedArgs: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DVTARGETDEVICE {
+    pub tdSize: u32,
+    pub tdDriverNameOffset: u16,
+    pub tdDeviceNameOffset: u16,
+    pub tdPortNameOffset: u16,
+    pub tdExtDevmodeOffset: u16,
+    pub tdData: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DWORD_BLOB {
+    pub clSize: u32,
+    pub alData: [u32; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DWORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct ELEMDESC {
+    pub tdesc: TYPEDESC,
+    pub Anonymous: ELEMDESC_0,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union ELEMDESC_0 {
+    pub idldesc: IDLDESC,
+    pub paramdesc: super::Ole::PARAMDESC,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXCEPINFO {
+    pub wCode: u16,
+    pub wReserved: u16,
+    pub bstrSource: windows_sys::core::BSTR,
+    pub bstrDescription: windows_sys::core::BSTR,
+    pub bstrHelpFile: windows_sys::core::BSTR,
+    pub dwHelpContext: u32,
+    pub pvReserved: *mut core::ffi::c_void,
+    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
+    pub scode: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLAGGED_BYTE_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLAGGED_WORD_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub asData: [u16; 1],
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct FLAG_STGMEDIUM {
+    pub ContextFlags: i32,
+    pub fPassOwnership: i32,
+    pub Stgmed: STGMEDIUM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FORMATETC {
+    pub cfFormat: u16,
+    pub ptd: *mut DVTARGETDEVICE,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct FUNCDESC {
+    pub memid: i32,
+    pub lprgscode: *mut i32,
+    pub lprgelemdescParam: *mut ELEMDESC,
+    pub funckind: FUNCKIND,
+    pub invkind: INVOKEKIND,
+    pub callconv: CALLCONV,
+    pub cParams: i16,
+    pub cParamsOpt: i16,
+    pub oVft: i16,
+    pub cScodes: i16,
+    pub elemdescFunc: ELEMDESC,
+    pub wFuncFlags: FUNCFLAGS,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub struct GDI_OBJECT {
+    pub ObjectType: u32,
+    pub u: GDI_OBJECT_0,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub union GDI_OBJECT_0 {
+    pub hBitmap: *mut super::SystemServices::userHBITMAP,
+    pub hPalette: *mut super::SystemServices::userHPALETTE,
+    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HYPER_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IDLDESC {
+    pub dwReserved: usize,
+    pub wIDLFlags: IDLFLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INTERFACEINFO {
+    pub pUnk: *mut core::ffi::c_void,
+    pub iid: windows_sys::core::GUID,
+    pub wMethod: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MULTI_QI {
+    pub pIID: *const windows_sys::core::GUID,
+    pub pItf: *mut core::ffi::c_void,
+    pub hr: windows_sys::core::HRESULT,
+}
+pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERYCONTEXT {
+    pub dwContext: u32,
+    pub Platform: CSPLATFORM,
+    pub Locale: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RPCOLEMESSAGE {
+    pub reserved1: *mut core::ffi::c_void,
+    pub dataRepresentation: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub cbBuffer: u32,
+    pub iMethod: u32,
+    pub reserved2: [*mut core::ffi::c_void; 5],
+    pub rpcFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemSTGMEDIUM {
+    pub tymed: u32,
+    pub dwHandleType: u32,
+    pub pData: u32,
+    pub pUnkForRelease: u32,
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFEARRAY {
+    pub cDims: u16,
+    pub fFeatures: ADVANCED_FEATURE_FLAGS,
+    pub cbElements: u32,
+    pub cLocks: u32,
+    pub pvData: *mut core::ffi::c_void,
+    pub rgsabound: [SAFEARRAYBOUND; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFEARRAYBOUND {
+    pub cElements: u32,
+    pub lLbound: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SChannelHookCallInfo {
+    pub iid: windows_sys::core::GUID,
+    pub cbSize: u32,
+    pub uCausality: windows_sys::core::GUID,
+    pub dwServerPid: u32,
+    pub iMethod: u32,
+    pub pObject: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOLE_AUTHENTICATION_INFO {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pAuthInfo: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOLE_AUTHENTICATION_LIST {
+    pub cAuthInfo: u32,
+    pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOLE_AUTHENTICATION_SERVICE {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pPrincipalName: windows_sys::core::PWSTR,
+    pub hr: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STATDATA {
+    pub formatetc: FORMATETC,
+    pub advf: u32,
+    pub pAdvSink: *mut core::ffi::c_void,
+    pub dwConnection: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STATSTG {
+    pub pwcsName: windows_sys::core::PWSTR,
+    pub r#type: u32,
+    pub cbSize: u64,
+    pub mtime: super::super::Foundation::FILETIME,
+    pub ctime: super::super::Foundation::FILETIME,
+    pub atime: super::super::Foundation::FILETIME,
+    pub grfMode: STGM,
+    pub grfLocksSupported: u32,
+    pub clsid: windows_sys::core::GUID,
+    pub grfStateBits: u32,
+    pub reserved: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct STGMEDIUM {
+    pub tymed: u32,
+    pub u: STGMEDIUM_0,
+    pub pUnkForRelease: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub union STGMEDIUM_0 {
+    pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
+    pub hMetaFilePict: *mut core::ffi::c_void,
+    pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
+    pub hGlobal: super::super::Foundation::HGLOBAL,
+    pub lpszFileName: windows_sys::core::PWSTR,
+    pub pstm: *mut core::ffi::c_void,
+    pub pstg: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct StorageLayout {
+    pub LayoutType: u32,
+    pub pwcsElementName: windows_sys::core::PWSTR,
+    pub cOffset: i64,
+    pub cBytes: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TLIBATTR {
+    pub guid: windows_sys::core::GUID,
+    pub lcid: u32,
+    pub syskind: SYSKIND,
+    pub wMajorVerNum: u16,
+    pub wMinorVerNum: u16,
+    pub wLibFlags: u16,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct TYPEATTR {
+    pub guid: windows_sys::core::GUID,
+    pub lcid: u32,
+    pub dwReserved: u32,
+    pub memidConstructor: i32,
+    pub memidDestructor: i32,
+    pub lpstrSchema: windows_sys::core::PWSTR,
+    pub cbSizeInstance: u32,
+    pub typekind: TYPEKIND,
+    pub cFuncs: u16,
+    pub cVars: u16,
+    pub cImplTypes: u16,
+    pub cbSizeVft: u16,
+    pub cbAlignment: u16,
+    pub wTypeFlags: u16,
+    pub wMajorVerNum: u16,
+    pub wMinorVerNum: u16,
+    pub tdescAlias: TYPEDESC,
+    pub idldescType: IDLDESC,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct TYPEDESC {
+    pub Anonymous: TYPEDESC_0,
+    pub vt: super::Variant::VARENUM,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union TYPEDESC_0 {
+    pub lptdesc: *mut TYPEDESC,
+    pub lpadesc: *mut super::Ole::ARRAYDESC,
+    pub hreftype: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct VARDESC {
+    pub memid: i32,
+    pub lpstrSchema: windows_sys::core::PWSTR,
+    pub Anonymous: VARDESC_0,
+    pub elemdescVar: ELEMDESC,
+    pub wVarFlags: VARFLAGS,
+    pub varkind: VARKIND,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union VARDESC_0 {
+    pub oInst: u32,
+    pub lpvarValue: *mut super::Variant::VARIANT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WORD_BLOB {
+    pub clSize: u32,
+    pub asData: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct uCLSSPEC {
+    pub tyspec: u32,
+    pub tagged_union: uCLSSPEC_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union uCLSSPEC_0 {
+    pub clsid: windows_sys::core::GUID,
+    pub pFileExt: windows_sys::core::PWSTR,
+    pub pMimeType: windows_sys::core::PWSTR,
+    pub pProgId: windows_sys::core::PWSTR,
+    pub pFileName: windows_sys::core::PWSTR,
+    pub ByName: uCLSSPEC_0_0,
+    pub ByObjectId: uCLSSPEC_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct uCLSSPEC_0_0 {
+    pub pPackageName: windows_sys::core::PWSTR,
+    pub PolicyId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct uCLSSPEC_0_1 {
+    pub ObjectId: windows_sys::core::GUID,
+    pub PolicyId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub struct userFLAG_STGMEDIUM {
+    pub ContextFlags: i32,
+    pub fPassOwnership: i32,
+    pub Stgmed: userSTGMEDIUM,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub struct userSTGMEDIUM {
+    pub u: userSTGMEDIUM_0,
+    pub pUnkForRelease: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub struct userSTGMEDIUM_0 {
+    pub tymed: u32,
+    pub u: userSTGMEDIUM_0_0,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub union userSTGMEDIUM_0_0 {
+    pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
+    pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,
+    pub hGdiHandle: *mut GDI_OBJECT,
+    pub hGlobal: *mut super::SystemServices::userHGLOBAL,
+    pub lpszFileName: windows_sys::core::PWSTR,
+    pub pstm: *mut BYTE_BLOB,
+    pub pstg: *mut BYTE_BLOB,
+}
 pub const ADVFCACHE_FORCEBUILTIN: ADVF = 16i32;
 pub const ADVFCACHE_NOHANDLER: ADVF = 8i32;
 pub const ADVFCACHE_ONSAVE: ADVF = 32i32;
@@ -574,654 +1225,3 @@ pub const VAR_CONST: VARKIND = 2i32;
 pub const VAR_DISPATCH: VARKIND = 3i32;
 pub const VAR_PERINSTANCE: VARKIND = 0i32;
 pub const VAR_STATIC: VARKIND = 1i32;
-pub type ADVANCED_FEATURE_FLAGS = u16;
-pub type ADVF = i32;
-pub type APTTYPE = i32;
-pub type APTTYPEQUALIFIER = i32;
-pub type ApplicationType = i32;
-pub type BINDINFOF = i32;
-pub type BIND_FLAGS = i32;
-pub type CALLCONV = i32;
-pub type CALLTYPE = i32;
-pub type CLSCTX = u32;
-pub type COINIT = i32;
-pub type COINITBASE = i32;
-pub type COMSD = i32;
-pub type COWAIT_FLAGS = i32;
-pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
-pub type CWMO_FLAGS = i32;
-pub type DATADIR = i32;
-pub type DCOM_CALL_STATE = i32;
-pub type DESCKIND = i32;
-pub type DISPATCH_FLAGS = u16;
-pub type DVASPECT = u32;
-pub type EOLE_AUTHENTICATION_CAPABILITIES = i32;
-pub type EXTCONN = i32;
-pub type FUNCFLAGS = u16;
-pub type FUNCKIND = i32;
-pub type GLOBALOPT_EH_VALUES = i32;
-pub type GLOBALOPT_PROPERTIES = i32;
-pub type GLOBALOPT_RO_FLAGS = i32;
-pub type GLOBALOPT_RPCTP_VALUES = i32;
-pub type GLOBALOPT_UNMARSHALING_POLICY_VALUES = i32;
-pub type IDLFLAGS = u16;
-pub type IMPLTYPEFLAGS = i32;
-pub type INVOKEKIND = i32;
-pub type LOCKTYPE = i32;
-pub type MEMCTX = i32;
-pub type MKRREDUCE = i32;
-pub type MKSYS = i32;
-pub type MSHCTX = i32;
-pub type MSHLFLAGS = i32;
-pub type PENDINGMSG = i32;
-pub type PENDINGTYPE = i32;
-pub type REGCLS = i32;
-pub type ROT_FLAGS = u32;
-pub type RPCOPT_PROPERTIES = i32;
-pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
-pub type RPC_C_AUTHN_LEVEL = u32;
-pub type RPC_C_IMP_LEVEL = u32;
-pub type SERVERCALL = i32;
-pub type STATFLAG = i32;
-pub type STGC = i32;
-pub type STGM = u32;
-pub type STGTY = i32;
-pub type STREAM_SEEK = u32;
-pub type SYSKIND = i32;
-pub type ShutdownType = i32;
-pub type THDTYPE = i32;
-pub type TYMED = i32;
-pub type TYPEKIND = i32;
-pub type TYSPEC = i32;
-pub type URI_CREATE_FLAGS = u32;
-pub type Uri_PROPERTY = i32;
-pub type VARFLAGS = u16;
-pub type VARKIND = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUTHENTICATEINFO {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
-pub struct BINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: windows_sys::core::PWSTR,
-    pub stgmedData: STGMEDIUM,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: windows_sys::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
-    pub iid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union BINDPTR {
-    pub lpfuncdesc: *mut FUNCDESC,
-    pub lpvardesc: *mut VARDESC,
-    pub lptcomp: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIND_OPTS {
-    pub cbStruct: u32,
-    pub grfFlags: u32,
-    pub grfMode: u32,
-    pub dwTickCountDeadline: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIND_OPTS2 {
-    pub Base: BIND_OPTS,
-    pub dwTrackFlags: u32,
-    pub dwClassContext: u32,
-    pub locale: u32,
-    pub pServerInfo: *mut COSERVERINFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BIND_OPTS3 {
-    pub Base: BIND_OPTS2,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BLOB {
-    pub cbSize: u32,
-    pub pBlobData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BYTE_BLOB {
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BYTE_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CATEGORYINFO {
-    pub catid: windows_sys::core::GUID,
-    pub lcid: u32,
-    pub szDescription: [u16; 128],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COAUTHIDENTITY {
-    pub User: *mut u16,
-    pub UserLength: u32,
-    pub Domain: *mut u16,
-    pub DomainLength: u32,
-    pub Password: *mut u16,
-    pub PasswordLength: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COAUTHINFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pwszServerPrincName: windows_sys::core::PWSTR,
-    pub dwAuthnLevel: u32,
-    pub dwImpersonationLevel: u32,
-    pub pAuthIdentityData: *mut COAUTHIDENTITY,
-    pub dwCapabilities: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONNECTDATA {
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwCookie: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COSERVERINFO {
-    pub dwReserved1: u32,
-    pub pwszName: windows_sys::core::PWSTR,
-    pub pAuthInfo: *mut COAUTHINFO,
-    pub dwReserved2: u32,
-}
-pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
-pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CSPLATFORM {
-    pub dwPlatformId: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-    pub dwProcessorArch: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
-pub struct CUSTDATA {
-    pub cCustData: u32,
-    pub prgCustData: *mut CUSTDATAITEM,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
-pub struct CUSTDATAITEM {
-    pub guid: windows_sys::core::GUID,
-    pub varValue: super::Variant::VARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CY {
-    pub Anonymous: CY_0,
-    pub int64: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CY_0 {
-    pub Lo: u32,
-    pub Hi: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ComCallData {
-    pub dwDispid: u32,
-    pub dwReserved: u32,
-    pub pUserDefined: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ContextProperty {
-    pub policyId: windows_sys::core::GUID,
-    pub flags: u32,
-    pub pUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
-pub struct DISPPARAMS {
-    pub rgvarg: *mut super::Variant::VARIANT,
-    pub rgdispidNamedArgs: *mut i32,
-    pub cArgs: u32,
-    pub cNamedArgs: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DVTARGETDEVICE {
-    pub tdSize: u32,
-    pub tdDriverNameOffset: u16,
-    pub tdDeviceNameOffset: u16,
-    pub tdPortNameOffset: u16,
-    pub tdExtDevmodeOffset: u16,
-    pub tdData: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DWORD_BLOB {
-    pub clSize: u32,
-    pub alData: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DWORD_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct ELEMDESC {
-    pub tdesc: TYPEDESC,
-    pub Anonymous: ELEMDESC_0,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union ELEMDESC_0 {
-    pub idldesc: IDLDESC,
-    pub paramdesc: super::Ole::PARAMDESC,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXCEPINFO {
-    pub wCode: u16,
-    pub wReserved: u16,
-    pub bstrSource: windows_sys::core::BSTR,
-    pub bstrDescription: windows_sys::core::BSTR,
-    pub bstrHelpFile: windows_sys::core::BSTR,
-    pub dwHelpContext: u32,
-    pub pvReserved: *mut core::ffi::c_void,
-    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
-    pub scode: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLAGGED_BYTE_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLAGGED_WORD_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub asData: [u16; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct FLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
-    pub Stgmed: STGMEDIUM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FORMATETC {
-    pub cfFormat: u16,
-    pub ptd: *mut DVTARGETDEVICE,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct FUNCDESC {
-    pub memid: i32,
-    pub lprgscode: *mut i32,
-    pub lprgelemdescParam: *mut ELEMDESC,
-    pub funckind: FUNCKIND,
-    pub invkind: INVOKEKIND,
-    pub callconv: CALLCONV,
-    pub cParams: i16,
-    pub cParamsOpt: i16,
-    pub oVft: i16,
-    pub cScodes: i16,
-    pub elemdescFunc: ELEMDESC,
-    pub wFuncFlags: FUNCFLAGS,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub struct GDI_OBJECT {
-    pub ObjectType: u32,
-    pub u: GDI_OBJECT_0,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub union GDI_OBJECT_0 {
-    pub hBitmap: *mut super::SystemServices::userHBITMAP,
-    pub hPalette: *mut super::SystemServices::userHPALETTE,
-    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HYPER_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IDLDESC {
-    pub dwReserved: usize,
-    pub wIDLFlags: IDLFLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INTERFACEINFO {
-    pub pUnk: *mut core::ffi::c_void,
-    pub iid: windows_sys::core::GUID,
-    pub wMethod: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MULTI_QI {
-    pub pIID: *const windows_sys::core::GUID,
-    pub pItf: *mut core::ffi::c_void,
-    pub hr: windows_sys::core::HRESULT,
-}
-pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERYCONTEXT {
-    pub dwContext: u32,
-    pub Platform: CSPLATFORM,
-    pub Locale: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RPCOLEMESSAGE {
-    pub reserved1: *mut core::ffi::c_void,
-    pub dataRepresentation: u32,
-    pub Buffer: *mut core::ffi::c_void,
-    pub cbBuffer: u32,
-    pub iMethod: u32,
-    pub reserved2: [*mut core::ffi::c_void; 5],
-    pub rpcFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemSTGMEDIUM {
-    pub tymed: u32,
-    pub dwHandleType: u32,
-    pub pData: u32,
-    pub pUnkForRelease: u32,
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARRAY {
-    pub cDims: u16,
-    pub fFeatures: ADVANCED_FEATURE_FLAGS,
-    pub cbElements: u32,
-    pub cLocks: u32,
-    pub pvData: *mut core::ffi::c_void,
-    pub rgsabound: [SAFEARRAYBOUND; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFEARRAYBOUND {
-    pub cElements: u32,
-    pub lLbound: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SChannelHookCallInfo {
-    pub iid: windows_sys::core::GUID,
-    pub cbSize: u32,
-    pub uCausality: windows_sys::core::GUID,
-    pub dwServerPid: u32,
-    pub iMethod: u32,
-    pub pObject: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOLE_AUTHENTICATION_INFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pAuthInfo: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOLE_AUTHENTICATION_LIST {
-    pub cAuthInfo: u32,
-    pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOLE_AUTHENTICATION_SERVICE {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pPrincipalName: windows_sys::core::PWSTR,
-    pub hr: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STATDATA {
-    pub formatetc: FORMATETC,
-    pub advf: u32,
-    pub pAdvSink: *mut core::ffi::c_void,
-    pub dwConnection: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STATSTG {
-    pub pwcsName: windows_sys::core::PWSTR,
-    pub r#type: u32,
-    pub cbSize: u64,
-    pub mtime: super::super::Foundation::FILETIME,
-    pub ctime: super::super::Foundation::FILETIME,
-    pub atime: super::super::Foundation::FILETIME,
-    pub grfMode: STGM,
-    pub grfLocksSupported: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub grfStateBits: u32,
-    pub reserved: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct STGMEDIUM {
-    pub tymed: u32,
-    pub u: STGMEDIUM_0,
-    pub pUnkForRelease: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union STGMEDIUM_0 {
-    pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
-    pub hMetaFilePict: *mut core::ffi::c_void,
-    pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
-    pub hGlobal: super::super::Foundation::HGLOBAL,
-    pub lpszFileName: windows_sys::core::PWSTR,
-    pub pstm: *mut core::ffi::c_void,
-    pub pstg: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct StorageLayout {
-    pub LayoutType: u32,
-    pub pwcsElementName: windows_sys::core::PWSTR,
-    pub cOffset: i64,
-    pub cBytes: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TLIBATTR {
-    pub guid: windows_sys::core::GUID,
-    pub lcid: u32,
-    pub syskind: SYSKIND,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub wLibFlags: u16,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct TYPEATTR {
-    pub guid: windows_sys::core::GUID,
-    pub lcid: u32,
-    pub dwReserved: u32,
-    pub memidConstructor: i32,
-    pub memidDestructor: i32,
-    pub lpstrSchema: windows_sys::core::PWSTR,
-    pub cbSizeInstance: u32,
-    pub typekind: TYPEKIND,
-    pub cFuncs: u16,
-    pub cVars: u16,
-    pub cImplTypes: u16,
-    pub cbSizeVft: u16,
-    pub cbAlignment: u16,
-    pub wTypeFlags: u16,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub tdescAlias: TYPEDESC,
-    pub idldescType: IDLDESC,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct TYPEDESC {
-    pub Anonymous: TYPEDESC_0,
-    pub vt: super::Variant::VARENUM,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union TYPEDESC_0 {
-    pub lptdesc: *mut TYPEDESC,
-    pub lpadesc: *mut super::Ole::ARRAYDESC,
-    pub hreftype: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct VARDESC {
-    pub memid: i32,
-    pub lpstrSchema: windows_sys::core::PWSTR,
-    pub Anonymous: VARDESC_0,
-    pub elemdescVar: ELEMDESC,
-    pub wVarFlags: VARFLAGS,
-    pub varkind: VARKIND,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union VARDESC_0 {
-    pub oInst: u32,
-    pub lpvarValue: *mut super::Variant::VARIANT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WORD_BLOB {
-    pub clSize: u32,
-    pub asData: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WORD_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct uCLSSPEC {
-    pub tyspec: u32,
-    pub tagged_union: uCLSSPEC_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union uCLSSPEC_0 {
-    pub clsid: windows_sys::core::GUID,
-    pub pFileExt: windows_sys::core::PWSTR,
-    pub pMimeType: windows_sys::core::PWSTR,
-    pub pProgId: windows_sys::core::PWSTR,
-    pub pFileName: windows_sys::core::PWSTR,
-    pub ByName: uCLSSPEC_0_0,
-    pub ByObjectId: uCLSSPEC_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct uCLSSPEC_0_0 {
-    pub pPackageName: windows_sys::core::PWSTR,
-    pub PolicyId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct uCLSSPEC_0_1 {
-    pub ObjectId: windows_sys::core::GUID,
-    pub PolicyId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub struct userFLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
-    pub Stgmed: userSTGMEDIUM,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub struct userSTGMEDIUM {
-    pub u: userSTGMEDIUM_0,
-    pub pUnkForRelease: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub struct userSTGMEDIUM_0 {
-    pub tymed: u32,
-    pub u: userSTGMEDIUM_0_0,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub union userSTGMEDIUM_0_0 {
-    pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
-    pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,
-    pub hGdiHandle: *mut GDI_OBJECT,
-    pub hGlobal: *mut super::SystemServices::userHGLOBAL,
-    pub lpszFileName: windows_sys::core::PWSTR,
-    pub pstm: *mut BYTE_BLOB,
-    pub pstg: *mut BYTE_BLOB,
-}
-pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_sys::core::HRESULT>;
-pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_sys::core::GUID, param1: *const windows_sys::core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_sys::core::HRESULT>;

@@ -1,3 +1,1201 @@
+pub type IF_ADMINISTRATIVE_STATE = i32;
+pub type IF_OPER_STATUS = i32;
+pub type NDIS_802_11_AUTHENTICATION_MODE = i32;
+pub type NDIS_802_11_MEDIA_STREAM_MODE = i32;
+pub type NDIS_802_11_NETWORK_INFRASTRUCTURE = i32;
+pub type NDIS_802_11_NETWORK_TYPE = i32;
+pub type NDIS_802_11_POWER_MODE = i32;
+pub type NDIS_802_11_PRIVACY_FILTER = i32;
+pub type NDIS_802_11_RADIO_STATUS = i32;
+pub type NDIS_802_11_RELOAD_DEFAULTS = i32;
+pub type NDIS_802_11_STATUS_TYPE = i32;
+pub type NDIS_802_11_WEP_STATUS = i32;
+pub type NDIS_802_5_RING_STATE = i32;
+pub type NDIS_DEVICE_POWER_STATE = i32;
+pub type NDIS_FDDI_ATTACHMENT_TYPE = i32;
+pub type NDIS_FDDI_LCONNECTION_STATE = i32;
+pub type NDIS_FDDI_RING_MGT_STATE = i32;
+pub type NDIS_HARDWARE_STATUS = i32;
+pub type NDIS_INTERRUPT_MODERATION = i32;
+pub type NDIS_MEDIA_STATE = i32;
+pub type NDIS_MEDIUM = i32;
+pub type NDIS_NETWORK_CHANGE_TYPE = i32;
+pub type NDIS_PHYSICAL_MEDIUM = i32;
+pub type NDIS_PORT_AUTHORIZATION_STATE = i32;
+pub type NDIS_PORT_CONTROL_STATE = i32;
+pub type NDIS_PORT_TYPE = i32;
+pub type NDIS_PROCESSOR_VENDOR = i32;
+pub type NDIS_REQUEST_TYPE = i32;
+pub type NDIS_SUPPORTED_PAUSE_FUNCTIONS = i32;
+pub type NDIS_WAN_HEADER_FORMAT = i32;
+pub type NDIS_WAN_MEDIUM_SUBTYPE = i32;
+pub type NDIS_WAN_QUALITY = i32;
+pub type NDK_RDMA_TECHNOLOGY = i32;
+pub type NET_IF_ACCESS_TYPE = i32;
+pub type NET_IF_ADMIN_STATUS = i32;
+pub type NET_IF_CONNECTION_TYPE = i32;
+pub type NET_IF_DIRECTION_TYPE = i32;
+pub type NET_IF_MEDIA_CONNECT_STATE = i32;
+pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
+pub type NET_IF_OPER_STATUS = i32;
+pub type NET_IF_RCV_ADDRESS_TYPE = i32;
+pub type OFFLOAD_CONF_ALGO = i32;
+pub type OFFLOAD_INTEGRITY_ALGO = i32;
+pub type OFFLOAD_OPERATION_E = i32;
+pub type TUNNEL_TYPE = i32;
+pub type UDP_ENCAP_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct BSSID_INFO {
+    pub BSSID: [u8; 6],
+    pub PMKID: [u8; 16],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GEN_GET_NETCARD_TIME {
+    pub ReadTime: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GEN_GET_TIME_CAPS {
+    pub Flags: u32,
+    pub ClockPrecision: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IF_COUNTED_STRING_LH {
+    pub Length: u16,
+    pub String: [u16; 257],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IF_PHYSICAL_ADDRESS_LH {
+    pub Length: u16,
+    pub Address: [u8; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_AI_REQFI {
+    pub Capabilities: u16,
+    pub ListenInterval: u16,
+    pub CurrentAPAddress: [u8; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_AI_RESFI {
+    pub Capabilities: u16,
+    pub StatusCode: u16,
+    pub AssociationId: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
+    pub Length: u32,
+    pub AvailableRequestFixedIEs: u16,
+    pub RequestFixedIEs: NDIS_802_11_AI_REQFI,
+    pub RequestIELength: u32,
+    pub OffsetRequestIEs: u32,
+    pub AvailableResponseFixedIEs: u16,
+    pub ResponseFixedIEs: NDIS_802_11_AI_RESFI,
+    pub ResponseIELength: u32,
+    pub OffsetResponseIEs: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
+    pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_AUTHENTICATION_EVENT {
+    pub Status: NDIS_802_11_STATUS_INDICATION,
+    pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
+    pub Length: u32,
+    pub Bssid: [u8; 6],
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_BSSID_LIST {
+    pub NumberOfItems: u32,
+    pub Bssid: [NDIS_WLAN_BSSID; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_BSSID_LIST_EX {
+    pub NumberOfItems: u32,
+    pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_CAPABILITY {
+    pub Length: u32,
+    pub Version: u32,
+    pub NoOfPMKIDs: u32,
+    pub NoOfAuthEncryptPairsSupported: u32,
+    pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_CONFIGURATION {
+    pub Length: u32,
+    pub BeaconPeriod: u32,
+    pub ATIMWindow: u32,
+    pub DSConfig: u32,
+    pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_CONFIGURATION_FH {
+    pub Length: u32,
+    pub HopPattern: u32,
+    pub HopSet: u32,
+    pub DwellTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_FIXED_IEs {
+    pub Timestamp: [u8; 8],
+    pub BeaconInterval: u16,
+    pub Capabilities: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_KEY {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub KeyLength: u32,
+    pub BSSID: [u8; 6],
+    pub KeyRSC: u64,
+    pub KeyMaterial: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_NETWORK_TYPE_LIST {
+    pub NumberOfItems: u32,
+    pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
+    pub NumberOfItems: u32,
+    pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_PMKID {
+    pub Length: u32,
+    pub BSSIDInfoCount: u32,
+    pub BSSIDInfo: [BSSID_INFO; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
+    pub Version: u32,
+    pub NumCandidates: u32,
+    pub CandidateList: [PMKID_CANDIDATE; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_REMOVE_KEY {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub BSSID: [u8; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_SSID {
+    pub SsidLength: u32,
+    pub Ssid: [u8; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_STATISTICS {
+    pub Length: u32,
+    pub TransmittedFragmentCount: i64,
+    pub MulticastTransmittedFrameCount: i64,
+    pub FailedCount: i64,
+    pub RetryCount: i64,
+    pub MultipleRetryCount: i64,
+    pub RTSSuccessCount: i64,
+    pub RTSFailureCount: i64,
+    pub ACKFailureCount: i64,
+    pub FrameDuplicateCount: i64,
+    pub ReceivedFragmentCount: i64,
+    pub MulticastReceivedFrameCount: i64,
+    pub FCSErrorCount: i64,
+    pub TKIPLocalMICFailures: i64,
+    pub TKIPICVErrorCount: i64,
+    pub TKIPCounterMeasuresInvoked: i64,
+    pub TKIPReplays: i64,
+    pub CCMPFormatErrors: i64,
+    pub CCMPReplays: i64,
+    pub CCMPDecryptErrors: i64,
+    pub FourWayHandshakeFailures: i64,
+    pub WEPUndecryptableCount: i64,
+    pub WEPICVErrorCount: i64,
+    pub DecryptSuccessCount: i64,
+    pub DecryptFailureCount: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_STATUS_INDICATION {
+    pub StatusType: NDIS_802_11_STATUS_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_TEST {
+    pub Length: u32,
+    pub Type: u32,
+    pub Anonymous: NDIS_802_11_TEST_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NDIS_802_11_TEST_0 {
+    pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
+    pub RssiTrigger: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_VARIABLE_IEs {
+    pub ElementID: u8,
+    pub Length: u8,
+    pub data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_802_11_WEP {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub KeyLength: u32,
+    pub KeyMaterial: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_CO_DEVICE_PROFILE {
+    pub DeviceDescription: NDIS_VAR_DATA_DESC,
+    pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
+    pub ulTAPISupplementaryPassThru: u32,
+    pub ulAddressModes: u32,
+    pub ulNumAddresses: u32,
+    pub ulBearerModes: u32,
+    pub ulMaxTxRate: u32,
+    pub ulMinTxRate: u32,
+    pub ulMaxRxRate: u32,
+    pub ulMinRxRate: u32,
+    pub ulMediaModes: u32,
+    pub ulGenerateToneModes: u32,
+    pub ulGenerateToneMaxNumFreq: u32,
+    pub ulGenerateDigitModes: u32,
+    pub ulMonitorToneMaxNumFreq: u32,
+    pub ulMonitorToneMaxNumEntries: u32,
+    pub ulMonitorDigitModes: u32,
+    pub ulGatherDigitsMinTimeout: u32,
+    pub ulGatherDigitsMaxTimeout: u32,
+    pub ulDevCapFlags: u32,
+    pub ulMaxNumActiveCalls: u32,
+    pub ulAnswerMode: u32,
+    pub ulUUIAcceptSize: u32,
+    pub ulUUIAnswerSize: u32,
+    pub ulUUIMakeCallSize: u32,
+    pub ulUUIDropSize: u32,
+    pub ulUUISendUserUserInfoSize: u32,
+    pub ulUUICallInfoSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_CO_LINK_SPEED {
+    pub Outbound: u32,
+    pub Inbound: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_GUID {
+    pub Guid: windows_sys::core::GUID,
+    pub Anonymous: NDIS_GUID_0,
+    pub Size: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NDIS_GUID_0 {
+    pub Oid: u32,
+    pub Status: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub SystemTimestamp1: u64,
+    pub HardwareClockTimestamp: u64,
+    pub SystemTimestamp2: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_INTERFACE_INFORMATION {
+    pub ifOperStatus: NET_IF_OPER_STATUS,
+    pub ifOperStatusFlags: u32,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub ifMtu: u32,
+    pub ifPromiscuousMode: super::super::Foundation::BOOLEAN,
+    pub ifDeviceWakeUpEnable: super::super::Foundation::BOOLEAN,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub ifLastChange: u64,
+    pub ifCounterDiscontinuityTime: u64,
+    pub ifInUnknownProtos: u64,
+    pub ifInDiscards: u64,
+    pub ifInErrors: u64,
+    pub ifHCInOctets: u64,
+    pub ifHCInUcastPkts: u64,
+    pub ifHCInMulticastPkts: u64,
+    pub ifHCInBroadcastPkts: u64,
+    pub ifHCOutOctets: u64,
+    pub ifHCOutUcastPkts: u64,
+    pub ifHCOutMulticastPkts: u64,
+    pub ifHCOutBroadcastPkts: u64,
+    pub ifOutErrors: u64,
+    pub ifOutDiscards: u64,
+    pub ifHCInUcastOctets: u64,
+    pub ifHCInMulticastOctets: u64,
+    pub ifHCInBroadcastOctets: u64,
+    pub ifHCOutUcastOctets: u64,
+    pub ifHCOutMulticastOctets: u64,
+    pub ifHCOutBroadcastOctets: u64,
+    pub CompartmentId: NET_IF_COMPARTMENT_ID,
+    pub SupportedStatistics: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IPSEC_OFFLOAD_V1 {
+    pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IP_OPER_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IP_OPER_STATUS {
+    pub AddressFamily: u32,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
+    pub OperationalStatusFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IP_OPER_STATUS_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub NumberofAddressFamiliesReturned: u32,
+    pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IRDA_PACKET_INFO {
+    pub ExtraBOFs: u32,
+    pub MinTurnAroundTime: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_LINK_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+    pub AutoNegotiationFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_LINK_SPEED {
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_LINK_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+    pub AutoNegotiationFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_OBJECT_HEADER {
+    pub Type: u8,
+    pub Revision: u8,
+    pub Size: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
+    pub LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
+    pub IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
+    pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_OFFLOAD_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IPv4Checksum: u8,
+    pub TCPIPv4Checksum: u8,
+    pub UDPIPv4Checksum: u8,
+    pub TCPIPv6Checksum: u8,
+    pub UDPIPv6Checksum: u8,
+    pub LsoV1: u8,
+    pub IPsecV1: u8,
+    pub LsoV2IPv4: u8,
+    pub LsoV2IPv6: u8,
+    pub TcpConnectionIPv4: u8,
+    pub TcpConnectionIPv6: u8,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_OPER_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
+    pub OperationalStatusFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub DeviceType: u32,
+    pub CurrentSpeedAndMode: u32,
+    pub CurrentPayloadSize: u32,
+    pub MaxPayloadSize: u32,
+    pub MaxReadRequestSize: u32,
+    pub CurrentLinkSpeed: u32,
+    pub CurrentLinkWidth: u32,
+    pub MaxLinkSpeed: u32,
+    pub MaxLinkWidth: u32,
+    pub PciExpressVersion: u32,
+    pub InterruptType: u32,
+    pub MaxInterruptMessages: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PM_PACKET_PATTERN {
+    pub Priority: u32,
+    pub Reserved: u32,
+    pub MaskSize: u32,
+    pub PatternOffset: u32,
+    pub PatternSize: u32,
+    pub PatternFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
+    pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
+    pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
+    pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PNP_CAPABILITIES {
+    pub Flags: u32,
+    pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PORT {
+    pub Next: *mut NDIS_PORT,
+    pub NdisReserved: *mut core::ffi::c_void,
+    pub MiniportReserved: *mut core::ffi::c_void,
+    pub ProtocolReserved: *mut core::ffi::c_void,
+    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PORT_ARRAY {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub NumberOfPorts: u32,
+    pub OffsetFirstPort: u32,
+    pub ElementSize: u32,
+    pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PORT_CHARACTERISTICS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub Flags: u32,
+    pub Type: NDIS_PORT_TYPE,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub Direction: NET_IF_DIRECTION_TYPE,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_PORT_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub Direction: NET_IF_DIRECTION_TYPE,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_RECEIVE_HASH_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub HashInformation: u32,
+    pub HashSecretKeySize: u16,
+    pub HashSecretKeyOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub CapabilitiesFlags: u32,
+    pub NumberOfInterruptMessages: u32,
+    pub NumberOfReceiveQueues: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u16,
+    pub BaseCpuNumber: u16,
+    pub HashInformation: u32,
+    pub IndirectionTableSize: u16,
+    pub IndirectionTableOffset: u32,
+    pub HashSecretKeySize: u16,
+    pub HashSecretKeyOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_STATISTICS_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub SupportedStatistics: u32,
+    pub ifInDiscards: u64,
+    pub ifInErrors: u64,
+    pub ifHCInOctets: u64,
+    pub ifHCInUcastPkts: u64,
+    pub ifHCInMulticastPkts: u64,
+    pub ifHCInBroadcastPkts: u64,
+    pub ifHCOutOctets: u64,
+    pub ifHCOutUcastPkts: u64,
+    pub ifHCOutMulticastPkts: u64,
+    pub ifHCOutBroadcastPkts: u64,
+    pub ifOutErrors: u64,
+    pub ifOutDiscards: u64,
+    pub ifHCInUcastOctets: u64,
+    pub ifHCInMulticastOctets: u64,
+    pub ifHCInBroadcastOctets: u64,
+    pub ifHCOutUcastOctets: u64,
+    pub ifHCOutMulticastOctets: u64,
+    pub ifHCOutBroadcastOctets: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_STATISTICS_VALUE {
+    pub Oid: u32,
+    pub DataLength: u32,
+    pub Data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_STATISTICS_VALUE_EX {
+    pub Oid: u32,
+    pub DataLength: u32,
+    pub Length: u32,
+    pub Data: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_CONNECTION_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+    pub TcpConnectionOffloadCapacity: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
+    pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub TimeoutArrayLength: u32,
+    pub TimeoutArray: [u32; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TIMESTAMP_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub HardwareClockFrequencyHz: u64,
+    pub CrossTimestamp: super::super::Foundation::BOOLEAN,
+    pub Reserved1: u64,
+    pub Reserved2: u64,
+    pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub AllReceiveHw: super::super::Foundation::BOOLEAN,
+    pub AllTransmitHw: super::super::Foundation::BOOLEAN,
+    pub TaggedTransmitHw: super::super::Foundation::BOOLEAN,
+    pub AllReceiveSw: super::super::Foundation::BOOLEAN,
+    pub AllTransmitSw: super::super::Foundation::BOOLEAN,
+    pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_VAR_DATA_DESC {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Offset: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WAN_PROTOCOL_CAPS {
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WLAN_BSSID {
+    pub Length: u32,
+    pub MacAddress: [u8; 6],
+    pub Reserved: [u8; 2],
+    pub Ssid: NDIS_802_11_SSID,
+    pub Privacy: u32,
+    pub Rssi: i32,
+    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+    pub Configuration: NDIS_802_11_CONFIGURATION,
+    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+    pub SupportedRates: [u8; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WLAN_BSSID_EX {
+    pub Length: u32,
+    pub MacAddress: [u8; 6],
+    pub Reserved: [u8; 2],
+    pub Ssid: NDIS_802_11_SSID,
+    pub Privacy: u32,
+    pub Rssi: i32,
+    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+    pub Configuration: NDIS_802_11_CONFIGURATION,
+    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+    pub SupportedRates: [u8; 16],
+    pub IELength: u32,
+    pub IEs: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_ENUM_ADAPTER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IfIndex: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub DeviceNameLength: u16,
+    pub DeviceName: [i8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_EVENT_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IfIndex: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub PortNumber: u32,
+    pub DeviceNameLength: u32,
+    pub DeviceNameOffset: u32,
+    pub Padding: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    pub Md5: u32,
+    pub Sha_1: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    pub Des: u32,
+    pub Reserved: u32,
+    pub TripleDes: u32,
+    pub NullEsp: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_METHOD_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub Timeout: u32,
+    pub Padding: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
+    pub LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
+    pub IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
+    pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_OUTPUT_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub SupportedRevision: u8,
+    pub DataOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_SET_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub Timeout: u32,
+    pub Padding: [u8; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Encapsulation: u32,
+    pub SupportIPv4: u32,
+    pub SupportIPv6: u32,
+    pub SupportIPv6ExtensionHeaders: u32,
+    pub SupportSack: u32,
+    pub TcpConnectionOffloadCapacity: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub TcpOptions: u32,
+    pub IpOptions: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
+    pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDK_ADAPTER_INFO {
+    pub Version: NDK_VERSION,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub MaxRegistrationSize: usize,
+    pub MaxWindowSize: usize,
+    pub FRMRPageCount: u32,
+    pub MaxInitiatorRequestSge: u32,
+    pub MaxReceiveRequestSge: u32,
+    pub MaxReadRequestSge: u32,
+    pub MaxTransferLength: u32,
+    pub MaxInlineDataSize: u32,
+    pub MaxInboundReadLimit: u32,
+    pub MaxOutboundReadLimit: u32,
+    pub MaxReceiveQueueDepth: u32,
+    pub MaxInitiatorQueueDepth: u32,
+    pub MaxSrqDepth: u32,
+    pub MaxCqDepth: u32,
+    pub LargeRequestThreshold: u32,
+    pub MaxCallerData: u32,
+    pub MaxCalleeData: u32,
+    pub AdapterFlags: u32,
+    pub RdmaTechnology: NDK_RDMA_TECHNOLOGY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDK_VERSION {
+    pub Major: u16,
+    pub Minor: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_ADDRESS {
+    pub AddressLength: u16,
+    pub AddressType: u16,
+    pub Address: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_ADDRESS_IP {
+    pub sin_port: u16,
+    pub IN_ADDR: u32,
+    pub sin_zero: [u8; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_ADDRESS_IP6 {
+    pub sin6_port: u16,
+    pub sin6_flowinfo: u32,
+    pub sin6_addr: [u16; 8],
+    pub sin6_scope_id: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_ADDRESS_IPX {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_ADDRESS_LIST {
+    pub AddressCount: i32,
+    pub AddressType: u16,
+    pub Address: [NETWORK_ADDRESS; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_IF_ALIAS_LH {
+    pub ifAliasLength: u16,
+    pub ifAliasOffset: u16,
+}
+pub type NET_IF_COMPARTMENT_ID = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_IF_RCV_ADDRESS_LH {
+    pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
+    pub ifRcvAddressLength: u16,
+    pub ifRcvAddressOffset: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NET_LUID_LH {
+    pub Value: u64,
+    pub Info: NET_LUID_LH_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_LUID_LH_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NET_PHYSICAL_LOCATION_LH {
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub FunctionNumber: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_ALGO_INFO {
+    pub algoIdentifier: u32,
+    pub algoKeylen: u32,
+    pub algoRounds: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_IPSEC_ADD_SA {
+    pub SrcAddr: u32,
+    pub SrcMask: u32,
+    pub DestAddr: u32,
+    pub DestMask: u32,
+    pub Protocol: u32,
+    pub SrcPort: u16,
+    pub DestPort: u16,
+    pub SrcTunnelAddr: u32,
+    pub DestTunnelAddr: u32,
+    pub Flags: u16,
+    pub NumSAs: i16,
+    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub KeyLen: u32,
+    pub KeyMat: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    pub SrcAddr: u32,
+    pub SrcMask: u32,
+    pub DstAddr: u32,
+    pub DstMask: u32,
+    pub Protocol: u32,
+    pub SrcPort: u16,
+    pub DstPort: u16,
+    pub SrcTunnelAddr: u32,
+    pub DstTunnelAddr: u32,
+    pub Flags: u16,
+    pub NumSAs: i16,
+    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
+    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
+    pub KeyLen: u32,
+    pub KeyMat: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_IPSEC_DELETE_SA {
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    pub UdpEncapType: UDP_ENCAP_TYPE,
+    pub DstEncapPort: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OFFLOAD_SECURITY_ASSOCIATION {
+    pub Operation: OFFLOAD_OPERATION_E,
+    pub SPI: u32,
+    pub IntegrityAlgo: OFFLOAD_ALGO_INFO,
+    pub ConfAlgo: OFFLOAD_ALGO_INFO,
+    pub Reserved: OFFLOAD_ALGO_INFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PMKID_CANDIDATE {
+    pub BSSID: [u8; 6],
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRANSPORT_HEADER_OFFSET {
+    pub ProtocolType: u16,
+    pub HeaderOffset: u16,
+}
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = 1i32;
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 pub const CLOCK_PRECISION: u32 = 4u32;
@@ -2137,1201 +3335,3 @@ pub const fNDIS_GUID_SUPPORT_COMMON_HEADER: u32 = 512u32;
 pub const fNDIS_GUID_TO_OID: u32 = 1u32;
 pub const fNDIS_GUID_TO_STATUS: u32 = 2u32;
 pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
-pub type IF_ADMINISTRATIVE_STATE = i32;
-pub type IF_OPER_STATUS = i32;
-pub type NDIS_802_11_AUTHENTICATION_MODE = i32;
-pub type NDIS_802_11_MEDIA_STREAM_MODE = i32;
-pub type NDIS_802_11_NETWORK_INFRASTRUCTURE = i32;
-pub type NDIS_802_11_NETWORK_TYPE = i32;
-pub type NDIS_802_11_POWER_MODE = i32;
-pub type NDIS_802_11_PRIVACY_FILTER = i32;
-pub type NDIS_802_11_RADIO_STATUS = i32;
-pub type NDIS_802_11_RELOAD_DEFAULTS = i32;
-pub type NDIS_802_11_STATUS_TYPE = i32;
-pub type NDIS_802_11_WEP_STATUS = i32;
-pub type NDIS_802_5_RING_STATE = i32;
-pub type NDIS_DEVICE_POWER_STATE = i32;
-pub type NDIS_FDDI_ATTACHMENT_TYPE = i32;
-pub type NDIS_FDDI_LCONNECTION_STATE = i32;
-pub type NDIS_FDDI_RING_MGT_STATE = i32;
-pub type NDIS_HARDWARE_STATUS = i32;
-pub type NDIS_INTERRUPT_MODERATION = i32;
-pub type NDIS_MEDIA_STATE = i32;
-pub type NDIS_MEDIUM = i32;
-pub type NDIS_NETWORK_CHANGE_TYPE = i32;
-pub type NDIS_PHYSICAL_MEDIUM = i32;
-pub type NDIS_PORT_AUTHORIZATION_STATE = i32;
-pub type NDIS_PORT_CONTROL_STATE = i32;
-pub type NDIS_PORT_TYPE = i32;
-pub type NDIS_PROCESSOR_VENDOR = i32;
-pub type NDIS_REQUEST_TYPE = i32;
-pub type NDIS_SUPPORTED_PAUSE_FUNCTIONS = i32;
-pub type NDIS_WAN_HEADER_FORMAT = i32;
-pub type NDIS_WAN_MEDIUM_SUBTYPE = i32;
-pub type NDIS_WAN_QUALITY = i32;
-pub type NDK_RDMA_TECHNOLOGY = i32;
-pub type NET_IF_ACCESS_TYPE = i32;
-pub type NET_IF_ADMIN_STATUS = i32;
-pub type NET_IF_CONNECTION_TYPE = i32;
-pub type NET_IF_DIRECTION_TYPE = i32;
-pub type NET_IF_MEDIA_CONNECT_STATE = i32;
-pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
-pub type NET_IF_OPER_STATUS = i32;
-pub type NET_IF_RCV_ADDRESS_TYPE = i32;
-pub type OFFLOAD_CONF_ALGO = i32;
-pub type OFFLOAD_INTEGRITY_ALGO = i32;
-pub type OFFLOAD_OPERATION_E = i32;
-pub type TUNNEL_TYPE = i32;
-pub type UDP_ENCAP_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct BSSID_INFO {
-    pub BSSID: [u8; 6],
-    pub PMKID: [u8; 16],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GEN_GET_NETCARD_TIME {
-    pub ReadTime: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GEN_GET_TIME_CAPS {
-    pub Flags: u32,
-    pub ClockPrecision: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IF_COUNTED_STRING_LH {
-    pub Length: u16,
-    pub String: [u16; 257],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IF_PHYSICAL_ADDRESS_LH {
-    pub Length: u16,
-    pub Address: [u8; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_AI_REQFI {
-    pub Capabilities: u16,
-    pub ListenInterval: u16,
-    pub CurrentAPAddress: [u8; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_AI_RESFI {
-    pub Capabilities: u16,
-    pub StatusCode: u16,
-    pub AssociationId: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
-    pub Length: u32,
-    pub AvailableRequestFixedIEs: u16,
-    pub RequestFixedIEs: NDIS_802_11_AI_REQFI,
-    pub RequestIELength: u32,
-    pub OffsetRequestIEs: u32,
-    pub AvailableResponseFixedIEs: u16,
-    pub ResponseFixedIEs: NDIS_802_11_AI_RESFI,
-    pub ResponseIELength: u32,
-    pub OffsetResponseIEs: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
-    pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_AUTHENTICATION_EVENT {
-    pub Status: NDIS_802_11_STATUS_INDICATION,
-    pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
-    pub Length: u32,
-    pub Bssid: [u8; 6],
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_BSSID_LIST {
-    pub NumberOfItems: u32,
-    pub Bssid: [NDIS_WLAN_BSSID; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_BSSID_LIST_EX {
-    pub NumberOfItems: u32,
-    pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_CAPABILITY {
-    pub Length: u32,
-    pub Version: u32,
-    pub NoOfPMKIDs: u32,
-    pub NoOfAuthEncryptPairsSupported: u32,
-    pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_CONFIGURATION {
-    pub Length: u32,
-    pub BeaconPeriod: u32,
-    pub ATIMWindow: u32,
-    pub DSConfig: u32,
-    pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_CONFIGURATION_FH {
-    pub Length: u32,
-    pub HopPattern: u32,
-    pub HopSet: u32,
-    pub DwellTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_FIXED_IEs {
-    pub Timestamp: [u8; 8],
-    pub BeaconInterval: u16,
-    pub Capabilities: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
-    pub BSSID: [u8; 6],
-    pub KeyRSC: u64,
-    pub KeyMaterial: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_NETWORK_TYPE_LIST {
-    pub NumberOfItems: u32,
-    pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
-    pub NumberOfItems: u32,
-    pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_PMKID {
-    pub Length: u32,
-    pub BSSIDInfoCount: u32,
-    pub BSSIDInfo: [BSSID_INFO; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
-    pub Version: u32,
-    pub NumCandidates: u32,
-    pub CandidateList: [PMKID_CANDIDATE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_REMOVE_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub BSSID: [u8; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_SSID {
-    pub SsidLength: u32,
-    pub Ssid: [u8; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_STATISTICS {
-    pub Length: u32,
-    pub TransmittedFragmentCount: i64,
-    pub MulticastTransmittedFrameCount: i64,
-    pub FailedCount: i64,
-    pub RetryCount: i64,
-    pub MultipleRetryCount: i64,
-    pub RTSSuccessCount: i64,
-    pub RTSFailureCount: i64,
-    pub ACKFailureCount: i64,
-    pub FrameDuplicateCount: i64,
-    pub ReceivedFragmentCount: i64,
-    pub MulticastReceivedFrameCount: i64,
-    pub FCSErrorCount: i64,
-    pub TKIPLocalMICFailures: i64,
-    pub TKIPICVErrorCount: i64,
-    pub TKIPCounterMeasuresInvoked: i64,
-    pub TKIPReplays: i64,
-    pub CCMPFormatErrors: i64,
-    pub CCMPReplays: i64,
-    pub CCMPDecryptErrors: i64,
-    pub FourWayHandshakeFailures: i64,
-    pub WEPUndecryptableCount: i64,
-    pub WEPICVErrorCount: i64,
-    pub DecryptSuccessCount: i64,
-    pub DecryptFailureCount: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_STATUS_INDICATION {
-    pub StatusType: NDIS_802_11_STATUS_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_TEST {
-    pub Length: u32,
-    pub Type: u32,
-    pub Anonymous: NDIS_802_11_TEST_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NDIS_802_11_TEST_0 {
-    pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
-    pub RssiTrigger: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_VARIABLE_IEs {
-    pub ElementID: u8,
-    pub Length: u8,
-    pub data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_802_11_WEP {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
-    pub KeyMaterial: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_CO_DEVICE_PROFILE {
-    pub DeviceDescription: NDIS_VAR_DATA_DESC,
-    pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
-    pub ulTAPISupplementaryPassThru: u32,
-    pub ulAddressModes: u32,
-    pub ulNumAddresses: u32,
-    pub ulBearerModes: u32,
-    pub ulMaxTxRate: u32,
-    pub ulMinTxRate: u32,
-    pub ulMaxRxRate: u32,
-    pub ulMinRxRate: u32,
-    pub ulMediaModes: u32,
-    pub ulGenerateToneModes: u32,
-    pub ulGenerateToneMaxNumFreq: u32,
-    pub ulGenerateDigitModes: u32,
-    pub ulMonitorToneMaxNumFreq: u32,
-    pub ulMonitorToneMaxNumEntries: u32,
-    pub ulMonitorDigitModes: u32,
-    pub ulGatherDigitsMinTimeout: u32,
-    pub ulGatherDigitsMaxTimeout: u32,
-    pub ulDevCapFlags: u32,
-    pub ulMaxNumActiveCalls: u32,
-    pub ulAnswerMode: u32,
-    pub ulUUIAcceptSize: u32,
-    pub ulUUIAnswerSize: u32,
-    pub ulUUIMakeCallSize: u32,
-    pub ulUUIDropSize: u32,
-    pub ulUUISendUserUserInfoSize: u32,
-    pub ulUUICallInfoSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_CO_LINK_SPEED {
-    pub Outbound: u32,
-    pub Inbound: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_GUID {
-    pub Guid: windows_sys::core::GUID,
-    pub Anonymous: NDIS_GUID_0,
-    pub Size: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NDIS_GUID_0 {
-    pub Oid: u32,
-    pub Status: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SystemTimestamp1: u64,
-    pub HardwareClockTimestamp: u64,
-    pub SystemTimestamp2: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_INTERFACE_INFORMATION {
-    pub ifOperStatus: NET_IF_OPER_STATUS,
-    pub ifOperStatusFlags: u32,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub ifMtu: u32,
-    pub ifPromiscuousMode: super::super::Foundation::BOOLEAN,
-    pub ifDeviceWakeUpEnable: super::super::Foundation::BOOLEAN,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub ifLastChange: u64,
-    pub ifCounterDiscontinuityTime: u64,
-    pub ifInUnknownProtos: u64,
-    pub ifInDiscards: u64,
-    pub ifInErrors: u64,
-    pub ifHCInOctets: u64,
-    pub ifHCInUcastPkts: u64,
-    pub ifHCInMulticastPkts: u64,
-    pub ifHCInBroadcastPkts: u64,
-    pub ifHCOutOctets: u64,
-    pub ifHCOutUcastPkts: u64,
-    pub ifHCOutMulticastPkts: u64,
-    pub ifHCOutBroadcastPkts: u64,
-    pub ifOutErrors: u64,
-    pub ifOutDiscards: u64,
-    pub ifHCInUcastOctets: u64,
-    pub ifHCInMulticastOctets: u64,
-    pub ifHCInBroadcastOctets: u64,
-    pub ifHCOutUcastOctets: u64,
-    pub ifHCOutMulticastOctets: u64,
-    pub ifHCOutBroadcastOctets: u64,
-    pub CompartmentId: NET_IF_COMPARTMENT_ID,
-    pub SupportedStatistics: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
-    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
-    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IP_OPER_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IP_OPER_STATUS {
-    pub AddressFamily: u32,
-    pub OperationalStatus: NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IP_OPER_STATUS_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub NumberofAddressFamiliesReturned: u32,
-    pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IRDA_PACKET_INFO {
-    pub ExtraBOFs: u32,
-    pub MinTurnAroundTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_LINK_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_LINK_SPEED {
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_LINK_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_OBJECT_HEADER {
-    pub Type: u8,
-    pub Revision: u8,
-    pub Size: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
-    pub LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
-    pub IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
-    pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_OFFLOAD_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IPv4Checksum: u8,
-    pub TCPIPv4Checksum: u8,
-    pub UDPIPv4Checksum: u8,
-    pub TCPIPv6Checksum: u8,
-    pub UDPIPv6Checksum: u8,
-    pub LsoV1: u8,
-    pub IPsecV1: u8,
-    pub LsoV2IPv4: u8,
-    pub LsoV2IPv6: u8,
-    pub TcpConnectionIPv4: u8,
-    pub TcpConnectionIPv6: u8,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_OPER_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub OperationalStatus: NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub DeviceType: u32,
-    pub CurrentSpeedAndMode: u32,
-    pub CurrentPayloadSize: u32,
-    pub MaxPayloadSize: u32,
-    pub MaxReadRequestSize: u32,
-    pub CurrentLinkSpeed: u32,
-    pub CurrentLinkWidth: u32,
-    pub MaxLinkSpeed: u32,
-    pub MaxLinkWidth: u32,
-    pub PciExpressVersion: u32,
-    pub InterruptType: u32,
-    pub MaxInterruptMessages: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PM_PACKET_PATTERN {
-    pub Priority: u32,
-    pub Reserved: u32,
-    pub MaskSize: u32,
-    pub PatternOffset: u32,
-    pub PatternSize: u32,
-    pub PatternFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
-    pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
-    pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
-    pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PNP_CAPABILITIES {
-    pub Flags: u32,
-    pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PORT {
-    pub Next: *mut NDIS_PORT,
-    pub NdisReserved: *mut core::ffi::c_void,
-    pub MiniportReserved: *mut core::ffi::c_void,
-    pub ProtocolReserved: *mut core::ffi::c_void,
-    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PORT_ARRAY {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub NumberOfPorts: u32,
-    pub OffsetFirstPort: u32,
-    pub ElementSize: u32,
-    pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PORT_CHARACTERISTICS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub Flags: u32,
-    pub Type: NDIS_PORT_TYPE,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub Direction: NET_IF_DIRECTION_TYPE,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_PORT_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub Direction: NET_IF_DIRECTION_TYPE,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_RECEIVE_HASH_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub HashInformation: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub CapabilitiesFlags: u32,
-    pub NumberOfInterruptMessages: u32,
-    pub NumberOfReceiveQueues: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u16,
-    pub BaseCpuNumber: u16,
-    pub HashInformation: u32,
-    pub IndirectionTableSize: u16,
-    pub IndirectionTableOffset: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_STATISTICS_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub SupportedStatistics: u32,
-    pub ifInDiscards: u64,
-    pub ifInErrors: u64,
-    pub ifHCInOctets: u64,
-    pub ifHCInUcastPkts: u64,
-    pub ifHCInMulticastPkts: u64,
-    pub ifHCInBroadcastPkts: u64,
-    pub ifHCOutOctets: u64,
-    pub ifHCOutUcastPkts: u64,
-    pub ifHCOutMulticastPkts: u64,
-    pub ifHCOutBroadcastPkts: u64,
-    pub ifOutErrors: u64,
-    pub ifOutDiscards: u64,
-    pub ifHCInUcastOctets: u64,
-    pub ifHCInMulticastOctets: u64,
-    pub ifHCInBroadcastOctets: u64,
-    pub ifHCOutUcastOctets: u64,
-    pub ifHCOutMulticastOctets: u64,
-    pub ifHCOutBroadcastOctets: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_STATISTICS_VALUE {
-    pub Oid: u32,
-    pub DataLength: u32,
-    pub Data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_STATISTICS_VALUE_EX {
-    pub Oid: u32,
-    pub DataLength: u32,
-    pub Length: u32,
-    pub Data: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_CONNECTION_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
-    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
-    pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub TimeoutArrayLength: u32,
-    pub TimeoutArray: [u32; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TIMESTAMP_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub HardwareClockFrequencyHz: u64,
-    pub CrossTimestamp: super::super::Foundation::BOOLEAN,
-    pub Reserved1: u64,
-    pub Reserved2: u64,
-    pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub AllReceiveHw: super::super::Foundation::BOOLEAN,
-    pub AllTransmitHw: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmitHw: super::super::Foundation::BOOLEAN,
-    pub AllReceiveSw: super::super::Foundation::BOOLEAN,
-    pub AllTransmitSw: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_VAR_DATA_DESC {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Offset: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WAN_PROTOCOL_CAPS {
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WLAN_BSSID {
-    pub Length: u32,
-    pub MacAddress: [u8; 6],
-    pub Reserved: [u8; 2],
-    pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
-    pub Rssi: i32,
-    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
-    pub Configuration: NDIS_802_11_CONFIGURATION,
-    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
-    pub SupportedRates: [u8; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WLAN_BSSID_EX {
-    pub Length: u32,
-    pub MacAddress: [u8; 6],
-    pub Reserved: [u8; 2],
-    pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
-    pub Rssi: i32,
-    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
-    pub Configuration: NDIS_802_11_CONFIGURATION,
-    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
-    pub SupportedRates: [u8; 16],
-    pub IELength: u32,
-    pub IEs: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_ENUM_ADAPTER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IfIndex: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub DeviceNameLength: u16,
-    pub DeviceName: [i8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_EVENT_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IfIndex: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub PortNumber: u32,
-    pub DeviceNameLength: u32,
-    pub DeviceNameOffset: u32,
-    pub Padding: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
-    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
-    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    pub Md5: u32,
-    pub Sha_1: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    pub Des: u32,
-    pub Reserved: u32,
-    pub TripleDes: u32,
-    pub NullEsp: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_METHOD_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
-    pub LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
-    pub IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
-    pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_OUTPUT_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SupportedRevision: u8,
-    pub DataOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_SET_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
-    pub SupportIPv4: u32,
-    pub SupportIPv6: u32,
-    pub SupportIPv6ExtensionHeaders: u32,
-    pub SupportSack: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
-    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub TcpOptions: u32,
-    pub IpOptions: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
-    pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDK_ADAPTER_INFO {
-    pub Version: NDK_VERSION,
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub MaxRegistrationSize: usize,
-    pub MaxWindowSize: usize,
-    pub FRMRPageCount: u32,
-    pub MaxInitiatorRequestSge: u32,
-    pub MaxReceiveRequestSge: u32,
-    pub MaxReadRequestSge: u32,
-    pub MaxTransferLength: u32,
-    pub MaxInlineDataSize: u32,
-    pub MaxInboundReadLimit: u32,
-    pub MaxOutboundReadLimit: u32,
-    pub MaxReceiveQueueDepth: u32,
-    pub MaxInitiatorQueueDepth: u32,
-    pub MaxSrqDepth: u32,
-    pub MaxCqDepth: u32,
-    pub LargeRequestThreshold: u32,
-    pub MaxCallerData: u32,
-    pub MaxCalleeData: u32,
-    pub AdapterFlags: u32,
-    pub RdmaTechnology: NDK_RDMA_TECHNOLOGY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDK_VERSION {
-    pub Major: u16,
-    pub Minor: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_ADDRESS {
-    pub AddressLength: u16,
-    pub AddressType: u16,
-    pub Address: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_ADDRESS_IP {
-    pub sin_port: u16,
-    pub IN_ADDR: u32,
-    pub sin_zero: [u8; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_ADDRESS_IP6 {
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
-    pub sin6_addr: [u16; 8],
-    pub sin6_scope_id: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_ADDRESS_IPX {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_ADDRESS_LIST {
-    pub AddressCount: i32,
-    pub AddressType: u16,
-    pub Address: [NETWORK_ADDRESS; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_IF_ALIAS_LH {
-    pub ifAliasLength: u16,
-    pub ifAliasOffset: u16,
-}
-pub type NET_IF_COMPARTMENT_ID = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_IF_RCV_ADDRESS_LH {
-    pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
-    pub ifRcvAddressLength: u16,
-    pub ifRcvAddressOffset: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NET_LUID_LH {
-    pub Value: u64,
-    pub Info: NET_LUID_LH_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_LUID_LH_0 {
-    pub _bitfield: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NET_PHYSICAL_LOCATION_LH {
-    pub BusNumber: u32,
-    pub SlotNumber: u32,
-    pub FunctionNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_ALGO_INFO {
-    pub algoIdentifier: u32,
-    pub algoKeylen: u32,
-    pub algoRounds: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_IPSEC_ADD_SA {
-    pub SrcAddr: u32,
-    pub SrcMask: u32,
-    pub DestAddr: u32,
-    pub DestMask: u32,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DestPort: u16,
-    pub SrcTunnelAddr: u32,
-    pub DestTunnelAddr: u32,
-    pub Flags: u16,
-    pub NumSAs: i16,
-    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    pub SrcAddr: u32,
-    pub SrcMask: u32,
-    pub DstAddr: u32,
-    pub DstMask: u32,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DstPort: u16,
-    pub SrcTunnelAddr: u32,
-    pub DstTunnelAddr: u32,
-    pub Flags: u16,
-    pub NumSAs: i16,
-    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
-    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_IPSEC_DELETE_SA {
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    pub UdpEncapType: UDP_ENCAP_TYPE,
-    pub DstEncapPort: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OFFLOAD_SECURITY_ASSOCIATION {
-    pub Operation: OFFLOAD_OPERATION_E,
-    pub SPI: u32,
-    pub IntegrityAlgo: OFFLOAD_ALGO_INFO,
-    pub ConfAlgo: OFFLOAD_ALGO_INFO,
-    pub Reserved: OFFLOAD_ALGO_INFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PMKID_CANDIDATE {
-    pub BSSID: [u8; 6],
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRANSPORT_HEADER_OFFSET {
-    pub ProtocolType: u16,
-    pub HeaderOffset: u16,
-}

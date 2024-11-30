@@ -91,6 +91,78 @@ windows_targets::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lp
 windows_targets::link!("advapi32.dll" "system" fn RegSetValueW(hkey : HKEY, lpsubkey : windows_sys::core::PCWSTR, dwtype : REG_VALUE_TYPE, lpdata : windows_sys::core::PCWSTR, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegUnLoadKeyA(hkey : HKEY, lpsubkey : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegUnLoadKeyW(hkey : HKEY, lpsubkey : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
+pub type REG_CREATE_KEY_DISPOSITION = u32;
+pub type REG_NOTIFY_FILTER = u32;
+pub type REG_OPEN_CREATE_OPTIONS = u32;
+pub type REG_RESTORE_KEY_FLAGS = i32;
+pub type REG_ROUTINE_FLAGS = u32;
+pub type REG_SAM_FLAGS = u32;
+pub type REG_SAVE_FORMAT = u32;
+pub type REG_VALUE_TYPE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DSKTLSYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+    pub wResult: u16,
+}
+pub type HKEY = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PVALUEA {
+    pub pv_valuename: windows_sys::core::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut core::ffi::c_void,
+    pub pv_type: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PVALUEW {
+    pub pv_valuename: windows_sys::core::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut core::ffi::c_void,
+    pub pv_type: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REG_PROVIDER {
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VALENTA {
+    pub ve_valuename: windows_sys::core::PSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VALENTW {
+    pub ve_valuename: windows_sys::core::PWSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct val_context {
+    pub valuelen: i32,
+    pub value_context: *mut core::ffi::c_void,
+    pub val_buff_ptr: *mut core::ffi::c_void,
+}
 pub const AGP_FLAG_NO_1X_RATE: i32 = 1i32;
 pub const AGP_FLAG_NO_2X_RATE: i32 = 2i32;
 pub const AGP_FLAG_NO_4X_RATE: i32 = 4i32;
@@ -1040,75 +1112,3 @@ pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
 pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
-pub type REG_CREATE_KEY_DISPOSITION = u32;
-pub type REG_NOTIFY_FILTER = u32;
-pub type REG_OPEN_CREATE_OPTIONS = u32;
-pub type REG_RESTORE_KEY_FLAGS = i32;
-pub type REG_ROUTINE_FLAGS = u32;
-pub type REG_SAM_FLAGS = u32;
-pub type REG_SAVE_FORMAT = u32;
-pub type REG_VALUE_TYPE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DSKTLSYSTEMTIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDayOfWeek: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wMilliseconds: u16,
-    pub wResult: u16,
-}
-pub type HKEY = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PVALUEA {
-    pub pv_valuename: windows_sys::core::PSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut core::ffi::c_void,
-    pub pv_type: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PVALUEW {
-    pub pv_valuename: windows_sys::core::PWSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut core::ffi::c_void,
-    pub pv_type: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REG_PROVIDER {
-    pub pi_R0_1val: PQUERYHANDLER,
-    pub pi_R0_allvals: PQUERYHANDLER,
-    pub pi_R3_1val: PQUERYHANDLER,
-    pub pi_R3_allvals: PQUERYHANDLER,
-    pub pi_flags: u32,
-    pub pi_key_context: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VALENTA {
-    pub ve_valuename: windows_sys::core::PSTR,
-    pub ve_valuelen: u32,
-    pub ve_valueptr: usize,
-    pub ve_type: REG_VALUE_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VALENTW {
-    pub ve_valuename: windows_sys::core::PWSTR,
-    pub ve_valuelen: u32,
-    pub ve_valueptr: usize,
-    pub ve_type: REG_VALUE_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct val_context {
-    pub valuelen: i32,
-    pub value_context: *mut core::ffi::c_void,
-    pub val_buff_ptr: *mut core::ffi::c_void,
-}
-pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;

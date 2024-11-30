@@ -1,5 +1,8 @@
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 windows_targets::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 windows_targets::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_targets::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
@@ -259,6 +262,1398 @@ windows_targets::link!("tapi32.dll" "system" fn tapiRequestMakeCallW(lpszdestadd
 windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
 windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
 windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCWSTR, lpdeviceid : windows_sys::core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCWSTR, lpszappname : windows_sys::core::PCWSTR, lpszcalledparty : windows_sys::core::PCWSTR, lpszcomment : windows_sys::core::PCWSTR) -> i32);
+pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
+pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+#[cfg(feature = "Win32_System_Com")]
+pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: *mut core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpadressbook: *mut core::ffi::c_void, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type TUISPIDLLCALLBACK = Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32>;
+pub type ACDGROUP_EVENT = i32;
+pub type ACDQUEUE_EVENT = i32;
+pub type ADDRESS_CAPABILITY = i32;
+pub type ADDRESS_CAPABILITY_STRING = i32;
+pub type ADDRESS_EVENT = i32;
+pub type ADDRESS_STATE = i32;
+pub type AGENTHANDLER_EVENT = i32;
+pub type AGENT_EVENT = i32;
+pub type AGENT_SESSION_EVENT = i32;
+pub type AGENT_SESSION_STATE = i32;
+pub type AGENT_STATE = i32;
+pub type CALLHUB_EVENT = i32;
+pub type CALLHUB_STATE = i32;
+pub type CALLINFOCHANGE_CAUSE = i32;
+pub type CALLINFO_BUFFER = i32;
+pub type CALLINFO_LONG = i32;
+pub type CALLINFO_STRING = i32;
+pub type CALL_MEDIA_EVENT = i32;
+pub type CALL_MEDIA_EVENT_CAUSE = i32;
+pub type CALL_NOTIFICATION_EVENT = i32;
+pub type CALL_PRIVILEGE = i32;
+pub type CALL_STATE = i32;
+pub type CALL_STATE_EVENT_CAUSE = i32;
+pub type DIRECTORY_OBJECT_TYPE = i32;
+pub type DIRECTORY_TYPE = i32;
+pub type DISCONNECT_CODE = i32;
+pub type FINISH_MODE = i32;
+pub type FT_STATE_EVENT_CAUSE = i32;
+pub type FULLDUPLEX_SUPPORT = i32;
+pub type MSP_ADDRESS_EVENT = i32;
+pub type MSP_CALL_EVENT = i32;
+pub type MSP_CALL_EVENT_CAUSE = i32;
+pub type MSP_EVENT = i32;
+pub type PHONECAPS_BUFFER = i32;
+pub type PHONECAPS_LONG = i32;
+pub type PHONECAPS_STRING = i32;
+pub type PHONE_BUTTON_FUNCTION = i32;
+pub type PHONE_BUTTON_MODE = i32;
+pub type PHONE_BUTTON_STATE = i32;
+pub type PHONE_EVENT = i32;
+pub type PHONE_HOOK_SWITCH_DEVICE = i32;
+pub type PHONE_HOOK_SWITCH_STATE = i32;
+pub type PHONE_LAMP_MODE = i32;
+pub type PHONE_PRIVILEGE = i32;
+pub type PHONE_TONE = i32;
+pub type QOS_EVENT = i32;
+pub type QOS_SERVICE_LEVEL = i32;
+pub type RND_ADVERTISING_SCOPE = i32;
+pub type TAPIOBJECT_EVENT = i32;
+pub type TAPI_EVENT = i32;
+pub type TAPI_GATHERTERM = i32;
+pub type TAPI_OBJECT_TYPE = i32;
+pub type TAPI_TONEMODE = i32;
+pub type TERMINAL_DIRECTION = i32;
+pub type TERMINAL_MEDIA_STATE = i32;
+pub type TERMINAL_STATE = i32;
+pub type TERMINAL_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADDRALIAS {
+    pub rgchName: [i8; 41],
+    pub rgchEName: [i8; 11],
+    pub rgchSrvr: [i8; 12],
+    pub dibDetail: u32,
+    pub r#type: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DTR {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wDayOfWeek: u16,
+}
+pub const DispatchMapper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
+pub type HDRVCALL = *mut core::ffi::c_void;
+pub type HDRVDIALOGINSTANCE = *mut core::ffi::c_void;
+pub type HDRVLINE = *mut core::ffi::c_void;
+pub type HDRVMSPLINE = *mut core::ffi::c_void;
+pub type HDRVPHONE = *mut core::ffi::c_void;
+pub type HPROVIDER = *mut core::ffi::c_void;
+pub type HTAPICALL = *mut core::ffi::c_void;
+pub type HTAPILINE = *mut core::ffi::c_void;
+pub type HTAPIPHONE = *mut core::ffi::c_void;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEADDRESSCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwLineDeviceID: u32,
+    pub dwAddressSize: u32,
+    pub dwAddressOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwAddressSharing: u32,
+    pub dwAddressStates: u32,
+    pub dwCallInfoStates: u32,
+    pub dwCallerIDFlags: u32,
+    pub dwCalledIDFlags: u32,
+    pub dwConnectedIDFlags: u32,
+    pub dwRedirectionIDFlags: u32,
+    pub dwRedirectingIDFlags: u32,
+    pub dwCallStates: u32,
+    pub dwDialToneModes: u32,
+    pub dwBusyModes: u32,
+    pub dwSpecialInfo: u32,
+    pub dwDisconnectModes: u32,
+    pub dwMaxNumActiveCalls: u32,
+    pub dwMaxNumOnHoldCalls: u32,
+    pub dwMaxNumOnHoldPendingCalls: u32,
+    pub dwMaxNumConference: u32,
+    pub dwMaxNumTransConf: u32,
+    pub dwAddrCapFlags: u32,
+    pub dwCallFeatures: u32,
+    pub dwRemoveFromConfCaps: u32,
+    pub dwRemoveFromConfState: u32,
+    pub dwTransferModes: u32,
+    pub dwParkModes: u32,
+    pub dwForwardModes: u32,
+    pub dwMaxForwardEntries: u32,
+    pub dwMaxSpecificEntries: u32,
+    pub dwMinFwdNumRings: u32,
+    pub dwMaxFwdNumRings: u32,
+    pub dwMaxCallCompletions: u32,
+    pub dwCallCompletionConds: u32,
+    pub dwCallCompletionModes: u32,
+    pub dwNumCompletionMessages: u32,
+    pub dwCompletionMsgTextEntrySize: u32,
+    pub dwCompletionMsgTextSize: u32,
+    pub dwCompletionMsgTextOffset: u32,
+    pub dwAddressFeatures: u32,
+    pub dwPredictiveAutoTransferStates: u32,
+    pub dwNumCallTreatments: u32,
+    pub dwCallTreatmentListSize: u32,
+    pub dwCallTreatmentListOffset: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub dwMaxCallDataSize: u32,
+    pub dwCallFeatures2: u32,
+    pub dwMaxNoAnswerTimeout: u32,
+    pub dwConnectedModes: u32,
+    pub dwOfferingModes: u32,
+    pub dwAvailableMediaModes: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEADDRESSSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumInUse: u32,
+    pub dwNumActiveCalls: u32,
+    pub dwNumOnHoldCalls: u32,
+    pub dwNumOnHoldPendCalls: u32,
+    pub dwAddressFeatures: u32,
+    pub dwNumRingsNoAnswer: u32,
+    pub dwForwardNumEntries: u32,
+    pub dwForwardSize: u32,
+    pub dwForwardOffset: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTACTIVITYENTRY {
+    pub dwID: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTACTIVITYLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentHandlerInfoSize: u32,
+    pub dwAgentHandlerInfoOffset: u32,
+    pub dwCapsVersion: u32,
+    pub dwFeatures: u32,
+    pub dwStates: u32,
+    pub dwNextStates: u32,
+    pub dwMaxNumGroupEntries: u32,
+    pub dwAgentStatusMessages: u32,
+    pub dwNumAgentExtensionIDs: u32,
+    pub dwAgentExtensionIDListSize: u32,
+    pub dwAgentExtensionIDListOffset: u32,
+    pub ProxyGUID: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTENTRY {
+    pub hAgent: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+    pub dwIDSize: u32,
+    pub dwIDOffset: u32,
+    pub dwPINSize: u32,
+    pub dwPINOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTGROUPENTRY {
+    pub GroupID: LINEAGENTGROUPENTRY_0,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTGROUPENTRY_0 {
+    pub dwGroupID1: u32,
+    pub dwGroupID2: u32,
+    pub dwGroupID3: u32,
+    pub dwGroupID4: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTGROUPLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+    pub dwMeasurementPeriod: u32,
+    pub cyOverallCallRate: super::super::System::Com::CY,
+    pub dwNumberOfACDCalls: u32,
+    pub dwNumberOfIncomingCalls: u32,
+    pub dwNumberOfOutgoingCalls: u32,
+    pub dwTotalACDTalkTime: u32,
+    pub dwTotalACDCallTime: u32,
+    pub dwTotalACDWrapUpTime: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTSESSIONENTRY {
+    pub hAgentSession: u32,
+    pub hAgent: u32,
+    pub GroupID: windows_sys::core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTSESSIONINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+    pub dateSessionStartTime: f64,
+    pub dwSessionDuration: u32,
+    pub dwNumberOfCalls: u32,
+    pub dwTotalTalkTime: u32,
+    pub dwAverageTalkTime: u32,
+    pub dwTotalCallTime: u32,
+    pub dwAverageCallTime: u32,
+    pub dwTotalWrapUpTime: u32,
+    pub dwAverageWrapUpTime: u32,
+    pub cyACDCallRate: super::super::System::Com::CY,
+    pub dwLongestTimeToAnswer: u32,
+    pub dwAverageTimeToAnswer: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTSESSIONLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAGENTSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwGroupListSize: u32,
+    pub dwGroupListOffset: u32,
+    pub dwState: u32,
+    pub dwNextState: u32,
+    pub dwActivityID: u32,
+    pub dwActivitySize: u32,
+    pub dwActivityOffset: u32,
+    pub dwAgentFeatures: u32,
+    pub dwValidStates: u32,
+    pub dwValidNextStates: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEAPPINFO {
+    pub dwMachineNameSize: u32,
+    pub dwMachineNameOffset: u32,
+    pub dwUserNameSize: u32,
+    pub dwUserNameOffset: u32,
+    pub dwModuleFilenameSize: u32,
+    pub dwModuleFilenameOffset: u32,
+    pub dwFriendlyNameSize: u32,
+    pub dwFriendlyNameOffset: u32,
+    pub dwMediaModes: u32,
+    pub dwAddressID: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECALLINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub hLine: u32,
+    pub dwLineDeviceID: u32,
+    pub dwAddressID: u32,
+    pub dwBearerMode: u32,
+    pub dwRate: u32,
+    pub dwMediaMode: u32,
+    pub dwAppSpecific: u32,
+    pub dwCallID: u32,
+    pub dwRelatedCallID: u32,
+    pub dwCallParamFlags: u32,
+    pub dwCallStates: u32,
+    pub dwMonitorDigitModes: u32,
+    pub dwMonitorMediaModes: u32,
+    pub DialParams: LINEDIALPARAMS,
+    pub dwOrigin: u32,
+    pub dwReason: u32,
+    pub dwCompletionID: u32,
+    pub dwNumOwners: u32,
+    pub dwNumMonitors: u32,
+    pub dwCountryCode: u32,
+    pub dwTrunk: u32,
+    pub dwCallerIDFlags: u32,
+    pub dwCallerIDSize: u32,
+    pub dwCallerIDOffset: u32,
+    pub dwCallerIDNameSize: u32,
+    pub dwCallerIDNameOffset: u32,
+    pub dwCalledIDFlags: u32,
+    pub dwCalledIDSize: u32,
+    pub dwCalledIDOffset: u32,
+    pub dwCalledIDNameSize: u32,
+    pub dwCalledIDNameOffset: u32,
+    pub dwConnectedIDFlags: u32,
+    pub dwConnectedIDSize: u32,
+    pub dwConnectedIDOffset: u32,
+    pub dwConnectedIDNameSize: u32,
+    pub dwConnectedIDNameOffset: u32,
+    pub dwRedirectionIDFlags: u32,
+    pub dwRedirectionIDSize: u32,
+    pub dwRedirectionIDOffset: u32,
+    pub dwRedirectionIDNameSize: u32,
+    pub dwRedirectionIDNameOffset: u32,
+    pub dwRedirectingIDFlags: u32,
+    pub dwRedirectingIDSize: u32,
+    pub dwRedirectingIDOffset: u32,
+    pub dwRedirectingIDNameSize: u32,
+    pub dwRedirectingIDNameOffset: u32,
+    pub dwAppNameSize: u32,
+    pub dwAppNameOffset: u32,
+    pub dwDisplayableAddressSize: u32,
+    pub dwDisplayableAddressOffset: u32,
+    pub dwCalledPartySize: u32,
+    pub dwCalledPartyOffset: u32,
+    pub dwCommentSize: u32,
+    pub dwCommentOffset: u32,
+    pub dwDisplaySize: u32,
+    pub dwDisplayOffset: u32,
+    pub dwUserUserInfoSize: u32,
+    pub dwUserUserInfoOffset: u32,
+    pub dwHighLevelCompSize: u32,
+    pub dwHighLevelCompOffset: u32,
+    pub dwLowLevelCompSize: u32,
+    pub dwLowLevelCompOffset: u32,
+    pub dwChargingInfoSize: u32,
+    pub dwChargingInfoOffset: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwCallTreatment: u32,
+    pub dwCallDataSize: u32,
+    pub dwCallDataOffset: u32,
+    pub dwSendingFlowspecSize: u32,
+    pub dwSendingFlowspecOffset: u32,
+    pub dwReceivingFlowspecSize: u32,
+    pub dwReceivingFlowspecOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECALLLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwCallsNumEntries: u32,
+    pub dwCallsSize: u32,
+    pub dwCallsOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECALLPARAMS {
+    pub dwTotalSize: u32,
+    pub dwBearerMode: u32,
+    pub dwMinRate: u32,
+    pub dwMaxRate: u32,
+    pub dwMediaMode: u32,
+    pub dwCallParamFlags: u32,
+    pub dwAddressMode: u32,
+    pub dwAddressID: u32,
+    pub DialParams: LINEDIALPARAMS,
+    pub dwOrigAddressSize: u32,
+    pub dwOrigAddressOffset: u32,
+    pub dwDisplayableAddressSize: u32,
+    pub dwDisplayableAddressOffset: u32,
+    pub dwCalledPartySize: u32,
+    pub dwCalledPartyOffset: u32,
+    pub dwCommentSize: u32,
+    pub dwCommentOffset: u32,
+    pub dwUserUserInfoSize: u32,
+    pub dwUserUserInfoOffset: u32,
+    pub dwHighLevelCompSize: u32,
+    pub dwHighLevelCompOffset: u32,
+    pub dwLowLevelCompSize: u32,
+    pub dwLowLevelCompOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwPredictiveAutoTransferStates: u32,
+    pub dwTargetAddressSize: u32,
+    pub dwTargetAddressOffset: u32,
+    pub dwSendingFlowspecSize: u32,
+    pub dwSendingFlowspecOffset: u32,
+    pub dwReceivingFlowspecSize: u32,
+    pub dwReceivingFlowspecOffset: u32,
+    pub dwDeviceClassSize: u32,
+    pub dwDeviceClassOffset: u32,
+    pub dwDeviceConfigSize: u32,
+    pub dwDeviceConfigOffset: u32,
+    pub dwCallDataSize: u32,
+    pub dwCallDataOffset: u32,
+    pub dwNoAnswerTimeout: u32,
+    pub dwCallingPartyIDSize: u32,
+    pub dwCallingPartyIDOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECALLSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwCallState: u32,
+    pub dwCallStateMode: u32,
+    pub dwCallPrivilege: u32,
+    pub dwCallFeatures: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwCallFeatures2: u32,
+    pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECALLTREATMENTENTRY {
+    pub dwCallTreatmentID: u32,
+    pub dwCallTreatmentNameSize: u32,
+    pub dwCallTreatmentNameOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECARDENTRY {
+    pub dwPermanentCardID: u32,
+    pub dwCardNameSize: u32,
+    pub dwCardNameOffset: u32,
+    pub dwCardNumberDigits: u32,
+    pub dwSameAreaRuleSize: u32,
+    pub dwSameAreaRuleOffset: u32,
+    pub dwLongDistanceRuleSize: u32,
+    pub dwLongDistanceRuleOffset: u32,
+    pub dwInternationalRuleSize: u32,
+    pub dwInternationalRuleOffset: u32,
+    pub dwOptions: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECOUNTRYENTRY {
+    pub dwCountryID: u32,
+    pub dwCountryCode: u32,
+    pub dwNextCountryID: u32,
+    pub dwCountryNameSize: u32,
+    pub dwCountryNameOffset: u32,
+    pub dwSameAreaRuleSize: u32,
+    pub dwSameAreaRuleOffset: u32,
+    pub dwLongDistanceRuleSize: u32,
+    pub dwLongDistanceRuleOffset: u32,
+    pub dwInternationalRuleSize: u32,
+    pub dwInternationalRuleOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINECOUNTRYLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumCountries: u32,
+    pub dwCountryListSize: u32,
+    pub dwCountryListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEDEVCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwProviderInfoSize: u32,
+    pub dwProviderInfoOffset: u32,
+    pub dwSwitchInfoSize: u32,
+    pub dwSwitchInfoOffset: u32,
+    pub dwPermanentLineID: u32,
+    pub dwLineNameSize: u32,
+    pub dwLineNameOffset: u32,
+    pub dwStringFormat: u32,
+    pub dwAddressModes: u32,
+    pub dwNumAddresses: u32,
+    pub dwBearerModes: u32,
+    pub dwMaxRate: u32,
+    pub dwMediaModes: u32,
+    pub dwGenerateToneModes: u32,
+    pub dwGenerateToneMaxNumFreq: u32,
+    pub dwGenerateDigitModes: u32,
+    pub dwMonitorToneMaxNumFreq: u32,
+    pub dwMonitorToneMaxNumEntries: u32,
+    pub dwMonitorDigitModes: u32,
+    pub dwGatherDigitsMinTimeout: u32,
+    pub dwGatherDigitsMaxTimeout: u32,
+    pub dwMedCtlDigitMaxListSize: u32,
+    pub dwMedCtlMediaMaxListSize: u32,
+    pub dwMedCtlToneMaxListSize: u32,
+    pub dwMedCtlCallStateMaxListSize: u32,
+    pub dwDevCapFlags: u32,
+    pub dwMaxNumActiveCalls: u32,
+    pub dwAnswerMode: u32,
+    pub dwRingModes: u32,
+    pub dwLineStates: u32,
+    pub dwUUIAcceptSize: u32,
+    pub dwUUIAnswerSize: u32,
+    pub dwUUIMakeCallSize: u32,
+    pub dwUUIDropSize: u32,
+    pub dwUUISendUserUserInfoSize: u32,
+    pub dwUUICallInfoSize: u32,
+    pub MinDialParams: LINEDIALPARAMS,
+    pub MaxDialParams: LINEDIALPARAMS,
+    pub DefaultDialParams: LINEDIALPARAMS,
+    pub dwNumTerminals: u32,
+    pub dwTerminalCapsSize: u32,
+    pub dwTerminalCapsOffset: u32,
+    pub dwTerminalTextEntrySize: u32,
+    pub dwTerminalTextSize: u32,
+    pub dwTerminalTextOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwLineFeatures: u32,
+    pub dwSettableDevStatus: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub PermanentLineGuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEDEVSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumOpens: u32,
+    pub dwOpenMediaModes: u32,
+    pub dwNumActiveCalls: u32,
+    pub dwNumOnHoldCalls: u32,
+    pub dwNumOnHoldPendCalls: u32,
+    pub dwLineFeatures: u32,
+    pub dwNumCallCompletions: u32,
+    pub dwRingMode: u32,
+    pub dwSignalLevel: u32,
+    pub dwBatteryLevel: u32,
+    pub dwRoamMode: u32,
+    pub dwDevStatusFlags: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwAvailableMediaModes: u32,
+    pub dwAppInfoSize: u32,
+    pub dwAppInfoOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEDIALPARAMS {
+    pub dwDialPause: u32,
+    pub dwDialSpeed: u32,
+    pub dwDigitDuration: u32,
+    pub dwWaitForDialtone: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEEXTENSIONID {
+    pub dwExtensionID0: u32,
+    pub dwExtensionID1: u32,
+    pub dwExtensionID2: u32,
+    pub dwExtensionID3: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEFORWARD {
+    pub dwForwardMode: u32,
+    pub dwCallerAddressSize: u32,
+    pub dwCallerAddressOffset: u32,
+    pub dwDestCountryCode: u32,
+    pub dwDestAddressSize: u32,
+    pub dwDestAddressOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEFORWARDLIST {
+    pub dwTotalSize: u32,
+    pub dwNumEntries: u32,
+    pub ForwardList: [LINEFORWARD; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEGENERATETONE {
+    pub dwFrequency: u32,
+    pub dwCadenceOn: u32,
+    pub dwCadenceOff: u32,
+    pub dwVolume: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEINITIALIZEEXPARAMS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwOptions: u32,
+    pub Handles: LINEINITIALIZEEXPARAMS_0,
+    pub dwCompletionKey: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union LINEINITIALIZEEXPARAMS_0 {
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub hCompletionPort: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINELOCATIONENTRY {
+    pub dwPermanentLocationID: u32,
+    pub dwLocationNameSize: u32,
+    pub dwLocationNameOffset: u32,
+    pub dwCountryCode: u32,
+    pub dwCityCodeSize: u32,
+    pub dwCityCodeOffset: u32,
+    pub dwPreferredCardID: u32,
+    pub dwLocalAccessCodeSize: u32,
+    pub dwLocalAccessCodeOffset: u32,
+    pub dwLongDistanceAccessCodeSize: u32,
+    pub dwLongDistanceAccessCodeOffset: u32,
+    pub dwTollPrefixListSize: u32,
+    pub dwTollPrefixListOffset: u32,
+    pub dwCountryID: u32,
+    pub dwOptions: u32,
+    pub dwCancelCallWaitingSize: u32,
+    pub dwCancelCallWaitingOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMEDIACONTROLCALLSTATE {
+    pub dwCallStates: u32,
+    pub dwMediaControl: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMEDIACONTROLDIGIT {
+    pub dwDigit: u32,
+    pub dwDigitModes: u32,
+    pub dwMediaControl: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMEDIACONTROLMEDIA {
+    pub dwMediaModes: u32,
+    pub dwDuration: u32,
+    pub dwMediaControl: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMEDIACONTROLTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+    pub dwMediaControl: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMESSAGE {
+    pub hDevice: u32,
+    pub dwMessageID: u32,
+    pub dwCallbackInstance: usize,
+    pub dwParam1: usize,
+    pub dwParam2: usize,
+    pub dwParam3: usize,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEMONITORTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEPROVIDERENTRY {
+    pub dwPermanentProviderID: u32,
+    pub dwProviderFilenameSize: u32,
+    pub dwProviderFilenameOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEPROVIDERLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumProviders: u32,
+    pub dwProviderListSize: u32,
+    pub dwProviderListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST {
+    pub dwSize: u32,
+    pub dwClientMachineNameSize: u32,
+    pub dwClientMachineNameOffset: u32,
+    pub dwClientUserNameSize: u32,
+    pub dwClientUserNameOffset: u32,
+    pub dwClientAppAPIVersion: u32,
+    pub dwRequestType: u32,
+    pub Anonymous: LINEPROXYREQUEST_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union LINEPROXYREQUEST_0 {
+    pub SetAgentGroup: LINEPROXYREQUEST_0_0,
+    pub SetAgentState: LINEPROXYREQUEST_0_1,
+    pub SetAgentActivity: LINEPROXYREQUEST_0_2,
+    pub GetAgentCaps: LINEPROXYREQUEST_0_3,
+    pub GetAgentStatus: LINEPROXYREQUEST_0_4,
+    pub AgentSpecific: LINEPROXYREQUEST_0_5,
+    pub GetAgentActivityList: LINEPROXYREQUEST_0_6,
+    pub GetAgentGroupList: LINEPROXYREQUEST_0_7,
+    pub CreateAgent: LINEPROXYREQUEST_0_8,
+    pub SetAgentStateEx: LINEPROXYREQUEST_0_9,
+    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_10,
+    pub GetAgentInfo: LINEPROXYREQUEST_0_11,
+    pub CreateAgentSession: LINEPROXYREQUEST_0_12,
+    pub GetAgentSessionList: LINEPROXYREQUEST_0_13,
+    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_14,
+    pub SetAgentSessionState: LINEPROXYREQUEST_0_15,
+    pub GetQueueList: LINEPROXYREQUEST_0_16,
+    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_17,
+    pub GetQueueInfo: LINEPROXYREQUEST_0_18,
+    pub GetGroupList: LINEPROXYREQUEST_0_19,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_5 {
+    pub dwAddressID: u32,
+    pub dwAgentExtensionIDIndex: u32,
+    pub dwSize: u32,
+    pub Params: [u8; 1],
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_12 {
+    pub hAgentSession: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+    pub hAgent: u32,
+    pub GroupID: windows_sys::core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_8 {
+    pub hAgent: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_7 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_11 {
+    pub hAgent: u32,
+    pub AgentInfo: LINEAGENTINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_14 {
+    pub hAgentSession: u32,
+    pub SessionInfo: LINEAGENTSESSIONINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_13 {
+    pub hAgent: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_18 {
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_16 {
+    pub GroupID: windows_sys::core::GUID,
+    pub QueueList: LINEQUEUELIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_2 {
+    pub dwAddressID: u32,
+    pub dwActivityID: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_0 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_10 {
+    pub hAgent: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_15 {
+    pub hAgentSession: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_9 {
+    pub hAgent: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_17 {
+    pub dwQueueID: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUESTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEQUEUEENTRY {
+    pub dwQueueID: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEQUEUEINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwMeasurementPeriod: u32,
+    pub dwTotalCallsQueued: u32,
+    pub dwCurrentCallsQueued: u32,
+    pub dwTotalCallsAbandoned: u32,
+    pub dwTotalCallsFlowedIn: u32,
+    pub dwTotalCallsFlowedOut: u32,
+    pub dwLongestEverWaitTime: u32,
+    pub dwCurrentLongestWaitTime: u32,
+    pub dwAverageWaitTime: u32,
+    pub dwFinalDisposition: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEQUEUELIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LINEREQMAKECALL {
+    pub szDestAddress: [i8; 80],
+    pub szAppName: [i8; 40],
+    pub szCalledParty: [i8; 40],
+    pub szComment: [i8; 80],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEREQMAKECALLW {
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEREQMEDIACALL {
+    pub hWnd: super::super::Foundation::HWND,
+    pub wRequestID: super::super::Foundation::WPARAM,
+    pub szDeviceClass: [i8; 40],
+    pub ucDeviceID: [u8; 40],
+    pub dwSize: u32,
+    pub dwSecure: u32,
+    pub szDestAddress: [i8; 80],
+    pub szAppName: [i8; 40],
+    pub szCalledParty: [i8; 40],
+    pub szComment: [i8; 80],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINEREQMEDIACALLW {
+    pub hWnd: super::super::Foundation::HWND,
+    pub wRequestID: super::super::Foundation::WPARAM,
+    pub szDeviceClass: [u16; 40],
+    pub ucDeviceID: [u8; 40],
+    pub dwSize: u32,
+    pub dwSecure: u32,
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINETERMCAPS {
+    pub dwTermDev: u32,
+    pub dwTermModes: u32,
+    pub dwTermSharing: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINETRANSLATECAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumLocations: u32,
+    pub dwLocationListSize: u32,
+    pub dwLocationListOffset: u32,
+    pub dwCurrentLocationID: u32,
+    pub dwNumCards: u32,
+    pub dwCardListSize: u32,
+    pub dwCardListOffset: u32,
+    pub dwCurrentPreferredCardID: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct LINETRANSLATEOUTPUT {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwDialableStringSize: u32,
+    pub dwDialableStringOffset: u32,
+    pub dwDisplayableStringSize: u32,
+    pub dwDisplayableStringOffset: u32,
+    pub dwCurrentCountry: u32,
+    pub dwDestCountry: u32,
+    pub dwTranslateResults: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO {
+    pub dwSize: u32,
+    pub Event: MSP_EVENT,
+    pub hCall: *mut i32,
+    pub Anonymous: MSP_EVENT_INFO_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub union MSP_EVENT_INFO_0 {
+    pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
+    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_1,
+    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_2,
+    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_3,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_4,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_6,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_0 {
+    pub Type: MSP_ADDRESS_EVENT,
+    pub pTerminal: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_5 {
+    pub pASRTerminal: *mut core::ffi::c_void,
+    pub hrErrorCode: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_1 {
+    pub Type: MSP_CALL_EVENT,
+    pub Cause: MSP_CALL_EVENT_CAUSE,
+    pub pStream: *mut core::ffi::c_void,
+    pub pTerminal: *mut core::ffi::c_void,
+    pub hrError: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_4 {
+    pub pParentFileTerminal: *mut core::ffi::c_void,
+    pub pFileTrack: *mut core::ffi::c_void,
+    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
+    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
+    pub hrErrorCode: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pEvent: *mut core::ffi::c_void,
+    pub lEventCode: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_7 {
+    pub pToneTerminal: *mut core::ffi::c_void,
+    pub hrErrorCode: windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_2 {
+    pub dwBufferSize: u32,
+    pub pBuffer: [u8; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_6 {
+    pub pTTSTerminal: *mut core::ffi::c_void,
+    pub hrErrorCode: windows_sys::core::HRESULT,
+}
+pub const McastAddressAllocation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NSID {
+    pub dwSize: u32,
+    pub uchType: [u8; 16],
+    pub xtype: u32,
+    pub lTime: i32,
+    pub address: NSID_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union NSID_0 {
+    pub alias: ADDRALIAS,
+    pub rgchInterNet: [i8; 1],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEBUTTONINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwButtonMode: u32,
+    pub dwButtonFunction: u32,
+    pub dwButtonTextSize: u32,
+    pub dwButtonTextOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwButtonState: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONECAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwProviderInfoSize: u32,
+    pub dwProviderInfoOffset: u32,
+    pub dwPhoneInfoSize: u32,
+    pub dwPhoneInfoOffset: u32,
+    pub dwPermanentPhoneID: u32,
+    pub dwPhoneNameSize: u32,
+    pub dwPhoneNameOffset: u32,
+    pub dwStringFormat: u32,
+    pub dwPhoneStates: u32,
+    pub dwHookSwitchDevs: u32,
+    pub dwHandsetHookSwitchModes: u32,
+    pub dwSpeakerHookSwitchModes: u32,
+    pub dwHeadsetHookSwitchModes: u32,
+    pub dwVolumeFlags: u32,
+    pub dwGainFlags: u32,
+    pub dwDisplayNumRows: u32,
+    pub dwDisplayNumColumns: u32,
+    pub dwNumRingModes: u32,
+    pub dwNumButtonLamps: u32,
+    pub dwButtonModesSize: u32,
+    pub dwButtonModesOffset: u32,
+    pub dwButtonFunctionsSize: u32,
+    pub dwButtonFunctionsOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwNumSetData: u32,
+    pub dwSetDataSize: u32,
+    pub dwSetDataOffset: u32,
+    pub dwNumGetData: u32,
+    pub dwGetDataSize: u32,
+    pub dwGetDataOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub dwPhoneFeatures: u32,
+    pub dwSettableHandsetHookSwitchModes: u32,
+    pub dwSettableSpeakerHookSwitchModes: u32,
+    pub dwSettableHeadsetHookSwitchModes: u32,
+    pub dwMonitoredHandsetHookSwitchModes: u32,
+    pub dwMonitoredSpeakerHookSwitchModes: u32,
+    pub dwMonitoredHeadsetHookSwitchModes: u32,
+    pub PermanentPhoneGuid: windows_sys::core::GUID,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEEXTENSIONID {
+    pub dwExtensionID0: u32,
+    pub dwExtensionID1: u32,
+    pub dwExtensionID2: u32,
+    pub dwExtensionID3: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEINITIALIZEEXPARAMS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwOptions: u32,
+    pub Handles: PHONEINITIALIZEEXPARAMS_0,
+    pub dwCompletionKey: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union PHONEINITIALIZEEXPARAMS_0 {
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub hCompletionPort: super::super::Foundation::HANDLE,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEMESSAGE {
+    pub hDevice: u32,
+    pub dwMessageID: u32,
+    pub dwCallbackInstance: usize,
+    pub dwParam1: usize,
+    pub dwParam2: usize,
+    pub dwParam3: usize,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONESTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStatusFlags: u32,
+    pub dwNumOwners: u32,
+    pub dwNumMonitors: u32,
+    pub dwRingMode: u32,
+    pub dwRingVolume: u32,
+    pub dwHandsetHookSwitchMode: u32,
+    pub dwHandsetVolume: u32,
+    pub dwHandsetGain: u32,
+    pub dwSpeakerHookSwitchMode: u32,
+    pub dwSpeakerVolume: u32,
+    pub dwSpeakerGain: u32,
+    pub dwHeadsetHookSwitchMode: u32,
+    pub dwHeadsetVolume: u32,
+    pub dwHeadsetGain: u32,
+    pub dwDisplaySize: u32,
+    pub dwDisplayOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwOwnerNameSize: u32,
+    pub dwOwnerNameOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwPhoneFeatures: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RENDDATA {
+    pub atyp: u16,
+    pub ulPosition: u32,
+    pub dxWidth: u16,
+    pub dyHeight: u16,
+    pub dwFlags: u32,
+}
+pub const Rendezvous: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
+pub const RequestMakeCall: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STnefProblem {
+    pub ulComponent: u32,
+    pub ulAttribute: u32,
+    pub ulPropTag: u32,
+    pub scode: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STnefProblemArray {
+    pub cProblem: u32,
+    pub aProblem: [STnefProblem; 1],
+}
+pub const TAPI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPI_CUSTOMTONE {
+    pub dwFrequency: u32,
+    pub dwCadenceOn: u32,
+    pub dwCadenceOff: u32,
+    pub dwVolume: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TAPI_DETECTTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRP {
+    pub trpid: u16,
+    pub cbgrtrp: u16,
+    pub cch: u16,
+    pub cbRgb: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
+    pub dwRequestID: u32,
+    pub hdDlgInst: HDRVDIALOGINSTANCE,
+    pub htDlgInst: u32,
+    pub lpszUIDLLName: windows_sys::core::PCWSTR,
+    pub lpParams: *mut core::ffi::c_void,
+    pub dwSize: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct VARSTRING {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStringFormat: u32,
+    pub dwStringSize: u32,
+    pub dwStringOffset: u32,
+}
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1i32;
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0i32;
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = 0i32;
@@ -1836,1382 +3231,3 @@ pub const cbTYPE: u32 = 16u32;
 pub const prioHigh: u32 = 1u32;
 pub const prioLow: u32 = 3u32;
 pub const prioNorm: u32 = 2u32;
-pub type ACDGROUP_EVENT = i32;
-pub type ACDQUEUE_EVENT = i32;
-pub type ADDRESS_CAPABILITY = i32;
-pub type ADDRESS_CAPABILITY_STRING = i32;
-pub type ADDRESS_EVENT = i32;
-pub type ADDRESS_STATE = i32;
-pub type AGENTHANDLER_EVENT = i32;
-pub type AGENT_EVENT = i32;
-pub type AGENT_SESSION_EVENT = i32;
-pub type AGENT_SESSION_STATE = i32;
-pub type AGENT_STATE = i32;
-pub type CALLHUB_EVENT = i32;
-pub type CALLHUB_STATE = i32;
-pub type CALLINFOCHANGE_CAUSE = i32;
-pub type CALLINFO_BUFFER = i32;
-pub type CALLINFO_LONG = i32;
-pub type CALLINFO_STRING = i32;
-pub type CALL_MEDIA_EVENT = i32;
-pub type CALL_MEDIA_EVENT_CAUSE = i32;
-pub type CALL_NOTIFICATION_EVENT = i32;
-pub type CALL_PRIVILEGE = i32;
-pub type CALL_STATE = i32;
-pub type CALL_STATE_EVENT_CAUSE = i32;
-pub type DIRECTORY_OBJECT_TYPE = i32;
-pub type DIRECTORY_TYPE = i32;
-pub type DISCONNECT_CODE = i32;
-pub type FINISH_MODE = i32;
-pub type FT_STATE_EVENT_CAUSE = i32;
-pub type FULLDUPLEX_SUPPORT = i32;
-pub type MSP_ADDRESS_EVENT = i32;
-pub type MSP_CALL_EVENT = i32;
-pub type MSP_CALL_EVENT_CAUSE = i32;
-pub type MSP_EVENT = i32;
-pub type PHONECAPS_BUFFER = i32;
-pub type PHONECAPS_LONG = i32;
-pub type PHONECAPS_STRING = i32;
-pub type PHONE_BUTTON_FUNCTION = i32;
-pub type PHONE_BUTTON_MODE = i32;
-pub type PHONE_BUTTON_STATE = i32;
-pub type PHONE_EVENT = i32;
-pub type PHONE_HOOK_SWITCH_DEVICE = i32;
-pub type PHONE_HOOK_SWITCH_STATE = i32;
-pub type PHONE_LAMP_MODE = i32;
-pub type PHONE_PRIVILEGE = i32;
-pub type PHONE_TONE = i32;
-pub type QOS_EVENT = i32;
-pub type QOS_SERVICE_LEVEL = i32;
-pub type RND_ADVERTISING_SCOPE = i32;
-pub type TAPIOBJECT_EVENT = i32;
-pub type TAPI_EVENT = i32;
-pub type TAPI_GATHERTERM = i32;
-pub type TAPI_OBJECT_TYPE = i32;
-pub type TAPI_TONEMODE = i32;
-pub type TERMINAL_DIRECTION = i32;
-pub type TERMINAL_MEDIA_STATE = i32;
-pub type TERMINAL_STATE = i32;
-pub type TERMINAL_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADDRALIAS {
-    pub rgchName: [i8; 41],
-    pub rgchEName: [i8; 11],
-    pub rgchSrvr: [i8; 12],
-    pub dibDetail: u32,
-    pub r#type: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DTR {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wDayOfWeek: u16,
-}
-pub const DispatchMapper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
-pub type HDRVCALL = *mut core::ffi::c_void;
-pub type HDRVDIALOGINSTANCE = *mut core::ffi::c_void;
-pub type HDRVLINE = *mut core::ffi::c_void;
-pub type HDRVMSPLINE = *mut core::ffi::c_void;
-pub type HDRVPHONE = *mut core::ffi::c_void;
-pub type HPROVIDER = *mut core::ffi::c_void;
-pub type HTAPICALL = *mut core::ffi::c_void;
-pub type HTAPILINE = *mut core::ffi::c_void;
-pub type HTAPIPHONE = *mut core::ffi::c_void;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEADDRESSCAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwLineDeviceID: u32,
-    pub dwAddressSize: u32,
-    pub dwAddressOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwAddressSharing: u32,
-    pub dwAddressStates: u32,
-    pub dwCallInfoStates: u32,
-    pub dwCallerIDFlags: u32,
-    pub dwCalledIDFlags: u32,
-    pub dwConnectedIDFlags: u32,
-    pub dwRedirectionIDFlags: u32,
-    pub dwRedirectingIDFlags: u32,
-    pub dwCallStates: u32,
-    pub dwDialToneModes: u32,
-    pub dwBusyModes: u32,
-    pub dwSpecialInfo: u32,
-    pub dwDisconnectModes: u32,
-    pub dwMaxNumActiveCalls: u32,
-    pub dwMaxNumOnHoldCalls: u32,
-    pub dwMaxNumOnHoldPendingCalls: u32,
-    pub dwMaxNumConference: u32,
-    pub dwMaxNumTransConf: u32,
-    pub dwAddrCapFlags: u32,
-    pub dwCallFeatures: u32,
-    pub dwRemoveFromConfCaps: u32,
-    pub dwRemoveFromConfState: u32,
-    pub dwTransferModes: u32,
-    pub dwParkModes: u32,
-    pub dwForwardModes: u32,
-    pub dwMaxForwardEntries: u32,
-    pub dwMaxSpecificEntries: u32,
-    pub dwMinFwdNumRings: u32,
-    pub dwMaxFwdNumRings: u32,
-    pub dwMaxCallCompletions: u32,
-    pub dwCallCompletionConds: u32,
-    pub dwCallCompletionModes: u32,
-    pub dwNumCompletionMessages: u32,
-    pub dwCompletionMsgTextEntrySize: u32,
-    pub dwCompletionMsgTextSize: u32,
-    pub dwCompletionMsgTextOffset: u32,
-    pub dwAddressFeatures: u32,
-    pub dwPredictiveAutoTransferStates: u32,
-    pub dwNumCallTreatments: u32,
-    pub dwCallTreatmentListSize: u32,
-    pub dwCallTreatmentListOffset: u32,
-    pub dwDeviceClassesSize: u32,
-    pub dwDeviceClassesOffset: u32,
-    pub dwMaxCallDataSize: u32,
-    pub dwCallFeatures2: u32,
-    pub dwMaxNoAnswerTimeout: u32,
-    pub dwConnectedModes: u32,
-    pub dwOfferingModes: u32,
-    pub dwAvailableMediaModes: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEADDRESSSTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumInUse: u32,
-    pub dwNumActiveCalls: u32,
-    pub dwNumOnHoldCalls: u32,
-    pub dwNumOnHoldPendCalls: u32,
-    pub dwAddressFeatures: u32,
-    pub dwNumRingsNoAnswer: u32,
-    pub dwForwardNumEntries: u32,
-    pub dwForwardSize: u32,
-    pub dwForwardOffset: u32,
-    pub dwTerminalModesSize: u32,
-    pub dwTerminalModesOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTACTIVITYENTRY {
-    pub dwID: u32,
-    pub dwNameSize: u32,
-    pub dwNameOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTACTIVITYLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTCAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwAgentHandlerInfoSize: u32,
-    pub dwAgentHandlerInfoOffset: u32,
-    pub dwCapsVersion: u32,
-    pub dwFeatures: u32,
-    pub dwStates: u32,
-    pub dwNextStates: u32,
-    pub dwMaxNumGroupEntries: u32,
-    pub dwAgentStatusMessages: u32,
-    pub dwNumAgentExtensionIDs: u32,
-    pub dwAgentExtensionIDListSize: u32,
-    pub dwAgentExtensionIDListOffset: u32,
-    pub ProxyGUID: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTENTRY {
-    pub hAgent: u32,
-    pub dwNameSize: u32,
-    pub dwNameOffset: u32,
-    pub dwIDSize: u32,
-    pub dwIDOffset: u32,
-    pub dwPINSize: u32,
-    pub dwPINOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTGROUPENTRY {
-    pub GroupID: LINEAGENTGROUPENTRY_0,
-    pub dwNameSize: u32,
-    pub dwNameOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTGROUPENTRY_0 {
-    pub dwGroupID1: u32,
-    pub dwGroupID2: u32,
-    pub dwGroupID3: u32,
-    pub dwGroupID4: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTGROUPLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-    pub dwMeasurementPeriod: u32,
-    pub cyOverallCallRate: super::super::System::Com::CY,
-    pub dwNumberOfACDCalls: u32,
-    pub dwNumberOfIncomingCalls: u32,
-    pub dwNumberOfOutgoingCalls: u32,
-    pub dwTotalACDTalkTime: u32,
-    pub dwTotalACDCallTime: u32,
-    pub dwTotalACDWrapUpTime: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTSESSIONENTRY {
-    pub hAgentSession: u32,
-    pub hAgent: u32,
-    pub GroupID: windows_sys::core::GUID,
-    pub dwWorkingAddressID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTSESSIONINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwAgentSessionState: u32,
-    pub dwNextAgentSessionState: u32,
-    pub dateSessionStartTime: f64,
-    pub dwSessionDuration: u32,
-    pub dwNumberOfCalls: u32,
-    pub dwTotalTalkTime: u32,
-    pub dwAverageTalkTime: u32,
-    pub dwTotalCallTime: u32,
-    pub dwAverageCallTime: u32,
-    pub dwTotalWrapUpTime: u32,
-    pub dwAverageWrapUpTime: u32,
-    pub cyACDCallRate: super::super::System::Com::CY,
-    pub dwLongestTimeToAnswer: u32,
-    pub dwAverageTimeToAnswer: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTSESSIONLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAGENTSTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwGroupListSize: u32,
-    pub dwGroupListOffset: u32,
-    pub dwState: u32,
-    pub dwNextState: u32,
-    pub dwActivityID: u32,
-    pub dwActivitySize: u32,
-    pub dwActivityOffset: u32,
-    pub dwAgentFeatures: u32,
-    pub dwValidStates: u32,
-    pub dwValidNextStates: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEAPPINFO {
-    pub dwMachineNameSize: u32,
-    pub dwMachineNameOffset: u32,
-    pub dwUserNameSize: u32,
-    pub dwUserNameOffset: u32,
-    pub dwModuleFilenameSize: u32,
-    pub dwModuleFilenameOffset: u32,
-    pub dwFriendlyNameSize: u32,
-    pub dwFriendlyNameOffset: u32,
-    pub dwMediaModes: u32,
-    pub dwAddressID: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECALLINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub hLine: u32,
-    pub dwLineDeviceID: u32,
-    pub dwAddressID: u32,
-    pub dwBearerMode: u32,
-    pub dwRate: u32,
-    pub dwMediaMode: u32,
-    pub dwAppSpecific: u32,
-    pub dwCallID: u32,
-    pub dwRelatedCallID: u32,
-    pub dwCallParamFlags: u32,
-    pub dwCallStates: u32,
-    pub dwMonitorDigitModes: u32,
-    pub dwMonitorMediaModes: u32,
-    pub DialParams: LINEDIALPARAMS,
-    pub dwOrigin: u32,
-    pub dwReason: u32,
-    pub dwCompletionID: u32,
-    pub dwNumOwners: u32,
-    pub dwNumMonitors: u32,
-    pub dwCountryCode: u32,
-    pub dwTrunk: u32,
-    pub dwCallerIDFlags: u32,
-    pub dwCallerIDSize: u32,
-    pub dwCallerIDOffset: u32,
-    pub dwCallerIDNameSize: u32,
-    pub dwCallerIDNameOffset: u32,
-    pub dwCalledIDFlags: u32,
-    pub dwCalledIDSize: u32,
-    pub dwCalledIDOffset: u32,
-    pub dwCalledIDNameSize: u32,
-    pub dwCalledIDNameOffset: u32,
-    pub dwConnectedIDFlags: u32,
-    pub dwConnectedIDSize: u32,
-    pub dwConnectedIDOffset: u32,
-    pub dwConnectedIDNameSize: u32,
-    pub dwConnectedIDNameOffset: u32,
-    pub dwRedirectionIDFlags: u32,
-    pub dwRedirectionIDSize: u32,
-    pub dwRedirectionIDOffset: u32,
-    pub dwRedirectionIDNameSize: u32,
-    pub dwRedirectionIDNameOffset: u32,
-    pub dwRedirectingIDFlags: u32,
-    pub dwRedirectingIDSize: u32,
-    pub dwRedirectingIDOffset: u32,
-    pub dwRedirectingIDNameSize: u32,
-    pub dwRedirectingIDNameOffset: u32,
-    pub dwAppNameSize: u32,
-    pub dwAppNameOffset: u32,
-    pub dwDisplayableAddressSize: u32,
-    pub dwDisplayableAddressOffset: u32,
-    pub dwCalledPartySize: u32,
-    pub dwCalledPartyOffset: u32,
-    pub dwCommentSize: u32,
-    pub dwCommentOffset: u32,
-    pub dwDisplaySize: u32,
-    pub dwDisplayOffset: u32,
-    pub dwUserUserInfoSize: u32,
-    pub dwUserUserInfoOffset: u32,
-    pub dwHighLevelCompSize: u32,
-    pub dwHighLevelCompOffset: u32,
-    pub dwLowLevelCompSize: u32,
-    pub dwLowLevelCompOffset: u32,
-    pub dwChargingInfoSize: u32,
-    pub dwChargingInfoOffset: u32,
-    pub dwTerminalModesSize: u32,
-    pub dwTerminalModesOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwCallTreatment: u32,
-    pub dwCallDataSize: u32,
-    pub dwCallDataOffset: u32,
-    pub dwSendingFlowspecSize: u32,
-    pub dwSendingFlowspecOffset: u32,
-    pub dwReceivingFlowspecSize: u32,
-    pub dwReceivingFlowspecOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECALLLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwCallsNumEntries: u32,
-    pub dwCallsSize: u32,
-    pub dwCallsOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECALLPARAMS {
-    pub dwTotalSize: u32,
-    pub dwBearerMode: u32,
-    pub dwMinRate: u32,
-    pub dwMaxRate: u32,
-    pub dwMediaMode: u32,
-    pub dwCallParamFlags: u32,
-    pub dwAddressMode: u32,
-    pub dwAddressID: u32,
-    pub DialParams: LINEDIALPARAMS,
-    pub dwOrigAddressSize: u32,
-    pub dwOrigAddressOffset: u32,
-    pub dwDisplayableAddressSize: u32,
-    pub dwDisplayableAddressOffset: u32,
-    pub dwCalledPartySize: u32,
-    pub dwCalledPartyOffset: u32,
-    pub dwCommentSize: u32,
-    pub dwCommentOffset: u32,
-    pub dwUserUserInfoSize: u32,
-    pub dwUserUserInfoOffset: u32,
-    pub dwHighLevelCompSize: u32,
-    pub dwHighLevelCompOffset: u32,
-    pub dwLowLevelCompSize: u32,
-    pub dwLowLevelCompOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwPredictiveAutoTransferStates: u32,
-    pub dwTargetAddressSize: u32,
-    pub dwTargetAddressOffset: u32,
-    pub dwSendingFlowspecSize: u32,
-    pub dwSendingFlowspecOffset: u32,
-    pub dwReceivingFlowspecSize: u32,
-    pub dwReceivingFlowspecOffset: u32,
-    pub dwDeviceClassSize: u32,
-    pub dwDeviceClassOffset: u32,
-    pub dwDeviceConfigSize: u32,
-    pub dwDeviceConfigOffset: u32,
-    pub dwCallDataSize: u32,
-    pub dwCallDataOffset: u32,
-    pub dwNoAnswerTimeout: u32,
-    pub dwCallingPartyIDSize: u32,
-    pub dwCallingPartyIDOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECALLSTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwCallState: u32,
-    pub dwCallStateMode: u32,
-    pub dwCallPrivilege: u32,
-    pub dwCallFeatures: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwCallFeatures2: u32,
-    pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECALLTREATMENTENTRY {
-    pub dwCallTreatmentID: u32,
-    pub dwCallTreatmentNameSize: u32,
-    pub dwCallTreatmentNameOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECARDENTRY {
-    pub dwPermanentCardID: u32,
-    pub dwCardNameSize: u32,
-    pub dwCardNameOffset: u32,
-    pub dwCardNumberDigits: u32,
-    pub dwSameAreaRuleSize: u32,
-    pub dwSameAreaRuleOffset: u32,
-    pub dwLongDistanceRuleSize: u32,
-    pub dwLongDistanceRuleOffset: u32,
-    pub dwInternationalRuleSize: u32,
-    pub dwInternationalRuleOffset: u32,
-    pub dwOptions: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECOUNTRYENTRY {
-    pub dwCountryID: u32,
-    pub dwCountryCode: u32,
-    pub dwNextCountryID: u32,
-    pub dwCountryNameSize: u32,
-    pub dwCountryNameOffset: u32,
-    pub dwSameAreaRuleSize: u32,
-    pub dwSameAreaRuleOffset: u32,
-    pub dwLongDistanceRuleSize: u32,
-    pub dwLongDistanceRuleOffset: u32,
-    pub dwInternationalRuleSize: u32,
-    pub dwInternationalRuleOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINECOUNTRYLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumCountries: u32,
-    pub dwCountryListSize: u32,
-    pub dwCountryListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEDEVCAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwProviderInfoSize: u32,
-    pub dwProviderInfoOffset: u32,
-    pub dwSwitchInfoSize: u32,
-    pub dwSwitchInfoOffset: u32,
-    pub dwPermanentLineID: u32,
-    pub dwLineNameSize: u32,
-    pub dwLineNameOffset: u32,
-    pub dwStringFormat: u32,
-    pub dwAddressModes: u32,
-    pub dwNumAddresses: u32,
-    pub dwBearerModes: u32,
-    pub dwMaxRate: u32,
-    pub dwMediaModes: u32,
-    pub dwGenerateToneModes: u32,
-    pub dwGenerateToneMaxNumFreq: u32,
-    pub dwGenerateDigitModes: u32,
-    pub dwMonitorToneMaxNumFreq: u32,
-    pub dwMonitorToneMaxNumEntries: u32,
-    pub dwMonitorDigitModes: u32,
-    pub dwGatherDigitsMinTimeout: u32,
-    pub dwGatherDigitsMaxTimeout: u32,
-    pub dwMedCtlDigitMaxListSize: u32,
-    pub dwMedCtlMediaMaxListSize: u32,
-    pub dwMedCtlToneMaxListSize: u32,
-    pub dwMedCtlCallStateMaxListSize: u32,
-    pub dwDevCapFlags: u32,
-    pub dwMaxNumActiveCalls: u32,
-    pub dwAnswerMode: u32,
-    pub dwRingModes: u32,
-    pub dwLineStates: u32,
-    pub dwUUIAcceptSize: u32,
-    pub dwUUIAnswerSize: u32,
-    pub dwUUIMakeCallSize: u32,
-    pub dwUUIDropSize: u32,
-    pub dwUUISendUserUserInfoSize: u32,
-    pub dwUUICallInfoSize: u32,
-    pub MinDialParams: LINEDIALPARAMS,
-    pub MaxDialParams: LINEDIALPARAMS,
-    pub DefaultDialParams: LINEDIALPARAMS,
-    pub dwNumTerminals: u32,
-    pub dwTerminalCapsSize: u32,
-    pub dwTerminalCapsOffset: u32,
-    pub dwTerminalTextEntrySize: u32,
-    pub dwTerminalTextSize: u32,
-    pub dwTerminalTextOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwLineFeatures: u32,
-    pub dwSettableDevStatus: u32,
-    pub dwDeviceClassesSize: u32,
-    pub dwDeviceClassesOffset: u32,
-    pub PermanentLineGuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEDEVSTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumOpens: u32,
-    pub dwOpenMediaModes: u32,
-    pub dwNumActiveCalls: u32,
-    pub dwNumOnHoldCalls: u32,
-    pub dwNumOnHoldPendCalls: u32,
-    pub dwLineFeatures: u32,
-    pub dwNumCallCompletions: u32,
-    pub dwRingMode: u32,
-    pub dwSignalLevel: u32,
-    pub dwBatteryLevel: u32,
-    pub dwRoamMode: u32,
-    pub dwDevStatusFlags: u32,
-    pub dwTerminalModesSize: u32,
-    pub dwTerminalModesOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwAvailableMediaModes: u32,
-    pub dwAppInfoSize: u32,
-    pub dwAppInfoOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEDIALPARAMS {
-    pub dwDialPause: u32,
-    pub dwDialSpeed: u32,
-    pub dwDigitDuration: u32,
-    pub dwWaitForDialtone: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEEXTENSIONID {
-    pub dwExtensionID0: u32,
-    pub dwExtensionID1: u32,
-    pub dwExtensionID2: u32,
-    pub dwExtensionID3: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEFORWARD {
-    pub dwForwardMode: u32,
-    pub dwCallerAddressSize: u32,
-    pub dwCallerAddressOffset: u32,
-    pub dwDestCountryCode: u32,
-    pub dwDestAddressSize: u32,
-    pub dwDestAddressOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEFORWARDLIST {
-    pub dwTotalSize: u32,
-    pub dwNumEntries: u32,
-    pub ForwardList: [LINEFORWARD; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEGENERATETONE {
-    pub dwFrequency: u32,
-    pub dwCadenceOn: u32,
-    pub dwCadenceOff: u32,
-    pub dwVolume: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEINITIALIZEEXPARAMS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwOptions: u32,
-    pub Handles: LINEINITIALIZEEXPARAMS_0,
-    pub dwCompletionKey: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union LINEINITIALIZEEXPARAMS_0 {
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub hCompletionPort: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINELOCATIONENTRY {
-    pub dwPermanentLocationID: u32,
-    pub dwLocationNameSize: u32,
-    pub dwLocationNameOffset: u32,
-    pub dwCountryCode: u32,
-    pub dwCityCodeSize: u32,
-    pub dwCityCodeOffset: u32,
-    pub dwPreferredCardID: u32,
-    pub dwLocalAccessCodeSize: u32,
-    pub dwLocalAccessCodeOffset: u32,
-    pub dwLongDistanceAccessCodeSize: u32,
-    pub dwLongDistanceAccessCodeOffset: u32,
-    pub dwTollPrefixListSize: u32,
-    pub dwTollPrefixListOffset: u32,
-    pub dwCountryID: u32,
-    pub dwOptions: u32,
-    pub dwCancelCallWaitingSize: u32,
-    pub dwCancelCallWaitingOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMEDIACONTROLCALLSTATE {
-    pub dwCallStates: u32,
-    pub dwMediaControl: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMEDIACONTROLDIGIT {
-    pub dwDigit: u32,
-    pub dwDigitModes: u32,
-    pub dwMediaControl: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMEDIACONTROLMEDIA {
-    pub dwMediaModes: u32,
-    pub dwDuration: u32,
-    pub dwMediaControl: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMEDIACONTROLTONE {
-    pub dwAppSpecific: u32,
-    pub dwDuration: u32,
-    pub dwFrequency1: u32,
-    pub dwFrequency2: u32,
-    pub dwFrequency3: u32,
-    pub dwMediaControl: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMESSAGE {
-    pub hDevice: u32,
-    pub dwMessageID: u32,
-    pub dwCallbackInstance: usize,
-    pub dwParam1: usize,
-    pub dwParam2: usize,
-    pub dwParam3: usize,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEMONITORTONE {
-    pub dwAppSpecific: u32,
-    pub dwDuration: u32,
-    pub dwFrequency1: u32,
-    pub dwFrequency2: u32,
-    pub dwFrequency3: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEPROVIDERENTRY {
-    pub dwPermanentProviderID: u32,
-    pub dwProviderFilenameSize: u32,
-    pub dwProviderFilenameOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEPROVIDERLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumProviders: u32,
-    pub dwProviderListSize: u32,
-    pub dwProviderListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST {
-    pub dwSize: u32,
-    pub dwClientMachineNameSize: u32,
-    pub dwClientMachineNameOffset: u32,
-    pub dwClientUserNameSize: u32,
-    pub dwClientUserNameOffset: u32,
-    pub dwClientAppAPIVersion: u32,
-    pub dwRequestType: u32,
-    pub Anonymous: LINEPROXYREQUEST_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union LINEPROXYREQUEST_0 {
-    pub SetAgentGroup: LINEPROXYREQUEST_0_0,
-    pub SetAgentState: LINEPROXYREQUEST_0_1,
-    pub SetAgentActivity: LINEPROXYREQUEST_0_2,
-    pub GetAgentCaps: LINEPROXYREQUEST_0_3,
-    pub GetAgentStatus: LINEPROXYREQUEST_0_4,
-    pub AgentSpecific: LINEPROXYREQUEST_0_5,
-    pub GetAgentActivityList: LINEPROXYREQUEST_0_6,
-    pub GetAgentGroupList: LINEPROXYREQUEST_0_7,
-    pub CreateAgent: LINEPROXYREQUEST_0_8,
-    pub SetAgentStateEx: LINEPROXYREQUEST_0_9,
-    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_10,
-    pub GetAgentInfo: LINEPROXYREQUEST_0_11,
-    pub CreateAgentSession: LINEPROXYREQUEST_0_12,
-    pub GetAgentSessionList: LINEPROXYREQUEST_0_13,
-    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_14,
-    pub SetAgentSessionState: LINEPROXYREQUEST_0_15,
-    pub GetQueueList: LINEPROXYREQUEST_0_16,
-    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_17,
-    pub GetQueueInfo: LINEPROXYREQUEST_0_18,
-    pub GetGroupList: LINEPROXYREQUEST_0_19,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_5 {
-    pub dwAddressID: u32,
-    pub dwAgentExtensionIDIndex: u32,
-    pub dwSize: u32,
-    pub Params: [u8; 1],
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_12 {
-    pub hAgentSession: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-    pub hAgent: u32,
-    pub GroupID: windows_sys::core::GUID,
-    pub dwWorkingAddressID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_8 {
-    pub hAgent: u32,
-    pub dwAgentIDSize: u32,
-    pub dwAgentIDOffset: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub dwAddressID: u32,
-    pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_3 {
-    pub dwAddressID: u32,
-    pub AgentCaps: LINEAGENTCAPS,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_7 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_11 {
-    pub hAgent: u32,
-    pub AgentInfo: LINEAGENTINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_14 {
-    pub hAgentSession: u32,
-    pub SessionInfo: LINEAGENTSESSIONINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_13 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_4 {
-    pub dwAddressID: u32,
-    pub AgentStatus: LINEAGENTSTATUS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_19 {
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_18 {
-    pub dwQueueID: u32,
-    pub QueueInfo: LINEQUEUEINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_16 {
-    pub GroupID: windows_sys::core::GUID,
-    pub QueueList: LINEQUEUELIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_2 {
-    pub dwAddressID: u32,
-    pub dwActivityID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_0 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_10 {
-    pub hAgent: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_15 {
-    pub hAgentSession: u32,
-    pub dwAgentSessionState: u32,
-    pub dwNextAgentSessionState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_9 {
-    pub hAgent: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_1 {
-    pub dwAddressID: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_17 {
-    pub dwQueueID: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUESTLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEQUEUEENTRY {
-    pub dwQueueID: u32,
-    pub dwNameSize: u32,
-    pub dwNameOffset: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEQUEUEINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwMeasurementPeriod: u32,
-    pub dwTotalCallsQueued: u32,
-    pub dwCurrentCallsQueued: u32,
-    pub dwTotalCallsAbandoned: u32,
-    pub dwTotalCallsFlowedIn: u32,
-    pub dwTotalCallsFlowedOut: u32,
-    pub dwLongestEverWaitTime: u32,
-    pub dwCurrentLongestWaitTime: u32,
-    pub dwAverageWaitTime: u32,
-    pub dwFinalDisposition: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEQUEUELIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LINEREQMAKECALL {
-    pub szDestAddress: [i8; 80],
-    pub szAppName: [i8; 40],
-    pub szCalledParty: [i8; 40],
-    pub szComment: [i8; 80],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEREQMAKECALLW {
-    pub szDestAddress: [u16; 80],
-    pub szAppName: [u16; 40],
-    pub szCalledParty: [u16; 40],
-    pub szComment: [u16; 80],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEREQMEDIACALL {
-    pub hWnd: super::super::Foundation::HWND,
-    pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [i8; 40],
-    pub ucDeviceID: [u8; 40],
-    pub dwSize: u32,
-    pub dwSecure: u32,
-    pub szDestAddress: [i8; 80],
-    pub szAppName: [i8; 40],
-    pub szCalledParty: [i8; 40],
-    pub szComment: [i8; 80],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINEREQMEDIACALLW {
-    pub hWnd: super::super::Foundation::HWND,
-    pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [u16; 40],
-    pub ucDeviceID: [u8; 40],
-    pub dwSize: u32,
-    pub dwSecure: u32,
-    pub szDestAddress: [u16; 80],
-    pub szAppName: [u16; 40],
-    pub szCalledParty: [u16; 40],
-    pub szComment: [u16; 80],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINETERMCAPS {
-    pub dwTermDev: u32,
-    pub dwTermModes: u32,
-    pub dwTermSharing: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINETRANSLATECAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumLocations: u32,
-    pub dwLocationListSize: u32,
-    pub dwLocationListOffset: u32,
-    pub dwCurrentLocationID: u32,
-    pub dwNumCards: u32,
-    pub dwCardListSize: u32,
-    pub dwCardListOffset: u32,
-    pub dwCurrentPreferredCardID: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct LINETRANSLATEOUTPUT {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwDialableStringSize: u32,
-    pub dwDialableStringOffset: u32,
-    pub dwDisplayableStringSize: u32,
-    pub dwDisplayableStringOffset: u32,
-    pub dwCurrentCountry: u32,
-    pub dwDestCountry: u32,
-    pub dwTranslateResults: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO {
-    pub dwSize: u32,
-    pub Event: MSP_EVENT,
-    pub hCall: *mut i32,
-    pub Anonymous: MSP_EVENT_INFO_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MSP_EVENT_INFO_0 {
-    pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
-    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_1,
-    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_2,
-    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_3,
-    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_4,
-    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
-    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_6,
-    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_0 {
-    pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_5 {
-    pub pASRTerminal: *mut core::ffi::c_void,
-    pub hrErrorCode: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_1 {
-    pub Type: MSP_CALL_EVENT,
-    pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: *mut core::ffi::c_void,
-    pub pTerminal: *mut core::ffi::c_void,
-    pub hrError: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_4 {
-    pub pParentFileTerminal: *mut core::ffi::c_void,
-    pub pFileTrack: *mut core::ffi::c_void,
-    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
-    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
-    pub hrErrorCode: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_3 {
-    pub pEvent: *mut core::ffi::c_void,
-    pub lEventCode: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_7 {
-    pub pToneTerminal: *mut core::ffi::c_void,
-    pub hrErrorCode: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_2 {
-    pub dwBufferSize: u32,
-    pub pBuffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_6 {
-    pub pTTSTerminal: *mut core::ffi::c_void,
-    pub hrErrorCode: windows_sys::core::HRESULT,
-}
-pub const McastAddressAllocation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NSID {
-    pub dwSize: u32,
-    pub uchType: [u8; 16],
-    pub xtype: u32,
-    pub lTime: i32,
-    pub address: NSID_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NSID_0 {
-    pub alias: ADDRALIAS,
-    pub rgchInterNet: [i8; 1],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEBUTTONINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwButtonMode: u32,
-    pub dwButtonFunction: u32,
-    pub dwButtonTextSize: u32,
-    pub dwButtonTextOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwButtonState: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONECAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwProviderInfoSize: u32,
-    pub dwProviderInfoOffset: u32,
-    pub dwPhoneInfoSize: u32,
-    pub dwPhoneInfoOffset: u32,
-    pub dwPermanentPhoneID: u32,
-    pub dwPhoneNameSize: u32,
-    pub dwPhoneNameOffset: u32,
-    pub dwStringFormat: u32,
-    pub dwPhoneStates: u32,
-    pub dwHookSwitchDevs: u32,
-    pub dwHandsetHookSwitchModes: u32,
-    pub dwSpeakerHookSwitchModes: u32,
-    pub dwHeadsetHookSwitchModes: u32,
-    pub dwVolumeFlags: u32,
-    pub dwGainFlags: u32,
-    pub dwDisplayNumRows: u32,
-    pub dwDisplayNumColumns: u32,
-    pub dwNumRingModes: u32,
-    pub dwNumButtonLamps: u32,
-    pub dwButtonModesSize: u32,
-    pub dwButtonModesOffset: u32,
-    pub dwButtonFunctionsSize: u32,
-    pub dwButtonFunctionsOffset: u32,
-    pub dwLampModesSize: u32,
-    pub dwLampModesOffset: u32,
-    pub dwNumSetData: u32,
-    pub dwSetDataSize: u32,
-    pub dwSetDataOffset: u32,
-    pub dwNumGetData: u32,
-    pub dwGetDataSize: u32,
-    pub dwGetDataOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDeviceClassesSize: u32,
-    pub dwDeviceClassesOffset: u32,
-    pub dwPhoneFeatures: u32,
-    pub dwSettableHandsetHookSwitchModes: u32,
-    pub dwSettableSpeakerHookSwitchModes: u32,
-    pub dwSettableHeadsetHookSwitchModes: u32,
-    pub dwMonitoredHandsetHookSwitchModes: u32,
-    pub dwMonitoredSpeakerHookSwitchModes: u32,
-    pub dwMonitoredHeadsetHookSwitchModes: u32,
-    pub PermanentPhoneGuid: windows_sys::core::GUID,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEEXTENSIONID {
-    pub dwExtensionID0: u32,
-    pub dwExtensionID1: u32,
-    pub dwExtensionID2: u32,
-    pub dwExtensionID3: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEINITIALIZEEXPARAMS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwOptions: u32,
-    pub Handles: PHONEINITIALIZEEXPARAMS_0,
-    pub dwCompletionKey: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union PHONEINITIALIZEEXPARAMS_0 {
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub hCompletionPort: super::super::Foundation::HANDLE,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEMESSAGE {
-    pub hDevice: u32,
-    pub dwMessageID: u32,
-    pub dwCallbackInstance: usize,
-    pub dwParam1: usize,
-    pub dwParam2: usize,
-    pub dwParam3: usize,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONESTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwStatusFlags: u32,
-    pub dwNumOwners: u32,
-    pub dwNumMonitors: u32,
-    pub dwRingMode: u32,
-    pub dwRingVolume: u32,
-    pub dwHandsetHookSwitchMode: u32,
-    pub dwHandsetVolume: u32,
-    pub dwHandsetGain: u32,
-    pub dwSpeakerHookSwitchMode: u32,
-    pub dwSpeakerVolume: u32,
-    pub dwSpeakerGain: u32,
-    pub dwHeadsetHookSwitchMode: u32,
-    pub dwHeadsetVolume: u32,
-    pub dwHeadsetGain: u32,
-    pub dwDisplaySize: u32,
-    pub dwDisplayOffset: u32,
-    pub dwLampModesSize: u32,
-    pub dwLampModesOffset: u32,
-    pub dwOwnerNameSize: u32,
-    pub dwOwnerNameOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwPhoneFeatures: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RENDDATA {
-    pub atyp: u16,
-    pub ulPosition: u32,
-    pub dxWidth: u16,
-    pub dyHeight: u16,
-    pub dwFlags: u32,
-}
-pub const Rendezvous: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
-pub const RequestMakeCall: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STnefProblem {
-    pub ulComponent: u32,
-    pub ulAttribute: u32,
-    pub ulPropTag: u32,
-    pub scode: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STnefProblemArray {
-    pub cProblem: u32,
-    pub aProblem: [STnefProblem; 1],
-}
-pub const TAPI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPI_CUSTOMTONE {
-    pub dwFrequency: u32,
-    pub dwCadenceOn: u32,
-    pub dwCadenceOff: u32,
-    pub dwVolume: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TAPI_DETECTTONE {
-    pub dwAppSpecific: u32,
-    pub dwDuration: u32,
-    pub dwFrequency1: u32,
-    pub dwFrequency2: u32,
-    pub dwFrequency3: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRP {
-    pub trpid: u16,
-    pub cbgrtrp: u16,
-    pub cch: u16,
-    pub cbRgb: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
-    pub dwRequestID: u32,
-    pub hdDlgInst: HDRVDIALOGINSTANCE,
-    pub htDlgInst: u32,
-    pub lpszUIDLLName: windows_sys::core::PCWSTR,
-    pub lpParams: *mut core::ffi::c_void,
-    pub dwSize: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct VARSTRING {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwStringFormat: u32,
-    pub dwStringSize: u32,
-    pub dwStringOffset: u32,
-}
-pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
-pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: *mut core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_sys::core::HRESULT>;
-pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpadressbook: *mut core::ffi::c_void, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type TUISPIDLLCALLBACK = Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32>;

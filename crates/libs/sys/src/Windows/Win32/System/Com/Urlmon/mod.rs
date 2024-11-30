@@ -19,9 +19,9 @@ windows_targets::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : win
 windows_targets::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : super::super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const u8, dwlen1 : u32, pbsecurityid2 : *const u8, dwlen2 : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const windows_sys::core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const super:: BINDINFO, pbidest : *mut super:: BINDINFO) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super:: STGMEDIUM, pstgmeddest : *mut super:: STGMEDIUM) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : * mut core::ffi::c_void, pefetc : * mut core::ffi::c_void, ppbc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : * mut core::ffi::c_void, dwoptions : u32, pbscb : * mut core::ffi::c_void, penum : * mut core::ffi::c_void, ppbc : *mut * mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
@@ -55,7 +55,7 @@ windows_targets::link!("urlmon.dll" "system" fn RegisterBindStatusCallback(pbc :
 windows_targets::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : * mut core::ffi::c_void, pefetc : * mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : * mut core::ffi::c_void, ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgclsid : *const windows_sys::core::GUID, reserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgcftypes : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut super:: BINDINFO));
 windows_targets::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : * mut core::ffi::c_void, pbscb : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : * mut core::ffi::c_void, pefetc : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -74,6 +74,160 @@ windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : * mut co
 windows_targets::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
+pub type AUTHENTICATEF = i32;
+pub type BINDF = i32;
+pub type BINDF2 = i32;
+pub type BINDHANDLETYPES = i32;
+pub type BINDINFO_OPTIONS = i32;
+pub type BINDSTATUS = i32;
+pub type BINDSTRING = i32;
+pub type BINDVERB = i32;
+pub type BSCF = i32;
+pub type CIP_STATUS = i32;
+pub type IEObjectType = i32;
+pub type INET_ZONE_MANAGER_CONSTANTS = i32;
+pub type INTERNETFEATURELIST = i32;
+pub type MONIKERPROPERTY = i32;
+pub type OIBDG_FLAGS = i32;
+pub type PARSEACTION = i32;
+pub type PI_FLAGS = i32;
+pub type PSUACTION = i32;
+pub type PUAF = i32;
+pub type PUAFOUT = i32;
+pub type QUERYOPTION = i32;
+pub type SZM_FLAGS = i32;
+pub type URLTEMPLATE = i32;
+pub type URLZONE = i32;
+pub type URLZONEREG = i32;
+pub type URL_ENCODING = i32;
+pub type Uri_HOST_TYPE = i32;
+pub type ZAFLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CODEBASEHOLD {
+    pub cbSize: u32,
+    pub szDistUnit: windows_sys::core::PWSTR,
+    pub szCodeBase: windows_sys::core::PWSTR,
+    pub dwVersionMS: u32,
+    pub dwVersionLS: u32,
+    pub dwStyle: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIRMSAFETY {
+    pub clsid: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATAINFO {
+    pub ulTotalSize: u32,
+    pub ulavrPacketSize: u32,
+    pub ulConnectSpeed: u32,
+    pub ulProcessorSpeed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIT_LOGGING_INFO {
+    pub dwStructSize: u32,
+    pub lpszLoggedUrlName: windows_sys::core::PSTR,
+    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
+    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
+    pub lpszExtendedInfo: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOLDATA {
+    pub grfFlags: u32,
+    pub dwState: u32,
+    pub pData: *mut core::ffi::c_void,
+    pub cbData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOLFILTERDATA {
+    pub cbSize: u32,
+    pub pProtocolSink: *mut core::ffi::c_void,
+    pub pProtocol: *mut core::ffi::c_void,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwFilterFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOL_ARGUMENT {
+    pub szMethod: windows_sys::core::PCWSTR,
+    pub szTargetUrl: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REMSECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: u32,
+    pub bInheritHandle: super::super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemBINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: windows_sys::core::PWSTR,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: windows_sys::core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: REMSECURITY_ATTRIBUTES,
+    pub iid: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemFORMATETC {
+    pub cfFormat: u32,
+    pub ptd: u32,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOFTDISTINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwAdState: u32,
+    pub szTitle: windows_sys::core::PWSTR,
+    pub szAbstract: windows_sys::core::PWSTR,
+    pub szHREF: windows_sys::core::PWSTR,
+    pub dwInstalledVersionMS: u32,
+    pub dwInstalledVersionLS: u32,
+    pub dwUpdateVersionMS: u32,
+    pub dwUpdateVersionLS: u32,
+    pub dwAdvertisedVersionMS: u32,
+    pub dwAdvertisedVersionLS: u32,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct StartParam {
+    pub iid: windows_sys::core::GUID,
+    pub pIBindCtx: *mut core::ffi::c_void,
+    pub pItf: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ZONEATTRIBUTES {
+    pub cbSize: u32,
+    pub szDisplayName: [u16; 260],
+    pub szDescription: [u16; 200],
+    pub szIconPath: [u16; 260],
+    pub dwTemplateMinLevel: u32,
+    pub dwTemplateRecommended: u32,
+    pub dwTemplateCurrentLevel: u32,
+    pub dwFlags: u32,
+}
 pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2i32;
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4i32;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1i32;
@@ -749,157 +903,3 @@ pub const ZAFLAGS_SUPPORTS_VERIFICATION: ZAFLAGS = 64i32;
 pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128i32;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536i32;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072i32;
-pub type AUTHENTICATEF = i32;
-pub type BINDF = i32;
-pub type BINDF2 = i32;
-pub type BINDHANDLETYPES = i32;
-pub type BINDINFO_OPTIONS = i32;
-pub type BINDSTATUS = i32;
-pub type BINDSTRING = i32;
-pub type BINDVERB = i32;
-pub type BSCF = i32;
-pub type CIP_STATUS = i32;
-pub type IEObjectType = i32;
-pub type INET_ZONE_MANAGER_CONSTANTS = i32;
-pub type INTERNETFEATURELIST = i32;
-pub type MONIKERPROPERTY = i32;
-pub type OIBDG_FLAGS = i32;
-pub type PARSEACTION = i32;
-pub type PI_FLAGS = i32;
-pub type PSUACTION = i32;
-pub type PUAF = i32;
-pub type PUAFOUT = i32;
-pub type QUERYOPTION = i32;
-pub type SZM_FLAGS = i32;
-pub type URLTEMPLATE = i32;
-pub type URLZONE = i32;
-pub type URLZONEREG = i32;
-pub type URL_ENCODING = i32;
-pub type Uri_HOST_TYPE = i32;
-pub type ZAFLAGS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CODEBASEHOLD {
-    pub cbSize: u32,
-    pub szDistUnit: windows_sys::core::PWSTR,
-    pub szCodeBase: windows_sys::core::PWSTR,
-    pub dwVersionMS: u32,
-    pub dwVersionLS: u32,
-    pub dwStyle: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIRMSAFETY {
-    pub clsid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATAINFO {
-    pub ulTotalSize: u32,
-    pub ulavrPacketSize: u32,
-    pub ulConnectSpeed: u32,
-    pub ulProcessorSpeed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIT_LOGGING_INFO {
-    pub dwStructSize: u32,
-    pub lpszLoggedUrlName: windows_sys::core::PSTR,
-    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
-    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
-    pub lpszExtendedInfo: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOLDATA {
-    pub grfFlags: u32,
-    pub dwState: u32,
-    pub pData: *mut core::ffi::c_void,
-    pub cbData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOLFILTERDATA {
-    pub cbSize: u32,
-    pub pProtocolSink: *mut core::ffi::c_void,
-    pub pProtocol: *mut core::ffi::c_void,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwFilterFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOL_ARGUMENT {
-    pub szMethod: windows_sys::core::PCWSTR,
-    pub szTargetUrl: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REMSECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: u32,
-    pub bInheritHandle: super::super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemBINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: windows_sys::core::PWSTR,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: windows_sys::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: REMSECURITY_ATTRIBUTES,
-    pub iid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemFORMATETC {
-    pub cfFormat: u32,
-    pub ptd: u32,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOFTDISTINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwAdState: u32,
-    pub szTitle: windows_sys::core::PWSTR,
-    pub szAbstract: windows_sys::core::PWSTR,
-    pub szHREF: windows_sys::core::PWSTR,
-    pub dwInstalledVersionMS: u32,
-    pub dwInstalledVersionLS: u32,
-    pub dwUpdateVersionMS: u32,
-    pub dwUpdateVersionLS: u32,
-    pub dwAdvertisedVersionMS: u32,
-    pub dwAdvertisedVersionLS: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct StartParam {
-    pub iid: windows_sys::core::GUID,
-    pub pIBindCtx: *mut core::ffi::c_void,
-    pub pItf: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ZONEATTRIBUTES {
-    pub cbSize: u32,
-    pub szDisplayName: [u16; 260],
-    pub szDescription: [u16; 200],
-    pub szIconPath: [u16; 260],
-    pub dwTemplateMinLevel: u32,
-    pub dwTemplateRecommended: u32,
-    pub dwTemplateCurrentLevel: u32,
-    pub dwFlags: u32,
-}

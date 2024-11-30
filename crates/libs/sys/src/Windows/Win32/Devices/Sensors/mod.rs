@@ -70,6 +70,99 @@ windows_targets::link!("sensorsutilsv2.dll" "system" fn PropertiesListGetFillabl
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::Foundation:: PROPERTYKEY, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferAllocate(sizeinbytes : u32, pbuffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
+pub type ACTIVITY_STATE = i32;
+pub type ACTIVITY_STATE_COUNT = i32;
+pub type AXIS = i32;
+pub type ELEVATION_CHANGE_MODE = i32;
+pub type HUMAN_PRESENCE_DETECTION_TYPE = i32;
+pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
+pub type LOCATION_DESIRED_ACCURACY = i32;
+pub type LOCATION_POSITION_SOURCE = i32;
+pub type MAGNETOMETER_ACCURACY = i32;
+pub type MagnetometerAccuracy = i32;
+pub type PEDOMETER_STEP_TYPE = i32;
+pub type PEDOMETER_STEP_TYPE_COUNT = i32;
+pub type PROXIMITY_SENSOR_CAPABILITIES = i32;
+pub type PROXIMITY_TYPE = i32;
+pub type SENSOR_CONNECTION_TYPES = i32;
+pub type SENSOR_STATE = i32;
+pub type SIMPLE_DEVICE_ORIENTATION = i32;
+pub type SensorConnectionType = i32;
+pub type SensorState = i32;
+pub type SimpleDeviceOrientation = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3 {
+    pub Anonymous: MATRIX3X3_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MATRIX3X3_0 {
+    pub Anonymous1: MATRIX3X3_0_0,
+    pub Anonymous2: MATRIX3X3_0_1,
+    pub M: [f32; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3_0_0 {
+    pub A11: f32,
+    pub A12: f32,
+    pub A13: f32,
+    pub A21: f32,
+    pub A22: f32,
+    pub A23: f32,
+    pub A31: f32,
+    pub A32: f32,
+    pub A33: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MATRIX3X3_0_1 {
+    pub V1: VEC3D,
+    pub V2: VEC3D,
+    pub V3: VEC3D,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUATERNION {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+    pub W: f32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct SENSOR_COLLECTION_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [SENSOR_VALUE_PAIR; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SENSOR_PROPERTY_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [super::super::Foundation::PROPERTYKEY; 1],
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct SENSOR_VALUE_PAIR {
+    pub Key: super::super::Foundation::PROPERTYKEY,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+pub const Sensor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
+pub const SensorCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
+pub const SensorDataReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
+pub const SensorManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VEC3D {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+}
 pub const AXIS_MAX: AXIS = 3i32;
 pub const AXIS_X: AXIS = 0i32;
 pub const AXIS_Y: AXIS = 1i32;
@@ -432,96 +525,3 @@ pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = 0i32;
 pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 2i32;
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 3i32;
 pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 1i32;
-pub type ACTIVITY_STATE = i32;
-pub type ACTIVITY_STATE_COUNT = i32;
-pub type AXIS = i32;
-pub type ELEVATION_CHANGE_MODE = i32;
-pub type HUMAN_PRESENCE_DETECTION_TYPE = i32;
-pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
-pub type LOCATION_DESIRED_ACCURACY = i32;
-pub type LOCATION_POSITION_SOURCE = i32;
-pub type MAGNETOMETER_ACCURACY = i32;
-pub type MagnetometerAccuracy = i32;
-pub type PEDOMETER_STEP_TYPE = i32;
-pub type PEDOMETER_STEP_TYPE_COUNT = i32;
-pub type PROXIMITY_SENSOR_CAPABILITIES = i32;
-pub type PROXIMITY_TYPE = i32;
-pub type SENSOR_CONNECTION_TYPES = i32;
-pub type SENSOR_STATE = i32;
-pub type SIMPLE_DEVICE_ORIENTATION = i32;
-pub type SensorConnectionType = i32;
-pub type SensorState = i32;
-pub type SimpleDeviceOrientation = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3 {
-    pub Anonymous: MATRIX3X3_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MATRIX3X3_0 {
-    pub Anonymous1: MATRIX3X3_0_0,
-    pub Anonymous2: MATRIX3X3_0_1,
-    pub M: [f32; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3_0_0 {
-    pub A11: f32,
-    pub A12: f32,
-    pub A13: f32,
-    pub A21: f32,
-    pub A22: f32,
-    pub A23: f32,
-    pub A31: f32,
-    pub A32: f32,
-    pub A33: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MATRIX3X3_0_1 {
-    pub V1: VEC3D,
-    pub V2: VEC3D,
-    pub V3: VEC3D,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUATERNION {
-    pub X: f32,
-    pub Y: f32,
-    pub Z: f32,
-    pub W: f32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct SENSOR_COLLECTION_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [SENSOR_VALUE_PAIR; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SENSOR_PROPERTY_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [super::super::Foundation::PROPERTYKEY; 1],
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct SENSOR_VALUE_PAIR {
-    pub Key: super::super::Foundation::PROPERTYKEY,
-    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
-}
-pub const Sensor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
-pub const SensorCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
-pub const SensorDataReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
-pub const SensorManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VEC3D {
-    pub X: f32,
-    pub Y: f32,
-    pub Z: f32,
-}

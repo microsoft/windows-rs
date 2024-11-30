@@ -1,4 +1,56 @@
 windows_targets::link!("dmprocessxmlfiltered.dll" "system" fn DMProcessConfigXMLFiltered(pszxmlin : windows_sys::core::PCWSTR, rgszallowedcspnodes : *const windows_sys::core::PCWSTR, dwnumallowedcspnodes : u32, pbstrxmlout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+pub type DELETE_OBJECT_OPTIONS = i32;
+pub type DEVICE_RADIO_STATE = i32;
+pub type SMS_MESSAGE_TYPES = i32;
+pub type SYSTEM_RADIO_STATE = i32;
+pub type WPD_BITRATE_TYPES = i32;
+pub type WPD_CAPTURE_MODES = i32;
+pub type WPD_COLOR_CORRECTED_STATUS_VALUES = i32;
+pub type WPD_COMMAND_ACCESS_TYPES = i32;
+pub type WPD_CROPPED_STATUS_VALUES = i32;
+pub type WPD_DEVICE_TRANSPORTS = i32;
+pub type WPD_DEVICE_TYPES = i32;
+pub type WPD_EFFECT_MODES = i32;
+pub type WPD_EXPOSURE_METERING_MODES = i32;
+pub type WPD_EXPOSURE_PROGRAM_MODES = i32;
+pub type WPD_FLASH_MODES = i32;
+pub type WPD_FOCUS_METERING_MODES = i32;
+pub type WPD_FOCUS_MODES = i32;
+pub type WPD_META_GENRES = i32;
+pub type WPD_OPERATION_STATES = i32;
+pub type WPD_PARAMETER_USAGE_TYPES = i32;
+pub type WPD_POWER_SOURCES = i32;
+pub type WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = i32;
+pub type WPD_SECTION_DATA_UNITS_VALUES = i32;
+pub type WPD_SERVICE_INHERITANCE_TYPES = i32;
+pub type WPD_SMS_ENCODING_TYPES = i32;
+pub type WPD_STORAGE_ACCESS_CAPABILITY_VALUES = i32;
+pub type WPD_STORAGE_TYPE_VALUES = i32;
+pub type WPD_STREAM_UNITS = i32;
+pub type WPD_VIDEO_SCAN_TYPES = i32;
+pub type WPD_WHITE_BALANCE_SETTINGS = i32;
+pub type WpdAttributeForm = i32;
+pub type WpdParameterAttributeForm = i32;
+pub const EnumBthMtpConnectors: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1570149_e645_4f43_8b0d_409b061db2fc);
+pub const PortableDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
+pub const PortableDeviceDispatchFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);
+pub const PortableDeviceFTM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf7c0039a_4762_488a_b4b3_760ef9a1ba9b);
+pub const PortableDeviceKeyCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
+pub const PortableDeviceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0af10cec_2ecd_4b92_9581_34f6ae0637f3);
+pub const PortableDevicePropVariantCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
+pub const PortableDeviceService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef5db4c2_9312_422c_9152_411cd9c4dd84);
+pub const PortableDeviceServiceFTM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1649b154_c794_497a_9b03_f3f0121302f3);
+pub const PortableDeviceValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);
+pub const PortableDeviceValuesCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3882134d_14cf_4220_9cb4_435f86d83f60);
+pub const PortableDeviceWebControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
+    pub Command: super::super::Foundation::PROPERTYKEY,
+    pub AccessType: u32,
+    pub AccessProperty: super::super::Foundation::PROPERTYKEY,
+}
+pub const WpdSerializer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);
 pub const CLSID_WPD_NAMESPACE_EXTENSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x35786d3c_b075_49b9_88dd_029876e11c01);
 pub const DEVPKEY_MTPBTH_IsConnected: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xea1237fa_589d_4472_84e4_0abe36fd62ef), pid: 2 };
 pub const DEVSVCTYPE_ABSTRACT: u32 = 1u32;
@@ -1368,55 +1420,3 @@ pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = 1i32;
 pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = 3i32;
 pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = 6i32;
 pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = 0i32;
-pub type DELETE_OBJECT_OPTIONS = i32;
-pub type DEVICE_RADIO_STATE = i32;
-pub type SMS_MESSAGE_TYPES = i32;
-pub type SYSTEM_RADIO_STATE = i32;
-pub type WPD_BITRATE_TYPES = i32;
-pub type WPD_CAPTURE_MODES = i32;
-pub type WPD_COLOR_CORRECTED_STATUS_VALUES = i32;
-pub type WPD_COMMAND_ACCESS_TYPES = i32;
-pub type WPD_CROPPED_STATUS_VALUES = i32;
-pub type WPD_DEVICE_TRANSPORTS = i32;
-pub type WPD_DEVICE_TYPES = i32;
-pub type WPD_EFFECT_MODES = i32;
-pub type WPD_EXPOSURE_METERING_MODES = i32;
-pub type WPD_EXPOSURE_PROGRAM_MODES = i32;
-pub type WPD_FLASH_MODES = i32;
-pub type WPD_FOCUS_METERING_MODES = i32;
-pub type WPD_FOCUS_MODES = i32;
-pub type WPD_META_GENRES = i32;
-pub type WPD_OPERATION_STATES = i32;
-pub type WPD_PARAMETER_USAGE_TYPES = i32;
-pub type WPD_POWER_SOURCES = i32;
-pub type WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = i32;
-pub type WPD_SECTION_DATA_UNITS_VALUES = i32;
-pub type WPD_SERVICE_INHERITANCE_TYPES = i32;
-pub type WPD_SMS_ENCODING_TYPES = i32;
-pub type WPD_STORAGE_ACCESS_CAPABILITY_VALUES = i32;
-pub type WPD_STORAGE_TYPE_VALUES = i32;
-pub type WPD_STREAM_UNITS = i32;
-pub type WPD_VIDEO_SCAN_TYPES = i32;
-pub type WPD_WHITE_BALANCE_SETTINGS = i32;
-pub type WpdAttributeForm = i32;
-pub type WpdParameterAttributeForm = i32;
-pub const EnumBthMtpConnectors: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1570149_e645_4f43_8b0d_409b061db2fc);
-pub const PortableDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
-pub const PortableDeviceDispatchFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);
-pub const PortableDeviceFTM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf7c0039a_4762_488a_b4b3_760ef9a1ba9b);
-pub const PortableDeviceKeyCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
-pub const PortableDeviceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0af10cec_2ecd_4b92_9581_34f6ae0637f3);
-pub const PortableDevicePropVariantCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
-pub const PortableDeviceService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef5db4c2_9312_422c_9152_411cd9c4dd84);
-pub const PortableDeviceServiceFTM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1649b154_c794_497a_9b03_f3f0121302f3);
-pub const PortableDeviceValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);
-pub const PortableDeviceValuesCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3882134d_14cf_4220_9cb4_435f86d83f60);
-pub const PortableDeviceWebControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    pub Command: super::super::Foundation::PROPERTYKEY,
-    pub AccessType: u32,
-    pub AccessProperty: super::super::Foundation::PROPERTYKEY,
-}
-pub const WpdSerializer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);

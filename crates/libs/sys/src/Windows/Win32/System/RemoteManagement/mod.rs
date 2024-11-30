@@ -31,6 +31,274 @@ windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommandEx(shell : W
 windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
 windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : windows_sys::core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE));
+pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: windows_sys::core::PCWSTR, resourceuri: windows_sys::core::PCWSTR)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = Option<unsafe extern "system" fn(userauthorizationcontext: *const core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_USER = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_COMMAND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandline: windows_sys::core::PCWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
+pub type WSMAN_PLUGIN_CONNECT = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_RECEIVE = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
+pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_SEND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, stream: windows_sys::core::PCWSTR, inbounddata: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SHELL = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SHUTDOWN = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, flags: u32, reason: u32) -> u32>;
+pub type WSMAN_PLUGIN_SIGNAL = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, code: windows_sys::core::PCWSTR)>;
+pub type WSMAN_PLUGIN_STARTUP = Option<unsafe extern "system" fn(flags: u32, applicationidentification: windows_sys::core::PCWSTR, extrainfo: windows_sys::core::PCWSTR, plugincontext: *mut *mut core::ffi::c_void) -> u32>;
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
+pub type WSManAuthenticationFlags = i32;
+pub type WSManCallbackFlags = i32;
+pub type WSManDataType = i32;
+pub type WSManEnumFlags = i32;
+pub type WSManProxyAccessType = i32;
+pub type WSManProxyAccessTypeFlags = i32;
+pub type WSManProxyAuthenticationFlags = i32;
+pub type WSManSessionFlags = i32;
+pub type WSManSessionOption = i32;
+pub type WSManShellFlag = i32;
+pub type WSMAN_API_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
+    pub authenticationMechanism: u32,
+    pub Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
+    pub userAccount: WSMAN_USERNAME_PASSWORD_CREDS,
+    pub certificateThumbprint: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_AUTHZ_QUOTA {
+    pub maxAllowedConcurrentShells: u32,
+    pub maxAllowedConcurrentOperations: u32,
+    pub timeslotSize: u32,
+    pub maxAllowedOperationsPerTimeslot: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_CERTIFICATE_DETAILS {
+    pub subject: windows_sys::core::PCWSTR,
+    pub issuerName: windows_sys::core::PCWSTR,
+    pub issuerThumbprint: windows_sys::core::PCWSTR,
+    pub subjectName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_COMMAND_ARG_SET {
+    pub argsCount: u32,
+    pub args: *const windows_sys::core::PCWSTR,
+}
+pub type WSMAN_COMMAND_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_CONNECT_DATA {
+    pub data: WSMAN_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_CREATE_SHELL_DATA {
+    pub data: WSMAN_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_DATA {
+    pub r#type: WSManDataType,
+    pub Anonymous: WSMAN_DATA_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WSMAN_DATA_0 {
+    pub text: WSMAN_DATA_TEXT,
+    pub binaryData: WSMAN_DATA_BINARY,
+    pub number: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_DATA_BINARY {
+    pub dataLength: u32,
+    pub data: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_DATA_TEXT {
+    pub bufferLength: u32,
+    pub buffer: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_ENVIRONMENT_VARIABLE {
+    pub name: windows_sys::core::PCWSTR,
+    pub value: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
+    pub varsCount: u32,
+    pub vars: *mut WSMAN_ENVIRONMENT_VARIABLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_ERROR {
+    pub code: u32,
+    pub errorDetail: windows_sys::core::PCWSTR,
+    pub language: windows_sys::core::PCWSTR,
+    pub machineName: windows_sys::core::PCWSTR,
+    pub pluginName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_FILTER {
+    pub filter: windows_sys::core::PCWSTR,
+    pub dialect: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_FRAGMENT {
+    pub path: windows_sys::core::PCWSTR,
+    pub dialect: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_KEY {
+    pub key: windows_sys::core::PCWSTR,
+    pub value: windows_sys::core::PCWSTR,
+}
+pub type WSMAN_OPERATION_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_OPERATION_INFO {
+    pub fragment: WSMAN_FRAGMENT,
+    pub filter: WSMAN_FILTER,
+    pub selectorSet: WSMAN_SELECTOR_SET,
+    pub optionSet: WSMAN_OPTION_SET,
+    pub reserved: *mut core::ffi::c_void,
+    pub version: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_OPERATION_INFOEX {
+    pub fragment: WSMAN_FRAGMENT,
+    pub filter: WSMAN_FILTER,
+    pub selectorSet: WSMAN_SELECTOR_SET,
+    pub optionSet: WSMAN_OPTION_SETEX,
+    pub version: u32,
+    pub uiLocale: windows_sys::core::PCWSTR,
+    pub dataLocale: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_OPTION {
+    pub name: windows_sys::core::PCWSTR,
+    pub value: windows_sys::core::PCWSTR,
+    pub mustComply: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_OPTION_SET {
+    pub optionsCount: u32,
+    pub options: *mut WSMAN_OPTION,
+    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_OPTION_SETEX {
+    pub optionsCount: u32,
+    pub options: *mut WSMAN_OPTION,
+    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionTypes: *const windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_PLUGIN_REQUEST {
+    pub senderDetails: *mut WSMAN_SENDER_DETAILS,
+    pub locale: windows_sys::core::PCWSTR,
+    pub resourceUri: windows_sys::core::PCWSTR,
+    pub operationInfo: *mut WSMAN_OPERATION_INFO,
+    pub shutdownNotification: super::super::Foundation::BOOL,
+    pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
+    pub dataLocale: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_PROXY_INFO {
+    pub accessType: u32,
+    pub authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_RECEIVE_DATA_RESULT {
+    pub streamId: windows_sys::core::PCWSTR,
+    pub streamData: WSMAN_DATA,
+    pub commandState: windows_sys::core::PCWSTR,
+    pub exitCode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WSMAN_RESPONSE_DATA {
+    pub receiveData: WSMAN_RECEIVE_DATA_RESULT,
+    pub connectData: WSMAN_CONNECT_DATA,
+    pub createData: WSMAN_CREATE_SHELL_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SELECTOR_SET {
+    pub numberKeys: u32,
+    pub keys: *mut WSMAN_KEY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SENDER_DETAILS {
+    pub senderName: windows_sys::core::PCWSTR,
+    pub authenticationMechanism: windows_sys::core::PCWSTR,
+    pub certificateDetails: *mut WSMAN_CERTIFICATE_DETAILS,
+    pub clientToken: super::super::Foundation::HANDLE,
+    pub httpURL: windows_sys::core::PCWSTR,
+}
+pub type WSMAN_SESSION_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SHELL_ASYNC {
+    pub operationContext: *mut core::ffi::c_void,
+    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SHELL_DISCONNECT_INFO {
+    pub idleTimeoutMs: u32,
+}
+pub type WSMAN_SHELL_HANDLE = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
+    pub inputStreamSet: *mut WSMAN_STREAM_ID_SET,
+    pub outputStreamSet: *mut WSMAN_STREAM_ID_SET,
+    pub idleTimeoutMs: u32,
+    pub workingDirectory: windows_sys::core::PCWSTR,
+    pub variableSet: *mut WSMAN_ENVIRONMENT_VARIABLE_SET,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
+    pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
+    pub name: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_STREAM_ID_SET {
+    pub streamIDsCount: u32,
+    pub streamIDs: *const windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WSMAN_USERNAME_PASSWORD_CREDS {
+    pub username: windows_sys::core::PCWSTR,
+    pub password: windows_sys::core::PCWSTR,
+}
+pub const WSMan: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
+pub const WSManInternal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 pub const ERROR_REDIRECT_LOCATION_INVALID: u32 = 2150859191u32;
 pub const ERROR_REDIRECT_LOCATION_TOO_LONG: u32 = 2150859190u32;
 pub const ERROR_SERVICE_CBT_HARDENING_INVALID: u32 = 2150859192u32;
@@ -665,271 +933,3 @@ pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4i32;
 pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = 1i32;
 pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = 8i32;
 pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = 2i32;
-pub type WSManAuthenticationFlags = i32;
-pub type WSManCallbackFlags = i32;
-pub type WSManDataType = i32;
-pub type WSManEnumFlags = i32;
-pub type WSManProxyAccessType = i32;
-pub type WSManProxyAccessTypeFlags = i32;
-pub type WSManProxyAuthenticationFlags = i32;
-pub type WSManSessionFlags = i32;
-pub type WSManSessionOption = i32;
-pub type WSManShellFlag = i32;
-pub type WSMAN_API_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
-    pub authenticationMechanism: u32,
-    pub Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
-    pub userAccount: WSMAN_USERNAME_PASSWORD_CREDS,
-    pub certificateThumbprint: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_AUTHZ_QUOTA {
-    pub maxAllowedConcurrentShells: u32,
-    pub maxAllowedConcurrentOperations: u32,
-    pub timeslotSize: u32,
-    pub maxAllowedOperationsPerTimeslot: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_CERTIFICATE_DETAILS {
-    pub subject: windows_sys::core::PCWSTR,
-    pub issuerName: windows_sys::core::PCWSTR,
-    pub issuerThumbprint: windows_sys::core::PCWSTR,
-    pub subjectName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_COMMAND_ARG_SET {
-    pub argsCount: u32,
-    pub args: *const windows_sys::core::PCWSTR,
-}
-pub type WSMAN_COMMAND_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_CONNECT_DATA {
-    pub data: WSMAN_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_CREATE_SHELL_DATA {
-    pub data: WSMAN_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_DATA {
-    pub r#type: WSManDataType,
-    pub Anonymous: WSMAN_DATA_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WSMAN_DATA_0 {
-    pub text: WSMAN_DATA_TEXT,
-    pub binaryData: WSMAN_DATA_BINARY,
-    pub number: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_DATA_BINARY {
-    pub dataLength: u32,
-    pub data: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_DATA_TEXT {
-    pub bufferLength: u32,
-    pub buffer: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_ENVIRONMENT_VARIABLE {
-    pub name: windows_sys::core::PCWSTR,
-    pub value: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
-    pub varsCount: u32,
-    pub vars: *mut WSMAN_ENVIRONMENT_VARIABLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_ERROR {
-    pub code: u32,
-    pub errorDetail: windows_sys::core::PCWSTR,
-    pub language: windows_sys::core::PCWSTR,
-    pub machineName: windows_sys::core::PCWSTR,
-    pub pluginName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_FILTER {
-    pub filter: windows_sys::core::PCWSTR,
-    pub dialect: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_FRAGMENT {
-    pub path: windows_sys::core::PCWSTR,
-    pub dialect: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_KEY {
-    pub key: windows_sys::core::PCWSTR,
-    pub value: windows_sys::core::PCWSTR,
-}
-pub type WSMAN_OPERATION_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_OPERATION_INFO {
-    pub fragment: WSMAN_FRAGMENT,
-    pub filter: WSMAN_FILTER,
-    pub selectorSet: WSMAN_SELECTOR_SET,
-    pub optionSet: WSMAN_OPTION_SET,
-    pub reserved: *mut core::ffi::c_void,
-    pub version: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_OPERATION_INFOEX {
-    pub fragment: WSMAN_FRAGMENT,
-    pub filter: WSMAN_FILTER,
-    pub selectorSet: WSMAN_SELECTOR_SET,
-    pub optionSet: WSMAN_OPTION_SETEX,
-    pub version: u32,
-    pub uiLocale: windows_sys::core::PCWSTR,
-    pub dataLocale: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_OPTION {
-    pub name: windows_sys::core::PCWSTR,
-    pub value: windows_sys::core::PCWSTR,
-    pub mustComply: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_OPTION_SET {
-    pub optionsCount: u32,
-    pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_OPTION_SETEX {
-    pub optionsCount: u32,
-    pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
-    pub optionTypes: *const windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_PLUGIN_REQUEST {
-    pub senderDetails: *mut WSMAN_SENDER_DETAILS,
-    pub locale: windows_sys::core::PCWSTR,
-    pub resourceUri: windows_sys::core::PCWSTR,
-    pub operationInfo: *mut WSMAN_OPERATION_INFO,
-    pub shutdownNotification: super::super::Foundation::BOOL,
-    pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
-    pub dataLocale: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_PROXY_INFO {
-    pub accessType: u32,
-    pub authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_RECEIVE_DATA_RESULT {
-    pub streamId: windows_sys::core::PCWSTR,
-    pub streamData: WSMAN_DATA,
-    pub commandState: windows_sys::core::PCWSTR,
-    pub exitCode: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WSMAN_RESPONSE_DATA {
-    pub receiveData: WSMAN_RECEIVE_DATA_RESULT,
-    pub connectData: WSMAN_CONNECT_DATA,
-    pub createData: WSMAN_CREATE_SHELL_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SELECTOR_SET {
-    pub numberKeys: u32,
-    pub keys: *mut WSMAN_KEY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SENDER_DETAILS {
-    pub senderName: windows_sys::core::PCWSTR,
-    pub authenticationMechanism: windows_sys::core::PCWSTR,
-    pub certificateDetails: *mut WSMAN_CERTIFICATE_DETAILS,
-    pub clientToken: super::super::Foundation::HANDLE,
-    pub httpURL: windows_sys::core::PCWSTR,
-}
-pub type WSMAN_SESSION_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SHELL_ASYNC {
-    pub operationContext: *mut core::ffi::c_void,
-    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SHELL_DISCONNECT_INFO {
-    pub idleTimeoutMs: u32,
-}
-pub type WSMAN_SHELL_HANDLE = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
-    pub inputStreamSet: *mut WSMAN_STREAM_ID_SET,
-    pub outputStreamSet: *mut WSMAN_STREAM_ID_SET,
-    pub idleTimeoutMs: u32,
-    pub workingDirectory: windows_sys::core::PCWSTR,
-    pub variableSet: *mut WSMAN_ENVIRONMENT_VARIABLE_SET,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
-    pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
-    pub name: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_STREAM_ID_SET {
-    pub streamIDsCount: u32,
-    pub streamIDs: *const windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSMAN_USERNAME_PASSWORD_CREDS {
-    pub username: windows_sys::core::PCWSTR,
-    pub password: windows_sys::core::PCWSTR,
-}
-pub const WSMan: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
-pub const WSManInternal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
-pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: windows_sys::core::PCWSTR, resourceuri: windows_sys::core::PCWSTR)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = Option<unsafe extern "system" fn(userauthorizationcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_USER = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
-pub type WSMAN_PLUGIN_COMMAND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandline: windows_sys::core::PCWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
-pub type WSMAN_PLUGIN_CONNECT = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_RECEIVE = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
-pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_SEND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, stream: windows_sys::core::PCWSTR, inbounddata: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_SHELL = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_SHUTDOWN = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, flags: u32, reason: u32) -> u32>;
-pub type WSMAN_PLUGIN_SIGNAL = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, code: windows_sys::core::PCWSTR)>;
-pub type WSMAN_PLUGIN_STARTUP = Option<unsafe extern "system" fn(flags: u32, applicationidentification: windows_sys::core::PCWSTR, extrainfo: windows_sys::core::PCWSTR, plugincontext: *mut *mut core::ffi::c_void) -> u32>;
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
