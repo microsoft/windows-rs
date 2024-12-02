@@ -1,10 +1,6 @@
 --in default
 --out crates/libs/windows
 --package --no-comment --no-allow
-//--config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
-//--config prepend:Windows.Win32.Foundation.BOOL=#[must_use]
-//--config prepend:Windows.Win32.Foundation.NTSTATUS=#[must_use]
-//--config prepend:Windows.Win32.System.Rpc.RPC_STATUS=#[must_use]
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
