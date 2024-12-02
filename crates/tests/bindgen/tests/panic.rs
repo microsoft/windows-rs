@@ -3,7 +3,7 @@ fn bindgen(args: &str) {
 }
 
 #[test]
-#[should_panic(expected = "at least ne `--in` is required")]
+#[should_panic(expected = "at least one `--in` is required")]
 fn at_least_one_input() {
     bindgen("");
 }

@@ -145,7 +145,7 @@ where
     }
 
     if input.is_empty() {
-        panic!("at least ne `--in` is required");
+        panic!("at least one `--in` is required");
     };
 
     if output.is_empty() {
