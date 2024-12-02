@@ -88,6 +88,28 @@ pub enum Remap {
 }
 
 impl Type {
+    fn is_intrinsic(&self) -> bool {
+        matches!(
+            self,
+            Self::Param(..)
+                | Self::Void
+                | Self::Bool
+                | Self::Char
+                | Self::I8
+                | Self::U8
+                | Self::I16
+                | Self::U16
+                | Self::I32
+                | Self::U32
+                | Self::I64
+                | Self::U64
+                | Self::F32
+                | Self::F64
+                | Self::ISize
+                | Self::USize
+        )
+    }
+
     pub fn remap(type_name: TypeName) -> Remap {
         match type_name {
             TypeName::GUID => Remap::Type(Self::GUID),
@@ -533,6 +555,11 @@ impl Type {
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         let ty = self.decay();
+
+        if ty.is_intrinsic() {
+            return;
+        }
+
         let mut nested = false;
 
         if let Self::CppStruct(ty) = ty {
@@ -596,60 +623,6 @@ impl Type {
             _ => {}
         }
     }
-
-    // pub fn dependencies(&self, dependencies: &mut TypeMap) {
-    //     match self {
-    //         Self::PtrMut(ty, _) => ty.dependencies(dependencies),
-    //         Self::PtrConst(ty, _) => ty.dependencies(dependencies),
-    //         Self::ArrayFixed(ty, _) => ty.dependencies(dependencies),
-    //         Self::Array(ty) => ty.dependencies(dependencies),
-    //         Self::ArrayRef(ty) => ty.dependencies(dependencies),
-    //         Self::ConstRef(ty) => ty.dependencies(dependencies),
-    //         Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies),
-    //         Self::String => {
-    //             dependencies.insert(TypeName("", "String"));
-    //         }
-    //         Self::BSTR => {
-    //             dependencies.insert(TypeName("", "BSTR"));
-    //         }
-    //         Self::Object => {
-    //             dependencies.insert(TypeName("", "Object"));
-    //         }
-    //         Self::IUnknown => {
-    //             dependencies.insert(TypeName("", "IUnknown"));
-    //         }
-    //         Self::PSTR => {
-    //             dependencies.insert(TypeName("", "PSTR"));
-    //         }
-    //         Self::PCSTR => {
-    //             dependencies.insert(TypeName("", "PCSTR"));
-    //         }
-    //         Self::PWSTR => {
-    //             dependencies.insert(TypeName("", "PWSTR"));
-    //         }
-    //         Self::PCWSTR => {
-    //             dependencies.insert(TypeName("", "PCWSTR"));
-    //         }
-    //         Self::GUID => {
-    //             dependencies.insert(TypeName("", "GUID"));
-    //         }
-    //         Self::HRESULT => {
-    //             dependencies.insert(TypeName("", "HRESULT"));
-    //         }
-    //         Self::Class(ty) => ty.dependencies(dependencies),
-    //         Self::Delegate(ty) => ty.dependencies(dependencies),
-    //         Self::Enum(ty) => ty.dependencies(dependencies),
-    //         Self::Interface(ty) => ty.dependencies(dependencies),
-    //         Self::Struct(ty) => ty.dependencies(dependencies),
-    //         Self::CppConst(ty) => ty.dependencies(dependencies),
-    //         Self::CppDelegate(ty) => ty.dependencies(dependencies),
-    //         Self::CppFn(ty) => ty.dependencies(dependencies),
-    //         Self::CppInterface(ty) => ty.dependencies(dependencies),
-    //         Self::CppStruct(ty) => ty.dependencies(dependencies),
-    //         Self::CppEnum(ty) => ty.dependencies(dependencies),
-    //         _ => {}
-    //     }
-    // }
 
     pub fn is_exclusive(&self) -> bool {
         match self {
@@ -938,8 +911,9 @@ impl Type {
             Self::IUnknown => TypeName("", "IUnknown"),
             Self::BSTR => TypeName("", "BSTR"),
             Self::String => TypeName("", "String"),
+            Self::Object => TypeName("", "Object"),
 
-            _ => TypeName("", ""),
+            rest => panic!("{rest:?}"),
         }
     }
 

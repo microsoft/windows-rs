@@ -60,6 +60,7 @@ pub mod multi_sys;
 pub mod reference_dependency;
 pub mod reference_dependent;
 pub mod reference_windows;
+pub mod sort;
 pub mod struct_cpp_sys;
 pub mod struct_cpp_win;
 pub mod struct_disambiguate;

@@ -14,6 +14,8 @@ fn test_raw(args: &str) {
 }
 
 fn main() {
+    let time = std::time::Instant::now();
+
     if !Path::new("crates/tests/bindgen/Cargo.toml").exists() {
         println!("This tool must be run from the root of the repo.");
         std::process::exit(1);
@@ -127,6 +129,9 @@ fn main() {
     // Tests for dependency tracking
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
+    // Tests for sort order
+    test("--out sort.rs --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-core");
+
     // Tests for header elements
     test_raw("--out comment.rs --in default --filter GetTickCount --sys --flat");
     test_raw(
@@ -134,6 +139,7 @@ fn main() {
     );
 
     write_lib();
+    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
 // The tool_bindgen crate generates the modules for this crate
